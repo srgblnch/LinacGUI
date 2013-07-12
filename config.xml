@@ -1,5 +1,5 @@
 <taurusgui_config>
-  <GUI_NAME>ctli</GUI_NAME>
+  <GUI_NAME>ctlinac</GUI_NAME>
   <ORGANIZATION>ALBA</ORGANIZATION>
   <CUSTOM_LOGO/>
   <PanelDescriptions>
@@ -54,5 +54,37 @@
       <model>LI/CT/PLC5</model>
     </PanelDescription>
   </PanelDescriptions>
+  <ExternalApps>
+    <ExternalApp>
+      <command>tauruspanel</command>
+      <params>li/ct/plc1</params>
+      <text>plc1</text>
+      <icon>application-x-executable</icon>
+    </ExternalApp>
+    <ExternalApp>
+      <command>tauruspanel</command>
+      <params>li/ct/plc2</params>
+      <text>plc2</text>
+      <icon>application-x-executable</icon>
+    </ExternalApp>
+    <ExternalApp>
+      <command>tauruspanel</command>
+      <params>li/ct/plc3</params>
+      <text>plc3</text>
+      <icon>application-x-executable</icon>
+    </ExternalApp>
+    <ExternalApp>
+      <command>tauruspanel</command>
+      <params>li/ct/plc4</params>
+      <text>plc4</text>
+      <icon>application-x-executable</icon>
+    </ExternalApp>
+    <ExternalApp>
+      <command>tauruspanel</command>
+      <params>li/ct/plc5</params>
+      <text>plc5</text>
+      <icon>application-x-executable</icon>
+    </ExternalApp>
+  </ExternalApps>
   <MONITOR></MONITOR>
 </taurusgui_config>
