@@ -1,0 +1,11 @@
+#!/bin/bash
+
+. alba_blissrc
+
+add2var PYTHONPATH $(CompOs ${SICILIA}/lib/python/site-packages)
+export PYTHONPATH
+
+APPNAME=ctli
+
+python ${SICILIA}/lib/python/site-packages/$APPNAME/$APPNAME.py
+
