@@ -6,5 +6,5 @@ Exec=ctli
 Icon=albact-li
 Terminal=false
 Type=Application
-Categories=X-albact;X-albact-pc;
+Categories=X-albact;X-albact;
 StartupNotify=true
