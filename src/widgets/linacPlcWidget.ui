@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>linacPlcWidget</class>
+ <widget class="TaurusWidget" name="linacPlcWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>300</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout_5">
+   <item row="0" column="0">
+    <widget class="QSplitter" name="splitter">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <widget class="TaurusGroupBox" name="plcGroup">
+      <property name="title">
+       <string>PLC #</string>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_2">
+       <item row="0" column="0">
+        <layout class="QGridLayout" name="plcLayout">
+         <item row="2" column="1">
+          <widget class="TaurusLed" name="lockingRead">
+           <property name="model">
+            <string>/Locking</string>
+           </property>
+           <property name="useParentModel">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="2">
+          <widget class="TaurusValueCheckBox" name="lockingWrite">
+           <property name="text">
+            <string/>
+           </property>
+           <property name="model">
+            <string>/Locking</string>
+           </property>
+           <property name="showText">
+            <bool>false</bool>
+           </property>
+           <property name="useParentModel">
+            <bool>true</bool>
+           </property>
+           <property name="autoApply">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1" colspan="2">
+          <widget class="TaurusLed" name="heartbeatRead">
+           <property name="alignment">
+            <set>Qt::AlignAbsolute|Qt::AlignBottom</set>
+           </property>
+           <property name="model">
+            <string>/HeartBeat</string>
+           </property>
+           <property name="useParentModel">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1" colspan="2">
+          <widget class="TaurusLabel" name="lockerRead">
+           <property name="text">
+            <string> 99.99</string>
+           </property>
+           <property name="model">
+            <string>/Lock_ST</string>
+           </property>
+           <property name="useParentModel">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1" colspan="2">
+          <widget class="TaurusLed" name="stateRead">
+           <property name="model">
+            <string>/state</string>
+           </property>
+           <property name="useParentModel">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="1" colspan="2">
+          <widget class="TaurusLabel" name="statusRead">
+           <property name="text">
+            <string> 99.99</string>
+           </property>
+           <property name="model">
+            <string>/status</string>
+           </property>
+           <property name="useParentModel">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="0">
+          <widget class="QLabel" name="heartbeatLabel">
+           <property name="text">
+            <string>Heartbeat</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="lockerLabel">
+           <property name="text">
+            <string>Locker</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="lockingLabel">
+           <property name="text">
+            <string>Locking</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="0">
+          <widget class="QLabel" name="stateLabel">
+           <property name="text">
+            <string>State</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="0">
+          <widget class="QLabel" name="statusLabel">
+           <property name="text">
+            <string>Status</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+     <widget class="TaurusGroupBox" name="instanceGroup">
+      <layout class="QGridLayout" name="gridLayout_4">
+       <item row="0" column="0">
+        <layout class="QGridLayout" name="instanceLayout">
+         <item row="1" column="0">
+          <widget class="QLabel" name="instanceLocationLabel">
+           <property name="text">
+            <string>Instance location</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="TaurusCommandButton" name="moveLocal">
+           <property name="text">
+            <string>---</string>
+           </property>
+           <property name="Command">
+            <string>MoveInstance</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1" colspan="2">
+          <widget class="TaurusLabel" name="instanceLocationRead">
+           <property name="text">
+            <string> 99.99</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1" colspan="2">
+          <widget class="TaurusLed" name="instanceStateRead"/>
+         </item>
+         <item row="0" column="0">
+          <widget class="QLabel" name="instanceStateLabel">
+           <property name="text">
+            <string>Instance state</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="2">
+          <widget class="TaurusCommandButton" name="moveRemote">
+           <property name="text">
+            <string>---</string>
+           </property>
+           <property name="Command">
+            <string>MoveInstance</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1" colspan="2">
+          <widget class="TaurusCommandButton" name="resetInstance"/>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>TaurusWidget</class>
+   <extends>QWidget</extends>
+   <header>taurus.qt.qtgui.container</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>TaurusGroupBox</class>
+   <extends>QGroupBox</extends>
+   <header>taurus.qt.qtgui.container</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>TaurusLabel</class>
+   <extends>QLabel</extends>
+   <header>taurus.qt.qtgui.display</header>
+  </customwidget>
+  <customwidget>
+   <class>TaurusValueCheckBox</class>
+   <extends>QCheckBox</extends>
+   <header>taurus.qt.qtgui.input</header>
+  </customwidget>
+  <customwidget>
+   <class>TaurusCommandButton</class>
+   <extends>QPushButton</extends>
+   <header>taurus.qt.qtgui.button</header>
+  </customwidget>
+  <customwidget>
+   <class>TaurusLed</class>
+   <extends>QLed</extends>
+   <header>taurus.qt.qtgui.display</header>
+  </customwidget>
+  <customwidget>
+   <class>QLed</class>
+   <extends>QPixmapWidget</extends>
+   <header>taurus.qt.qtgui.display</header>
+  </customwidget>
+  <customwidget>
+   <class>QPixmapWidget</class>
+   <extends>QWidget</extends>
+   <header>taurus.qt.qtgui.display</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

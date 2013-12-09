@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>linacOverview</class>
+ <widget class="TaurusWidget" name="linacOverview">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>300</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout_2">
+   <item row="0" column="0">
+    <layout class="QGridLayout" name="overviewLayout">
+     <item row="6" column="0">
+      <widget class="QLabel" name="klystron2Label">
+       <property name="text">
+        <string>Klystron 2 Ready</string>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="0">
+      <widget class="QLabel" name="linacLabel">
+       <property name="text">
+        <string>Linac Ready</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="TaurusLed" name="HVPSRead"/>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="VCLabel">
+       <property name="text">
+        <string>Vacuum Ready</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="RFLabel">
+       <property name="text">
+        <string>RF Ready</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="HVPSLabel">
+       <property name="text">
+        <string>High Voltage PS</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="0">
+      <widget class="QLabel" name="klystron1Label">
+       <property name="text">
+        <string>Klystron 1 Ready</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="TaurusLed" name="gunLowVoltageRead">
+       <property name="offColor">
+        <string>black</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0">
+      <widget class="QLabel" name="gunLowVoltageLabel">
+       <property name="text">
+        <string>Gun Low Voltage</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="0">
+      <widget class="QLabel" name="ACLabel">
+       <property name="text">
+        <string>Compressed Air Ready</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="2">
+      <widget class="TaurusValueCheckBox" name="gunLowVoltageWrite">
+       <property name="showText">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="2">
+      <widget class="TaurusValueCheckBox" name="HVPSWrite">
+       <property name="showText">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1" colspan="2">
+      <widget class="TaurusLed" name="RFRead">
+       <property name="offColor">
+        <string>red</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1" colspan="2">
+      <widget class="TaurusLed" name="VCRead">
+       <property name="offColor">
+        <string>red</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="1" colspan="2">
+      <widget class="TaurusLed" name="ACRead">
+       <property name="offColor">
+        <string>red</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="1" colspan="2">
+      <widget class="TaurusLed" name="klystron1Read">
+       <property name="offColor">
+        <string>red</string>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="1" colspan="2">
+      <widget class="TaurusLed" name="klystron2Read">
+       <property name="offColor">
+        <string>red</string>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="1" colspan="2">
+      <widget class="TaurusLed" name="linacRead">
+       <property name="offColor">
+        <string>red</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>TaurusWidget</class>
+   <extends>QWidget</extends>
+   <header>taurus.qt.qtgui.container</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>TaurusValueCheckBox</class>
+   <extends>QCheckBox</extends>
+   <header>taurus.qt.qtgui.input</header>
+  </customwidget>
+  <customwidget>
+   <class>TaurusLed</class>
+   <extends>QLed</extends>
+   <header>taurus.qt.qtgui.display</header>
+  </customwidget>
+  <customwidget>
+   <class>QLed</class>
+   <extends>QPixmapWidget</extends>
+   <header>taurus.qt.qtgui.display</header>
+  </customwidget>
+  <customwidget>
+   <class>QPixmapWidget</class>
+   <extends>QWidget</extends>
+   <header>taurus.qt.qtgui.display</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

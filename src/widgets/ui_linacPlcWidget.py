@@ -1,0 +1,136 @@
+# -*- coding: utf-8 -*-
+
+# Form implementation generated from reading ui file 'linacPlcWidget.ui'
+#
+# Created: Wed Dec  4 16:56:13 2013
+#      by: PyQt4 UI code generator 4.9.3
+#
+# WARNING! All changes made in this file will be lost!
+
+from PyQt4 import QtCore, QtGui
+
+try:
+    _fromUtf8 = QtCore.QString.fromUtf8
+except AttributeError:
+    _fromUtf8 = lambda s: s
+
+class Ui_linacPlcWidget(object):
+    def setupUi(self, linacPlcWidget):
+        linacPlcWidget.setObjectName(_fromUtf8("linacPlcWidget"))
+        linacPlcWidget.resize(300, 300)
+        self.gridLayout_5 = QtGui.QGridLayout(linacPlcWidget)
+        self.gridLayout_5.setObjectName(_fromUtf8("gridLayout_5"))
+        self.splitter = QtGui.QSplitter(linacPlcWidget)
+        self.splitter.setOrientation(QtCore.Qt.Vertical)
+        self.splitter.setObjectName(_fromUtf8("splitter"))
+        self.plcGroup = TaurusGroupBox(self.splitter)
+        self.plcGroup.setObjectName(_fromUtf8("plcGroup"))
+        self.gridLayout_2 = QtGui.QGridLayout(self.plcGroup)
+        self.gridLayout_2.setObjectName(_fromUtf8("gridLayout_2"))
+        self.plcLayout = QtGui.QGridLayout()
+        self.plcLayout.setObjectName(_fromUtf8("plcLayout"))
+        self.lockingRead = TaurusLed(self.plcGroup)
+        self.lockingRead.setUseParentModel(True)
+        self.lockingRead.setObjectName(_fromUtf8("lockingRead"))
+        self.plcLayout.addWidget(self.lockingRead, 2, 1, 1, 1)
+        self.lockingWrite = TaurusValueCheckBox(self.plcGroup)
+        self.lockingWrite.setText(_fromUtf8(""))
+        self.lockingWrite.setShowText(False)
+        self.lockingWrite.setUseParentModel(True)
+        self.lockingWrite.setAutoApply(True)
+        self.lockingWrite.setObjectName(_fromUtf8("lockingWrite"))
+        self.plcLayout.addWidget(self.lockingWrite, 2, 2, 1, 1)
+        self.heartbeatRead = TaurusLed(self.plcGroup)
+        self.heartbeatRead.setAlignment(QtCore.Qt.AlignAbsolute|QtCore.Qt.AlignBottom)
+        self.heartbeatRead.setUseParentModel(True)
+        self.heartbeatRead.setObjectName(_fromUtf8("heartbeatRead"))
+        self.plcLayout.addWidget(self.heartbeatRead, 0, 1, 1, 2)
+        self.lockerRead = TaurusLabel(self.plcGroup)
+        self.lockerRead.setUseParentModel(True)
+        self.lockerRead.setObjectName(_fromUtf8("lockerRead"))
+        self.plcLayout.addWidget(self.lockerRead, 1, 1, 1, 2)
+        self.stateRead = TaurusLed(self.plcGroup)
+        self.stateRead.setUseParentModel(True)
+        self.stateRead.setObjectName(_fromUtf8("stateRead"))
+        self.plcLayout.addWidget(self.stateRead, 3, 1, 1, 2)
+        self.statusRead = TaurusLabel(self.plcGroup)
+        self.statusRead.setUseParentModel(True)
+        self.statusRead.setObjectName(_fromUtf8("statusRead"))
+        self.plcLayout.addWidget(self.statusRead, 4, 1, 1, 2)
+        self.heartbeatLabel = QtGui.QLabel(self.plcGroup)
+        self.heartbeatLabel.setObjectName(_fromUtf8("heartbeatLabel"))
+        self.plcLayout.addWidget(self.heartbeatLabel, 0, 0, 1, 1)
+        self.lockerLabel = QtGui.QLabel(self.plcGroup)
+        self.lockerLabel.setObjectName(_fromUtf8("lockerLabel"))
+        self.plcLayout.addWidget(self.lockerLabel, 1, 0, 1, 1)
+        self.lockingLabel = QtGui.QLabel(self.plcGroup)
+        self.lockingLabel.setObjectName(_fromUtf8("lockingLabel"))
+        self.plcLayout.addWidget(self.lockingLabel, 2, 0, 1, 1)
+        self.stateLabel = QtGui.QLabel(self.plcGroup)
+        self.stateLabel.setObjectName(_fromUtf8("stateLabel"))
+        self.plcLayout.addWidget(self.stateLabel, 3, 0, 1, 1)
+        self.statusLabel = QtGui.QLabel(self.plcGroup)
+        self.statusLabel.setObjectName(_fromUtf8("statusLabel"))
+        self.plcLayout.addWidget(self.statusLabel, 4, 0, 1, 1)
+        self.gridLayout_2.addLayout(self.plcLayout, 0, 0, 1, 1)
+        self.instanceGroup = TaurusGroupBox(self.splitter)
+        self.instanceGroup.setObjectName(_fromUtf8("instanceGroup"))
+        self.gridLayout_4 = QtGui.QGridLayout(self.instanceGroup)
+        self.gridLayout_4.setObjectName(_fromUtf8("gridLayout_4"))
+        self.instanceLayout = QtGui.QGridLayout()
+        self.instanceLayout.setObjectName(_fromUtf8("instanceLayout"))
+        self.instanceLocationLabel = QtGui.QLabel(self.instanceGroup)
+        self.instanceLocationLabel.setObjectName(_fromUtf8("instanceLocationLabel"))
+        self.instanceLayout.addWidget(self.instanceLocationLabel, 1, 0, 1, 1)
+        self.moveLocal = TaurusCommandButton(self.instanceGroup)
+        self.moveLocal.setObjectName(_fromUtf8("moveLocal"))
+        self.instanceLayout.addWidget(self.moveLocal, 2, 1, 1, 1)
+        self.instanceLocationRead = TaurusLabel(self.instanceGroup)
+        self.instanceLocationRead.setObjectName(_fromUtf8("instanceLocationRead"))
+        self.instanceLayout.addWidget(self.instanceLocationRead, 1, 1, 1, 2)
+        self.instanceStateRead = TaurusLed(self.instanceGroup)
+        self.instanceStateRead.setObjectName(_fromUtf8("instanceStateRead"))
+        self.instanceLayout.addWidget(self.instanceStateRead, 0, 1, 1, 2)
+        self.instanceStateLabel = QtGui.QLabel(self.instanceGroup)
+        self.instanceStateLabel.setObjectName(_fromUtf8("instanceStateLabel"))
+        self.instanceLayout.addWidget(self.instanceStateLabel, 0, 0, 1, 1)
+        self.moveRemote = TaurusCommandButton(self.instanceGroup)
+        self.moveRemote.setObjectName(_fromUtf8("moveRemote"))
+        self.instanceLayout.addWidget(self.moveRemote, 2, 2, 1, 1)
+        self.resetInstance = TaurusCommandButton(self.instanceGroup)
+        self.resetInstance.setObjectName(_fromUtf8("resetInstance"))
+        self.instanceLayout.addWidget(self.resetInstance, 3, 1, 1, 2)
+        self.gridLayout_4.addLayout(self.instanceLayout, 0, 0, 1, 1)
+        self.gridLayout_5.addWidget(self.splitter, 0, 0, 1, 1)
+
+        self.retranslateUi(linacPlcWidget)
+        QtCore.QMetaObject.connectSlotsByName(linacPlcWidget)
+
+    def retranslateUi(self, linacPlcWidget):
+        linacPlcWidget.setWindowTitle(QtGui.QApplication.translate("linacPlcWidget", "Form", None, QtGui.QApplication.UnicodeUTF8))
+        self.plcGroup.setTitle(QtGui.QApplication.translate("linacPlcWidget", "PLC #", None, QtGui.QApplication.UnicodeUTF8))
+        self.lockingRead.setModel(QtGui.QApplication.translate("linacPlcWidget", "/Locking", None, QtGui.QApplication.UnicodeUTF8))
+        self.lockingWrite.setModel(QtGui.QApplication.translate("linacPlcWidget", "/Locking", None, QtGui.QApplication.UnicodeUTF8))
+        self.heartbeatRead.setModel(QtGui.QApplication.translate("linacPlcWidget", "/HeartBeat", None, QtGui.QApplication.UnicodeUTF8))
+        self.lockerRead.setText(QtGui.QApplication.translate("linacPlcWidget", " 99.99", None, QtGui.QApplication.UnicodeUTF8))
+        self.lockerRead.setModel(QtGui.QApplication.translate("linacPlcWidget", "/Lock_ST", None, QtGui.QApplication.UnicodeUTF8))
+        self.stateRead.setModel(QtGui.QApplication.translate("linacPlcWidget", "/state", None, QtGui.QApplication.UnicodeUTF8))
+        self.statusRead.setText(QtGui.QApplication.translate("linacPlcWidget", " 99.99", None, QtGui.QApplication.UnicodeUTF8))
+        self.statusRead.setModel(QtGui.QApplication.translate("linacPlcWidget", "/status", None, QtGui.QApplication.UnicodeUTF8))
+        self.heartbeatLabel.setText(QtGui.QApplication.translate("linacPlcWidget", "Heartbeat", None, QtGui.QApplication.UnicodeUTF8))
+        self.lockerLabel.setText(QtGui.QApplication.translate("linacPlcWidget", "Locker", None, QtGui.QApplication.UnicodeUTF8))
+        self.lockingLabel.setText(QtGui.QApplication.translate("linacPlcWidget", "Locking", None, QtGui.QApplication.UnicodeUTF8))
+        self.stateLabel.setText(QtGui.QApplication.translate("linacPlcWidget", "State", None, QtGui.QApplication.UnicodeUTF8))
+        self.statusLabel.setText(QtGui.QApplication.translate("linacPlcWidget", "Status", None, QtGui.QApplication.UnicodeUTF8))
+        self.instanceLocationLabel.setText(QtGui.QApplication.translate("linacPlcWidget", "Instance location", None, QtGui.QApplication.UnicodeUTF8))
+        self.moveLocal.setText(QtGui.QApplication.translate("linacPlcWidget", "---", None, QtGui.QApplication.UnicodeUTF8))
+        self.moveLocal.setCommand(QtGui.QApplication.translate("linacPlcWidget", "MoveInstance", None, QtGui.QApplication.UnicodeUTF8))
+        self.instanceLocationRead.setText(QtGui.QApplication.translate("linacPlcWidget", " 99.99", None, QtGui.QApplication.UnicodeUTF8))
+        self.instanceStateLabel.setText(QtGui.QApplication.translate("linacPlcWidget", "Instance state", None, QtGui.QApplication.UnicodeUTF8))
+        self.moveRemote.setText(QtGui.QApplication.translate("linacPlcWidget", "---", None, QtGui.QApplication.UnicodeUTF8))
+        self.moveRemote.setCommand(QtGui.QApplication.translate("linacPlcWidget", "MoveInstance", None, QtGui.QApplication.UnicodeUTF8))
+
+from taurus.qt.qtgui.display import TaurusLed, TaurusLabel
+from taurus.qt.qtgui.container import TaurusWidget, TaurusGroupBox
+from taurus.qt.qtgui.input import TaurusValueCheckBox
+from taurus.qt.qtgui.button import TaurusCommandButton
