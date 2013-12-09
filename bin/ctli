@@ -7,5 +7,7 @@ export PYTHONPATH
 
 APPNAME=ctli
 
-python ${SICILIA}/lib/python/site-packages/$APPNAME/$APPNAME.py
+pushd ${SICILIA}/lib/python/site-packages/$APPNAME
+python $APPNAME.py
+popd
 
