@@ -58,7 +58,7 @@
          <item row="0" column="1" colspan="2">
           <widget class="TaurusLed" name="heartbeatRead">
            <property name="alignment">
-            <set>Qt::AlignAbsolute|Qt::AlignBottom</set>
+            <set>Qt::AlignAbsolute|Qt::AlignTop|Qt::AlignVCenter</set>
            </property>
            <property name="model">
             <string>/HeartBeat</string>
@@ -101,6 +101,9 @@
            </property>
            <property name="useParentModel">
             <bool>true</bool>
+           </property>
+           <property name="bgRole">
+            <string>state</string>
            </property>
           </widget>
          </item>

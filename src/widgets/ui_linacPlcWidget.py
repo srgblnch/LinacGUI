@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'linacPlcWidget.ui'
 #
-# Created: Wed Dec  4 16:56:13 2013
+# Created: Mon Dec  9 11:14:23 2013
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -41,7 +41,7 @@ class Ui_linacPlcWidget(object):
         self.lockingWrite.setObjectName(_fromUtf8("lockingWrite"))
         self.plcLayout.addWidget(self.lockingWrite, 2, 2, 1, 1)
         self.heartbeatRead = TaurusLed(self.plcGroup)
-        self.heartbeatRead.setAlignment(QtCore.Qt.AlignAbsolute|QtCore.Qt.AlignBottom)
+        self.heartbeatRead.setAlignment(QtCore.Qt.AlignAbsolute|QtCore.Qt.AlignTop|QtCore.Qt.AlignVCenter)
         self.heartbeatRead.setUseParentModel(True)
         self.heartbeatRead.setObjectName(_fromUtf8("heartbeatRead"))
         self.plcLayout.addWidget(self.heartbeatRead, 0, 1, 1, 2)
@@ -117,6 +117,7 @@ class Ui_linacPlcWidget(object):
         self.stateRead.setModel(QtGui.QApplication.translate("linacPlcWidget", "/state", None, QtGui.QApplication.UnicodeUTF8))
         self.statusRead.setText(QtGui.QApplication.translate("linacPlcWidget", " 99.99", None, QtGui.QApplication.UnicodeUTF8))
         self.statusRead.setModel(QtGui.QApplication.translate("linacPlcWidget", "/status", None, QtGui.QApplication.UnicodeUTF8))
+        self.statusRead.setBgRole(QtGui.QApplication.translate("linacPlcWidget", "state", None, QtGui.QApplication.UnicodeUTF8))
         self.heartbeatLabel.setText(QtGui.QApplication.translate("linacPlcWidget", "Heartbeat", None, QtGui.QApplication.UnicodeUTF8))
         self.lockerLabel.setText(QtGui.QApplication.translate("linacPlcWidget", "Locker", None, QtGui.QApplication.UnicodeUTF8))
         self.lockingLabel.setText(QtGui.QApplication.translate("linacPlcWidget", "Locking", None, QtGui.QApplication.UnicodeUTF8))
