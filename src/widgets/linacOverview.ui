@@ -31,7 +31,14 @@
       </widget>
      </item>
      <item row="1" column="1">
-      <widget class="TaurusLed" name="HVPSRead"/>
+      <widget class="TaurusLed" name="HVPSRead">
+       <property name="maximumSize">
+        <size>
+         <width>25</width>
+         <height>25</height>
+        </size>
+       </property>
+      </widget>
      </item>
      <item row="3" column="0">
       <widget class="QLabel" name="VCLabel">
@@ -63,6 +70,12 @@
      </item>
      <item row="0" column="1">
       <widget class="TaurusLed" name="gunLowVoltageRead">
+       <property name="maximumSize">
+        <size>
+         <width>25</width>
+         <height>25</height>
+        </size>
+       </property>
        <property name="offColor">
         <string>black</string>
        </property>
@@ -98,6 +111,12 @@
      </item>
      <item row="2" column="1" colspan="2">
       <widget class="TaurusLed" name="RFRead">
+       <property name="maximumSize">
+        <size>
+         <width>25</width>
+         <height>25</height>
+        </size>
+       </property>
        <property name="offColor">
         <string>red</string>
        </property>
@@ -105,6 +124,12 @@
      </item>
      <item row="3" column="1" colspan="2">
       <widget class="TaurusLed" name="VCRead">
+       <property name="maximumSize">
+        <size>
+         <width>25</width>
+         <height>25</height>
+        </size>
+       </property>
        <property name="offColor">
         <string>red</string>
        </property>
@@ -112,6 +137,12 @@
      </item>
      <item row="4" column="1" colspan="2">
       <widget class="TaurusLed" name="ACRead">
+       <property name="maximumSize">
+        <size>
+         <width>25</width>
+         <height>25</height>
+        </size>
+       </property>
        <property name="offColor">
         <string>red</string>
        </property>
@@ -119,6 +150,12 @@
      </item>
      <item row="5" column="1" colspan="2">
       <widget class="TaurusLed" name="klystron1Read">
+       <property name="maximumSize">
+        <size>
+         <width>25</width>
+         <height>25</height>
+        </size>
+       </property>
        <property name="offColor">
         <string>red</string>
        </property>
@@ -126,6 +163,12 @@
      </item>
      <item row="6" column="1" colspan="2">
       <widget class="TaurusLed" name="klystron2Read">
+       <property name="maximumSize">
+        <size>
+         <width>25</width>
+         <height>25</height>
+        </size>
+       </property>
        <property name="offColor">
         <string>red</string>
        </property>
@@ -133,6 +176,12 @@
      </item>
      <item row="7" column="1" colspan="2">
       <widget class="TaurusLed" name="linacRead">
+       <property name="maximumSize">
+        <size>
+         <width>25</width>
+         <height>25</height>
+        </size>
+       </property>
        <property name="offColor">
         <string>red</string>
        </property>
