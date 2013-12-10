@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'ctli.ui'
 #
-# Created: Wed Dec  4 13:13:26 2013
+# Created: Tue Dec 10 16:25:32 2013
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -17,7 +17,7 @@ except AttributeError:
 class Ui_linacGui(object):
     def setupUi(self, linacGui):
         linacGui.setObjectName(_fromUtf8("linacGui"))
-        linacGui.resize(1024, 786)
+        linacGui.resize(1330, 1024)
         self.gridLayout = QtGui.QGridLayout(linacGui)
         self.gridLayout.setObjectName(_fromUtf8("gridLayout"))
         self.linacTabs = QtGui.QTabWidget(linacGui)
@@ -39,7 +39,7 @@ class Ui_linacGui(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName(_fromUtf8("scrollArea"))
         self.scrollAreaWidgetContents = QtGui.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 994, 735))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 1300, 973))
         self.scrollAreaWidgetContents.setObjectName(_fromUtf8("scrollAreaWidgetContents"))
         self.gridLayout_3 = QtGui.QGridLayout(self.scrollAreaWidgetContents)
         self.gridLayout_3.setObjectName(_fromUtf8("gridLayout_3"))
