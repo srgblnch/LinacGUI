@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'linacPlcWidget.ui'
 #
-# Created: Mon Dec  9 11:14:23 2013
+# Created: Tue Dec 10 15:59:48 2013
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -30,6 +30,7 @@ class Ui_linacPlcWidget(object):
         self.plcLayout = QtGui.QGridLayout()
         self.plcLayout.setObjectName(_fromUtf8("plcLayout"))
         self.lockingRead = TaurusLed(self.plcGroup)
+        self.lockingRead.setMaximumSize(QtCore.QSize(25, 25))
         self.lockingRead.setUseParentModel(True)
         self.lockingRead.setObjectName(_fromUtf8("lockingRead"))
         self.plcLayout.addWidget(self.lockingRead, 2, 1, 1, 1)
@@ -41,7 +42,8 @@ class Ui_linacPlcWidget(object):
         self.lockingWrite.setObjectName(_fromUtf8("lockingWrite"))
         self.plcLayout.addWidget(self.lockingWrite, 2, 2, 1, 1)
         self.heartbeatRead = TaurusLed(self.plcGroup)
-        self.heartbeatRead.setAlignment(QtCore.Qt.AlignAbsolute|QtCore.Qt.AlignTop|QtCore.Qt.AlignVCenter)
+        self.heartbeatRead.setMaximumSize(QtCore.QSize(25, 25))
+        self.heartbeatRead.setAlignment(QtCore.Qt.AlignAbsolute)
         self.heartbeatRead.setUseParentModel(True)
         self.heartbeatRead.setObjectName(_fromUtf8("heartbeatRead"))
         self.plcLayout.addWidget(self.heartbeatRead, 0, 1, 1, 2)
@@ -50,6 +52,7 @@ class Ui_linacPlcWidget(object):
         self.lockerRead.setObjectName(_fromUtf8("lockerRead"))
         self.plcLayout.addWidget(self.lockerRead, 1, 1, 1, 2)
         self.stateRead = TaurusLed(self.plcGroup)
+        self.stateRead.setMaximumSize(QtCore.QSize(25, 25))
         self.stateRead.setUseParentModel(True)
         self.stateRead.setObjectName(_fromUtf8("stateRead"))
         self.plcLayout.addWidget(self.stateRead, 3, 1, 1, 2)
@@ -89,6 +92,7 @@ class Ui_linacPlcWidget(object):
         self.instanceLocationRead.setObjectName(_fromUtf8("instanceLocationRead"))
         self.instanceLayout.addWidget(self.instanceLocationRead, 1, 1, 1, 2)
         self.instanceStateRead = TaurusLed(self.instanceGroup)
+        self.instanceStateRead.setMaximumSize(QtCore.QSize(25, 25))
         self.instanceStateRead.setObjectName(_fromUtf8("instanceStateRead"))
         self.instanceLayout.addWidget(self.instanceStateRead, 0, 1, 1, 2)
         self.instanceStateLabel = QtGui.QLabel(self.instanceGroup)
@@ -113,7 +117,7 @@ class Ui_linacPlcWidget(object):
         self.lockingWrite.setModel(QtGui.QApplication.translate("linacPlcWidget", "/Locking", None, QtGui.QApplication.UnicodeUTF8))
         self.heartbeatRead.setModel(QtGui.QApplication.translate("linacPlcWidget", "/HeartBeat", None, QtGui.QApplication.UnicodeUTF8))
         self.lockerRead.setText(QtGui.QApplication.translate("linacPlcWidget", " 99.99", None, QtGui.QApplication.UnicodeUTF8))
-        self.lockerRead.setModel(QtGui.QApplication.translate("linacPlcWidget", "/Lock_ST", None, QtGui.QApplication.UnicodeUTF8))
+        self.lockerRead.setModel(QtGui.QApplication.translate("linacPlcWidget", "/Lock_Status", None, QtGui.QApplication.UnicodeUTF8))
         self.stateRead.setModel(QtGui.QApplication.translate("linacPlcWidget", "/state", None, QtGui.QApplication.UnicodeUTF8))
         self.statusRead.setText(QtGui.QApplication.translate("linacPlcWidget", " 99.99", None, QtGui.QApplication.UnicodeUTF8))
         self.statusRead.setModel(QtGui.QApplication.translate("linacPlcWidget", "/status", None, QtGui.QApplication.UnicodeUTF8))
