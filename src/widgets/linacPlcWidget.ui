@@ -42,6 +42,26 @@
            </property>
           </widget>
          </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="lockingLabel">
+           <property name="text">
+            <string>Locking</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1" colspan="2">
+          <widget class="TaurusLabel" name="lockerRead">
+           <property name="text">
+            <string> 99.99</string>
+           </property>
+           <property name="model">
+            <string>/Lock_Status</string>
+           </property>
+           <property name="useParentModel">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
          <item row="2" column="2">
           <widget class="TaurusValueCheckBox" name="lockingWrite">
            <property name="text">
@@ -61,51 +81,17 @@
            </property>
           </widget>
          </item>
-         <item row="0" column="1" colspan="2">
-          <widget class="TaurusLed" name="heartbeatRead">
-           <property name="maximumSize">
-            <size>
-             <width>25</width>
-             <height>25</height>
-            </size>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignAbsolute</set>
-           </property>
-           <property name="model">
-            <string>/HeartBeat</string>
-           </property>
-           <property name="useParentModel">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="1" colspan="2">
-          <widget class="TaurusLabel" name="lockerRead">
+         <item row="0" column="0">
+          <widget class="QLabel" name="heartbeatLabel">
            <property name="text">
-            <string> 99.99</string>
-           </property>
-           <property name="model">
-            <string>/Lock_Status</string>
-           </property>
-           <property name="useParentModel">
-            <bool>true</bool>
+            <string>Heartbeat</string>
            </property>
           </widget>
          </item>
-         <item row="3" column="1" colspan="2">
-          <widget class="TaurusLed" name="stateRead">
-           <property name="maximumSize">
-            <size>
-             <width>25</width>
-             <height>25</height>
-            </size>
-           </property>
-           <property name="model">
-            <string>/state</string>
-           </property>
-           <property name="useParentModel">
-            <bool>true</bool>
+         <item row="1" column="0">
+          <widget class="QLabel" name="lockerLabel">
+           <property name="text">
+            <string>Locker</string>
            </property>
           </widget>
          </item>
@@ -125,27 +111,6 @@
            </property>
           </widget>
          </item>
-         <item row="0" column="0">
-          <widget class="QLabel" name="heartbeatLabel">
-           <property name="text">
-            <string>Heartbeat</string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="0">
-          <widget class="QLabel" name="lockerLabel">
-           <property name="text">
-            <string>Locker</string>
-           </property>
-          </widget>
-         </item>
-         <item row="2" column="0">
-          <widget class="QLabel" name="lockingLabel">
-           <property name="text">
-            <string>Locking</string>
-           </property>
-          </widget>
-         </item>
          <item row="3" column="0">
           <widget class="QLabel" name="stateLabel">
            <property name="text">
@@ -159,6 +124,44 @@
             <string>Status</string>
            </property>
           </widget>
+         </item>
+         <item row="3" column="1" colspan="2">
+          <widget class="TaurusLed" name="stateRead">
+           <property name="maximumSize">
+            <size>
+             <width>25</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="model">
+            <string>/state</string>
+           </property>
+           <property name="useParentModel">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1" colspan="2">
+          <widget class="TaurusLed" name="heartbeatRead">
+           <property name="maximumSize">
+            <size>
+             <width>25</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignBottom|Qt::AlignJustify|Qt::AlignVCenter</set>
+           </property>
+           <property name="model">
+            <string>/HeartBeat</string>
+           </property>
+           <property name="useParentModel">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="1" colspan="2">
+          <widget class="TaurusCommandButton" name="ResetState"/>
          </item>
         </layout>
        </item>

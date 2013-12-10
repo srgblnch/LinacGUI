@@ -73,6 +73,8 @@ class MainWindow(TaurusMainWindow):
         for i,plc in enumerate(plcWidgets):
             #plc._ui.plcGroup.setTitle("PLC %d"%(i+1))
             plc._ui.plcGroup.setModel("%s%d"%(LinacDeviceNameRoot,i+1))
+            plc._ui.ResetState.setModel("%s%d"%(LinacDeviceNameRoot,i+1))
+            plc._ui.ResetState.setCommand('ResetState')
             plc._ui.instanceStateRead.setModel('%s/LinacData.plc%d_state'%(DeviceRelocator,i+1))
             plc._ui.instanceLocationRead.setModel('%s/LinacData.plc%d_location'%(DeviceRelocator,i+1))
             plc._ui.moveLocal.setModel(DeviceRelocator)
