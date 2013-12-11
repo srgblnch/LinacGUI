@@ -2,7 +2,7 @@
 
 # Code implementation generated from reading ui file 'linacPlcWidget.ui'
 #
-# Created: Tue Dec 10 16:17:27 2013 
+# Created: Wed Dec 11 09:59:27 2013 
 #      by: Taurus UI code generator 3.0.0
 #
 # WARNING! All changes made in this file will be lost!
@@ -27,7 +27,7 @@ class linacPlcWidget(TaurusWidget):
     def getQtDesignerPluginInfo(cls):
         ret = TaurusWidget.getQtDesignerPluginInfo()
         ret['module'] = 'linacplcwidget'
-        ret['group'] = 'Taurus Containers'
+        ret['group'] = 'Taurus Display'
         ret['container'] = ':/designer/frame.png'
         ret['container'] = False
         return ret

@@ -2,7 +2,7 @@
 
 # Code implementation generated from reading ui file 'linacOverview.ui'
 #
-# Created: Tue Dec 10 15:59:43 2013 
+# Created: Wed Dec 11 09:59:40 2013 
 #      by: Taurus UI code generator 3.0.0
 #
 # WARNING! All changes made in this file will be lost!
@@ -27,7 +27,7 @@ class linacOverview(TaurusWidget):
     def getQtDesignerPluginInfo(cls):
         ret = TaurusWidget.getQtDesignerPluginInfo()
         ret['module'] = 'linacoverview'
-        ret['group'] = 'Taurus Containers'
+        ret['group'] = 'Taurus Display'
         ret['container'] = ':/designer/frame.png'
         ret['container'] = False
         return ret

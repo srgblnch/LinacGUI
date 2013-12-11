@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'linacOverview.ui'
 #
-# Created: Tue Dec 10 15:59:39 2013
+# Created: Wed Dec 11 10:24:58 2013
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -17,7 +17,7 @@ except AttributeError:
 class Ui_linacOverview(object):
     def setupUi(self, linacOverview):
         linacOverview.setObjectName(_fromUtf8("linacOverview"))
-        linacOverview.resize(300, 300)
+        linacOverview.resize(300, 332)
         self.gridLayout_2 = QtGui.QGridLayout(linacOverview)
         self.gridLayout_2.setObjectName(_fromUtf8("gridLayout_2"))
         self.overviewLayout = QtGui.QGridLayout()
@@ -29,6 +29,7 @@ class Ui_linacOverview(object):
         self.linacLabel.setObjectName(_fromUtf8("linacLabel"))
         self.overviewLayout.addWidget(self.linacLabel, 7, 0, 1, 1)
         self.HVPSRead = TaurusLed(linacOverview)
+        self.HVPSRead.setMinimumSize(QtCore.QSize(25, 25))
         self.HVPSRead.setMaximumSize(QtCore.QSize(25, 25))
         self.HVPSRead.setObjectName(_fromUtf8("HVPSRead"))
         self.overviewLayout.addWidget(self.HVPSRead, 1, 1, 1, 1)
@@ -45,6 +46,7 @@ class Ui_linacOverview(object):
         self.klystron1Label.setObjectName(_fromUtf8("klystron1Label"))
         self.overviewLayout.addWidget(self.klystron1Label, 5, 0, 1, 1)
         self.gunLowVoltageRead = TaurusLed(linacOverview)
+        self.gunLowVoltageRead.setMinimumSize(QtCore.QSize(25, 25))
         self.gunLowVoltageRead.setMaximumSize(QtCore.QSize(25, 25))
         self.gunLowVoltageRead.setObjectName(_fromUtf8("gunLowVoltageRead"))
         self.overviewLayout.addWidget(self.gunLowVoltageRead, 0, 1, 1, 1)
@@ -63,26 +65,32 @@ class Ui_linacOverview(object):
         self.HVPSWrite.setObjectName(_fromUtf8("HVPSWrite"))
         self.overviewLayout.addWidget(self.HVPSWrite, 1, 2, 1, 1)
         self.RFRead = TaurusLed(linacOverview)
+        self.RFRead.setMinimumSize(QtCore.QSize(25, 25))
         self.RFRead.setMaximumSize(QtCore.QSize(25, 25))
         self.RFRead.setObjectName(_fromUtf8("RFRead"))
         self.overviewLayout.addWidget(self.RFRead, 2, 1, 1, 2)
         self.VCRead = TaurusLed(linacOverview)
+        self.VCRead.setMinimumSize(QtCore.QSize(25, 25))
         self.VCRead.setMaximumSize(QtCore.QSize(25, 25))
         self.VCRead.setObjectName(_fromUtf8("VCRead"))
         self.overviewLayout.addWidget(self.VCRead, 3, 1, 1, 2)
         self.ACRead = TaurusLed(linacOverview)
+        self.ACRead.setMinimumSize(QtCore.QSize(25, 25))
         self.ACRead.setMaximumSize(QtCore.QSize(25, 25))
         self.ACRead.setObjectName(_fromUtf8("ACRead"))
         self.overviewLayout.addWidget(self.ACRead, 4, 1, 1, 2)
         self.klystron1Read = TaurusLed(linacOverview)
+        self.klystron1Read.setMinimumSize(QtCore.QSize(25, 25))
         self.klystron1Read.setMaximumSize(QtCore.QSize(25, 25))
         self.klystron1Read.setObjectName(_fromUtf8("klystron1Read"))
         self.overviewLayout.addWidget(self.klystron1Read, 5, 1, 1, 2)
         self.klystron2Read = TaurusLed(linacOverview)
+        self.klystron2Read.setMinimumSize(QtCore.QSize(25, 25))
         self.klystron2Read.setMaximumSize(QtCore.QSize(25, 25))
         self.klystron2Read.setObjectName(_fromUtf8("klystron2Read"))
         self.overviewLayout.addWidget(self.klystron2Read, 6, 1, 1, 2)
         self.linacRead = TaurusLed(linacOverview)
+        self.linacRead.setMinimumSize(QtCore.QSize(25, 25))
         self.linacRead.setMaximumSize(QtCore.QSize(25, 25))
         self.linacRead.setObjectName(_fromUtf8("linacRead"))
         self.overviewLayout.addWidget(self.linacRead, 7, 1, 1, 2)
