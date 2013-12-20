@@ -1,0 +1,1606 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>linacStartupSynoptic</class>
+ <widget class="TaurusWidget" name="linacStartupSynoptic">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1250</width>
+    <height>825</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1235</width>
+    <height>821</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="TaurusJDrawSynopticsView" name="StartUpSchematic">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1250</width>
+     <height>825</height>
+    </rect>
+   </property>
+   <property name="foregroundBrush">
+    <brush brushstyle="SolidPattern">
+     <color alpha="25">
+      <red>0</red>
+      <green>0</green>
+      <blue>0</blue>
+     </color>
+    </brush>
+   </property>
+   <property name="model">
+    <string>jdraw/linac_startup_synoptic.jdw</string>
+   </property>
+  </widget>
+  <widget class="TaurusLed" name="sl1Led">
+   <property name="geometry">
+    <rect>
+     <x>165</x>
+     <y>470</y>
+     <width>10</width>
+     <height>10</height>
+    </rect>
+   </property>
+   <property name="ledInverted">
+    <bool>true</bool>
+   </property>
+   <property name="offColor">
+    <string>red</string>
+   </property>
+  </widget>
+  <widget class="TaurusLed" name="vv1Led">
+   <property name="geometry">
+    <rect>
+     <x>200</x>
+     <y>510</y>
+     <width>10</width>
+     <height>10</height>
+    </rect>
+   </property>
+   <property name="ledInverted">
+    <bool>true</bool>
+   </property>
+   <property name="offColor">
+    <string>red</string>
+   </property>
+  </widget>
+  <widget class="TaurusLed" name="sl2Led">
+   <property name="geometry">
+    <rect>
+     <x>248</x>
+     <y>470</y>
+     <width>10</width>
+     <height>10</height>
+    </rect>
+   </property>
+   <property name="ledInverted">
+    <bool>true</bool>
+   </property>
+   <property name="offColor">
+    <string>red</string>
+   </property>
+  </widget>
+  <widget class="TaurusLed" name="sl3Led">
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>470</y>
+     <width>10</width>
+     <height>10</height>
+    </rect>
+   </property>
+   <property name="ledInverted">
+    <bool>true</bool>
+   </property>
+   <property name="offColor">
+    <string>red</string>
+   </property>
+  </widget>
+  <widget class="TaurusLed" name="sl4Led">
+   <property name="geometry">
+    <rect>
+     <x>402</x>
+     <y>470</y>
+     <width>10</width>
+     <height>10</height>
+    </rect>
+   </property>
+   <property name="ledInverted">
+    <bool>true</bool>
+   </property>
+   <property name="offColor">
+    <string>red</string>
+   </property>
+  </widget>
+  <widget class="TaurusLed" name="bc1Led">
+   <property name="geometry">
+    <rect>
+     <x>465</x>
+     <y>470</y>
+     <width>10</width>
+     <height>10</height>
+    </rect>
+   </property>
+   <property name="ledInverted">
+    <bool>true</bool>
+   </property>
+   <property name="offColor">
+    <string>red</string>
+   </property>
+  </widget>
+  <widget class="TaurusLed" name="bc2Led">
+   <property name="geometry">
+    <rect>
+     <x>505</x>
+     <y>470</y>
+     <width>10</width>
+     <height>10</height>
+    </rect>
+   </property>
+   <property name="ledInverted">
+    <bool>true</bool>
+   </property>
+   <property name="offColor">
+    <string>red</string>
+   </property>
+  </widget>
+  <widget class="TaurusValueSpinBox" name="cl1TemperatureValue">
+   <property name="geometry">
+    <rect>
+     <x>462</x>
+     <y>390</y>
+     <width>56</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="autoApply">
+    <bool>true</bool>
+   </property>
+   <property name="forcedApply">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="TaurusLed" name="vv2Led">
+   <property name="geometry">
+    <rect>
+     <x>556</x>
+     <y>510</y>
+     <width>10</width>
+     <height>10</height>
+    </rect>
+   </property>
+   <property name="ledInverted">
+    <bool>true</bool>
+   </property>
+   <property name="offColor">
+    <string>red</string>
+   </property>
+  </widget>
+  <widget class="TaurusLed" name="glLed">
+   <property name="geometry">
+    <rect>
+     <x>640</x>
+     <y>470</y>
+     <width>10</width>
+     <height>10</height>
+    </rect>
+   </property>
+   <property name="ledInverted">
+    <bool>true</bool>
+   </property>
+   <property name="offColor">
+    <string>red</string>
+   </property>
+  </widget>
+  <widget class="TaurusLed" name="vv3Led">
+   <property name="geometry">
+    <rect>
+     <x>675</x>
+     <y>510</y>
+     <width>10</width>
+     <height>10</height>
+    </rect>
+   </property>
+   <property name="ledInverted">
+    <bool>true</bool>
+   </property>
+   <property name="offColor">
+    <string>red</string>
+   </property>
+  </widget>
+  <widget class="TaurusValueSpinBox" name="cl2TemperatureValue">
+   <property name="geometry">
+    <rect>
+     <x>677</x>
+     <y>390</y>
+     <width>56</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="autoApply">
+    <bool>true</bool>
+   </property>
+   <property name="forcedApply">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="TaurusLed" name="vv4Led">
+   <property name="geometry">
+    <rect>
+     <x>807</x>
+     <y>510</y>
+     <width>10</width>
+     <height>10</height>
+    </rect>
+   </property>
+   <property name="ledInverted">
+    <bool>true</bool>
+   </property>
+   <property name="offColor">
+    <string>red</string>
+   </property>
+  </widget>
+  <widget class="TaurusLed" name="vv5Led">
+   <property name="geometry">
+    <rect>
+     <x>959</x>
+     <y>510</y>
+     <width>10</width>
+     <height>10</height>
+    </rect>
+   </property>
+   <property name="ledInverted">
+    <bool>true</bool>
+   </property>
+   <property name="offColor">
+    <string>red</string>
+   </property>
+  </widget>
+  <widget class="TaurusValueSpinBox" name="cl3TemperatureValue">
+   <property name="geometry">
+    <rect>
+     <x>960</x>
+     <y>390</y>
+     <width>56</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="autoApply">
+    <bool>true</bool>
+   </property>
+   <property name="forcedApply">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="TaurusLed" name="vv6Led">
+   <property name="geometry">
+    <rect>
+     <x>1092</x>
+     <y>510</y>
+     <width>10</width>
+     <height>10</height>
+    </rect>
+   </property>
+   <property name="ledInverted">
+    <bool>true</bool>
+   </property>
+   <property name="offColor">
+    <string>red</string>
+   </property>
+  </widget>
+  <widget class="TaurusLed" name="vv7Led">
+   <property name="geometry">
+    <rect>
+     <x>1209</x>
+     <y>510</y>
+     <width>10</width>
+     <height>10</height>
+    </rect>
+   </property>
+   <property name="ledInverted">
+    <bool>true</bool>
+   </property>
+   <property name="offColor">
+    <string>red</string>
+   </property>
+  </widget>
+  <widget class="TaurusLed" name="ip1Led">
+   <property name="geometry">
+    <rect>
+     <x>45</x>
+     <y>640</y>
+     <width>10</width>
+     <height>10</height>
+    </rect>
+   </property>
+   <property name="offColor">
+    <string>red</string>
+   </property>
+  </widget>
+  <widget class="TaurusLed" name="ip2Led">
+   <property name="geometry">
+    <rect>
+     <x>90</x>
+     <y>640</y>
+     <width>10</width>
+     <height>10</height>
+    </rect>
+   </property>
+   <property name="offColor">
+    <string>red</string>
+   </property>
+  </widget>
+  <widget class="TaurusLed" name="ip3Led">
+   <property name="geometry">
+    <rect>
+     <x>295</x>
+     <y>640</y>
+     <width>10</width>
+     <height>10</height>
+    </rect>
+   </property>
+   <property name="offColor">
+    <string>red</string>
+   </property>
+  </widget>
+  <widget class="TaurusLed" name="ip4Led">
+   <property name="geometry">
+    <rect>
+     <x>495</x>
+     <y>640</y>
+     <width>10</width>
+     <height>10</height>
+    </rect>
+   </property>
+   <property name="offColor">
+    <string>red</string>
+   </property>
+  </widget>
+  <widget class="TaurusLed" name="ip5Led">
+   <property name="geometry">
+    <rect>
+     <x>615</x>
+     <y>640</y>
+     <width>10</width>
+     <height>10</height>
+    </rect>
+   </property>
+   <property name="offColor">
+    <string>red</string>
+   </property>
+  </widget>
+  <widget class="TaurusLed" name="ip6Led">
+   <property name="geometry">
+    <rect>
+     <x>715</x>
+     <y>640</y>
+     <width>10</width>
+     <height>10</height>
+    </rect>
+   </property>
+   <property name="offColor">
+    <string>red</string>
+   </property>
+  </widget>
+  <widget class="TaurusLed" name="ip7Led">
+   <property name="geometry">
+    <rect>
+     <x>865</x>
+     <y>640</y>
+     <width>10</width>
+     <height>10</height>
+    </rect>
+   </property>
+   <property name="offColor">
+    <string>red</string>
+   </property>
+  </widget>
+  <widget class="TaurusLed" name="ip8Led">
+   <property name="geometry">
+    <rect>
+     <x>1003</x>
+     <y>640</y>
+     <width>10</width>
+     <height>10</height>
+    </rect>
+   </property>
+   <property name="offColor">
+    <string>red</string>
+   </property>
+  </widget>
+  <widget class="TaurusLed" name="ip9Led">
+   <property name="geometry">
+    <rect>
+     <x>1137</x>
+     <y>640</y>
+     <width>10</width>
+     <height>10</height>
+    </rect>
+   </property>
+   <property name="offColor">
+    <string>red</string>
+   </property>
+  </widget>
+  <widget class="TaurusLed" name="hvg1Led">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>690</y>
+     <width>10</width>
+     <height>10</height>
+    </rect>
+   </property>
+   <property name="offColor">
+    <string>red</string>
+   </property>
+  </widget>
+  <widget class="TaurusLed" name="hvg2Led">
+   <property name="geometry">
+    <rect>
+     <x>305</x>
+     <y>690</y>
+     <width>10</width>
+     <height>10</height>
+    </rect>
+   </property>
+   <property name="offColor">
+    <string>red</string>
+   </property>
+  </widget>
+  <widget class="TaurusLed" name="hvg3Led">
+   <property name="geometry">
+    <rect>
+     <x>505</x>
+     <y>690</y>
+     <width>10</width>
+     <height>10</height>
+    </rect>
+   </property>
+   <property name="offColor">
+    <string>red</string>
+   </property>
+  </widget>
+  <widget class="TaurusLed" name="hvg4Led">
+   <property name="geometry">
+    <rect>
+     <x>793</x>
+     <y>690</y>
+     <width>10</width>
+     <height>10</height>
+    </rect>
+   </property>
+   <property name="offColor">
+    <string>red</string>
+   </property>
+  </widget>
+  <widget class="TaurusLed" name="hvg5Led">
+   <property name="geometry">
+    <rect>
+     <x>1075</x>
+     <y>690</y>
+     <width>10</width>
+     <height>10</height>
+    </rect>
+   </property>
+   <property name="offColor">
+    <string>red</string>
+   </property>
+  </widget>
+  <widget class="TaurusLabel" name="ipc1Value1">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>720</y>
+     <width>75</width>
+     <height>16</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="TaurusLabel" name="ipc1Value2">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>740</y>
+     <width>75</width>
+     <height>16</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="TaurusLabel" name="hvg1Value">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>720</y>
+     <width>75</width>
+     <height>16</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="TaurusLabel" name="hvg2Value">
+   <property name="geometry">
+    <rect>
+     <x>250</x>
+     <y>720</y>
+     <width>75</width>
+     <height>16</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="TaurusLabel" name="ipc2Value1">
+   <property name="geometry">
+    <rect>
+     <x>350</x>
+     <y>720</y>
+     <width>75</width>
+     <height>16</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="TaurusLabel" name="ipc2Value2">
+   <property name="geometry">
+    <rect>
+     <x>350</x>
+     <y>740</y>
+     <width>75</width>
+     <height>16</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="TaurusLabel" name="hvg3Value">
+   <property name="geometry">
+    <rect>
+     <x>450</x>
+     <y>720</y>
+     <width>75</width>
+     <height>16</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="TaurusLabel" name="ipc3Value1">
+   <property name="geometry">
+    <rect>
+     <x>590</x>
+     <y>720</y>
+     <width>75</width>
+     <height>16</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="TaurusLabel" name="ipc3Value2">
+   <property name="geometry">
+    <rect>
+     <x>590</x>
+     <y>740</y>
+     <width>75</width>
+     <height>16</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="TaurusLabel" name="hvg4Value">
+   <property name="geometry">
+    <rect>
+     <x>730</x>
+     <y>720</y>
+     <width>75</width>
+     <height>16</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="TaurusLabel" name="ipc4Value1">
+   <property name="geometry">
+    <rect>
+     <x>840</x>
+     <y>720</y>
+     <width>75</width>
+     <height>16</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="TaurusLabel" name="ipc4Value2">
+   <property name="geometry">
+    <rect>
+     <x>840</x>
+     <y>740</y>
+     <width>75</width>
+     <height>16</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="TaurusLabel" name="hvg5Value">
+   <property name="geometry">
+    <rect>
+     <x>1020</x>
+     <y>720</y>
+     <width>75</width>
+     <height>16</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="TaurusLabel" name="ipc5Value1">
+   <property name="geometry">
+    <rect>
+     <x>1100</x>
+     <y>720</y>
+     <width>75</width>
+     <height>16</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="klystronLV" name="klystron2LV">
+   <property name="geometry">
+    <rect>
+     <x>1060</x>
+     <y>30</y>
+     <width>150</width>
+     <height>200</height>
+    </rect>
+   </property>
+   <property name="autoFillBackground">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="klystronLV" name="klystron1LV">
+   <property name="geometry">
+    <rect>
+     <x>780</x>
+     <y>30</y>
+     <width>150</width>
+     <height>200</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="eGunLV" name="eGunLV">
+   <property name="geometry">
+    <rect>
+     <x>5</x>
+     <y>260</y>
+     <width>140</width>
+     <height>240</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="k1Popup">
+   <property name="geometry">
+    <rect>
+     <x>750</x>
+     <y>85</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="k2Popup">
+   <property name="geometry">
+    <rect>
+     <x>1035</x>
+     <y>15</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QWidget" name="layoutWidget_2">
+   <property name="geometry">
+    <rect>
+     <x>1020</x>
+     <y>130</y>
+     <width>91</width>
+     <height>52</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="k2layout">
+    <property name="leftMargin">
+     <number>5</number>
+    </property>
+    <item>
+     <layout class="QHBoxLayout" name="k2onLayout">
+      <item>
+       <widget class="TaurusLed" name="k2onLed">
+        <property name="minimumSize">
+         <size>
+          <width>15</width>
+          <height>15</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>15</width>
+          <height>15</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="TaurusValueCheckBox" name="k2onCheck">
+        <property name="showText">
+         <bool>false</bool>
+        </property>
+        <property name="autoApply">
+         <bool>true</bool>
+        </property>
+        <property name="forcedApply">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="k2onLabel">
+        <property name="text">
+         <string>On</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="k2rstLayout">
+      <item>
+       <widget class="TaurusLed" name="k2rstLed">
+        <property name="minimumSize">
+         <size>
+          <width>15</width>
+          <height>15</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>15</width>
+          <height>15</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="TaurusValueCheckBox" name="k2rstCheck">
+        <property name="showText">
+         <bool>false</bool>
+        </property>
+        <property name="autoApply">
+         <bool>true</bool>
+        </property>
+        <property name="forcedApply">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="k2rstLabel">
+        <property name="text">
+         <string>Reset</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>740</x>
+     <y>200</y>
+     <width>91</width>
+     <height>52</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="k1layout">
+    <item>
+     <layout class="QHBoxLayout" name="k1onLayout">
+      <item>
+       <widget class="TaurusLed" name="k1onLed">
+        <property name="minimumSize">
+         <size>
+          <width>15</width>
+          <height>15</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>15</width>
+          <height>15</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="TaurusValueCheckBox" name="k1onCheck">
+        <property name="showText">
+         <bool>false</bool>
+        </property>
+        <property name="autoApply">
+         <bool>true</bool>
+        </property>
+        <property name="forcedApply">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="k1onLabel">
+        <property name="text">
+         <string>On</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="k1rstLayout">
+      <item>
+       <widget class="TaurusLed" name="k1rstLed">
+        <property name="minimumSize">
+         <size>
+          <width>15</width>
+          <height>15</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>15</width>
+          <height>15</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="TaurusValueCheckBox" name="k1rstCheck">
+        <property name="showText">
+         <bool>false</bool>
+        </property>
+        <property name="autoApply">
+         <bool>true</bool>
+        </property>
+        <property name="forcedApply">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="k1rstLabel">
+        <property name="text">
+         <string>Reset</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QCheckBox" name="cl1Popup">
+   <property name="geometry">
+    <rect>
+     <x>505</x>
+     <y>345</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="cl2Popup">
+   <property name="geometry">
+    <rect>
+     <x>720</x>
+     <y>345</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="cl3Popup">
+   <property name="geometry">
+    <rect>
+     <x>1000</x>
+     <y>345</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="TaurusLabel" name="vv1Status">
+   <property name="geometry">
+    <rect>
+     <x>169</x>
+     <y>600</y>
+     <width>70</width>
+     <height>16</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="TaurusLabel" name="vv2Status">
+   <property name="geometry">
+    <rect>
+     <x>525</x>
+     <y>600</y>
+     <width>70</width>
+     <height>16</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="TaurusLabel" name="vv3Status">
+   <property name="geometry">
+    <rect>
+     <x>640</x>
+     <y>600</y>
+     <width>70</width>
+     <height>16</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="TaurusLabel" name="vv4Status">
+   <property name="geometry">
+    <rect>
+     <x>776</x>
+     <y>600</y>
+     <width>70</width>
+     <height>16</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="TaurusLabel" name="vv5Status">
+   <property name="geometry">
+    <rect>
+     <x>910</x>
+     <y>600</y>
+     <width>70</width>
+     <height>16</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="TaurusLabel" name="vv6Status">
+   <property name="geometry">
+    <rect>
+     <x>1050</x>
+     <y>600</y>
+     <width>70</width>
+     <height>16</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="TaurusLabel" name="vv7Status">
+   <property name="geometry">
+    <rect>
+     <x>1160</x>
+     <y>600</y>
+     <width>70</width>
+     <height>16</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>920</x>
+     <y>280</y>
+     <width>48</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="cl3onLayout">
+    <item>
+     <widget class="QLabel" name="cl3onLabel">
+      <property name="text">
+       <string>On</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="TaurusValueCheckBox" name="cl3onCheck">
+      <property name="showText">
+       <bool>false</bool>
+      </property>
+      <property name="autoApply">
+       <bool>true</bool>
+      </property>
+      <property name="forcedApply">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>630</x>
+     <y>280</y>
+     <width>54</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="cl2onLayout">
+    <property name="leftMargin">
+     <number>7</number>
+    </property>
+    <item>
+     <widget class="QLabel" name="cl2onLabel">
+      <property name="text">
+       <string>On</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="TaurusValueCheckBox" name="cl2onCheck">
+      <property name="showText">
+       <bool>false</bool>
+      </property>
+      <property name="autoApply">
+       <bool>true</bool>
+      </property>
+      <property name="forcedApply">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>410</x>
+     <y>280</y>
+     <width>54</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="cl2onLayout_2">
+    <property name="leftMargin">
+     <number>7</number>
+    </property>
+    <item>
+     <widget class="QLabel" name="cl1onLabel">
+      <property name="text">
+       <string>On</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="TaurusValueCheckBox" name="cl1onCheck">
+      <property name="showText">
+       <bool>false</bool>
+      </property>
+      <property name="autoApply">
+       <bool>true</bool>
+      </property>
+      <property name="forcedApply">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>540</y>
+     <width>66</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_4">
+    <item>
+     <widget class="TaurusValueCheckBox" name="vv_rstCheck">
+      <property name="showText">
+       <bool>false</bool>
+      </property>
+      <property name="autoApply">
+       <bool>true</bool>
+      </property>
+      <property name="forcedApply">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="vv_rstLabel">
+      <property name="text">
+       <string>Reset</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>760</y>
+     <width>64</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_5">
+    <property name="topMargin">
+     <number>5</number>
+    </property>
+    <item>
+     <widget class="QLabel" name="vv_oncLabel">
+      <property name="text">
+       <string>Open</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="TaurusValueCheckBox" name="vv_oncCheck">
+      <property name="showText">
+       <bool>false</bool>
+      </property>
+      <property name="autoApply">
+       <bool>true</bool>
+      </property>
+      <property name="forcedApply">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="CoolingLoop" name="coolingLoop1">
+   <property name="geometry">
+    <rect>
+     <x>530</x>
+     <y>300</y>
+     <width>130</width>
+     <height>140</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="CoolingLoop" name="coolingLoop2">
+   <property name="geometry">
+    <rect>
+     <x>740</x>
+     <y>300</y>
+     <width>130</width>
+     <height>140</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="CoolingLoop" name="coolingLoop3">
+   <property name="geometry">
+    <rect>
+     <x>1020</x>
+     <y>300</y>
+     <width>130</width>
+     <height>140</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="TaurusLed" name="qtLed">
+   <property name="geometry">
+    <rect>
+     <x>940</x>
+     <y>470</y>
+     <width>10</width>
+     <height>10</height>
+    </rect>
+   </property>
+   <property name="ledInverted">
+    <bool>true</bool>
+   </property>
+   <property name="offColor">
+    <string>red</string>
+   </property>
+  </widget>
+  <widget class="TaurusLed" name="as1Led">
+   <property name="geometry">
+    <rect>
+     <x>755</x>
+     <y>495</y>
+     <width>10</width>
+     <height>10</height>
+    </rect>
+   </property>
+   <property name="ledInverted">
+    <bool>true</bool>
+   </property>
+   <property name="offColor">
+    <string>red</string>
+   </property>
+  </widget>
+  <widget class="TaurusLed" name="as2Led">
+   <property name="geometry">
+    <rect>
+     <x>1035</x>
+     <y>495</y>
+     <width>10</width>
+     <height>10</height>
+    </rect>
+   </property>
+   <property name="ledInverted">
+    <bool>true</bool>
+   </property>
+   <property name="offColor">
+    <string>red</string>
+   </property>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>195</x>
+     <y>755</y>
+     <width>64</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="vv1Layout">
+    <item>
+     <widget class="TaurusValueCheckBox" name="vv1_oncCheck">
+      <property name="showText">
+       <bool>false</bool>
+      </property>
+      <property name="autoApply">
+       <bool>true</bool>
+      </property>
+      <property name="forcedApply">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="vv1_oncLabel">
+      <property name="text">
+       <string>Open</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>511</x>
+     <y>755</y>
+     <width>64</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="vv2Layout">
+    <item>
+     <widget class="QLabel" name="vv2_oncLabel">
+      <property name="text">
+       <string>Open</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="TaurusValueCheckBox" name="vv2_oncCheck">
+      <property name="showText">
+       <bool>false</bool>
+      </property>
+      <property name="autoApply">
+       <bool>true</bool>
+      </property>
+      <property name="forcedApply">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>670</x>
+     <y>755</y>
+     <width>64</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="vv3Layout">
+    <item>
+     <widget class="TaurusValueCheckBox" name="vv3_oncCheck">
+      <property name="showText">
+       <bool>false</bool>
+      </property>
+      <property name="autoApply">
+       <bool>true</bool>
+      </property>
+      <property name="forcedApply">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="vv3_oncLabel">
+      <property name="text">
+       <string>Open</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>763</x>
+     <y>755</y>
+     <width>64</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="vv4Layout">
+    <item>
+     <widget class="QLabel" name="vv4_oncLabel">
+      <property name="text">
+       <string>Open</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="TaurusValueCheckBox" name="vv4_oncCheck">
+      <property name="showText">
+       <bool>false</bool>
+      </property>
+      <property name="autoApply">
+       <bool>true</bool>
+      </property>
+      <property name="forcedApply">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>915</x>
+     <y>755</y>
+     <width>64</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="vv5Layout">
+    <item>
+     <widget class="QLabel" name="vv5_oncLabel">
+      <property name="text">
+       <string>Open</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="TaurusValueCheckBox" name="vv5_oncCheck">
+      <property name="showText">
+       <bool>false</bool>
+      </property>
+      <property name="autoApply">
+       <bool>true</bool>
+      </property>
+      <property name="forcedApply">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>1049</x>
+     <y>755</y>
+     <width>64</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="vv6Layout">
+    <item>
+     <widget class="QLabel" name="vv6_oncLabel">
+      <property name="text">
+       <string>Open</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="TaurusValueCheckBox" name="vv6_oncCheck">
+      <property name="showText">
+       <bool>false</bool>
+      </property>
+      <property name="autoApply">
+       <bool>true</bool>
+      </property>
+      <property name="forcedApply">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>1165</x>
+     <y>755</y>
+     <width>64</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="vv7Layout">
+    <item>
+     <widget class="QLabel" name="vv7_oncLabel">
+      <property name="text">
+       <string>Open</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="TaurusValueCheckBox" name="vv7_oncCheck">
+      <property name="showText">
+       <bool>false</bool>
+      </property>
+      <property name="autoApply">
+       <bool>true</bool>
+      </property>
+      <property name="forcedApply">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <zorder>StartUpSchematic</zorder>
+  <zorder>layoutWidget</zorder>
+  <zorder>layoutWidget</zorder>
+  <zorder>layoutWidget</zorder>
+  <zorder>layoutWidget</zorder>
+  <zorder>layoutWidget</zorder>
+  <zorder>layoutWidget</zorder>
+  <zorder>layoutWidget</zorder>
+  <zorder>layoutWidget</zorder>
+  <zorder>layoutWidget</zorder>
+  <zorder>layoutWidget</zorder>
+  <zorder>layoutWidget</zorder>
+  <zorder>layoutWidget</zorder>
+  <zorder>sl1Led</zorder>
+  <zorder>vv1Led</zorder>
+  <zorder>sl2Led</zorder>
+  <zorder>sl3Led</zorder>
+  <zorder>sl4Led</zorder>
+  <zorder>bc1Led</zorder>
+  <zorder>bc2Led</zorder>
+  <zorder>cl1TemperatureValue</zorder>
+  <zorder>vv2Led</zorder>
+  <zorder>glLed</zorder>
+  <zorder>vv3Led</zorder>
+  <zorder>cl2TemperatureValue</zorder>
+  <zorder>vv4Led</zorder>
+  <zorder>vv5Led</zorder>
+  <zorder>cl3TemperatureValue</zorder>
+  <zorder>vv6Led</zorder>
+  <zorder>vv7Led</zorder>
+  <zorder>ip1Led</zorder>
+  <zorder>ip2Led</zorder>
+  <zorder>ip3Led</zorder>
+  <zorder>ip4Led</zorder>
+  <zorder>ip5Led</zorder>
+  <zorder>ip6Led</zorder>
+  <zorder>ip7Led</zorder>
+  <zorder>ip8Led</zorder>
+  <zorder>ip9Led</zorder>
+  <zorder>hvg1Led</zorder>
+  <zorder>hvg2Led</zorder>
+  <zorder>hvg3Led</zorder>
+  <zorder>hvg4Led</zorder>
+  <zorder>hvg5Led</zorder>
+  <zorder>ipc1Value1</zorder>
+  <zorder>ipc1Value2</zorder>
+  <zorder>hvg1Value</zorder>
+  <zorder>hvg2Value</zorder>
+  <zorder>ipc2Value1</zorder>
+  <zorder>ipc2Value2</zorder>
+  <zorder>hvg3Value</zorder>
+  <zorder>ipc3Value1</zorder>
+  <zorder>ipc3Value2</zorder>
+  <zorder>hvg4Value</zorder>
+  <zorder>ipc4Value1</zorder>
+  <zorder>ipc4Value2</zorder>
+  <zorder>hvg5Value</zorder>
+  <zorder>ipc5Value1</zorder>
+  <zorder>eGunLV</zorder>
+  <zorder>layoutWidget</zorder>
+  <zorder>k1Popup</zorder>
+  <zorder>klystron1LV</zorder>
+  <zorder>k2Popup</zorder>
+  <zorder>layoutWidget_2</zorder>
+  <zorder>klystron2LV</zorder>
+  <zorder>cl1Popup</zorder>
+  <zorder>cl2Popup</zorder>
+  <zorder>cl3Popup</zorder>
+  <zorder>vv1Status</zorder>
+  <zorder>vv2Status</zorder>
+  <zorder>vv3Status</zorder>
+  <zorder>vv4Status</zorder>
+  <zorder>vv5Status</zorder>
+  <zorder>vv6Status</zorder>
+  <zorder>vv7Status</zorder>
+  <zorder>coolingLoop1</zorder>
+  <zorder>coolingLoop2</zorder>
+  <zorder>coolingLoop3</zorder>
+  <zorder>qtLed</zorder>
+  <zorder>as1Led</zorder>
+  <zorder>as2Led</zorder>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>TaurusValueSpinBox</class>
+   <extends>QWidget</extends>
+   <header>taurus.qt.qtgui.input</header>
+  </customwidget>
+  <customwidget>
+   <class>TaurusWidget</class>
+   <extends>QWidget</extends>
+   <header>taurus.qt.qtgui.container</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>TaurusLabel</class>
+   <extends>QLabel</extends>
+   <header>taurus.qt.qtgui.display</header>
+  </customwidget>
+  <customwidget>
+   <class>CoolingLoop</class>
+   <extends>TaurusWidget</extends>
+   <header>coolingloop</header>
+  </customwidget>
+  <customwidget>
+   <class>eGunLV</class>
+   <extends>TaurusWidget</extends>
+   <header>egunlv</header>
+  </customwidget>
+  <customwidget>
+   <class>TaurusValueCheckBox</class>
+   <extends>QCheckBox</extends>
+   <header>taurus.qt.qtgui.input</header>
+  </customwidget>
+  <customwidget>
+   <class>TaurusLed</class>
+   <extends>QLed</extends>
+   <header>taurus.qt.qtgui.display</header>
+  </customwidget>
+  <customwidget>
+   <class>QLed</class>
+   <extends>QPixmapWidget</extends>
+   <header>taurus.qt.qtgui.display</header>
+  </customwidget>
+  <customwidget>
+   <class>klystronLV</class>
+   <extends>TaurusWidget</extends>
+   <header>klystronlv</header>
+  </customwidget>
+  <customwidget>
+   <class>QPixmapWidget</class>
+   <extends>QWidget</extends>
+   <header>taurus.qt.qtgui.display</header>
+  </customwidget>
+  <customwidget>
+   <class>TaurusJDrawSynopticsView</class>
+   <extends>QGraphicsView</extends>
+   <header>taurus.qt.qtgui.graphic</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

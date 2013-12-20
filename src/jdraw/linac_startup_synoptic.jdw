@@ -1,0 +1,11 @@
+JDFile v11 {
+  Global {
+  }
+  JDImage {
+    summit:40,15,1287,838
+    origin:664,427
+    lineWidth:0
+    name:"Image"
+    file_name:"linac_startup_synoptic.png"
+  }
+}
