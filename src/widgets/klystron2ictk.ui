@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>klystron2itck</class>
+ <widget class="TaurusWidget" name="klystron2itck">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>183</width>
+    <height>100</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <widget class="TaurusGroupBox" name="ictkGroup">
+     <property name="title">
+      <string>klystron 2 interlock</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_2">
+      <item row="0" column="0">
+       <widget class="QLabel" name="sf6p2Label">
+        <property name="text">
+         <string>SF6 Pressure 2</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="TaurusLed" name="sf6p2Led">
+        <property name="minimumSize">
+         <size>
+          <width>16</width>
+          <height>16</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16</width>
+          <height>16</height>
+         </size>
+        </property>
+        <property name="ledStatus">
+         <bool>false</bool>
+        </property>
+        <property name="ledPattern" stdset="0">
+         <string>:leds/images256/led_{color}_on.png</string>
+        </property>
+        <property name="model">
+         <string>li/ct/plc1/sf6_p2_st</string>
+        </property>
+        <property name="offColor">
+         <string>red</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="w3Label">
+        <property name="text">
+         <string>RF window 3 underflow</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="TaurusLed" name="w3Led">
+        <property name="minimumSize">
+         <size>
+          <width>16</width>
+          <height>16</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16</width>
+          <height>16</height>
+         </size>
+        </property>
+        <property name="ledStatus">
+         <bool>false</bool>
+        </property>
+        <property name="ledPattern" stdset="0">
+         <string>:leds/images256/led_{color}_{status}.png</string>
+        </property>
+        <property name="offColor">
+         <string>white</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="rl3Label">
+        <property name="text">
+         <string>RF load 3 underflow</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="TaurusLed" name="rl3Led">
+        <property name="minimumSize">
+         <size>
+          <width>16</width>
+          <height>16</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16</width>
+          <height>16</height>
+         </size>
+        </property>
+        <property name="ledStatus">
+         <bool>false</bool>
+        </property>
+        <property name="ledPattern" stdset="0">
+         <string>:leds/images256/led_{color}_{status}.png</string>
+        </property>
+        <property name="offColor">
+         <string>white</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>TaurusWidget</class>
+   <extends>QWidget</extends>
+   <header>taurus.qt.qtgui.container</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>TaurusGroupBox</class>
+   <extends>QGroupBox</extends>
+   <header>taurus.qt.qtgui.container</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>TaurusLed</class>
+   <extends>QLed</extends>
+   <header>taurus.qt.qtgui.display</header>
+  </customwidget>
+  <customwidget>
+   <class>QLed</class>
+   <extends>QPixmapWidget</extends>
+   <header>taurus.qt.qtgui.display</header>
+  </customwidget>
+  <customwidget>
+   <class>QPixmapWidget</class>
+   <extends>QWidget</extends>
+   <header>taurus.qt.qtgui.display</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

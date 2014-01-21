@@ -53,6 +53,9 @@
    <property name="ledInverted">
     <bool>true</bool>
    </property>
+   <property name="ledPattern" stdset="0">
+    <string>:leds/images256/led_{color}_on.png</string>
+   </property>
    <property name="offColor">
     <string>red</string>
    </property>
@@ -68,6 +71,9 @@
    </property>
    <property name="ledInverted">
     <bool>true</bool>
+   </property>
+   <property name="ledPattern" stdset="0">
+    <string>:leds/images256/led_{color}_on.png</string>
    </property>
    <property name="offColor">
     <string>red</string>
@@ -85,6 +91,9 @@
    <property name="ledInverted">
     <bool>true</bool>
    </property>
+   <property name="ledPattern" stdset="0">
+    <string>:leds/images256/led_{color}_on.png</string>
+   </property>
    <property name="offColor">
     <string>red</string>
    </property>
@@ -100,6 +109,9 @@
    </property>
    <property name="ledInverted">
     <bool>true</bool>
+   </property>
+   <property name="ledPattern" stdset="0">
+    <string>:leds/images256/led_{color}_on.png</string>
    </property>
    <property name="offColor">
     <string>red</string>
@@ -117,6 +129,9 @@
    <property name="ledInverted">
     <bool>true</bool>
    </property>
+   <property name="ledPattern" stdset="0">
+    <string>:leds/images256/led_{color}_on.png</string>
+   </property>
    <property name="offColor">
     <string>red</string>
    </property>
@@ -132,6 +147,9 @@
    </property>
    <property name="ledInverted">
     <bool>true</bool>
+   </property>
+   <property name="ledPattern" stdset="0">
+    <string>:leds/images256/led_{color}_on.png</string>
    </property>
    <property name="offColor">
     <string>red</string>
@@ -149,6 +167,9 @@
    <property name="ledInverted">
     <bool>true</bool>
    </property>
+   <property name="ledPattern" stdset="0">
+    <string>:leds/images256/led_{color}_on.png</string>
+   </property>
    <property name="offColor">
     <string>red</string>
    </property>
@@ -156,9 +177,9 @@
   <widget class="TaurusValueSpinBox" name="cl1TemperatureValue">
    <property name="geometry">
     <rect>
-     <x>462</x>
+     <x>455</x>
      <y>390</y>
-     <width>56</width>
+     <width>70</width>
      <height>22</height>
     </rect>
    </property>
@@ -181,6 +202,9 @@
    <property name="ledInverted">
     <bool>true</bool>
    </property>
+   <property name="ledPattern" stdset="0">
+    <string>:leds/images256/led_{color}_on.png</string>
+   </property>
    <property name="offColor">
     <string>red</string>
    </property>
@@ -196,6 +220,9 @@
    </property>
    <property name="ledInverted">
     <bool>true</bool>
+   </property>
+   <property name="ledPattern" stdset="0">
+    <string>:leds/images256/led_{color}_on.png</string>
    </property>
    <property name="offColor">
     <string>red</string>
@@ -213,6 +240,9 @@
    <property name="ledInverted">
     <bool>true</bool>
    </property>
+   <property name="ledPattern" stdset="0">
+    <string>:leds/images256/led_{color}_on.png</string>
+   </property>
    <property name="offColor">
     <string>red</string>
    </property>
@@ -220,9 +250,9 @@
   <widget class="TaurusValueSpinBox" name="cl2TemperatureValue">
    <property name="geometry">
     <rect>
-     <x>677</x>
+     <x>665</x>
      <y>390</y>
-     <width>56</width>
+     <width>70</width>
      <height>22</height>
     </rect>
    </property>
@@ -245,6 +275,9 @@
    <property name="ledInverted">
     <bool>true</bool>
    </property>
+   <property name="ledPattern" stdset="0">
+    <string>:leds/images256/led_{color}_on.png</string>
+   </property>
    <property name="offColor">
     <string>red</string>
    </property>
@@ -261,6 +294,9 @@
    <property name="ledInverted">
     <bool>true</bool>
    </property>
+   <property name="ledPattern" stdset="0">
+    <string>:leds/images256/led_{color}_on.png</string>
+   </property>
    <property name="offColor">
     <string>red</string>
    </property>
@@ -268,9 +304,9 @@
   <widget class="TaurusValueSpinBox" name="cl3TemperatureValue">
    <property name="geometry">
     <rect>
-     <x>960</x>
+     <x>945</x>
      <y>390</y>
-     <width>56</width>
+     <width>70</width>
      <height>22</height>
     </rect>
    </property>
@@ -293,6 +329,9 @@
    <property name="ledInverted">
     <bool>true</bool>
    </property>
+   <property name="ledPattern" stdset="0">
+    <string>:leds/images256/led_{color}_on.png</string>
+   </property>
    <property name="offColor">
     <string>red</string>
    </property>
@@ -309,6 +348,9 @@
    <property name="ledInverted">
     <bool>true</bool>
    </property>
+   <property name="ledPattern" stdset="0">
+    <string>:leds/images256/led_{color}_on.png</string>
+   </property>
    <property name="offColor">
     <string>red</string>
    </property>
@@ -321,6 +363,9 @@
      <width>10</width>
      <height>10</height>
     </rect>
+   </property>
+   <property name="ledPattern" stdset="0">
+    <string>:leds/images256/led_{color}_on.png</string>
    </property>
    <property name="offColor">
     <string>red</string>
@@ -335,6 +380,9 @@
      <height>10</height>
     </rect>
    </property>
+   <property name="ledPattern" stdset="0">
+    <string>:leds/images256/led_{color}_on.png</string>
+   </property>
    <property name="offColor">
     <string>red</string>
    </property>
@@ -347,6 +395,9 @@
      <width>10</width>
      <height>10</height>
     </rect>
+   </property>
+   <property name="ledPattern" stdset="0">
+    <string>:leds/images256/led_{color}_on.png</string>
    </property>
    <property name="offColor">
     <string>red</string>
@@ -361,6 +412,9 @@
      <height>10</height>
     </rect>
    </property>
+   <property name="ledPattern" stdset="0">
+    <string>:leds/images256/led_{color}_on.png</string>
+   </property>
    <property name="offColor">
     <string>red</string>
    </property>
@@ -373,6 +427,9 @@
      <width>10</width>
      <height>10</height>
     </rect>
+   </property>
+   <property name="ledPattern" stdset="0">
+    <string>:leds/images256/led_{color}_on.png</string>
    </property>
    <property name="offColor">
     <string>red</string>
@@ -387,6 +444,9 @@
      <height>10</height>
     </rect>
    </property>
+   <property name="ledPattern" stdset="0">
+    <string>:leds/images256/led_{color}_on.png</string>
+   </property>
    <property name="offColor">
     <string>red</string>
    </property>
@@ -399,6 +459,9 @@
      <width>10</width>
      <height>10</height>
     </rect>
+   </property>
+   <property name="ledPattern" stdset="0">
+    <string>:leds/images256/led_{color}_on.png</string>
    </property>
    <property name="offColor">
     <string>red</string>
@@ -413,6 +476,9 @@
      <height>10</height>
     </rect>
    </property>
+   <property name="ledPattern" stdset="0">
+    <string>:leds/images256/led_{color}_on.png</string>
+   </property>
    <property name="offColor">
     <string>red</string>
    </property>
@@ -425,6 +491,9 @@
      <width>10</width>
      <height>10</height>
     </rect>
+   </property>
+   <property name="ledPattern" stdset="0">
+    <string>:leds/images256/led_{color}_on.png</string>
    </property>
    <property name="offColor">
     <string>red</string>
@@ -439,6 +508,9 @@
      <height>10</height>
     </rect>
    </property>
+   <property name="ledPattern" stdset="0">
+    <string>:leds/images256/led_{color}_on.png</string>
+   </property>
    <property name="offColor">
     <string>red</string>
    </property>
@@ -451,6 +523,9 @@
      <width>10</width>
      <height>10</height>
     </rect>
+   </property>
+   <property name="ledPattern" stdset="0">
+    <string>:leds/images256/led_{color}_on.png</string>
    </property>
    <property name="offColor">
     <string>red</string>
@@ -465,6 +540,9 @@
      <height>10</height>
     </rect>
    </property>
+   <property name="ledPattern" stdset="0">
+    <string>:leds/images256/led_{color}_on.png</string>
+   </property>
    <property name="offColor">
     <string>red</string>
    </property>
@@ -478,6 +556,9 @@
      <height>10</height>
     </rect>
    </property>
+   <property name="ledPattern" stdset="0">
+    <string>:leds/images256/led_{color}_on.png</string>
+   </property>
    <property name="offColor">
     <string>red</string>
    </property>
@@ -490,6 +571,9 @@
      <width>10</width>
      <height>10</height>
     </rect>
+   </property>
+   <property name="ledPattern" stdset="0">
+    <string>:leds/images256/led_{color}_on.png</string>
    </property>
    <property name="offColor">
     <string>red</string>
@@ -639,7 +723,7 @@
    <property name="geometry">
     <rect>
      <x>1060</x>
-     <y>30</y>
+     <y>10</y>
      <width>150</width>
      <height>200</height>
     </rect>
@@ -652,19 +736,9 @@
    <property name="geometry">
     <rect>
      <x>780</x>
-     <y>30</y>
+     <y>10</y>
      <width>150</width>
      <height>200</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="eGunLV" name="eGunLV">
-   <property name="geometry">
-    <rect>
-     <x>5</x>
-     <y>260</y>
-     <width>140</width>
-     <height>240</height>
     </rect>
    </property>
   </widget>
@@ -698,7 +772,7 @@
    <property name="geometry">
     <rect>
      <x>1020</x>
-     <y>130</y>
+     <y>210</y>
      <width>91</width>
      <height>52</height>
     </rect>
@@ -793,7 +867,7 @@
    <property name="geometry">
     <rect>
      <x>740</x>
-     <y>200</y>
+     <y>210</y>
      <width>91</width>
      <height>52</height>
     </rect>
@@ -1066,7 +1140,7 @@
      <height>23</height>
     </rect>
    </property>
-   <layout class="QHBoxLayout" name="cl2onLayout_2">
+   <layout class="QHBoxLayout" name="cl1onLayout">
     <property name="leftMargin">
      <number>7</number>
     </property>
@@ -1101,7 +1175,7 @@
      <height>23</height>
     </rect>
    </property>
-   <layout class="QHBoxLayout" name="horizontalLayout_4">
+   <layout class="QHBoxLayout" name="vvrstLayout">
     <item>
      <widget class="TaurusValueCheckBox" name="vv_rstCheck">
       <property name="showText">
@@ -1127,13 +1201,13 @@
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>80</x>
+     <x>70</x>
      <y>760</y>
-     <width>64</width>
+     <width>81</width>
      <height>27</height>
     </rect>
    </property>
-   <layout class="QHBoxLayout" name="horizontalLayout_5">
+   <layout class="QHBoxLayout" name="vvLayout">
     <property name="topMargin">
      <number>5</number>
     </property>
@@ -1163,7 +1237,7 @@
    <property name="geometry">
     <rect>
      <x>530</x>
-     <y>300</y>
+     <y>310</y>
      <width>130</width>
      <height>140</height>
     </rect>
@@ -1173,7 +1247,7 @@
    <property name="geometry">
     <rect>
      <x>740</x>
-     <y>300</y>
+     <y>310</y>
      <width>130</width>
      <height>140</height>
     </rect>
@@ -1183,7 +1257,7 @@
    <property name="geometry">
     <rect>
      <x>1020</x>
-     <y>300</y>
+     <y>310</y>
      <width>130</width>
      <height>140</height>
     </rect>
@@ -1201,6 +1275,9 @@
    <property name="ledInverted">
     <bool>true</bool>
    </property>
+   <property name="ledPattern" stdset="0">
+    <string>:leds/images256/led_{color}_on.png3</string>
+   </property>
    <property name="offColor">
     <string>red</string>
    </property>
@@ -1217,6 +1294,9 @@
    <property name="ledInverted">
     <bool>true</bool>
    </property>
+   <property name="ledPattern" stdset="0">
+    <string>:leds/images256/led_{color}_on.png</string>
+   </property>
    <property name="offColor">
     <string>red</string>
    </property>
@@ -1232,6 +1312,9 @@
    </property>
    <property name="ledInverted">
     <bool>true</bool>
+   </property>
+   <property name="ledPattern" stdset="0">
+    <string>:leds/images256/led_{color}_on.png</string>
    </property>
    <property name="offColor">
     <string>red</string>
@@ -1461,7 +1544,575 @@
     </item>
    </layout>
   </widget>
+  <widget class="TaurusLed" name="kaenbLed">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>40</y>
+     <width>10</width>
+     <height>10</height>
+    </rect>
+   </property>
+   <property name="ledStatus">
+    <bool>true</bool>
+   </property>
+   <property name="ledInverted">
+    <bool>false</bool>
+   </property>
+   <property name="ledPattern" stdset="0">
+    <string>:leds/images256/led_{color}_{status}.png</string>
+   </property>
+   <property name="offColor">
+    <string>white</string>
+   </property>
+  </widget>
+  <widget class="TaurusLed" name="miisLed">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>75</y>
+     <width>10</width>
+     <height>10</height>
+    </rect>
+   </property>
+   <property name="ledStatus">
+    <bool>true</bool>
+   </property>
+   <property name="ledInverted">
+    <bool>false</bool>
+   </property>
+   <property name="ledPattern" stdset="0">
+    <string>:leds/images256/led_{color}_{status}.png</string>
+   </property>
+   <property name="offColor">
+    <string>white</string>
+   </property>
+  </widget>
+  <widget class="TaurusLed" name="uiisLed">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>147</y>
+     <width>10</width>
+     <height>10</height>
+    </rect>
+   </property>
+   <property name="ledStatus">
+    <bool>true</bool>
+   </property>
+   <property name="ledInverted">
+    <bool>false</bool>
+   </property>
+   <property name="ledPattern" stdset="0">
+    <string>:leds/images256/led_{color}_{status}.png</string>
+   </property>
+   <property name="offColor">
+    <string>white</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="ka2icPopup">
+   <property name="geometry">
+    <rect>
+     <x>125</x>
+     <y>47</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="ka1icPopup">
+   <property name="geometry">
+    <rect>
+     <x>125</x>
+     <y>117</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="TaurusLed" name="acisLed">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>165</y>
+     <width>10</width>
+     <height>10</height>
+    </rect>
+   </property>
+   <property name="ledStatus">
+    <bool>true</bool>
+   </property>
+   <property name="ledInverted">
+    <bool>false</bool>
+   </property>
+   <property name="ledPattern" stdset="0">
+    <string>:leds/images256/led_{color}_on.png</string>
+   </property>
+   <property name="model">
+    <string>li/ct/plc2/ac_is</string>
+   </property>
+   <property name="offColor">
+    <string>red</string>
+   </property>
+  </widget>
+  <widget class="TaurusLed" name="tlvokLed">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>183</y>
+     <width>10</width>
+     <height>10</height>
+    </rect>
+   </property>
+   <property name="ledStatus">
+    <bool>true</bool>
+   </property>
+   <property name="ledInverted">
+    <bool>false</bool>
+   </property>
+   <property name="ledPattern" stdset="0">
+    <string>:leds/images256/led_{color}_{status}.png</string>
+   </property>
+   <property name="offColor">
+    <string>white</string>
+   </property>
+  </widget>
+  <widget class="TaurusLed" name="livokLed">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>195</y>
+     <width>10</width>
+     <height>10</height>
+    </rect>
+   </property>
+   <property name="ledStatus">
+    <bool>true</bool>
+   </property>
+   <property name="ledInverted">
+    <bool>false</bool>
+   </property>
+   <property name="ledPattern" stdset="0">
+    <string>:leds/images256/led_{color}_on.png</string>
+   </property>
+   <property name="model">
+    <string>li/ct/plc2/vc_ok</string>
+   </property>
+   <property name="offColor">
+    <string>red</string>
+   </property>
+  </widget>
+  <widget class="TaurusLed" name="egenbLed">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>205</y>
+     <width>10</width>
+     <height>10</height>
+    </rect>
+   </property>
+   <property name="ledStatus">
+    <bool>true</bool>
+   </property>
+   <property name="ledInverted">
+    <bool>false</bool>
+   </property>
+   <property name="ledPattern" stdset="0">
+    <string>:leds/images256/led_{color}_{status}.png</string>
+   </property>
+   <property name="offColor">
+    <string>white</string>
+   </property>
+  </widget>
+  <widget class="TaurusLed" name="gmdiLed">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>218</y>
+     <width>10</width>
+     <height>10</height>
+    </rect>
+   </property>
+   <property name="ledStatus">
+    <bool>true</bool>
+   </property>
+   <property name="ledInverted">
+    <bool>false</bool>
+   </property>
+   <property name="ledPattern" stdset="0">
+    <string>:leds/images256/led_{color}_{status}.png</string>
+   </property>
+   <property name="offColor">
+    <string>white</string>
+   </property>
+  </widget>
+  <widget class="TaurusLed" name="ka2enLed">
+   <property name="geometry">
+    <rect>
+     <x>285</x>
+     <y>52</y>
+     <width>10</width>
+     <height>10</height>
+    </rect>
+   </property>
+   <property name="ledStatus">
+    <bool>true</bool>
+   </property>
+   <property name="ledInverted">
+    <bool>false</bool>
+   </property>
+   <property name="ledPattern" stdset="0">
+    <string>:leds/images256/led_{color}_on.png</string>
+   </property>
+   <property name="model">
+    <string>li/ct/plc1/ka2_ok</string>
+   </property>
+   <property name="offColor">
+    <string>red</string>
+   </property>
+  </widget>
+  <widget class="TaurusLed" name="ka1enLed">
+   <property name="geometry">
+    <rect>
+     <x>285</x>
+     <y>124</y>
+     <width>10</width>
+     <height>10</height>
+    </rect>
+   </property>
+   <property name="ledStatus">
+    <bool>true</bool>
+   </property>
+   <property name="ledInverted">
+    <bool>false</bool>
+   </property>
+   <property name="ledPattern" stdset="0">
+    <string>:leds/images256/led_{color}_on.png</string>
+   </property>
+   <property name="model">
+    <string>li/ct/plc1/ka1_ok</string>
+   </property>
+   <property name="offColor">
+    <string>red</string>
+   </property>
+  </widget>
+  <widget class="TaurusLed" name="uiLed">
+   <property name="geometry">
+    <rect>
+     <x>276</x>
+     <y>25</y>
+     <width>10</width>
+     <height>10</height>
+    </rect>
+   </property>
+   <property name="ledStatus">
+    <bool>true</bool>
+   </property>
+   <property name="ledInverted">
+    <bool>false</bool>
+   </property>
+   <property name="ledPattern" stdset="0">
+    <string>:leds/images256/led_{color}_{status}.png</string>
+   </property>
+   <property name="offColor">
+    <string>white</string>
+   </property>
+  </widget>
+  <widget class="TaurusLed" name="livokLed_2">
+   <property name="geometry">
+    <rect>
+     <x>285</x>
+     <y>170</y>
+     <width>10</width>
+     <height>10</height>
+    </rect>
+   </property>
+   <property name="ledStatus">
+    <bool>true</bool>
+   </property>
+   <property name="ledInverted">
+    <bool>false</bool>
+   </property>
+   <property name="ledPattern" stdset="0">
+    <string>:leds/images256/led_{color}_on.png</string>
+   </property>
+   <property name="model">
+    <string>li/ct/plc2/vc_ok</string>
+   </property>
+   <property name="offColor">
+    <string>red</string>
+   </property>
+  </widget>
+  <widget class="TaurusLed" name="lirdyLed">
+   <property name="geometry">
+    <rect>
+     <x>285</x>
+     <y>195</y>
+     <width>10</width>
+     <height>10</height>
+    </rect>
+   </property>
+   <property name="ledStatus">
+    <bool>true</bool>
+   </property>
+   <property name="ledInverted">
+    <bool>false</bool>
+   </property>
+   <property name="ledPattern" stdset="0">
+    <string>:leds/images256/led_{color}_on.png</string>
+   </property>
+   <property name="model">
+    <string>li/ct/plc1/li_ok</string>
+   </property>
+   <property name="offColor">
+    <string>red</string>
+   </property>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>80</y>
+     <width>81</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="uirstLayout">
+    <property name="topMargin">
+     <number>8</number>
+    </property>
+    <item>
+     <widget class="QLabel" name="uirstLabel">
+      <property name="text">
+       <string>Reset</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="TaurusValueCheckBox" name="uirstCheck">
+      <property name="minimumSize">
+       <size>
+        <width>25</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>25</width>
+        <height>25</height>
+       </size>
+      </property>
+      <property name="model">
+       <string>li/ct/plc1/interlock_rc</string>
+      </property>
+      <property name="showText">
+       <bool>false</bool>
+      </property>
+      <property name="autoApply">
+       <bool>true</bool>
+      </property>
+      <property name="forcedApply">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="klystron2itck" name="klystron2itck">
+   <property name="geometry">
+    <rect>
+     <x>350</x>
+     <y>10</y>
+     <width>183</width>
+     <height>100</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="klystron1itck" name="klystron1itck">
+   <property name="geometry">
+    <rect>
+     <x>350</x>
+     <y>110</y>
+     <width>183</width>
+     <height>140</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="layoutWidget_3">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>310</y>
+     <width>76</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="egunonLayout">
+    <property name="leftMargin">
+     <number>10</number>
+    </property>
+    <item>
+     <widget class="QLabel" name="egunonLabel">
+      <property name="text">
+       <string>On</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="TaurusValueCheckBox" name="egunonCheck">
+      <property name="showText">
+       <bool>false</bool>
+      </property>
+      <property name="autoApply">
+       <bool>true</bool>
+      </property>
+      <property name="forcedApply">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="TaurusLed" name="egunonLed">
+      <property name="minimumSize">
+       <size>
+        <width>15</width>
+        <height>15</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>15</width>
+        <height>15</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QCheckBox" name="egunPopup">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>370</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>400</y>
+     <width>126</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="TaurusValueSpinBox" name="filamentSetpoint">
+      <property name="autoApply">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="TaurusValueSpinBox" name="cathodeSetpoint">
+      <property name="autoApply">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="filamentVLabel">
+      <property name="font">
+       <font>
+        <pointsize>7</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Filament V</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QLabel" name="cathodeLabel">
+      <property name="font">
+       <font>
+        <pointsize>7</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Cathode V</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="TaurusLabel" name="filamentCurrent">
+      <property name="suffixText">
+       <string> A</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1">
+     <widget class="TaurusLabel" name="temperatureValue">
+      <property name="suffixText">
+       <string> C</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="0">
+     <widget class="QLabel" name="filamentILabel">
+      <property name="font">
+       <font>
+        <pointsize>7</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Filament I</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="1">
+     <widget class="QLabel" name="temperatureLabel">
+      <property name="font">
+       <font>
+        <pointsize>7</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Temperature</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="eGunLV" name="eGunLV">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>360</y>
+     <width>157</width>
+     <height>94</height>
+    </rect>
+   </property>
+  </widget>
   <zorder>StartUpSchematic</zorder>
+  <zorder>layoutWidget</zorder>
+  <zorder>layoutWidget</zorder>
   <zorder>layoutWidget</zorder>
   <zorder>layoutWidget</zorder>
   <zorder>layoutWidget</zorder>
@@ -1519,7 +2170,6 @@
   <zorder>ipc4Value2</zorder>
   <zorder>hvg5Value</zorder>
   <zorder>ipc5Value1</zorder>
-  <zorder>eGunLV</zorder>
   <zorder>layoutWidget</zorder>
   <zorder>k1Popup</zorder>
   <zorder>klystron1LV</zorder>
@@ -1542,12 +2192,37 @@
   <zorder>qtLed</zorder>
   <zorder>as1Led</zorder>
   <zorder>as2Led</zorder>
+  <zorder>kaenbLed</zorder>
+  <zorder>miisLed</zorder>
+  <zorder>uiisLed</zorder>
+  <zorder>ka2icPopup</zorder>
+  <zorder>ka1icPopup</zorder>
+  <zorder>acisLed</zorder>
+  <zorder>tlvokLed</zorder>
+  <zorder>livokLed</zorder>
+  <zorder>egenbLed</zorder>
+  <zorder>gmdiLed</zorder>
+  <zorder>ka2enLed</zorder>
+  <zorder>ka1enLed</zorder>
+  <zorder>uiLed</zorder>
+  <zorder>livokLed_2</zorder>
+  <zorder>lirdyLed</zorder>
+  <zorder>klystron2itck</zorder>
+  <zorder>klystron1itck</zorder>
+  <zorder>layoutWidget_3</zorder>
+  <zorder>egunPopup</zorder>
+  <zorder>eGunLV</zorder>
  </widget>
  <customwidgets>
   <customwidget>
    <class>TaurusValueSpinBox</class>
    <extends>QWidget</extends>
    <header>taurus.qt.qtgui.input</header>
+  </customwidget>
+  <customwidget>
+   <class>klystron2itck</class>
+   <extends>TaurusWidget</extends>
+   <header>klystron2itck</header>
   </customwidget>
   <customwidget>
    <class>TaurusWidget</class>
@@ -1561,9 +2236,15 @@
    <header>taurus.qt.qtgui.display</header>
   </customwidget>
   <customwidget>
+   <class>klystron1itck</class>
+   <extends>TaurusWidget</extends>
+   <header>klystron1itck</header>
+  </customwidget>
+  <customwidget>
    <class>CoolingLoop</class>
    <extends>TaurusWidget</extends>
    <header>coolingloop</header>
+   <container>1</container>
   </customwidget>
   <customwidget>
    <class>eGunLV</class>
@@ -1589,6 +2270,7 @@
    <class>klystronLV</class>
    <extends>TaurusWidget</extends>
    <header>klystronlv</header>
+   <container>1</container>
   </customwidget>
   <customwidget>
    <class>QPixmapWidget</class>

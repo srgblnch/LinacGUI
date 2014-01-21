@@ -33,9 +33,12 @@ if not linacWidgetsPath in sys.path:
 from taurus.core.util import argparse
 from taurus.qt.qtgui.application import TaurusApplication
 from taurus.qt.qtgui.container import TaurusMainWindow
+from taurus.qt.qtgui.base import TaurusBaseComponent
 from taurus.qt import Qt
 
 from ui_ctli import Ui_linacGui
+
+import threading
 
 LinacDeviceNameRoot = 'li/ct/plc'
 LinacDeviceNames = []
@@ -50,6 +53,7 @@ class MainWindow(TaurusMainWindow):
         self.ui = Ui_linacGui()
         self.ui.setupUi(self)
         #place the ui in the window
+        self._init_threads = {}
         self.initComponents()
         #kill splash screen
         self.splashScreen().finish(self)
@@ -57,10 +61,17 @@ class MainWindow(TaurusMainWindow):
     def initComponents(self):
         self.centralwidget = self.ui.linacTabs
         self.setCentralWidget(self.centralwidget)
-        self.setModels_Communications()
-        self.setModels_StartUp()
+        #concurrency in the big setModel and early return
+#         self._init_threads['Communications'] = threading.Thread(name="a",target=self.setCommunications)
+#         self._init_threads['Startup'] = threading.Thread(name="b",target=self.setStartup)
+#         for threadName in self._init_threads.keys():
+#             self._init_threads[threadName].setDaemon(True)
+#             self._init_threads[threadName].start()
+        #serialised alternative of setModel
+        self.setCommunications()
+        self.setStartup()
         
-    def setModels_Communications(self):
+    def setCommunications(self):
         #about the overview
         self.ui.linacOverview._ui.gunLowVoltageRead.setModel('li/ct/plc1/GUN_LV_ONC')
         self.ui.linacOverview._ui.gunLowVoltageWrite.setModel('li/ct/plc1/GUN_LV_ONC')
@@ -97,12 +108,30 @@ class MainWindow(TaurusMainWindow):
             plc._ui.resetInstance.setCustomText('Restart')
             plc._ui.resetInstance.setDangerMessage("This will stop the control temporally.")
     
-    def setModels_StartUp(self):
+    def setStartup(self):
         #following the synoptic regions from left to right and from top to bottom
+        self._setStartup_InterlockUnit()
+        self._setStartup_klystronLV()
+        self._setStartup_egun()
+        self._setStartup_cooling()
+        self._setStartup_magnets()
+        self._setStartup_vacuum()
+
+    def _setStartup_InterlockUnit(self):
         startup_ui = self.ui.linacStartupSynoptic._ui
-        #The square of the Interlock Unit
-        
-        #Klystrons low voltage
+        startup_ui.klystron1itck.hide()
+        self._klystron1itckCheck = CheckboxManager(startup_ui.ka1icPopup,
+                                                   startup_ui.klystron1itck,
+                                                   "Klystron1Interlock")
+        startup_ui.ka1icPopup.setCheckState(False)
+        startup_ui.klystron2itck.hide()
+        self._klystron2itckCheck = CheckboxManager(startup_ui.ka2icPopup,
+                                                   startup_ui.klystron2itck,
+                                                   "Klystron2Interlock")
+        startup_ui.ka2icPopup.setCheckState(False)
+
+    def _setStartup_klystronLV(self):
+        startup_ui = self.ui.linacStartupSynoptic._ui
         klystrons = {1:{'plc':4,
                         'on':[startup_ui.k1onLed,startup_ui.k1onCheck],
                         'rst':[startup_ui.k1rstLed,startup_ui.k1rstCheck],
@@ -113,19 +142,21 @@ class MainWindow(TaurusMainWindow):
                         'rst':[startup_ui.k2rstLed,startup_ui.k2rstCheck],
                         'check':startup_ui.k2Popup,
                         'popup':startup_ui.klystron2LV}}
+        self._klystronLV = {}
         for number in klystrons.keys():
             for widget in klystrons[number]['on']:
                 widget.setModel('li/ct/plc%d/LV_ONC'%(klystrons[number]['plc']))
             for widget in klystrons[number]['rst']:
                 widget.setModel('li/ct/plc%d/LV_Interlock_RC'%(klystrons[number]['plc']))
             widget = klystrons[number]['check']
-            #TODO:
-            #self.connect(widget, Qt.SIGNAL('stateChanged(int)'),klystrons[number]['popup'],Qt.SLOT('setVisible(bool)'))
-            
+            #prepare the checkmanager
+            self._klystronLV[number] = CheckboxManager(klystrons[number]['check'],
+                                                       klystrons[number]['popup'],
+                                                       "Klystron%dLVManager"%number)
+            klystrons[number]['check'].setCheckState(False)
+            klystrons[number]['popup'].hide()
+            #setmodel for the contents in the popup
             widget = klystrons[number]['popup']
-            #TODO:#widget.setVisible(False)
-            #widget.setWindowOpacity(0)
-            #print "!"*20,widget.windowOpacity()
             widget._ui.lowVoltageGroup.setTitle('klystron%d low voltage'%(number))
             widget._ui.LV_Status.setModel('li/ct/plc%d/LV_Status'%(klystrons[number]['plc']))
             widget._ui.LV_TimeValue.setModel('li/ct/plc%d/LV_Time'%(klystrons[number]['plc']))
@@ -133,36 +164,62 @@ class MainWindow(TaurusMainWindow):
             widget._ui.heatVValue.setModel('li/ct/plc%d/Heat_V'%(klystrons[number]['plc']))
             widget._ui.heatIValue.setModel('li/ct/plc%d/Heat_I'%(klystrons[number]['plc']))
             widget._ui.heatTValue.setModel('li/ct/plc%d/Heat_Time'%(klystrons[number]['plc']))
-        #e- gun
-        startup_ui.eGunLV._ui.cathodeValue.setModel('li/ct/plc1/GUN_Kathode_V')
-        startup_ui.eGunLV._ui.cathodeSetpoint.setModel('li/ct/plc1/GUN_Kathode_V')
-        startup_ui.eGunLV._ui.temperatureValue.setModel('li/ct/plc1/GUN_Kathode_T')
-        startup_ui.eGunLV._ui.filamentValue.setModel('li/ct/plc1/GUN_Filament_V')
-        startup_ui.eGunLV._ui.filamentSetpoint.setModel('li/ct/plc1/GUN_Filament_V')
-        startup_ui.eGunLV._ui.filamentCurrent.setModel('li/ct/plc1/GUN_Filament_I')
-        startup_ui.eGunLV._ui.onLed.setModel('li/ct/plc1/GUN_LV_ONC')
-        startup_ui.eGunLV._ui.onCheck.setModel('li/ct/plc1/GUN_LV_ONC')
+
+    def _setStartup_egun(self):
+        startup_ui = self.ui.linacStartupSynoptic._ui
+        startup_ui.filamentSetpoint.setModel('li/ct/plc1/GUN_Filament_V')
+        startup_ui.cathodeSetpoint.setModel('li/ct/plc1/GUN_Kathode_V')
+        startup_ui.filamentCurrent.setModel('li/ct/plc1/GUN_Filament_I')
+        startup_ui.temperatureValue.setModel('li/ct/plc1/GUN_Kathode_T')
         startup_ui.eGunLV._ui.eGunStatus.setModel('li/ct/plc1/Gun_Status')
-        #Cooling area
+        startup_ui.eGunLV._ui.filamentValue.setModel('li/ct/plc1/GUN_Filament_V')
+        startup_ui.eGunLV._ui.cathodeValue.setModel('li/ct/plc1/GUN_Kathode_V')
+        startup_ui.egunonLed.setModel('li/ct/plc1/GUN_LV_ONC')
+        startup_ui.egunonCheck.setModel('li/ct/plc1/GUN_LV_ONC')
+        self._egunManager = CheckboxManager(startup_ui.egunPopup,
+                                            startup_ui.eGunLV,
+                                            "EGunPopup")
+        startup_ui.egunPopup.setCheckState(False)
+        startup_ui.eGunLV.hide()
+
+    def _setStartup_cooling(self):
+        startup_ui = self.ui.linacStartupSynoptic._ui
         startup_ui.cl1onCheck.setModel('li/ct/plc2/CL1_ONC')
         startup_ui.cl1TemperatureValue.setModel('li/ct/plc2/CL1_T')
+        self._cl1Manager = CheckboxManager(startup_ui.cl1Popup,
+                                           startup_ui.coolingLoop1,
+                                           "CollingLoopPopup1")
+        startup_ui.cl1Popup.setCheckState(False)
+        startup_ui.coolingLoop1.hide()
         startup_ui.coolingLoop1._ui.coolingLoopGroup.setTitle('Cooling Loop 1')
         startup_ui.coolingLoop1._ui.coolingLoopStatus.setModel('li/ct/plc2/CL1_Status')
         startup_ui.coolingLoop1._ui.temperatureValue.setModel('li/ct/plc2/CL1_T')
         startup_ui.coolingLoop1._ui.powerValue.setModel('li/ct/plc2/CL1_PWD')
         startup_ui.cl2onCheck.setModel('li/ct/plc2/CL2_ONC')
         startup_ui.cl2TemperatureValue.setModel('li/ct/plc2/CL2_T')
+        self._cl2Manager = CheckboxManager(startup_ui.cl2Popup,
+                                           startup_ui.coolingLoop2,
+                                           "CollingLoopPopup2")
+        startup_ui.cl2Popup.setCheckState(False)
+        startup_ui.coolingLoop2.hide()
         startup_ui.coolingLoop2._ui.coolingLoopGroup.setTitle('Cooling Loop 2')
         startup_ui.coolingLoop2._ui.coolingLoopStatus.setModel('li/ct/plc2/CL2_Status')
         startup_ui.coolingLoop2._ui.temperatureValue.setModel('li/ct/plc2/CL2_T')
         startup_ui.coolingLoop2._ui.powerValue.setModel('li/ct/plc2/CL2_PWD')
         startup_ui.cl3onCheck.setModel('li/ct/plc2/CL3_ONC')
         startup_ui.cl3TemperatureValue.setModel('li/ct/plc2/CL3_T')
+        self._cl3Manager = CheckboxManager(startup_ui.cl3Popup,
+                                           startup_ui.coolingLoop3,
+                                           "CollingLoopPopup3")
+        startup_ui.cl3Popup.setCheckState(False)
+        startup_ui.coolingLoop3.hide()
         startup_ui.coolingLoop3._ui.coolingLoopGroup.setTitle('Cooling Loop 3')
         startup_ui.coolingLoop3._ui.coolingLoopStatus.setModel('li/ct/plc2/CL3_Status')
         startup_ui.coolingLoop3._ui.temperatureValue.setModel('li/ct/plc2/CL3_T')
         startup_ui.coolingLoop3._ui.powerValue.setModel('li/ct/plc2/CL3_PWD')
-        #Magnets area
+
+    def _setStartup_magnets(self):
+        startup_ui = self.ui.linacStartupSynoptic._ui
         startup_ui.sl1Led.setModel('li/ct/plc3/SL1_ONC')
         startup_ui.sl2Led.setModel('li/ct/plc3/SL2_ONC')
         startup_ui.sl3Led.setModel('li/ct/plc3/SL3_ONC')
@@ -173,7 +230,8 @@ class MainWindow(TaurusMainWindow):
         startup_ui.as1Led.setModel('li/ct/plc3/AS1_ONC')
         startup_ui.qtLed.setModel('li/ct/plc3/QT_ONC')
         startup_ui.as2Led.setModel('li/ct/plc3/AS2_ONC')
-        #vacuum area
+    def _setStartup_vacuum(self):
+        startup_ui = self.ui.linacStartupSynoptic._ui
         startup_ui.vv1Led.setModel('li/ct/plc2/VV1_OC')
         startup_ui.vv1Status.setModel('li/ct/plc2/VV1_Status')
         startup_ui.vv1_oncCheck.setModel('li/ct/plc2/VV1_OC')
@@ -227,8 +285,27 @@ class MainWindow(TaurusMainWindow):
         #startup_ui.vv_rstCheck.setmodel('')
         #startup_ui.vv_oncCheck.setmodel('')
 
-#     def popupcheckBoxes(self,qstate):
-#         pass
+'''First approach to the Labview blinking leds with subboxes of sets of attrs.
+'''
+class CheckboxManager(TaurusBaseComponent,Qt.QObject):
+    #TODO: instead of checkboxes them should be leds with a composition of the
+    #      internal values in the subbox
+    def __init__(self,checker,widget,name=None,qt_parent=None,designMode=False):
+        if not name: name = "CheckboxManager"
+        self.call__init__wo_kw(Qt.QObject, qt_parent)
+        self.call__init__(TaurusBaseComponent, name, designMode=designMode)
+        self._checker = checker
+        self._widget = widget
+        #self.connect(self._checker,Qt.SIGNAL('stateChanged(int)'),self._checkboxChanged)
+        Qt.QObject.connect(self._checker,Qt.SIGNAL('stateChanged(int)'),self._checkboxChanged)
+        self.debug("Build the checkbox manager")
+
+    def _checkboxChanged(self,qstate):
+        self.debug("!"*20+" stateChange(int) emitted")
+        if self._checker.isChecked():
+            self._widget.show()
+        else:
+            self._widget.hide()
 
 def main():
     parser = argparse.get_taurus_parser()

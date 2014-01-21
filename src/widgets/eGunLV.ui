@@ -6,123 +6,59 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>122</width>
-    <height>259</height>
+    <width>157</width>
+    <height>98</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout">
+  <layout class="QGridLayout" name="gridLayout_2">
    <item row="0" column="0">
     <widget class="TaurusGroupBox" name="eGunGroup">
-     <layout class="QGridLayout" name="gridLayout_2">
-      <item row="9" column="0">
-       <widget class="TaurusLed" name="onLed">
-        <property name="minimumSize">
-         <size>
-          <width>15</width>
-          <height>15</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>15</width>
-          <height>15</height>
-         </size>
-        </property>
-       </widget>
-      </item>
-      <item row="9" column="1">
-       <widget class="TaurusValueCheckBox" name="onCheck">
-        <property name="showText">
-         <bool>false</bool>
-        </property>
-        <property name="autoApply">
-         <bool>true</bool>
-        </property>
-        <property name="forcedApply">
-         <bool>false</bool>
-        </property>
-       </widget>
-      </item>
-      <item row="11" column="0" colspan="2">
-       <widget class="TaurusLabel" name="eGunStatus"/>
-      </item>
-      <item row="8" column="0" colspan="2">
-       <widget class="TaurusLabel" name="filamentCurrent">
-        <property name="suffixText">
-         <string> A</string>
-        </property>
-       </widget>
-      </item>
-      <item row="7" column="0" colspan="2">
-       <widget class="TaurusValueSpinBox" name="filamentSetpoint">
-        <property name="autoApply">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-      <item row="6" column="0" colspan="2">
+     <property name="title">
+      <string>e- gun status</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="1" column="1">
        <widget class="TaurusLabel" name="filamentValue">
         <property name="suffixText">
          <string> V</string>
         </property>
        </widget>
       </item>
-      <item row="5" column="0" colspan="2">
+      <item row="2" column="1">
        <widget class="QLabel" name="filamentLabel">
         <property name="text">
-         <string>Filament</string>
+         <string>Filament V</string>
         </property>
        </widget>
       </item>
-      <item row="4" column="0" colspan="2">
-       <widget class="TaurusLabel" name="temperatureValue">
-        <property name="suffixText">
-         <string> C</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="0" colspan="2">
-       <widget class="QLabel" name="temperatureLabel">
-        <property name="text">
-         <string>Temperature</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="0" colspan="2">
-       <widget class="TaurusValueSpinBox" name="cathodeSetpoint">
-        <property name="autoApply">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="0" colspan="2">
+      <item row="1" column="2">
        <widget class="TaurusLabel" name="cathodeValue">
         <property name="suffixText">
          <string> V</string>
         </property>
        </widget>
       </item>
-      <item row="0" column="0" colspan="2">
+      <item row="2" column="2">
        <widget class="QLabel" name="cathodeLabel">
         <property name="text">
-         <string>Cathode</string>
+         <string>Cathode V</string>
         </property>
        </widget>
+      </item>
+      <item row="0" column="1" colspan="2">
+       <widget class="TaurusLabel" name="eGunStatus"/>
       </item>
      </layout>
     </widget>
    </item>
   </layout>
+  <zorder>cathodeLabel</zorder>
+  <zorder>eGunGroup</zorder>
  </widget>
  <customwidgets>
-  <customwidget>
-   <class>TaurusValueSpinBox</class>
-   <extends>QWidget</extends>
-   <header>taurus.qt.qtgui.input</header>
-  </customwidget>
   <customwidget>
    <class>TaurusWidget</class>
    <extends>QWidget</extends>
@@ -138,26 +74,6 @@
   <customwidget>
    <class>TaurusLabel</class>
    <extends>QLabel</extends>
-   <header>taurus.qt.qtgui.display</header>
-  </customwidget>
-  <customwidget>
-   <class>TaurusValueCheckBox</class>
-   <extends>QCheckBox</extends>
-   <header>taurus.qt.qtgui.input</header>
-  </customwidget>
-  <customwidget>
-   <class>TaurusLed</class>
-   <extends>QLed</extends>
-   <header>taurus.qt.qtgui.display</header>
-  </customwidget>
-  <customwidget>
-   <class>QLed</class>
-   <extends>QPixmapWidget</extends>
-   <header>taurus.qt.qtgui.display</header>
-  </customwidget>
-  <customwidget>
-   <class>QPixmapWidget</class>
-   <extends>QWidget</extends>
    <header>taurus.qt.qtgui.display</header>
   </customwidget>
  </customwidgets>
