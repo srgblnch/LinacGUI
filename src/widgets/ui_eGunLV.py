@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'eGunLV.ui'
 #
-# Created: Thu Jan 23 12:35:17 2014
+# Created: Mon Jan 27 17:17:10 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -54,3 +54,13 @@ class Ui_eGunLV(object):
 
 from taurus.qt.qtgui.display import TaurusLabel
 from taurus.qt.qtgui.container import TaurusWidget, TaurusGroupBox
+
+if __name__ == "__main__":
+    import sys
+    app = QtGui.QApplication(sys.argv)
+    eGunLV = QtGui.TaurusWidget()
+    ui = Ui_eGunLV()
+    ui.setupUi(eGunLV)
+    eGunLV.show()
+    sys.exit(app.exec_())
+

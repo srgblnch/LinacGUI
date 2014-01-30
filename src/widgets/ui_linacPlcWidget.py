@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'linacPlcWidget.ui'
 #
-# Created: Thu Dec 19 17:24:57 2013
+# Created: Mon Jan 27 17:17:08 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -156,3 +156,13 @@ from taurus.qt.qtgui.display import TaurusLed, TaurusLabel
 from taurus.qt.qtgui.container import TaurusWidget, TaurusGroupBox
 from taurus.qt.qtgui.input import TaurusValueCheckBox
 from taurus.qt.qtgui.button import TaurusCommandButton
+
+if __name__ == "__main__":
+    import sys
+    app = QtGui.QApplication(sys.argv)
+    linacPlcWidget = QtGui.TaurusWidget()
+    ui = Ui_linacPlcWidget()
+    ui.setupUi(linacPlcWidget)
+    linacPlcWidget.show()
+    sys.exit(app.exec_())
+

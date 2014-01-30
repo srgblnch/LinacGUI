@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'coolingLoop.ui'
 #
-# Created: Thu Jan 23 12:56:24 2014
+# Created: Mon Jan 27 17:17:09 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -35,6 +35,7 @@ class Ui_CoolingLoop(object):
         self.temperatureValue.setObjectName(_fromUtf8("temperatureValue"))
         self.gridLayout_2.addWidget(self.temperatureValue, 2, 0, 1, 1)
         self.powerValue = TaurusLabel(self.coolingLoopGroup)
+        self.powerValue.setSuffixText(_fromUtf8(""))
         self.powerValue.setObjectName(_fromUtf8("powerValue"))
         self.gridLayout_2.addWidget(self.powerValue, 4, 0, 1, 1)
         self.coolingLoopStatus = TaurusLabel(self.coolingLoopGroup)
@@ -50,7 +51,16 @@ class Ui_CoolingLoop(object):
         self.coolingLoopGroup.setTitle(QtGui.QApplication.translate("CoolingLoop", "Cooling Loop #", None, QtGui.QApplication.UnicodeUTF8))
         self.temperatureLabel.setText(QtGui.QApplication.translate("CoolingLoop", "Temperature", None, QtGui.QApplication.UnicodeUTF8))
         self.powerLabel.setText(QtGui.QApplication.translate("CoolingLoop", "Power drive", None, QtGui.QApplication.UnicodeUTF8))
-        self.powerValue.setSuffixText(QtGui.QApplication.translate("CoolingLoop", " %", None, QtGui.QApplication.UnicodeUTF8))
 
 from taurus.qt.qtgui.display import TaurusLabel
 from taurus.qt.qtgui.container import TaurusWidget, TaurusGroupBox
+
+if __name__ == "__main__":
+    import sys
+    app = QtGui.QApplication(sys.argv)
+    CoolingLoop = QtGui.TaurusWidget()
+    ui = Ui_CoolingLoop()
+    ui.setupUi(CoolingLoop)
+    CoolingLoop.show()
+    sys.exit(app.exec_())
+

@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'linacStartupSynoptic.ui'
 #
-# Created: Thu Jan 23 16:08:18 2014
+# Created: Mon Jan 27 17:17:09 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -726,3 +726,13 @@ from klystronlv import klystronLV
 from egunlv import eGunLV
 from klystron1itck import klystron1itck
 from taurus.qt.qtgui.input import TaurusValueCheckBox, TaurusValueSpinBox
+
+if __name__ == "__main__":
+    import sys
+    app = QtGui.QApplication(sys.argv)
+    linacStartupSynoptic = QtGui.TaurusWidget()
+    ui = Ui_linacStartupSynoptic()
+    ui.setupUi(linacStartupSynoptic)
+    linacStartupSynoptic.show()
+    sys.exit(app.exec_())
+

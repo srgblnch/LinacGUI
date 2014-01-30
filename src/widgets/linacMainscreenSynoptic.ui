@@ -2033,8 +2033,611 @@
     </item>
    </layout>
   </widget>
+  <widget class="klystronHV" name="klystron2HVPopupWidget">
+   <property name="geometry">
+    <rect>
+     <x>1077</x>
+     <y>10</y>
+     <width>171</width>
+     <height>161</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="klystron1HVPopupCheck">
+   <property name="geometry">
+    <rect>
+     <x>765</x>
+     <y>90</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="klystron2HVPopupCheck">
+   <property name="geometry">
+    <rect>
+     <x>1050</x>
+     <y>50</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="klystronHV" name="klystron1HVPopupWidget">
+   <property name="geometry">
+    <rect>
+     <x>790</x>
+     <y>10</y>
+     <width>171</width>
+     <height>161</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="TaurusLed" name="rfSourceStatusLed">
+   <property name="geometry">
+    <rect>
+     <x>1107</x>
+     <y>280</y>
+     <width>10</width>
+     <height>10</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>10</width>
+     <height>10</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>10</width>
+     <height>10</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="TaurusLed" name="rfA0StatusLed">
+   <property name="geometry">
+    <rect>
+     <x>280</x>
+     <y>370</y>
+     <width>10</width>
+     <height>10</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>10</width>
+     <height>10</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>10</width>
+     <height>10</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="attenuatorPopupCheck">
+   <property name="geometry">
+    <rect>
+     <x>420</x>
+     <y>425</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="phaseShifter2PopupCheck">
+   <property name="geometry">
+    <rect>
+     <x>475</x>
+     <y>425</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="phaseShifter1PopupCheck">
+   <property name="geometry">
+    <rect>
+     <x>615</x>
+     <y>455</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="phaseShifter" name="phaseShifter1PopupWidget">
+   <property name="geometry">
+    <rect>
+     <x>640</x>
+     <y>390</y>
+     <width>100</width>
+     <height>80</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="phaseShifter" name="phaseShifter2PopupWidget">
+   <property name="geometry">
+    <rect>
+     <x>500</x>
+     <y>340</y>
+     <width>100</width>
+     <height>80</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="Attenuator" name="attenuatorPopupWidget">
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>340</y>
+     <width>100</width>
+     <height>80</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="magnet" name="sl1PopupWidget">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>630</y>
+     <width>165</width>
+     <height>101</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="magnet" name="sl2PopupWidget">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>630</y>
+     <width>165</width>
+     <height>101</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="magnet" name="sl3PopupWidget">
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>630</y>
+     <width>165</width>
+     <height>101</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="magnet" name="sl4PopupWidget">
+   <property name="geometry">
+    <rect>
+     <x>380</x>
+     <y>630</y>
+     <width>165</width>
+     <height>101</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="magnet" name="bc1PopupWidget">
+   <property name="geometry">
+    <rect>
+     <x>440</x>
+     <y>630</y>
+     <width>165</width>
+     <height>101</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="magnet" name="bc2PopupWidget">
+   <property name="geometry">
+    <rect>
+     <x>510</x>
+     <y>630</y>
+     <width>165</width>
+     <height>101</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="magnet" name="glPopupWidget">
+   <property name="geometry">
+    <rect>
+     <x>620</x>
+     <y>630</y>
+     <width>165</width>
+     <height>101</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="magnet" name="qt1PopupWidget">
+   <property name="geometry">
+    <rect>
+     <x>870</x>
+     <y>630</y>
+     <width>165</width>
+     <height>101</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="magnet" name="qt2PopupWidget">
+   <property name="geometry">
+    <rect>
+     <x>940</x>
+     <y>630</y>
+     <width>165</width>
+     <height>101</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="magnet" name="as2PopupWidget">
+   <property name="geometry">
+    <rect>
+     <x>1020</x>
+     <y>630</y>
+     <width>165</width>
+     <height>101</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="magnet" name="as1PopupWidget">
+   <property name="geometry">
+    <rect>
+     <x>720</x>
+     <y>630</y>
+     <width>165</width>
+     <height>101</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="sl1PopupCheck">
+   <property name="geometry">
+    <rect>
+     <x>166</x>
+     <y>510</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="sl2PopupCheck">
+   <property name="geometry">
+    <rect>
+     <x>252</x>
+     <y>510</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="sl3PopupCheck">
+   <property name="geometry">
+    <rect>
+     <x>333</x>
+     <y>510</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="sl4PopupCheck">
+   <property name="geometry">
+    <rect>
+     <x>405</x>
+     <y>510</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="bc1PopupCheck">
+   <property name="geometry">
+    <rect>
+     <x>460</x>
+     <y>510</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="bc2PopupCheck">
+   <property name="geometry">
+    <rect>
+     <x>520</x>
+     <y>510</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="glPopupCheck">
+   <property name="geometry">
+    <rect>
+     <x>643</x>
+     <y>510</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="as1PopupCheck">
+   <property name="geometry">
+    <rect>
+     <x>770</x>
+     <y>545</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="qt1PopupCheck">
+   <property name="geometry">
+    <rect>
+     <x>893</x>
+     <y>510</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="qt2PopupCheck">
+   <property name="geometry">
+    <rect>
+     <x>940</x>
+     <y>510</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="as2PopupCheck">
+   <property name="geometry">
+    <rect>
+     <x>1060</x>
+     <y>545</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="TaurusLabel" name="fluorescentScreen1Status">
+   <property name="geometry">
+    <rect>
+     <x>620</x>
+     <y>770</y>
+     <width>80</width>
+     <height>16</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="TaurusLabel" name="fluorescentScreen2Status">
+   <property name="geometry">
+    <rect>
+     <x>870</x>
+     <y>770</y>
+     <width>80</width>
+     <height>16</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="TaurusLabel" name="fluorescentScreen3Status">
+   <property name="geometry">
+    <rect>
+     <x>1100</x>
+     <y>770</y>
+     <width>80</width>
+     <height>16</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="hvsPopupCheck">
+   <property name="geometry">
+    <rect>
+     <x>103</x>
+     <y>603</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="eGunHV" name="hvsPopupWidget">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>570</y>
+     <width>141</width>
+     <height>101</height>
+    </rect>
+   </property>
+  </widget>
+  <zorder>MainScreenSchematic</zorder>
+  <zorder>tbKaDelay1Value</zorder>
+  <zorder>tbKaDelay2Value</zorder>
+  <zorder>tbFf2DelayValue</zorder>
+  <zorder>tbGunLevelValue</zorder>
+  <zorder>tbNumberValue</zorder>
+  <zorder>tbWidthValue</zorder>
+  <zorder>tbGunDelayValue</zorder>
+  <zorder>tbGatedPulseModeValue</zorder>
+  <zorder>klystron1HVValue</zorder>
+  <zorder>klystron2HVValue</zorder>
+  <zorder>rfEnbLed</zorder>
+  <zorder>tbTimerStatusStateLed</zorder>
+  <zorder>rfTimePhaseShifter0Value</zorder>
+  <zorder>rfA0OutputPowerValue</zorder>
+  <zorder>rfTimePhaseShifterXValue</zorder>
+  <zorder>attenuator2Value</zorder>
+  <zorder>rfPhaseShifter2Value</zorder>
+  <zorder>rfTimePhaseShifter1Value</zorder>
+  <zorder>rfPhaseShifter1Value</zorder>
+  <zorder>sf6p1Value</zorder>
+  <zorder>sf6p2Value</zorder>
+  <zorder>rfTimePhaseShifter2Value</zorder>
+  <zorder>coolingLoop1Led</zorder>
+  <zorder>coolingLoop2Led</zorder>
+  <zorder>coolingLoop3Led</zorder>
+  <zorder>layoutWidget_2</zorder>
+  <zorder>layoutWidget_3</zorder>
+  <zorder>layoutWidget_4</zorder>
+  <zorder>bc2hValue</zorder>
+  <zorder>bc2vValue</zorder>
+  <zorder>bc2fValue</zorder>
+  <zorder>bc1fValue</zorder>
+  <zorder>bc1vValue</zorder>
+  <zorder>bc1hValue</zorder>
+  <zorder>sl4hValue</zorder>
+  <zorder>sl3hValue</zorder>
+  <zorder>sl2hValue</zorder>
+  <zorder>sl1hValue</zorder>
+  <zorder>sl4vValue</zorder>
+  <zorder>sl4fValue</zorder>
+  <zorder>sl3vValue</zorder>
+  <zorder>sl2vValue</zorder>
+  <zorder>sl1vValue</zorder>
+  <zorder>sl1fValue</zorder>
+  <zorder>sl3fValue</zorder>
+  <zorder>sl2fValue</zorder>
+  <zorder>layoutWidget_6</zorder>
+  <zorder>layoutWidget_7</zorder>
+  <zorder>layoutWidget_8</zorder>
+  <zorder>layoutWidget_9</zorder>
+  <zorder>layoutWidget_10</zorder>
+  <zorder>layoutWidget_11</zorder>
+  <zorder>glhValue</zorder>
+  <zorder>glvValue</zorder>
+  <zorder>glfValue</zorder>
+  <zorder>layoutWidget_12</zorder>
+  <zorder>as1hValue</zorder>
+  <zorder>as1vValue</zorder>
+  <zorder>layoutWidget_13</zorder>
+  <zorder>qt1hValue</zorder>
+  <zorder>qt1vValue</zorder>
+  <zorder>qt1fValue</zorder>
+  <zorder>layoutWidget_14</zorder>
+  <zorder>as2hValue</zorder>
+  <zorder>as2vValue</zorder>
+  <zorder>qt2fValue</zorder>
+  <zorder>layoutWidget_15</zorder>
+  <zorder>sl1Led</zorder>
+  <zorder>vv1led</zorder>
+  <zorder>sl2Led</zorder>
+  <zorder>sl3Led</zorder>
+  <zorder>sl4Led</zorder>
+  <zorder>bc1Led</zorder>
+  <zorder>bc2Led</zorder>
+  <zorder>sm1Led</zorder>
+  <zorder>glLed</zorder>
+  <zorder>as1Led</zorder>
+  <zorder>sm2Led</zorder>
+  <zorder>qtLed</zorder>
+  <zorder>as2Led</zorder>
+  <zorder>sm3Led</zorder>
+  <zorder>layoutWidget_16</zorder>
+  <zorder>layoutWidget_17</zorder>
+  <zorder>layoutWidget_18</zorder>
+  <zorder>layoutWidget_19</zorder>
+  <zorder>layoutWidget_20</zorder>
+  <zorder>layoutWidget_21</zorder>
+  <zorder>layoutWidget</zorder>
+  <zorder>layoutWidget</zorder>
+  <zorder>layoutWidget</zorder>
+  <zorder>layoutWidget</zorder>
+  <zorder>layoutWidget</zorder>
+  <zorder>layoutWidget</zorder>
+  <zorder>klystron2HVPopupWidget</zorder>
+  <zorder>klystron1HVPopupCheck</zorder>
+  <zorder>klystron2HVPopupCheck</zorder>
+  <zorder>klystron1HVPopupWidget</zorder>
+  <zorder>rfSourceStatusLed</zorder>
+  <zorder>rfA0StatusLed</zorder>
+  <zorder>attenuatorPopupCheck</zorder>
+  <zorder>phaseShifter2PopupCheck</zorder>
+  <zorder>phaseShifter1PopupCheck</zorder>
+  <zorder>phaseShifter2PopupWidget</zorder>
+  <zorder>attenuatorPopupWidget</zorder>
+  <zorder>phaseShifter1PopupWidget</zorder>
+  <zorder>sl1PopupWidget</zorder>
+  <zorder>sl2PopupWidget</zorder>
+  <zorder>sl3PopupWidget</zorder>
+  <zorder>sl4PopupWidget</zorder>
+  <zorder>bc1PopupWidget</zorder>
+  <zorder>bc2PopupWidget</zorder>
+  <zorder>glPopupWidget</zorder>
+  <zorder>qt1PopupWidget</zorder>
+  <zorder>qt2PopupWidget</zorder>
+  <zorder>as2PopupWidget</zorder>
+  <zorder>as1PopupWidget</zorder>
+  <zorder>sl1PopupCheck</zorder>
+  <zorder>sl2PopupCheck</zorder>
+  <zorder>sl3PopupCheck</zorder>
+  <zorder>sl4PopupCheck</zorder>
+  <zorder>bc1PopupCheck</zorder>
+  <zorder>bc2PopupCheck</zorder>
+  <zorder>glPopupCheck</zorder>
+  <zorder>as1PopupCheck</zorder>
+  <zorder>qt1PopupCheck</zorder>
+  <zorder>qt2PopupCheck</zorder>
+  <zorder>as2PopupCheck</zorder>
+  <zorder>fluorescentScreen1Status</zorder>
+  <zorder>fluorescentScreen2Status</zorder>
+  <zorder>fluorescentScreen3Status</zorder>
+  <zorder>hvsPopupCheck</zorder>
+  <zorder>hvsPopupWidget</zorder>
  </widget>
  <customwidgets>
+  <customwidget>
+   <class>eGunHV</class>
+   <extends>TaurusWidget</extends>
+   <header>egunhv</header>
+  </customwidget>
   <customwidget>
    <class>TaurusValueSpinBox</class>
    <extends>QWidget</extends>
@@ -2052,6 +2655,16 @@
    <header>taurus.qt.qtgui.display</header>
   </customwidget>
   <customwidget>
+   <class>phaseShifter</class>
+   <extends>TaurusWidget</extends>
+   <header>phaseshifter</header>
+  </customwidget>
+  <customwidget>
+   <class>klystronHV</class>
+   <extends>TaurusWidget</extends>
+   <header>klystronhv</header>
+  </customwidget>
+  <customwidget>
    <class>TaurusValueComboBox</class>
    <extends>QComboBox</extends>
    <header>taurus.qt.qtgui.input</header>
@@ -2060,6 +2673,16 @@
    <class>TaurusValueCheckBox</class>
    <extends>QCheckBox</extends>
    <header>taurus.qt.qtgui.input</header>
+  </customwidget>
+  <customwidget>
+   <class>magnet</class>
+   <extends>TaurusWidget</extends>
+   <header>magnet</header>
+  </customwidget>
+  <customwidget>
+   <class>Attenuator</class>
+   <extends>TaurusWidget</extends>
+   <header>attenuator</header>
   </customwidget>
   <customwidget>
    <class>TaurusLed</class>

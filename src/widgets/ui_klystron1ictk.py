@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'klystron1ictk.ui'
 #
-# Created: Thu Jan 23 11:03:35 2014
+# Created: Mon Jan 27 17:17:11 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -80,3 +80,13 @@ class Ui_klystron1itck(object):
 
 from taurus.qt.qtgui.display import TaurusLed
 from taurus.qt.qtgui.container import TaurusWidget, TaurusGroupBox
+
+if __name__ == "__main__":
+    import sys
+    app = QtGui.QApplication(sys.argv)
+    klystron1itck = QtGui.TaurusWidget()
+    ui = Ui_klystron1itck()
+    ui.setupUi(klystron1itck)
+    klystron1itck.show()
+    sys.exit(app.exec_())
+

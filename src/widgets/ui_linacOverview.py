@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'linacOverview.ui'
 #
-# Created: Thu Dec 19 16:13:22 2013
+# Created: Mon Jan 27 17:17:07 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -120,3 +120,13 @@ class Ui_linacOverview(object):
 from taurus.qt.qtgui.display import TaurusLed
 from taurus.qt.qtgui.container import TaurusWidget
 from taurus.qt.qtgui.input import TaurusValueCheckBox
+
+if __name__ == "__main__":
+    import sys
+    app = QtGui.QApplication(sys.argv)
+    linacOverview = QtGui.TaurusWidget()
+    ui = Ui_linacOverview()
+    ui.setupUi(linacOverview)
+    linacOverview.show()
+    sys.exit(app.exec_())
+
