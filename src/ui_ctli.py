@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'ctli.ui'
 #
-# Created: Wed Dec 18 10:45:20 2013
+# Created: Wed Jan 22 14:49:13 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -39,7 +39,7 @@ class Ui_linacGui(object):
         self.communicationsScrollArea.setWidgetResizable(True)
         self.communicationsScrollArea.setObjectName(_fromUtf8("communicationsScrollArea"))
         self.scrollAreaWidgetContents = QtGui.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 666, 676))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 1295, 899))
         self.scrollAreaWidgetContents.setObjectName(_fromUtf8("scrollAreaWidgetContents"))
         self.gridLayout_3 = QtGui.QGridLayout(self.scrollAreaWidgetContents)
         self.gridLayout_3.setObjectName(_fromUtf8("gridLayout_3"))
@@ -100,11 +100,34 @@ class Ui_linacGui(object):
         self.linacTabs.addTab(self.startupTab, _fromUtf8(""))
         self.mainscreenTab = QtGui.QWidget()
         self.mainscreenTab.setObjectName(_fromUtf8("mainscreenTab"))
+        self.gridLayout_6 = QtGui.QGridLayout(self.mainscreenTab)
+        self.gridLayout_6.setObjectName(_fromUtf8("gridLayout_6"))
+        self.mainscreenScrollArea = QtGui.QScrollArea(self.mainscreenTab)
+        self.mainscreenScrollArea.setWidgetResizable(True)
+        self.mainscreenScrollArea.setObjectName(_fromUtf8("mainscreenScrollArea"))
+        self.scrollAreaWidgetContents_3 = QtGui.QWidget()
+        self.scrollAreaWidgetContents_3.setGeometry(QtCore.QRect(0, 0, 1295, 899))
+        self.scrollAreaWidgetContents_3.setObjectName(_fromUtf8("scrollAreaWidgetContents_3"))
+        self.gridLayout_7 = QtGui.QGridLayout(self.scrollAreaWidgetContents_3)
+        self.gridLayout_7.setObjectName(_fromUtf8("gridLayout_7"))
+        spacerItem8 = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
+        self.gridLayout_7.addItem(spacerItem8, 2, 1, 1, 1)
+        spacerItem9 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
+        self.gridLayout_7.addItem(spacerItem9, 1, 0, 1, 1)
+        self.linacMainscreenSynoptic = linacMainscreenSynoptic(self.scrollAreaWidgetContents_3)
+        self.linacMainscreenSynoptic.setObjectName(_fromUtf8("linacMainscreenSynoptic"))
+        self.gridLayout_7.addWidget(self.linacMainscreenSynoptic, 1, 1, 1, 1)
+        spacerItem10 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
+        self.gridLayout_7.addItem(spacerItem10, 1, 2, 1, 1)
+        spacerItem11 = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
+        self.gridLayout_7.addItem(spacerItem11, 0, 1, 1, 1)
+        self.mainscreenScrollArea.setWidget(self.scrollAreaWidgetContents_3)
+        self.gridLayout_6.addWidget(self.mainscreenScrollArea, 0, 0, 1, 1)
         self.linacTabs.addTab(self.mainscreenTab, _fromUtf8(""))
         self.gridLayout.addWidget(self.linacTabs, 0, 0, 1, 1)
 
         self.retranslateUi(linacGui)
-        self.linacTabs.setCurrentIndex(1)
+        self.linacTabs.setCurrentIndex(2)
         QtCore.QMetaObject.connectSlotsByName(linacGui)
 
     def retranslateUi(self, linacGui):
@@ -120,5 +143,6 @@ class Ui_linacGui(object):
 
 from linacstartupsynoptic import linacStartupSynoptic
 from linacplcwidget import linacPlcWidget
+from linacmainscreensynoptic import linacMainscreenSynoptic
 from linacoverview import linacOverview
 from taurus.qt.qtgui.container import TaurusFrame

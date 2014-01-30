@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'linacStartupSynoptic.ui'
 #
-# Created: Tue Jan 21 15:25:52 2014
+# Created: Wed Jan 22 14:39:17 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -17,8 +17,9 @@ except AttributeError:
 class Ui_linacStartupSynoptic(object):
     def setupUi(self, linacStartupSynoptic):
         linacStartupSynoptic.setObjectName(_fromUtf8("linacStartupSynoptic"))
-        linacStartupSynoptic.resize(1250, 825)
+        linacStartupSynoptic.resize(1235, 821)
         linacStartupSynoptic.setMinimumSize(QtCore.QSize(1235, 821))
+        linacStartupSynoptic.setMaximumSize(QtCore.QSize(1235, 821))
         self.StartUpSchematic = TaurusJDrawSynopticsView(linacStartupSynoptic)
         self.StartUpSchematic.setGeometry(QtCore.QRect(0, 0, 1250, 825))
         brush = QtGui.QBrush(QtGui.QColor(0, 0, 0, 25))
