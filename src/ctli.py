@@ -184,6 +184,7 @@ class MainWindow(TaurusMainWindow):
 
     def _setStartup_cooling(self):
         startup_ui = self.ui.linacStartupSynoptic._ui
+        startup_ui.cl1onLed.setModel('li/ct/plc2/CL1_ONC')
         startup_ui.cl1onCheck.setModel('li/ct/plc2/CL1_ONC')
         startup_ui.cl1TemperatureValue.setModel('li/ct/plc2/CL1_T')
         self._cl1Manager = CheckboxManager(startup_ui.cl1Popup,
@@ -195,6 +196,7 @@ class MainWindow(TaurusMainWindow):
         startup_ui.coolingLoop1._ui.coolingLoopStatus.setModel('li/ct/plc2/CL1_Status')
         startup_ui.coolingLoop1._ui.temperatureValue.setModel('li/ct/plc2/CL1_T')
         startup_ui.coolingLoop1._ui.powerValue.setModel('li/ct/plc2/CL1_PWD')
+        startup_ui.cl2onLed.setModel('li/ct/plc2/CL2_ONC')
         startup_ui.cl2onCheck.setModel('li/ct/plc2/CL2_ONC')
         startup_ui.cl2TemperatureValue.setModel('li/ct/plc2/CL2_T')
         self._cl2Manager = CheckboxManager(startup_ui.cl2Popup,
@@ -206,6 +208,7 @@ class MainWindow(TaurusMainWindow):
         startup_ui.coolingLoop2._ui.coolingLoopStatus.setModel('li/ct/plc2/CL2_Status')
         startup_ui.coolingLoop2._ui.temperatureValue.setModel('li/ct/plc2/CL2_T')
         startup_ui.coolingLoop2._ui.powerValue.setModel('li/ct/plc2/CL2_PWD')
+        startup_ui.cl3onLed.setModel('li/ct/plc2/CL3_ONC')
         startup_ui.cl3onCheck.setModel('li/ct/plc2/CL3_ONC')
         startup_ui.cl3TemperatureValue.setModel('li/ct/plc2/CL3_T')
         self._cl3Manager = CheckboxManager(startup_ui.cl3Popup,

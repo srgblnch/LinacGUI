@@ -6,20 +6,20 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1235</width>
-    <height>821</height>
+    <width>1250</width>
+    <height>825</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>1235</width>
-    <height>821</height>
+    <width>1250</width>
+    <height>825</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>1235</width>
-    <height>821</height>
+    <width>1250</width>
+    <height>825</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -30,8 +30,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1250</width>
-     <height>825</height>
+     <width>1265</width>
+     <height>829</height>
     </rect>
    </property>
    <property name="foregroundBrush">
@@ -50,8 +50,8 @@
   <widget class="TaurusLed" name="sl1Led">
    <property name="geometry">
     <rect>
-     <x>165</x>
-     <y>470</y>
+     <x>170</x>
+     <y>475</y>
      <width>10</width>
      <height>10</height>
     </rect>
@@ -69,8 +69,8 @@
   <widget class="TaurusLed" name="vv1Led">
    <property name="geometry">
     <rect>
-     <x>200</x>
-     <y>510</y>
+     <x>205</x>
+     <y>515</y>
      <width>10</width>
      <height>10</height>
     </rect>
@@ -88,8 +88,8 @@
   <widget class="TaurusLed" name="sl2Led">
    <property name="geometry">
     <rect>
-     <x>248</x>
-     <y>470</y>
+     <x>253</x>
+     <y>475</y>
      <width>10</width>
      <height>10</height>
     </rect>
@@ -107,8 +107,8 @@
   <widget class="TaurusLed" name="sl3Led">
    <property name="geometry">
     <rect>
-     <x>330</x>
-     <y>470</y>
+     <x>335</x>
+     <y>475</y>
      <width>10</width>
      <height>10</height>
     </rect>
@@ -126,8 +126,8 @@
   <widget class="TaurusLed" name="sl4Led">
    <property name="geometry">
     <rect>
-     <x>402</x>
-     <y>470</y>
+     <x>407</x>
+     <y>475</y>
      <width>10</width>
      <height>10</height>
     </rect>
@@ -145,8 +145,8 @@
   <widget class="TaurusLed" name="bc1Led">
    <property name="geometry">
     <rect>
-     <x>465</x>
-     <y>470</y>
+     <x>473</x>
+     <y>475</y>
      <width>10</width>
      <height>10</height>
     </rect>
@@ -164,8 +164,8 @@
   <widget class="TaurusLed" name="bc2Led">
    <property name="geometry">
     <rect>
-     <x>505</x>
-     <y>470</y>
+     <x>510</x>
+     <y>475</y>
      <width>10</width>
      <height>10</height>
     </rect>
@@ -183,8 +183,8 @@
   <widget class="TaurusValueSpinBox" name="cl1TemperatureValue">
    <property name="geometry">
     <rect>
-     <x>455</x>
-     <y>390</y>
+     <x>460</x>
+     <y>395</y>
      <width>70</width>
      <height>22</height>
     </rect>
@@ -199,8 +199,8 @@
   <widget class="TaurusLed" name="vv2Led">
    <property name="geometry">
     <rect>
-     <x>556</x>
-     <y>510</y>
+     <x>563</x>
+     <y>515</y>
      <width>10</width>
      <height>10</height>
     </rect>
@@ -218,8 +218,8 @@
   <widget class="TaurusLed" name="glLed">
    <property name="geometry">
     <rect>
-     <x>640</x>
-     <y>470</y>
+     <x>647</x>
+     <y>475</y>
      <width>10</width>
      <height>10</height>
     </rect>
@@ -272,8 +272,8 @@
   <widget class="TaurusLed" name="vv4Led">
    <property name="geometry">
     <rect>
-     <x>807</x>
-     <y>510</y>
+     <x>815</x>
+     <y>515</y>
      <width>10</width>
      <height>10</height>
     </rect>
@@ -291,8 +291,8 @@
   <widget class="TaurusLed" name="vv5Led">
    <property name="geometry">
     <rect>
-     <x>959</x>
-     <y>510</y>
+     <x>968</x>
+     <y>515</y>
      <width>10</width>
      <height>10</height>
     </rect>
@@ -326,8 +326,8 @@
   <widget class="TaurusLed" name="vv6Led">
    <property name="geometry">
     <rect>
-     <x>1092</x>
-     <y>510</y>
+     <x>1101</x>
+     <y>515</y>
      <width>10</width>
      <height>10</height>
     </rect>
@@ -345,8 +345,8 @@
   <widget class="TaurusLed" name="vv7Led">
    <property name="geometry">
     <rect>
-     <x>1209</x>
-     <y>510</y>
+     <x>1220</x>
+     <y>515</y>
      <width>10</width>
      <height>10</height>
     </rect>
@@ -364,8 +364,8 @@
   <widget class="TaurusLed" name="ip1Led">
    <property name="geometry">
     <rect>
-     <x>45</x>
-     <y>640</y>
+     <x>50</x>
+     <y>645</y>
      <width>10</width>
      <height>10</height>
     </rect>
@@ -380,8 +380,8 @@
   <widget class="TaurusLed" name="ip2Led">
    <property name="geometry">
     <rect>
-     <x>90</x>
-     <y>640</y>
+     <x>95</x>
+     <y>645</y>
      <width>10</width>
      <height>10</height>
     </rect>
@@ -396,8 +396,8 @@
   <widget class="TaurusLed" name="ip3Led">
    <property name="geometry">
     <rect>
-     <x>295</x>
-     <y>640</y>
+     <x>302</x>
+     <y>645</y>
      <width>10</width>
      <height>10</height>
     </rect>
@@ -412,8 +412,8 @@
   <widget class="TaurusLed" name="ip4Led">
    <property name="geometry">
     <rect>
-     <x>495</x>
-     <y>640</y>
+     <x>503</x>
+     <y>645</y>
      <width>10</width>
      <height>10</height>
     </rect>
@@ -428,8 +428,8 @@
   <widget class="TaurusLed" name="ip5Led">
    <property name="geometry">
     <rect>
-     <x>615</x>
-     <y>640</y>
+     <x>623</x>
+     <y>645</y>
      <width>10</width>
      <height>10</height>
     </rect>
@@ -444,8 +444,8 @@
   <widget class="TaurusLed" name="ip6Led">
    <property name="geometry">
     <rect>
-     <x>715</x>
-     <y>640</y>
+     <x>722</x>
+     <y>645</y>
      <width>10</width>
      <height>10</height>
     </rect>
@@ -460,8 +460,8 @@
   <widget class="TaurusLed" name="ip7Led">
    <property name="geometry">
     <rect>
-     <x>865</x>
-     <y>640</y>
+     <x>873</x>
+     <y>645</y>
      <width>10</width>
      <height>10</height>
     </rect>
@@ -476,8 +476,8 @@
   <widget class="TaurusLed" name="ip8Led">
    <property name="geometry">
     <rect>
-     <x>1003</x>
-     <y>640</y>
+     <x>1010</x>
+     <y>645</y>
      <width>10</width>
      <height>10</height>
     </rect>
@@ -492,8 +492,8 @@
   <widget class="TaurusLed" name="ip9Led">
    <property name="geometry">
     <rect>
-     <x>1137</x>
-     <y>640</y>
+     <x>1147</x>
+     <y>645</y>
      <width>10</width>
      <height>10</height>
     </rect>
@@ -588,7 +588,7 @@
   <widget class="TaurusLabel" name="ipc1Value1">
    <property name="geometry">
     <rect>
-     <x>20</x>
+     <x>30</x>
      <y>720</y>
      <width>75</width>
      <height>16</height>
@@ -598,7 +598,7 @@
   <widget class="TaurusLabel" name="ipc1Value2">
    <property name="geometry">
     <rect>
-     <x>20</x>
+     <x>30</x>
      <y>740</y>
      <width>75</width>
      <height>16</height>
@@ -608,7 +608,7 @@
   <widget class="TaurusLabel" name="hvg1Value">
    <property name="geometry">
     <rect>
-     <x>100</x>
+     <x>110</x>
      <y>720</y>
      <width>75</width>
      <height>16</height>
@@ -618,7 +618,7 @@
   <widget class="TaurusLabel" name="hvg2Value">
    <property name="geometry">
     <rect>
-     <x>250</x>
+     <x>260</x>
      <y>720</y>
      <width>75</width>
      <height>16</height>
@@ -628,7 +628,7 @@
   <widget class="TaurusLabel" name="ipc2Value1">
    <property name="geometry">
     <rect>
-     <x>350</x>
+     <x>360</x>
      <y>720</y>
      <width>75</width>
      <height>16</height>
@@ -638,7 +638,7 @@
   <widget class="TaurusLabel" name="ipc2Value2">
    <property name="geometry">
     <rect>
-     <x>350</x>
+     <x>360</x>
      <y>740</y>
      <width>75</width>
      <height>16</height>
@@ -648,7 +648,7 @@
   <widget class="TaurusLabel" name="hvg3Value">
    <property name="geometry">
     <rect>
-     <x>450</x>
+     <x>460</x>
      <y>720</y>
      <width>75</width>
      <height>16</height>
@@ -678,7 +678,7 @@
   <widget class="TaurusLabel" name="hvg4Value">
    <property name="geometry">
     <rect>
-     <x>730</x>
+     <x>740</x>
      <y>720</y>
      <width>75</width>
      <height>16</height>
@@ -718,7 +718,7 @@
   <widget class="TaurusLabel" name="ipc5Value1">
    <property name="geometry">
     <rect>
-     <x>1100</x>
+     <x>1110</x>
      <y>720</y>
      <width>75</width>
      <height>16</height>
@@ -751,7 +751,7 @@
   <widget class="QCheckBox" name="k1Popup">
    <property name="geometry">
     <rect>
-     <x>750</x>
+     <x>755</x>
      <y>85</y>
      <width>21</width>
      <height>21</height>
@@ -764,7 +764,7 @@
   <widget class="QCheckBox" name="k2Popup">
    <property name="geometry">
     <rect>
-     <x>1035</x>
+     <x>1040</x>
      <y>15</y>
      <width>21</width>
      <height>21</height>
@@ -777,7 +777,7 @@
   <widget class="QWidget" name="layoutWidget_2">
    <property name="geometry">
     <rect>
-     <x>1020</x>
+     <x>1030</x>
      <y>210</y>
      <width>91</width>
      <height>52</height>
@@ -874,11 +874,14 @@
     <rect>
      <x>740</x>
      <y>210</y>
-     <width>91</width>
+     <width>96</width>
      <height>52</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="k1layout">
+    <property name="leftMargin">
+     <number>8</number>
+    </property>
     <item>
      <layout class="QHBoxLayout" name="k1onLayout">
       <item>
@@ -964,7 +967,7 @@
   <widget class="QCheckBox" name="cl1Popup">
    <property name="geometry">
     <rect>
-     <x>505</x>
+     <x>510</x>
      <y>345</y>
      <width>21</width>
      <height>21</height>
@@ -977,7 +980,7 @@
   <widget class="QCheckBox" name="cl2Popup">
    <property name="geometry">
     <rect>
-     <x>720</x>
+     <x>725</x>
      <y>345</y>
      <width>21</width>
      <height>21</height>
@@ -990,7 +993,7 @@
   <widget class="QCheckBox" name="cl3Popup">
    <property name="geometry">
     <rect>
-     <x>1000</x>
+     <x>1010</x>
      <y>345</y>
      <width>21</width>
      <height>21</height>
@@ -1075,11 +1078,14 @@
     <rect>
      <x>920</x>
      <y>280</y>
-     <width>48</width>
+     <width>77</width>
      <height>23</height>
     </rect>
    </property>
    <layout class="QHBoxLayout" name="cl3onLayout">
+    <property name="leftMargin">
+     <number>11</number>
+    </property>
     <item>
      <widget class="QLabel" name="cl3onLabel">
       <property name="text">
@@ -1100,14 +1106,30 @@
       </property>
      </widget>
     </item>
+    <item>
+     <widget class="TaurusLed" name="cl3onLed">
+      <property name="minimumSize">
+       <size>
+        <width>15</width>
+        <height>15</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>15</width>
+        <height>15</height>
+       </size>
+      </property>
+     </widget>
+    </item>
    </layout>
   </widget>
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>630</x>
+     <x>640</x>
      <y>280</y>
-     <width>54</width>
+     <width>71</width>
      <height>23</height>
     </rect>
    </property>
@@ -1135,6 +1157,22 @@
       </property>
      </widget>
     </item>
+    <item>
+     <widget class="TaurusLed" name="cl2onLed">
+      <property name="minimumSize">
+       <size>
+        <width>15</width>
+        <height>15</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>15</width>
+        <height>15</height>
+       </size>
+      </property>
+     </widget>
+    </item>
    </layout>
   </widget>
   <widget class="QWidget" name="layoutWidget">
@@ -1142,13 +1180,13 @@
     <rect>
      <x>410</x>
      <y>280</y>
-     <width>54</width>
+     <width>80</width>
      <height>23</height>
     </rect>
    </property>
    <layout class="QHBoxLayout" name="cl1onLayout">
     <property name="leftMargin">
-     <number>7</number>
+     <number>14</number>
     </property>
     <item>
      <widget class="QLabel" name="cl1onLabel">
@@ -1170,18 +1208,37 @@
       </property>
      </widget>
     </item>
+    <item>
+     <widget class="TaurusLed" name="cl1onLed">
+      <property name="minimumSize">
+       <size>
+        <width>15</width>
+        <height>15</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>15</width>
+        <height>15</height>
+       </size>
+      </property>
+     </widget>
+    </item>
    </layout>
   </widget>
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>540</y>
-     <width>66</width>
+     <y>550</y>
+     <width>71</width>
      <height>23</height>
     </rect>
    </property>
    <layout class="QHBoxLayout" name="vvrstLayout">
+    <property name="leftMargin">
+     <number>7</number>
+    </property>
     <item>
      <widget class="TaurusValueCheckBox" name="vv_rstCheck">
       <property name="showText">
@@ -1207,15 +1264,15 @@
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>70</x>
-     <y>760</y>
-     <width>81</width>
-     <height>27</height>
+     <x>80</x>
+     <y>770</y>
+     <width>71</width>
+     <height>21</height>
     </rect>
    </property>
    <layout class="QHBoxLayout" name="vvLayout">
     <property name="topMargin">
-     <number>5</number>
+     <number>0</number>
     </property>
     <item>
      <widget class="QLabel" name="vv_oncLabel">
@@ -1242,7 +1299,7 @@
   <widget class="CoolingLoop" name="coolingLoop1">
    <property name="geometry">
     <rect>
-     <x>530</x>
+     <x>535</x>
      <y>310</y>
      <width>130</width>
      <height>140</height>
@@ -1252,7 +1309,7 @@
   <widget class="CoolingLoop" name="coolingLoop2">
    <property name="geometry">
     <rect>
-     <x>740</x>
+     <x>745</x>
      <y>310</y>
      <width>130</width>
      <height>140</height>
@@ -1262,7 +1319,7 @@
   <widget class="CoolingLoop" name="coolingLoop3">
    <property name="geometry">
     <rect>
-     <x>1020</x>
+     <x>1030</x>
      <y>310</y>
      <width>130</width>
      <height>140</height>
@@ -1291,8 +1348,8 @@
   <widget class="TaurusLed" name="as1Led">
    <property name="geometry">
     <rect>
-     <x>755</x>
-     <y>495</y>
+     <x>760</x>
+     <y>497</y>
      <width>10</width>
      <height>10</height>
     </rect>
@@ -1310,8 +1367,8 @@
   <widget class="TaurusLed" name="as2Led">
    <property name="geometry">
     <rect>
-     <x>1035</x>
-     <y>495</y>
+     <x>1045</x>
+     <y>497</y>
      <width>10</width>
      <height>10</height>
     </rect>
@@ -1331,11 +1388,14 @@
     <rect>
      <x>195</x>
      <y>755</y>
-     <width>64</width>
+     <width>68</width>
      <height>23</height>
     </rect>
    </property>
    <layout class="QHBoxLayout" name="vv1Layout">
+    <property name="leftMargin">
+     <number>5</number>
+    </property>
     <item>
      <widget class="TaurusValueCheckBox" name="vv1_oncCheck">
       <property name="showText">
@@ -1361,7 +1421,7 @@
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>511</x>
+     <x>520</x>
      <y>755</y>
      <width>64</width>
      <height>23</height>
@@ -1395,11 +1455,14 @@
     <rect>
      <x>670</x>
      <y>755</y>
-     <width>64</width>
+     <width>70</width>
      <height>23</height>
     </rect>
    </property>
    <layout class="QHBoxLayout" name="vv3Layout">
+    <property name="leftMargin">
+     <number>7</number>
+    </property>
     <item>
      <widget class="TaurusValueCheckBox" name="vv3_oncCheck">
       <property name="showText">
@@ -1425,7 +1488,7 @@
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>763</x>
+     <x>770</x>
      <y>755</y>
      <width>64</width>
      <height>23</height>
@@ -1457,13 +1520,16 @@
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>915</x>
+     <x>920</x>
      <y>755</y>
-     <width>64</width>
+     <width>70</width>
      <height>23</height>
     </rect>
    </property>
    <layout class="QHBoxLayout" name="vv5Layout">
+    <property name="leftMargin">
+     <number>3</number>
+    </property>
     <item>
      <widget class="QLabel" name="vv5_oncLabel">
       <property name="text">
@@ -1489,13 +1555,16 @@
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>1049</x>
+     <x>1050</x>
      <y>755</y>
-     <width>64</width>
+     <width>70</width>
      <height>23</height>
     </rect>
    </property>
    <layout class="QHBoxLayout" name="vv6Layout">
+    <property name="leftMargin">
+     <number>7</number>
+    </property>
     <item>
      <widget class="QLabel" name="vv6_oncLabel">
       <property name="text">
@@ -1521,13 +1590,16 @@
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>1165</x>
+     <x>1170</x>
      <y>755</y>
-     <width>64</width>
+     <width>70</width>
      <height>23</height>
     </rect>
    </property>
    <layout class="QHBoxLayout" name="vv7Layout">
+    <property name="leftMargin">
+     <number>7</number>
+    </property>
     <item>
      <widget class="QLabel" name="vv7_oncLabel">
       <property name="text">
@@ -1553,7 +1625,7 @@
   <widget class="TaurusLed" name="kaenbLed">
    <property name="geometry">
     <rect>
-     <x>70</x>
+     <x>75</x>
      <y>40</y>
      <width>10</width>
      <height>10</height>
@@ -1575,7 +1647,7 @@
   <widget class="TaurusLed" name="miisLed">
    <property name="geometry">
     <rect>
-     <x>130</x>
+     <x>135</x>
      <y>75</y>
      <width>10</width>
      <height>10</height>
@@ -1597,7 +1669,7 @@
   <widget class="TaurusLed" name="uiisLed">
    <property name="geometry">
     <rect>
-     <x>130</x>
+     <x>135</x>
      <y>147</y>
      <width>10</width>
      <height>10</height>
@@ -1645,7 +1717,7 @@
   <widget class="TaurusLed" name="acisLed">
    <property name="geometry">
     <rect>
-     <x>130</x>
+     <x>135</x>
      <y>165</y>
      <width>10</width>
      <height>10</height>
@@ -1670,7 +1742,7 @@
   <widget class="TaurusLed" name="tlvokLed">
    <property name="geometry">
     <rect>
-     <x>70</x>
+     <x>75</x>
      <y>183</y>
      <width>10</width>
      <height>10</height>
@@ -1692,7 +1764,7 @@
   <widget class="TaurusLed" name="livokLed">
    <property name="geometry">
     <rect>
-     <x>130</x>
+     <x>135</x>
      <y>195</y>
      <width>10</width>
      <height>10</height>
@@ -1717,8 +1789,8 @@
   <widget class="TaurusLed" name="egenbLed">
    <property name="geometry">
     <rect>
-     <x>70</x>
-     <y>205</y>
+     <x>75</x>
+     <y>207</y>
      <width>10</width>
      <height>10</height>
     </rect>
@@ -1739,7 +1811,7 @@
   <widget class="TaurusLed" name="gmdiLed">
    <property name="geometry">
     <rect>
-     <x>130</x>
+     <x>135</x>
      <y>218</y>
      <width>10</width>
      <height>10</height>
@@ -1761,7 +1833,7 @@
   <widget class="TaurusLed" name="ka2enLed">
    <property name="geometry">
     <rect>
-     <x>285</x>
+     <x>290</x>
      <y>52</y>
      <width>10</width>
      <height>10</height>
@@ -1786,7 +1858,7 @@
   <widget class="TaurusLed" name="ka1enLed">
    <property name="geometry">
     <rect>
-     <x>285</x>
+     <x>290</x>
      <y>124</y>
      <width>10</width>
      <height>10</height>
@@ -1811,7 +1883,7 @@
   <widget class="TaurusLed" name="uiLed">
    <property name="geometry">
     <rect>
-     <x>276</x>
+     <x>281</x>
      <y>25</y>
      <width>10</width>
      <height>10</height>
@@ -1833,7 +1905,7 @@
   <widget class="TaurusLed" name="livokLed_2">
    <property name="geometry">
     <rect>
-     <x>285</x>
+     <x>290</x>
      <y>170</y>
      <width>10</width>
      <height>10</height>
@@ -1858,7 +1930,7 @@
   <widget class="TaurusLed" name="lirdyLed">
    <property name="geometry">
     <rect>
-     <x>285</x>
+     <x>290</x>
      <y>195</y>
      <width>10</width>
      <height>10</height>
@@ -1953,15 +2025,15 @@
   <widget class="QWidget" name="layoutWidget_3">
    <property name="geometry">
     <rect>
-     <x>10</x>
+     <x>20</x>
      <y>310</y>
-     <width>76</width>
+     <width>71</width>
      <height>23</height>
     </rect>
    </property>
    <layout class="QHBoxLayout" name="egunonLayout">
     <property name="leftMargin">
-     <number>10</number>
+     <number>0</number>
     </property>
     <item>
      <widget class="QLabel" name="egunonLabel">
@@ -2004,7 +2076,7 @@
   <widget class="QCheckBox" name="egunPopup">
    <property name="geometry">
     <rect>
-     <x>120</x>
+     <x>125</x>
      <y>370</y>
      <width>21</width>
      <height>21</height>
@@ -2019,11 +2091,14 @@
     <rect>
      <x>20</x>
      <y>400</y>
-     <width>126</width>
+     <width>128</width>
      <height>81</height>
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout">
+    <property name="leftMargin">
+     <number>3</number>
+    </property>
     <item row="0" column="0">
      <widget class="TaurusValueSpinBox" name="filamentSetpoint">
       <property name="autoApply">
@@ -2109,10 +2184,10 @@
   <widget class="eGunLV" name="eGunLV">
    <property name="geometry">
     <rect>
-     <x>150</x>
-     <y>360</y>
+     <x>155</x>
+     <y>343</y>
      <width>157</width>
-     <height>94</height>
+     <height>111</height>
     </rect>
    </property>
   </widget>
