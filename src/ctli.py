@@ -70,6 +70,7 @@ class MainWindow(TaurusMainWindow):
         #serialised alternative of setModel
         self.setCommunications()
         self.setStartup()
+        self.setMainscreen()
 
     ######
     #---- Auxiliar methods to configure widgets
@@ -78,13 +79,17 @@ class MainWindow(TaurusMainWindow):
         widget.setOnColor('green')
         widget.setOffColor('white')
 
-    def _setupLed4Attr(self,widget,attrName,inverted=False):
+    def _setupLed4Attr(self,widget,attrName,inverted=False,onColor='green',offColor='red',pattern='on'):
         widget.setModel(attrName)
-        widget.setLedPatternName(":leds/images256/led_{color}_on.png")
-        widget.setOnColor('green')
-        widget.setOffColor('red')
+        if pattern == 'on':
+            widget.setLedPatternName(":leds/images256/led_{color}_on.png")
+        widget.setOnColor(onColor)
+        widget.setOffColor(offColor)
         if inverted:
             widget.setLedInverted(True)
+
+    def _setupCheckbox4UnknownAttr(self,widget):
+        widget.setEnabled(False)
 
     def _setupCheckbox4Attr(self,widget,attrName):
         widget.setModel(attrName)
@@ -100,6 +105,13 @@ class MainWindow(TaurusMainWindow):
         widget.setModel(attrName)
         if unit:
             widget.setSuffixText(' %s'%unit)
+
+    def _setupCombobox4Attr(self,widget,attrName,valueNames=None):
+        widget.setModel(attrName)
+        widget.setAutoApply(True)
+        widget.setForcedApply(True)
+        if valueNames != None and type(valueNames) == list and len(valueNames) > 0:
+            widget.addValueNames(valueNames)
     #---- Done auxiliar methods to configure widgets
     ######
 
@@ -400,9 +412,218 @@ class MainWindow(TaurusMainWindow):
         startup_ui.ipc4Value1.setModel('li/ct/plc2/IP7_P')
         startup_ui.ipc4Value2.setModel('li/ct/plc2/IP8_P')
         startup_ui.ipc5Value1.setModel('li/ct/plc2/IP9_P')
-        #TODO:
-        #startup_ui.vv_rstCheck.setmodel('')
-        #startup_ui.vv_oncCheck.setmodel('')
+
+    def setMainscreen(self):
+        #following the synoptic regions from left to right and from top to bottom
+        self._setMainscreen_tb()
+        self._setMainscreen_klystronHV()
+        self._setMainscreen_rf()
+        self._setMainscreen_cl()
+        self._setMainscreen_kd()
+        self._setMainscreen_magnets()
+        self._setMainscreen_hvs()
+        self._setMainscreen_vacuum()
+        self._setMainscreen_fs()
+        
+    def _setMainscreen_tb(self):
+        mainscreen_ui = self.ui.linacMainscreenSynoptic._ui
+        self._setupSpinBox4Attr(mainscreen_ui.tbKaDelay1Value,'li/ct/plc1/TB_KA1_Delay')
+        self._setupSpinBox4Attr(mainscreen_ui.tbKaDelay2Value,'li/ct/plc1/TB_KA2_Delay')
+        self._setupSpinBox4Attr(mainscreen_ui.tbFf2DelayValue,'li/ct/plc1/TB_RF2_Delay')
+        self._setupSpinBox4Attr(mainscreen_ui.tbGunLevelValue,'li/ct/plc1/TB_Gun_Delay')
+        self._setupSpinBox4Attr(mainscreen_ui.tbMultiBunchValue,'li/ct/plc1/TB_MBM')
+#        self._setupCombobox4Attr(mainscreen_ui.tbGatedPulseModeValue,'li/ct/plc1/TB_GPM',
+#                                 [('off',0),('mix',1),('on',2)])
+        mainscreen_ui.tbGatedPulseModeValue.setEnabled(False)#FIXME
+        self._setupSpinBox4Attr(mainscreen_ui.tbGunDelayValue,'li/ct/plc1/TB_Gun_Delay')
+        self._setupSpinBox4Attr(mainscreen_ui.tbWidthValue,'li/ct/plc1/TB_GPI')
+        self._setupSpinBox4Attr(mainscreen_ui.tbNumberValue,'li/ct/plc1/TB_GPN')
+        self._setupLed4UnknownAttr(mainscreen_ui.tbTimerStatusStateLed)
+        self._setupLed4Attr(mainscreen_ui.rfEnbLed,'li/ct/plc1/RF_OK')
+    
+    def _setMainscreen_klystronHV(self):
+        mainscreen_ui = self.ui.linacMainscreenSynoptic._ui
+        klystrons = {1:{'setpoint':mainscreen_ui.klystron1HVValue,
+                        'setpoint_attrName':'li/ct/plc4/HVPS_V_setpoint',
+                        'rstCheck':mainscreen_ui.klystron1RstCheck,
+                        'rstLed':mainscreen_ui.klystron1RstLed,
+                        'rst_attrName':'li/ct/plc4/HVPS_Interlock_RC',
+                        'onCheck':mainscreen_ui.klystron1OnCheck,
+                        'onLed':mainscreen_ui.klystron1OnLed,
+                        'on_attrName':'li/ct/plc4/HVPS_ONC'},
+                     2:{'setpoint':mainscreen_ui.klystron2HVValue,
+                        'setpoint_attrName':'li/ct/plc5/HVPS_V_setpoint',
+                        'rstCheck':mainscreen_ui.klystron2RstCheck,
+                        'rstLed':mainscreen_ui.klystron2RstLed,
+                        'rst_attrName':'li/ct/plc5/HVPS_Interlock_RC',
+                        'onCheck':mainscreen_ui.klystron2OnCheck,
+                        'onLed':mainscreen_ui.klystron2OnLed,
+                        'on_attrName':'li/ct/plc5/HVPS_ONC'}
+                    }
+        for number in klystrons.keys():
+            self._setupSpinBox4Attr(klystrons[number]['setpoint'],
+                                    klystrons[number]['setpoint_attrName'])
+            self._setupCheckbox4Attr(klystrons[number]['rstCheck'],
+                                     klystrons[number]['rst_attrName'])
+            self._setupLed4Attr(klystrons[number]['rstLed'],
+                                klystrons[number]['rst_attrName'],pattern='')
+            self._setupCheckbox4Attr(klystrons[number]['onCheck'],
+                                     klystrons[number]['on_attrName'])
+            self._setupLed4Attr(klystrons[number]['onLed'],
+                                klystrons[number]['on_attrName'],pattern='')
+
+    def _setMainscreen_rf(self):
+        mainscreen_ui = self.ui.linacMainscreenSynoptic._ui
+        timePhaseShifters = {'0':mainscreen_ui.rfTimePhaseShifter0Value,
+                             '1':mainscreen_ui.rfTimePhaseShifter1Value,
+                             '2':mainscreen_ui.rfTimePhaseShifter2Value,
+                             'X':mainscreen_ui.rfTimePhaseShifterXValue}
+        for timeShifter in timePhaseShifters.keys():
+            attrName = 'li/ct/plc1/TPS%s_Phase'%timeShifter
+            self._setupSpinBox4Attr(timePhaseShifters[timeShifter],attrName)
+        self._setupSpinBox4Attr(mainscreen_ui.rfA0OutputPowerValue,'li/ct/plc1/A0_OP')
+        self._setupSpinBox4Attr(mainscreen_ui.attenuator2Value,'li/ct/plc1/ATT2_P')
+        phaseShifters = {'1':mainscreen_ui.rfPhaseShifter1Value,
+                         '2':mainscreen_ui.rfPhaseShifter2Value}
+        for shifter in phaseShifters.keys():
+            attrName = 'li/ct/plc1/PHS%s_Phase'%shifter
+            self._setupSpinBox4Attr(phaseShifters[shifter],attrName)
+        sf6pressures = {'1':mainscreen_ui.sf6p1Value,
+                        '2':mainscreen_ui.sf6p2Value}
+        for pressure in sf6pressures.keys():
+            attrName = 'li/ct/plc1/SF6_P%s'%pressure
+            self._setupTaurusLabel4Attr(sf6pressures[pressure],attrName,'bar')
+
+    def _setMainscreen_cl(self):
+        mainscreen_ui = self.ui.linacMainscreenSynoptic._ui
+        coolingLoops = {1:mainscreen_ui.coolingLoop1Led,
+                        2:mainscreen_ui.coolingLoop2Led,
+                        3:mainscreen_ui.coolingLoop3Led,
+                        }
+        for loop in coolingLoops.keys():
+            attrName = 'li/ct/plc2/CL%s_ONC'%loop
+            self._setupLed4Attr(coolingLoops[loop], attrName)
+    def _setMainscreen_kd(self):
+        mainscreen_ui = self.ui.linacMainscreenSynoptic._ui
+        self._setupSpinBox4Attr(mainscreen_ui.filamentSetpoint,'li/ct/plc1/GUN_Filament_V')
+        self._setupSpinBox4Attr(mainscreen_ui.cathodeSetpoint,'li/ct/plc1/GUN_Kathode_V')
+        self._setupTaurusLabel4Attr(mainscreen_ui.filamentCurrent,'li/ct/plc1/GUN_Filament_I','A')
+        self._setupTaurusLabel4Attr(mainscreen_ui.temperatureValue,'li/ct/plc1/GUN_Kathode_T','C')
+
+    def _setMainscreen_magnets(self):
+        mainscreen_ui = self.ui.linacMainscreenSynoptic._ui
+        magnets = {'sl1':{'state':mainscreen_ui.sl1Led,
+                          'h':mainscreen_ui.sl1hValue,
+                          'v':mainscreen_ui.sl1vValue,
+                          'f':mainscreen_ui.sl1fValue,
+                          'cmd':mainscreen_ui.sl1OnCheck},
+                   'sl2':{'state':mainscreen_ui.sl2Led,
+                          'h':mainscreen_ui.sl2hValue,
+                          'v':mainscreen_ui.sl2vValue,
+                          'f':mainscreen_ui.sl2fValue,
+                          'cmd':mainscreen_ui.sl2OnCheck},
+                   'sl3':{'state':mainscreen_ui.sl3Led,
+                          'h':mainscreen_ui.sl3hValue,
+                          'v':mainscreen_ui.sl3vValue,
+                          'f':mainscreen_ui.sl3fValue,
+                          'cmd':mainscreen_ui.sl3OnCheck},
+                   'sl4':{'state':mainscreen_ui.sl4Led,
+                          'h':mainscreen_ui.sl4hValue,
+                          'v':mainscreen_ui.sl4vValue,
+                          'f':mainscreen_ui.sl4fValue,
+                          'cmd':mainscreen_ui.sl4OnCheck},
+                   'bc1':{'state':mainscreen_ui.bc1Led,
+                          'h':mainscreen_ui.bc1hValue,
+                          'v':mainscreen_ui.bc1vValue,
+                          'f':mainscreen_ui.bc1fValue,
+                          'cmd':mainscreen_ui.bc1OnCheck},
+                   'bc2':{'state':mainscreen_ui.bc2Led,
+                          'h':mainscreen_ui.bc2hValue,
+                          'v':mainscreen_ui.bc2vValue,
+                          'f':mainscreen_ui.bc2fValue,
+                          'cmd':mainscreen_ui.bc2OnCheck},
+                   'gl': {'state':mainscreen_ui.glLed,
+                          'h':mainscreen_ui.glhValue,
+                          'v':mainscreen_ui.glvValue,
+                          'f':mainscreen_ui.glfValue,
+                          'cmd':mainscreen_ui.glOnCheck},
+                   'as1':{'state':mainscreen_ui.as1Led,
+                          'h':mainscreen_ui.as1hValue,
+                          'v':mainscreen_ui.as1vValue,
+                          'cmd':mainscreen_ui.as1OnCheck},
+                   'qt' :{'state':mainscreen_ui.qtLed,
+                          'cmd':mainscreen_ui.qt1OnCheck},
+                   'qt1':{'h':mainscreen_ui.qt1hValue,
+                          'v':mainscreen_ui.qt1vValue,
+                          'f':mainscreen_ui.qt1fValue},
+                   'qt2':{'f':mainscreen_ui.qt2fValue},
+                   'as2':{'state':mainscreen_ui.as2Led,
+                          'h':mainscreen_ui.as2hValue,
+                          'v':mainscreen_ui.as2vValue,
+                          'cmd':mainscreen_ui.as2OnCheck},
+                   }
+        for magnet in magnets.keys():
+            deviceName = 'li/ct/plc3'
+            if magnets[magnet].has_key('state'):
+                attrName = '%s/%s_onc'%(deviceName,magnet)
+                self._setupLed4Attr(magnets[magnet]['state'],attrName)
+            if magnets[magnet].has_key('h'):
+                attrName = '%s/%sh_I'%(deviceName,magnet)
+                self._setupSpinBox4Attr(magnets[magnet]['h'],attrName)
+            if magnets[magnet].has_key('v'):
+                attrName = '%s/%sv_I'%(deviceName,magnet)
+                self._setupSpinBox4Attr(magnets[magnet]['v'],attrName)
+            if magnets[magnet].has_key('f'):
+                attrName = '%s/%sf_I'%(deviceName,magnet)
+                self._setupSpinBox4Attr(magnets[magnet]['f'],attrName)
+            if magnets[magnet].has_key('cmd'):
+                attrName = '%s/%s_onc'%(deviceName,magnet)
+                self._setupCheckbox4Attr(magnets[magnet]['cmd'],attrName)
+        self._setupCheckbox4Attr(mainscreen_ui.magnetsRstCheck,
+                                 'li/ct/plc3/MA_Interlock_RC')
+        #FIXME: there is no attr to power on all magnets at once
+        self._setupLed4UnknownAttr(mainscreen_ui.magnetsOnLed)
+        self._setupCheckbox4UnknownAttr(mainscreen_ui.magnetsOnCheck)
+        
+    def _setMainscreen_hvs(self):
+        mainscreen_ui = self.ui.linacMainscreenSynoptic._ui
+        self._setupSpinBox4Attr(mainscreen_ui.hvsVoltageValue,'li/ct/plc1/GUN_HV_V')
+        self._setupTaurusLabel4Attr(mainscreen_ui.hvsCurrentValue,'li/ct/plc1/GUN_HV_I','A')
+        
+    def _setMainscreen_vacuum(self):
+        mainscreen_ui = self.ui.linacMainscreenSynoptic._ui
+        
+    def _setMainscreen_fs(self):
+        mainscreen_ui = self.ui.linacMainscreenSynoptic._ui
+        fluorescentScreens = {1:{'valve_led':mainscreen_ui.fluorescentScreen1ValveLed,
+                                 'valve_cmd':mainscreen_ui.fluorescentScreen1ValveCheck,
+                                 'valve_attrName':'li/ct/plc1/SCM1_DC',
+                                 'light_led':mainscreen_ui.fluorescentScreen1LightLed,
+                                 'light_cmd':mainscreen_ui.fluorescentScreen1LightCheck,
+                                 'light_attrName':'li/ct/plc1/SCM1_LC'},
+                              2:{'valve_led':mainscreen_ui.fluorescentScreen2ValveLed,
+                                 'valve_cmd':mainscreen_ui.fluorescentScreen2ValveCheck,
+                                 'valve_attrName':'li/ct/plc1/SCM2_DC',
+                                 'light_led':mainscreen_ui.fluorescentScreen2LightLed,
+                                 'light_cmd':mainscreen_ui.fluorescentScreen2LightCheck,
+                                 'light_attrName':'li/ct/plc1/SCM2_LC'},
+                              3:{'valve_led':mainscreen_ui.fluorescentScreen3ValveLed,
+                                 'valve_cmd':mainscreen_ui.fluorescentScreen3ValveCheck,
+                                 'valve_attrName':'li/ct/plc1/SCM3_DC',
+                                 'light_led':mainscreen_ui.fluorescentScreen3LightLed,
+                                 'light_cmd':mainscreen_ui.fluorescentScreen3LightCheck,
+                                 'light_attrName':'li/ct/plc1/SCM3_LC'}}
+        for fs in fluorescentScreens.keys():
+            self._setupLed4Attr(fluorescentScreens[fs]['valve_led'],
+                                fluorescentScreens[fs]['valve_attrName'],
+                                onColor='red',offColor='black')
+            self._setupCheckbox4Attr(fluorescentScreens[fs]['valve_cmd'],
+                                fluorescentScreens[fs]['valve_attrName'])
+            self._setupLed4Attr(fluorescentScreens[fs]['light_led'],
+                                fluorescentScreens[fs]['light_attrName'],
+                                onColor='green',offColor='black')
+            self._setupCheckbox4Attr(fluorescentScreens[fs]['light_cmd'],
+                                fluorescentScreens[fs]['light_attrName'])
 
 '''First approach to the Labview blinking leds with subboxes of sets of attrs.
 '''

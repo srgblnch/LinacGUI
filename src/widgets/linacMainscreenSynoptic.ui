@@ -47,37 +47,37 @@
     <string>jdraw/linac_mainscreen_synoptic.jdw</string>
    </property>
   </widget>
-  <widget class="TaurusValueSpinBox" name="kadelay1Value">
+  <widget class="TaurusValueSpinBox" name="tbKaDelay1Value">
    <property name="geometry">
     <rect>
-     <x>50</x>
+     <x>45</x>
      <y>50</y>
-     <width>56</width>
+     <width>60</width>
      <height>22</height>
     </rect>
    </property>
   </widget>
-  <widget class="TaurusValueSpinBox" name="kadelay2Value">
+  <widget class="TaurusValueSpinBox" name="tbKaDelay2Value">
    <property name="geometry">
     <rect>
-     <x>110</x>
+     <x>113</x>
      <y>50</y>
-     <width>56</width>
+     <width>60</width>
      <height>22</height>
     </rect>
    </property>
   </widget>
-  <widget class="TaurusValueSpinBox" name="rf2delayValue">
+  <widget class="TaurusValueSpinBox" name="tbFf2DelayValue">
    <property name="geometry">
     <rect>
      <x>180</x>
      <y>50</y>
-     <width>56</width>
+     <width>60</width>
      <height>22</height>
     </rect>
    </property>
   </widget>
-  <widget class="TaurusValueSpinBox" name="gunLevelValue">
+  <widget class="TaurusValueSpinBox" name="tbGunLevelValue">
    <property name="geometry">
     <rect>
      <x>400</x>
@@ -87,37 +87,37 @@
     </rect>
    </property>
   </widget>
-  <widget class="TaurusValueSpinBox" name="numberValue">
+  <widget class="TaurusValueSpinBox" name="tbNumberValue">
    <property name="geometry">
     <rect>
      <x>300</x>
      <y>110</y>
-     <width>56</width>
+     <width>60</width>
      <height>22</height>
     </rect>
    </property>
   </widget>
-  <widget class="TaurusValueSpinBox" name="WidthValue">
+  <widget class="TaurusValueSpinBox" name="tbWidthValue">
    <property name="geometry">
     <rect>
      <x>240</x>
      <y>110</y>
-     <width>56</width>
+     <width>60</width>
      <height>22</height>
     </rect>
    </property>
   </widget>
-  <widget class="TaurusValueSpinBox" name="gunDelayValue">
+  <widget class="TaurusValueSpinBox" name="tbGunDelayValue">
    <property name="geometry">
     <rect>
-     <x>180</x>
+     <x>178</x>
      <y>110</y>
-     <width>56</width>
+     <width>60</width>
      <height>22</height>
     </rect>
    </property>
   </widget>
-  <widget class="TaurusValueComboBox" name="gatedPulseModeValue">
+  <widget class="TaurusValueComboBox" name="tbGatedPulseModeValue">
    <property name="geometry">
     <rect>
      <x>100</x>
@@ -127,22 +127,22 @@
     </rect>
    </property>
   </widget>
-  <widget class="TaurusValueSpinBox" name="k1Value">
+  <widget class="TaurusValueSpinBox" name="klystron1HVValue">
    <property name="geometry">
     <rect>
-     <x>800</x>
+     <x>790</x>
      <y>130</y>
-     <width>56</width>
+     <width>80</width>
      <height>22</height>
     </rect>
    </property>
   </widget>
-  <widget class="TaurusValueSpinBox" name="k2Value">
+  <widget class="TaurusValueSpinBox" name="klystron2HVValue">
    <property name="geometry">
     <rect>
-     <x>1085</x>
+     <x>1075</x>
      <y>85</y>
-     <width>56</width>
+     <width>80</width>
      <height>22</height>
     </rect>
    </property>
@@ -150,26 +150,26 @@
   <widget class="TaurusLed" name="rfEnbLed">
    <property name="geometry">
     <rect>
-     <x>602</x>
+     <x>605</x>
      <y>15</y>
-     <width>15</width>
-     <height>15</height>
+     <width>10</width>
+     <height>10</height>
     </rect>
    </property>
    <property name="minimumSize">
     <size>
-     <width>15</width>
-     <height>15</height>
+     <width>10</width>
+     <height>10</height>
     </size>
    </property>
    <property name="maximumSize">
     <size>
-     <width>15</width>
-     <height>15</height>
+     <width>10</width>
+     <height>10</height>
     </size>
    </property>
   </widget>
-  <widget class="TaurusLed" name="tbLed">
+  <widget class="TaurusLed" name="tbTimerStatusStateLed">
    <property name="geometry">
     <rect>
      <x>473</x>
@@ -191,72 +191,72 @@
     </size>
    </property>
   </widget>
-  <widget class="TaurusValueSpinBox" name="tps0Value">
+  <widget class="TaurusValueSpinBox" name="rfTimePhaseShifter0Value">
    <property name="geometry">
     <rect>
-     <x>130</x>
+     <x>125</x>
      <y>310</y>
-     <width>56</width>
+     <width>60</width>
      <height>22</height>
     </rect>
    </property>
   </widget>
-  <widget class="TaurusValueSpinBox" name="a0gsValue">
+  <widget class="TaurusValueSpinBox" name="rfA0OutputPowerValue">
    <property name="geometry">
     <rect>
-     <x>190</x>
+     <x>185</x>
      <y>310</y>
-     <width>56</width>
+     <width>60</width>
      <height>22</height>
     </rect>
    </property>
   </widget>
-  <widget class="TaurusValueSpinBox" name="tpsxValue">
+  <widget class="TaurusValueSpinBox" name="rfTimePhaseShifterXValue">
    <property name="geometry">
     <rect>
-     <x>280</x>
+     <x>275</x>
      <y>280</y>
-     <width>56</width>
+     <width>60</width>
      <height>22</height>
     </rect>
    </property>
   </widget>
-  <widget class="TaurusValueSpinBox" name="att2Value">
+  <widget class="TaurusValueSpinBox" name="attenuator2Value">
    <property name="geometry">
     <rect>
      <x>380</x>
      <y>310</y>
-     <width>56</width>
+     <width>60</width>
      <height>22</height>
     </rect>
    </property>
   </widget>
-  <widget class="TaurusValueSpinBox" name="phs2Value">
+  <widget class="TaurusValueSpinBox" name="rfPhaseShifter2Value">
    <property name="geometry">
     <rect>
-     <x>440</x>
+     <x>445</x>
      <y>310</y>
-     <width>56</width>
+     <width>60</width>
      <height>22</height>
     </rect>
    </property>
   </widget>
-  <widget class="TaurusValueSpinBox" name="tps1Value">
+  <widget class="TaurusValueSpinBox" name="rfTimePhaseShifter1Value">
    <property name="geometry">
     <rect>
-     <x>530</x>
+     <x>525</x>
      <y>280</y>
-     <width>56</width>
+     <width>60</width>
      <height>22</height>
     </rect>
    </property>
   </widget>
-  <widget class="TaurusValueSpinBox" name="phs1Value">
+  <widget class="TaurusValueSpinBox" name="rfPhaseShifter1Value">
    <property name="geometry">
     <rect>
      <x>580</x>
      <y>310</y>
-     <width>56</width>
+     <width>60</width>
      <height>22</height>
     </rect>
    </property>
@@ -266,7 +266,7 @@
     <rect>
      <x>740</x>
      <y>310</y>
-     <width>75</width>
+     <width>80</width>
      <height>16</height>
     </rect>
    </property>
@@ -276,22 +276,22 @@
     <rect>
      <x>1020</x>
      <y>310</y>
-     <width>75</width>
+     <width>80</width>
      <height>16</height>
     </rect>
    </property>
   </widget>
-  <widget class="TaurusValueSpinBox" name="tps2Value">
+  <widget class="TaurusValueSpinBox" name="rfTimePhaseShifter2Value">
    <property name="geometry">
     <rect>
      <x>850</x>
      <y>280</y>
-     <width>56</width>
+     <width>60</width>
      <height>22</height>
     </rect>
    </property>
   </widget>
-  <widget class="TaurusLed" name="cl1Led">
+  <widget class="TaurusLed" name="coolingLoop1Led">
    <property name="geometry">
     <rect>
      <x>1170</x>
@@ -313,7 +313,7 @@
     </size>
    </property>
   </widget>
-  <widget class="TaurusLed" name="cl2Led">
+  <widget class="TaurusLed" name="coolingLoop2Led">
    <property name="geometry">
     <rect>
      <x>1170</x>
@@ -335,7 +335,7 @@
     </size>
    </property>
   </widget>
-  <widget class="TaurusLed" name="cl3Led">
+  <widget class="TaurusLed" name="coolingLoop3Led">
    <property name="geometry">
     <rect>
      <x>1170</x>
@@ -538,9 +538,9 @@
   <widget class="TaurusValueSpinBox" name="bc2hValue">
    <property name="geometry">
     <rect>
-     <x>510</x>
+     <x>505</x>
      <y>640</y>
-     <width>56</width>
+     <width>65</width>
      <height>22</height>
     </rect>
    </property>
@@ -548,9 +548,9 @@
   <widget class="TaurusValueSpinBox" name="bc2vValue">
    <property name="geometry">
     <rect>
-     <x>510</x>
+     <x>505</x>
      <y>670</y>
-     <width>56</width>
+     <width>65</width>
      <height>22</height>
     </rect>
    </property>
@@ -558,9 +558,9 @@
   <widget class="TaurusValueSpinBox" name="bc2fValue">
    <property name="geometry">
     <rect>
-     <x>510</x>
+     <x>505</x>
      <y>700</y>
-     <width>56</width>
+     <width>65</width>
      <height>22</height>
     </rect>
    </property>
@@ -568,9 +568,9 @@
   <widget class="TaurusValueSpinBox" name="bc1fValue">
    <property name="geometry">
     <rect>
-     <x>450</x>
+     <x>440</x>
      <y>700</y>
-     <width>56</width>
+     <width>65</width>
      <height>22</height>
     </rect>
    </property>
@@ -578,9 +578,9 @@
   <widget class="TaurusValueSpinBox" name="bc1vValue">
    <property name="geometry">
     <rect>
-     <x>450</x>
+     <x>440</x>
      <y>670</y>
-     <width>56</width>
+     <width>65</width>
      <height>22</height>
     </rect>
    </property>
@@ -588,9 +588,9 @@
   <widget class="TaurusValueSpinBox" name="bc1hValue">
    <property name="geometry">
     <rect>
-     <x>450</x>
+     <x>440</x>
      <y>640</y>
-     <width>56</width>
+     <width>65</width>
      <height>22</height>
     </rect>
    </property>
@@ -598,9 +598,9 @@
   <widget class="TaurusValueSpinBox" name="sl4hValue">
    <property name="geometry">
     <rect>
-     <x>390</x>
+     <x>375</x>
      <y>640</y>
-     <width>56</width>
+     <width>65</width>
      <height>22</height>
     </rect>
    </property>
@@ -608,9 +608,9 @@
   <widget class="TaurusValueSpinBox" name="sl3hValue">
    <property name="geometry">
     <rect>
-     <x>320</x>
+     <x>310</x>
      <y>640</y>
-     <width>56</width>
+     <width>65</width>
      <height>22</height>
     </rect>
    </property>
@@ -618,9 +618,9 @@
   <widget class="TaurusValueSpinBox" name="sl2hValue">
    <property name="geometry">
     <rect>
-     <x>230</x>
+     <x>225</x>
      <y>640</y>
-     <width>56</width>
+     <width>65</width>
      <height>22</height>
     </rect>
    </property>
@@ -628,9 +628,9 @@
   <widget class="TaurusValueSpinBox" name="sl1hValue">
    <property name="geometry">
     <rect>
-     <x>150</x>
+     <x>140</x>
      <y>640</y>
-     <width>56</width>
+     <width>65</width>
      <height>22</height>
     </rect>
    </property>
@@ -638,9 +638,9 @@
   <widget class="TaurusValueSpinBox" name="sl4vValue">
    <property name="geometry">
     <rect>
-     <x>390</x>
+     <x>375</x>
      <y>670</y>
-     <width>56</width>
+     <width>65</width>
      <height>22</height>
     </rect>
    </property>
@@ -648,9 +648,9 @@
   <widget class="TaurusValueSpinBox" name="sl4fValue">
    <property name="geometry">
     <rect>
-     <x>390</x>
+     <x>375</x>
      <y>700</y>
-     <width>56</width>
+     <width>65</width>
      <height>22</height>
     </rect>
    </property>
@@ -658,9 +658,9 @@
   <widget class="TaurusValueSpinBox" name="sl3vValue">
    <property name="geometry">
     <rect>
-     <x>320</x>
+     <x>310</x>
      <y>670</y>
-     <width>56</width>
+     <width>65</width>
      <height>22</height>
     </rect>
    </property>
@@ -668,9 +668,9 @@
   <widget class="TaurusValueSpinBox" name="sl2vValue">
    <property name="geometry">
     <rect>
-     <x>230</x>
+     <x>225</x>
      <y>670</y>
-     <width>56</width>
+     <width>65</width>
      <height>22</height>
     </rect>
    </property>
@@ -678,9 +678,9 @@
   <widget class="TaurusValueSpinBox" name="sl1vValue">
    <property name="geometry">
     <rect>
-     <x>150</x>
+     <x>140</x>
      <y>670</y>
-     <width>56</width>
+     <width>65</width>
      <height>22</height>
     </rect>
    </property>
@@ -688,9 +688,9 @@
   <widget class="TaurusValueSpinBox" name="sl1fValue">
    <property name="geometry">
     <rect>
-     <x>150</x>
+     <x>140</x>
      <y>700</y>
-     <width>56</width>
+     <width>65</width>
      <height>22</height>
     </rect>
    </property>
@@ -698,9 +698,9 @@
   <widget class="TaurusValueSpinBox" name="sl3fValue">
    <property name="geometry">
     <rect>
-     <x>320</x>
+     <x>310</x>
      <y>700</y>
-     <width>56</width>
+     <width>65</width>
      <height>22</height>
     </rect>
    </property>
@@ -708,9 +708,9 @@
   <widget class="TaurusValueSpinBox" name="sl2fValue">
    <property name="geometry">
     <rect>
-     <x>230</x>
+     <x>225</x>
      <y>700</y>
-     <width>56</width>
+     <width>65</width>
      <height>22</height>
     </rect>
    </property>
@@ -912,7 +912,7 @@
     <rect>
      <x>630</x>
      <y>640</y>
-     <width>56</width>
+     <width>65</width>
      <height>22</height>
     </rect>
    </property>
@@ -922,7 +922,7 @@
     <rect>
      <x>630</x>
      <y>670</y>
-     <width>56</width>
+     <width>65</width>
      <height>22</height>
     </rect>
    </property>
@@ -932,7 +932,7 @@
     <rect>
      <x>630</x>
      <y>700</y>
-     <width>56</width>
+     <width>65</width>
      <height>22</height>
     </rect>
    </property>
@@ -974,7 +974,7 @@
     <rect>
      <x>730</x>
      <y>640</y>
-     <width>56</width>
+     <width>65</width>
      <height>22</height>
     </rect>
    </property>
@@ -984,7 +984,7 @@
     <rect>
      <x>730</x>
      <y>670</y>
-     <width>56</width>
+     <width>65</width>
      <height>22</height>
     </rect>
    </property>
@@ -1024,9 +1024,9 @@
   <widget class="TaurusValueSpinBox" name="qt1hValue">
    <property name="geometry">
     <rect>
-     <x>880</x>
+     <x>870</x>
      <y>650</y>
-     <width>56</width>
+     <width>65</width>
      <height>22</height>
     </rect>
    </property>
@@ -1034,9 +1034,9 @@
   <widget class="TaurusValueSpinBox" name="qt1vValue">
    <property name="geometry">
     <rect>
-     <x>880</x>
+     <x>870</x>
      <y>680</y>
-     <width>56</width>
+     <width>65</width>
      <height>22</height>
     </rect>
    </property>
@@ -1044,9 +1044,9 @@
   <widget class="TaurusValueSpinBox" name="qt1fValue">
    <property name="geometry">
     <rect>
-     <x>880</x>
+     <x>870</x>
      <y>710</y>
-     <width>56</width>
+     <width>65</width>
      <height>22</height>
     </rect>
    </property>
@@ -1088,7 +1088,7 @@
     <rect>
      <x>1015</x>
      <y>650</y>
-     <width>56</width>
+     <width>65</width>
      <height>22</height>
     </rect>
    </property>
@@ -1098,7 +1098,7 @@
     <rect>
      <x>1015</x>
      <y>680</y>
-     <width>56</width>
+     <width>65</width>
      <height>22</height>
     </rect>
    </property>
@@ -1108,7 +1108,7 @@
     <rect>
      <x>940</x>
      <y>710</y>
-     <width>56</width>
+     <width>65</width>
      <height>22</height>
     </rect>
    </property>
@@ -1462,16 +1462,16 @@
      <height>23</height>
     </rect>
    </property>
-   <layout class="QHBoxLayout" name="sm1OnLayout">
+   <layout class="QHBoxLayout" name="fluorescentScreen1LightLayout">
     <item>
-     <widget class="QLabel" name="sm1OnLabel">
+     <widget class="QLabel" name="fluorescentScreen1LightLabel">
       <property name="text">
        <string>On</string>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="TaurusValueCheckBox" name="sm1OnCheck">
+     <widget class="TaurusValueCheckBox" name="fluorescentScreen1LightCheck">
       <property name="showText">
        <bool>false</bool>
       </property>
@@ -1484,7 +1484,7 @@
      </widget>
     </item>
     <item>
-     <widget class="TaurusLed" name="sm1OnLed">
+     <widget class="TaurusLed" name="fluorescentScreen1LightLed">
       <property name="minimumSize">
        <size>
         <width>15</width>
@@ -1510,16 +1510,16 @@
      <height>23</height>
     </rect>
    </property>
-   <layout class="QHBoxLayout" name="sm1InLayout">
+   <layout class="QHBoxLayout" name="fluorescentScreenValveLayout">
     <item>
-     <widget class="QLabel" name="sm1InLabel">
+     <widget class="QLabel" name="fluorescentScreen1ValveLabel">
       <property name="text">
        <string>In</string>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="TaurusValueCheckBox" name="sm1InCheck">
+     <widget class="TaurusValueCheckBox" name="fluorescentScreen1ValveCheck">
       <property name="showText">
        <bool>false</bool>
       </property>
@@ -1532,7 +1532,7 @@
      </widget>
     </item>
     <item>
-     <widget class="TaurusLed" name="sm1InLed">
+     <widget class="TaurusLed" name="fluorescentScreen1ValveLed">
       <property name="minimumSize">
        <size>
         <width>15</width>
@@ -1558,16 +1558,16 @@
      <height>23</height>
     </rect>
    </property>
-   <layout class="QHBoxLayout" name="sm2InLayout">
+   <layout class="QHBoxLayout" name="fluorescentScreen2ValveLayout">
     <item>
-     <widget class="QLabel" name="sm2InLabel">
+     <widget class="QLabel" name="fluorescentScreen2ValveLabel">
       <property name="text">
        <string>In</string>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="TaurusValueCheckBox" name="sm2InCheck">
+     <widget class="TaurusValueCheckBox" name="fluorescentScreen2ValveCheck">
       <property name="showText">
        <bool>false</bool>
       </property>
@@ -1580,7 +1580,7 @@
      </widget>
     </item>
     <item>
-     <widget class="TaurusLed" name="sm2InLed">
+     <widget class="TaurusLed" name="fluorescentScreen2ValveLed">
       <property name="minimumSize">
        <size>
         <width>15</width>
@@ -1606,16 +1606,16 @@
      <height>23</height>
     </rect>
    </property>
-   <layout class="QHBoxLayout" name="sm2OnLayout">
+   <layout class="QHBoxLayout" name="fluorescentScreen2LightLayout">
     <item>
-     <widget class="QLabel" name="sm2OnLabel">
+     <widget class="QLabel" name="fluorescentScreen2LightLabel">
       <property name="text">
        <string>On</string>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="TaurusValueCheckBox" name="sm2OnCheck">
+     <widget class="TaurusValueCheckBox" name="fluorescentScreen2LightCheck">
       <property name="showText">
        <bool>false</bool>
       </property>
@@ -1628,7 +1628,7 @@
      </widget>
     </item>
     <item>
-     <widget class="TaurusLed" name="sm2OnLed">
+     <widget class="TaurusLed" name="fluorescentScreen2LightLed">
       <property name="minimumSize">
        <size>
         <width>15</width>
@@ -1654,16 +1654,16 @@
      <height>23</height>
     </rect>
    </property>
-   <layout class="QHBoxLayout" name="sm3InLayout">
+   <layout class="QHBoxLayout" name="fluorescentScreen3ValveLayout">
     <item>
-     <widget class="QLabel" name="sm3InLabel">
+     <widget class="QLabel" name="fluorescentScreen3ValveLabel">
       <property name="text">
        <string>In</string>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="TaurusValueCheckBox" name="sm3InCheck">
+     <widget class="TaurusValueCheckBox" name="fluorescentScreen3ValveCheck">
       <property name="showText">
        <bool>false</bool>
       </property>
@@ -1676,7 +1676,7 @@
      </widget>
     </item>
     <item>
-     <widget class="TaurusLed" name="sm3InLed">
+     <widget class="TaurusLed" name="fluorescentScreen3ValveLed">
       <property name="minimumSize">
        <size>
         <width>15</width>
@@ -1702,16 +1702,16 @@
      <height>23</height>
     </rect>
    </property>
-   <layout class="QHBoxLayout" name="sm3OnLayout">
+   <layout class="QHBoxLayout" name="fluorescentScreen3LightLayout">
     <item>
-     <widget class="QLabel" name="sm3OnLabel">
+     <widget class="QLabel" name="fluorescentScreen3LightLabel">
       <property name="text">
        <string>On</string>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="TaurusValueCheckBox" name="sm3OnCheck">
+     <widget class="TaurusValueCheckBox" name="fluorescentScreen3LightCheck">
       <property name="showText">
        <bool>false</bool>
       </property>
@@ -1724,7 +1724,7 @@
      </widget>
     </item>
     <item>
-     <widget class="TaurusLed" name="sm3OnLed">
+     <widget class="TaurusLed" name="fluorescentScreen3LightLed">
       <property name="minimumSize">
        <size>
         <width>15</width>
@@ -1759,7 +1759,7 @@
      </widget>
     </item>
     <item>
-     <widget class="TaurusValueCheckBox" name="multiBunchValue">
+     <widget class="TaurusValueCheckBox" name="tbMultiBunchValue">
       <property name="showText">
        <bool>false</bool>
       </property>
@@ -1785,7 +1785,7 @@
     </item>
    </layout>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>756</x>
@@ -1794,16 +1794,16 @@
      <height>48</height>
     </rect>
    </property>
-   <layout class="QGridLayout" name="k1Layout">
+   <layout class="QGridLayout" name="klystron1Layout">
     <item row="0" column="0">
-     <widget class="QLabel" name="k1onLabel">
+     <widget class="QLabel" name="klystron1OnLabel">
       <property name="text">
        <string>On</string>
       </property>
      </widget>
     </item>
     <item row="0" column="1">
-     <widget class="TaurusValueCheckBox" name="k1onCheck">
+     <widget class="TaurusValueCheckBox" name="klystron1OnCheck">
       <property name="showText">
        <bool>false</bool>
       </property>
@@ -1816,7 +1816,7 @@
      </widget>
     </item>
     <item row="0" column="2">
-     <widget class="TaurusLed" name="k1onLed">
+     <widget class="TaurusLed" name="klystron1OnLed">
       <property name="minimumSize">
        <size>
         <width>15</width>
@@ -1832,14 +1832,14 @@
      </widget>
     </item>
     <item row="1" column="0">
-     <widget class="QLabel" name="k1rstLabel">
+     <widget class="QLabel" name="klystron1RstLabel">
       <property name="text">
        <string>Reset</string>
       </property>
      </widget>
     </item>
     <item row="1" column="1">
-     <widget class="TaurusValueCheckBox" name="k1rstCheck">
+     <widget class="TaurusValueCheckBox" name="klystron1RstCheck">
       <property name="showText">
        <bool>false</bool>
       </property>
@@ -1852,7 +1852,7 @@
      </widget>
     </item>
     <item row="1" column="2">
-     <widget class="TaurusLed" name="k1rstLed">
+     <widget class="TaurusLed" name="klystron1RstLed">
       <property name="minimumSize">
        <size>
         <width>15</width>
@@ -1869,7 +1869,7 @@
     </item>
    </layout>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>1041</x>
@@ -1878,16 +1878,16 @@
      <height>48</height>
     </rect>
    </property>
-   <layout class="QGridLayout" name="k2Layout">
+   <layout class="QGridLayout" name="klystron2Layout">
     <item row="0" column="0">
-     <widget class="QLabel" name="k2onLabel">
+     <widget class="QLabel" name="klystron2OnLabel">
       <property name="text">
        <string>On</string>
       </property>
      </widget>
     </item>
     <item row="0" column="1">
-     <widget class="TaurusValueCheckBox" name="k2onCheck">
+     <widget class="TaurusValueCheckBox" name="klystron2OnCheck">
       <property name="showText">
        <bool>false</bool>
       </property>
@@ -1900,7 +1900,7 @@
      </widget>
     </item>
     <item row="0" column="2">
-     <widget class="TaurusLed" name="k2onLed">
+     <widget class="TaurusLed" name="klystron2OnLed">
       <property name="minimumSize">
        <size>
         <width>15</width>
@@ -1916,14 +1916,14 @@
      </widget>
     </item>
     <item row="1" column="0">
-     <widget class="QLabel" name="k2rstLabel">
+     <widget class="QLabel" name="klystron2RstLabel">
       <property name="text">
        <string>Reset</string>
       </property>
      </widget>
     </item>
     <item row="1" column="1">
-     <widget class="TaurusValueCheckBox" name="k2rstCheck">
+     <widget class="TaurusValueCheckBox" name="klystron2RstCheck">
       <property name="showText">
        <bool>false</bool>
       </property>
@@ -1936,7 +1936,7 @@
      </widget>
     </item>
     <item row="1" column="2">
-     <widget class="TaurusLed" name="k2rstLed">
+     <widget class="TaurusLed" name="klystron2RstLed">
       <property name="minimumSize">
        <size>
         <width>15</width>
@@ -1953,7 +1953,7 @@
     </item>
    </layout>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>140</x>
@@ -2001,7 +2001,7 @@
     </item>
    </layout>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>30</x>
