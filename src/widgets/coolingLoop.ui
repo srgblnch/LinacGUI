@@ -37,14 +37,14 @@
       <item row="2" column="0">
        <widget class="TaurusLabel" name="temperatureValue">
         <property name="suffixText">
-         <string> C</string>
+         <string/>
         </property>
        </widget>
       </item>
       <item row="4" column="0">
        <widget class="TaurusLabel" name="powerValue">
         <property name="suffixText">
-         <string> %</string>
+         <string/>
         </property>
        </widget>
       </item>
