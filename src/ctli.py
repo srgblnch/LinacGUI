@@ -204,7 +204,7 @@ class MainWindow(TaurusMainWindow):
         #Using the previous structure configure each of the klystrons interlock widgets
         for number in klystrons.keys():
             klystron = klystrons[number]
-            klystron['check'].setCheckState(False)
+            #klystron['check'].setCheckState(False)
             klystron['widget'].hide()
             self._klystronsInterlocks[number] = CheckboxManager(klystron['check'],
                                                                 klystron['widget'],
@@ -235,7 +235,7 @@ class MainWindow(TaurusMainWindow):
                 widget.setModel('li/ct/plc%d/LV_Interlock_RC'%(klystrons[number]['plc']))
             widget = klystrons[number]['check']
             #prepare the checkmanager
-            klystrons[number]['check'].setCheckState(False)
+            #klystrons[number]['check'].setCheckState(False)
             klystrons[number]['widget'].hide()
             self._klystronLV[number] = CheckboxManager(klystrons[number]['check'],
                                                        klystrons[number]['widget'],
@@ -256,7 +256,7 @@ class MainWindow(TaurusMainWindow):
         self._setupLed4Attr(startup_ui.egunonLed,'li/ct/plc1/GUN_LV_ONC')
         self._setupCheckbox4Attr(startup_ui.egunonCheck,'li/ct/plc1/GUN_LV_ONC')
         #information shown in the KD box
-        startup_ui.kdeGunLVPopupCheck.setCheckState(False)
+        #startup_ui.kdeGunLVPopupCheck.setCheckState(False)
         startup_ui.kdeGunLVWidget.hide()
         self._egunManager = CheckboxManager(startup_ui.kdeGunLVPopupCheck,
                                             startup_ui.kdeGunLVWidget,
@@ -308,7 +308,7 @@ class MainWindow(TaurusMainWindow):
             self._setupLed4Attr(coolingLoops[number]['cmdLed'],coolingLoops[number]['cmd_attrName'])
             #information area
             self._setupSpinBox4Attr(coolingLoops[number]['Temperature'],coolingLoops[number]['Temperature_attrName'])
-            coolingLoops[number]['check'].setCheckState(False)
+            #coolingLoops[number]['check'].setCheckState(False)
             coolingLoops[number]['widget'].hide()
             self._coolingLoopManagers[number] = CheckboxManager(coolingLoops[number]['check'],
                                                                 coolingLoops[number]['widget'],
@@ -477,7 +477,7 @@ class MainWindow(TaurusMainWindow):
             self._setupLed4Attr(klystrons[number]['onLed'],
                                 klystrons[number]['on_attrName'],pattern='')
             #prepare the checkmanager
-            klystrons[number]['check'].setCheckState(False)
+            #klystrons[number]['check'].setCheckState(False)
             klystrons[number]['widget'].hide()
             self._klystronHV[number] = CheckboxManager(klystrons[number]['check'],
                                                        klystrons[number]['widget'],
@@ -518,7 +518,7 @@ class MainWindow(TaurusMainWindow):
             self._setupTaurusLabel4Attr(sf6pressures[pressure],attrName,'bar')
         self._setupLed4UnknownAttr(mainscreen_ui.rfSourceStatusLed)
         #popups
-        mainscreen_ui.attenuatorPopupCheck.setCheckState(False)
+        #mainscreen_ui.attenuatorPopupCheck.setCheckState(False)
         mainscreen_ui.attenuatorPopupWidget.hide()
         self._attenuator = CheckboxManager(mainscreen_ui.attenuatorPopupCheck,
                                            mainscreen_ui.attenuatorPopupWidget,
@@ -529,7 +529,7 @@ class MainWindow(TaurusMainWindow):
         self._setupTaurusLabel4Attr(widget.AttrValue,'li/ct/plc1/ATT2_P','dB')
         self._phaseShifters = {}
         for shifter in phaseShifters.keys():
-            phaseShifters[shifter]['check'].setCheckState(False)
+            #phaseShifters[shifter]['check'].setCheckState(False)
             phaseShifters[shifter]['widget'].hide()
             self._phaseShifters[shifter] = CheckboxManager(phaseShifters[shifter]['check'],
                                                            phaseShifters[shifter]['widget'],
@@ -648,7 +648,7 @@ class MainWindow(TaurusMainWindow):
                 attrName = '%s/%s_onc'%(deviceName,magnet)
                 self._setupCheckbox4Attr(magnets[magnet]['cmd'],attrName)
             if magnets[magnet].has_key('check') and magnets[magnet].has_key('widget'):
-                magnets[magnet]['check'].setCheckState(False)
+                #magnets[magnet]['check'].setCheckState(False)
                 magnets[magnet]['widget'].hide()
                 self._magnets[magnet] = CheckboxManager(magnets[magnet]['check'],
                                                         magnets[magnet]['widget'],
@@ -690,7 +690,7 @@ class MainWindow(TaurusMainWindow):
         mainscreen_ui = self.ui.linacMainscreenSynoptic._ui
         self._setupSpinBox4Attr(mainscreen_ui.hvsVoltageValue,'li/ct/plc1/GUN_HV_V')
         self._setupTaurusLabel4Attr(mainscreen_ui.hvsCurrentValue,'li/ct/plc1/GUN_HV_I','uA')
-        mainscreen_ui.hvsPopupCheck.setCheckState(False)
+        #mainscreen_ui.hvsPopupCheck.setCheckState(False)
         mainscreen_ui.hvsPopupWidget.hide()
         self._hvs = CheckboxManager(mainscreen_ui.hvsPopupCheck,
                                     mainscreen_ui.hvsPopupWidget,"HVS")
