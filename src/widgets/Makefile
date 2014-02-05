@@ -1,3 +1,8 @@
+####
+# Makefile vbles help
+# $@ -is the name of the target currently being processed.
+# $< -is the name of the first dependency.
+
 PYUIC = taurusuic4
 
 COMM_UI = linacOverview.ui linacPlcWidget.ui
