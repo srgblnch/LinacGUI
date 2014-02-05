@@ -2136,7 +2136,7 @@
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap>../jdraw/linac_startup_synoptic.png</pixmap>
+    <pixmap>./jdraw/linac_startup_synoptic.png</pixmap>
    </property>
   </widget>
   <zorder>layoutWidget</zorder>

@@ -25,19 +25,6 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="TaurusJDrawSynopticsView" name="MainScreenSchematic">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>1265</width>
-     <height>829</height>
-    </rect>
-   </property>
-   <property name="model">
-    <string>./jdraw/linac_mainscreen_synoptic.jdw</string>
-   </property>
-  </widget>
   <widget class="TaurusValueSpinBox" name="tbKaDelay1Value">
    <property name="geometry">
     <rect>
@@ -2489,6 +2476,22 @@
     </rect>
    </property>
   </widget>
+  <widget class="QLabel" name="MainScreenSchematic">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1265</width>
+     <height>829</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap>../jdraw/linac_mainscreen_synoptic.png</pixmap>
+   </property>
+  </widget>
   <zorder>MainScreenSchematic</zorder>
   <zorder>tbKaDelay1Value</zorder>
   <zorder>tbKaDelay2Value</zorder>
@@ -2625,11 +2628,6 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>eGunHV</class>
-   <extends>TaurusWidget</extends>
-   <header>egunhv</header>
-  </customwidget>
-  <customwidget>
    <class>TaurusValueSpinBox</class>
    <extends>QWidget</extends>
    <header>taurus.qt.qtgui.input</header>
@@ -2646,16 +2644,6 @@
    <header>taurus.qt.qtgui.display</header>
   </customwidget>
   <customwidget>
-   <class>phaseShifter</class>
-   <extends>TaurusWidget</extends>
-   <header>phaseshifter</header>
-  </customwidget>
-  <customwidget>
-   <class>klystronHV</class>
-   <extends>TaurusWidget</extends>
-   <header>klystronhv</header>
-  </customwidget>
-  <customwidget>
    <class>TaurusValueComboBox</class>
    <extends>QComboBox</extends>
    <header>taurus.qt.qtgui.input</header>
@@ -2664,16 +2652,6 @@
    <class>TaurusValueCheckBox</class>
    <extends>QCheckBox</extends>
    <header>taurus.qt.qtgui.input</header>
-  </customwidget>
-  <customwidget>
-   <class>magnet</class>
-   <extends>TaurusWidget</extends>
-   <header>magnet</header>
-  </customwidget>
-  <customwidget>
-   <class>Attenuator</class>
-   <extends>TaurusWidget</extends>
-   <header>attenuator</header>
   </customwidget>
   <customwidget>
    <class>TaurusLed</class>
@@ -2691,9 +2669,34 @@
    <header>taurus.qt.qtgui.display</header>
   </customwidget>
   <customwidget>
-   <class>TaurusJDrawSynopticsView</class>
-   <extends>QGraphicsView</extends>
-   <header>taurus.qt.qtgui.graphic</header>
+   <class>eGunHV</class>
+   <extends>TaurusWidget</extends>
+   <header>egunhv</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>phaseShifter</class>
+   <extends>TaurusWidget</extends>
+   <header>phaseshifter</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>klystronHV</class>
+   <extends>TaurusWidget</extends>
+   <header>klystronhv</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>magnet</class>
+   <extends>TaurusWidget</extends>
+   <header>magnet</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>Attenuator</class>
+   <extends>TaurusWidget</extends>
+   <header>attenuator</header>
+   <container>1</container>
   </customwidget>
  </customwidgets>
  <resources/>

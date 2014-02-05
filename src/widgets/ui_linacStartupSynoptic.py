@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'linacStartupSynoptic.ui'
 #
-# Created: Wed Feb  5 15:05:52 2014
+# Created: Wed Feb  5 15:08:40 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -684,7 +684,7 @@ class Ui_linacStartupSynoptic(object):
         self.StartUpSchematic_2 = QtGui.QLabel(linacStartupSynoptic)
         self.StartUpSchematic_2.setGeometry(QtCore.QRect(0, 0, 1265, 829))
         self.StartUpSchematic_2.setText(_fromUtf8(""))
-        self.StartUpSchematic_2.setPixmap(QtGui.QPixmap(_fromUtf8("../jdraw/linac_startup_synoptic.png")))
+        self.StartUpSchematic_2.setPixmap(QtGui.QPixmap(_fromUtf8("./jdraw/linac_startup_synoptic.png")))
         self.StartUpSchematic_2.setObjectName(_fromUtf8("StartUpSchematic_2"))
 
         self.retranslateUi(linacStartupSynoptic)

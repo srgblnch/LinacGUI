@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'linacMainscreenSynoptic.ui'
 #
-# Created: Wed Feb  5 14:51:28 2014
+# Created: Wed Feb  5 15:11:45 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -20,9 +20,6 @@ class Ui_linacMainscreenSynoptic(object):
         linacMainscreenSynoptic.resize(1250, 825)
         linacMainscreenSynoptic.setMinimumSize(QtCore.QSize(1250, 825))
         linacMainscreenSynoptic.setMaximumSize(QtCore.QSize(1250, 825))
-        self.MainScreenSchematic = TaurusJDrawSynopticsView(linacMainscreenSynoptic)
-        self.MainScreenSchematic.setGeometry(QtCore.QRect(0, 0, 1265, 829))
-        self.MainScreenSchematic.setObjectName(_fromUtf8("MainScreenSchematic"))
         self.tbKaDelay1Value = TaurusValueSpinBox(linacMainscreenSynoptic)
         self.tbKaDelay1Value.setGeometry(QtCore.QRect(45, 50, 60, 22))
         self.tbKaDelay1Value.setObjectName(_fromUtf8("tbKaDelay1Value"))
@@ -884,13 +881,17 @@ class Ui_linacMainscreenSynoptic(object):
         self.hvsPopupWidget = eGunHV(linacMainscreenSynoptic)
         self.hvsPopupWidget.setGeometry(QtCore.QRect(130, 570, 141, 101))
         self.hvsPopupWidget.setObjectName(_fromUtf8("hvsPopupWidget"))
+        self.MainScreenSchematic = QtGui.QLabel(linacMainscreenSynoptic)
+        self.MainScreenSchematic.setGeometry(QtCore.QRect(0, 0, 1265, 829))
+        self.MainScreenSchematic.setText(_fromUtf8(""))
+        self.MainScreenSchematic.setPixmap(QtGui.QPixmap(_fromUtf8("../jdraw/linac_mainscreen_synoptic.png")))
+        self.MainScreenSchematic.setObjectName(_fromUtf8("MainScreenSchematic"))
 
         self.retranslateUi(linacMainscreenSynoptic)
         QtCore.QMetaObject.connectSlotsByName(linacMainscreenSynoptic)
 
     def retranslateUi(self, linacMainscreenSynoptic):
         linacMainscreenSynoptic.setWindowTitle(QtGui.QApplication.translate("linacMainscreenSynoptic", "Form", None, QtGui.QApplication.UnicodeUTF8))
-        self.MainScreenSchematic.setModel(QtGui.QApplication.translate("linacMainscreenSynoptic", "./jdraw/linac_mainscreen_synoptic.jdw", None, QtGui.QApplication.UnicodeUTF8))
         self.filamentVLabel.setText(QtGui.QApplication.translate("linacMainscreenSynoptic", "Filament V", None, QtGui.QApplication.UnicodeUTF8))
         self.cathodeLabel.setText(QtGui.QApplication.translate("linacMainscreenSynoptic", "Cathode V", None, QtGui.QApplication.UnicodeUTF8))
         self.filamentCurrent.setSuffixText(QtGui.QApplication.translate("linacMainscreenSynoptic", " A", None, QtGui.QApplication.UnicodeUTF8))
@@ -925,10 +926,9 @@ class Ui_linacMainscreenSynoptic(object):
 
 from taurus.qt.qtgui.display import TaurusLed, TaurusLabel
 from taurus.qt.qtgui.container import TaurusWidget
-from taurus.qt.qtgui.graphic.jdraw import TaurusJDrawSynopticsView
 from attenuator import Attenuator
 from phaseshifter import phaseShifter
 from egunhv import eGunHV
 from magnet import magnet
-from taurus.qt.qtgui.input import TaurusValueComboBox, TaurusValueCheckBox, TaurusValueSpinBox
+from taurus.qt.qtgui.input import TaurusValueComboBox, TaurusValueSpinBox, TaurusValueCheckBox
 from klystronhv import klystronHV
