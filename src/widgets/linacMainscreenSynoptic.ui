@@ -2489,7 +2489,7 @@
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap>../jdraw/linac_mainscreen_synoptic.png</pixmap>
+    <pixmap>./jdraw/linac_mainscreen_synoptic.png</pixmap>
    </property>
   </widget>
   <zorder>MainScreenSchematic</zorder>

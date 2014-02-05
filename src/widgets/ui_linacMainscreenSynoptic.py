@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'linacMainscreenSynoptic.ui'
 #
-# Created: Wed Feb  5 15:11:45 2014
+# Created: Wed Feb  5 15:13:16 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -884,7 +884,7 @@ class Ui_linacMainscreenSynoptic(object):
         self.MainScreenSchematic = QtGui.QLabel(linacMainscreenSynoptic)
         self.MainScreenSchematic.setGeometry(QtCore.QRect(0, 0, 1265, 829))
         self.MainScreenSchematic.setText(_fromUtf8(""))
-        self.MainScreenSchematic.setPixmap(QtGui.QPixmap(_fromUtf8("../jdraw/linac_mainscreen_synoptic.png")))
+        self.MainScreenSchematic.setPixmap(QtGui.QPixmap(_fromUtf8("./jdraw/linac_mainscreen_synoptic.png")))
         self.MainScreenSchematic.setObjectName(_fromUtf8("MainScreenSchematic"))
 
         self.retranslateUi(linacMainscreenSynoptic)
