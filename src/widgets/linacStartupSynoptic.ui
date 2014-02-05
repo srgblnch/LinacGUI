@@ -25,19 +25,6 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="TaurusJDrawSynopticsView" name="StartUpSchematic">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>1265</width>
-     <height>829</height>
-    </rect>
-   </property>
-   <property name="model">
-    <string>./jdraw/linac_startup_synoptic.jdw</string>
-   </property>
-  </widget>
   <widget class="TaurusLed" name="sl1Led">
    <property name="geometry">
     <rect>
@@ -47,7 +34,7 @@
      <height>10</height>
     </rect>
    </property>
-      <property name="minimumSize">
+   <property name="minimumSize">
     <size>
      <width>10</width>
      <height>10</height>
@@ -69,7 +56,7 @@
      <height>10</height>
     </rect>
    </property>
-      <property name="minimumSize">
+   <property name="minimumSize">
     <size>
      <width>10</width>
      <height>10</height>
@@ -91,7 +78,7 @@
      <height>10</height>
     </rect>
    </property>
-      <property name="minimumSize">
+   <property name="minimumSize">
     <size>
      <width>10</width>
      <height>10</height>
@@ -113,7 +100,7 @@
      <height>10</height>
     </rect>
    </property>
-      <property name="minimumSize">
+   <property name="minimumSize">
     <size>
      <width>10</width>
      <height>10</height>
@@ -135,7 +122,7 @@
      <height>10</height>
     </rect>
    </property>
-      <property name="minimumSize">
+   <property name="minimumSize">
     <size>
      <width>10</width>
      <height>10</height>
@@ -157,7 +144,7 @@
      <height>10</height>
     </rect>
    </property>
-      <property name="minimumSize">
+   <property name="minimumSize">
     <size>
      <width>10</width>
      <height>10</height>
@@ -179,7 +166,7 @@
      <height>10</height>
     </rect>
    </property>
-      <property name="minimumSize">
+   <property name="minimumSize">
     <size>
      <width>10</width>
      <height>10</height>
@@ -211,7 +198,7 @@
      <height>10</height>
     </rect>
    </property>
-      <property name="minimumSize">
+   <property name="minimumSize">
     <size>
      <width>10</width>
      <height>10</height>
@@ -233,7 +220,7 @@
      <height>10</height>
     </rect>
    </property>
-      <property name="minimumSize">
+   <property name="minimumSize">
     <size>
      <width>10</width>
      <height>10</height>
@@ -255,7 +242,7 @@
      <height>10</height>
     </rect>
    </property>
-      <property name="minimumSize">
+   <property name="minimumSize">
     <size>
      <width>10</width>
      <height>10</height>
@@ -287,7 +274,7 @@
      <height>10</height>
     </rect>
    </property>
-      <property name="minimumSize">
+   <property name="minimumSize">
     <size>
      <width>10</width>
      <height>10</height>
@@ -309,7 +296,7 @@
      <height>10</height>
     </rect>
    </property>
-      <property name="minimumSize">
+   <property name="minimumSize">
     <size>
      <width>10</width>
      <height>10</height>
@@ -341,7 +328,7 @@
      <height>10</height>
     </rect>
    </property>
-      <property name="minimumSize">
+   <property name="minimumSize">
     <size>
      <width>10</width>
      <height>10</height>
@@ -363,7 +350,7 @@
      <height>10</height>
     </rect>
    </property>
-      <property name="minimumSize">
+   <property name="minimumSize">
     <size>
      <width>10</width>
      <height>10</height>
@@ -385,7 +372,7 @@
      <height>10</height>
     </rect>
    </property>
-      <property name="minimumSize">
+   <property name="minimumSize">
     <size>
      <width>10</width>
      <height>10</height>
@@ -407,7 +394,7 @@
      <height>10</height>
     </rect>
    </property>
-      <property name="minimumSize">
+   <property name="minimumSize">
     <size>
      <width>10</width>
      <height>10</height>
@@ -429,7 +416,7 @@
      <height>10</height>
     </rect>
    </property>
-      <property name="minimumSize">
+   <property name="minimumSize">
     <size>
      <width>10</width>
      <height>10</height>
@@ -451,7 +438,7 @@
      <height>10</height>
     </rect>
    </property>
-      <property name="minimumSize">
+   <property name="minimumSize">
     <size>
      <width>10</width>
      <height>10</height>
@@ -473,7 +460,7 @@
      <height>10</height>
     </rect>
    </property>
-      <property name="minimumSize">
+   <property name="minimumSize">
     <size>
      <width>10</width>
      <height>10</height>
@@ -495,7 +482,7 @@
      <height>10</height>
     </rect>
    </property>
-      <property name="minimumSize">
+   <property name="minimumSize">
     <size>
      <width>10</width>
      <height>10</height>
@@ -517,7 +504,7 @@
      <height>10</height>
     </rect>
    </property>
-      <property name="minimumSize">
+   <property name="minimumSize">
     <size>
      <width>10</width>
      <height>10</height>
@@ -539,7 +526,7 @@
      <height>10</height>
     </rect>
    </property>
-      <property name="minimumSize">
+   <property name="minimumSize">
     <size>
      <width>10</width>
      <height>10</height>
@@ -561,7 +548,7 @@
      <height>10</height>
     </rect>
    </property>
-      <property name="minimumSize">
+   <property name="minimumSize">
     <size>
      <width>10</width>
      <height>10</height>
@@ -583,7 +570,7 @@
      <height>10</height>
     </rect>
    </property>
-      <property name="minimumSize">
+   <property name="minimumSize">
     <size>
      <width>10</width>
      <height>10</height>
@@ -605,7 +592,7 @@
      <height>10</height>
     </rect>
    </property>
-      <property name="minimumSize">
+   <property name="minimumSize">
     <size>
      <width>10</width>
      <height>10</height>
@@ -627,7 +614,7 @@
      <height>10</height>
     </rect>
    </property>
-      <property name="minimumSize">
+   <property name="minimumSize">
     <size>
      <width>10</width>
      <height>10</height>
@@ -649,7 +636,7 @@
      <height>10</height>
     </rect>
    </property>
-      <property name="minimumSize">
+   <property name="minimumSize">
     <size>
      <width>10</width>
      <height>10</height>
@@ -671,7 +658,7 @@
      <height>10</height>
     </rect>
    </property>
-      <property name="minimumSize">
+   <property name="minimumSize">
     <size>
      <width>10</width>
      <height>10</height>
@@ -1214,7 +1201,7 @@
      <height>10</height>
     </rect>
    </property>
-      <property name="minimumSize">
+   <property name="minimumSize">
     <size>
      <width>10</width>
      <height>10</height>
@@ -1236,7 +1223,7 @@
      <height>10</height>
     </rect>
    </property>
-      <property name="minimumSize">
+   <property name="minimumSize">
     <size>
      <width>10</width>
      <height>10</height>
@@ -1258,7 +1245,7 @@
      <height>10</height>
     </rect>
    </property>
-      <property name="minimumSize">
+   <property name="minimumSize">
     <size>
      <width>10</width>
      <height>10</height>
@@ -1992,7 +1979,7 @@
     </size>
    </property>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>750</x>
@@ -2064,7 +2051,7 @@
     </item>
    </layout>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>1036</x>
@@ -2136,7 +2123,23 @@
     </item>
    </layout>
   </widget>
-  <zorder>StartUpSchematic</zorder>
+  <widget class="QLabel" name="StartUpSchematic_2">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1265</width>
+     <height>829</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap>../jdraw/linac_startup_synoptic.png</pixmap>
+   </property>
+  </widget>
+  <zorder>layoutWidget</zorder>
   <zorder>layoutWidget</zorder>
   <zorder>layoutWidget</zorder>
   <zorder>layoutWidget</zorder>
@@ -2200,7 +2203,6 @@
   <zorder>klystron1LVPopupCheck</zorder>
   <zorder>klystron1LVWidget</zorder>
   <zorder>klystron2LVPopupCheck</zorder>
-  <zorder>layoutWidget_2</zorder>
   <zorder>klystron2LVWidget</zorder>
   <zorder>coolingLoop1PopupCheck</zorder>
   <zorder>coolingLoop2PopupCheck</zorder>
@@ -2238,17 +2240,13 @@
   <zorder>klystron1AmplifierEnabledLed</zorder>
   <zorder>linacVacuumStateLed_2</zorder>
   <zorder>linacReadyStateLed</zorder>
+  <zorder>StartUpSchematic_2</zorder>
  </widget>
  <customwidgets>
   <customwidget>
    <class>TaurusValueSpinBox</class>
    <extends>QWidget</extends>
    <header>taurus.qt.qtgui.input</header>
-  </customwidget>
-  <customwidget>
-   <class>klystron2itck</class>
-   <extends>TaurusWidget</extends>
-   <header>klystron2itck</header>
   </customwidget>
   <customwidget>
    <class>TaurusWidget</class>
@@ -2260,22 +2258,6 @@
    <class>TaurusLabel</class>
    <extends>QLabel</extends>
    <header>taurus.qt.qtgui.display</header>
-  </customwidget>
-  <customwidget>
-   <class>klystron1itck</class>
-   <extends>TaurusWidget</extends>
-   <header>klystron1itck</header>
-  </customwidget>
-  <customwidget>
-   <class>CoolingLoop</class>
-   <extends>TaurusWidget</extends>
-   <header>coolingloop</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
-   <class>eGunLV</class>
-   <extends>TaurusWidget</extends>
-   <header>egunlv</header>
   </customwidget>
   <customwidget>
    <class>TaurusValueCheckBox</class>
@@ -2293,20 +2275,39 @@
    <header>taurus.qt.qtgui.display</header>
   </customwidget>
   <customwidget>
-   <class>klystronLV</class>
-   <extends>TaurusWidget</extends>
-   <header>klystronlv</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
    <class>QPixmapWidget</class>
    <extends>QWidget</extends>
    <header>taurus.qt.qtgui.display</header>
   </customwidget>
   <customwidget>
-   <class>TaurusJDrawSynopticsView</class>
-   <extends>QGraphicsView</extends>
-   <header>taurus.qt.qtgui.graphic</header>
+   <class>klystron2itck</class>
+   <extends>TaurusWidget</extends>
+   <header>klystron2itck</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>klystron1itck</class>
+   <extends>TaurusWidget</extends>
+   <header>klystron1itck</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>CoolingLoop</class>
+   <extends>TaurusWidget</extends>
+   <header>coolingloop</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>eGunLV</class>
+   <extends>TaurusWidget</extends>
+   <header>egunlv</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>klystronLV</class>
+   <extends>TaurusWidget</extends>
+   <header>klystronlv</header>
+   <container>1</container>
   </customwidget>
  </customwidgets>
  <resources/>

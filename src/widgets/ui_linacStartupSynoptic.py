@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'linacStartupSynoptic.ui'
 #
-# Created: Wed Feb  5 14:51:17 2014
+# Created: Wed Feb  5 15:05:52 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -20,9 +20,6 @@ class Ui_linacStartupSynoptic(object):
         linacStartupSynoptic.resize(1250, 825)
         linacStartupSynoptic.setMinimumSize(QtCore.QSize(1250, 825))
         linacStartupSynoptic.setMaximumSize(QtCore.QSize(1250, 825))
-        self.StartUpSchematic = TaurusJDrawSynopticsView(linacStartupSynoptic)
-        self.StartUpSchematic.setGeometry(QtCore.QRect(0, 0, 1265, 829))
-        self.StartUpSchematic.setObjectName(_fromUtf8("StartUpSchematic"))
         self.sl1Led = TaurusLed(linacStartupSynoptic)
         self.sl1Led.setGeometry(QtCore.QRect(170, 475, 10, 10))
         self.sl1Led.setMinimumSize(QtCore.QSize(10, 10))
@@ -624,73 +621,77 @@ class Ui_linacStartupSynoptic(object):
         self.linacReadyStateLed.setMinimumSize(QtCore.QSize(10, 10))
         self.linacReadyStateLed.setMaximumSize(QtCore.QSize(10, 10))
         self.linacReadyStateLed.setObjectName(_fromUtf8("linacReadyStateLed"))
-        self.widget = QtGui.QWidget(linacStartupSynoptic)
-        self.widget.setGeometry(QtCore.QRect(750, 213, 85, 48))
-        self.widget.setObjectName(_fromUtf8("widget"))
-        self.gridLayout_2 = QtGui.QGridLayout(self.widget)
+        self.layoutWidget14 = QtGui.QWidget(linacStartupSynoptic)
+        self.layoutWidget14.setGeometry(QtCore.QRect(750, 213, 85, 48))
+        self.layoutWidget14.setObjectName(_fromUtf8("layoutWidget14"))
+        self.gridLayout_2 = QtGui.QGridLayout(self.layoutWidget14)
         self.gridLayout_2.setMargin(0)
         self.gridLayout_2.setObjectName(_fromUtf8("gridLayout_2"))
-        self.klystron1OnLed = TaurusLed(self.widget)
+        self.klystron1OnLed = TaurusLed(self.layoutWidget14)
         self.klystron1OnLed.setMinimumSize(QtCore.QSize(15, 15))
         self.klystron1OnLed.setMaximumSize(QtCore.QSize(15, 15))
         self.klystron1OnLed.setObjectName(_fromUtf8("klystron1OnLed"))
         self.gridLayout_2.addWidget(self.klystron1OnLed, 0, 0, 1, 1)
-        self.klystron1OnCheck = TaurusValueCheckBox(self.widget)
+        self.klystron1OnCheck = TaurusValueCheckBox(self.layoutWidget14)
         self.klystron1OnCheck.setShowText(False)
         self.klystron1OnCheck.setObjectName(_fromUtf8("klystron1OnCheck"))
         self.gridLayout_2.addWidget(self.klystron1OnCheck, 0, 1, 1, 1)
-        self.klystron1OnLabel = QtGui.QLabel(self.widget)
+        self.klystron1OnLabel = QtGui.QLabel(self.layoutWidget14)
         self.klystron1OnLabel.setObjectName(_fromUtf8("klystron1OnLabel"))
         self.gridLayout_2.addWidget(self.klystron1OnLabel, 0, 2, 1, 1)
-        self.klystron1RstLed = TaurusLed(self.widget)
+        self.klystron1RstLed = TaurusLed(self.layoutWidget14)
         self.klystron1RstLed.setMinimumSize(QtCore.QSize(15, 15))
         self.klystron1RstLed.setMaximumSize(QtCore.QSize(15, 15))
         self.klystron1RstLed.setObjectName(_fromUtf8("klystron1RstLed"))
         self.gridLayout_2.addWidget(self.klystron1RstLed, 1, 0, 1, 1)
-        self.klystron1RstCheck = TaurusValueCheckBox(self.widget)
+        self.klystron1RstCheck = TaurusValueCheckBox(self.layoutWidget14)
         self.klystron1RstCheck.setShowText(False)
         self.klystron1RstCheck.setObjectName(_fromUtf8("klystron1RstCheck"))
         self.gridLayout_2.addWidget(self.klystron1RstCheck, 1, 1, 1, 1)
-        self.klystron1RstLabel = QtGui.QLabel(self.widget)
+        self.klystron1RstLabel = QtGui.QLabel(self.layoutWidget14)
         self.klystron1RstLabel.setObjectName(_fromUtf8("klystron1RstLabel"))
         self.gridLayout_2.addWidget(self.klystron1RstLabel, 1, 2, 1, 1)
-        self.widget1 = QtGui.QWidget(linacStartupSynoptic)
-        self.widget1.setGeometry(QtCore.QRect(1036, 212, 85, 48))
-        self.widget1.setObjectName(_fromUtf8("widget1"))
-        self.gridLayout_3 = QtGui.QGridLayout(self.widget1)
+        self.layoutWidget15 = QtGui.QWidget(linacStartupSynoptic)
+        self.layoutWidget15.setGeometry(QtCore.QRect(1036, 212, 85, 48))
+        self.layoutWidget15.setObjectName(_fromUtf8("layoutWidget15"))
+        self.gridLayout_3 = QtGui.QGridLayout(self.layoutWidget15)
         self.gridLayout_3.setMargin(0)
         self.gridLayout_3.setObjectName(_fromUtf8("gridLayout_3"))
-        self.klystron2OnLed = TaurusLed(self.widget1)
+        self.klystron2OnLed = TaurusLed(self.layoutWidget15)
         self.klystron2OnLed.setMinimumSize(QtCore.QSize(15, 15))
         self.klystron2OnLed.setMaximumSize(QtCore.QSize(15, 15))
         self.klystron2OnLed.setObjectName(_fromUtf8("klystron2OnLed"))
         self.gridLayout_3.addWidget(self.klystron2OnLed, 0, 0, 1, 1)
-        self.klystron2OnCheck = TaurusValueCheckBox(self.widget1)
+        self.klystron2OnCheck = TaurusValueCheckBox(self.layoutWidget15)
         self.klystron2OnCheck.setShowText(False)
         self.klystron2OnCheck.setObjectName(_fromUtf8("klystron2OnCheck"))
         self.gridLayout_3.addWidget(self.klystron2OnCheck, 0, 1, 1, 1)
-        self.klystron2OnLabel = QtGui.QLabel(self.widget1)
+        self.klystron2OnLabel = QtGui.QLabel(self.layoutWidget15)
         self.klystron2OnLabel.setObjectName(_fromUtf8("klystron2OnLabel"))
         self.gridLayout_3.addWidget(self.klystron2OnLabel, 0, 2, 1, 1)
-        self.klystron2RstLed = TaurusLed(self.widget1)
+        self.klystron2RstLed = TaurusLed(self.layoutWidget15)
         self.klystron2RstLed.setMinimumSize(QtCore.QSize(15, 15))
         self.klystron2RstLed.setMaximumSize(QtCore.QSize(15, 15))
         self.klystron2RstLed.setObjectName(_fromUtf8("klystron2RstLed"))
         self.gridLayout_3.addWidget(self.klystron2RstLed, 1, 0, 1, 1)
-        self.klystron2RstCheck = TaurusValueCheckBox(self.widget1)
+        self.klystron2RstCheck = TaurusValueCheckBox(self.layoutWidget15)
         self.klystron2RstCheck.setShowText(False)
         self.klystron2RstCheck.setObjectName(_fromUtf8("klystron2RstCheck"))
         self.gridLayout_3.addWidget(self.klystron2RstCheck, 1, 1, 1, 1)
-        self.klystron2RstLabel = QtGui.QLabel(self.widget1)
+        self.klystron2RstLabel = QtGui.QLabel(self.layoutWidget15)
         self.klystron2RstLabel.setObjectName(_fromUtf8("klystron2RstLabel"))
         self.gridLayout_3.addWidget(self.klystron2RstLabel, 1, 2, 1, 1)
+        self.StartUpSchematic_2 = QtGui.QLabel(linacStartupSynoptic)
+        self.StartUpSchematic_2.setGeometry(QtCore.QRect(0, 0, 1265, 829))
+        self.StartUpSchematic_2.setText(_fromUtf8(""))
+        self.StartUpSchematic_2.setPixmap(QtGui.QPixmap(_fromUtf8("../jdraw/linac_startup_synoptic.png")))
+        self.StartUpSchematic_2.setObjectName(_fromUtf8("StartUpSchematic_2"))
 
         self.retranslateUi(linacStartupSynoptic)
         QtCore.QMetaObject.connectSlotsByName(linacStartupSynoptic)
 
     def retranslateUi(self, linacStartupSynoptic):
         linacStartupSynoptic.setWindowTitle(QtGui.QApplication.translate("linacStartupSynoptic", "Form", None, QtGui.QApplication.UnicodeUTF8))
-        self.StartUpSchematic.setModel(QtGui.QApplication.translate("linacStartupSynoptic", "./jdraw/linac_startup_synoptic.jdw", None, QtGui.QApplication.UnicodeUTF8))
         self.coolingLoop3OnLabel.setText(QtGui.QApplication.translate("linacStartupSynoptic", "On", None, QtGui.QApplication.UnicodeUTF8))
         self.coolingLoop2OnLabel.setText(QtGui.QApplication.translate("linacStartupSynoptic", "On", None, QtGui.QApplication.UnicodeUTF8))
         self.coolingLoop1OnLabel.setText(QtGui.QApplication.translate("linacStartupSynoptic", "On", None, QtGui.QApplication.UnicodeUTF8))
@@ -716,10 +717,9 @@ class Ui_linacStartupSynoptic(object):
 
 from taurus.qt.qtgui.display import TaurusLed, TaurusLabel
 from taurus.qt.qtgui.container import TaurusWidget
-from taurus.qt.qtgui.graphic.jdraw import TaurusJDrawSynopticsView
 from klystron2itck import klystron2itck
 from coolingloop import CoolingLoop
 from klystronlv import klystronLV
 from egunlv import eGunLV
 from klystron1itck import klystron1itck
-from taurus.qt.qtgui.input import TaurusValueCheckBox, TaurusValueSpinBox
+from taurus.qt.qtgui.input import TaurusValueSpinBox, TaurusValueCheckBox
