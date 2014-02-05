@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'linacStartupSynoptic.ui'
 #
-# Created: Wed Feb  5 10:59:21 2014
+# Created: Wed Feb  5 14:51:17 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -22,9 +22,6 @@ class Ui_linacStartupSynoptic(object):
         linacStartupSynoptic.setMaximumSize(QtCore.QSize(1250, 825))
         self.StartUpSchematic = TaurusJDrawSynopticsView(linacStartupSynoptic)
         self.StartUpSchematic.setGeometry(QtCore.QRect(0, 0, 1265, 829))
-        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0, 25))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        self.StartUpSchematic.setForegroundBrush(brush)
         self.StartUpSchematic.setObjectName(_fromUtf8("StartUpSchematic"))
         self.sl1Led = TaurusLed(linacStartupSynoptic)
         self.sl1Led.setGeometry(QtCore.QRect(170, 475, 10, 10))
@@ -693,7 +690,7 @@ class Ui_linacStartupSynoptic(object):
 
     def retranslateUi(self, linacStartupSynoptic):
         linacStartupSynoptic.setWindowTitle(QtGui.QApplication.translate("linacStartupSynoptic", "Form", None, QtGui.QApplication.UnicodeUTF8))
-        self.StartUpSchematic.setModel(QtGui.QApplication.translate("linacStartupSynoptic", "jdraw/linac_startup_synoptic.jdw", None, QtGui.QApplication.UnicodeUTF8))
+        self.StartUpSchematic.setModel(QtGui.QApplication.translate("linacStartupSynoptic", "./jdraw/linac_startup_synoptic.jdw", None, QtGui.QApplication.UnicodeUTF8))
         self.coolingLoop3OnLabel.setText(QtGui.QApplication.translate("linacStartupSynoptic", "On", None, QtGui.QApplication.UnicodeUTF8))
         self.coolingLoop2OnLabel.setText(QtGui.QApplication.translate("linacStartupSynoptic", "On", None, QtGui.QApplication.UnicodeUTF8))
         self.coolingLoop1OnLabel.setText(QtGui.QApplication.translate("linacStartupSynoptic", "On", None, QtGui.QApplication.UnicodeUTF8))

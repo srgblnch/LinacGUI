@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'linacMainscreenSynoptic.ui'
 #
-# Created: Wed Feb  5 10:59:27 2014
+# Created: Wed Feb  5 14:51:28 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -22,9 +22,6 @@ class Ui_linacMainscreenSynoptic(object):
         linacMainscreenSynoptic.setMaximumSize(QtCore.QSize(1250, 825))
         self.MainScreenSchematic = TaurusJDrawSynopticsView(linacMainscreenSynoptic)
         self.MainScreenSchematic.setGeometry(QtCore.QRect(0, 0, 1265, 829))
-        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0, 25))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        self.MainScreenSchematic.setForegroundBrush(brush)
         self.MainScreenSchematic.setObjectName(_fromUtf8("MainScreenSchematic"))
         self.tbKaDelay1Value = TaurusValueSpinBox(linacMainscreenSynoptic)
         self.tbKaDelay1Value.setGeometry(QtCore.QRect(45, 50, 60, 22))
@@ -893,7 +890,7 @@ class Ui_linacMainscreenSynoptic(object):
 
     def retranslateUi(self, linacMainscreenSynoptic):
         linacMainscreenSynoptic.setWindowTitle(QtGui.QApplication.translate("linacMainscreenSynoptic", "Form", None, QtGui.QApplication.UnicodeUTF8))
-        self.MainScreenSchematic.setModel(QtGui.QApplication.translate("linacMainscreenSynoptic", "jdraw/linac_mainscreen_synoptic.jdw", None, QtGui.QApplication.UnicodeUTF8))
+        self.MainScreenSchematic.setModel(QtGui.QApplication.translate("linacMainscreenSynoptic", "./jdraw/linac_mainscreen_synoptic.jdw", None, QtGui.QApplication.UnicodeUTF8))
         self.filamentVLabel.setText(QtGui.QApplication.translate("linacMainscreenSynoptic", "Filament V", None, QtGui.QApplication.UnicodeUTF8))
         self.cathodeLabel.setText(QtGui.QApplication.translate("linacMainscreenSynoptic", "Cathode V", None, QtGui.QApplication.UnicodeUTF8))
         self.filamentCurrent.setSuffixText(QtGui.QApplication.translate("linacMainscreenSynoptic", " A", None, QtGui.QApplication.UnicodeUTF8))

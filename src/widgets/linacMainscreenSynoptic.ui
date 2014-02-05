@@ -34,17 +34,8 @@
      <height>829</height>
     </rect>
    </property>
-   <property name="foregroundBrush">
-    <brush brushstyle="SolidPattern">
-     <color alpha="25">
-      <red>0</red>
-      <green>0</green>
-      <blue>0</blue>
-     </color>
-    </brush>
-   </property>
    <property name="model">
-    <string>jdraw/linac_mainscreen_synoptic.jdw</string>
+    <string>./jdraw/linac_mainscreen_synoptic.jdw</string>
    </property>
   </widget>
   <widget class="TaurusValueSpinBox" name="tbKaDelay1Value">
