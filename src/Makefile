@@ -1,8 +1,15 @@
-all: widgets
+PYUIC = taurusuic4
+
+all: ui
+
+ui: widgets application
+
+application:
+	$(PYUIC) ctli.ui -o ui_ctli.py
 
 widgets:
-	make -C widgets
+	cd widgets && $(MAKE)
 
 clean:
-	rm -rf *.pyc
-	rm -rf widgets/*.pyc
+	$(RM) ui_ctli.py
+	make -C widgets clean
