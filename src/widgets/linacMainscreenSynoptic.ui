@@ -28,8 +28,8 @@
   <widget class="TaurusValueSpinBox" name="tbKaDelay1Value">
    <property name="geometry">
     <rect>
-     <x>45</x>
-     <y>50</y>
+     <x>35</x>
+     <y>48</y>
      <width>60</width>
      <height>22</height>
     </rect>
@@ -38,8 +38,8 @@
   <widget class="TaurusValueSpinBox" name="tbKaDelay2Value">
    <property name="geometry">
     <rect>
-     <x>113</x>
-     <y>50</y>
+     <x>101</x>
+     <y>48</y>
      <width>60</width>
      <height>22</height>
     </rect>
@@ -48,8 +48,8 @@
   <widget class="TaurusValueSpinBox" name="tbFf2DelayValue">
    <property name="geometry">
     <rect>
-     <x>180</x>
-     <y>50</y>
+     <x>174</x>
+     <y>48</y>
      <width>60</width>
      <height>22</height>
     </rect>
@@ -68,8 +68,8 @@
   <widget class="TaurusValueSpinBox" name="tbNumberValue">
    <property name="geometry">
     <rect>
-     <x>300</x>
-     <y>110</y>
+     <x>296</x>
+     <y>107</y>
      <width>60</width>
      <height>22</height>
     </rect>
@@ -78,8 +78,8 @@
   <widget class="TaurusValueSpinBox" name="tbWidthValue">
    <property name="geometry">
     <rect>
-     <x>240</x>
-     <y>110</y>
+     <x>235</x>
+     <y>107</y>
      <width>60</width>
      <height>22</height>
     </rect>
@@ -88,8 +88,8 @@
   <widget class="TaurusValueSpinBox" name="tbGunDelayValue">
    <property name="geometry">
     <rect>
-     <x>178</x>
-     <y>110</y>
+     <x>174</x>
+     <y>107</y>
      <width>60</width>
      <height>22</height>
     </rect>
@@ -99,7 +99,7 @@
    <property name="geometry">
     <rect>
      <x>100</x>
-     <y>100</y>
+     <y>106</y>
      <width>70</width>
      <height>23</height>
     </rect>
@@ -128,7 +128,7 @@
   <widget class="TaurusLed" name="rfEnbLed">
    <property name="geometry">
     <rect>
-     <x>605</x>
+     <x>598</x>
      <y>15</y>
      <width>10</width>
      <height>10</height>
@@ -150,8 +150,8 @@
   <widget class="TaurusLed" name="tbTimerStatusStateLed">
    <property name="geometry">
     <rect>
-     <x>473</x>
-     <y>23</y>
+     <x>464</x>
+     <y>20</y>
      <width>10</width>
      <height>10</height>
     </rect>
@@ -172,9 +172,9 @@
   <widget class="TaurusValueSpinBox" name="rfTimePhaseShifter0Value">
    <property name="geometry">
     <rect>
-     <x>125</x>
+     <x>110</x>
      <y>310</y>
-     <width>60</width>
+     <width>70</width>
      <height>22</height>
     </rect>
    </property>
@@ -182,9 +182,9 @@
   <widget class="TaurusValueSpinBox" name="rfA0OutputPowerValue">
    <property name="geometry">
     <rect>
-     <x>185</x>
+     <x>180</x>
      <y>310</y>
-     <width>60</width>
+     <width>70</width>
      <height>22</height>
     </rect>
    </property>
@@ -192,9 +192,9 @@
   <widget class="TaurusValueSpinBox" name="rfTimePhaseShifterXValue">
    <property name="geometry">
     <rect>
-     <x>275</x>
+     <x>260</x>
      <y>280</y>
-     <width>60</width>
+     <width>70</width>
      <height>22</height>
     </rect>
    </property>
@@ -202,9 +202,9 @@
   <widget class="TaurusValueSpinBox" name="attenuator2Value">
    <property name="geometry">
     <rect>
-     <x>380</x>
+     <x>370</x>
      <y>310</y>
-     <width>60</width>
+     <width>70</width>
      <height>22</height>
     </rect>
    </property>
@@ -212,9 +212,9 @@
   <widget class="TaurusValueSpinBox" name="rfPhaseShifter2Value">
    <property name="geometry">
     <rect>
-     <x>445</x>
+     <x>440</x>
      <y>310</y>
-     <width>60</width>
+     <width>70</width>
      <height>22</height>
     </rect>
    </property>
@@ -222,9 +222,9 @@
   <widget class="TaurusValueSpinBox" name="rfTimePhaseShifter1Value">
    <property name="geometry">
     <rect>
-     <x>525</x>
+     <x>510</x>
      <y>280</y>
-     <width>60</width>
+     <width>70</width>
      <height>22</height>
     </rect>
    </property>
@@ -232,9 +232,9 @@
   <widget class="TaurusValueSpinBox" name="rfPhaseShifter1Value">
    <property name="geometry">
     <rect>
-     <x>580</x>
+     <x>560</x>
      <y>310</y>
-     <width>60</width>
+     <width>70</width>
      <height>22</height>
     </rect>
    </property>
@@ -242,9 +242,9 @@
   <widget class="TaurusLabel" name="sf6p1Value">
    <property name="geometry">
     <rect>
-     <x>740</x>
+     <x>720</x>
      <y>310</y>
-     <width>80</width>
+     <width>90</width>
      <height>16</height>
     </rect>
    </property>
@@ -252,9 +252,9 @@
   <widget class="TaurusLabel" name="sf6p2Value">
    <property name="geometry">
     <rect>
-     <x>1020</x>
+     <x>1000</x>
      <y>310</y>
-     <width>80</width>
+     <width>90</width>
      <height>16</height>
     </rect>
    </property>
@@ -262,9 +262,9 @@
   <widget class="TaurusValueSpinBox" name="rfTimePhaseShifter2Value">
    <property name="geometry">
     <rect>
-     <x>850</x>
+     <x>840</x>
      <y>280</y>
-     <width>60</width>
+     <width>70</width>
      <height>22</height>
     </rect>
    </property>
@@ -338,10 +338,10 @@
   <widget class="QWidget" name="layoutWidget_2">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>440</y>
+     <x>10</x>
+     <y>430</y>
      <width>132</width>
-     <height>81</height>
+     <height>96</height>
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout">
@@ -350,6 +350,12 @@
     </property>
     <item row="0" column="0">
      <widget class="TaurusValueSpinBox" name="filamentSetpoint">
+      <property name="minimumSize">
+       <size>
+        <width>60</width>
+        <height>20</height>
+       </size>
+      </property>
       <property name="autoApply">
        <bool>true</bool>
       </property>
@@ -357,6 +363,12 @@
     </item>
     <item row="0" column="1">
      <widget class="TaurusValueSpinBox" name="cathodeSetpoint">
+      <property name="minimumSize">
+       <size>
+        <width>60</width>
+        <height>20</height>
+       </size>
+      </property>
       <property name="autoApply">
        <bool>true</bool>
       </property>
@@ -364,6 +376,12 @@
     </item>
     <item row="1" column="0">
      <widget class="QLabel" name="filamentVLabel">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>20</height>
+       </size>
+      </property>
       <property name="font">
        <font>
         <pointsize>7</pointsize>
@@ -392,6 +410,12 @@
     </item>
     <item row="2" column="0">
      <widget class="TaurusLabel" name="filamentCurrent">
+      <property name="minimumSize">
+       <size>
+        <width>60</width>
+        <height>20</height>
+       </size>
+      </property>
       <property name="suffixText">
        <string> A</string>
       </property>
@@ -399,6 +423,12 @@
     </item>
     <item row="2" column="1">
      <widget class="TaurusLabel" name="temperatureValue">
+      <property name="minimumSize">
+       <size>
+        <width>60</width>
+        <height>20</height>
+       </size>
+      </property>
       <property name="suffixText">
        <string> C</string>
       </property>
@@ -406,6 +436,12 @@
     </item>
     <item row="3" column="0">
      <widget class="QLabel" name="filamentILabel">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>20</height>
+       </size>
+      </property>
       <property name="font">
        <font>
         <pointsize>7</pointsize>
@@ -1126,7 +1162,7 @@
   <widget class="TaurusLed" name="sl1Led">
    <property name="geometry">
     <rect>
-     <x>172</x>
+     <x>162</x>
      <y>500</y>
      <width>10</width>
      <height>10</height>
@@ -1148,7 +1184,7 @@
   <widget class="TaurusLed" name="vv1led">
    <property name="geometry">
     <rect>
-     <x>207</x>
+     <x>196</x>
      <y>540</y>
      <width>10</width>
      <height>10</height>
@@ -1170,7 +1206,7 @@
   <widget class="TaurusLed" name="sl2Led">
    <property name="geometry">
     <rect>
-     <x>257</x>
+     <x>247</x>
      <y>500</y>
      <width>10</width>
      <height>10</height>
@@ -1192,7 +1228,7 @@
   <widget class="TaurusLed" name="sl3Led">
    <property name="geometry">
     <rect>
-     <x>339</x>
+     <x>331</x>
      <y>500</y>
      <width>10</width>
      <height>10</height>
@@ -1214,7 +1250,7 @@
   <widget class="TaurusLed" name="sl4Led">
    <property name="geometry">
     <rect>
-     <x>411</x>
+     <x>403</x>
      <y>500</y>
      <width>10</width>
      <height>10</height>
@@ -1236,7 +1272,7 @@
   <widget class="TaurusLed" name="bc1Led">
    <property name="geometry">
     <rect>
-     <x>470</x>
+     <x>457</x>
      <y>500</y>
      <width>10</width>
      <height>10</height>
@@ -1258,7 +1294,7 @@
   <widget class="TaurusLed" name="bc2Led">
    <property name="geometry">
     <rect>
-     <x>520</x>
+     <x>517</x>
      <y>500</y>
      <width>10</width>
      <height>10</height>
@@ -1280,7 +1316,7 @@
   <widget class="TaurusLed" name="sm1Led">
    <property name="geometry">
     <rect>
-     <x>613</x>
+     <x>606</x>
      <y>505</y>
      <width>10</width>
      <height>10</height>
@@ -1302,7 +1338,7 @@
   <widget class="TaurusLed" name="glLed">
    <property name="geometry">
     <rect>
-     <x>650</x>
+     <x>643</x>
      <y>500</y>
      <width>10</width>
      <height>10</height>
@@ -1324,7 +1360,7 @@
   <widget class="TaurusLed" name="as1Led">
    <property name="geometry">
     <rect>
-     <x>752</x>
+     <x>746</x>
      <y>520</y>
      <width>10</width>
      <height>10</height>
@@ -1346,7 +1382,7 @@
   <widget class="TaurusLed" name="sm2Led">
    <property name="geometry">
     <rect>
-     <x>866</x>
+     <x>859</x>
      <y>505</y>
      <width>10</width>
      <height>10</height>
@@ -1368,7 +1404,7 @@
   <widget class="TaurusLed" name="qtLed">
    <property name="geometry">
     <rect>
-     <x>923</x>
+     <x>919</x>
      <y>500</y>
      <width>10</width>
      <height>10</height>
@@ -1390,7 +1426,7 @@
   <widget class="TaurusLed" name="as2Led">
    <property name="geometry">
     <rect>
-     <x>1037</x>
+     <x>1033</x>
      <y>520</y>
      <width>10</width>
      <height>10</height>
@@ -1412,7 +1448,7 @@
   <widget class="TaurusLed" name="sm3Led">
    <property name="geometry">
     <rect>
-     <x>1139</x>
+     <x>1135</x>
      <y>505</y>
      <width>10</width>
      <height>10</height>
@@ -1748,8 +1784,8 @@
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>40</x>
-     <y>630</y>
+     <x>30</x>
+     <y>640</y>
      <width>81</width>
      <height>51</height>
     </rect>
@@ -1766,7 +1802,7 @@
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>756</x>
+     <x>750</x>
      <y>170</y>
      <width>85</width>
      <height>48</height>
@@ -1850,8 +1886,8 @@
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>1041</x>
-     <y>132</y>
+     <x>1040</x>
+     <y>130</y>
      <width>85</width>
      <height>48</height>
     </rect>
@@ -2024,7 +2060,7 @@
   <widget class="QCheckBox" name="klystron1HVPopupCheck">
    <property name="geometry">
     <rect>
-     <x>765</x>
+     <x>755</x>
      <y>90</y>
      <width>21</width>
      <height>21</height>
@@ -2037,7 +2073,7 @@
   <widget class="QCheckBox" name="klystron2HVPopupCheck">
    <property name="geometry">
     <rect>
-     <x>1050</x>
+     <x>1045</x>
      <y>50</y>
      <width>21</width>
      <height>21</height>
@@ -2060,8 +2096,8 @@
   <widget class="TaurusLed" name="rfSourceStatusLed">
    <property name="geometry">
     <rect>
-     <x>1107</x>
-     <y>280</y>
+     <x>1104</x>
+     <y>278</y>
      <width>10</width>
      <height>10</height>
     </rect>
@@ -2283,8 +2319,8 @@
   <widget class="QCheckBox" name="sl1PopupCheck">
    <property name="geometry">
     <rect>
-     <x>166</x>
-     <y>510</y>
+     <x>156</x>
+     <y>513</y>
      <width>21</width>
      <height>21</height>
     </rect>
@@ -2296,8 +2332,8 @@
   <widget class="QCheckBox" name="sl2PopupCheck">
    <property name="geometry">
     <rect>
-     <x>252</x>
-     <y>510</y>
+     <x>241</x>
+     <y>513</y>
      <width>21</width>
      <height>21</height>
     </rect>
@@ -2309,8 +2345,8 @@
   <widget class="QCheckBox" name="sl3PopupCheck">
    <property name="geometry">
     <rect>
-     <x>333</x>
-     <y>510</y>
+     <x>325</x>
+     <y>513</y>
      <width>21</width>
      <height>21</height>
     </rect>
@@ -2322,8 +2358,8 @@
   <widget class="QCheckBox" name="sl4PopupCheck">
    <property name="geometry">
     <rect>
-     <x>405</x>
-     <y>510</y>
+     <x>396</x>
+     <y>513</y>
      <width>21</width>
      <height>21</height>
     </rect>
@@ -2335,8 +2371,8 @@
   <widget class="QCheckBox" name="bc1PopupCheck">
    <property name="geometry">
     <rect>
-     <x>460</x>
-     <y>510</y>
+     <x>451</x>
+     <y>512</y>
      <width>21</width>
      <height>21</height>
     </rect>
@@ -2348,8 +2384,8 @@
   <widget class="QCheckBox" name="bc2PopupCheck">
    <property name="geometry">
     <rect>
-     <x>520</x>
-     <y>510</y>
+     <x>511</x>
+     <y>512</y>
      <width>21</width>
      <height>21</height>
     </rect>
@@ -2361,8 +2397,8 @@
   <widget class="QCheckBox" name="glPopupCheck">
    <property name="geometry">
     <rect>
-     <x>643</x>
-     <y>510</y>
+     <x>636</x>
+     <y>512</y>
      <width>21</width>
      <height>21</height>
     </rect>
@@ -2374,8 +2410,8 @@
   <widget class="QCheckBox" name="as1PopupCheck">
    <property name="geometry">
     <rect>
-     <x>770</x>
-     <y>545</y>
+     <x>742</x>
+     <y>531</y>
      <width>21</width>
      <height>21</height>
     </rect>
@@ -2387,8 +2423,8 @@
   <widget class="QCheckBox" name="qt1PopupCheck">
    <property name="geometry">
     <rect>
-     <x>893</x>
-     <y>510</y>
+     <x>890</x>
+     <y>513</y>
      <width>21</width>
      <height>21</height>
     </rect>
@@ -2400,8 +2436,8 @@
   <widget class="QCheckBox" name="qt2PopupCheck">
    <property name="geometry">
     <rect>
-     <x>940</x>
-     <y>510</y>
+     <x>936</x>
+     <y>514</y>
      <width>21</width>
      <height>21</height>
     </rect>
@@ -2413,8 +2449,8 @@
   <widget class="QCheckBox" name="as2PopupCheck">
    <property name="geometry">
     <rect>
-     <x>1060</x>
-     <y>545</y>
+     <x>1028</x>
+     <y>531</y>
      <width>21</width>
      <height>21</height>
     </rect>
@@ -2456,8 +2492,8 @@
   <widget class="QCheckBox" name="hvsPopupCheck">
    <property name="geometry">
     <rect>
-     <x>103</x>
-     <y>603</y>
+     <x>90</x>
+     <y>606</y>
      <width>21</width>
      <height>21</height>
     </rect>
@@ -2489,9 +2525,26 @@
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap>./jdraw/linac_mainscreen_synoptic.png</pixmap>
+    <pixmap>jdraw/linac_mainscreen_synoptic.png</pixmap>
    </property>
   </widget>
+  <zorder>as2PopupWidget</zorder>
+  <zorder>qt2PopupWidget</zorder>
+  <zorder>qt1PopupWidget</zorder>
+  <zorder>as1PopupWidget</zorder>
+  <zorder>glPopupWidget</zorder>
+  <zorder>bc2PopupWidget</zorder>
+  <zorder>bc1PopupWidget</zorder>
+  <zorder>sl4PopupWidget</zorder>
+  <zorder>sl3PopupWidget</zorder>
+  <zorder>sl2PopupWidget</zorder>
+  <zorder>sl1PopupWidget</zorder>
+  <zorder>hvsPopupWidget</zorder>
+  <zorder>attenuatorPopupWidget</zorder>
+  <zorder>phaseShifter2PopupWidget</zorder>
+  <zorder>phaseShifter1PopupWidget</zorder>
+  <zorder>klystron2HVPopupWidget</zorder>
+  <zorder>klystron1HVPopupWidget</zorder>
   <zorder>MainScreenSchematic</zorder>
   <zorder>tbKaDelay1Value</zorder>
   <zorder>tbKaDelay2Value</zorder>
@@ -2586,29 +2639,13 @@
   <zorder>layoutWidget</zorder>
   <zorder>layoutWidget</zorder>
   <zorder>layoutWidget</zorder>
-  <zorder>klystron2HVPopupWidget</zorder>
   <zorder>klystron1HVPopupCheck</zorder>
   <zorder>klystron2HVPopupCheck</zorder>
-  <zorder>klystron1HVPopupWidget</zorder>
   <zorder>rfSourceStatusLed</zorder>
   <zorder>rfA0StatusLed</zorder>
   <zorder>attenuatorPopupCheck</zorder>
   <zorder>phaseShifter2PopupCheck</zorder>
   <zorder>phaseShifter1PopupCheck</zorder>
-  <zorder>phaseShifter2PopupWidget</zorder>
-  <zorder>attenuatorPopupWidget</zorder>
-  <zorder>phaseShifter1PopupWidget</zorder>
-  <zorder>sl1PopupWidget</zorder>
-  <zorder>sl2PopupWidget</zorder>
-  <zorder>sl3PopupWidget</zorder>
-  <zorder>sl4PopupWidget</zorder>
-  <zorder>bc1PopupWidget</zorder>
-  <zorder>bc2PopupWidget</zorder>
-  <zorder>glPopupWidget</zorder>
-  <zorder>qt1PopupWidget</zorder>
-  <zorder>qt2PopupWidget</zorder>
-  <zorder>as2PopupWidget</zorder>
-  <zorder>as1PopupWidget</zorder>
   <zorder>sl1PopupCheck</zorder>
   <zorder>sl2PopupCheck</zorder>
   <zorder>sl3PopupCheck</zorder>
@@ -2624,7 +2661,6 @@
   <zorder>fluorescentScreen2Status</zorder>
   <zorder>fluorescentScreen3Status</zorder>
   <zorder>hvsPopupCheck</zorder>
-  <zorder>hvsPopupWidget</zorder>
  </widget>
  <customwidgets>
   <customwidget>

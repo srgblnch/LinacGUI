@@ -53,7 +53,7 @@
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>1295</width>
+            <width>1370</width>
             <height>899</height>
            </rect>
           </property>
@@ -181,7 +181,7 @@
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>1295</width>
+            <width>1370</width>
             <height>899</height>
            </rect>
           </property>
@@ -349,21 +349,25 @@
    <class>linacOverview</class>
    <extends>TaurusWidget</extends>
    <header>linacoverview</header>
+   <container>1</container>
   </customwidget>
   <customwidget>
    <class>linacStartupSynoptic</class>
    <extends>TaurusWidget</extends>
    <header>linacstartupsynoptic</header>
+   <container>1</container>
   </customwidget>
   <customwidget>
    <class>linacPlcWidget</class>
    <extends>TaurusWidget</extends>
    <header>linacplcwidget</header>
+   <container>1</container>
   </customwidget>
   <customwidget>
    <class>linacMainscreenSynoptic</class>
    <extends>TaurusWidget</extends>
    <header>linacmainscreensynoptic</header>
+   <container>1</container>
   </customwidget>
  </customwidgets>
  <resources/>

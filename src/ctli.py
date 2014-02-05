@@ -160,6 +160,9 @@ class MainWindow(TaurusMainWindow):
         self._setStartup_cooling()
         self._setStartup_magnets()
         self._setStartup_vacuum()
+        startup_ui = self.ui.linacStartupSynoptic._ui
+        startup_ui.StartUpSchematic.lower()
+        
 
     def _setStartup_InterlockUnit(self):
         startup_ui = self.ui.linacStartupSynoptic._ui
@@ -424,6 +427,8 @@ class MainWindow(TaurusMainWindow):
         self._setMainscreen_hvs()
         self._setMainscreen_vacuum()
         self._setMainscreen_fs()
+        startup_ui = self.ui.linacMainscreenSynoptic._ui
+        startup_ui.MainScreenSchematic.lower()
         
     def _setMainscreen_tb(self):
         mainscreen_ui = self.ui.linacMainscreenSynoptic._ui
