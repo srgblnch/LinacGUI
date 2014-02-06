@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'klystronHV.ui'
 #
-# Created: Wed Feb  5 10:59:29 2014
+# Created: Thu Feb  6 08:53:03 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -17,10 +17,13 @@ except AttributeError:
 class Ui_klystronHV(object):
     def setupUi(self, klystronHV):
         klystronHV.setObjectName(_fromUtf8("klystronHV"))
-        klystronHV.resize(172, 136)
+        klystronHV.resize(185, 165)
         self.gridLayout = QtGui.QGridLayout(klystronHV)
         self.gridLayout.setObjectName(_fromUtf8("gridLayout"))
         self.highVoltageGroup = TaurusGroupBox(klystronHV)
+        font = QtGui.QFont()
+        font.setPointSize(7)
+        self.highVoltageGroup.setFont(font)
         self.highVoltageGroup.setObjectName(_fromUtf8("highVoltageGroup"))
         self.gridLayout_2 = QtGui.QGridLayout(self.highVoltageGroup)
         self.gridLayout_2.setObjectName(_fromUtf8("gridLayout_2"))

@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'klystron2ictk.ui'
 #
-# Created: Wed Feb  5 10:59:25 2014
+# Created: Thu Feb  6 08:52:39 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -17,10 +17,13 @@ except AttributeError:
 class Ui_klystron2itck(object):
     def setupUi(self, klystron2itck):
         klystron2itck.setObjectName(_fromUtf8("klystron2itck"))
-        klystron2itck.resize(183, 100)
+        klystron2itck.resize(156, 100)
         self.gridLayout = QtGui.QGridLayout(klystron2itck)
         self.gridLayout.setObjectName(_fromUtf8("gridLayout"))
         self.ictkGroup = TaurusGroupBox(klystron2itck)
+        font = QtGui.QFont()
+        font.setPointSize(7)
+        self.ictkGroup.setFont(font)
         self.ictkGroup.setObjectName(_fromUtf8("ictkGroup"))
         self.gridLayout_2 = QtGui.QGridLayout(self.ictkGroup)
         self.gridLayout_2.setObjectName(_fromUtf8("gridLayout_2"))

@@ -16,6 +16,11 @@
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
     <widget class="TaurusGroupBox" name="coolingLoopGroup">
+     <property name="font">
+      <font>
+       <pointsize>7</pointsize>
+      </font>
+     </property>
      <property name="title">
       <string>Cooling Loop #</string>
      </property>

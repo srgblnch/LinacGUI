@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'linacMainscreenSynoptic.ui'
 #
-# Created: Wed Feb  5 16:37:52 2014
+# Created: Thu Feb  6 08:52:56 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -20,6 +20,9 @@ class Ui_linacMainscreenSynoptic(object):
         linacMainscreenSynoptic.resize(1250, 825)
         linacMainscreenSynoptic.setMinimumSize(QtCore.QSize(1250, 825))
         linacMainscreenSynoptic.setMaximumSize(QtCore.QSize(1250, 825))
+        font = QtGui.QFont()
+        font.setPointSize(7)
+        linacMainscreenSynoptic.setFont(font)
         self.tbKaDelay1Value = TaurusValueSpinBox(linacMainscreenSynoptic)
         self.tbKaDelay1Value.setGeometry(QtCore.QRect(35, 48, 60, 22))
         self.tbKaDelay1Value.setObjectName(_fromUtf8("tbKaDelay1Value"))

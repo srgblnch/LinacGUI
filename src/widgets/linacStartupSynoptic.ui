@@ -188,6 +188,11 @@
      <height>22</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>7</pointsize>
+    </font>
+   </property>
   </widget>
   <widget class="TaurusLed" name="vacuumValve2OnLed">
    <property name="geometry">
@@ -264,6 +269,11 @@
      <height>22</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>7</pointsize>
+    </font>
+   </property>
   </widget>
   <widget class="TaurusLed" name="vacuumValve4OnLed">
    <property name="geometry">
@@ -317,6 +327,11 @@
      <width>70</width>
      <height>22</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>7</pointsize>
+    </font>
    </property>
   </widget>
   <widget class="TaurusLed" name="vacuumValve6OnLed">
@@ -680,6 +695,11 @@
      <height>16</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>7</pointsize>
+    </font>
+   </property>
   </widget>
   <widget class="TaurusLabel" name="ipc1Value2">
    <property name="geometry">
@@ -689,6 +709,11 @@
      <width>75</width>
      <height>16</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>7</pointsize>
+    </font>
    </property>
   </widget>
   <widget class="TaurusLabel" name="hvg1Value">
@@ -700,6 +725,11 @@
      <height>16</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>7</pointsize>
+    </font>
+   </property>
   </widget>
   <widget class="TaurusLabel" name="hvg2Value">
    <property name="geometry">
@@ -709,6 +739,11 @@
      <width>75</width>
      <height>16</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>7</pointsize>
+    </font>
    </property>
   </widget>
   <widget class="TaurusLabel" name="ipc2Value1">
@@ -720,6 +755,11 @@
      <height>16</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>7</pointsize>
+    </font>
+   </property>
   </widget>
   <widget class="TaurusLabel" name="ipc2Value2">
    <property name="geometry">
@@ -729,6 +769,11 @@
      <width>75</width>
      <height>16</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>7</pointsize>
+    </font>
    </property>
   </widget>
   <widget class="TaurusLabel" name="hvg3Value">
@@ -740,6 +785,11 @@
      <height>16</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>7</pointsize>
+    </font>
+   </property>
   </widget>
   <widget class="TaurusLabel" name="ipc3Value1">
    <property name="geometry">
@@ -749,6 +799,11 @@
      <width>75</width>
      <height>16</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>7</pointsize>
+    </font>
    </property>
   </widget>
   <widget class="TaurusLabel" name="ipc3Value2">
@@ -760,6 +815,11 @@
      <height>16</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>7</pointsize>
+    </font>
+   </property>
   </widget>
   <widget class="TaurusLabel" name="hvg4Value">
    <property name="geometry">
@@ -769,6 +829,11 @@
      <width>75</width>
      <height>16</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>7</pointsize>
+    </font>
    </property>
   </widget>
   <widget class="TaurusLabel" name="ipc4Value1">
@@ -780,6 +845,11 @@
      <height>16</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>7</pointsize>
+    </font>
+   </property>
   </widget>
   <widget class="TaurusLabel" name="ipc4Value2">
    <property name="geometry">
@@ -789,6 +859,11 @@
      <width>75</width>
      <height>16</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>7</pointsize>
+    </font>
    </property>
   </widget>
   <widget class="TaurusLabel" name="hvg5Value">
@@ -800,6 +875,11 @@
      <height>16</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>7</pointsize>
+    </font>
+   </property>
   </widget>
   <widget class="TaurusLabel" name="ipc5Value1">
    <property name="geometry">
@@ -809,6 +889,11 @@
      <width>75</width>
      <height>16</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>7</pointsize>
+    </font>
    </property>
   </widget>
   <widget class="klystronLV" name="klystron2LVWidget">
@@ -908,6 +993,11 @@
      <height>16</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>7</pointsize>
+    </font>
+   </property>
   </widget>
   <widget class="TaurusLabel" name="vacuumValve2OnStatus">
    <property name="geometry">
@@ -917,6 +1007,11 @@
      <width>70</width>
      <height>16</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>7</pointsize>
+    </font>
    </property>
   </widget>
   <widget class="TaurusLabel" name="vacuumValve3OnStatus">
@@ -928,6 +1023,11 @@
      <height>16</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>7</pointsize>
+    </font>
+   </property>
   </widget>
   <widget class="TaurusLabel" name="vacuumValve4OnStatus">
    <property name="geometry">
@@ -937,6 +1037,11 @@
      <width>70</width>
      <height>16</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>7</pointsize>
+    </font>
    </property>
   </widget>
   <widget class="TaurusLabel" name="vacuumValve5OnStatus">
@@ -948,6 +1053,11 @@
      <height>16</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>7</pointsize>
+    </font>
+   </property>
   </widget>
   <widget class="TaurusLabel" name="vacuumValve6OnStatus">
    <property name="geometry">
@@ -958,6 +1068,11 @@
      <height>16</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>7</pointsize>
+    </font>
+   </property>
   </widget>
   <widget class="TaurusLabel" name="vacuumValve7OnStatus">
    <property name="geometry">
@@ -967,6 +1082,11 @@
      <width>70</width>
      <height>16</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>7</pointsize>
+    </font>
    </property>
   </widget>
   <widget class="QWidget" name="layoutWidget">
@@ -984,6 +1104,11 @@
     </property>
     <item>
      <widget class="QLabel" name="coolingLoop3OnLabel">
+      <property name="font">
+       <font>
+        <pointsize>7</pointsize>
+       </font>
+      </property>
       <property name="text">
        <string>On</string>
       </property>
@@ -1029,6 +1154,11 @@
     </property>
     <item>
      <widget class="QLabel" name="coolingLoop2OnLabel">
+      <property name="font">
+       <font>
+        <pointsize>7</pointsize>
+       </font>
+      </property>
       <property name="text">
        <string>On</string>
       </property>
@@ -1074,6 +1204,11 @@
     </property>
     <item>
      <widget class="QLabel" name="coolingLoop1OnLabel">
+      <property name="font">
+       <font>
+        <pointsize>7</pointsize>
+       </font>
+      </property>
       <property name="text">
        <string>On</string>
       </property>
@@ -1126,6 +1261,11 @@
     </item>
     <item>
      <widget class="QLabel" name="vv_rstLabel">
+      <property name="font">
+       <font>
+        <pointsize>7</pointsize>
+       </font>
+      </property>
       <property name="text">
        <string>Reset</string>
       </property>
@@ -1148,6 +1288,11 @@
     </property>
     <item>
      <widget class="QLabel" name="vv_oncLabel">
+      <property name="font">
+       <font>
+        <pointsize>7</pointsize>
+       </font>
+      </property>
       <property name="text">
        <string>Open</string>
       </property>
@@ -1280,6 +1425,11 @@
     </item>
     <item>
      <widget class="QLabel" name="vacuumValve1OnLabel">
+      <property name="font">
+       <font>
+        <pointsize>7</pointsize>
+       </font>
+      </property>
       <property name="text">
        <string>Open</string>
       </property>
@@ -1299,6 +1449,11 @@
    <layout class="QHBoxLayout" name="vacuumValve2OnLayout">
     <item>
      <widget class="QLabel" name="vacuumValve2OnLabel">
+      <property name="font">
+       <font>
+        <pointsize>7</pointsize>
+       </font>
+      </property>
       <property name="text">
        <string>Open</string>
       </property>
@@ -1335,6 +1490,11 @@
     </item>
     <item>
      <widget class="QLabel" name="vacuumValve3OnLabel">
+      <property name="font">
+       <font>
+        <pointsize>7</pointsize>
+       </font>
+      </property>
       <property name="text">
        <string>Open</string>
       </property>
@@ -1354,6 +1514,11 @@
    <layout class="QHBoxLayout" name="vacuumValve4OnLayout">
     <item>
      <widget class="QLabel" name="vacuumValve4OnLabel">
+      <property name="font">
+       <font>
+        <pointsize>7</pointsize>
+       </font>
+      </property>
       <property name="text">
        <string>Open</string>
       </property>
@@ -1383,6 +1548,11 @@
     </property>
     <item>
      <widget class="QLabel" name="vacuumValve5OnLabel">
+      <property name="font">
+       <font>
+        <pointsize>7</pointsize>
+       </font>
+      </property>
       <property name="text">
        <string>Open</string>
       </property>
@@ -1412,6 +1582,11 @@
     </property>
     <item>
      <widget class="QLabel" name="vacuumValve6OnLabel">
+      <property name="font">
+       <font>
+        <pointsize>7</pointsize>
+       </font>
+      </property>
       <property name="text">
        <string>Open</string>
       </property>
@@ -1441,6 +1616,11 @@
     </property>
     <item>
      <widget class="QLabel" name="vacuumValve7OnLabel">
+      <property name="font">
+       <font>
+        <pointsize>7</pointsize>
+       </font>
+      </property>
       <property name="text">
        <string>Open</string>
       </property>
@@ -1496,6 +1676,11 @@
     </property>
     <item>
      <widget class="QLabel" name="interlockUnitResetLabel">
+      <property name="font">
+       <font>
+        <pointsize>7</pointsize>
+       </font>
+      </property>
       <property name="text">
        <string>Reset</string>
       </property>
@@ -1545,6 +1730,11 @@
     </property>
     <item>
      <widget class="QLabel" name="egunonLabel">
+      <property name="font">
+       <font>
+        <pointsize>7</pointsize>
+       </font>
+      </property>
       <property name="text">
        <string>On</string>
       </property>
@@ -1609,6 +1799,11 @@
         <height>20</height>
        </size>
       </property>
+      <property name="font">
+       <font>
+        <pointsize>7</pointsize>
+       </font>
+      </property>
       <property name="autoApply">
        <bool>false</bool>
       </property>
@@ -1621,6 +1816,11 @@
         <width>60</width>
         <height>20</height>
        </size>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>7</pointsize>
+       </font>
       </property>
       <property name="autoApply">
        <bool>true</bool>
@@ -1675,6 +1875,11 @@
         <height>20</height>
        </size>
       </property>
+      <property name="font">
+       <font>
+        <pointsize>7</pointsize>
+       </font>
+      </property>
       <property name="suffixText">
        <string/>
       </property>
@@ -1687,6 +1892,11 @@
         <width>60</width>
         <height>20</height>
        </size>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>7</pointsize>
+       </font>
       </property>
       <property name="suffixText">
        <string/>
@@ -2062,6 +2272,11 @@
     </item>
     <item row="0" column="2">
      <widget class="QLabel" name="klystron1OnLabel">
+      <property name="font">
+       <font>
+        <pointsize>7</pointsize>
+       </font>
+      </property>
       <property name="text">
        <string>On</string>
       </property>
@@ -2092,6 +2307,11 @@
     </item>
     <item row="1" column="2">
      <widget class="QLabel" name="klystron1RstLabel">
+      <property name="font">
+       <font>
+        <pointsize>7</pointsize>
+       </font>
+      </property>
       <property name="text">
        <string>Reset</string>
       </property>
@@ -2134,6 +2354,11 @@
     </item>
     <item row="0" column="2">
      <widget class="QLabel" name="klystron2OnLabel">
+      <property name="font">
+       <font>
+        <pointsize>7</pointsize>
+       </font>
+      </property>
       <property name="text">
        <string>On</string>
       </property>
@@ -2164,6 +2389,11 @@
     </item>
     <item row="1" column="2">
      <widget class="QLabel" name="klystron2RstLabel">
+      <property name="font">
+       <font>
+        <pointsize>7</pointsize>
+       </font>
+      </property>
       <property name="text">
        <string>Reset</string>
       </property>

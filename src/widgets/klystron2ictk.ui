@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>183</width>
+    <width>156</width>
     <height>100</height>
    </rect>
   </property>
@@ -16,6 +16,11 @@
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
     <widget class="TaurusGroupBox" name="ictkGroup">
+     <property name="font">
+      <font>
+       <pointsize>7</pointsize>
+      </font>
+     </property>
      <property name="title">
       <string>klystron 2 interlock</string>
      </property>

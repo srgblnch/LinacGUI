@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'klystronLV.ui'
 #
-# Created: Wed Feb  5 10:59:26 2014
+# Created: Thu Feb  6 08:52:49 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -17,24 +17,32 @@ except AttributeError:
 class Ui_klystronLV(object):
     def setupUi(self, klystronLV):
         klystronLV.setObjectName(_fromUtf8("klystronLV"))
-        klystronLV.resize(151, 196)
+        klystronLV.resize(158, 212)
         self.gridLayout_3 = QtGui.QGridLayout(klystronLV)
         self.gridLayout_3.setObjectName(_fromUtf8("gridLayout_3"))
         self.lowVoltageGroup = TaurusGroupBox(klystronLV)
+        font = QtGui.QFont()
+        font.setPointSize(7)
+        self.lowVoltageGroup.setFont(font)
         self.lowVoltageGroup.setObjectName(_fromUtf8("lowVoltageGroup"))
         self.gridLayout = QtGui.QGridLayout(self.lowVoltageGroup)
         self.gridLayout.setObjectName(_fromUtf8("gridLayout"))
         self.LV_Status = TaurusLabel(self.lowVoltageGroup)
+        self.LV_Status.setMinimumSize(QtCore.QSize(0, 20))
         self.LV_Status.setObjectName(_fromUtf8("LV_Status"))
         self.gridLayout.addWidget(self.LV_Status, 0, 0, 1, 3)
         self.LV_TimeLabel = QtGui.QLabel(self.lowVoltageGroup)
         self.LV_TimeLabel.setObjectName(_fromUtf8("LV_TimeLabel"))
         self.gridLayout.addWidget(self.LV_TimeLabel, 1, 0, 1, 1)
         self.LV_TimeValue = TaurusLabel(self.lowVoltageGroup)
+        self.LV_TimeValue.setMinimumSize(QtCore.QSize(0, 20))
         self.LV_TimeValue.setObjectName(_fromUtf8("LV_TimeValue"))
         self.gridLayout.addWidget(self.LV_TimeValue, 1, 1, 1, 2)
         self.gridLayout_3.addWidget(self.lowVoltageGroup, 0, 0, 1, 1)
         self.taurusGroupBox_2 = TaurusGroupBox(klystronLV)
+        font = QtGui.QFont()
+        font.setPointSize(7)
+        self.taurusGroupBox_2.setFont(font)
         self.taurusGroupBox_2.setObjectName(_fromUtf8("taurusGroupBox_2"))
         self.gridLayout_2 = QtGui.QGridLayout(self.taurusGroupBox_2)
         self.gridLayout_2.setObjectName(_fromUtf8("gridLayout_2"))
@@ -42,21 +50,25 @@ class Ui_klystronLV(object):
         self.heatVLabel.setObjectName(_fromUtf8("heatVLabel"))
         self.gridLayout_2.addWidget(self.heatVLabel, 1, 0, 1, 1)
         self.heatVValue = TaurusLabel(self.taurusGroupBox_2)
+        self.heatVValue.setMinimumSize(QtCore.QSize(0, 20))
         self.heatVValue.setObjectName(_fromUtf8("heatVValue"))
         self.gridLayout_2.addWidget(self.heatVValue, 1, 1, 1, 1)
         self.heatILabel = QtGui.QLabel(self.taurusGroupBox_2)
         self.heatILabel.setObjectName(_fromUtf8("heatILabel"))
         self.gridLayout_2.addWidget(self.heatILabel, 2, 0, 1, 1)
         self.heatIValue = TaurusLabel(self.taurusGroupBox_2)
+        self.heatIValue.setMinimumSize(QtCore.QSize(0, 20))
         self.heatIValue.setObjectName(_fromUtf8("heatIValue"))
         self.gridLayout_2.addWidget(self.heatIValue, 2, 1, 1, 1)
         self.heatTLabel = QtGui.QLabel(self.taurusGroupBox_2)
         self.heatTLabel.setObjectName(_fromUtf8("heatTLabel"))
         self.gridLayout_2.addWidget(self.heatTLabel, 3, 0, 1, 1)
         self.heatTValue = TaurusLabel(self.taurusGroupBox_2)
+        self.heatTValue.setMinimumSize(QtCore.QSize(0, 20))
         self.heatTValue.setObjectName(_fromUtf8("heatTValue"))
         self.gridLayout_2.addWidget(self.heatTValue, 3, 1, 1, 1)
         self.heatStatus = TaurusLabel(self.taurusGroupBox_2)
+        self.heatStatus.setMinimumSize(QtCore.QSize(0, 20))
         self.heatStatus.setObjectName(_fromUtf8("heatStatus"))
         self.gridLayout_2.addWidget(self.heatStatus, 0, 0, 1, 2)
         self.gridLayout_3.addWidget(self.taurusGroupBox_2, 1, 0, 1, 1)

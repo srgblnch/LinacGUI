@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'coolingLoop.ui'
 #
-# Created: Wed Feb  5 10:59:22 2014
+# Created: Thu Feb  6 08:52:14 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -21,6 +21,9 @@ class Ui_CoolingLoop(object):
         self.gridLayout = QtGui.QGridLayout(CoolingLoop)
         self.gridLayout.setObjectName(_fromUtf8("gridLayout"))
         self.coolingLoopGroup = TaurusGroupBox(CoolingLoop)
+        font = QtGui.QFont()
+        font.setPointSize(7)
+        self.coolingLoopGroup.setFont(font)
         self.coolingLoopGroup.setObjectName(_fromUtf8("coolingLoopGroup"))
         self.gridLayout_2 = QtGui.QGridLayout(self.coolingLoopGroup)
         self.gridLayout_2.setObjectName(_fromUtf8("gridLayout_2"))

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>151</width>
-    <height>196</height>
+    <width>158</width>
+    <height>212</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,12 +16,24 @@
   <layout class="QGridLayout" name="gridLayout_3">
    <item row="0" column="0">
     <widget class="TaurusGroupBox" name="lowVoltageGroup">
+     <property name="font">
+      <font>
+       <pointsize>7</pointsize>
+      </font>
+     </property>
      <property name="title">
       <string>klystron low voltage</string>
      </property>
      <layout class="QGridLayout" name="gridLayout">
       <item row="0" column="0" colspan="3">
-       <widget class="TaurusLabel" name="LV_Status"/>
+       <widget class="TaurusLabel" name="LV_Status">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>20</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="1" column="0">
        <widget class="QLabel" name="LV_TimeLabel">
@@ -32,6 +44,12 @@
       </item>
       <item row="1" column="1" colspan="2">
        <widget class="TaurusLabel" name="LV_TimeValue">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>20</height>
+         </size>
+        </property>
         <property name="suffixText">
          <string> s</string>
         </property>
@@ -42,6 +60,11 @@
    </item>
    <item row="1" column="0">
     <widget class="TaurusGroupBox" name="taurusGroupBox_2">
+     <property name="font">
+      <font>
+       <pointsize>7</pointsize>
+      </font>
+     </property>
      <property name="title">
       <string>Heating</string>
      </property>
@@ -55,6 +78,12 @@
       </item>
       <item row="1" column="1">
        <widget class="TaurusLabel" name="heatVValue">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>20</height>
+         </size>
+        </property>
         <property name="suffixText">
          <string> V</string>
         </property>
@@ -69,6 +98,12 @@
       </item>
       <item row="2" column="1">
        <widget class="TaurusLabel" name="heatIValue">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>20</height>
+         </size>
+        </property>
         <property name="suffixText">
          <string> A</string>
         </property>
@@ -83,13 +118,26 @@
       </item>
       <item row="3" column="1">
        <widget class="TaurusLabel" name="heatTValue">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>20</height>
+         </size>
+        </property>
         <property name="suffixText">
          <string> s</string>
         </property>
        </widget>
       </item>
       <item row="0" column="0" colspan="2">
-       <widget class="TaurusLabel" name="heatStatus"/>
+       <widget class="TaurusLabel" name="heatStatus">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>20</height>
+         </size>
+        </property>
+       </widget>
       </item>
      </layout>
     </widget>
