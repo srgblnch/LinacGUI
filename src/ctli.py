@@ -328,16 +328,16 @@ class MainWindow(TaurusMainWindow):
 
     def _setStartup_magnets(self):
         startup_ui = self.ui.linacStartupSynoptic._ui
-        self._setupLed4Attr(startup_ui.sl1Led,'li/ct/plc3/SL1_ONC',inverted=True)
-        self._setupLed4Attr(startup_ui.sl2Led,'li/ct/plc3/SL2_ONC',inverted=True)
-        self._setupLed4Attr(startup_ui.sl3Led,'li/ct/plc3/SL3_ONC',inverted=True)
-        self._setupLed4Attr(startup_ui.sl4Led,'li/ct/plc3/SL4_ONC',inverted=True)
-        self._setupLed4Attr(startup_ui.bc1Led,'li/ct/plc3/BC1_ONC',inverted=True)
-        self._setupLed4Attr(startup_ui.bc2Led,'li/ct/plc3/BC2_ONC',inverted=True)
-        self._setupLed4Attr(startup_ui.glLed,'li/ct/plc3/GL_ONC',inverted=True)
-        self._setupLed4Attr(startup_ui.as1Led,'li/ct/plc3/AS1_ONC',inverted=True)
-        self._setupLed4Attr(startup_ui.qtLed,'li/ct/plc3/QT_ONC',inverted=True)
-        self._setupLed4Attr(startup_ui.as2Led,'li/ct/plc3/AS2_ONC',inverted=True)
+        self._setupLed4UnknownAttr(startup_ui.sl1Led)
+        self._setupLed4UnknownAttr(startup_ui.sl2Led)
+        self._setupLed4UnknownAttr(startup_ui.sl3Led)
+        self._setupLed4UnknownAttr(startup_ui.sl4Led)
+        self._setupLed4UnknownAttr(startup_ui.bc1Led)
+        self._setupLed4UnknownAttr(startup_ui.bc2Led)
+        self._setupLed4UnknownAttr(startup_ui.glLed)
+        self._setupLed4UnknownAttr(startup_ui.as1Led)
+        self._setupLed4UnknownAttr(startup_ui.qtLed)
+        self._setupLed4UnknownAttr(startup_ui.as2Led)
 
     def _setStartup_vacuum(self):
         startup_ui = self.ui.linacStartupSynoptic._ui
