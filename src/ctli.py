@@ -435,7 +435,7 @@ class MainWindow(TaurusMainWindow):
         self._setupSpinBox4Attr(mainscreen_ui.tbKaDelay1Value,'li/ct/plc1/TB_KA1_Delay')
         self._setupSpinBox4Attr(mainscreen_ui.tbKaDelay2Value,'li/ct/plc1/TB_KA2_Delay')
         self._setupSpinBox4Attr(mainscreen_ui.tbFf2DelayValue,'li/ct/plc1/TB_RF2_Delay')
-        self._setupSpinBox4Attr(mainscreen_ui.tbGunLevelValue,'li/ct/plc1/TB_Gun_Delay')
+        self._setupSpinBox4Attr(mainscreen_ui.tbGunLevelValue,'li/ct/plc1/TB_GPA')
         self._setupSpinBox4Attr(mainscreen_ui.tbMultiBunchValue,'li/ct/plc1/TB_MBM')
 #        self._setupCombobox4Attr(mainscreen_ui.tbGatedPulseModeValue,'li/ct/plc1/TB_GPM',
 #                                 [('off',0),('mix',1),('on',2)])
@@ -693,7 +693,7 @@ class MainWindow(TaurusMainWindow):
         
     def _setMainscreen_hvs(self):
         mainscreen_ui = self.ui.linacMainscreenSynoptic._ui
-        self._setupSpinBox4Attr(mainscreen_ui.hvsVoltageValue,'li/ct/plc1/GUN_HV_V')
+        self._setupSpinBox4Attr(mainscreen_ui.hvsVoltageValue,'li/ct/plc1/GUN_HV_V_setpoint')
         self._setupTaurusLabel4Attr(mainscreen_ui.hvsCurrentValue,'li/ct/plc1/GUN_HV_I','uA')
         #mainscreen_ui.hvsPopupCheck.setCheckState(False)
         mainscreen_ui.hvsPopupWidget.hide()
