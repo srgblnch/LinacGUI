@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'linacMainscreenSynoptic.ui'
 #
-# Created: Thu Feb  6 08:52:56 2014
+# Created: Thu Feb  6 17:23:14 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -753,7 +753,7 @@ class Ui_linacMainscreenSynoptic(object):
         self.magnetsRstCheck.setObjectName(_fromUtf8("magnetsRstCheck"))
         self.horizontalLayout.addWidget(self.magnetsRstCheck)
         self.klystron2HVPopupWidget = klystronHV(linacMainscreenSynoptic)
-        self.klystron2HVPopupWidget.setGeometry(QtCore.QRect(1077, 10, 171, 161))
+        self.klystron2HVPopupWidget.setGeometry(QtCore.QRect(869, 30, 170, 240))
         self.klystron2HVPopupWidget.setObjectName(_fromUtf8("klystron2HVPopupWidget"))
         self.klystron1HVPopupCheck = QtGui.QCheckBox(linacMainscreenSynoptic)
         self.klystron1HVPopupCheck.setGeometry(QtCore.QRect(755, 90, 21, 21))
@@ -764,7 +764,7 @@ class Ui_linacMainscreenSynoptic(object):
         self.klystron2HVPopupCheck.setText(_fromUtf8(""))
         self.klystron2HVPopupCheck.setObjectName(_fromUtf8("klystron2HVPopupCheck"))
         self.klystron1HVPopupWidget = klystronHV(linacMainscreenSynoptic)
-        self.klystron1HVPopupWidget.setGeometry(QtCore.QRect(790, 10, 171, 161))
+        self.klystron1HVPopupWidget.setGeometry(QtCore.QRect(500, 30, 170, 240))
         self.klystron1HVPopupWidget.setObjectName(_fromUtf8("klystron1HVPopupWidget"))
         self.rfSourceStatusLed = TaurusLed(linacMainscreenSynoptic)
         self.rfSourceStatusLed.setGeometry(QtCore.QRect(1104, 278, 10, 10))

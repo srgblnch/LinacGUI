@@ -2055,12 +2055,13 @@
   <widget class="klystronHV" name="klystron2HVPopupWidget">
    <property name="geometry">
     <rect>
-     <x>1077</x>
-     <y>10</y>
-     <width>171</width>
-     <height>161</height>
+     <x>869</x>
+     <y>30</y>
+     <width>170</width>
+     <height>240</height>
     </rect>
    </property>
+   <zorder>MainScreenSchematic</zorder>
   </widget>
   <widget class="QCheckBox" name="klystron1HVPopupCheck">
    <property name="geometry">
@@ -2091,10 +2092,10 @@
   <widget class="klystronHV" name="klystron1HVPopupWidget">
    <property name="geometry">
     <rect>
-     <x>790</x>
-     <y>10</y>
-     <width>171</width>
-     <height>161</height>
+     <x>500</x>
+     <y>30</y>
+     <width>170</width>
+     <height>240</height>
     </rect>
    </property>
   </widget>
@@ -2533,20 +2534,20 @@
     <pixmap>jdraw/linac_mainscreen_synoptic.png</pixmap>
    </property>
   </widget>
-  <zorder>as2PopupWidget</zorder>
-  <zorder>qt2PopupWidget</zorder>
-  <zorder>qt1PopupWidget</zorder>
-  <zorder>as1PopupWidget</zorder>
-  <zorder>glPopupWidget</zorder>
-  <zorder>bc2PopupWidget</zorder>
-  <zorder>bc1PopupWidget</zorder>
-  <zorder>sl4PopupWidget</zorder>
-  <zorder>sl3PopupWidget</zorder>
-  <zorder>sl2PopupWidget</zorder>
   <zorder>sl1PopupWidget</zorder>
   <zorder>hvsPopupWidget</zorder>
-  <zorder>attenuatorPopupWidget</zorder>
+  <zorder>sl2PopupWidget</zorder>
+  <zorder>sl3PopupWidget</zorder>
+  <zorder>sl4PopupWidget</zorder>
+  <zorder>bc1PopupWidget</zorder>
+  <zorder>bc2PopupWidget</zorder>
+  <zorder>glPopupWidget</zorder>
+  <zorder>as1PopupWidget</zorder>
+  <zorder>qt1PopupWidget</zorder>
+  <zorder>qt2PopupWidget</zorder>
+  <zorder>as2PopupWidget</zorder>
   <zorder>phaseShifter2PopupWidget</zorder>
+  <zorder>attenuatorPopupWidget</zorder>
   <zorder>phaseShifter1PopupWidget</zorder>
   <zorder>klystron2HVPopupWidget</zorder>
   <zorder>klystron1HVPopupWidget</zorder>
