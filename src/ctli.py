@@ -96,10 +96,12 @@ class MainWindow(TaurusMainWindow):
         widget.setAutoApply(True)
         widget.setForcedApply(True)
 
-    def _setupSpinBox4Attr(self,widget,attrName):
+    def _setupSpinBox4Attr(self,widget,attrName,step=1):
         widget.setModel(attrName)
         widget.setAutoApply(True)
         widget.setForcedApply(True)
+        if not step == widget.getSingleStep():
+            widget.setSingleStep(step)
 
     def _setupTaurusLabel4Attr(self,widget,attrName,unit=None):
         widget.setModel(attrName)
@@ -264,8 +266,8 @@ class MainWindow(TaurusMainWindow):
         self._egunManager = CheckboxManager(startup_ui.kdeGunLVPopupCheck,
                                             startup_ui.kdeGunLVWidget,
                                             "EGunPopup")
-        self._setupSpinBox4Attr(startup_ui.filamentSetpoint,'li/ct/plc1/GUN_Filament_V')
-        self._setupSpinBox4Attr(startup_ui.cathodeSetpoint,'li/ct/plc1/GUN_Kathode_V')
+        self._setupSpinBox4Attr(startup_ui.filamentSetpoint,'li/ct/plc1/GUN_Filament_V',step=0.1)
+        self._setupSpinBox4Attr(startup_ui.cathodeSetpoint,'li/ct/plc1/GUN_Kathode_V',step=0.1)
         self._setupTaurusLabel4Attr(startup_ui.filamentCurrent,'li/ct/plc1/GUN_Filament_I','A')
         self._setupTaurusLabel4Attr(startup_ui.temperatureValue,'li/ct/plc1/GUN_Kathode_T','C')
         #setmodel for the contents in the popup
@@ -310,7 +312,9 @@ class MainWindow(TaurusMainWindow):
             self._setupCheckbox4Attr(coolingLoops[number]['cmdCheck'],coolingLoops[number]['cmd_attrName'])
             self._setupLed4Attr(coolingLoops[number]['cmdLed'],coolingLoops[number]['cmd_attrName'])
             #information area
-            self._setupSpinBox4Attr(coolingLoops[number]['Temperature'],coolingLoops[number]['Temperature_attrName'])
+            self._setupSpinBox4Attr(coolingLoops[number]['Temperature'],
+                                    coolingLoops[number]['Temperature_attrName'],
+                                    step=0.1)
             #coolingLoops[number]['check'].setCheckState(False)
             coolingLoops[number]['widget'].hide()
             self._coolingLoopManagers[number] = CheckboxManager(coolingLoops[number]['check'],
@@ -434,9 +438,9 @@ class MainWindow(TaurusMainWindow):
         mainscreen_ui = self.ui.linacMainscreenSynoptic._ui
         self._setupSpinBox4Attr(mainscreen_ui.tbKaDelay1Value,'li/ct/plc1/TB_KA1_Delay')
         self._setupSpinBox4Attr(mainscreen_ui.tbKaDelay2Value,'li/ct/plc1/TB_KA2_Delay')
-        self._setupSpinBox4Attr(mainscreen_ui.tbFf2DelayValue,'li/ct/plc1/TB_RF2_Delay')
-        self._setupSpinBox4Attr(mainscreen_ui.tbGunLevelValue,'li/ct/plc1/TB_GPA')
-        self._setupSpinBox4Attr(mainscreen_ui.tbMultiBunchValue,'li/ct/plc1/TB_MBM')
+        self._setupSpinBox4Attr(mainscreen_ui.tbRf2DelayValue,'li/ct/plc1/TB_RF2_Delay')
+        self._setupSpinBox4Attr(mainscreen_ui.tbGunLevelValue,'li/ct/plc1/TB_GPA',step=0.1)
+        self._setupCheckbox4Attr(mainscreen_ui.tbMultiBunchValue, 'li/ct/plc1/TB_MBM')
         #---- FIXME: the addValueNames fails in some versions of taurus,
         #            but it works in the control's room version
         try:
@@ -476,7 +480,7 @@ class MainWindow(TaurusMainWindow):
         self._klystronHV = {}
         for number in klystrons.keys():
             self._setupSpinBox4Attr(klystrons[number]['setpoint'],
-                                    klystrons[number]['setpoint_attrName'])
+                                    klystrons[number]['setpoint_attrName'],step=0.1)
             self._setupCheckbox4Attr(klystrons[number]['rstCheck'],
                                      klystrons[number]['rst_attrName'])
             self._setupLed4Attr(klystrons[number]['rstLed'],
@@ -507,10 +511,10 @@ class MainWindow(TaurusMainWindow):
                              'X':mainscreen_ui.rfTimePhaseShifterXValue}
         for timeShifter in timePhaseShifters.keys():
             attrName = 'li/ct/plc1/TPS%s_Phase'%timeShifter
-            self._setupSpinBox4Attr(timePhaseShifters[timeShifter],attrName)
-        self._setupSpinBox4Attr(mainscreen_ui.rfA0OutputPowerValue,'li/ct/plc1/A0_OP')
+            self._setupSpinBox4Attr(timePhaseShifters[timeShifter],attrName,step=0.1)
+        self._setupSpinBox4Attr(mainscreen_ui.rfA0OutputPowerValue,'li/ct/plc1/A0_OP',step=0.1)
         self._setupLed4UnknownAttr(mainscreen_ui.rfA0StatusLed)
-        self._setupSpinBox4Attr(mainscreen_ui.attenuator2Value,'li/ct/plc1/ATT2_P')
+        self._setupSpinBox4Attr(mainscreen_ui.attenuator2Value,'li/ct/plc1/ATT2_P',step=0.1)
         phaseShifters = {'1':{'write':mainscreen_ui.rfPhaseShifter1Value,
                               'check':mainscreen_ui.phaseShifter1PopupCheck,
                               'widget':mainscreen_ui.phaseShifter1PopupWidget},
@@ -519,7 +523,7 @@ class MainWindow(TaurusMainWindow):
                               'widget':mainscreen_ui.phaseShifter2PopupWidget}}
         for shifter in phaseShifters.keys():
             attrName = 'li/ct/plc1/PHS%s_Phase'%shifter
-            self._setupSpinBox4Attr(phaseShifters[shifter]['write'],attrName)
+            self._setupSpinBox4Attr(phaseShifters[shifter]['write'],attrName,step=0.1)
         sf6pressures = {'1':mainscreen_ui.sf6p1Value,
                         '2':mainscreen_ui.sf6p2Value}
         for pressure in sf6pressures.keys():
@@ -559,8 +563,8 @@ class MainWindow(TaurusMainWindow):
             self._setupLed4Attr(coolingLoops[loop], attrName)
     def _setMainscreen_kd(self):
         mainscreen_ui = self.ui.linacMainscreenSynoptic._ui
-        self._setupSpinBox4Attr(mainscreen_ui.filamentSetpoint,'li/ct/plc1/GUN_Filament_V')
-        self._setupSpinBox4Attr(mainscreen_ui.cathodeSetpoint,'li/ct/plc1/GUN_Kathode_V')
+        self._setupSpinBox4Attr(mainscreen_ui.filamentSetpoint,'li/ct/plc1/GUN_Filament_V',step=0.1)
+        self._setupSpinBox4Attr(mainscreen_ui.cathodeSetpoint,'li/ct/plc1/GUN_Kathode_V',step=0.1)
         self._setupTaurusLabel4Attr(mainscreen_ui.filamentCurrent,'li/ct/plc1/GUN_Filament_I','A')
         self._setupTaurusLabel4Attr(mainscreen_ui.temperatureValue,'li/ct/plc1/GUN_Kathode_T','C')
 
@@ -646,13 +650,13 @@ class MainWindow(TaurusMainWindow):
                 self._setupLed4Attr(magnets[magnet]['state'],attrName)
             if magnets[magnet].has_key('h'):
                 attrName = '%s/%sh_I'%(deviceName,magnet)
-                self._setupSpinBox4Attr(magnets[magnet]['h'],attrName)
+                self._setupSpinBox4Attr(magnets[magnet]['h'],attrName,step=0.1)
             if magnets[magnet].has_key('v'):
                 attrName = '%s/%sv_I'%(deviceName,magnet)
-                self._setupSpinBox4Attr(magnets[magnet]['v'],attrName)
+                self._setupSpinBox4Attr(magnets[magnet]['v'],attrName,step=0.1)
             if magnets[magnet].has_key('f'):
                 attrName = '%s/%sf_I'%(deviceName,magnet)
-                self._setupSpinBox4Attr(magnets[magnet]['f'],attrName)
+                self._setupSpinBox4Attr(magnets[magnet]['f'],attrName,step=0.1)
             if magnets[magnet].has_key('cmd'):
                 attrName = '%s/%s_onc'%(deviceName,magnet)
                 self._setupCheckbox4Attr(magnets[magnet]['cmd'],attrName)
@@ -697,7 +701,7 @@ class MainWindow(TaurusMainWindow):
         
     def _setMainscreen_hvs(self):
         mainscreen_ui = self.ui.linacMainscreenSynoptic._ui
-        self._setupSpinBox4Attr(mainscreen_ui.hvsVoltageValue,'li/ct/plc1/GUN_HV_V_setpoint')
+        self._setupSpinBox4Attr(mainscreen_ui.hvsVoltageValue,'li/ct/plc1/GUN_HV_V_setpoint',step=0.1)
         self._setupTaurusLabel4Attr(mainscreen_ui.hvsCurrentValue,'li/ct/plc1/GUN_HV_I','uA')
         #mainscreen_ui.hvsPopupCheck.setCheckState(False)
         mainscreen_ui.hvsPopupWidget.hide()

@@ -50,7 +50,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="TaurusValueSpinBox" name="tbFf2DelayValue">
+  <widget class="TaurusValueSpinBox" name="tbRf2DelayValue">
    <property name="geometry">
     <rect>
      <x>174</x>
@@ -73,7 +73,7 @@
   <widget class="TaurusValueSpinBox" name="tbNumberValue">
    <property name="geometry">
     <rect>
-     <x>296</x>
+     <x>295</x>
      <y>107</y>
      <width>60</width>
      <height>22</height>
@@ -83,7 +83,7 @@
   <widget class="TaurusValueSpinBox" name="tbWidthValue">
    <property name="geometry">
     <rect>
-     <x>235</x>
+     <x>232</x>
      <y>107</y>
      <width>60</width>
      <height>22</height>
@@ -93,7 +93,7 @@
   <widget class="TaurusValueSpinBox" name="tbGunDelayValue">
    <property name="geometry">
     <rect>
-     <x>174</x>
+     <x>170</x>
      <y>107</y>
      <width>60</width>
      <height>22</height>
@@ -103,8 +103,8 @@
   <widget class="TaurusValueComboBox" name="tbGatedPulseModeValue">
    <property name="geometry">
     <rect>
-     <x>100</x>
-     <y>106</y>
+     <x>93</x>
+     <y>102</y>
      <width>70</width>
      <height>23</height>
     </rect>
@@ -349,7 +349,7 @@
      <height>96</height>
     </rect>
    </property>
-   <layout class="QGridLayout" name="gridLayout">
+   <layout class="QGridLayout" name="kdLayout">
     <property name="leftMargin">
      <number>7</number>
     </property>
@@ -2554,7 +2554,7 @@
   <zorder>MainScreenSchematic</zorder>
   <zorder>tbKaDelay1Value</zorder>
   <zorder>tbKaDelay2Value</zorder>
-  <zorder>tbFf2DelayValue</zorder>
+  <zorder>tbRf2DelayValue</zorder>
   <zorder>tbGunLevelValue</zorder>
   <zorder>tbNumberValue</zorder>
   <zorder>tbWidthValue</zorder>
