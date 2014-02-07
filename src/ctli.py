@@ -437,9 +437,13 @@ class MainWindow(TaurusMainWindow):
         self._setupSpinBox4Attr(mainscreen_ui.tbFf2DelayValue,'li/ct/plc1/TB_RF2_Delay')
         self._setupSpinBox4Attr(mainscreen_ui.tbGunLevelValue,'li/ct/plc1/TB_GPA')
         self._setupSpinBox4Attr(mainscreen_ui.tbMultiBunchValue,'li/ct/plc1/TB_MBM')
-#        self._setupCombobox4Attr(mainscreen_ui.tbGatedPulseModeValue,'li/ct/plc1/TB_GPM',
-#                                 [('off',0),('mix',1),('on',2)])
-        mainscreen_ui.tbGatedPulseModeValue.setEnabled(False)#FIXME
+        #---- FIXME: the addValueNames fails in some versions of taurus,
+        #            but it works in the control's room version
+        try:
+            self._setupCombobox4Attr(mainscreen_ui.tbGatedPulseModeValue,'li/ct/plc1/TB_GPM',
+                                     [('off',0),('mix',1),('on',2)])
+        except:
+            mainscreen_ui.tbGatedPulseModeValue.setEnabled(False)
         self._setupSpinBox4Attr(mainscreen_ui.tbGunDelayValue,'li/ct/plc1/TB_Gun_Delay')
         self._setupSpinBox4Attr(mainscreen_ui.tbWidthValue,'li/ct/plc1/TB_GPI')
         self._setupSpinBox4Attr(mainscreen_ui.tbNumberValue,'li/ct/plc1/TB_GPN')
