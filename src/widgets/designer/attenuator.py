@@ -2,8 +2,8 @@
 
 # Code implementation generated from reading ui file 'attenuator.ui'
 #
-# Created: Mon Jan 27 15:58:14 2014 
-#      by: Taurus UI code generator 3.0.0
+# Created: Wed Feb 12 12:33:47 2014 
+#      by: Taurus UI code generator 3.1.1
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -12,7 +12,7 @@ __docformat__ = 'restructuredtext'
 import sys
 import PyQt4.Qt as Qt
 from ui_attenuator import Ui_Attenuator
-from taurus.qt.qtgui.container import TaurusWidget
+from taurus.qt.qtgui.panel import TaurusWidget
 
 class Attenuator(TaurusWidget):
 

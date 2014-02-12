@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'linacStartupSynoptic.ui'
 #
-# Created: Tue Feb 11 16:02:27 2014
+# Created: Wed Feb 12 12:37:30 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!

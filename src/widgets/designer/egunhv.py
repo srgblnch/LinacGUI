@@ -2,8 +2,8 @@
 
 # Code implementation generated from reading ui file 'eGunHV.ui'
 #
-# Created: Mon Jan 27 17:13:14 2014 
-#      by: Taurus UI code generator 3.0.0
+# Created: Wed Feb 12 12:34:52 2014 
+#      by: Taurus UI code generator 3.1.1
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -12,7 +12,7 @@ __docformat__ = 'restructuredtext'
 import sys
 import PyQt4.Qt as Qt
 from ui_eGunHV import Ui_eGunHV
-from taurus.qt.qtgui.container import TaurusWidget
+from taurus.qt.qtgui.panel import TaurusWidget
 
 class eGunHV(TaurusWidget):
 

@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'linacPlcWidget.ui'
 #
-# Created: Wed Feb  5 10:59:20 2014
+# Created: Wed Feb 12 12:37:15 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -153,6 +153,7 @@ class Ui_linacPlcWidget(object):
         self.moveRemote.setCommand(QtGui.QApplication.translate("linacPlcWidget", "MoveInstance", None, QtGui.QApplication.UnicodeUTF8))
 
 from taurus.qt.qtgui.display import TaurusLed, TaurusLabel
-from taurus.qt.qtgui.container import TaurusWidget, TaurusGroupBox
+from taurus.qt.qtgui.container import TaurusGroupBox
+from taurus.qt.qtgui.panel import TaurusWidget
 from taurus.qt.qtgui.input import TaurusValueCheckBox
 from taurus.qt.qtgui.button import TaurusCommandButton

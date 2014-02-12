@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'eGunHV.ui'
 #
-# Created: Wed Feb  5 10:59:35 2014
+# Created: Wed Feb 12 12:34:47 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -56,4 +56,5 @@ class Ui_eGunHV(object):
         self.eGunHVLabel.setText(QtGui.QApplication.translate("eGunHV", "High Voltage", None, QtGui.QApplication.UnicodeUTF8))
 
 from taurus.qt.qtgui.display import TaurusLabel, TaurusLed
-from taurus.qt.qtgui.container import TaurusWidget, TaurusGroupBox
+from taurus.qt.qtgui.container import TaurusGroupBox
+from taurus.qt.qtgui.panel import TaurusWidget

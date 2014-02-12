@@ -2,8 +2,8 @@
 
 # Code implementation generated from reading ui file 'linacMainscreenSynoptic.ui'
 #
-# Created: Thu Feb  6 08:53:03 2014 
-#      by: Taurus UI code generator 3.0.0
+# Created: Wed Feb 12 12:36:42 2014 
+#      by: Taurus UI code generator 3.1.1
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -12,7 +12,7 @@ __docformat__ = 'restructuredtext'
 import sys
 import PyQt4.Qt as Qt
 from ui_linacMainscreenSynoptic import Ui_linacMainscreenSynoptic
-from taurus.qt.qtgui.container import TaurusWidget
+from taurus.qt.qtgui.panel import TaurusWidget
 
 class linacMainscreenSynoptic(TaurusWidget):
 

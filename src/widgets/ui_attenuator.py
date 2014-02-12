@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'attenuator.ui'
 #
-# Created: Wed Feb  5 10:59:32 2014
+# Created: Wed Feb 12 12:33:41 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -43,4 +43,5 @@ class Ui_Attenuator(object):
         self.attenuatorGroup.setTitle(QtGui.QApplication.translate("Attenuator", "Attenuator #", None, QtGui.QApplication.UnicodeUTF8))
 
 from taurus.qt.qtgui.display import TaurusLabel
-from taurus.qt.qtgui.container import TaurusWidget, TaurusGroupBox
+from taurus.qt.qtgui.container import TaurusGroupBox
+from taurus.qt.qtgui.panel import TaurusWidget

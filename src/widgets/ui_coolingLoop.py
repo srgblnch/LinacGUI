@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'coolingLoop.ui'
 #
-# Created: Thu Feb  6 08:52:14 2014
+# Created: Wed Feb 12 12:34:21 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -56,4 +56,5 @@ class Ui_CoolingLoop(object):
         self.powerLabel.setText(QtGui.QApplication.translate("CoolingLoop", "Power drive", None, QtGui.QApplication.UnicodeUTF8))
 
 from taurus.qt.qtgui.display import TaurusLabel
-from taurus.qt.qtgui.container import TaurusWidget, TaurusGroupBox
+from taurus.qt.qtgui.container import TaurusGroupBox
+from taurus.qt.qtgui.panel import TaurusWidget

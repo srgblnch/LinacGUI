@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'klystron1ictk.ui'
 #
-# Created: Thu Feb  6 08:52:32 2014
+# Created: Wed Feb 12 12:35:25 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -82,4 +82,5 @@ class Ui_klystron1itck(object):
         self.rfw1Label.setText(QtGui.QApplication.translate("klystron1itck", "RF window 1 underflow", None, QtGui.QApplication.UnicodeUTF8))
 
 from taurus.qt.qtgui.display import TaurusLed
-from taurus.qt.qtgui.container import TaurusWidget, TaurusGroupBox
+from taurus.qt.qtgui.container import TaurusGroupBox
+from taurus.qt.qtgui.panel import TaurusWidget
