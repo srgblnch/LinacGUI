@@ -1931,7 +1931,7 @@
    <property name="geometry">
     <rect>
      <x>500</x>
-     <y>340</y>
+     <y>360</y>
      <width>100</width>
      <height>80</height>
     </rect>
@@ -1951,7 +1951,7 @@
    <property name="geometry">
     <rect>
      <x>130</x>
-     <y>630</y>
+     <y>550</y>
      <width>210</width>
      <height>100</height>
     </rect>
@@ -1961,7 +1961,7 @@
    <property name="geometry">
     <rect>
      <x>210</x>
-     <y>630</y>
+     <y>550</y>
      <width>210</width>
      <height>100</height>
     </rect>
@@ -1971,7 +1971,7 @@
    <property name="geometry">
     <rect>
      <x>300</x>
-     <y>630</y>
+     <y>550</y>
      <width>210</width>
      <height>100</height>
     </rect>
@@ -1981,7 +1981,7 @@
    <property name="geometry">
     <rect>
      <x>380</x>
-     <y>630</y>
+     <y>550</y>
      <width>210</width>
      <height>100</height>
     </rect>
@@ -1991,7 +1991,7 @@
    <property name="geometry">
     <rect>
      <x>440</x>
-     <y>630</y>
+     <y>550</y>
      <width>210</width>
      <height>100</height>
     </rect>
@@ -2001,7 +2001,7 @@
    <property name="geometry">
     <rect>
      <x>510</x>
-     <y>630</y>
+     <y>550</y>
      <width>210</width>
      <height>100</height>
     </rect>
@@ -2011,7 +2011,7 @@
    <property name="geometry">
     <rect>
      <x>620</x>
-     <y>630</y>
+     <y>550</y>
      <width>210</width>
      <height>100</height>
     </rect>
@@ -2021,7 +2021,7 @@
    <property name="geometry">
     <rect>
      <x>870</x>
-     <y>630</y>
+     <y>550</y>
      <width>210</width>
      <height>100</height>
     </rect>
@@ -2031,7 +2031,7 @@
    <property name="geometry">
     <rect>
      <x>940</x>
-     <y>630</y>
+     <y>550</y>
      <width>210</width>
      <height>100</height>
     </rect>
@@ -2041,7 +2041,7 @@
    <property name="geometry">
     <rect>
      <x>1020</x>
-     <y>630</y>
+     <y>550</y>
      <width>210</width>
      <height>100</height>
     </rect>
@@ -2051,7 +2051,7 @@
    <property name="geometry">
     <rect>
      <x>720</x>
-     <y>630</y>
+     <y>550</y>
      <width>210</width>
      <height>100</height>
     </rect>
@@ -2246,8 +2246,8 @@
   <widget class="eGunHV" name="hvsPopupWidget">
    <property name="geometry">
     <rect>
-     <x>130</x>
-     <y>570</y>
+     <x>5</x>
+     <y>504</y>
      <width>141</width>
      <height>101</height>
     </rect>
@@ -2533,6 +2533,71 @@
     </item>
    </layout>
   </widget>
+  <widget class="QCheckBox" name="eGunVacuumPopupCheck">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>580</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="prebuncherVacuumPopupCheck">
+   <property name="geometry">
+    <rect>
+     <x>276</x>
+     <y>592</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="buncherVacuumPopupCheck">
+   <property name="geometry">
+    <rect>
+     <x>480</x>
+     <y>570</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="as1VacuumPopupCheck">
+   <property name="geometry">
+    <rect>
+     <x>740</x>
+     <y>580</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="as2VacuumPopupCheck">
+   <property name="geometry">
+    <rect>
+     <x>1028</x>
+     <y>580</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
   <zorder>layoutWidget</zorder>
   <zorder>phaseShifter1PopupWidget</zorder>
   <zorder>phaseShifter2PopupWidget</zorder>
@@ -2666,6 +2731,11 @@
   <zorder>fluorescentScreen2Status</zorder>
   <zorder>fluorescentScreen3Status</zorder>
   <zorder>hvsPopupCheck</zorder>
+  <zorder>eGunVacuumPopupCheck</zorder>
+  <zorder>prebuncherVacuumPopupCheck</zorder>
+  <zorder>buncherVacuumPopupCheck</zorder>
+  <zorder>as1VacuumPopupCheck</zorder>
+  <zorder>as2VacuumPopupCheck</zorder>
  </widget>
  <customwidgets>
   <customwidget>
