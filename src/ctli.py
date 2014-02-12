@@ -326,7 +326,7 @@ class MainWindow(TaurusMainWindow):
             self._setupLed4Attr(coolingLoops[number]['cmdLed'],coolingLoops[number]['cmd_attrName'])
             #information area
             self._setupSpinBox4Attr(coolingLoops[number]['Temperature'],
-                                    coolingLoops[number]['Temperature_attrName'],
+                                    coolingLoops[number]['Temperature_attrName']+"_setpoint",
                                     step=0.1)
             #coolingLoops[number]['check'].setCheckState(False)
             coolingLoops[number]['widget'].hide()
