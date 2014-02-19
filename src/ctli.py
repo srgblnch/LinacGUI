@@ -304,7 +304,7 @@ class MainWindow(TaurusMainWindow):
                            'window':startup_ui.w2Led,
                            'window_attrName':'li/ct/plc1/w2_uf',
                            'resistorLoad':startup_ui.rl2Led,
-                           'resistorLoad_attrName':'li/ct/plc1/rl2uf'},
+                           'resistorLoad_attrName':'li/ct/plc1/rl2_uf'},
                         3:{'cmdCheck':startup_ui.coolingLoop3OnCheck,
                            'cmdLed':startup_ui.coolingLoop3OnLed,
                            'cmd_attrName':'li/ct/plc2/CL3_ONC',
@@ -326,7 +326,7 @@ class MainWindow(TaurusMainWindow):
             self._setupLed4Attr(coolingLoops[number]['cmdLed'],coolingLoops[number]['cmd_attrName'])
             #information area
             self._setupSpinBox4Attr(coolingLoops[number]['Temperature'],
-                                    coolingLoops[number]['Temperature_attrName']+"_setpoint",
+                                    coolingLoops[number]['Temperature_attrName']+'_setpoint',
                                     step=0.1)
             #coolingLoops[number]['check'].setCheckState(False)
             coolingLoops[number]['widget'].hide()
