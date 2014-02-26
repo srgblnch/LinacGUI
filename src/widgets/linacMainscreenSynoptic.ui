@@ -30,36 +30,6 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="TaurusValueSpinBox" name="tbKaDelay1Value">
-   <property name="geometry">
-    <rect>
-     <x>35</x>
-     <y>48</y>
-     <width>60</width>
-     <height>22</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="TaurusValueSpinBox" name="tbKaDelay2Value">
-   <property name="geometry">
-    <rect>
-     <x>101</x>
-     <y>48</y>
-     <width>60</width>
-     <height>22</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="TaurusValueSpinBox" name="tbRf2DelayValue">
-   <property name="geometry">
-    <rect>
-     <x>174</x>
-     <y>48</y>
-     <width>60</width>
-     <height>22</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="TaurusValueSpinBox" name="tbGunLevelValue">
    <property name="geometry">
     <rect>
@@ -474,10 +444,10 @@
   <widget class="QWidget" name="layoutWidget_4">
    <property name="geometry">
     <rect>
-     <x>200</x>
+     <x>190</x>
      <y>790</y>
      <width>68</width>
-     <height>23</height>
+     <height>31</height>
     </rect>
    </property>
    <layout class="QHBoxLayout" name="vv1Layout">
@@ -690,8 +660,8 @@
    <property name="geometry">
     <rect>
      <x>140</x>
-     <y>730</y>
-     <width>51</width>
+     <y>740</y>
+     <width>63</width>
      <height>23</height>
     </rect>
    </property>
@@ -700,6 +670,22 @@
      <widget class="QLabel" name="sl1OnLabel">
       <property name="text">
        <string>On</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="TaurusLed" name="sl1Led">
+      <property name="minimumSize">
+       <size>
+        <width>15</width>
+        <height>15</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>15</width>
+        <height>15</height>
+       </size>
       </property>
      </widget>
     </item>
@@ -721,13 +707,36 @@
   <widget class="QWidget" name="layoutWidget_7">
    <property name="geometry">
     <rect>
-     <x>250</x>
-     <y>730</y>
-     <width>51</width>
+     <x>220</x>
+     <y>740</y>
+     <width>63</width>
      <height>23</height>
     </rect>
    </property>
    <layout class="QHBoxLayout" name="sl21OnLayout">
+    <item>
+     <widget class="QLabel" name="sl2OnLabel">
+      <property name="text">
+       <string>On</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="TaurusLed" name="sl2Led">
+      <property name="minimumSize">
+       <size>
+        <width>15</width>
+        <height>15</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>15</width>
+        <height>15</height>
+       </size>
+      </property>
+     </widget>
+    </item>
     <item>
      <widget class="TaurusValueCheckBox" name="sl2OnCheck">
       <property name="showText">
@@ -741,25 +750,41 @@
       </property>
      </widget>
     </item>
-    <item>
-     <widget class="QLabel" name="sl2OnLabel">
-      <property name="text">
-       <string>On</string>
-      </property>
-     </widget>
-    </item>
    </layout>
   </widget>
   <widget class="QWidget" name="layoutWidget_8">
    <property name="geometry">
     <rect>
-     <x>330</x>
-     <y>730</y>
-     <width>51</width>
+     <x>310</x>
+     <y>740</y>
+     <width>63</width>
      <height>23</height>
     </rect>
    </property>
    <layout class="QHBoxLayout" name="sl3OnLayout">
+    <item>
+     <widget class="QLabel" name="sl3OnLabel">
+      <property name="text">
+       <string>On</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="TaurusLed" name="sl3Led">
+      <property name="minimumSize">
+       <size>
+        <width>15</width>
+        <height>15</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>15</width>
+        <height>15</height>
+       </size>
+      </property>
+     </widget>
+    </item>
     <item>
      <widget class="TaurusValueCheckBox" name="sl3OnCheck">
       <property name="showText">
@@ -773,25 +798,41 @@
       </property>
      </widget>
     </item>
-    <item>
-     <widget class="QLabel" name="sl3OnLabel">
-      <property name="text">
-       <string>On</string>
-      </property>
-     </widget>
-    </item>
    </layout>
   </widget>
   <widget class="QWidget" name="layoutWidget_9">
    <property name="geometry">
     <rect>
-     <x>400</x>
-     <y>730</y>
-     <width>51</width>
+     <x>380</x>
+     <y>740</y>
+     <width>63</width>
      <height>23</height>
     </rect>
    </property>
    <layout class="QHBoxLayout" name="sl4OnLayout">
+    <item>
+     <widget class="QLabel" name="sl4OnLabel">
+      <property name="text">
+       <string>On</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="TaurusLed" name="sl4Led">
+      <property name="minimumSize">
+       <size>
+        <width>15</width>
+        <height>15</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>15</width>
+        <height>15</height>
+       </size>
+      </property>
+     </widget>
+    </item>
     <item>
      <widget class="TaurusValueCheckBox" name="sl4OnCheck">
       <property name="showText">
@@ -805,25 +846,41 @@
       </property>
      </widget>
     </item>
-    <item>
-     <widget class="QLabel" name="sl4OnLabel">
-      <property name="text">
-       <string>On</string>
-      </property>
-     </widget>
-    </item>
    </layout>
   </widget>
   <widget class="QWidget" name="layoutWidget_10">
    <property name="geometry">
     <rect>
-     <x>460</x>
-     <y>730</y>
-     <width>51</width>
+     <x>440</x>
+     <y>740</y>
+     <width>63</width>
      <height>23</height>
     </rect>
    </property>
    <layout class="QHBoxLayout" name="bc1Layout">
+    <item>
+     <widget class="QLabel" name="bc1OnLabel">
+      <property name="text">
+       <string>On</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="TaurusLed" name="bc1Led">
+      <property name="minimumSize">
+       <size>
+        <width>15</width>
+        <height>15</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>15</width>
+        <height>15</height>
+       </size>
+      </property>
+     </widget>
+    </item>
     <item>
      <widget class="TaurusValueCheckBox" name="bc1OnCheck">
       <property name="showText">
@@ -837,25 +894,41 @@
       </property>
      </widget>
     </item>
-    <item>
-     <widget class="QLabel" name="bc1OnLabel">
-      <property name="text">
-       <string>On</string>
-      </property>
-     </widget>
-    </item>
    </layout>
   </widget>
   <widget class="QWidget" name="layoutWidget_11">
    <property name="geometry">
     <rect>
-     <x>520</x>
-     <y>730</y>
-     <width>51</width>
+     <x>500</x>
+     <y>740</y>
+     <width>63</width>
      <height>23</height>
     </rect>
    </property>
    <layout class="QHBoxLayout" name="bc2Layout">
+    <item>
+     <widget class="QLabel" name="bc2OnLabel">
+      <property name="text">
+       <string>On</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="TaurusLed" name="bc2Led">
+      <property name="minimumSize">
+       <size>
+        <width>15</width>
+        <height>15</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>15</width>
+        <height>15</height>
+       </size>
+      </property>
+     </widget>
+    </item>
     <item>
      <widget class="TaurusValueCheckBox" name="bc2OnCheck">
       <property name="showText">
@@ -866,13 +939,6 @@
       </property>
       <property name="forcedApply">
        <bool>false</bool>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLabel" name="bc2OnLabel">
-      <property name="text">
-       <string>On</string>
       </property>
      </widget>
     </item>
@@ -911,13 +977,36 @@
   <widget class="QWidget" name="layoutWidget_12">
    <property name="geometry">
     <rect>
-     <x>640</x>
-     <y>730</y>
-     <width>51</width>
+     <x>620</x>
+     <y>740</y>
+     <width>63</width>
      <height>23</height>
     </rect>
    </property>
    <layout class="QHBoxLayout" name="glLayout">
+    <item>
+     <widget class="QLabel" name="glOnLabel">
+      <property name="text">
+       <string>On</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="TaurusLed" name="glLed">
+      <property name="minimumSize">
+       <size>
+        <width>15</width>
+        <height>15</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>15</width>
+        <height>15</height>
+       </size>
+      </property>
+     </widget>
+    </item>
     <item>
      <widget class="TaurusValueCheckBox" name="glOnCheck">
       <property name="showText">
@@ -928,13 +1017,6 @@
       </property>
       <property name="forcedApply">
        <bool>false</bool>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLabel" name="glOnLabel">
-      <property name="text">
-       <string>On</string>
       </property>
      </widget>
     </item>
@@ -963,13 +1045,36 @@
   <widget class="QWidget" name="layoutWidget_13">
    <property name="geometry">
     <rect>
-     <x>750</x>
-     <y>730</y>
-     <width>51</width>
+     <x>730</x>
+     <y>740</y>
+     <width>63</width>
      <height>23</height>
     </rect>
    </property>
    <layout class="QHBoxLayout" name="as1OnLayout">
+    <item>
+     <widget class="QLabel" name="as1OnLabel">
+      <property name="text">
+       <string>On</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="TaurusLed" name="as1Led">
+      <property name="minimumSize">
+       <size>
+        <width>15</width>
+        <height>15</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>15</width>
+        <height>15</height>
+       </size>
+      </property>
+     </widget>
+    </item>
     <item>
      <widget class="TaurusValueCheckBox" name="as1OnCheck">
       <property name="showText">
@@ -980,13 +1085,6 @@
       </property>
       <property name="forcedApply">
        <bool>false</bool>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLabel" name="as1OnLabel">
-      <property name="text">
-       <string>On</string>
       </property>
      </widget>
     </item>
@@ -1025,13 +1123,36 @@
   <widget class="QWidget" name="layoutWidget_14">
    <property name="geometry">
     <rect>
-     <x>890</x>
+     <x>870</x>
      <y>740</y>
-     <width>51</width>
+     <width>63</width>
      <height>23</height>
     </rect>
    </property>
    <layout class="QHBoxLayout" name="qt1OnLayout">
+    <item>
+     <widget class="QLabel" name="qt1OnLabel">
+      <property name="text">
+       <string>On</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="TaurusLed" name="qtLed">
+      <property name="minimumSize">
+       <size>
+        <width>15</width>
+        <height>15</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>15</width>
+        <height>15</height>
+       </size>
+      </property>
+     </widget>
+    </item>
     <item>
      <widget class="TaurusValueCheckBox" name="qt1OnCheck">
       <property name="showText">
@@ -1042,13 +1163,6 @@
       </property>
       <property name="forcedApply">
        <bool>false</bool>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QLabel" name="qt1OnLabel">
-      <property name="text">
-       <string>On</string>
       </property>
      </widget>
     </item>
@@ -1087,13 +1201,36 @@
   <widget class="QWidget" name="layoutWidget_15">
    <property name="geometry">
     <rect>
-     <x>1030</x>
+     <x>1010</x>
      <y>740</y>
-     <width>51</width>
+     <width>63</width>
      <height>23</height>
     </rect>
    </property>
    <layout class="QHBoxLayout" name="as2OnLayout">
+    <item>
+     <widget class="QLabel" name="as2OnLabel">
+      <property name="text">
+       <string>On</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="TaurusLed" name="as2Led">
+      <property name="minimumSize">
+       <size>
+        <width>15</width>
+        <height>15</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>15</width>
+        <height>15</height>
+       </size>
+      </property>
+     </widget>
+    </item>
     <item>
      <widget class="TaurusValueCheckBox" name="as2OnCheck">
       <property name="showText">
@@ -1107,16 +1244,9 @@
       </property>
      </widget>
     </item>
-    <item>
-     <widget class="QLabel" name="as2OnLabel">
-      <property name="text">
-       <string>On</string>
-      </property>
-     </widget>
-    </item>
    </layout>
   </widget>
-  <widget class="TaurusLed" name="sl1Led">
+  <widget class="TaurusLed" name="sl1LedInfo">
    <property name="geometry">
     <rect>
      <x>162</x>
@@ -1160,7 +1290,7 @@
     </size>
    </property>
   </widget>
-  <widget class="TaurusLed" name="sl2Led">
+  <widget class="TaurusLed" name="sl2LedInfo">
    <property name="geometry">
     <rect>
      <x>247</x>
@@ -1182,7 +1312,7 @@
     </size>
    </property>
   </widget>
-  <widget class="TaurusLed" name="sl3Led">
+  <widget class="TaurusLed" name="sl3LedInfo">
    <property name="geometry">
     <rect>
      <x>331</x>
@@ -1204,7 +1334,7 @@
     </size>
    </property>
   </widget>
-  <widget class="TaurusLed" name="sl4Led">
+  <widget class="TaurusLed" name="sl4LedInfo">
    <property name="geometry">
     <rect>
      <x>403</x>
@@ -1226,7 +1356,7 @@
     </size>
    </property>
   </widget>
-  <widget class="TaurusLed" name="bc1Led">
+  <widget class="TaurusLed" name="bc1LedInfo">
    <property name="geometry">
     <rect>
      <x>457</x>
@@ -1248,7 +1378,7 @@
     </size>
    </property>
   </widget>
-  <widget class="TaurusLed" name="bc2Led">
+  <widget class="TaurusLed" name="bc2LedInfo">
    <property name="geometry">
     <rect>
      <x>517</x>
@@ -1292,7 +1422,7 @@
     </size>
    </property>
   </widget>
-  <widget class="TaurusLed" name="glLed">
+  <widget class="TaurusLed" name="glLedInfo">
    <property name="geometry">
     <rect>
      <x>643</x>
@@ -1314,7 +1444,7 @@
     </size>
    </property>
   </widget>
-  <widget class="TaurusLed" name="as1Led">
+  <widget class="TaurusLed" name="as1LedInfo">
    <property name="geometry">
     <rect>
      <x>746</x>
@@ -1358,7 +1488,7 @@
     </size>
    </property>
   </widget>
-  <widget class="TaurusLed" name="qtLed">
+  <widget class="TaurusLed" name="qtLedInfo">
    <property name="geometry">
     <rect>
      <x>919</x>
@@ -1380,7 +1510,7 @@
     </size>
    </property>
   </widget>
-  <widget class="TaurusLed" name="as2Led">
+  <widget class="TaurusLed" name="as2LedInfo">
    <property name="geometry">
     <rect>
      <x>1033</x>
@@ -1798,32 +1928,6 @@
     </rect>
    </property>
   </widget>
-  <widget class="QCheckBox" name="klystron1HVPopupCheck">
-   <property name="geometry">
-    <rect>
-     <x>755</x>
-     <y>90</y>
-     <width>21</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
-  <widget class="QCheckBox" name="klystron2HVPopupCheck">
-   <property name="geometry">
-    <rect>
-     <x>1045</x>
-     <y>50</y>
-     <width>21</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
   <widget class="klystronHV" name="klystron1HVPopupWidget">
    <property name="geometry">
     <rect>
@@ -1876,45 +1980,6 @@
      <width>10</width>
      <height>10</height>
     </size>
-   </property>
-  </widget>
-  <widget class="QCheckBox" name="attenuatorPopupCheck">
-   <property name="geometry">
-    <rect>
-     <x>420</x>
-     <y>425</y>
-     <width>21</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
-  <widget class="QCheckBox" name="phaseShifter2PopupCheck">
-   <property name="geometry">
-    <rect>
-     <x>475</x>
-     <y>425</y>
-     <width>21</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
-  <widget class="QCheckBox" name="phaseShifter1PopupCheck">
-   <property name="geometry">
-    <rect>
-     <x>615</x>
-     <y>455</y>
-     <width>21</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
    </property>
   </widget>
   <widget class="phaseShifter" name="phaseShifter1PopupWidget">
@@ -2021,7 +2086,7 @@
    <property name="geometry">
     <rect>
      <x>870</x>
-     <y>550</y>
+     <y>610</y>
      <width>210</width>
      <height>100</height>
     </rect>
@@ -2031,7 +2096,7 @@
    <property name="geometry">
     <rect>
      <x>940</x>
-     <y>550</y>
+     <y>610</y>
      <width>210</width>
      <height>100</height>
     </rect>
@@ -2055,149 +2120,6 @@
      <width>210</width>
      <height>100</height>
     </rect>
-   </property>
-  </widget>
-  <widget class="QCheckBox" name="sl1PopupCheck">
-   <property name="geometry">
-    <rect>
-     <x>156</x>
-     <y>513</y>
-     <width>21</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
-  <widget class="QCheckBox" name="sl2PopupCheck">
-   <property name="geometry">
-    <rect>
-     <x>241</x>
-     <y>513</y>
-     <width>21</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
-  <widget class="QCheckBox" name="sl3PopupCheck">
-   <property name="geometry">
-    <rect>
-     <x>325</x>
-     <y>513</y>
-     <width>21</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
-  <widget class="QCheckBox" name="sl4PopupCheck">
-   <property name="geometry">
-    <rect>
-     <x>396</x>
-     <y>513</y>
-     <width>21</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
-  <widget class="QCheckBox" name="bc1PopupCheck">
-   <property name="geometry">
-    <rect>
-     <x>451</x>
-     <y>512</y>
-     <width>21</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
-  <widget class="QCheckBox" name="bc2PopupCheck">
-   <property name="geometry">
-    <rect>
-     <x>511</x>
-     <y>512</y>
-     <width>21</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
-  <widget class="QCheckBox" name="glPopupCheck">
-   <property name="geometry">
-    <rect>
-     <x>636</x>
-     <y>512</y>
-     <width>21</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
-  <widget class="QCheckBox" name="as1PopupCheck">
-   <property name="geometry">
-    <rect>
-     <x>742</x>
-     <y>531</y>
-     <width>21</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
-  <widget class="QCheckBox" name="qt1PopupCheck">
-   <property name="geometry">
-    <rect>
-     <x>890</x>
-     <y>513</y>
-     <width>21</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
-  <widget class="QCheckBox" name="qt2PopupCheck">
-   <property name="geometry">
-    <rect>
-     <x>936</x>
-     <y>514</y>
-     <width>21</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
-  <widget class="QCheckBox" name="as2PopupCheck">
-   <property name="geometry">
-    <rect>
-     <x>1028</x>
-     <y>531</y>
-     <width>21</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
    </property>
   </widget>
   <widget class="TaurusLabel" name="fluorescentScreen1Status">
@@ -2228,19 +2150,6 @@
      <width>80</width>
      <height>16</height>
     </rect>
-   </property>
-  </widget>
-  <widget class="QCheckBox" name="hvsPopupCheck">
-   <property name="geometry">
-    <rect>
-     <x>90</x>
-     <y>606</y>
-     <width>21</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
    </property>
   </widget>
   <widget class="eGunHV" name="hvsPopupWidget">
@@ -2533,80 +2442,320 @@
     </item>
    </layout>
   </widget>
-  <widget class="QCheckBox" name="eGunVacuumPopupCheck">
+  <widget class="QToolButton" name="klystron1HVPopupCheck">
    <property name="geometry">
     <rect>
-     <x>120</x>
-     <y>580</y>
-     <width>21</width>
-     <height>21</height>
+     <x>754</x>
+     <y>110</y>
+     <width>20</width>
+     <height>20</height>
     </rect>
    </property>
    <property name="text">
-    <string/>
+    <string>Info</string>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
    </property>
   </widget>
-  <widget class="QCheckBox" name="prebuncherVacuumPopupCheck">
+  <widget class="QToolButton" name="klystron2HVPopupCheck">
    <property name="geometry">
     <rect>
-     <x>276</x>
-     <y>592</y>
-     <width>21</width>
-     <height>21</height>
+     <x>1042</x>
+     <y>70</y>
+     <width>20</width>
+     <height>20</height>
     </rect>
    </property>
    <property name="text">
-    <string/>
+    <string>Info</string>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
    </property>
   </widget>
-  <widget class="QCheckBox" name="buncherVacuumPopupCheck">
+  <widget class="QToolButton" name="hvsPopupCheck">
    <property name="geometry">
     <rect>
-     <x>480</x>
-     <y>570</y>
-     <width>21</width>
-     <height>21</height>
+     <x>94</x>
+     <y>602</y>
+     <width>20</width>
+     <height>20</height>
     </rect>
    </property>
    <property name="text">
-    <string/>
+    <string>Info</string>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
    </property>
   </widget>
-  <widget class="QCheckBox" name="as1VacuumPopupCheck">
+  <widget class="QToolButton" name="attenuatorPopupCheck">
    <property name="geometry">
     <rect>
-     <x>740</x>
-     <y>580</y>
-     <width>21</width>
-     <height>21</height>
+     <x>413</x>
+     <y>422</y>
+     <width>20</width>
+     <height>20</height>
     </rect>
    </property>
    <property name="text">
-    <string/>
+    <string>Info</string>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
    </property>
   </widget>
-  <widget class="QCheckBox" name="as2VacuumPopupCheck">
+  <widget class="QToolButton" name="phaseShifter2PopupCheck">
    <property name="geometry">
     <rect>
-     <x>1028</x>
-     <y>580</y>
-     <width>21</width>
-     <height>21</height>
+     <x>466</x>
+     <y>422</y>
+     <width>20</width>
+     <height>20</height>
     </rect>
    </property>
    <property name="text">
-    <string/>
+    <string>Info</string>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
    </property>
   </widget>
-  <zorder>layoutWidget</zorder>
-  <zorder>phaseShifter1PopupWidget</zorder>
-  <zorder>phaseShifter2PopupWidget</zorder>
-  <zorder>attenuatorPopupWidget</zorder>
-  <zorder>klystron1HVPopupWidget</zorder>
+  <widget class="QToolButton" name="phaseShifter1PopupCheck">
+   <property name="geometry">
+    <rect>
+     <x>605</x>
+     <y>455</y>
+     <width>20</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Info</string>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QToolButton" name="sl1PopupCheck">
+   <property name="geometry">
+    <rect>
+     <x>156</x>
+     <y>514</y>
+     <width>20</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Info</string>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QToolButton" name="sl2PopupCheck">
+   <property name="geometry">
+    <rect>
+     <x>241</x>
+     <y>513</y>
+     <width>20</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Info</string>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QToolButton" name="sl3PopupCheck">
+   <property name="geometry">
+    <rect>
+     <x>326</x>
+     <y>514</y>
+     <width>20</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Info</string>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QToolButton" name="sl4PopupCheck">
+   <property name="geometry">
+    <rect>
+     <x>397</x>
+     <y>513</y>
+     <width>20</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Info</string>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QToolButton" name="bc1PopupCheck">
+   <property name="geometry">
+    <rect>
+     <x>452</x>
+     <y>515</y>
+     <width>20</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Info</string>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QToolButton" name="bc2PopupCheck">
+   <property name="geometry">
+    <rect>
+     <x>511</x>
+     <y>516</y>
+     <width>20</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Info</string>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QToolButton" name="glPopupCheck">
+   <property name="geometry">
+    <rect>
+     <x>637</x>
+     <y>514</y>
+     <width>20</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Info</string>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QToolButton" name="as1PopupCheck">
+   <property name="geometry">
+    <rect>
+     <x>741</x>
+     <y>531</y>
+     <width>20</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Info</string>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QToolButton" name="qt1PopupCheck">
+   <property name="geometry">
+    <rect>
+     <x>890</x>
+     <y>513</y>
+     <width>20</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Info</string>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QToolButton" name="qt2PopupCheck">
+   <property name="geometry">
+    <rect>
+     <x>937</x>
+     <y>513</y>
+     <width>20</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Info</string>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QToolButton" name="as2PopupCheck">
+   <property name="geometry">
+    <rect>
+     <x>1027</x>
+     <y>531</y>
+     <width>20</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Info</string>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="TaurusLabel" name="tbKaDelay1Value">
+   <property name="geometry">
+    <rect>
+     <x>42</x>
+     <y>52</y>
+     <width>48</width>
+     <height>16</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="TaurusLabel" name="tbKaDelay2Value">
+   <property name="geometry">
+    <rect>
+     <x>107</x>
+     <y>52</y>
+     <width>48</width>
+     <height>16</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="TaurusLabel" name="tbRf2DelayValue">
+   <property name="geometry">
+    <rect>
+     <x>177</x>
+     <y>52</y>
+     <width>48</width>
+     <height>16</height>
+    </rect>
+   </property>
+  </widget>
   <zorder>klystron2HVPopupWidget</zorder>
-  <zorder>as2PopupWidget</zorder>
-  <zorder>qt1PopupWidget</zorder>
+  <zorder>klystron1HVPopupWidget</zorder>
+  <zorder>hvsPopupWidget</zorder>
+  <zorder>attenuatorPopupWidget</zorder>
+  <zorder>phaseShifter2PopupWidget</zorder>
+  <zorder>phaseShifter1PopupWidget</zorder>
   <zorder>qt2PopupWidget</zorder>
+  <zorder>qt1PopupWidget</zorder>
+  <zorder>as2PopupWidget</zorder>
   <zorder>as1PopupWidget</zorder>
   <zorder>glPopupWidget</zorder>
   <zorder>bc2PopupWidget</zorder>
@@ -2615,11 +2764,8 @@
   <zorder>sl3PopupWidget</zorder>
   <zorder>sl2PopupWidget</zorder>
   <zorder>sl1PopupWidget</zorder>
-  <zorder>hvsPopupWidget</zorder>
   <zorder>MainScreenSchematic</zorder>
-  <zorder>tbKaDelay1Value</zorder>
-  <zorder>tbKaDelay2Value</zorder>
-  <zorder>tbRf2DelayValue</zorder>
+  <zorder>layoutWidget</zorder>
   <zorder>tbGunLevelValue</zorder>
   <zorder>tbNumberValue</zorder>
   <zorder>tbWidthValue</zorder>
@@ -2683,19 +2829,19 @@
   <zorder>as2vValue</zorder>
   <zorder>qt2fValue</zorder>
   <zorder>layoutWidget_15</zorder>
-  <zorder>sl1Led</zorder>
+  <zorder>sl1LedInfo</zorder>
   <zorder>vv1led</zorder>
-  <zorder>sl2Led</zorder>
-  <zorder>sl3Led</zorder>
-  <zorder>sl4Led</zorder>
-  <zorder>bc1Led</zorder>
-  <zorder>bc2Led</zorder>
+  <zorder>sl2LedInfo</zorder>
+  <zorder>sl3LedInfo</zorder>
+  <zorder>sl4LedInfo</zorder>
+  <zorder>bc1LedInfo</zorder>
+  <zorder>bc2LedInfo</zorder>
   <zorder>sm1Led</zorder>
-  <zorder>glLed</zorder>
-  <zorder>as1Led</zorder>
+  <zorder>glLedInfo</zorder>
+  <zorder>as1LedInfo</zorder>
   <zorder>sm2Led</zorder>
-  <zorder>qtLed</zorder>
-  <zorder>as2Led</zorder>
+  <zorder>qtLedInfo</zorder>
+  <zorder>as2LedInfo</zorder>
   <zorder>sm3Led</zorder>
   <zorder>layoutWidget_16</zorder>
   <zorder>layoutWidget_17</zorder>
@@ -2709,10 +2855,14 @@
   <zorder>layoutWidget</zorder>
   <zorder>layoutWidget</zorder>
   <zorder>layoutWidget</zorder>
-  <zorder>klystron1HVPopupCheck</zorder>
-  <zorder>klystron2HVPopupCheck</zorder>
   <zorder>rfSourceStatusLed</zorder>
   <zorder>rfA0StatusLed</zorder>
+  <zorder>fluorescentScreen1Status</zorder>
+  <zorder>fluorescentScreen2Status</zorder>
+  <zorder>fluorescentScreen3Status</zorder>
+  <zorder>klystron1HVPopupCheck</zorder>
+  <zorder>klystron2HVPopupCheck</zorder>
+  <zorder>hvsPopupCheck</zorder>
   <zorder>attenuatorPopupCheck</zorder>
   <zorder>phaseShifter2PopupCheck</zorder>
   <zorder>phaseShifter1PopupCheck</zorder>
@@ -2727,15 +2877,9 @@
   <zorder>qt1PopupCheck</zorder>
   <zorder>qt2PopupCheck</zorder>
   <zorder>as2PopupCheck</zorder>
-  <zorder>fluorescentScreen1Status</zorder>
-  <zorder>fluorescentScreen2Status</zorder>
-  <zorder>fluorescentScreen3Status</zorder>
-  <zorder>hvsPopupCheck</zorder>
-  <zorder>eGunVacuumPopupCheck</zorder>
-  <zorder>prebuncherVacuumPopupCheck</zorder>
-  <zorder>buncherVacuumPopupCheck</zorder>
-  <zorder>as1VacuumPopupCheck</zorder>
-  <zorder>as2VacuumPopupCheck</zorder>
+  <zorder>tbKaDelay1Value</zorder>
+  <zorder>tbKaDelay2Value</zorder>
+  <zorder>tbRf2DelayValue</zorder>
  </widget>
  <customwidgets>
   <customwidget>

@@ -453,9 +453,9 @@ class MainWindow(TaurusMainWindow):
         
     def _setMainscreen_tb(self):
         mainscreen_ui = self.ui.linacMainscreenSynoptic._ui
-        self._setupSpinBox4Attr(mainscreen_ui.tbKaDelay1Value,'li/ct/plc1/TB_KA1_Delay',step=1)
-        self._setupSpinBox4Attr(mainscreen_ui.tbKaDelay2Value,'li/ct/plc1/TB_KA2_Delay',step=32)
-        self._setupSpinBox4Attr(mainscreen_ui.tbRf2DelayValue,'li/ct/plc1/TB_RF2_Delay',step=8)
+        self._setupTaurusLabel4Attr(mainscreen_ui.tbKaDelay1Value,'li/ct/plc1/TB_KA1_Delay',unit='us')
+        self._setupTaurusLabel4Attr(mainscreen_ui.tbKaDelay2Value,'li/ct/plc1/TB_KA2_Delay',unit='ns')
+        self._setupTaurusLabel4Attr(mainscreen_ui.tbRf2DelayValue,'li/ct/plc1/TB_RF2_Delay',unit='ns')
         self._setupSpinBox4Attr(mainscreen_ui.tbGunLevelValue,'li/ct/plc1/TB_GPA',step=0.1)
         self._setupCheckbox4Attr(mainscreen_ui.tbMultiBunchValue, 'li/ct/plc1/TB_MBM')
         #---- FIXME: the addValueNames fails in some versions of taurus,
@@ -588,6 +588,7 @@ class MainWindow(TaurusMainWindow):
     def _setMainscreen_magnets(self):
         mainscreen_ui = self.ui.linacMainscreenSynoptic._ui
         magnets = {'sl1':{'state':mainscreen_ui.sl1Led,
+                          'info':mainscreen_ui.sl1LedInfo,
                           'h':mainscreen_ui.sl1hValue,
                           'v':mainscreen_ui.sl1vValue,
                           'f':mainscreen_ui.sl1fValue,
@@ -595,6 +596,7 @@ class MainWindow(TaurusMainWindow):
                           'check':mainscreen_ui.sl1PopupCheck,
                           'widget':mainscreen_ui.sl1PopupWidget},
                    'sl2':{'state':mainscreen_ui.sl2Led,
+                          'info':mainscreen_ui.sl2LedInfo,
                           'h':mainscreen_ui.sl2hValue,
                           'v':mainscreen_ui.sl2vValue,
                           'f':mainscreen_ui.sl2fValue,
@@ -602,6 +604,7 @@ class MainWindow(TaurusMainWindow):
                           'check':mainscreen_ui.sl2PopupCheck,
                           'widget':mainscreen_ui.sl2PopupWidget},
                    'sl3':{'state':mainscreen_ui.sl3Led,
+                          'info':mainscreen_ui.sl3LedInfo,
                           'h':mainscreen_ui.sl3hValue,
                           'v':mainscreen_ui.sl3vValue,
                           'f':mainscreen_ui.sl3fValue,
@@ -609,6 +612,7 @@ class MainWindow(TaurusMainWindow):
                           'check':mainscreen_ui.sl3PopupCheck,
                           'widget':mainscreen_ui.sl3PopupWidget},
                    'sl4':{'state':mainscreen_ui.sl4Led,
+                          'info':mainscreen_ui.sl4LedInfo,
                           'h':mainscreen_ui.sl4hValue,
                           'v':mainscreen_ui.sl4vValue,
                           'f':mainscreen_ui.sl4fValue,
@@ -616,6 +620,7 @@ class MainWindow(TaurusMainWindow):
                           'check':mainscreen_ui.sl4PopupCheck,
                           'widget':mainscreen_ui.sl4PopupWidget},
                    'bc1':{'state':mainscreen_ui.bc1Led,
+                          'info':mainscreen_ui.bc1LedInfo,
                           'h':mainscreen_ui.bc1hValue,
                           'v':mainscreen_ui.bc1vValue,
                           'f':mainscreen_ui.bc1fValue,
@@ -623,6 +628,7 @@ class MainWindow(TaurusMainWindow):
                           'check':mainscreen_ui.bc1PopupCheck,
                           'widget':mainscreen_ui.bc1PopupWidget},
                    'bc2':{'state':mainscreen_ui.bc2Led,
+                          'info':mainscreen_ui.bc2LedInfo,
                           'h':mainscreen_ui.bc2hValue,
                           'v':mainscreen_ui.bc2vValue,
                           'f':mainscreen_ui.bc2fValue,
@@ -630,6 +636,7 @@ class MainWindow(TaurusMainWindow):
                           'check':mainscreen_ui.bc2PopupCheck,
                           'widget':mainscreen_ui.bc2PopupWidget},
                    'gl': {'state':mainscreen_ui.glLed,
+                          'info':mainscreen_ui.glLedInfo,
                           'h':mainscreen_ui.glhValue,
                           'v':mainscreen_ui.glvValue,
                           'f':mainscreen_ui.glfValue,
@@ -637,12 +644,14 @@ class MainWindow(TaurusMainWindow):
                           'check':mainscreen_ui.glPopupCheck,
                           'widget':mainscreen_ui.glPopupWidget},
                    'as1':{'state':mainscreen_ui.as1Led,
+                          'info':mainscreen_ui.as1LedInfo,
                           'h':mainscreen_ui.as1hValue,
                           'v':mainscreen_ui.as1vValue,
                           'cmd':mainscreen_ui.as1OnCheck,
                           'check':mainscreen_ui.as1PopupCheck,
                           'widget':mainscreen_ui.as1PopupWidget},
                    'qt' :{'state':mainscreen_ui.qtLed,
+                          'info':mainscreen_ui.qtLedInfo,
                           'cmd':mainscreen_ui.qt1OnCheck},
                    'qt1':{'h':mainscreen_ui.qt1hValue,
                           'v':mainscreen_ui.qt1vValue,
@@ -653,6 +662,7 @@ class MainWindow(TaurusMainWindow):
                           'check':mainscreen_ui.qt2PopupCheck,
                           'widget':mainscreen_ui.qt2PopupWidget},
                    'as2':{'state':mainscreen_ui.as2Led,
+                          'info':mainscreen_ui.as2LedInfo,
                           'h':mainscreen_ui.as2hValue,
                           'v':mainscreen_ui.as2vValue,
                           'cmd':mainscreen_ui.as2OnCheck,
@@ -665,6 +675,9 @@ class MainWindow(TaurusMainWindow):
             if magnets[magnet].has_key('state'):
                 attrName = '%s/%s_onc'%(deviceName,magnet)
                 self._setupLed4Attr(magnets[magnet]['state'],attrName)
+            if magnets[magnet].has_key('info'):
+                attrName = '%s/%s_onc'%(deviceName,magnet)
+                self._setupLed4Attr(magnets[magnet]['info'],attrName)
             if magnets[magnet].has_key('h'):
                 attrName = '%s/%sh_I_setpoint'%(deviceName,magnet)
                 self._setupSpinBox4Attr(magnets[magnet]['h'],attrName,step=0.1)
@@ -787,11 +800,10 @@ class CheckboxManager(TaurusBaseComponent,Qt.QObject):
         self.call__init__(TaurusBaseComponent, name, designMode=designMode)
         self._checker = checker
         self._widget = widget
-        #self.connect(self._checker,Qt.SIGNAL('stateChanged(int)'),self._checkboxChanged)
-        Qt.QObject.connect(self._checker,Qt.SIGNAL('stateChanged(int)'),self._checkboxChanged)
+        Qt.QObject.connect(self._checker,Qt.SIGNAL('clicked(bool)'),self._checkboxChanged)
         self.debug("Build the checkbox manager")
 
-    def _checkboxChanged(self,qstate):
+    def _checkboxChanged(self,checked):
         if self._checker.isChecked():
             self._widget.show()
         else:
