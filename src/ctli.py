@@ -722,12 +722,14 @@ class MainWindow(TaurusMainWindow):
         mainscreen_ui = self.ui.linacMainscreenSynoptic._ui
         self._setupSpinBox4Attr(mainscreen_ui.hvsVoltageValue,'li/ct/plc1/GUN_HV_V_setpoint',step=0.1)
         self._setupTaurusLabel4Attr(mainscreen_ui.hvsCurrentValue,'li/ct/plc1/GUN_HV_I','uA')
+        self._setupLed4Attr(mainscreen_ui.hvsOnLed,'li/ct/plc1/gun_hv_onc')
+        self._setupCheckbox4Attr(mainscreen_ui.hvsOnCheck,'li/ct/plc1/gun_hv_onc')
         #mainscreen_ui.hvsPopupCheck.setCheckState(False)
         mainscreen_ui.hvsPopupWidget.hide()
         self._hvs = CheckboxManager(mainscreen_ui.hvsPopupCheck,
                                     mainscreen_ui.hvsPopupWidget,"HVS")
         widget = mainscreen_ui.hvsPopupWidget._ui
-        self._setupLed4UnknownAttr(widget.doorInterlockLed)
+        self._setupLed4Attr(widget.doorInterlockLed,'li/ct/plc1/gm_di')
         self._setupTaurusLabel4Attr(widget.eGunHVStatus,'li/ct/plc1/Gun_HV_Status')
         self._setupTaurusLabel4Attr(widget.eGunHVValue,'li/ct/plc1/GUN_HV_V','kV')
         
