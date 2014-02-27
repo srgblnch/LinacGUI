@@ -474,11 +474,13 @@ class MainWindow(TaurusMainWindow):
         self._setupTaurusLabel4Attr(mainscreen_ui.tbKaDelay2Value,'li/ct/plc1/TB_KA2_Delay',unit='ns')
         self._setupTaurusLabel4Attr(mainscreen_ui.tbRf2DelayValue,'li/ct/plc1/TB_RF2_Delay',unit='ns')
         self._setupSpinBox4Attr(mainscreen_ui.tbGunLevelValue,'li/ct/plc1/TB_GPA',step=0.1)
-        self._setupCheckbox4Attr(mainscreen_ui.tbMultiBunchValue, 'li/ct/plc1/TB_MBM')
+        self._setupTaurusLabel4Attr(mainscreen_ui.tbMultiBunchValue, 'li/ct/plc1/TB_MBM_status')
+        self._setupCheckbox4Attr(mainscreen_ui.tbMultiBunchCheck, 'li/ct/plc1/TB_MBM')
+        self._operationModeMonitor = OperationModeManager(mainscreen_ui)
         #---- FIXME: the addValueNames fails in some versions of taurus,
         #            but it works in the control's room version
         try:
-            self._setupCombobox4Attr(mainscreen_ui.tbGatedPulseModeValue,'li/ct/plc1/TB_GPM',
+            self._setupCombobox4Attr(mainscreen_ui.tbGatedPulseModeCombo,'li/ct/plc1/TB_GPM',
                                      [('off',0),('mix',1),('on',2)])
         except:
             mainscreen_ui.tbGatedPulseModeValue.setEnabled(False)
@@ -825,6 +827,24 @@ class CheckboxManager(TaurusBaseComponent,Qt.QObject):
             self._widget.show()
         else:
             self._widget.hide()
+
+class OperationModeManager(TaurusBaseComponent,Qt.QObject):
+    def __init__(self,mainscreen_ui,name=None,qt_parent=None,designMode=False):
+        if not name: name = "OperationModeManager"
+        self.call__init__wo_kw(Qt.QObject, qt_parent)
+        self.call__init__(TaurusBaseComponent, name, designMode=designMode)
+        self._checker = mainscreen_ui.tbMultiBunchCheck
+        self._mainscreen_ui = mainscreen_ui
+        Qt.QObject.connect(self._checker,Qt.SIGNAL('stateChanged(int)'),self._operationModeChanges)
+    def _operationModeChanges(self,mode):
+        if self._checker.isChecked():
+            self._mainscreen_ui.tbWidthLabel.setText('Width')
+            self._mainscreen_ui.tbNumberLabel.setEnabled(False)
+            self._mainscreen_ui.tbNumberValue.setEnabled(False)
+        else:
+            self._mainscreen_ui.tbWidthLabel.setText('Interval')
+            self._mainscreen_ui.tbNumberLabel.setEnabled(True)
+            self._mainscreen_ui.tbNumberValue.setEnabled(True)
 
 def main():
     parser = argparse.get_taurus_parser()
