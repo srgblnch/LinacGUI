@@ -189,6 +189,7 @@ class MainWindow(TaurusMainWindow):
         #---- configure the widgets in the top left corner diagram
         self._setupLed4Attr(startup_ui.klystronAmplifierEnabledLed,'li/ct/plc1/KA_ENB')         #KA_ENB
         self._setupLed4Attr(startup_ui.magnetInterlockStateLed,'li/ct/plc1/MG_IS')              #MI_IS
+        self._setupLed4Attr(startup_ui.interlockUnitResetLed,'li/ct/plc1/interlock_rc',offColor='black')
         self._setupCheckbox4Attr(startup_ui.interlockUnitResetCheck,'li/ct/plc1/interlock_rc')  #Rst
         self._setupLed4Attr(startup_ui.utilitiesInterlockStateLed,'li/ct/plc1/UT_IS')           #UI_IS
         self._setupLed4Attr(startup_ui.compressedAirStateLed,'li/ct/plc2/ac_is')                #AC_IS
@@ -381,43 +382,57 @@ class MainWindow(TaurusMainWindow):
         startup_ui = self.ui.linacStartupSynoptic._ui
         vacuumValves = {1:{'cmdCheck':startup_ui.vacuumValve1OnCheck,
                            'cmdLed':startup_ui.vacuumValve1OnLed,
+                           'infoLed':startup_ui.vacuumValve1OnLedInfo,
                            'cmd_attrName':'li/ct/plc2/VV1_OC',
                            'status':startup_ui.vacuumValve1OnStatus,
                            'status_attrName':'li/ct/plc2/VV1_Status'},
                         2:{'cmdCheck':startup_ui.vacuumValve2OnCheck,
                            'cmdLed':startup_ui.vacuumValve2OnLed,
+                           'infoLed':startup_ui.vacuumValve2OnLedInfo,
                            'cmd_attrName':'li/ct/plc2/VV2_OC',
                            'status':startup_ui.vacuumValve2OnStatus,
                            'status_attrName':'li/ct/plc2/VV2_Status'},
                         3:{'cmdCheck':startup_ui.vacuumValve3OnCheck,
                            'cmdLed':startup_ui.vacuumValve3OnLed,
+                           'infoLed':startup_ui.vacuumValve3OnLedInfo,
                            'cmd_attrName':'li/ct/plc2/VV3_OC',
                            'status':startup_ui.vacuumValve3OnStatus,
                            'status_attrName':'li/ct/plc2/VV3_Status'},
                         4:{'cmdCheck':startup_ui.vacuumValve4OnCheck,
                            'cmdLed':startup_ui.vacuumValve4OnLed,
+                           'infoLed':startup_ui.vacuumValve4OnLedInfo,
                            'cmd_attrName':'li/ct/plc2/VV4_OC',
                            'status':startup_ui.vacuumValve4OnStatus,
                            'status_attrName':'li/ct/plc2/VV4_Status'},
                         5:{'cmdCheck':startup_ui.vacuumValve5OnCheck,
                            'cmdLed':startup_ui.vacuumValve5OnLed,
+                           'infoLed':startup_ui.vacuumValve5OnLedInfo,
                            'cmd_attrName':'li/ct/plc2/VV5_OC',
                            'status':startup_ui.vacuumValve5OnStatus,
                            'status_attrName':'li/ct/plc2/VV5_Status'},
                         6:{'cmdCheck':startup_ui.vacuumValve6OnCheck,
                            'cmdLed':startup_ui.vacuumValve6OnLed,
+                           'infoLed':startup_ui.vacuumValve6OnLedInfo,
                            'cmd_attrName':'li/ct/plc2/VV6_OC',
                            'status':startup_ui.vacuumValve6OnStatus,
                            'status_attrName':'li/ct/plc2/VV6_Status'},
                         7:{'cmdCheck':startup_ui.vacuumValve7OnCheck,
                            'cmdLed':startup_ui.vacuumValve7OnLed,
+                           'infoLed':startup_ui.vacuumValve7OnLedInfo,
                            'cmd_attrName':'li/ct/plc2/VV7_OC',
                            'status':startup_ui.vacuumValve7OnStatus,
                            'status_attrName':'li/ct/plc2/VV7_Status'},
                        }
         #TODO: there is an OPEN all valves not implemented in the device
-        #TODO: there is a reset vacuum interlocks to check if it is in the device
+        # startup_ui.vv_onc{Led,Check}
+        self._setupLed4UnknownAttr(startup_ui.vv_oncLed)
+        self._setupCheckbox4UnknownAttr(startup_ui.vv_oncCheck)
+        #reset vacuum interlocks
+        self._setupLed4Attr(startup_ui.vv_rstLed,'li/ct/plc2/VC_Interlock_RC',offColor='black')
+        self._setupCheckbox4Attr(startup_ui.vv_rstCheck,'li/ct/plc2/VC_Interlock_RC')
         for number in vacuumValves.keys():
+            self._setupLed4Attr(vacuumValves[number]['infoLed'],
+                                vacuumValves[number]['cmd_attrName'])
             self._setupLed4Attr(vacuumValves[number]['cmdLed'],
                                 vacuumValves[number]['cmd_attrName'])
             self._setupCheckbox4Attr(vacuumValves[number]['cmdCheck'],
@@ -751,6 +766,7 @@ class MainWindow(TaurusMainWindow):
                     widget.focusValue.hide()
                     widget.focusStatus.hide()
                 #wiget.setGeometry(Qt.QtCore.QRect(x,y,width,final_height))
+        self._setupLed4Attr(mainscreen_ui.magnetsRstLed,'li/ct/plc3/MA_Interlock_RC',offColor='black')
         self._setupCheckbox4Attr(mainscreen_ui.magnetsRstCheck,
                                  'li/ct/plc3/MA_Interlock_RC')
         #FIXME: there is no attr to power on all magnets at once
@@ -774,6 +790,8 @@ class MainWindow(TaurusMainWindow):
         
     def _setMainscreen_vacuum(self):
         mainscreen_ui = self.ui.linacMainscreenSynoptic._ui
+        self._setupLed4Attr(mainscreen_ui.vv1_oncLed,'li/ct/plc2/VV1_OC')
+        self._setupCheckbox4Attr(mainscreen_ui.vv1_oncCheck,'li/ct/plc2/VV1_OC')
         
     def _setMainscreen_fs(self):
         mainscreen_ui = self.ui.linacMainscreenSynoptic._ui
