@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>185</width>
-    <height>165</height>
+    <width>170</width>
+    <height>240</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -25,28 +25,40 @@
       <string>klystron high voltage</string>
      </property>
      <layout class="QGridLayout" name="gridLayout_2">
-      <item row="4" column="1">
-       <widget class="TaurusLabel" name="klystronVoltageValue">
-        <property name="font">
-         <font>
-          <pointsize>7</pointsize>
-         </font>
+      <item row="0" column="0" rowspan="3">
+       <widget class="QLabel" name="hvLabel">
+        <property name="maximumSize">
+         <size>
+          <width>60</width>
+          <height>16777215</height>
+         </size>
         </property>
-       </widget>
-      </item>
-      <item row="4" column="0">
-       <widget class="QLabel" name="klystronLabel">
         <property name="font">
          <font>
           <pointsize>7</pointsize>
          </font>
         </property>
         <property name="text">
-         <string>klystron</string>
+         <string>High Voltage Power Supply</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
         </property>
        </widget>
       </item>
-      <item row="2" column="1">
+      <item row="0" column="1" colspan="2">
+       <widget class="TaurusLabel" name="hvStatusValue">
+        <property name="font">
+         <font>
+          <pointsize>7</pointsize>
+         </font>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1" colspan="2">
        <widget class="TaurusLabel" name="hvVoltageValue">
         <property name="font">
          <font>
@@ -55,7 +67,7 @@
         </property>
        </widget>
       </item>
-      <item row="3" column="1">
+      <item row="2" column="1" colspan="2">
        <widget class="TaurusLabel" name="hvCurrentValue">
         <property name="font">
          <font>
@@ -64,28 +76,85 @@
         </property>
        </widget>
       </item>
-      <item row="2" column="0">
-       <widget class="QLabel" name="hvLabel">
+      <item row="3" column="0">
+       <widget class="QLabel" name="hvRamp">
+        <property name="maximumSize">
+         <size>
+          <width>60</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>HV Ramp</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="TaurusLed" name="hvRampEnableLed">
+        <property name="minimumSize">
+         <size>
+          <width>15</width>
+          <height>15</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>15</width>
+          <height>15</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="2">
+       <widget class="TaurusValueCheckBox" name="hvRampEnableCheck">
+        <property name="showText">
+         <bool>false</bool>
+        </property>
+        <property name="autoApply">
+         <bool>true</bool>
+        </property>
+        <property name="forcedApply">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="1" colspan="2">
+       <widget class="TaurusLabel" name="hvRampStepValue"/>
+      </item>
+      <item row="5" column="1" colspan="2">
+       <widget class="TaurusLabel" name="hvRampStepTimeValue"/>
+      </item>
+      <item row="6" column="1" colspan="2">
+       <widget class="TaurusLabel" name="hvRampThresholdValue"/>
+      </item>
+      <item row="7" column="0" rowspan="3">
+       <widget class="QLabel" name="klystronLabel">
+        <property name="maximumSize">
+         <size>
+          <width>60</width>
+          <height>16777215</height>
+         </size>
+        </property>
         <property name="font">
          <font>
           <pointsize>7</pointsize>
          </font>
         </property>
         <property name="text">
-         <string>High Voltage</string>
+         <string>klystron electron pulsed</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
         </property>
        </widget>
       </item>
-      <item row="5" column="1">
-       <widget class="TaurusLabel" name="klystronCurrentValue">
-        <property name="font">
-         <font>
-          <pointsize>7</pointsize>
-         </font>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="0" colspan="2">
+      <item row="7" column="1" colspan="2">
        <widget class="TaurusLabel" name="pulseStatusValue">
         <property name="font">
          <font>
@@ -94,12 +163,51 @@
         </property>
        </widget>
       </item>
-      <item row="0" column="0" colspan="2">
-       <widget class="TaurusLabel" name="hvStatusValue">
+      <item row="8" column="1" colspan="2">
+       <widget class="TaurusLabel" name="klystronVoltageValue">
         <property name="font">
          <font>
           <pointsize>7</pointsize>
          </font>
+        </property>
+       </widget>
+      </item>
+      <item row="9" column="1" colspan="2">
+       <widget class="TaurusLabel" name="klystronCurrentValue">
+        <property name="font">
+         <font>
+          <pointsize>7</pointsize>
+         </font>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0">
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>step</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="0">
+       <widget class="QLabel" name="label_2">
+        <property name="text">
+         <string>time</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="0">
+       <widget class="QLabel" name="label_3">
+        <property name="text">
+         <string>threshold</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
         </property>
        </widget>
       </item>
@@ -124,6 +232,26 @@
   <customwidget>
    <class>TaurusLabel</class>
    <extends>QLabel</extends>
+   <header>taurus.qt.qtgui.display</header>
+  </customwidget>
+  <customwidget>
+   <class>TaurusValueCheckBox</class>
+   <extends>QCheckBox</extends>
+   <header>taurus.qt.qtgui.input</header>
+  </customwidget>
+  <customwidget>
+   <class>TaurusLed</class>
+   <extends>QLed</extends>
+   <header>taurus.qt.qtgui.display</header>
+  </customwidget>
+  <customwidget>
+   <class>QLed</class>
+   <extends>QPixmapWidget</extends>
+   <header>taurus.qt.qtgui.display</header>
+  </customwidget>
+  <customwidget>
+   <class>QPixmapWidget</class>
+   <extends>QWidget</extends>
    <header>taurus.qt.qtgui.display</header>
   </customwidget>
  </customwidgets>
