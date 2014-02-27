@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'widgets/linacOverview.ui'
 #
-# Created: Wed Feb 26 16:17:19 2014
+# Created: Thu Feb 27 11:39:47 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -20,6 +20,18 @@ class Ui_linacOverview(object):
         linacOverview.resize(300, 330)
         self.gridLayout_2 = QtGui.QGridLayout(linacOverview)
         self.gridLayout_2.setObjectName(_fromUtf8("gridLayout_2"))
+        self.moveLocal = TaurusCommandButton(linacOverview)
+        self.moveLocal.setObjectName(_fromUtf8("moveLocal"))
+        self.gridLayout_2.addWidget(self.moveLocal, 1, 1, 1, 1)
+        self.moveRemote = TaurusCommandButton(linacOverview)
+        self.moveRemote.setObjectName(_fromUtf8("moveRemote"))
+        self.gridLayout_2.addWidget(self.moveRemote, 1, 2, 1, 1)
+        self.resetInstance = TaurusCommandButton(linacOverview)
+        self.resetInstance.setObjectName(_fromUtf8("resetInstance"))
+        self.gridLayout_2.addWidget(self.resetInstance, 2, 1, 1, 2)
+        self.AllInstancesLocationLabel = QtGui.QLabel(linacOverview)
+        self.AllInstancesLocationLabel.setObjectName(_fromUtf8("AllInstancesLocationLabel"))
+        self.gridLayout_2.addWidget(self.AllInstancesLocationLabel, 1, 0, 1, 1)
         self.overviewLayout = QtGui.QGridLayout()
         self.overviewLayout.setObjectName(_fromUtf8("overviewLayout"))
         self.klystron2Label = QtGui.QLabel(linacOverview)
@@ -94,22 +106,14 @@ class Ui_linacOverview(object):
         self.linacRead.setMaximumSize(QtCore.QSize(25, 25))
         self.linacRead.setObjectName(_fromUtf8("linacRead"))
         self.overviewLayout.addWidget(self.linacRead, 7, 1, 1, 2)
-        self.gridLayout_2.addLayout(self.overviewLayout, 0, 0, 1, 2)
-        self.moveRemote = TaurusCommandButton(linacOverview)
-        self.moveRemote.setObjectName(_fromUtf8("moveRemote"))
-        self.gridLayout_2.addWidget(self.moveRemote, 1, 1, 1, 1)
-        self.moveLocal = TaurusCommandButton(linacOverview)
-        self.moveLocal.setObjectName(_fromUtf8("moveLocal"))
-        self.gridLayout_2.addWidget(self.moveLocal, 1, 0, 1, 1)
-        self.resetInstance = TaurusCommandButton(linacOverview)
-        self.resetInstance.setObjectName(_fromUtf8("resetInstance"))
-        self.gridLayout_2.addWidget(self.resetInstance, 2, 0, 1, 2)
+        self.gridLayout_2.addLayout(self.overviewLayout, 0, 0, 1, 3)
 
         self.retranslateUi(linacOverview)
         QtCore.QMetaObject.connectSlotsByName(linacOverview)
 
     def retranslateUi(self, linacOverview):
         linacOverview.setWindowTitle(QtGui.QApplication.translate("linacOverview", "Form", None, QtGui.QApplication.UnicodeUTF8))
+        self.AllInstancesLocationLabel.setText(QtGui.QApplication.translate("linacOverview", "All instances:", None, QtGui.QApplication.UnicodeUTF8))
         self.klystron2Label.setText(QtGui.QApplication.translate("linacOverview", "Klystron 2 Ready", None, QtGui.QApplication.UnicodeUTF8))
         self.linacLabel.setText(QtGui.QApplication.translate("linacOverview", "Linac Ready", None, QtGui.QApplication.UnicodeUTF8))
         self.VCLabel.setText(QtGui.QApplication.translate("linacOverview", "Vacuum Ready", None, QtGui.QApplication.UnicodeUTF8))

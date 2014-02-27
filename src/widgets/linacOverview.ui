@@ -14,7 +14,23 @@
    <string>Form</string>
   </property>
   <layout class="QGridLayout" name="gridLayout_2">
-   <item row="0" column="0" colspan="2">
+   <item row="1" column="1">
+    <widget class="TaurusCommandButton" name="moveLocal"/>
+   </item>
+   <item row="1" column="2">
+    <widget class="TaurusCommandButton" name="moveRemote"/>
+   </item>
+   <item row="2" column="1" colspan="2">
+    <widget class="TaurusCommandButton" name="resetInstance"/>
+   </item>
+   <item row="1" column="0">
+    <widget class="QLabel" name="AllInstancesLocationLabel">
+     <property name="text">
+      <string>All instances:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="0" colspan="3">
     <layout class="QGridLayout" name="overviewLayout">
      <item row="6" column="0">
       <widget class="QLabel" name="klystron2Label">
@@ -236,15 +252,6 @@
       </widget>
      </item>
     </layout>
-   </item>
-   <item row="1" column="1">
-    <widget class="TaurusCommandButton" name="moveRemote"/>
-   </item>
-   <item row="1" column="0">
-    <widget class="TaurusCommandButton" name="moveLocal"/>
-   </item>
-   <item row="2" column="0" colspan="2">
-    <widget class="TaurusCommandButton" name="resetInstance"/>
    </item>
   </layout>
  </widget>

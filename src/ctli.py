@@ -547,7 +547,10 @@ class MainWindow(TaurusMainWindow):
                              'X':mainscreen_ui.rfTimePhaseShifterXValue}
         for timeShifter in timePhaseShifters.keys():
             attrName = 'li/ct/plc1/TPS%s_Phase'%timeShifter
-            self._setupSpinBox4Attr(timePhaseShifters[timeShifter],attrName,step=0.1)
+            if timeShifter in ['0']:
+                self._setupSpinBox4Attr(timePhaseShifters[timeShifter],attrName,step=0.1)
+            else:
+                self._setupSpinBox4Attr(timePhaseShifters[timeShifter],attrName,step=1)
         self._setupSpinBox4Attr(mainscreen_ui.rfA0OutputPowerValue,'li/ct/plc1/A0_OP',step=0.1)
         self._setupLed4Attr(mainscreen_ui.rfA0StatusLed,'li/ct/plc1/RFS_ST')
         self._setupSpinBox4Attr(mainscreen_ui.attenuator2Value,'li/ct/plc1/ATT2_P_setpoint',step=0.1)
@@ -699,13 +702,17 @@ class MainWindow(TaurusMainWindow):
                 self._setupLed4Attr(magnets[magnet]['info'],attrName)
             if magnets[magnet].has_key('h'):
                 attrName = '%s/%sh_I_setpoint'%(deviceName,magnet)
-                self._setupSpinBox4Attr(magnets[magnet]['h'],attrName,step=0.1)
+                self._setupSpinBox4Attr(magnets[magnet]['h'],attrName,step=0.01)
             if magnets[magnet].has_key('v'):
                 attrName = '%s/%sv_I_setpoint'%(deviceName,magnet)
-                self._setupSpinBox4Attr(magnets[magnet]['v'],attrName,step=0.1)
+                self._setupSpinBox4Attr(magnets[magnet]['v'],attrName,step=0.01)
             if magnets[magnet].has_key('f'):
                 attrName = '%s/%sf_I_setpoint'%(deviceName,magnet)
-                self._setupSpinBox4Attr(magnets[magnet]['f'],attrName,step=0.1)
+                #Special exception:
+                if magnet in ['qt1','qt2']:
+                    self._setupSpinBox4Attr(magnets[magnet]['f'],attrName,step=0.005)
+                else:
+                    self._setupSpinBox4Attr(magnets[magnet]['f'],attrName,step=0.01)
             if magnets[magnet].has_key('cmd'):
                 attrName = '%s/%s_onc'%(deviceName,magnet)
                 self._setupCheckbox4Attr(magnets[magnet]['cmd'],attrName)

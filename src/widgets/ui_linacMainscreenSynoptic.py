@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'widgets/linacMainscreenSynoptic.ui'
 #
-# Created: Wed Feb 26 17:33:04 2014
+# Created: Thu Feb 27 11:31:12 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
