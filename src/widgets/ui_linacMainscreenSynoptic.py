@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'widgets/linacMainscreenSynoptic.ui'
 #
-# Created: Thu Feb 27 12:38:42 2014
+# Created: Thu Feb 27 19:14:07 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -952,40 +952,75 @@ class Ui_linacMainscreenSynoptic(object):
         self.fluorescentScreen3LightView = QtGui.QPushButton(linacMainscreenSynoptic)
         self.fluorescentScreen3LightView.setGeometry(QtCore.QRect(1166, 767, 40, 23))
         self.fluorescentScreen3LightView.setObjectName(_fromUtf8("fluorescentScreen3LightView"))
-        self.widget = QtGui.QWidget(linacMainscreenSynoptic)
-        self.widget.setGeometry(QtCore.QRect(20, 780, 77, 48))
-        self.widget.setObjectName(_fromUtf8("widget"))
-        self.gridLayout = QtGui.QGridLayout(self.widget)
+        self.layoutWidget5 = QtGui.QWidget(linacMainscreenSynoptic)
+        self.layoutWidget5.setGeometry(QtCore.QRect(20, 780, 77, 48))
+        self.layoutWidget5.setObjectName(_fromUtf8("layoutWidget5"))
+        self.gridLayout = QtGui.QGridLayout(self.layoutWidget5)
         self.gridLayout.setMargin(0)
         self.gridLayout.setObjectName(_fromUtf8("gridLayout"))
-        self.magnetsRstLabel = QtGui.QLabel(self.widget)
+        self.magnetsRstLabel = QtGui.QLabel(self.layoutWidget5)
         self.magnetsRstLabel.setObjectName(_fromUtf8("magnetsRstLabel"))
         self.gridLayout.addWidget(self.magnetsRstLabel, 0, 0, 1, 1)
-        self.magnetsRstLed = TaurusLed(self.widget)
+        self.magnetsRstLed = TaurusLed(self.layoutWidget5)
         self.magnetsRstLed.setMinimumSize(QtCore.QSize(15, 15))
         self.magnetsRstLed.setMaximumSize(QtCore.QSize(15, 15))
         self.magnetsRstLed.setObjectName(_fromUtf8("magnetsRstLed"))
         self.gridLayout.addWidget(self.magnetsRstLed, 0, 1, 1, 1)
-        self.magnetsRstCheck = TaurusValueCheckBox(self.widget)
+        self.magnetsRstCheck = TaurusValueCheckBox(self.layoutWidget5)
         self.magnetsRstCheck.setShowText(False)
         self.magnetsRstCheck.setAutoApply(True)
         self.magnetsRstCheck.setForcedApply(False)
         self.magnetsRstCheck.setObjectName(_fromUtf8("magnetsRstCheck"))
         self.gridLayout.addWidget(self.magnetsRstCheck, 0, 2, 1, 1)
-        self.magnetsOnLabel = QtGui.QLabel(self.widget)
+        self.magnetsOnLabel = QtGui.QLabel(self.layoutWidget5)
         self.magnetsOnLabel.setObjectName(_fromUtf8("magnetsOnLabel"))
         self.gridLayout.addWidget(self.magnetsOnLabel, 1, 0, 1, 1)
-        self.magnetsOnLed = TaurusLed(self.widget)
+        self.magnetsOnLed = TaurusLed(self.layoutWidget5)
         self.magnetsOnLed.setMinimumSize(QtCore.QSize(15, 15))
         self.magnetsOnLed.setMaximumSize(QtCore.QSize(15, 15))
         self.magnetsOnLed.setObjectName(_fromUtf8("magnetsOnLed"))
         self.gridLayout.addWidget(self.magnetsOnLed, 1, 1, 1, 1)
-        self.magnetsOnCheck = TaurusValueCheckBox(self.widget)
+        self.magnetsOnCheck = TaurusValueCheckBox(self.layoutWidget5)
         self.magnetsOnCheck.setShowText(False)
         self.magnetsOnCheck.setAutoApply(True)
         self.magnetsOnCheck.setForcedApply(False)
         self.magnetsOnCheck.setObjectName(_fromUtf8("magnetsOnCheck"))
         self.gridLayout.addWidget(self.magnetsOnCheck, 1, 2, 1, 1)
+        self.eGunVacuumWidget = CavityVacuum(linacMainscreenSynoptic)
+        self.eGunVacuumWidget.setGeometry(QtCore.QRect(140, 570, 116, 97))
+        self.eGunVacuumWidget.setObjectName(_fromUtf8("eGunVacuumWidget"))
+        self.preBuncherVacuumWidget = CavityVacuum(linacMainscreenSynoptic)
+        self.preBuncherVacuumWidget.setGeometry(QtCore.QRect(300, 570, 116, 97))
+        self.preBuncherVacuumWidget.setObjectName(_fromUtf8("preBuncherVacuumWidget"))
+        self.buncherVacuumWidget = CavityVacuum(linacMainscreenSynoptic)
+        self.buncherVacuumWidget.setGeometry(QtCore.QRect(540, 570, 116, 97))
+        self.buncherVacuumWidget.setObjectName(_fromUtf8("buncherVacuumWidget"))
+        self.as1VacuumWidget = CavityVacuum(linacMainscreenSynoptic)
+        self.as1VacuumWidget.setGeometry(QtCore.QRect(790, 570, 116, 97))
+        self.as1VacuumWidget.setObjectName(_fromUtf8("as1VacuumWidget"))
+        self.as2VacuumWidget = CavityVacuum(linacMainscreenSynoptic)
+        self.as2VacuumWidget.setGeometry(QtCore.QRect(1080, 570, 116, 97))
+        self.as2VacuumWidget.setObjectName(_fromUtf8("as2VacuumWidget"))
+        self.eGunVacuumCheck = QtGui.QToolButton(linacMainscreenSynoptic)
+        self.eGunVacuumCheck.setGeometry(QtCore.QRect(109, 580, 40, 20))
+        self.eGunVacuumCheck.setCheckable(True)
+        self.eGunVacuumCheck.setObjectName(_fromUtf8("eGunVacuumCheck"))
+        self.preBuncherVacuumCheck = QtGui.QToolButton(linacMainscreenSynoptic)
+        self.preBuncherVacuumCheck.setGeometry(QtCore.QRect(263, 580, 40, 20))
+        self.preBuncherVacuumCheck.setCheckable(True)
+        self.preBuncherVacuumCheck.setObjectName(_fromUtf8("preBuncherVacuumCheck"))
+        self.buncherVacuumCheck = QtGui.QToolButton(linacMainscreenSynoptic)
+        self.buncherVacuumCheck.setGeometry(QtCore.QRect(470, 568, 40, 20))
+        self.buncherVacuumCheck.setCheckable(True)
+        self.buncherVacuumCheck.setObjectName(_fromUtf8("buncherVacuumCheck"))
+        self.as1VacuumCheck = QtGui.QToolButton(linacMainscreenSynoptic)
+        self.as1VacuumCheck.setGeometry(QtCore.QRect(730, 568, 40, 20))
+        self.as1VacuumCheck.setCheckable(True)
+        self.as1VacuumCheck.setObjectName(_fromUtf8("as1VacuumCheck"))
+        self.as2VacuumCheck = QtGui.QToolButton(linacMainscreenSynoptic)
+        self.as2VacuumCheck.setGeometry(QtCore.QRect(1019, 569, 40, 20))
+        self.as2VacuumCheck.setCheckable(True)
+        self.as2VacuumCheck.setObjectName(_fromUtf8("as2VacuumCheck"))
 
         self.retranslateUi(linacMainscreenSynoptic)
         QtCore.QMetaObject.connectSlotsByName(linacMainscreenSynoptic)
@@ -1049,6 +1084,11 @@ class Ui_linacMainscreenSynoptic(object):
         self.fluorescentScreen3LightView.setText(QtGui.QApplication.translate("linacMainscreenSynoptic", "View", None, QtGui.QApplication.UnicodeUTF8))
         self.magnetsRstLabel.setText(QtGui.QApplication.translate("linacMainscreenSynoptic", "Reset", None, QtGui.QApplication.UnicodeUTF8))
         self.magnetsOnLabel.setText(QtGui.QApplication.translate("linacMainscreenSynoptic", "On", None, QtGui.QApplication.UnicodeUTF8))
+        self.eGunVacuumCheck.setText(QtGui.QApplication.translate("linacMainscreenSynoptic", "Vacuum", None, QtGui.QApplication.UnicodeUTF8))
+        self.preBuncherVacuumCheck.setText(QtGui.QApplication.translate("linacMainscreenSynoptic", "Vacuum", None, QtGui.QApplication.UnicodeUTF8))
+        self.buncherVacuumCheck.setText(QtGui.QApplication.translate("linacMainscreenSynoptic", "Vacuum", None, QtGui.QApplication.UnicodeUTF8))
+        self.as1VacuumCheck.setText(QtGui.QApplication.translate("linacMainscreenSynoptic", "Vacuum", None, QtGui.QApplication.UnicodeUTF8))
+        self.as2VacuumCheck.setText(QtGui.QApplication.translate("linacMainscreenSynoptic", "Vacuum", None, QtGui.QApplication.UnicodeUTF8))
 
 from taurus.qt.qtgui.display import TaurusLed, TaurusLabel
 from attenuator import Attenuator
@@ -1056,5 +1096,6 @@ from phaseshifter import phaseShifter
 from egunhv import eGunHV
 from magnet import magnet
 from taurus.qt.qtgui.panel import TaurusWidget
+from cavityvacuum import CavityVacuum
 from taurus.qt.qtgui.input import TaurusValueSpinBox, TaurusValueCheckBox, TaurusValueComboBox
 from klystronhv import klystronHV

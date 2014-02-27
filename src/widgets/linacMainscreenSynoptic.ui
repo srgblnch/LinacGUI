@@ -2802,7 +2802,7 @@
     <string>View</string>
    </property>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>20</x>
@@ -2886,6 +2886,141 @@
     </item>
    </layout>
   </widget>
+  <widget class="CavityVacuum" name="eGunVacuumWidget">
+   <property name="geometry">
+    <rect>
+     <x>140</x>
+     <y>570</y>
+     <width>116</width>
+     <height>97</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="CavityVacuum" name="preBuncherVacuumWidget">
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>570</y>
+     <width>116</width>
+     <height>97</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="CavityVacuum" name="buncherVacuumWidget">
+   <property name="geometry">
+    <rect>
+     <x>540</x>
+     <y>570</y>
+     <width>116</width>
+     <height>97</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="CavityVacuum" name="as1VacuumWidget">
+   <property name="geometry">
+    <rect>
+     <x>790</x>
+     <y>570</y>
+     <width>116</width>
+     <height>97</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="CavityVacuum" name="as2VacuumWidget">
+   <property name="geometry">
+    <rect>
+     <x>1080</x>
+     <y>570</y>
+     <width>116</width>
+     <height>97</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QToolButton" name="eGunVacuumCheck">
+   <property name="geometry">
+    <rect>
+     <x>109</x>
+     <y>580</y>
+     <width>40</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Vacuum</string>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QToolButton" name="preBuncherVacuumCheck">
+   <property name="geometry">
+    <rect>
+     <x>263</x>
+     <y>580</y>
+     <width>40</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Vacuum</string>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QToolButton" name="buncherVacuumCheck">
+   <property name="geometry">
+    <rect>
+     <x>470</x>
+     <y>568</y>
+     <width>40</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Vacuum</string>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QToolButton" name="as1VacuumCheck">
+   <property name="geometry">
+    <rect>
+     <x>730</x>
+     <y>568</y>
+     <width>40</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Vacuum</string>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QToolButton" name="as2VacuumCheck">
+   <property name="geometry">
+    <rect>
+     <x>1019</x>
+     <y>569</y>
+     <width>40</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Vacuum</string>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <zorder>as2VacuumWidget</zorder>
+  <zorder>as1VacuumWidget</zorder>
+  <zorder>buncherVacuumWidget</zorder>
+  <zorder>preBuncherVacuumWidget</zorder>
+  <zorder>eGunVacuumWidget</zorder>
   <zorder>qt2PopupWidget</zorder>
   <zorder>as2PopupWidget</zorder>
   <zorder>qt1PopupWidget</zorder>
@@ -2904,7 +3039,6 @@
   <zorder>klystron2HVPopupWidget</zorder>
   <zorder>klystron1HVPopupWidget</zorder>
   <zorder>MainScreenSchematic</zorder>
-  <zorder>layoutWidget</zorder>
   <zorder>tbGunLevelValue</zorder>
   <zorder>tbNumberValue</zorder>
   <zorder>tbWidthValue</zorder>
@@ -3025,8 +3159,19 @@
   <zorder>fluorescentScreen1LightView</zorder>
   <zorder>fluorescentScreen2LightView</zorder>
   <zorder>fluorescentScreen3LightView</zorder>
+  <zorder>eGunVacuumCheck</zorder>
+  <zorder>preBuncherVacuumCheck</zorder>
+  <zorder>buncherVacuumCheck</zorder>
+  <zorder>as1VacuumCheck</zorder>
+  <zorder>as2VacuumCheck</zorder>
  </widget>
  <customwidgets>
+  <customwidget>
+   <class>eGunHV</class>
+   <extends>TaurusWidget</extends>
+   <header>egunhv</header>
+   <container>1</container>
+  </customwidget>
   <customwidget>
    <class>TaurusValueSpinBox</class>
    <extends>QWidget</extends>
@@ -3044,6 +3189,18 @@
    <header>taurus.qt.qtgui.display</header>
   </customwidget>
   <customwidget>
+   <class>phaseShifter</class>
+   <extends>TaurusWidget</extends>
+   <header>phaseshifter</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>klystronHV</class>
+   <extends>TaurusWidget</extends>
+   <header>klystronhv</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
    <class>TaurusValueComboBox</class>
    <extends>QComboBox</extends>
    <header>taurus.qt.qtgui.input</header>
@@ -3052,6 +3209,23 @@
    <class>TaurusValueCheckBox</class>
    <extends>QCheckBox</extends>
    <header>taurus.qt.qtgui.input</header>
+  </customwidget>
+  <customwidget>
+   <class>magnet</class>
+   <extends>TaurusWidget</extends>
+   <header>magnet</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>Attenuator</class>
+   <extends>TaurusWidget</extends>
+   <header>attenuator</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>CavityVacuum</class>
+   <extends>TaurusWidget</extends>
+   <header>cavityvacuum</header>
   </customwidget>
   <customwidget>
    <class>TaurusLed</class>
@@ -3067,36 +3241,6 @@
    <class>QPixmapWidget</class>
    <extends>QWidget</extends>
    <header>taurus.qt.qtgui.display</header>
-  </customwidget>
-  <customwidget>
-   <class>eGunHV</class>
-   <extends>TaurusWidget</extends>
-   <header>egunhv</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
-   <class>phaseShifter</class>
-   <extends>TaurusWidget</extends>
-   <header>phaseshifter</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
-   <class>klystronHV</class>
-   <extends>TaurusWidget</extends>
-   <header>klystronhv</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
-   <class>magnet</class>
-   <extends>TaurusWidget</extends>
-   <header>magnet</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
-   <class>Attenuator</class>
-   <extends>TaurusWidget</extends>
-   <header>attenuator</header>
-   <container>1</container>
   </customwidget>
  </customwidgets>
  <resources/>

@@ -797,6 +797,53 @@ class MainWindow(TaurusMainWindow):
         mainscreen_ui = self.ui.linacMainscreenSynoptic._ui
         self._setupLed4Attr(mainscreen_ui.vv1_oncLed,'li/ct/plc2/VV1_OC')
         self._setupCheckbox4Attr(mainscreen_ui.vv1_oncCheck,'li/ct/plc2/VV1_OC')
+        vacuumCavities = {'eGun':{'check':mainscreen_ui.eGunVacuumCheck,
+                                  'widget':mainscreen_ui.eGunVacuumWidget,
+                                  'hvg':'li/ct/plc2/HVG1_P',
+                                  'ipA':'IP1',
+                                  'ipB':'IP2'},
+                          'preBuncher':{'check':mainscreen_ui.preBuncherVacuumCheck,
+                                        'widget':mainscreen_ui.preBuncherVacuumWidget,
+                                        'hvg':'li/ct/plc2/HVG2_P',
+                                        'ipA':'IP3'},
+                          'buncher':{'check':mainscreen_ui.buncherVacuumCheck,
+                                     'widget':mainscreen_ui.buncherVacuumWidget,
+                                     'hvg':'li/ct/plc2/HVG3_P',
+                                     'ipA':'IP4',
+                                     'ipB':'IP5'},
+                          'as1':{'check':mainscreen_ui.as1VacuumCheck,
+                                 'widget':mainscreen_ui.as1VacuumWidget,
+                                  'hvg':'li/ct/plc2/HVG4_P',
+                                  'ipA':'IP6',
+                                  'ipB':'IP7'},
+                          'as2':{'check':mainscreen_ui.as2VacuumCheck,
+                                 'widget':mainscreen_ui.as2VacuumWidget,
+                                 'hvg':'li/ct/plc2/HVG5_P',
+                                 'ipA':'IP8',
+                                 'ipB':'IP9'}}
+        self._vacuumCavities = {}
+        for cavity in vacuumCavities.keys():
+            check = vacuumCavities[cavity]['check']
+            widget = vacuumCavities[cavity]['widget']
+            widget.hide()
+            self._vacuumCavities[cavity] = CheckboxManager(check,widget)
+            widget._ui.vacuumGroup.setTitle(cavity)
+            hvg = vacuumCavities[cavity]['hvg']
+            self._setupTaurusLabel4Attr(widget._ui.HVGValue,hvg,'bar')
+            if vacuumCavities[cavity].has_key('ipA'):
+                ipA = vacuumCavities[cavity]['ipA']
+                widget._ui.IonPumpALabel.setText(ipA)
+                self._setupLed4Attr(widget._ui.IonPumpALed,'li/ct/plc2/%s_IS'%(ipA))
+            else:
+                widget._ui.IonPumpALabel.hide()
+                widget._ui.IonPumpALed.hide()
+            if vacuumCavities[cavity].has_key('ipB'):
+                ipB = vacuumCavities[cavity]['ipB']
+                widget._ui.IonPumpBLabel.setText(ipB)
+                self._setupLed4Attr(widget._ui.IonPumpBLed,'li/ct/plc2/%s_IS'%(ipB))
+            else:
+                widget._ui.IonPumpBLabel.hide()
+                widget._ui.IonPumpBLed.hide()
         
     def _setMainscreen_fs(self):
         mainscreen_ui = self.ui.linacMainscreenSynoptic._ui
