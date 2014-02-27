@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'linacOverview.ui'
+# Form implementation generated from reading ui file 'widgets/linacOverview.ui'
 #
-# Created: Wed Feb 12 12:36:58 2014
+# Created: Wed Feb 26 16:17:19 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -17,7 +17,7 @@ except AttributeError:
 class Ui_linacOverview(object):
     def setupUi(self, linacOverview):
         linacOverview.setObjectName(_fromUtf8("linacOverview"))
-        linacOverview.resize(300, 332)
+        linacOverview.resize(300, 330)
         self.gridLayout_2 = QtGui.QGridLayout(linacOverview)
         self.gridLayout_2.setObjectName(_fromUtf8("gridLayout_2"))
         self.overviewLayout = QtGui.QGridLayout()
@@ -94,7 +94,16 @@ class Ui_linacOverview(object):
         self.linacRead.setMaximumSize(QtCore.QSize(25, 25))
         self.linacRead.setObjectName(_fromUtf8("linacRead"))
         self.overviewLayout.addWidget(self.linacRead, 7, 1, 1, 2)
-        self.gridLayout_2.addLayout(self.overviewLayout, 0, 0, 1, 1)
+        self.gridLayout_2.addLayout(self.overviewLayout, 0, 0, 1, 2)
+        self.moveRemote = TaurusCommandButton(linacOverview)
+        self.moveRemote.setObjectName(_fromUtf8("moveRemote"))
+        self.gridLayout_2.addWidget(self.moveRemote, 1, 1, 1, 1)
+        self.moveLocal = TaurusCommandButton(linacOverview)
+        self.moveLocal.setObjectName(_fromUtf8("moveLocal"))
+        self.gridLayout_2.addWidget(self.moveLocal, 1, 0, 1, 1)
+        self.resetInstance = TaurusCommandButton(linacOverview)
+        self.resetInstance.setObjectName(_fromUtf8("resetInstance"))
+        self.gridLayout_2.addWidget(self.resetInstance, 2, 0, 1, 2)
 
         self.retranslateUi(linacOverview)
         QtCore.QMetaObject.connectSlotsByName(linacOverview)
@@ -120,3 +129,4 @@ class Ui_linacOverview(object):
 from taurus.qt.qtgui.display import TaurusLed
 from taurus.qt.qtgui.panel import TaurusWidget
 from taurus.qt.qtgui.input import TaurusValueCheckBox
+from taurus.qt.qtgui.button import TaurusCommandButton

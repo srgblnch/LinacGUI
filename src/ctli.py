@@ -130,6 +130,23 @@ class MainWindow(TaurusMainWindow):
         self.ui.linacOverview._ui.klystron1Read.setModel('li/ct/plc1/KA1_OK')
         self.ui.linacOverview._ui.klystron2Read.setModel('li/ct/plc1/KA2_OK')
         self.ui.linacOverview._ui.linacRead.setModel('li/ct/plc1/LI_OK')
+        self.ui.linacOverview._ui.moveLocal.setModel(DeviceRelocator)
+        self.ui.linacOverview._ui.moveLocal.setCommand('MoveAllInstances')
+        self.ui.linacOverview._ui.moveLocal.setParameters('local')
+        self.ui.linacOverview._ui.moveLocal.setCustomText('Local')
+        self.ui.linacOverview._ui.moveLocal.setDangerMessage(\
+                                   "Be sure Labview is not link to these PLCs!")
+        self.ui.linacOverview._ui.moveRemote.setModel(DeviceRelocator)
+        self.ui.linacOverview._ui.moveRemote.setCommand('MoveAllInstances')
+        self.ui.linacOverview._ui.moveRemote.setParameters('remote')
+        self.ui.linacOverview._ui.moveRemote.setCustomText('Remote')
+        self.ui.linacOverview._ui.moveRemote.setDangerMessage(\
+                                "After this action you will lose write access.")
+        self.ui.linacOverview._ui.resetInstance.setModel(DeviceRelocator)
+        self.ui.linacOverview._ui.resetInstance.setCommand('RestartAllInstance')
+        self.ui.linacOverview._ui.resetInstance.setCustomText('Restart all')
+        self.ui.linacOverview._ui.resetInstance.setDangerMessage(\
+                                       "This will stop the control temporally.")
         #for each of the plcs
         plcWidgets = [self.ui.plc1,self.ui.plc2,self.ui.plc3,self.ui.plc4,self.ui.plc5]
         for i,plc in enumerate(plcWidgets):
