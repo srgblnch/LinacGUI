@@ -2091,7 +2091,7 @@
     <rect>
      <x>620</x>
      <y>770</y>
-     <width>80</width>
+     <width>60</width>
      <height>16</height>
     </rect>
    </property>
@@ -2101,7 +2101,7 @@
     <rect>
      <x>870</x>
      <y>770</y>
-     <width>80</width>
+     <width>60</width>
      <height>16</height>
     </rect>
    </property>
@@ -2111,7 +2111,7 @@
     <rect>
      <x>1100</x>
      <y>770</y>
-     <width>80</width>
+     <width>60</width>
      <height>16</height>
     </rect>
    </property>
@@ -2827,6 +2827,45 @@
     <string>dB</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="fluorescentScreen1LightView">
+   <property name="geometry">
+    <rect>
+     <x>687</x>
+     <y>767</y>
+     <width>40</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>View</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="fluorescentScreen2LightView">
+   <property name="geometry">
+    <rect>
+     <x>940</x>
+     <y>768</y>
+     <width>40</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>View</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="fluorescentScreen3LightView">
+   <property name="geometry">
+    <rect>
+     <x>1166</x>
+     <y>767</y>
+     <width>40</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>View</string>
+   </property>
+  </widget>
   <zorder>qt2PopupWidget</zorder>
   <zorder>as2PopupWidget</zorder>
   <zorder>qt1PopupWidget</zorder>
@@ -2963,6 +3002,9 @@
   <zorder>tbNumberLabel</zorder>
   <zorder>tbGunDelayLabel</zorder>
   <zorder>label_2</zorder>
+  <zorder>fluorescentScreen1LightView</zorder>
+  <zorder>fluorescentScreen2LightView</zorder>
+  <zorder>fluorescentScreen3LightView</zorder>
  </widget>
  <customwidgets>
   <customwidget>

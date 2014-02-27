@@ -777,7 +777,9 @@ class MainWindow(TaurusMainWindow):
                                  'light_cmd':mainscreen_ui.fluorescentScreen1LightCheck,
                                  'light_attrName':'li/ct/plc1/SCM1_LC',
                                  'status':mainscreen_ui.fluorescentScreen1Status,
-                                 'status_attrName':'li/ct/plc1/SCM1_Status'},
+                                 'status_attrName':'li/ct/plc1/SCM1_Status',
+                                 'view':mainscreen_ui.fluorescentScreen1LightView,
+                                 'screen':'li/di/fs-01'},
                               2:{'valve_led':mainscreen_ui.fluorescentScreen2ValveLed,
                                  'valve_cmd':mainscreen_ui.fluorescentScreen2ValveCheck,
                                  'valve_attrName':'li/ct/plc1/SCM2_DC',
@@ -785,7 +787,9 @@ class MainWindow(TaurusMainWindow):
                                  'light_cmd':mainscreen_ui.fluorescentScreen2LightCheck,
                                  'light_attrName':'li/ct/plc1/SCM2_LC',
                                  'status':mainscreen_ui.fluorescentScreen2Status,
-                                 'status_attrName':'li/ct/plc1/SCM2_Status'},
+                                 'status_attrName':'li/ct/plc1/SCM2_Status',
+                                 'view':mainscreen_ui.fluorescentScreen2LightView,
+                                 'screen':'li/di/fs-02'},
                               3:{'valve_led':mainscreen_ui.fluorescentScreen3ValveLed,
                                  'valve_cmd':mainscreen_ui.fluorescentScreen3ValveCheck,
                                  'valve_attrName':'li/ct/plc1/SCM3_DC',
@@ -793,7 +797,10 @@ class MainWindow(TaurusMainWindow):
                                  'light_cmd':mainscreen_ui.fluorescentScreen3LightCheck,
                                  'light_attrName':'li/ct/plc1/SCM3_LC',
                                  'status':mainscreen_ui.fluorescentScreen3Status,
-                                 'status_attrName':'li/ct/plc1/SCM3_Status'}}
+                                 'status_attrName':'li/ct/plc1/SCM3_Status',
+                                 'view':mainscreen_ui.fluorescentScreen3LightView,
+                                 'screen':'li/di/fs-03'}}
+        self._fluorescentScreensViewButtons = []
         for fs in fluorescentScreens.keys():
             self._setupLed4Attr(fluorescentScreens[fs]['valve_led'],
                                 fluorescentScreens[fs]['valve_attrName'],
@@ -807,6 +814,9 @@ class MainWindow(TaurusMainWindow):
                                 fluorescentScreens[fs]['light_attrName'])
             self._setupTaurusLabel4Attr(fluorescentScreens[fs]['status'],
                                         fluorescentScreens[fs]['status_attrName'])
+            listener = ViewButtonListener(fluorescentScreens[fs]['view'],
+                                          fluorescentScreens[fs]['screen'])
+            self._fluorescentScreensViewButtons.append(listener)
 
 '''First approach to the Labview blinking leds with subboxes of sets of attrs.
 '''
@@ -845,6 +855,59 @@ class OperationModeManager(TaurusBaseComponent,Qt.QObject):
             self._mainscreen_ui.tbWidthLabel.setText('Interval')
             self._mainscreen_ui.tbNumberLabel.setEnabled(True)
             self._mainscreen_ui.tbNumberValue.setEnabled(True)
+
+#---- This is a copy from fsotrGUI
+from PyQt4 import QtCore
+import traceback
+import getpass,socket
+
+class ViewButtonListener:
+    def __init__(self,button,screen):
+        self.__button = button
+        self.__screen = str(screen)
+        QtCore.QObject.connect(self.__button,QtCore.SIGNAL("clicked()"),self.launchGui)
+        #print "build button listener for %s"%self.__screen
+        self.__qpro = None
+    def launchGui(self):
+        try:
+            print "Listener button clicked for %s"%self.__screen
+            if not self.__qpro == None and self.__qpro.state() == QtCore.QProcess.Running:
+                answer = QtGui.QMessageBox.warning(None,"Gui already running",
+                                                   "This screen is already open.\n"
+                                                   "Are you sure to kill it?",
+                                                   Qt.QString("Kill"),#button0Text
+                                                   Qt.QString("Cancel"),#button1Text
+                                                   "",#used button2
+                                                   1)#defaultButtonNumber
+                if answer == 0:
+                    self.__qpro.kill()
+                return
+            self.__qpro = QtCore.QProcess()
+            self.__qpro.setProcessChannelMode(QtCore.QProcess.ForwardedChannels)
+            QtCore.QObject.connect(self.__qpro,QtCore.SIGNAL("error()"),self.__FsotrGUI_error)
+            QtCore.QObject.connect(self.__qpro,QtCore.SIGNAL("finished(int)"),self.__FsotrGUI_finished)
+            fsotr = "--screen=%s"%(self.__screen)
+            ccd = "--ccd=%s-ccd"%(self.__screen)
+            iba = "--iba=%s-iba"%(self.__screen)
+            cmd = "ctdiccd %s %s %s"%(fsotr,iba,ccd)
+            cmd += " --from=%s@%s"%(getpass.getuser(),socket.gethostname())
+            print("[ButtonsListener] %s.launchGui cmd: %s"%(self.__screen,cmd))
+            self.__qpro.start(Qt.QString(cmd))
+            
+        except Exception,e:
+            print "[ButtonsListener] %s.launchGui exception: %s"%(self.__screen,e)
+            traceback.print_exc()
+    def __FsotrGUI_started(self):
+        print "[ButtonsListener] %s.__FsotrGUI_started"%self.__screen
+    def __FsotrGUI_error(self):
+        print "[ButtonsListener] %s.__error: %s"%(self.__screen,str(self.__qpro.exitCode()))
+        
+    def __FsotrGUI_finished(self,exitStatus):
+        print "[ButtonsListener] %s.__finished() exit Code: %d"%(self.__screen,exitStatus)
+
+    def printer(self,type,output):
+        for line in output:
+            print("%s %s\t%s"%(self.__screen,type,line))
 
 def main():
     parser = argparse.get_taurus_parser()

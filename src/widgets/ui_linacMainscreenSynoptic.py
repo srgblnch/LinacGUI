@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'widgets/linacMainscreenSynoptic.ui'
 #
-# Created: Wed Feb 26 17:16:52 2014
+# Created: Wed Feb 26 17:33:04 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -728,13 +728,13 @@ class Ui_linacMainscreenSynoptic(object):
         self.as1PopupWidget.setGeometry(QtCore.QRect(720, 610, 210, 100))
         self.as1PopupWidget.setObjectName(_fromUtf8("as1PopupWidget"))
         self.fluorescentScreen1Status = TaurusLabel(linacMainscreenSynoptic)
-        self.fluorescentScreen1Status.setGeometry(QtCore.QRect(620, 770, 80, 16))
+        self.fluorescentScreen1Status.setGeometry(QtCore.QRect(620, 770, 60, 16))
         self.fluorescentScreen1Status.setObjectName(_fromUtf8("fluorescentScreen1Status"))
         self.fluorescentScreen2Status = TaurusLabel(linacMainscreenSynoptic)
-        self.fluorescentScreen2Status.setGeometry(QtCore.QRect(870, 770, 80, 16))
+        self.fluorescentScreen2Status.setGeometry(QtCore.QRect(870, 770, 60, 16))
         self.fluorescentScreen2Status.setObjectName(_fromUtf8("fluorescentScreen2Status"))
         self.fluorescentScreen3Status = TaurusLabel(linacMainscreenSynoptic)
-        self.fluorescentScreen3Status.setGeometry(QtCore.QRect(1100, 770, 80, 16))
+        self.fluorescentScreen3Status.setGeometry(QtCore.QRect(1100, 770, 60, 16))
         self.fluorescentScreen3Status.setObjectName(_fromUtf8("fluorescentScreen3Status"))
         self.hvsPopupWidget = eGunHV(linacMainscreenSynoptic)
         self.hvsPopupWidget.setGeometry(QtCore.QRect(5, 490, 140, 120))
@@ -973,6 +973,15 @@ class Ui_linacMainscreenSynoptic(object):
         self.label_2 = QtGui.QLabel(linacMainscreenSynoptic)
         self.label_2.setGeometry(QtCore.QRect(459, 66, 16, 16))
         self.label_2.setObjectName(_fromUtf8("label_2"))
+        self.fluorescentScreen1LightView = QtGui.QPushButton(linacMainscreenSynoptic)
+        self.fluorescentScreen1LightView.setGeometry(QtCore.QRect(687, 767, 40, 23))
+        self.fluorescentScreen1LightView.setObjectName(_fromUtf8("fluorescentScreen1LightView"))
+        self.fluorescentScreen2LightView = QtGui.QPushButton(linacMainscreenSynoptic)
+        self.fluorescentScreen2LightView.setGeometry(QtCore.QRect(940, 768, 40, 23))
+        self.fluorescentScreen2LightView.setObjectName(_fromUtf8("fluorescentScreen2LightView"))
+        self.fluorescentScreen3LightView = QtGui.QPushButton(linacMainscreenSynoptic)
+        self.fluorescentScreen3LightView.setGeometry(QtCore.QRect(1166, 767, 40, 23))
+        self.fluorescentScreen3LightView.setObjectName(_fromUtf8("fluorescentScreen3LightView"))
 
         self.retranslateUi(linacMainscreenSynoptic)
         QtCore.QMetaObject.connectSlotsByName(linacMainscreenSynoptic)
@@ -1033,6 +1042,9 @@ class Ui_linacMainscreenSynoptic(object):
         self.tbGatedPulseModeLabel.setText(QtGui.QApplication.translate("linacMainscreenSynoptic", "Gated Pulse Mode", None, QtGui.QApplication.UnicodeUTF8))
         self.label.setText(QtGui.QApplication.translate("linacMainscreenSynoptic", "Operation mode", None, QtGui.QApplication.UnicodeUTF8))
         self.label_2.setText(QtGui.QApplication.translate("linacMainscreenSynoptic", "dB", None, QtGui.QApplication.UnicodeUTF8))
+        self.fluorescentScreen1LightView.setText(QtGui.QApplication.translate("linacMainscreenSynoptic", "View", None, QtGui.QApplication.UnicodeUTF8))
+        self.fluorescentScreen2LightView.setText(QtGui.QApplication.translate("linacMainscreenSynoptic", "View", None, QtGui.QApplication.UnicodeUTF8))
+        self.fluorescentScreen3LightView.setText(QtGui.QApplication.translate("linacMainscreenSynoptic", "View", None, QtGui.QApplication.UnicodeUTF8))
 
 from taurus.qt.qtgui.display import TaurusLed, TaurusLabel
 from attenuator import Attenuator
