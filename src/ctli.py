@@ -423,10 +423,10 @@ class MainWindow(TaurusMainWindow):
                            'status':startup_ui.vacuumValve7OnStatus,
                            'status_attrName':'li/ct/plc2/VV7_Status'},
                        }
-        #TODO: there is an OPEN all valves not implemented in the device
+        #OPEN all valves implemented in the device as an special boolean
         # startup_ui.vv_onc{Led,Check}
-        self._setupLed4UnknownAttr(startup_ui.vv_oncLed)
-        self._setupCheckbox4UnknownAttr(startup_ui.vv_oncCheck)
+        self._setupLed4Attr(startup_ui.vv_oncLed,'li/ct/plc2/VVall_oc')
+        self._setupCheckbox4Attr(startup_ui.vv_oncCheck,'li/ct/plc2/VVall_oc')
         #reset vacuum interlocks
         self._setupLed4Attr(startup_ui.vv_rstLed,'li/ct/plc2/VC_Interlock_RC',offColor='black')
         self._setupCheckbox4Attr(startup_ui.vv_rstCheck,'li/ct/plc2/VC_Interlock_RC')
@@ -775,8 +775,8 @@ class MainWindow(TaurusMainWindow):
         self._setupCheckbox4Attr(mainscreen_ui.magnetsRstCheck,
                                  'li/ct/plc3/MA_Interlock_RC')
         #FIXME: there is no attr to power on all magnets at once
-        self._setupLed4UnknownAttr(mainscreen_ui.magnetsOnLed)
-        self._setupCheckbox4UnknownAttr(mainscreen_ui.magnetsOnCheck)
+        self._setupLed4Attr(mainscreen_ui.magnetsOnLed,'li/ct/plc3/all_onc')
+        self._setupCheckbox4Attr(mainscreen_ui.magnetsOnCheck,'li/ct/plc3/all_onc')
         
     def _setMainscreen_hvs(self):
         mainscreen_ui = self.ui.linacMainscreenSynoptic._ui
