@@ -35,6 +35,7 @@ from taurus.qt.qtgui.application import TaurusApplication
 from taurus.qt.qtgui.container import TaurusMainWindow
 from taurus.qt.qtgui.base import TaurusBaseComponent
 from taurus.qt import Qt
+from taurus.qt.qtgui.util import ExternalAppAction
 
 from ui_ctli import Ui_linacGui
 
@@ -71,6 +72,7 @@ class MainWindow(TaurusMainWindow):
         self.setCommunications()
         self.setStartup()
         self.setMainscreen()
+        self.setExternalApplications()
 
     ######
     #---- Auxiliar methods to configure widgets
@@ -902,6 +904,14 @@ class MainWindow(TaurusMainWindow):
             listener = ViewButtonListener(fluorescentScreens[fs]['view'],
                                           fluorescentScreens[fs]['screen'])
             self._fluorescentScreensViewButtons.append(listener)
+    def setExternalApplications(self):
+        bcm = ExternalAppAction(['taurusform',
+                                 '{li,lt01,lt02}/di/bcm-01/Charge',
+                                 '--window-name=BCM'],
+                                text="BCM")
+        self.addExternalAppLauncher(bcm)
+        lt_magnets = ExternalAppAction(['ctpcgrid','lt'],text="LT magnets")
+        self.addExternalAppLauncher(lt_magnets)
 
 '''First approach to the Labview blinking leds with subboxes of sets of attrs.
 '''
