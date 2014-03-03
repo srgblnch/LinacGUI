@@ -189,7 +189,7 @@ class MainWindow(TaurusMainWindow):
         #---- configure the widgets in the top left corner diagram
         self._setupLed4Attr(startup_ui.klystronAmplifierEnabledLed,'li/ct/plc1/KA_ENB')         #KA_ENB
         self._setupLed4Attr(startup_ui.magnetInterlockStateLed,'li/ct/plc1/MG_IS')              #MI_IS
-        self._setupLed4Attr(startup_ui.interlockUnitResetLed,'li/ct/plc1/interlock_rc',offColor='black')
+        self._setupLed4Attr(startup_ui.interlockUnitResetLed,'li/ct/plc1/interlock_rc',offColor='black',onColor='yellow')
         self._setupCheckbox4Attr(startup_ui.interlockUnitResetCheck,'li/ct/plc1/interlock_rc')  #Rst
         self._setupLed4Attr(startup_ui.utilitiesInterlockStateLed,'li/ct/plc1/UT_IS')           #UI_IS
         self._setupLed4Attr(startup_ui.compressedAirStateLed,'li/ct/plc2/ac_is')                #AC_IS
@@ -242,21 +242,27 @@ class MainWindow(TaurusMainWindow):
     def _setStartup_klystronLV(self):
         startup_ui = self.ui.linacStartupSynoptic._ui
         klystrons = {1:{'plc':4,
-                        'on':[startup_ui.klystron1OnLed,startup_ui.klystron1OnCheck],
-                        'rst':[startup_ui.klystron1RstLed,startup_ui.klystron1RstCheck],
+                        'on':{'led':startup_ui.klystron1OnLed,
+                              'check':startup_ui.klystron1OnCheck},
+                        'rst':{'led':startup_ui.klystron1RstLed,
+                               'check':startup_ui.klystron1RstCheck},
                         'check':startup_ui.klystron1LVPopupCheck,
                         'widget':startup_ui.klystron1LVWidget},
                      2:{'plc':5,
-                        'on':[startup_ui.klystron2OnLed,startup_ui.klystron2OnCheck],
-                        'rst':[startup_ui.klystron2RstLed,startup_ui.klystron2RstCheck],
+                        'on':{'led':startup_ui.klystron2OnLed,
+                              'check':startup_ui.klystron2OnCheck},
+                        'rst':{'led':startup_ui.klystron2RstLed,
+                               'check':startup_ui.klystron2RstCheck},
                         'check':startup_ui.klystron2LVPopupCheck,
                         'widget':startup_ui.klystron2LVWidget}}
         self._klystronLV = {}
         for number in klystrons.keys():
-            for widget in klystrons[number]['on']:
-                widget.setModel('li/ct/plc%d/LV_ONC'%(klystrons[number]['plc']))
-            for widget in klystrons[number]['rst']:
-                widget.setModel('li/ct/plc%d/LV_Interlock_RC'%(klystrons[number]['plc']))
+            attrName = 'li/ct/plc%d/LV_ONC'%(klystrons[number]['plc'])
+            self._setupLed4Attr(klystrons[number]['on']['led'],attrName,offColor='red')
+            self._setupCheckbox4Attr(klystrons[number]['on']['check'],attrName)
+            attrName = 'li/ct/plc%d/LV_Interlock_RC'%(klystrons[number]['plc'])
+            self._setupLed4Attr(klystrons[number]['rst']['led'],attrName,offColor='black',onColor='yellow')
+            self._setupCheckbox4Attr(klystrons[number]['rst']['check'],attrName)
             widget = klystrons[number]['check']
             #prepare the checkmanager
             #klystrons[number]['check'].setCheckState(False)
@@ -428,7 +434,7 @@ class MainWindow(TaurusMainWindow):
         self._setupLed4Attr(startup_ui.vv_oncLed,'li/ct/plc2/VVall_oc')
         self._setupCheckbox4Attr(startup_ui.vv_oncCheck,'li/ct/plc2/VVall_oc')
         #reset vacuum interlocks
-        self._setupLed4Attr(startup_ui.vv_rstLed,'li/ct/plc2/VC_Interlock_RC',offColor='black')
+        self._setupLed4Attr(startup_ui.vv_rstLed,'li/ct/plc2/VC_Interlock_RC',offColor='black',onColor='yellow')
         self._setupCheckbox4Attr(startup_ui.vv_rstCheck,'li/ct/plc2/VC_Interlock_RC')
         for number in vacuumValves.keys():
             self._setupLed4Attr(vacuumValves[number]['infoLed'],
@@ -535,11 +541,12 @@ class MainWindow(TaurusMainWindow):
             self._setupCheckbox4Attr(klystrons[number]['rstCheck'],
                                      klystrons[number]['rst_attrName'])
             self._setupLed4Attr(klystrons[number]['rstLed'],
-                                klystrons[number]['rst_attrName'],pattern='')
+                                klystrons[number]['rst_attrName'],pattern='',
+                                offColor='black',onColor='yellow')
             self._setupCheckbox4Attr(klystrons[number]['onCheck'],
                                      klystrons[number]['on_attrName'])
             self._setupLed4Attr(klystrons[number]['onLed'],
-                                klystrons[number]['on_attrName'],pattern='')
+                                klystrons[number]['on_attrName'])
             #prepare the checkmanager
             #klystrons[number]['check'].setCheckState(False)
             klystrons[number]['widget'].hide()
@@ -771,7 +778,7 @@ class MainWindow(TaurusMainWindow):
                     widget.focusValue.hide()
                     widget.focusStatus.hide()
                 #wiget.setGeometry(Qt.QtCore.QRect(x,y,width,final_height))
-        self._setupLed4Attr(mainscreen_ui.magnetsRstLed,'li/ct/plc3/MA_Interlock_RC',offColor='black')
+        self._setupLed4Attr(mainscreen_ui.magnetsRstLed,'li/ct/plc3/MA_Interlock_RC',offColor='black',onColor='yellow')
         self._setupCheckbox4Attr(mainscreen_ui.magnetsRstCheck,
                                  'li/ct/plc3/MA_Interlock_RC')
         #FIXME: there is no attr to power on all magnets at once
