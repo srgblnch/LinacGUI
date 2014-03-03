@@ -802,8 +802,9 @@ class MainWindow(TaurusMainWindow):
         
     def _setMainscreen_vacuum(self):
         mainscreen_ui = self.ui.linacMainscreenSynoptic._ui
-        self._setupLed4Attr(mainscreen_ui.vv1_oncLed,'li/ct/plc2/VV1_OC')
-        self._setupCheckbox4Attr(mainscreen_ui.vv1_oncCheck,'li/ct/plc2/VV1_OC')
+        self._setupLed4Attr(mainscreen_ui.vcv_oncLedInfo,'li/ct/plc2/VCV_ONC')
+        self._setupLed4Attr(mainscreen_ui.vcv_oncLed,'li/ct/plc2/VCV_ONC')
+        self._setupCheckbox4Attr(mainscreen_ui.vcv_oncCheck,'li/ct/plc2/VCV_ONC')
         vacuumCavities = {'eGun':{'check':mainscreen_ui.eGunVacuumCheck,
                                   'widget':mainscreen_ui.eGunVacuumWidget,
                                   'hvg':'li/ct/plc2/HVG1_P',

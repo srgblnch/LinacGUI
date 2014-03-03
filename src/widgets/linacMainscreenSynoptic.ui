@@ -440,19 +440,19 @@
      <height>31</height>
     </rect>
    </property>
-   <layout class="QHBoxLayout" name="vv1Layout">
+   <layout class="QHBoxLayout" name="vcvLayout">
     <property name="leftMargin">
      <number>5</number>
     </property>
     <item>
-     <widget class="QLabel" name="vv1_oncLabel">
+     <widget class="QLabel" name="vcv_oncLabel">
       <property name="text">
        <string>Open</string>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="TaurusLed" name="vv1_oncLed">
+     <widget class="TaurusLed" name="vcv_oncLed">
       <property name="minimumSize">
        <size>
         <width>15</width>
@@ -468,7 +468,7 @@
      </widget>
     </item>
     <item>
-     <widget class="TaurusValueCheckBox" name="vv1_oncCheck">
+     <widget class="TaurusValueCheckBox" name="vcv_oncCheck">
       <property name="showText">
        <bool>false</bool>
       </property>
@@ -1274,7 +1274,7 @@
     </size>
    </property>
   </widget>
-  <widget class="TaurusLed" name="vv1led">
+  <widget class="TaurusLed" name="vcv_oncLedInfo">
    <property name="geometry">
     <rect>
      <x>196</x>
@@ -3102,7 +3102,7 @@
   <zorder>qt2fValue</zorder>
   <zorder>layoutWidget_15</zorder>
   <zorder>sl1LedInfo</zorder>
-  <zorder>vv1led</zorder>
+  <zorder>vcv_oncLedInfo</zorder>
   <zorder>sl2LedInfo</zorder>
   <zorder>sl3LedInfo</zorder>
   <zorder>sl4LedInfo</zorder>
