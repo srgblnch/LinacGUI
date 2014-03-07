@@ -28,7 +28,7 @@ class linacStartupSynoptic(TaurusWidget):
         ret = TaurusWidget.getQtDesignerPluginInfo()
         ret['module'] = 'linacstartupsynoptic'
         ret['group'] = 'Taurus Linac'
-        ret['container'] = ':/designer/frame.png'
+        ret['icon'] = ':/designer/tabwidget.png'
         ret['container'] = False
         return ret
 

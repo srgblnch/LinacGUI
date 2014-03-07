@@ -28,7 +28,7 @@ class linacOverview(TaurusWidget):
         ret = TaurusWidget.getQtDesignerPluginInfo()
         ret['module'] = 'linacoverview'
         ret['group'] = 'Taurus Linac'
-        ret['container'] = ':/designer/frame.png'
+        ret['icon'] = ':/designer/groupbox.png'
         ret['container'] = False
         return ret
 

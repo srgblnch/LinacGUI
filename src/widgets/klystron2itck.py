@@ -28,7 +28,7 @@ class klystron2itck(TaurusWidget):
         ret = TaurusWidget.getQtDesignerPluginInfo()
         ret['module'] = 'klystron2itck'
         ret['group'] = 'Taurus Linac'
-        ret['container'] = ':/designer/frame.png'
+        ret['icon'] = ':/designer/widgetstack.png'
         ret['container'] = False
         return ret
 

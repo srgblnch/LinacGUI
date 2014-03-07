@@ -28,7 +28,7 @@ class CavityVacuum(TaurusWidget):
         ret = TaurusWidget.getQtDesignerPluginInfo()
         ret['module'] = 'cavityvacuum'
         ret['group'] = 'Taurus Linac'
-        ret['container'] = ':/designer/frame.png'
+        ret['icon'] = ':/designer/widgetstack.png'
         ret['container'] = False
         return ret
 

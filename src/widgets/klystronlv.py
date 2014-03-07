@@ -28,7 +28,7 @@ class klystronLV(TaurusWidget):
         ret = TaurusWidget.getQtDesignerPluginInfo()
         ret['module'] = 'klystronlv'
         ret['group'] = 'Taurus Linac'
-        ret['container'] = ':/designer/frame.png'
+        ret['icon'] = ':/designer/widgetstack.png'
         ret['container'] = False
         return ret
 

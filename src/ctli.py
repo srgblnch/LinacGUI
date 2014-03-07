@@ -122,16 +122,6 @@ class MainWindow(TaurusMainWindow):
 
     def setCommunications(self):
         #about the overview
-        self.ui.linacOverview._ui.gunLowVoltageRead.setModel('li/ct/plc1/GUN_LV_ONC')
-        self.ui.linacOverview._ui.gunLowVoltageWrite.setModel('li/ct/plc1/GUN_LV_ONC')
-        self.ui.linacOverview._ui.HVPSRead.setModel('li/ct/plc1/GUN_HV_ONC')
-        self.ui.linacOverview._ui.HVPSWrite.setModel('li/ct/plc1/GUN_HV_ONC')
-        self.ui.linacOverview._ui.RFRead.setModel('li/ct/plc1/RF_OK')
-        self.ui.linacOverview._ui.VCRead.setModel('li/ct/plc2/VC_OK')
-        self.ui.linacOverview._ui.ACRead.setModel('li/ct/plc2/AC_IS')
-        self.ui.linacOverview._ui.klystron1Read.setModel('li/ct/plc1/KA1_OK')
-        self.ui.linacOverview._ui.klystron2Read.setModel('li/ct/plc1/KA2_OK')
-        self.ui.linacOverview._ui.linacRead.setModel('li/ct/plc1/LI_OK')
         self.ui.linacOverview._ui.moveLocal.setModel(DeviceRelocator)
         self.ui.linacOverview._ui.moveLocal.setCommand('MoveAllInstances')
         self.ui.linacOverview._ui.moveLocal.setParameters('local')

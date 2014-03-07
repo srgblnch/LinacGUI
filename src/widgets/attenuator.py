@@ -28,7 +28,7 @@ class Attenuator(TaurusWidget):
         ret = TaurusWidget.getQtDesignerPluginInfo()
         ret['module'] = 'attenuator'
         ret['group'] = 'Taurus Linac'
-        ret['container'] = ':/designer/frame.png'
+        ret['icon'] = ':/designer/widgetstack.png'
         ret['container'] = False
         return ret
 

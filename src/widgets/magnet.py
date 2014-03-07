@@ -28,7 +28,7 @@ class magnet(TaurusWidget):
         ret = TaurusWidget.getQtDesignerPluginInfo()
         ret['module'] = 'magnet'
         ret['group'] = 'Taurus Linac'
-        ret['container'] = ':/designer/frame.png'
+        ret['icon'] = ':/designer/widgetstack.png'
         ret['container'] = False
         return ret
 
