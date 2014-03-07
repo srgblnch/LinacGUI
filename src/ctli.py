@@ -93,10 +93,20 @@ class MainWindow(TaurusMainWindow):
     def _setupCheckbox4UnknownAttr(self,widget):
         widget.setEnabled(False)
 
-    def _setupCheckbox4Attr(self,widget,attrName):
+    def _setupCheckbox4Attr(self,widget,attrName,
+                            isRst=False,DangerMsg='',
+                            riseEdge=False,fallingEdge=False):
         widget.setModel(attrName)
         widget.setAutoApply(True)
         widget.setForcedApply(True)
+        if isRst:
+            widget.setResetCheckBox(True)
+        if len(DangerMsg) > 0:
+            widget.setDangerMessage(DangerMsg)
+        if riseEdge:
+            widget.setDangerRiseEdge(True)
+        if fallingEdge:
+            widget.setDangerFallingEdge(True)
 
     def _setupSpinBox4Attr(self,widget,attrName,step=None):
         widget.setModel(attrName)
@@ -250,8 +260,12 @@ class MainWindow(TaurusMainWindow):
         self._klystronLV = {}
         for number in klystrons.keys():
             attrName = 'li/ct/plc%d/LV_ONC'%(klystrons[number]['plc'])
-            self._setupLed4Attr(klystrons[number]['on']['led'],attrName,offColor='red')
-            self._setupCheckbox4Attr(klystrons[number]['on']['check'],attrName)
+            self._setupLed4Attr(klystrons[number]['on']['led'],attrName,offColor='red',pattern='')
+            self._setupCheckbox4Attr(klystrons[number]['on']['check'],attrName,
+                                     fallingEdge=True,
+                                     DangerMsg="ALERT: this will shutdown the "\
+                                               "klystron %d low voltage!"
+                                               %number)
             attrName = 'li/ct/plc%d/LV_Interlock_RC'%(klystrons[number]['plc'])
             self._setupLed4Attr(klystrons[number]['rst']['led'],attrName,offColor='black',onColor='yellow')
             self._setupCheckbox4Attr(klystrons[number]['rst']['check'],attrName)
@@ -276,7 +290,10 @@ class MainWindow(TaurusMainWindow):
         startup_ui = self.ui.linacStartupSynoptic._ui
         #command arrow to the KD box
         self._setupLed4Attr(startup_ui.egunonLed,'li/ct/plc1/GUN_LV_ONC')
-        self._setupCheckbox4Attr(startup_ui.egunonCheck,'li/ct/plc1/GUN_LV_ONC')
+        self._setupCheckbox4Attr(startup_ui.egunonCheck,'li/ct/plc1/GUN_LV_ONC',
+                                 fallingEdge=True,
+                                 DangerMsg="ALERT: this will shutdown the "\
+                                           "electron gun low voltage!")
         #information shown in the KD box
         #startup_ui.kdeGunLVPopupCheck.setCheckState(False)
         startup_ui.kdeGunLVWidget.hide()
@@ -338,8 +355,13 @@ class MainWindow(TaurusMainWindow):
         self._coolingLoopManagers = {}
         for number in coolingLoops.keys():
             #command area
-            self._setupCheckbox4Attr(coolingLoops[number]['cmdCheck'],coolingLoops[number]['cmd_attrName'])
-            self._setupLed4Attr(coolingLoops[number]['cmdLed'],coolingLoops[number]['cmd_attrName'])
+            self._setupCheckbox4Attr(coolingLoops[number]['cmdCheck'],
+                                     coolingLoops[number]['cmd_attrName'],
+                                     fallingEdge=True,
+                                     DangerMsg="ALERT: this will shutdown the "\
+                                     "cooling loop %d!"%number)
+            self._setupLed4Attr(coolingLoops[number]['cmdLed'],
+                                coolingLoops[number]['cmd_attrName'])
             #information area
             self._setupSpinBox4Attr(coolingLoops[number]['Temperature'],
                                     coolingLoops[number]['Temperature_attrName']+'_setpoint',
@@ -883,7 +905,9 @@ class MainWindow(TaurusMainWindow):
                                 fluorescentScreens[fs]['valve_attrName'],
                                 onColor='red',offColor='black')
             self._setupCheckbox4Attr(fluorescentScreens[fs]['valve_cmd'],
-                                fluorescentScreens[fs]['valve_attrName'])
+                                fluorescentScreens[fs]['valve_attrName'],
+                                riseEdge=True,
+                                DangerMsg="ALERT: This will block the beam!")
             self._setupLed4Attr(fluorescentScreens[fs]['light_led'],
                                 fluorescentScreens[fs]['light_attrName'],
                                 onColor='green',offColor='black')
