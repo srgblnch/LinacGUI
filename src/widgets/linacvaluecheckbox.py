@@ -32,7 +32,9 @@ __docformat__ = 'restructuredtext'
 
 import sys
 from taurus.qt import Qt
-from taurus.qt.qtgui.base import TaurusBaseComponent,TaurusBaseWritableWidget
+from taurus.qt.qtgui.base import TaurusBaseWritableWidget,\
+                                 TaurusBaseWidget,\
+                                 TaurusBaseComponent
 
 
 class LinacValueCheckBox(Qt.QCheckBox, TaurusBaseWritableWidget):
@@ -130,9 +132,9 @@ class LinacValueCheckBox(Qt.QCheckBox, TaurusBaseWritableWidget):
     #---- TODO: when a value change is received, the setChecked() must change 
     #           the same way
     def valueChanged(self, *args):
-        value = self.getValue()
-        self.debug("valueChanged: %s (%s)"%(value,args))
-        if not value and not self.isChecked():
+        if self._isResetCheckBox and not value and not self.isChecked():
+            #when it's a reset checkbox, ignore when is unchecked because it is
+            #cause by handleEvent() and the write to the attr must be avoided.
             return
         TaurusBaseWritableWidget.valueChanged(self, *args)
     
@@ -145,12 +147,53 @@ class LinacValueCheckBox(Qt.QCheckBox, TaurusBaseWritableWidget):
         TaurusBaseWritableWidget.handleEvent(self,src,evt_type,evt_value)
 
     #-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-
-    # TaurusBaseComponent overwriting
+    # TaurusBaseWidget overwriting
     #-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-
 
-    #---- TODO: if it's necessary to modify the behaviour of the DangerMessage
-    #           because in this case, different than a button, we may 
-    #           distinguish between set action and unset action
+    def safeApplyOperations(self, ops = None):
+        '''Modify the behaviour of the DangerMessage because in this case, 
+           different than a button, we may distinguish between set action and 
+           unset action.
+        '''
+        isChecked = self.getValue()
+        myIsDangerous = (isChecked and self._dangerRiseEdge) or \
+                        (not isChecked and self._dangerFallingEdge)
+        
+        #---- This is almost the same than the superclass, but with an extra if
+        if ops is None: ops = self.getPendingOperations()
+        
+        #Check if we need to take care of dangerous operations
+        if self.getForceDangerousOperations(): dangerMsgs = []
+        else: dangerMsgs = [op.getDangerMessage() for op in ops \
+                                              if len(op.getDangerMessage()) > 0]
+        #warn the user if need be
+        if myIsDangerous:
+            if len(dangerMsgs)==1:
+                result = Qt.QMessageBox.warning(self,
+                                                "Potentially dangerous action",
+                                                "%s\nProceed?"%dangerMsgs[0],
+                                        Qt.QMessageBox.Ok|Qt.QMessageBox.Cancel,
+                                                Qt.QMessageBox.Cancel)
+                #---- Important default behaviour shall be the Cancel
+                if result != Qt.QMessageBox.Ok:
+                    return
+                    
+            elif len(dangerMsgs)>1:
+                warningDlg = Qt.QMessageBox(Qt.QMessageBox.Warning,
+                                            " %d potentially dangerous actions"
+                                             %len(dangerMsgs),
+                                            "You are about to apply %d "\
+                                            "actions that may be potentially "\
+                                            "dangerous. Proceed?"
+                                            %len(dangerMsgs),
+                                        Qt.QMessageBox.Ok|Qt.QMessageBox.Cancel,
+                                            self)
+                details = "\n".join(dangerMsgs)
+                warningDlg.setDetailedText(details)
+                result = warningDlg.exec_()
+                if result != Qt.QMessageBox.Ok:
+                    return
+        self.applyPendingOperations(ops)
 
     #-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-
     # QT properties
@@ -182,8 +225,8 @@ class LinacValueCheckBox(Qt.QCheckBox, TaurusBaseWritableWidget):
                                     TaurusBaseComponent.setDangerMessage, 
                                     TaurusBaseComponent.resetDangerMessage)
 
-    #---- TDOD: extra Qt properties to configure which of the operations can 
-    #           be dangerous (set, unset, or both).
+    #extra Qt properties to configure which of the operations can 
+    #be dangerous (set, unset, or both).
     def getDangerRiseEdge(self):
         return self._dangerRiseEdge
     def setDangerRiseEdge(self,riseEdge):
