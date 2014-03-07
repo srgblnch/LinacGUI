@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'linacPlcWidget.ui'
+# Form implementation generated from reading ui file 'widgets/linacPlcWidget.ui'
 #
-# Created: Wed Feb 12 12:37:15 2014
+# Created: Thu Mar  6 10:32:42 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -44,13 +44,6 @@ class Ui_linacPlcWidget(object):
         self.lockerRead.setUseParentModel(True)
         self.lockerRead.setObjectName(_fromUtf8("lockerRead"))
         self.plcLayout.addWidget(self.lockerRead, 1, 1, 1, 2)
-        self.lockingWrite = TaurusValueCheckBox(self.plcGroup)
-        self.lockingWrite.setText(_fromUtf8(""))
-        self.lockingWrite.setShowText(False)
-        self.lockingWrite.setUseParentModel(True)
-        self.lockingWrite.setAutoApply(True)
-        self.lockingWrite.setObjectName(_fromUtf8("lockingWrite"))
-        self.plcLayout.addWidget(self.lockingWrite, 2, 2, 1, 1)
         self.heartbeatLabel = QtGui.QLabel(self.plcGroup)
         self.heartbeatLabel.setObjectName(_fromUtf8("heartbeatLabel"))
         self.plcLayout.addWidget(self.heartbeatLabel, 0, 0, 1, 1)
@@ -78,7 +71,7 @@ class Ui_linacPlcWidget(object):
         self.heartbeatRead = TaurusLed(self.plcGroup)
         self.heartbeatRead.setMinimumSize(QtCore.QSize(25, 25))
         self.heartbeatRead.setMaximumSize(QtCore.QSize(25, 25))
-        self.heartbeatRead.setAlignment(QtCore.Qt.AlignTop)
+        self.heartbeatRead.setAlignment(QtCore.Qt.AlignAbsolute|QtCore.Qt.AlignVCenter)
         self.heartbeatRead.setUseParentModel(True)
         self.heartbeatRead.setObjectName(_fromUtf8("heartbeatRead"))
         self.plcLayout.addWidget(self.heartbeatRead, 0, 1, 1, 2)
@@ -86,6 +79,13 @@ class Ui_linacPlcWidget(object):
         self.ResetState.setMinimumSize(QtCore.QSize(0, 20))
         self.ResetState.setObjectName(_fromUtf8("ResetState"))
         self.plcLayout.addWidget(self.ResetState, 5, 1, 1, 2)
+        self.lockingWrite = LinacValueCheckBox(self.plcGroup)
+        self.lockingWrite.setShowText(False)
+        self.lockingWrite.setUseParentModel(True)
+        self.lockingWrite.setAutoApply(True)
+        self.lockingWrite.setForcedApply(True)
+        self.lockingWrite.setObjectName(_fromUtf8("lockingWrite"))
+        self.plcLayout.addWidget(self.lockingWrite, 2, 2, 1, 1)
         self.gridLayout_2.addLayout(self.plcLayout, 0, 0, 1, 1)
         self.instanceGroup = TaurusGroupBox(self.splitter)
         self.instanceGroup.setObjectName(_fromUtf8("instanceGroup"))
@@ -134,7 +134,6 @@ class Ui_linacPlcWidget(object):
         self.lockingLabel.setText(QtGui.QApplication.translate("linacPlcWidget", "Locking", None, QtGui.QApplication.UnicodeUTF8))
         self.lockerRead.setText(QtGui.QApplication.translate("linacPlcWidget", " 99.99", None, QtGui.QApplication.UnicodeUTF8))
         self.lockerRead.setModel(QtGui.QApplication.translate("linacPlcWidget", "/Lock_Status", None, QtGui.QApplication.UnicodeUTF8))
-        self.lockingWrite.setModel(QtGui.QApplication.translate("linacPlcWidget", "/Locking", None, QtGui.QApplication.UnicodeUTF8))
         self.heartbeatLabel.setText(QtGui.QApplication.translate("linacPlcWidget", "Heartbeat", None, QtGui.QApplication.UnicodeUTF8))
         self.lockerLabel.setText(QtGui.QApplication.translate("linacPlcWidget", "Locker", None, QtGui.QApplication.UnicodeUTF8))
         self.statusRead.setText(QtGui.QApplication.translate("linacPlcWidget", " 99.99", None, QtGui.QApplication.UnicodeUTF8))
@@ -144,6 +143,7 @@ class Ui_linacPlcWidget(object):
         self.statusLabel.setText(QtGui.QApplication.translate("linacPlcWidget", "Status", None, QtGui.QApplication.UnicodeUTF8))
         self.stateRead.setModel(QtGui.QApplication.translate("linacPlcWidget", "/state", None, QtGui.QApplication.UnicodeUTF8))
         self.heartbeatRead.setModel(QtGui.QApplication.translate("linacPlcWidget", "/HeartBeat", None, QtGui.QApplication.UnicodeUTF8))
+        self.lockingWrite.setModel(QtGui.QApplication.translate("linacPlcWidget", "/Locking", None, QtGui.QApplication.UnicodeUTF8))
         self.instanceLocationLabel.setText(QtGui.QApplication.translate("linacPlcWidget", "Instance location", None, QtGui.QApplication.UnicodeUTF8))
         self.moveLocal.setText(QtGui.QApplication.translate("linacPlcWidget", "---", None, QtGui.QApplication.UnicodeUTF8))
         self.moveLocal.setCommand(QtGui.QApplication.translate("linacPlcWidget", "MoveInstance", None, QtGui.QApplication.UnicodeUTF8))
@@ -155,5 +155,5 @@ class Ui_linacPlcWidget(object):
 from taurus.qt.qtgui.display import TaurusLed, TaurusLabel
 from taurus.qt.qtgui.container import TaurusGroupBox
 from taurus.qt.qtgui.panel import TaurusWidget
-from taurus.qt.qtgui.input import TaurusValueCheckBox
 from taurus.qt.qtgui.button import TaurusCommandButton
+from linacvaluecheckbox import LinacValueCheckBox

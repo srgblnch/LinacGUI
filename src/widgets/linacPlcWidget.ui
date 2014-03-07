@@ -80,25 +80,6 @@
            </property>
           </widget>
          </item>
-         <item row="2" column="2">
-          <widget class="TaurusValueCheckBox" name="lockingWrite">
-           <property name="text">
-            <string/>
-           </property>
-           <property name="model">
-            <string>/Locking</string>
-           </property>
-           <property name="showText">
-            <bool>false</bool>
-           </property>
-           <property name="useParentModel">
-            <bool>true</bool>
-           </property>
-           <property name="autoApply">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
          <item row="0" column="0">
           <widget class="QLabel" name="heartbeatLabel">
            <property name="text">
@@ -192,7 +173,7 @@
             </size>
            </property>
            <property name="alignment">
-            <set>Qt::AlignTop</set>
+            <set>Qt::AlignAbsolute|Qt::AlignVCenter</set>
            </property>
            <property name="model">
             <string>/HeartBeat</string>
@@ -209,6 +190,25 @@
              <width>0</width>
              <height>20</height>
             </size>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="2">
+          <widget class="LinacValueCheckBox" name="lockingWrite">
+           <property name="model">
+            <string>/Locking</string>
+           </property>
+           <property name="showText">
+            <bool>false</bool>
+           </property>
+           <property name="useParentModel">
+            <bool>true</bool>
+           </property>
+           <property name="autoApply">
+            <bool>true</bool>
+           </property>
+           <property name="forcedApply">
+            <bool>true</bool>
            </property>
           </widget>
          </item>
@@ -338,11 +338,6 @@
    <header>taurus.qt.qtgui.display</header>
   </customwidget>
   <customwidget>
-   <class>TaurusValueCheckBox</class>
-   <extends>QCheckBox</extends>
-   <header>taurus.qt.qtgui.input</header>
-  </customwidget>
-  <customwidget>
    <class>TaurusCommandButton</class>
    <extends>QPushButton</extends>
    <header>taurus.qt.qtgui.button</header>
@@ -361,6 +356,11 @@
    <class>QPixmapWidget</class>
    <extends>QWidget</extends>
    <header>taurus.qt.qtgui.display</header>
+  </customwidget>
+  <customwidget>
+   <class>LinacValueCheckBox</class>
+   <extends>QCheckBox</extends>
+   <header>linacvaluecheckbox</header>
   </customwidget>
  </customwidgets>
  <resources/>

@@ -434,9 +434,9 @@
   <widget class="QWidget" name="layoutWidget_4">
    <property name="geometry">
     <rect>
-     <x>140</x>
+     <x>160</x>
      <y>790</y>
-     <width>79</width>
+     <width>81</width>
      <height>31</height>
     </rect>
    </property>
@@ -468,14 +468,8 @@
      </widget>
     </item>
     <item>
-     <widget class="TaurusValueCheckBox" name="vcv_oncCheck">
+     <widget class="LinacValueCheckBox" name="vcv_oncCheck">
       <property name="showText">
-       <bool>false</bool>
-      </property>
-      <property name="autoApply">
-       <bool>true</bool>
-      </property>
-      <property name="forcedApply">
        <bool>false</bool>
       </property>
      </widget>
@@ -696,14 +690,8 @@
      </widget>
     </item>
     <item>
-     <widget class="TaurusValueCheckBox" name="sl1OnCheck">
+     <widget class="LinacValueCheckBox" name="sl1OnCheck">
       <property name="showText">
-       <bool>false</bool>
-      </property>
-      <property name="autoApply">
-       <bool>true</bool>
-      </property>
-      <property name="forcedApply">
        <bool>false</bool>
       </property>
      </widget>
@@ -744,14 +732,8 @@
      </widget>
     </item>
     <item>
-     <widget class="TaurusValueCheckBox" name="sl2OnCheck">
+     <widget class="LinacValueCheckBox" name="sl2OnCheck">
       <property name="showText">
-       <bool>false</bool>
-      </property>
-      <property name="autoApply">
-       <bool>true</bool>
-      </property>
-      <property name="forcedApply">
        <bool>false</bool>
       </property>
      </widget>
@@ -792,14 +774,8 @@
      </widget>
     </item>
     <item>
-     <widget class="TaurusValueCheckBox" name="sl3OnCheck">
+     <widget class="LinacValueCheckBox" name="sl3OnCheck">
       <property name="showText">
-       <bool>false</bool>
-      </property>
-      <property name="autoApply">
-       <bool>true</bool>
-      </property>
-      <property name="forcedApply">
        <bool>false</bool>
       </property>
      </widget>
@@ -840,14 +816,8 @@
      </widget>
     </item>
     <item>
-     <widget class="TaurusValueCheckBox" name="sl4OnCheck">
+     <widget class="LinacValueCheckBox" name="sl4OnCheck">
       <property name="showText">
-       <bool>false</bool>
-      </property>
-      <property name="autoApply">
-       <bool>true</bool>
-      </property>
-      <property name="forcedApply">
        <bool>false</bool>
       </property>
      </widget>
@@ -888,14 +858,8 @@
      </widget>
     </item>
     <item>
-     <widget class="TaurusValueCheckBox" name="bc1OnCheck">
+     <widget class="LinacValueCheckBox" name="bc1OnCheck">
       <property name="showText">
-       <bool>false</bool>
-      </property>
-      <property name="autoApply">
-       <bool>true</bool>
-      </property>
-      <property name="forcedApply">
        <bool>false</bool>
       </property>
      </widget>
@@ -936,14 +900,8 @@
      </widget>
     </item>
     <item>
-     <widget class="TaurusValueCheckBox" name="bc2OnCheck">
+     <widget class="LinacValueCheckBox" name="bc2OnCheck">
       <property name="showText">
-       <bool>false</bool>
-      </property>
-      <property name="autoApply">
-       <bool>true</bool>
-      </property>
-      <property name="forcedApply">
        <bool>false</bool>
       </property>
      </widget>
@@ -1014,14 +972,8 @@
      </widget>
     </item>
     <item>
-     <widget class="TaurusValueCheckBox" name="glOnCheck">
+     <widget class="LinacValueCheckBox" name="glOnCheck">
       <property name="showText">
-       <bool>false</bool>
-      </property>
-      <property name="autoApply">
-       <bool>true</bool>
-      </property>
-      <property name="forcedApply">
        <bool>false</bool>
       </property>
      </widget>
@@ -1082,14 +1034,8 @@
      </widget>
     </item>
     <item>
-     <widget class="TaurusValueCheckBox" name="as1OnCheck">
+     <widget class="LinacValueCheckBox" name="as1OnCheck">
       <property name="showText">
-       <bool>false</bool>
-      </property>
-      <property name="autoApply">
-       <bool>true</bool>
-      </property>
-      <property name="forcedApply">
        <bool>false</bool>
       </property>
      </widget>
@@ -1160,14 +1106,8 @@
      </widget>
     </item>
     <item>
-     <widget class="TaurusValueCheckBox" name="qt1OnCheck">
+     <widget class="LinacValueCheckBox" name="qt1OnCheck">
       <property name="showText">
-       <bool>false</bool>
-      </property>
-      <property name="autoApply">
-       <bool>true</bool>
-      </property>
-      <property name="forcedApply">
        <bool>false</bool>
       </property>
      </widget>
@@ -1238,14 +1178,8 @@
      </widget>
     </item>
     <item>
-     <widget class="TaurusValueCheckBox" name="as2OnCheck">
+     <widget class="LinacValueCheckBox" name="as2OnCheck">
       <property name="showText">
-       <bool>false</bool>
-      </property>
-      <property name="autoApply">
-       <bool>true</bool>
-      </property>
-      <property name="forcedApply">
        <bool>false</bool>
       </property>
      </widget>
@@ -1594,14 +1528,8 @@
      </widget>
     </item>
     <item>
-     <widget class="TaurusValueCheckBox" name="fluorescentScreen1LightCheck">
+     <widget class="LinacValueCheckBox" name="fluorescentScreen1LightCheck">
       <property name="showText">
-       <bool>false</bool>
-      </property>
-      <property name="autoApply">
-       <bool>true</bool>
-      </property>
-      <property name="forcedApply">
        <bool>false</bool>
       </property>
      </widget>
@@ -1642,14 +1570,8 @@
      </widget>
     </item>
     <item>
-     <widget class="TaurusValueCheckBox" name="fluorescentScreen1ValveCheck">
+     <widget class="LinacValueCheckBox" name="fluorescentScreen1ValveCheck">
       <property name="showText">
-       <bool>false</bool>
-      </property>
-      <property name="autoApply">
-       <bool>true</bool>
-      </property>
-      <property name="forcedApply">
        <bool>false</bool>
       </property>
      </widget>
@@ -1690,14 +1612,8 @@
      </widget>
     </item>
     <item>
-     <widget class="TaurusValueCheckBox" name="fluorescentScreen2ValveCheck">
+     <widget class="LinacValueCheckBox" name="fluorescentScreen2ValveCheck">
       <property name="showText">
-       <bool>false</bool>
-      </property>
-      <property name="autoApply">
-       <bool>true</bool>
-      </property>
-      <property name="forcedApply">
        <bool>false</bool>
       </property>
      </widget>
@@ -1738,14 +1654,8 @@
      </widget>
     </item>
     <item>
-     <widget class="TaurusValueCheckBox" name="fluorescentScreen2LightCheck">
+     <widget class="LinacValueCheckBox" name="fluorescentScreen2LightCheck">
       <property name="showText">
-       <bool>false</bool>
-      </property>
-      <property name="autoApply">
-       <bool>true</bool>
-      </property>
-      <property name="forcedApply">
        <bool>false</bool>
       </property>
      </widget>
@@ -1786,14 +1696,8 @@
      </widget>
     </item>
     <item>
-     <widget class="TaurusValueCheckBox" name="fluorescentScreen3ValveCheck">
+     <widget class="LinacValueCheckBox" name="fluorescentScreen3ValveCheck">
       <property name="showText">
-       <bool>false</bool>
-      </property>
-      <property name="autoApply">
-       <bool>true</bool>
-      </property>
-      <property name="forcedApply">
        <bool>false</bool>
       </property>
      </widget>
@@ -1834,14 +1738,8 @@
      </widget>
     </item>
     <item>
-     <widget class="TaurusValueCheckBox" name="fluorescentScreen3LightCheck">
+     <widget class="LinacValueCheckBox" name="fluorescentScreen3LightCheck">
       <property name="showText">
-       <bool>false</bool>
-      </property>
-      <property name="autoApply">
-       <bool>true</bool>
-      </property>
-      <property name="forcedApply">
        <bool>false</bool>
       </property>
      </widget>
@@ -2136,32 +2034,6 @@
     </rect>
    </property>
    <layout class="QGridLayout" name="klystron1Layout">
-    <item row="0" column="3">
-     <widget class="TaurusValueCheckBox" name="klystron1OnCheck">
-      <property name="showText">
-       <bool>false</bool>
-      </property>
-      <property name="autoApply">
-       <bool>true</bool>
-      </property>
-      <property name="forcedApply">
-       <bool>false</bool>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="3">
-     <widget class="TaurusValueCheckBox" name="klystron1RstCheck">
-      <property name="showText">
-       <bool>false</bool>
-      </property>
-      <property name="autoApply">
-       <bool>true</bool>
-      </property>
-      <property name="forcedApply">
-       <bool>false</bool>
-      </property>
-     </widget>
-    </item>
     <item row="0" column="1">
      <widget class="QLabel" name="klystron1OnLabel">
       <property name="text">
@@ -2208,6 +2080,32 @@
       </property>
      </widget>
     </item>
+    <item row="1" column="3">
+     <widget class="LinacValueCheckBox" name="klystron1RstCheck">
+      <property name="text">
+       <string/>
+      </property>
+      <property name="showText">
+       <bool>false</bool>
+      </property>
+      <property name="autoApply">
+       <bool>true</bool>
+      </property>
+      <property name="forcedApply">
+       <bool>true</bool>
+      </property>
+      <property name="ResetCheckBox">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="3">
+     <widget class="LinacValueCheckBox" name="klystron1OnCheck">
+      <property name="showText">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
    </layout>
   </widget>
   <widget class="QWidget" name="layoutWidget">
@@ -2220,19 +2118,6 @@
     </rect>
    </property>
    <layout class="QGridLayout" name="klystron2Layout">
-    <item row="0" column="4">
-     <widget class="TaurusValueCheckBox" name="klystron2OnCheck">
-      <property name="showText">
-       <bool>false</bool>
-      </property>
-      <property name="autoApply">
-       <bool>true</bool>
-      </property>
-      <property name="forcedApply">
-       <bool>false</bool>
-      </property>
-     </widget>
-    </item>
     <item row="0" column="1">
      <widget class="QLabel" name="klystron2OnLabel">
       <property name="text">
@@ -2244,19 +2129,6 @@
      <widget class="QLabel" name="klystron2RstLabel">
       <property name="text">
        <string>Reset</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="4">
-     <widget class="TaurusValueCheckBox" name="klystron2RstCheck">
-      <property name="showText">
-       <bool>false</bool>
-      </property>
-      <property name="autoApply">
-       <bool>true</bool>
-      </property>
-      <property name="forcedApply">
-       <bool>false</bool>
       </property>
      </widget>
     </item>
@@ -2289,6 +2161,23 @@
         <width>15</width>
         <height>15</height>
        </size>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="4">
+     <widget class="LinacValueCheckBox" name="klystron2RstCheck">
+      <property name="showText">
+       <bool>false</bool>
+      </property>
+      <property name="ResetCheckBox">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="4">
+     <widget class="LinacValueCheckBox" name="klystron2OnCheck">
+      <property name="showText">
+       <bool>false</bool>
       </property>
      </widget>
     </item>
@@ -2328,14 +2217,8 @@
      </widget>
     </item>
     <item>
-     <widget class="TaurusValueCheckBox" name="hvsOnCheck">
+     <widget class="LinacValueCheckBox" name="hvsOnCheck">
       <property name="showText">
-       <bool>false</bool>
-      </property>
-      <property name="autoApply">
-       <bool>true</bool>
-      </property>
-      <property name="forcedApply">
        <bool>false</bool>
       </property>
      </widget>
@@ -2705,13 +2588,6 @@
     <item row="1" column="2">
      <widget class="TaurusValueComboBox" name="tbGatedPulseModeCombo"/>
     </item>
-    <item row="1" column="1">
-     <widget class="TaurusValueCheckBox" name="tbMultiBunchCheck">
-      <property name="showText">
-       <bool>false</bool>
-      </property>
-     </widget>
-    </item>
     <item row="1" column="0">
      <widget class="QLabel" name="multibunchLabel">
       <property name="text">
@@ -2745,6 +2621,16 @@
       </property>
       <property name="wordWrap">
        <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="LinacValueCheckBox" name="tbMultiBunchCheck">
+      <property name="text">
+       <string/>
+      </property>
+      <property name="showText">
+       <bool>false</bool>
       </property>
      </widget>
     </item>
@@ -2835,19 +2721,6 @@
       </property>
      </widget>
     </item>
-    <item row="0" column="2">
-     <widget class="TaurusValueCheckBox" name="magnetsRstCheck">
-      <property name="showText">
-       <bool>false</bool>
-      </property>
-      <property name="autoApply">
-       <bool>true</bool>
-      </property>
-      <property name="forcedApply">
-       <bool>false</bool>
-      </property>
-     </widget>
-    </item>
     <item row="1" column="0">
      <widget class="QLabel" name="magnetsOnLabel">
       <property name="text">
@@ -2871,15 +2744,19 @@
       </property>
      </widget>
     </item>
-    <item row="1" column="2">
-     <widget class="TaurusValueCheckBox" name="magnetsOnCheck">
+    <item row="0" column="2">
+     <widget class="LinacValueCheckBox" name="magnetsRstCheck">
       <property name="showText">
        <bool>false</bool>
       </property>
-      <property name="autoApply">
+      <property name="ResetCheckBox">
        <bool>true</bool>
       </property>
-      <property name="forcedApply">
+     </widget>
+    </item>
+    <item row="1" column="2">
+     <widget class="LinacValueCheckBox" name="magnetsOnCheck">
+      <property name="showText">
        <bool>false</bool>
       </property>
      </widget>
@@ -3206,11 +3083,6 @@
    <header>taurus.qt.qtgui.input</header>
   </customwidget>
   <customwidget>
-   <class>TaurusValueCheckBox</class>
-   <extends>QCheckBox</extends>
-   <header>taurus.qt.qtgui.input</header>
-  </customwidget>
-  <customwidget>
    <class>magnet</class>
    <extends>TaurusWidget</extends>
    <header>magnet</header>
@@ -3241,6 +3113,11 @@
    <class>QPixmapWidget</class>
    <extends>QWidget</extends>
    <header>taurus.qt.qtgui.display</header>
+  </customwidget>
+  <customwidget>
+   <class>LinacValueCheckBox</class>
+   <extends>QCheckBox</extends>
+   <header>linacvaluecheckbox</header>
   </customwidget>
  </customwidgets>
  <resources/>

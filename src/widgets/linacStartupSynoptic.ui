@@ -1066,9 +1066,12 @@
      </widget>
     </item>
     <item>
-     <widget class="TaurusValueCheckBox" name="coolingLoop3OnCheck">
+     <widget class="LinacValueCheckBox" name="coolingLoop3OnCheck">
       <property name="showText">
        <bool>false</bool>
+      </property>
+      <property name="DangerOnFallingEdge" stdset="0">
+       <bool>true</bool>
       </property>
      </widget>
     </item>
@@ -1116,9 +1119,12 @@
      </widget>
     </item>
     <item>
-     <widget class="TaurusValueCheckBox" name="coolingLoop2OnCheck">
+     <widget class="LinacValueCheckBox" name="coolingLoop2OnCheck">
       <property name="showText">
        <bool>false</bool>
+      </property>
+      <property name="DangerOnFallingEdge" stdset="0">
+       <bool>true</bool>
       </property>
      </widget>
     </item>
@@ -1166,9 +1172,12 @@
      </widget>
     </item>
     <item>
-     <widget class="TaurusValueCheckBox" name="coolingLoop1OnCheck">
+     <widget class="LinacValueCheckBox" name="coolingLoop1OnCheck">
       <property name="showText">
        <bool>false</bool>
+      </property>
+      <property name="DangerOnFallingEdge" stdset="0">
+       <bool>true</bool>
       </property>
      </widget>
     </item>
@@ -1216,9 +1225,12 @@
      </widget>
     </item>
     <item>
-     <widget class="TaurusValueCheckBox" name="vv_rstCheck">
+     <widget class="LinacValueCheckBox" name="vv_rstCheck">
       <property name="showText">
        <bool>false</bool>
+      </property>
+      <property name="ResetCheckBox">
+       <bool>true</bool>
       </property>
      </widget>
     </item>
@@ -1266,7 +1278,7 @@
      </widget>
     </item>
     <item>
-     <widget class="TaurusValueCheckBox" name="vv_oncCheck">
+     <widget class="LinacValueCheckBox" name="vv_oncCheck">
       <property name="showText">
        <bool>false</bool>
       </property>
@@ -1412,7 +1424,7 @@
      </widget>
     </item>
     <item>
-     <widget class="TaurusValueCheckBox" name="vacuumValve1OnCheck">
+     <widget class="LinacValueCheckBox" name="vacuumValve1OnCheck">
       <property name="showText">
        <bool>false</bool>
       </property>
@@ -1459,7 +1471,7 @@
      </widget>
     </item>
     <item>
-     <widget class="TaurusValueCheckBox" name="vacuumValve2OnCheck">
+     <widget class="LinacValueCheckBox" name="vacuumValve2OnCheck">
       <property name="showText">
        <bool>false</bool>
       </property>
@@ -1509,7 +1521,7 @@
      </widget>
     </item>
     <item>
-     <widget class="TaurusValueCheckBox" name="vacuumValve3OnCheck">
+     <widget class="LinacValueCheckBox" name="vacuumValve3OnCheck">
       <property name="showText">
        <bool>false</bool>
       </property>
@@ -1556,7 +1568,7 @@
      </widget>
     </item>
     <item>
-     <widget class="TaurusValueCheckBox" name="vacuumValve4OnCheck">
+     <widget class="LinacValueCheckBox" name="vacuumValve4OnCheck">
       <property name="showText">
        <bool>false</bool>
       </property>
@@ -1606,7 +1618,7 @@
      </widget>
     </item>
     <item>
-     <widget class="TaurusValueCheckBox" name="vacuumValve5OnCheck">
+     <widget class="LinacValueCheckBox" name="vacuumValve5OnCheck">
       <property name="showText">
        <bool>false</bool>
       </property>
@@ -1656,7 +1668,7 @@
      </widget>
     </item>
     <item>
-     <widget class="TaurusValueCheckBox" name="vacuumValve6OnCheck">
+     <widget class="LinacValueCheckBox" name="vacuumValve6OnCheck">
       <property name="showText">
        <bool>false</bool>
       </property>
@@ -1706,7 +1718,7 @@
      </widget>
     </item>
     <item>
-     <widget class="TaurusValueCheckBox" name="vacuumValve7OnCheck">
+     <widget class="LinacValueCheckBox" name="vacuumValve7OnCheck">
       <property name="showText">
        <bool>false</bool>
       </property>
@@ -1756,9 +1768,12 @@
      </widget>
     </item>
     <item>
-     <widget class="TaurusValueCheckBox" name="interlockUnitResetCheck">
+     <widget class="LinacValueCheckBox" name="interlockUnitResetCheck">
       <property name="showText">
        <bool>false</bool>
+      </property>
+      <property name="ResetCheckBox">
+       <bool>true</bool>
       </property>
      </widget>
     </item>
@@ -1826,9 +1841,12 @@
      </widget>
     </item>
     <item>
-     <widget class="TaurusValueCheckBox" name="egunonCheck">
+     <widget class="LinacValueCheckBox" name="egunonCheck">
       <property name="showText">
        <bool>false</bool>
+      </property>
+      <property name="DangerOnFallingEdge" stdset="0">
+       <bool>true</bool>
       </property>
      </widget>
     </item>
@@ -2444,36 +2462,26 @@
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>710</x>
+     <x>720</x>
      <y>200</y>
      <width>81</width>
      <height>48</height>
     </rect>
    </property>
    <layout class="QGridLayout" name="klystron1Layout">
-    <item row="0" column="4">
-     <widget class="TaurusValueCheckBox" name="klystron1OnCheck">
-      <property name="showText">
-       <bool>false</bool>
+    <item row="1" column="3">
+     <widget class="TaurusLed" name="klystron1RstLed">
+      <property name="minimumSize">
+       <size>
+        <width>15</width>
+        <height>15</height>
+       </size>
       </property>
-     </widget>
-    </item>
-    <item row="1" column="4">
-     <widget class="TaurusValueCheckBox" name="klystron1RstCheck">
-      <property name="showText">
-       <bool>false</bool>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="2">
-     <widget class="QLabel" name="klystron1OnLabel">
-      <property name="font">
-       <font>
-        <pointsize>7</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>On</string>
+      <property name="maximumSize">
+       <size>
+        <width>15</width>
+        <height>15</height>
+       </size>
       </property>
      </widget>
     </item>
@@ -2505,19 +2513,35 @@
       </property>
      </widget>
     </item>
-    <item row="1" column="3">
-     <widget class="TaurusLed" name="klystron1RstLed">
-      <property name="minimumSize">
-       <size>
-        <width>15</width>
-        <height>15</height>
-       </size>
+    <item row="0" column="2">
+     <widget class="QLabel" name="klystron1OnLabel">
+      <property name="font">
+       <font>
+        <pointsize>7</pointsize>
+       </font>
       </property>
-      <property name="maximumSize">
-       <size>
-        <width>15</width>
-        <height>15</height>
-       </size>
+      <property name="text">
+       <string>On</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="4">
+     <widget class="LinacValueCheckBox" name="klystron1OnCheck">
+      <property name="showText">
+       <bool>false</bool>
+      </property>
+      <property name="DangerOnFallingEdge" stdset="0">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="4">
+     <widget class="LinacValueCheckBox" name="klystron1RstCheck">
+      <property name="showText">
+       <bool>false</bool>
+      </property>
+      <property name="ResetCheckBox">
+       <bool>true</bool>
       </property>
      </widget>
     </item>
@@ -2526,7 +2550,7 @@
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>1000</x>
+     <x>1010</x>
      <y>200</y>
      <width>81</width>
      <height>48</height>
@@ -2554,20 +2578,6 @@
       </property>
       <property name="text">
        <string>On</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="4">
-     <widget class="TaurusValueCheckBox" name="klystron2RstCheck">
-      <property name="showText">
-       <bool>false</bool>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="4">
-     <widget class="TaurusValueCheckBox" name="klystron2OnCheck">
-      <property name="showText">
-       <bool>false</bool>
       </property>
      </widget>
     </item>
@@ -2600,6 +2610,26 @@
         <width>15</width>
         <height>15</height>
        </size>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="4">
+     <widget class="LinacValueCheckBox" name="klystron2OnCheck">
+      <property name="showText">
+       <bool>false</bool>
+      </property>
+      <property name="DangerOnFallingEdge" stdset="0">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="4">
+     <widget class="LinacValueCheckBox" name="klystron2RstCheck">
+      <property name="showText">
+       <bool>false</bool>
+      </property>
+      <property name="ResetCheckBox">
+       <bool>true</bool>
       </property>
      </widget>
     </item>
@@ -2907,6 +2937,12 @@
    <header>taurus.qt.qtgui.input</header>
   </customwidget>
   <customwidget>
+   <class>klystron2itck</class>
+   <extends>TaurusWidget</extends>
+   <header>klystron2itck</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
    <class>TaurusWidget</class>
    <extends>QWidget</extends>
    <header>taurus.qt.qtgui.container</header>
@@ -2916,32 +2952,6 @@
    <class>TaurusLabel</class>
    <extends>QLabel</extends>
    <header>taurus.qt.qtgui.display</header>
-  </customwidget>
-  <customwidget>
-   <class>TaurusValueCheckBox</class>
-   <extends>QCheckBox</extends>
-   <header>taurus.qt.qtgui.input</header>
-  </customwidget>
-  <customwidget>
-   <class>TaurusLed</class>
-   <extends>QLed</extends>
-   <header>taurus.qt.qtgui.display</header>
-  </customwidget>
-  <customwidget>
-   <class>QLed</class>
-   <extends>QPixmapWidget</extends>
-   <header>taurus.qt.qtgui.display</header>
-  </customwidget>
-  <customwidget>
-   <class>QPixmapWidget</class>
-   <extends>QWidget</extends>
-   <header>taurus.qt.qtgui.display</header>
-  </customwidget>
-  <customwidget>
-   <class>klystron2itck</class>
-   <extends>TaurusWidget</extends>
-   <header>klystron2itck</header>
-   <container>1</container>
   </customwidget>
   <customwidget>
    <class>klystron1itck</class>
@@ -2962,14 +2972,33 @@
    <container>1</container>
   </customwidget>
   <customwidget>
+   <class>TaurusLed</class>
+   <extends>QLed</extends>
+   <header>taurus.qt.qtgui.display</header>
+  </customwidget>
+  <customwidget>
+   <class>QLed</class>
+   <extends>QPixmapWidget</extends>
+   <header>taurus.qt.qtgui.display</header>
+  </customwidget>
+  <customwidget>
    <class>klystronLV</class>
    <extends>TaurusWidget</extends>
    <header>klystronlv</header>
    <container>1</container>
   </customwidget>
+  <customwidget>
+   <class>QPixmapWidget</class>
+   <extends>QWidget</extends>
+   <header>taurus.qt.qtgui.display</header>
+  </customwidget>
+  <customwidget>
+   <class>LinacValueCheckBox</class>
+   <extends>QCheckBox</extends>
+   <header>linacvaluecheckbox</header>
+  </customwidget>
  </customwidgets>
  <tabstops>
-  <tabstop>interlockUnitResetCheck</tabstop>
   <tabstop>coolingLoop1TemperatureValue</tabstop>
   <tabstop>coolingLoop2TemperatureValue</tabstop>
   <tabstop>coolingLoop3TemperatureValue</tabstop>
