@@ -123,8 +123,26 @@ class LinacValueCheckBox(Qt.QCheckBox, TaurusBaseWritableWidget):
         ret['icon'] = ":/designer/checkbox.png"
         return ret
 
+    #-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-
+    # TaurusBaseWritableWidget overwriting
+    #-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-
+
     #---- TODO: when a value change is received, the setChecked() must change 
     #           the same way
+    def valueChanged(self, *args):
+        value = self.getValue()
+        self.debug("valueChanged: %s (%s)"%(value,args))
+        if not value and not self.isChecked():
+            return
+        TaurusBaseWritableWidget.valueChanged(self, *args)
+    
+    def handleEvent(self, src, evt_type, evt_value):
+        if hasattr(evt_value,'value'):
+            if self._isResetCheckBox:
+                self.debug("received from %s: %s"%(src,evt_value.value))
+                if self.isChecked() and evt_value.value ==False:
+                    self.setChecked(False)
+        TaurusBaseWritableWidget.handleEvent(self,src,evt_type,evt_value)
 
     #-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-
     # TaurusBaseComponent overwriting
