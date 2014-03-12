@@ -6,9 +6,14 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>380</width>
-    <height>200</height>
+    <width>313</width>
+    <height>196</height>
    </rect>
+  </property>
+  <property name="font">
+   <font>
+    <pointsize>7</pointsize>
+   </font>
   </property>
   <property name="windowTitle">
    <string>Form</string>
@@ -21,7 +26,7 @@
      </property>
      <layout class="QGridLayout" name="gridLayout_2">
       <item row="0" column="1">
-       <widget class="QLabel" name="PresentValueTitle">
+       <widget class="QLabel" name="PresentWriteTitle">
         <property name="text">
          <string>Present value</string>
         </property>
@@ -42,10 +47,10 @@
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="TaurusLabel" name="GunFilamentLowVoltageReading"/>
+       <widget class="TaurusLabel" name="GunFilamentLowVoltageRead"/>
       </item>
       <item row="1" column="2">
-       <widget class="QDoubleSpinBox" name="GunFilamentLowVoltageValue"/>
+       <widget class="QDoubleSpinBox" name="GunFilamentLowVoltageWrite"/>
       </item>
       <item row="1" column="3" rowspan="7">
        <widget class="Line" name="line">
@@ -62,10 +67,10 @@
        </widget>
       </item>
       <item row="2" column="1" rowspan="2">
-       <widget class="TaurusLabel" name="GunKathodeLowVoltageReading"/>
+       <widget class="TaurusLabel" name="GunKathodeLowVoltageRead"/>
       </item>
       <item row="2" column="2" rowspan="2">
-       <widget class="QDoubleSpinBox" name="GunKathodeLowVoltageValue"/>
+       <widget class="QDoubleSpinBox" name="GunKathodeLowVoltageWrite"/>
       </item>
       <item row="3" column="0">
        <widget class="QLabel" name="GunKathodeLowVoltageLabel">
@@ -89,7 +94,7 @@
        </widget>
       </item>
       <item row="4" column="1">
-       <widget class="TaurusLed" name="GunLowVoltageSwitchReading">
+       <widget class="TaurusLed" name="GunLowVoltageSwitchRead">
         <property name="minimumSize">
          <size>
           <width>15</width>
@@ -105,7 +110,7 @@
        </widget>
       </item>
       <item row="4" column="2">
-       <widget class="QCheckBox" name="GunLowVoltageSwitchValue">
+       <widget class="QCheckBox" name="GunLowVoltageSwitchWrite">
         <property name="text">
          <string>on/off</string>
         </property>
@@ -126,10 +131,10 @@
        </widget>
       </item>
       <item row="5" column="1">
-       <widget class="TaurusLabel" name="GunHighVoltagePowerSupplyReading"/>
+       <widget class="TaurusLabel" name="GunHighVoltagePowerSupplyRead"/>
       </item>
       <item row="5" column="2">
-       <widget class="QDoubleSpinBox" name="GunHighVoltagePowerSupplyValue"/>
+       <widget class="QDoubleSpinBox" name="GunHighVoltagePowerSupplyWrite"/>
       </item>
       <item row="5" column="4">
        <widget class="QCheckBox" name="GunHighVoltagePowerSupplyCheck">
@@ -146,7 +151,7 @@
        </widget>
       </item>
       <item row="6" column="1">
-       <widget class="TaurusLed" name="HighVoltageSwitchReading">
+       <widget class="TaurusLed" name="HighVoltageSwitchRead">
         <property name="minimumSize">
          <size>
           <width>15</width>
@@ -162,7 +167,7 @@
        </widget>
       </item>
       <item row="6" column="2">
-       <widget class="QCheckBox" name="HighVoltageSwitchValue">
+       <widget class="QCheckBox" name="HighVoltageSwitchWrite">
         <property name="text">
          <string>on/off</string>
         </property>
@@ -211,12 +216,6 @@
    <container>1</container>
   </customwidget>
   <customwidget>
-   <class>TaurusGroupBox</class>
-   <extends>QGroupBox</extends>
-   <header>taurus.qt.qtgui.container</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
    <class>TaurusLabel</class>
    <extends>QLabel</extends>
    <header>taurus.qt.qtgui.display</header>
@@ -230,6 +229,12 @@
    <class>QLed</class>
    <extends>QPixmapWidget</extends>
    <header>taurus.qt.qtgui.display</header>
+  </customwidget>
+  <customwidget>
+   <class>TaurusGroupBox</class>
+   <extends>QGroupBox</extends>
+   <header>taurus.qt.qtgui.container</header>
+   <container>1</container>
   </customwidget>
   <customwidget>
    <class>QPixmapWidget</class>

@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'ctli.ui'
 #
-# Created: Wed Mar 12 09:00:59 2014
+# Created: Wed Mar 12 13:14:08 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -128,9 +128,17 @@ class Ui_linacGui(object):
         self.configurationTab.setObjectName(_fromUtf8("configurationTab"))
         self.gridLayout_8 = QtGui.QGridLayout(self.configurationTab)
         self.gridLayout_8.setObjectName(_fromUtf8("gridLayout_8"))
+        spacerItem12 = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
+        self.gridLayout_8.addItem(spacerItem12, 2, 1, 1, 1)
+        spacerItem13 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
+        self.gridLayout_8.addItem(spacerItem13, 1, 2, 1, 1)
         self.linacConfigurationScreen = linacConfigurationScreen(self.configurationTab)
         self.linacConfigurationScreen.setObjectName(_fromUtf8("linacConfigurationScreen"))
-        self.gridLayout_8.addWidget(self.linacConfigurationScreen, 0, 0, 1, 1)
+        self.gridLayout_8.addWidget(self.linacConfigurationScreen, 1, 1, 1, 1)
+        spacerItem14 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
+        self.gridLayout_8.addItem(spacerItem14, 1, 0, 1, 1)
+        spacerItem15 = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
+        self.gridLayout_8.addItem(spacerItem15, 0, 1, 1, 1)
         self.linacTabs.addTab(self.configurationTab, _fromUtf8(""))
         self.gridLayout.addWidget(self.linacTabs, 0, 0, 1, 1)
 

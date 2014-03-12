@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<!-- <?xml version="1.0" encoding="UTF-8"?> -->
 <ui version="4.0">
  <class>magnetSnapshot</class>
  <widget class="TaurusWidget" name="magnetSnapshot">
@@ -6,9 +6,14 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>692</width>
-    <height>689</height>
+    <width>544</width>
+    <height>597</height>
    </rect>
+  </property>
+  <property name="font">
+   <font>
+    <pointsize>7</pointsize>
+   </font>
   </property>
   <property name="windowTitle">
    <string>Form</string>
@@ -20,456 +25,14 @@
       <string>Magnets</string>
      </property>
      <layout class="QGridLayout" name="gridLayout">
-      <item row="2" column="2">
-       <widget class="QDoubleSpinBox" name="sl1VValue"/>
-      </item>
-      <item row="18" column="0">
-       <widget class="QLabel" name="bc1VLabel">
-        <property name="text">
-         <string>bc1 Vertical</string>
-        </property>
-       </widget>
-      </item>
-      <item row="5" column="9">
-       <widget class="TaurusLabel" name="as1HReading"/>
-      </item>
-      <item row="6" column="7">
-       <widget class="QLabel" name="as1VLabel">
-        <property name="text">
-         <string>AS1 Vertical</string>
-        </property>
-       </widget>
-      </item>
-      <item row="10" column="7">
-       <widget class="QLabel" name="qt1VLabel">
-        <property name="text">
-         <string>QT1 Vertical</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="12">
-       <widget class="QCheckBox" name="glVCheck">
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="13" column="7">
-       <widget class="QLabel" name="qtSwitchLabel">
-        <property name="text">
-         <string>QT Switch</string>
-        </property>
-       </widget>
-      </item>
-      <item row="5" column="10">
-       <widget class="QDoubleSpinBox" name="as1HValue"/>
-      </item>
-      <item row="5" column="12">
-       <widget class="QCheckBox" name="as1HCheck">
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="7">
-       <widget class="QLabel" name="glVLabel">
-        <property name="text">
-         <string>gl Vertical</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="9">
-       <widget class="TaurusLabel" name="glFReading"/>
-      </item>
-      <item row="11" column="10">
-       <widget class="QDoubleSpinBox" name="qt1FValue"/>
-      </item>
-      <item row="13" column="10">
-       <widget class="QCheckBox" name="qtSwitchValue">
-        <property name="text">
-         <string>on/off</string>
-        </property>
-       </widget>
-      </item>
-      <item row="16" column="10">
-       <widget class="QDoubleSpinBox" name="as2FValue"/>
-      </item>
-      <item row="6" column="12">
-       <widget class="QCheckBox" name="as1VCheck">
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="11" column="12">
-       <widget class="QCheckBox" name="qt1FCheck">
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="17" column="10">
-       <widget class="QCheckBox" name="as2SwitchValue">
-        <property name="text">
-         <string>on/off</string>
-        </property>
-       </widget>
-      </item>
-      <item row="9" column="9">
-       <widget class="TaurusLabel" name="qt1HReading"/>
-      </item>
-      <item row="11" column="9">
-       <widget class="TaurusLabel" name="qt1FReading"/>
-      </item>
-      <item row="12" column="9">
-       <widget class="TaurusLabel" name="qt2FReading"/>
-      </item>
-      <item row="17" column="9">
-       <widget class="TaurusLed" name="as2SwitchReading">
-        <property name="minimumSize">
-         <size>
-          <width>15</width>
-          <height>15</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>15</width>
-          <height>15</height>
-         </size>
-        </property>
-       </widget>
-      </item>
-      <item row="16" column="9">
-       <widget class="TaurusLabel" name="as2FReading"/>
-      </item>
-      <item row="6" column="10">
-       <widget class="QDoubleSpinBox" name="as1VValue"/>
-      </item>
-      <item row="7" column="10">
-       <widget class="QDoubleSpinBox" name="as1FValue"/>
-      </item>
-      <item row="13" column="9">
-       <widget class="TaurusLed" name="qtSwitchReading">
-        <property name="minimumSize">
-         <size>
-          <width>15</width>
-          <height>15</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>15</width>
-          <height>15</height>
-         </size>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="7">
-       <widget class="QLabel" name="glHLabel">
-        <property name="text">
-         <string>gl Horizontal</string>
-        </property>
-       </widget>
-      </item>
-      <item row="7" column="7">
-       <widget class="QLabel" name="as1FLabel">
-        <property name="text">
-         <string>AS1 Focus</string>
-        </property>
-       </widget>
-      </item>
-      <item row="14" column="7">
-       <widget class="QLabel" name="as2HLabel">
-        <property name="text">
-         <string>AS2 Horizontal</string>
-        </property>
-       </widget>
-      </item>
-      <item row="4" column="9">
-       <widget class="TaurusLed" name="glSwitchReading">
-        <property name="minimumSize">
-         <size>
-          <width>15</width>
-          <height>15</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>15</width>
-          <height>15</height>
-         </size>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="10">
-       <widget class="QDoubleSpinBox" name="glFValue"/>
-      </item>
-      <item row="2" column="9">
-       <widget class="TaurusLabel" name="glVReading"/>
-      </item>
-      <item row="1" column="10">
-       <widget class="QDoubleSpinBox" name="glHValue"/>
-      </item>
-      <item row="5" column="7">
-       <widget class="QLabel" name="as1HLabel">
-        <property name="text">
-         <string>AS1 Horizontal</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="10">
-       <widget class="QDoubleSpinBox" name="glVValue"/>
-      </item>
-      <item row="4" column="12">
-       <widget class="QCheckBox" name="glSwitchCheck">
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="4" column="7">
-       <widget class="QLabel" name="glSwitchLabel">
-        <property name="text">
-         <string>gl Switch</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="7">
-       <widget class="QLabel" name="glFLabel">
-        <property name="text">
-         <string>gl Focus</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="12">
-       <widget class="QCheckBox" name="glFCheck">
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="11" column="7">
-       <widget class="QLabel" name="qt1FLabel">
-        <property name="text">
-         <string>QT1 Focus</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="4" rowspan="24">
-       <widget class="Line" name="line_1">
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
-        </property>
-       </widget>
-      </item>
-      <item row="15" column="9">
-       <widget class="TaurusLabel" name="as2VReading"/>
-      </item>
-      <item row="8" column="9">
-       <widget class="TaurusLed" name="as1SwitchReading">
-        <property name="minimumSize">
-         <size>
-          <width>15</width>
-          <height>15</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>15</width>
-          <height>15</height>
-         </size>
-        </property>
-       </widget>
-      </item>
-      <item row="16" column="7">
-       <widget class="QLabel" name="as2FLabel">
-        <property name="text">
-         <string>AS2 Focus</string>
-        </property>
-       </widget>
-      </item>
-      <item row="17" column="7">
-       <widget class="QLabel" name="as2SwitchLabel">
-        <property name="text">
-         <string>AS2 Switch</string>
-        </property>
-       </widget>
-      </item>
-      <item row="12" column="7">
-       <widget class="QLabel" name="qt2FLabel">
-        <property name="text">
-         <string>QT2 Focus</string>
-        </property>
-       </widget>
-      </item>
-      <item row="15" column="7">
-       <widget class="QLabel" name="as2VLabel">
-        <property name="text">
-         <string>AS2 Vertical</string>
-        </property>
-       </widget>
-      </item>
-      <item row="7" column="9">
-       <widget class="TaurusLabel" name="as1FReading"/>
-      </item>
-      <item row="9" column="10">
-       <widget class="QDoubleSpinBox" name="qt1HValue"/>
-      </item>
-      <item row="8" column="10">
-       <widget class="QCheckBox" name="as1SwitchValue">
-        <property name="text">
-         <string>on/off</string>
-        </property>
-       </widget>
-      </item>
-      <item row="14" column="10">
-       <widget class="QDoubleSpinBox" name="as2HValue"/>
-      </item>
-      <item row="14" column="9">
-       <widget class="TaurusLabel" name="as2HReading"/>
-      </item>
-      <item row="6" column="9">
-       <widget class="TaurusLabel" name="as1VReading"/>
-      </item>
-      <item row="1" column="2">
-       <widget class="QDoubleSpinBox" name="sl1HValue"/>
-      </item>
-      <item row="18" column="1">
-       <widget class="TaurusLabel" name="bc1VReading"/>
-      </item>
-      <item row="19" column="0">
-       <widget class="QLabel" name="bc1FLabel">
-        <property name="text">
-         <string>bc1 Focus</string>
-        </property>
-       </widget>
-      </item>
-      <item row="21" column="5">
-       <widget class="QCheckBox" name="bc2HCheck">
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="19" column="5">
-       <widget class="QCheckBox" name="bc1FCheck">
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="24" column="5">
-       <widget class="QCheckBox" name="bc2SwitchCheck">
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="12" column="0">
-       <widget class="QLabel" name="sl3SwitchLabel">
-        <property name="text">
-         <string>sl3 Switch</string>
-        </property>
-       </widget>
-      </item>
-      <item row="11" column="0">
-       <widget class="QLabel" name="sl3FLabel">
-        <property name="text">
-         <string>sl3 Focus</string>
-        </property>
-       </widget>
-      </item>
-      <item row="24" column="0">
-       <widget class="QLabel" name="bc2SwitchLabel">
-        <property name="text">
-         <string>bc2 Switch</string>
-        </property>
-       </widget>
-      </item>
-      <item row="15" column="1">
-       <widget class="TaurusLabel" name="sl4FReading"/>
-      </item>
-      <item row="11" column="1">
-       <widget class="TaurusLabel" name="sl3FReading"/>
-      </item>
-      <item row="12" column="1">
-       <widget class="TaurusLed" name="sl3SwitchReading">
-        <property name="minimumSize">
-         <size>
-          <width>15</width>
-          <height>15</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>15</width>
-          <height>15</height>
-         </size>
-        </property>
-       </widget>
-      </item>
-      <item row="10" column="2">
-       <widget class="QDoubleSpinBox" name="sl3Vvalue"/>
-      </item>
-      <item row="6" column="1">
-       <widget class="TaurusLabel" name="sl2VReading"/>
-      </item>
-      <item row="2" column="1">
-       <widget class="TaurusLabel" name="sl1VReading"/>
-      </item>
-      <item row="3" column="0">
-       <widget class="QLabel" name="sl1FLabel">
-        <property name="text">
-         <string>sl1 Focus</string>
-        </property>
-       </widget>
-      </item>
-      <item row="5" column="1">
-       <widget class="TaurusLabel" name="sl2HReading"/>
-      </item>
-      <item row="7" column="1">
-       <widget class="TaurusLabel" name="sl2FReading"/>
-      </item>
-      <item row="9" column="0">
-       <widget class="QLabel" name="sl3HLabel">
-        <property name="text">
-         <string>sl3 Horizontal</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="1">
-       <widget class="QLabel" name="PresentValueTitle">
-        <property name="text">
-         <string>Present value</string>
-        </property>
-       </widget>
+      <item row="19" column="1">
+       <widget class="TaurusLabel" name="bc1FRead"/>
       </item>
       <item row="10" column="1">
-       <widget class="TaurusLabel" name="sl3VReading"/>
+       <widget class="TaurusLabel" name="sl3VRead"/>
       </item>
-      <item row="23" column="2">
-       <widget class="QDoubleSpinBox" name="bc2FValue"/>
-      </item>
-      <item row="22" column="0">
-       <widget class="QLabel" name="bc2VLabel">
-        <property name="text">
-         <string>bc2 Vertical</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="0">
-       <widget class="QLabel" name="sl1HLabel">
-        <property name="text">
-         <string>sl1 Horizontal</string>
-        </property>
-       </widget>
-      </item>
-      <item row="6" column="2">
-       <widget class="QDoubleSpinBox" name="sl2VValue"/>
-      </item>
-      <item row="8" column="1">
-       <widget class="TaurusLed" name="sl2SwitchReading">
+      <item row="16" column="9">
+       <widget class="TaurusLed" name="qtSwitchRead">
         <property name="minimumSize">
          <size>
           <width>15</width>
@@ -484,368 +47,8 @@
         </property>
        </widget>
       </item>
-      <item row="5" column="0">
-       <widget class="QLabel" name="sl2HLabel">
-        <property name="text">
-         <string>sl2 Horizontal</string>
-        </property>
-       </widget>
-      </item>
-      <item row="9" column="2">
-       <widget class="QDoubleSpinBox" name="sl3HValue"/>
-      </item>
-      <item row="14" column="1">
-       <widget class="TaurusLabel" name="sl4VReading"/>
-      </item>
-      <item row="3" column="2">
-       <widget class="QDoubleSpinBox" name="sl1FValue"/>
-      </item>
-      <item row="1" column="5">
-       <widget class="QCheckBox" name="sl1HCheck">
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="16" column="2">
-       <widget class="QCheckBox" name="sl4SwitchValue">
-        <property name="text">
-         <string>on/off</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="1">
-       <widget class="TaurusLabel" name="sl1HReading"/>
-      </item>
-      <item row="4" column="2">
-       <widget class="QCheckBox" name="sl1SwitchValue">
-        <property name="text">
-         <string>on/off</string>
-        </property>
-       </widget>
-      </item>
-      <item row="11" column="2">
-       <widget class="QDoubleSpinBox" name="sl3FValue"/>
-      </item>
-      <item row="13" column="0">
-       <widget class="QLabel" name="sl4HLabel">
-        <property name="text">
-         <string>sl4 Horizontal</string>
-        </property>
-       </widget>
-      </item>
-      <item row="7" column="0">
-       <widget class="QLabel" name="sl2FLabel">
-        <property name="text">
-         <string>sl2 Focus</string>
-        </property>
-       </widget>
-      </item>
-      <item row="10" column="0">
-       <widget class="QLabel" name="sl3VLabel">
-        <property name="text">
-         <string>sl3 Vertical</string>
-        </property>
-       </widget>
-      </item>
-      <item row="17" column="0">
-       <widget class="QLabel" name="bc1HLabel">
-        <property name="text">
-         <string>bc1 Horizontal</string>
-        </property>
-       </widget>
-      </item>
-      <item row="15" column="0">
-       <widget class="QLabel" name="sl4FLabel">
-        <property name="text">
-         <string>sl4 Focus</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="2">
-       <widget class="QLabel" name="SaveRetrieveTitle">
-        <property name="text">
-         <string>Save/Retrieve</string>
-        </property>
-       </widget>
-      </item>
-      <item row="7" column="2">
-       <widget class="QDoubleSpinBox" name="sl2FValue"/>
-      </item>
-      <item row="4" column="0">
-       <widget class="QLabel" name="sl1SwitchLabel">
-        <property name="text">
-         <string>sl1 Switch</string>
-        </property>
-       </widget>
-      </item>
-      <item row="15" column="2">
-       <widget class="QDoubleSpinBox" name="sl4FValue"/>
-      </item>
-      <item row="14" column="2">
-       <widget class="QDoubleSpinBox" name="sl4VValue"/>
-      </item>
-      <item row="19" column="2">
-       <widget class="QDoubleSpinBox" name="bc1FValue"/>
-      </item>
-      <item row="17" column="2">
-       <widget class="QDoubleSpinBox" name="bc1HValue"/>
-      </item>
-      <item row="3" column="1">
-       <widget class="TaurusLabel" name="sl1FReading"/>
-      </item>
-      <item row="20" column="0">
-       <widget class="QLabel" name="bc1SwitchLabel">
-        <property name="text">
-         <string>bc1 Switch</string>
-        </property>
-       </widget>
-      </item>
-      <item row="42" column="1">
-       <spacer name="verticalSpacer">
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>20</width>
-          <height>40</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item row="20" column="2">
-       <widget class="QCheckBox" name="bc1SwitchValue">
-        <property name="text">
-         <string>on/off</string>
-        </property>
-       </widget>
-      </item>
-      <item row="6" column="0">
-       <widget class="QLabel" name="sl2VLabel">
-        <property name="text">
-         <string>sl2 Vertical</string>
-        </property>
-       </widget>
-      </item>
-      <item row="8" column="0">
-       <widget class="QLabel" name="sl2SwitchLabel">
-        <property name="text">
-         <string>sl2 Switch</string>
-        </property>
-       </widget>
-      </item>
-      <item row="13" column="1">
-       <widget class="TaurusLabel" name="sl4HReading"/>
-      </item>
-      <item row="20" column="1">
-       <widget class="TaurusLed" name="bc1SwitchReading">
-        <property name="minimumSize">
-         <size>
-          <width>15</width>
-          <height>15</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>15</width>
-          <height>15</height>
-         </size>
-        </property>
-       </widget>
-      </item>
-      <item row="19" column="1">
-       <widget class="TaurusLabel" name="bc1FReading"/>
-      </item>
-      <item row="23" column="1">
-       <widget class="TaurusLabel" name="bc2FReading"/>
-      </item>
-      <item row="24" column="1">
-       <widget class="TaurusLed" name="bc2SwitchReading">
-        <property name="minimumSize">
-         <size>
-          <width>15</width>
-          <height>15</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>15</width>
-          <height>15</height>
-         </size>
-        </property>
-       </widget>
-      </item>
-      <item row="22" column="2">
-       <widget class="QDoubleSpinBox" name="bc2VValue"/>
-      </item>
-      <item row="21" column="1">
-       <widget class="TaurusLabel" name="bc2HReading"/>
-      </item>
-      <item row="22" column="1">
-       <widget class="TaurusLabel" name="bc2VReading"/>
-      </item>
-      <item row="21" column="0">
-       <widget class="QLabel" name="bc2HLabel">
-        <property name="text">
-         <string>bc2 Horizontal</string>
-        </property>
-       </widget>
-      </item>
-      <item row="23" column="0">
-       <widget class="QLabel" name="bc2FLabel">
-        <property name="text">
-         <string>bc2 Focus</string>
-        </property>
-       </widget>
-      </item>
-      <item row="24" column="2">
-       <widget class="QCheckBox" name="bc2SwitchValue">
-        <property name="text">
-         <string>on/off</string>
-        </property>
-       </widget>
-      </item>
-      <item row="16" column="1">
-       <widget class="TaurusLed" name="sl4SwitchReading">
-        <property name="minimumSize">
-         <size>
-          <width>15</width>
-          <height>15</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>15</width>
-          <height>15</height>
-         </size>
-        </property>
-       </widget>
-      </item>
-      <item row="9" column="1">
-       <widget class="TaurusLabel" name="sl3HReading"/>
-      </item>
-      <item row="2" column="0">
-       <widget class="QLabel" name="sl1VLabel">
-        <property name="text">
-         <string>sl1 Vertical</string>
-        </property>
-       </widget>
-      </item>
-      <item row="18" column="2">
-       <widget class="QDoubleSpinBox" name="bc1VValue"/>
-      </item>
-      <item row="8" column="2">
-       <widget class="QCheckBox" name="sl2SwitchValue">
-        <property name="text">
-         <string>on/off</string>
-        </property>
-       </widget>
-      </item>
-      <item row="13" column="2">
-       <widget class="QDoubleSpinBox" name="sl4HValue"/>
-      </item>
-      <item row="4" column="1">
-       <widget class="TaurusLed" name="sl1SwitchReading">
-        <property name="minimumSize">
-         <size>
-          <width>15</width>
-          <height>15</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>15</width>
-          <height>15</height>
-         </size>
-        </property>
-       </widget>
-      </item>
-      <item row="12" column="2">
-       <widget class="QCheckBox" name="sl3SwitchValue">
-        <property name="text">
-         <string>on/off</string>
-        </property>
-       </widget>
-      </item>
-      <item row="14" column="0">
-       <widget class="QLabel" name="sl4VLabel">
-        <property name="text">
-         <string>sl4 Vertical</string>
-        </property>
-       </widget>
-      </item>
-      <item row="16" column="0">
-       <widget class="QLabel" name="sl4SwitchLabel">
-        <property name="text">
-         <string>sl4 Switch</string>
-        </property>
-       </widget>
-      </item>
-      <item row="17" column="1">
-       <widget class="TaurusLabel" name="bc1HReading"/>
-      </item>
-      <item row="21" column="2">
-       <widget class="QDoubleSpinBox" name="bc2HValue"/>
-      </item>
-      <item row="9" column="7">
-       <widget class="QLabel" name="qt1HLabel">
-        <property name="text">
-         <string>QT1 Horizontal</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="5">
-       <widget class="QCheckBox" name="sl1VCheck">
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="5" column="5">
-       <widget class="QCheckBox" name="sl2HCheck">
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="7" column="5">
-       <widget class="QCheckBox" name="sl2FCheck">
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="5">
-       <widget class="QCheckBox" name="sl1FCheck">
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="4" column="5">
-       <widget class="QCheckBox" name="sl1SwitchCheck">
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="9" column="5">
-       <widget class="QCheckBox" name="sl3HCheck">
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="6" column="5">
-       <widget class="QCheckBox" name="sl2VCheck">
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="8" column="5">
-       <widget class="QCheckBox" name="sl2SwitchCheck">
+      <item row="6" column="12">
+       <widget class="QCheckBox" name="glVCheck">
         <property name="text">
          <string/>
         </property>
@@ -853,186 +56,6 @@
       </item>
       <item row="10" column="5">
        <widget class="QCheckBox" name="sl3VCheck">
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="11" column="5">
-       <widget class="QCheckBox" name="sl3FCheck">
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="12" column="5">
-       <widget class="QCheckBox" name="sl3SwitchCheck">
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="13" column="5">
-       <widget class="QCheckBox" name="sl4HCheck">
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="14" column="5">
-       <widget class="QCheckBox" name="sl4VCheck">
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="15" column="5">
-       <widget class="QCheckBox" name="sl4FCheck">
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="16" column="5">
-       <widget class="QCheckBox" name="sl4SwitchCheck">
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="17" column="5">
-       <widget class="QCheckBox" name="bc1HCheck">
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="18" column="5">
-       <widget class="QCheckBox" name="bc1VCheck">
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="20" column="5">
-       <widget class="QCheckBox" name="bc1SwitchCheck">
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="23" column="5">
-       <widget class="QCheckBox" name="bc2FCheck">
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="8" column="7">
-       <widget class="QLabel" name="as1SwitchLabel">
-        <property name="text">
-         <string>AS1 Switch</string>
-        </property>
-       </widget>
-      </item>
-      <item row="22" column="5">
-       <widget class="QCheckBox" name="bc2VCheck">
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="4" column="10">
-       <widget class="QCheckBox" name="glSwitchValue">
-        <property name="text">
-         <string>on/off</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="9">
-       <widget class="TaurusLabel" name="glHReading"/>
-      </item>
-      <item row="1" column="12">
-       <widget class="QCheckBox" name="glHCheck">
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="10" column="9">
-       <widget class="TaurusLabel" name="qt1VReading"/>
-      </item>
-      <item row="12" column="10">
-       <widget class="QDoubleSpinBox" name="qt2FValue"/>
-      </item>
-      <item row="10" column="10">
-       <widget class="QDoubleSpinBox" name="qt1VValue"/>
-      </item>
-      <item row="10" column="12">
-       <widget class="QCheckBox" name="qt1VCheck">
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="16" column="12">
-       <widget class="QCheckBox" name="as2Fcheck">
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="15" column="12">
-       <widget class="QCheckBox" name="as2VCheck">
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="9" column="12">
-       <widget class="QCheckBox" name="qt1HCheck">
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="7" column="12">
-       <widget class="QCheckBox" name="as1FCheck">
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="8" column="12">
-       <widget class="QCheckBox" name="as1SwitchCheck">
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="12" column="12">
-       <widget class="QCheckBox" name="qt2FCheck">
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="13" column="12">
-       <widget class="QCheckBox" name="qtSwitchCheck">
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="14" column="12">
-       <widget class="QCheckBox" name="as2HCheck">
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="17" column="12">
-       <widget class="QCheckBox" name="as2SwitchCheck">
         <property name="text">
          <string/>
         </property>
@@ -1048,8 +71,297 @@
         </property>
        </widget>
       </item>
+      <item row="17" column="2">
+       <widget class="QDoubleSpinBox" name="bc1HWrite"/>
+      </item>
+      <item row="0" column="2">
+       <widget class="QLabel" name="SaveRetrieveTitle">
+        <property name="text">
+         <string>Save/Retrieve</string>
+        </property>
+       </widget>
+      </item>
+      <item row="18" column="1">
+       <widget class="TaurusLabel" name="bc1VRead"/>
+      </item>
+      <item row="14" column="9">
+       <widget class="TaurusLabel" name="qt1FRead"/>
+      </item>
+      <item row="8" column="10">
+       <widget class="QCheckBox" name="glSwitchWrite">
+        <property name="text">
+         <string>on/off</string>
+        </property>
+       </widget>
+      </item>
+      <item row="9" column="2">
+       <widget class="QDoubleSpinBox" name="sl3HWrite"/>
+      </item>
+      <item row="17" column="10">
+       <widget class="QDoubleSpinBox" name="as2HWrite"/>
+      </item>
+      <item row="19" column="9">
+       <widget class="TaurusLed" name="as2SwitchRead">
+        <property name="minimumSize">
+         <size>
+          <width>15</width>
+          <height>15</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>15</width>
+          <height>15</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="5">
+       <widget class="QCheckBox" name="sl2SwitchCheck">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="18" column="5">
+       <widget class="QCheckBox" name="bc1VCheck">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="5">
+       <widget class="QCheckBox" name="sl1HCheck">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="10" column="2">
+       <widget class="QDoubleSpinBox" name="sl3Vvalue"/>
+      </item>
+      <item row="4" column="0">
+       <widget class="QLabel" name="sl1SwitchLabel">
+        <property name="text">
+         <string>sl1 Switch</string>
+        </property>
+       </widget>
+      </item>
+      <item row="7" column="10">
+       <widget class="QDoubleSpinBox" name="glFWrite"/>
+      </item>
+      <item row="19" column="7">
+       <widget class="QLabel" name="as2SwitchLabel">
+        <property name="text">
+         <string>AS2 Switch</string>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="5">
+       <widget class="QCheckBox" name="sl2VCheck">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="1">
+       <widget class="TaurusLabel" name="sl2HRead"/>
+      </item>
+      <item row="19" column="10">
+       <widget class="QCheckBox" name="as2SwitchWrite">
+        <property name="text">
+         <string>on/off</string>
+        </property>
+       </widget>
+      </item>
+      <item row="9" column="5">
+       <widget class="QCheckBox" name="sl3HCheck">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="16" column="2">
+       <widget class="QCheckBox" name="sl4SwitchWrite">
+        <property name="text">
+         <string>on/off</string>
+        </property>
+       </widget>
+      </item>
+      <item row="7" column="12">
+       <widget class="QCheckBox" name="glFCheck">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="12" column="0">
+       <widget class="QLabel" name="sl3SwitchLabel">
+        <property name="text">
+         <string>sl3 Switch</string>
+        </property>
+       </widget>
+      </item>
+      <item row="18" column="0">
+       <widget class="QLabel" name="bc1VLabel">
+        <property name="text">
+         <string>bc1 Vertical</string>
+        </property>
+       </widget>
+      </item>
+      <item row="17" column="12">
+       <widget class="QCheckBox" name="as2HCheck">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="18" column="2">
+       <widget class="QDoubleSpinBox" name="bc1VWrite"/>
+      </item>
+      <item row="11" column="0">
+       <widget class="QLabel" name="sl3FLabel">
+        <property name="text">
+         <string>sl3 Focus</string>
+        </property>
+       </widget>
+      </item>
       <item row="5" column="2">
-       <widget class="QDoubleSpinBox" name="sl2HValue"/>
+       <widget class="QDoubleSpinBox" name="sl2HWrite"/>
+      </item>
+      <item row="6" column="2">
+       <widget class="QDoubleSpinBox" name="sl2VWrite"/>
+      </item>
+      <item row="15" column="1">
+       <widget class="TaurusLabel" name="sl4FRead"/>
+      </item>
+      <item row="1" column="1">
+       <widget class="TaurusLabel" name="sl1HRead"/>
+      </item>
+      <item row="17" column="0">
+       <widget class="QLabel" name="bc1HLabel">
+        <property name="text">
+         <string>bc1 Horizontal</string>
+        </property>
+       </widget>
+      </item>
+      <item row="17" column="1">
+       <widget class="TaurusLabel" name="bc1HRead"/>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="sl1FLabel">
+        <property name="text">
+         <string>sl1 Focus</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLabel" name="PresentWriteTitle">
+        <property name="text">
+         <string>Present value</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="2">
+       <widget class="QCheckBox" name="sl1SwitchWrite">
+        <property name="text">
+         <string>on/off</string>
+        </property>
+       </widget>
+      </item>
+      <item row="7" column="1">
+       <widget class="TaurusLabel" name="sl2FRead"/>
+      </item>
+      <item row="20" column="2">
+       <widget class="QCheckBox" name="bc1SwitchWrite">
+        <property name="text">
+         <string>on/off</string>
+        </property>
+       </widget>
+      </item>
+      <item row="16" column="0">
+       <widget class="QLabel" name="sl4SwitchLabel">
+        <property name="text">
+         <string>sl4 Switch</string>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="2">
+       <widget class="QCheckBox" name="sl2SwitchWrite">
+        <property name="text">
+         <string>on/off</string>
+        </property>
+       </widget>
+      </item>
+      <item row="13" column="12">
+       <widget class="QCheckBox" name="qt1VCheck">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="0">
+       <widget class="QLabel" name="sl2SwitchLabel">
+        <property name="text">
+         <string>sl2 Switch</string>
+        </property>
+       </widget>
+      </item>
+      <item row="20" column="0">
+       <widget class="QLabel" name="bc1SwitchLabel">
+        <property name="text">
+         <string>bc1 Switch</string>
+        </property>
+       </widget>
+      </item>
+      <item row="13" column="1">
+       <widget class="TaurusLabel" name="sl4HRead"/>
+      </item>
+      <item row="18" column="12">
+       <widget class="QCheckBox" name="as2VCheck">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="14" column="10">
+       <widget class="QDoubleSpinBox" name="qt1FWrite"/>
+      </item>
+      <item row="14" column="1">
+       <widget class="TaurusLabel" name="sl4VRead"/>
+      </item>
+      <item row="5" column="9">
+       <widget class="TaurusLabel" name="glHRead"/>
+      </item>
+      <item row="15" column="12">
+       <widget class="QCheckBox" name="qt2FCheck">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="5">
+       <widget class="QCheckBox" name="sl1VCheck">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="12" column="1">
+       <widget class="TaurusLed" name="sl3SwitchRead">
+        <property name="minimumSize">
+         <size>
+          <width>15</width>
+          <height>15</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>15</width>
+          <height>15</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="0" column="10">
        <widget class="QLabel" name="SaveRetrieveTitle_2">
@@ -1058,25 +370,678 @@
         </property>
        </widget>
       </item>
+      <item row="16" column="12">
+       <widget class="QCheckBox" name="qtSwitchCheck">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="14" column="2">
+       <widget class="QDoubleSpinBox" name="sl4VWrite"/>
+      </item>
+      <item row="9" column="9">
+       <widget class="TaurusLabel" name="as1HRead"/>
+      </item>
+      <item row="20" column="1">
+       <widget class="TaurusLed" name="bc1SwitchRead">
+        <property name="minimumSize">
+         <size>
+          <width>15</width>
+          <height>15</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>15</width>
+          <height>15</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item row="15" column="9">
+       <widget class="TaurusLabel" name="qt2FRead"/>
+      </item>
+      <item row="5" column="5">
+       <widget class="QCheckBox" name="sl2HCheck">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="0">
+       <widget class="QLabel" name="sl2HLabel">
+        <property name="text">
+         <string>sl2 Horizontal</string>
+        </property>
+       </widget>
+      </item>
+      <item row="9" column="0">
+       <widget class="QLabel" name="sl3HLabel">
+        <property name="text">
+         <string>sl3 Horizontal</string>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="0">
+       <widget class="QLabel" name="sl2VLabel">
+        <property name="text">
+         <string>sl2 Vertical</string>
+        </property>
+       </widget>
+      </item>
+      <item row="15" column="10">
+       <widget class="QDoubleSpinBox" name="qt2FWrite"/>
+      </item>
+      <item row="15" column="0">
+       <widget class="QLabel" name="sl4FLabel">
+        <property name="text">
+         <string>sl4 Focus</string>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="10">
+       <widget class="QDoubleSpinBox" name="glVWrite"/>
+      </item>
+      <item row="10" column="12">
+       <widget class="QCheckBox" name="as1VCheck">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="19" column="2">
+       <widget class="QDoubleSpinBox" name="bc1FWrite"/>
+      </item>
+      <item row="8" column="1">
+       <widget class="TaurusLed" name="sl2SwitchRead">
+        <property name="minimumSize">
+         <size>
+          <width>15</width>
+          <height>15</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>15</width>
+          <height>15</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item row="11" column="5">
+       <widget class="QCheckBox" name="sl3FCheck">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="12" column="12">
+       <widget class="QCheckBox" name="qt1HCheck">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="14" column="0">
+       <widget class="QLabel" name="sl4VLabel">
+        <property name="text">
+         <string>sl4 Vertical</string>
+        </property>
+       </widget>
+      </item>
+      <item row="18" column="10">
+       <widget class="QDoubleSpinBox" name="as2VWrite"/>
+      </item>
+      <item row="13" column="0">
+       <widget class="QLabel" name="sl4HLabel">
+        <property name="text">
+         <string>sl4 Horizontal</string>
+        </property>
+       </widget>
+      </item>
+      <item row="17" column="9">
+       <widget class="TaurusLabel" name="as2HRead"/>
+      </item>
+      <item row="7" column="5">
+       <widget class="QCheckBox" name="sl2FCheck">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="10">
+       <widget class="QDoubleSpinBox" name="glHWrite"/>
+      </item>
+      <item row="12" column="10">
+       <widget class="QDoubleSpinBox" name="qt1HWrite"/>
+      </item>
+      <item row="4" column="1">
+       <widget class="TaurusLed" name="sl1SwitchRead">
+        <property name="minimumSize">
+         <size>
+          <width>15</width>
+          <height>15</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>15</width>
+          <height>15</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item row="20" column="5">
+       <widget class="QCheckBox" name="bc1SwitchCheck">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="13" column="10">
+       <widget class="QDoubleSpinBox" name="qt1VWrite"/>
+      </item>
+      <item row="9" column="10">
+       <widget class="QDoubleSpinBox" name="as1HWrite"/>
+      </item>
+      <item row="7" column="0">
+       <widget class="QLabel" name="sl2FLabel">
+        <property name="text">
+         <string>sl2 Focus</string>
+        </property>
+       </widget>
+      </item>
+      <item row="19" column="12">
+       <widget class="QCheckBox" name="as2SwitchCheck">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="11" column="1">
+       <widget class="TaurusLabel" name="sl3FRead"/>
+      </item>
+      <item row="13" column="2">
+       <widget class="QDoubleSpinBox" name="sl4HWrite"/>
+      </item>
+      <item row="3" column="1">
+       <widget class="TaurusLabel" name="sl1FRead"/>
+      </item>
       <item row="0" column="9">
-       <widget class="QLabel" name="PresentValueTitle_2">
+       <widget class="QLabel" name="PresentWriteTitle_2">
         <property name="text">
          <string>Present value</string>
         </property>
        </widget>
       </item>
-      <item row="15" column="10">
-       <widget class="QDoubleSpinBox" name="as2VValue"/>
+      <item row="5" column="12">
+       <widget class="QCheckBox" name="glHCheck">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
       </item>
-      <item row="1" column="11" rowspan="17">
-       <widget class="Line" name="line_3">
+      <item row="16" column="10">
+       <widget class="QCheckBox" name="qtSwitchWrite">
+        <property name="text">
+         <string>on/off</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="2">
+       <widget class="QDoubleSpinBox" name="sl1HWrite"/>
+      </item>
+      <item row="15" column="2">
+       <widget class="QDoubleSpinBox" name="sl4FWrite"/>
+      </item>
+      <item row="14" column="12">
+       <widget class="QCheckBox" name="qt1FCheck">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="19" column="0">
+       <widget class="QLabel" name="bc1FLabel">
+        <property name="text">
+         <string>bc1 Focus</string>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="1">
+       <widget class="TaurusLabel" name="sl2VRead"/>
+      </item>
+      <item row="1" column="4" rowspan="24">
+       <widget class="Line" name="line_1">
         <property name="orientation">
          <enum>Qt::Vertical</enum>
         </property>
        </widget>
       </item>
+      <item row="6" column="9">
+       <widget class="TaurusLabel" name="glVRead"/>
+      </item>
+      <item row="10" column="0">
+       <widget class="QLabel" name="sl3VLabel">
+        <property name="text">
+         <string>sl3 Vertical</string>
+        </property>
+       </widget>
+      </item>
+      <item row="17" column="5">
+       <widget class="QCheckBox" name="bc1HCheck">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="10" column="10">
+       <widget class="QDoubleSpinBox" name="as1VWrite"/>
+      </item>
+      <item row="11" column="10">
+       <widget class="QCheckBox" name="as1SwitchWrite">
+        <property name="text">
+         <string>on/off</string>
+        </property>
+       </widget>
+      </item>
+      <item row="16" column="5">
+       <widget class="QCheckBox" name="sl4SwitchCheck">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="11" column="12">
+       <widget class="QCheckBox" name="as1SwitchCheck">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="sl1VLabel">
+        <property name="text">
+         <string>sl1 Vertical</string>
+        </property>
+       </widget>
+      </item>
+      <item row="9" column="1">
+       <widget class="TaurusLabel" name="sl3HRead"/>
+      </item>
+      <item row="15" column="5">
+       <widget class="QCheckBox" name="sl4FCheck">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="9" column="12">
+       <widget class="QCheckBox" name="as1HCheck">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="14" column="5">
+       <widget class="QCheckBox" name="sl4VCheck">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="12" column="5">
+       <widget class="QCheckBox" name="sl3SwitchCheck">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="19" column="5">
+       <widget class="QCheckBox" name="bc1FCheck">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="16" column="1">
+       <widget class="TaurusLed" name="sl4SwitchRead">
+        <property name="minimumSize">
+         <size>
+          <width>15</width>
+          <height>15</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>15</width>
+          <height>15</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="12">
+       <widget class="QCheckBox" name="glSwitchCheck">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="11" column="2">
+       <widget class="QDoubleSpinBox" name="sl3FWrite"/>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="sl1HLabel">
+        <property name="text">
+         <string>sl1 Horizontal</string>
+        </property>
+       </widget>
+      </item>
+      <item row="13" column="5">
+       <widget class="QCheckBox" name="sl4HCheck">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="2">
+       <widget class="QDoubleSpinBox" name="sl1VWrite"/>
+      </item>
+      <item row="3" column="5">
+       <widget class="QCheckBox" name="sl1FCheck">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="2">
+       <widget class="QDoubleSpinBox" name="sl1FWrite"/>
+      </item>
+      <item row="2" column="1">
+       <widget class="TaurusLabel" name="sl1VRead"/>
+      </item>
+      <item row="42" column="1">
+       <spacer name="verticalSpacer">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="12" column="2">
+       <widget class="QCheckBox" name="sl3SwitchWrite">
+        <property name="text">
+         <string>on/off</string>
+        </property>
+       </widget>
+      </item>
+      <item row="7" column="2">
+       <widget class="QDoubleSpinBox" name="sl2FWrite"/>
+      </item>
+      <item row="4" column="5">
+       <widget class="QCheckBox" name="sl1SwitchCheck">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="7" column="9">
+       <widget class="TaurusLabel" name="glFRead"/>
+      </item>
+      <item row="10" column="9">
+       <widget class="TaurusLabel" name="as1VRead"/>
+      </item>
+      <item row="16" column="7">
+       <widget class="QLabel" name="qtSwitchLabel">
+        <property name="text">
+         <string>QT Switch</string>
+        </property>
+       </widget>
+      </item>
+      <item row="15" column="7">
+       <widget class="QLabel" name="qt2FLabel">
+        <property name="text">
+         <string>QT2 Focus</string>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="9">
+       <widget class="TaurusLed" name="glSwitchRead">
+        <property name="minimumSize">
+         <size>
+          <width>15</width>
+          <height>15</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>15</width>
+          <height>15</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item row="11" column="9">
+       <widget class="TaurusLed" name="as1SwitchRead">
+        <property name="minimumSize">
+         <size>
+          <width>15</width>
+          <height>15</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>15</width>
+          <height>15</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item row="17" column="7">
+       <widget class="QLabel" name="as2HLabel">
+        <property name="text">
+         <string>AS2 Horizontal</string>
+        </property>
+       </widget>
+      </item>
+      <item row="13" column="9">
+       <widget class="TaurusLabel" name="qt1VRead"/>
+      </item>
       <item row="0" column="6" rowspan="25">
        <widget class="Line" name="line_2">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="12" column="9">
+       <widget class="TaurusLabel" name="qt1HRead"/>
+      </item>
+      <item row="18" column="7">
+       <widget class="QLabel" name="as2VLabel">
+        <property name="text">
+         <string>AS2 Vertical</string>
+        </property>
+       </widget>
+      </item>
+      <item row="18" column="9">
+       <widget class="TaurusLabel" name="as2VRead"/>
+      </item>
+      <item row="14" column="7">
+       <widget class="QLabel" name="qt1FLabel">
+        <property name="text">
+         <string>QT1 Focus</string>
+        </property>
+       </widget>
+      </item>
+      <item row="13" column="7">
+       <widget class="QLabel" name="qt1VLabel">
+        <property name="text">
+         <string>QT1 Vertical</string>
+        </property>
+       </widget>
+      </item>
+      <item row="12" column="7">
+       <widget class="QLabel" name="qt1HLabel">
+        <property name="text">
+         <string>QT1 Horizontal</string>
+        </property>
+       </widget>
+      </item>
+      <item row="11" column="7">
+       <widget class="QLabel" name="as1SwitchLabel">
+        <property name="text">
+         <string>AS1 Switch</string>
+        </property>
+       </widget>
+      </item>
+      <item row="10" column="7">
+       <widget class="QLabel" name="as1VLabel">
+        <property name="text">
+         <string>AS1 Vertical</string>
+        </property>
+       </widget>
+      </item>
+      <item row="9" column="7">
+       <widget class="QLabel" name="as1HLabel">
+        <property name="text">
+         <string>AS1 Horizontal</string>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="7">
+       <widget class="QLabel" name="glSwitchLabel">
+        <property name="text">
+         <string>gl Switch</string>
+        </property>
+       </widget>
+      </item>
+      <item row="7" column="7">
+       <widget class="QLabel" name="glFLabel">
+        <property name="text">
+         <string>gl Focus</string>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="7">
+       <widget class="QLabel" name="glVLabel">
+        <property name="text">
+         <string>gl Vertical</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="7">
+       <widget class="QLabel" name="glHLabel">
+        <property name="text">
+         <string>gl Horizontal</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="12">
+       <widget class="QCheckBox" name="bc2SwitchCheck">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="12">
+       <widget class="QCheckBox" name="bc2FCheck">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="12">
+       <widget class="QCheckBox" name="bc2VCheck">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="12">
+       <widget class="QCheckBox" name="bc2HCheck">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="10">
+       <widget class="QDoubleSpinBox" name="bc2HWrite"/>
+      </item>
+      <item row="1" column="9">
+       <widget class="TaurusLabel" name="bc2HRead"/>
+      </item>
+      <item row="1" column="7">
+       <widget class="QLabel" name="bc2HLabel">
+        <property name="text">
+         <string>bc2 Horizontal</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="7">
+       <widget class="QLabel" name="bc2VLabel">
+        <property name="text">
+         <string>bc2 Vertical</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="7">
+       <widget class="QLabel" name="bc2FLabel">
+        <property name="text">
+         <string>bc2 Focus</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="7">
+       <widget class="QLabel" name="bc2SwitchLabel">
+        <property name="text">
+         <string>bc2 Switch</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="9">
+       <widget class="TaurusLabel" name="bc2VRead"/>
+      </item>
+      <item row="3" column="9">
+       <widget class="TaurusLabel" name="bc2FRead"/>
+      </item>
+      <item row="4" column="9">
+       <widget class="TaurusLed" name="bc2SwitchRead">
+        <property name="minimumSize">
+         <size>
+          <width>15</width>
+          <height>15</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>15</width>
+          <height>15</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="10">
+       <widget class="QDoubleSpinBox" name="bc2VWrite"/>
+      </item>
+      <item row="3" column="10">
+       <widget class="QDoubleSpinBox" name="bc2FWrite"/>
+      </item>
+      <item row="4" column="10">
+       <widget class="QCheckBox" name="bc2SwitchWrite">
+        <property name="text">
+         <string>on/off</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="11" rowspan="19">
+       <widget class="Line" name="line_3">
         <property name="orientation">
          <enum>Qt::Vertical</enum>
         </property>
@@ -1095,12 +1060,6 @@
    <container>1</container>
   </customwidget>
   <customwidget>
-   <class>TaurusGroupBox</class>
-   <extends>QGroupBox</extends>
-   <header>taurus.qt.qtgui.container</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
    <class>TaurusLabel</class>
    <extends>QLabel</extends>
    <header>taurus.qt.qtgui.display</header>
@@ -1114,6 +1073,12 @@
    <class>QLed</class>
    <extends>QPixmapWidget</extends>
    <header>taurus.qt.qtgui.display</header>
+  </customwidget>
+  <customwidget>
+   <class>TaurusGroupBox</class>
+   <extends>QGroupBox</extends>
+   <header>taurus.qt.qtgui.container</header>
+   <container>1</container>
   </customwidget>
   <customwidget>
    <class>QPixmapWidget</class>

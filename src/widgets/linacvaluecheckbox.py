@@ -131,13 +131,13 @@ class LinacValueCheckBox(TaurusValueCheckBox):
             if not self.isResetCheckBox():
                 #If it is not a resetCheckBox, proceed like the TaurusValueCheckBox
                 if self.hasPendingOperations():
-#                    txt = str(self.text()).strip()
-#                    if len(txt) == 0:
-#                        self.setText("!")
+                    txt = str(self.text()).strip()
+                    if len(txt) == 0:
+                        self.setText("!")
                     self.setStyleSheet('TaurusValueCheckBox {color: blue;}')
                 else:
-#                    if str(self.text()) == "!":
-#                        self.setText(" ")
+                    if str(self.text()) == "!":
+                        self.setText(" ")
                     self.setStyleSheet('TaurusValueCheckBox {}')
                 self.update()
         except Exception,e:

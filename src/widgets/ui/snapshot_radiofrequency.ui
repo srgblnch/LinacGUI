@@ -6,9 +6,14 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>379</width>
-    <height>326</height>
+    <width>311</width>
+    <height>277</height>
    </rect>
+  </property>
+  <property name="font">
+   <font>
+    <pointsize>7</pointsize>
+   </font>
   </property>
   <property name="windowTitle">
    <string>Form</string>
@@ -21,7 +26,7 @@
      </property>
      <layout class="QGridLayout" name="gridLayout">
       <item row="0" column="1">
-       <widget class="QLabel" name="PresentValueTitle">
+       <widget class="QLabel" name="PresentWriteTitle">
         <property name="text">
          <string>Present value</string>
         </property>
@@ -55,16 +60,16 @@
        </widget>
       </item>
       <item row="4" column="2">
-       <widget class="QDoubleSpinBox" name="TPS2PhaseValue"/>
+       <widget class="QDoubleSpinBox" name="TPS2PhaseWrite"/>
       </item>
       <item row="8" column="1">
-       <widget class="TaurusLabel" name="PHS1Reading"/>
+       <widget class="TaurusLabel" name="PHS1Read"/>
       </item>
       <item row="9" column="1">
-       <widget class="TaurusLabel" name="PHS2Reading"/>
+       <widget class="TaurusLabel" name="PHS2Read"/>
       </item>
       <item row="5" column="2">
-       <widget class="QDoubleSpinBox" name="A0OPValue"/>
+       <widget class="QDoubleSpinBox" name="A0OPWrite"/>
       </item>
       <item row="10" column="1">
        <spacer name="verticalSpacer">
@@ -80,34 +85,34 @@
        </spacer>
       </item>
       <item row="9" column="2">
-       <widget class="QDoubleSpinBox" name="PHS2Value"/>
+       <widget class="QDoubleSpinBox" name="PHS2Write"/>
       </item>
       <item row="1" column="2">
-       <widget class="QDoubleSpinBox" name="TPS0PhaseValue"/>
+       <widget class="QDoubleSpinBox" name="TPS0PhaseWrite"/>
       </item>
       <item row="3" column="2">
-       <widget class="QDoubleSpinBox" name="TPS1PhaseValue"/>
+       <widget class="QDoubleSpinBox" name="TPS1PhaseWrite"/>
       </item>
       <item row="8" column="2">
-       <widget class="QDoubleSpinBox" name="PHS1Value"/>
+       <widget class="QDoubleSpinBox" name="PHS1Write"/>
       </item>
       <item row="7" column="1">
-       <widget class="TaurusLabel" name="ATT2Reading"/>
+       <widget class="TaurusLabel" name="ATT2Read"/>
       </item>
       <item row="7" column="2">
-       <widget class="QDoubleSpinBox" name="ATT2Value"/>
+       <widget class="QDoubleSpinBox" name="ATT2Write"/>
       </item>
       <item row="5" column="1">
-       <widget class="TaurusLabel" name="A0OPReading"/>
+       <widget class="TaurusLabel" name="A0OPRead"/>
       </item>
       <item row="4" column="1">
-       <widget class="TaurusLabel" name="TPS2PhaseReading"/>
+       <widget class="TaurusLabel" name="TPS2PhaseRead"/>
       </item>
       <item row="2" column="1">
-       <widget class="TaurusLabel" name="TPSXPhaseReading"/>
+       <widget class="TaurusLabel" name="TPSXPhaseRead"/>
       </item>
       <item row="3" column="1">
-       <widget class="TaurusLabel" name="TPS1PhaseReading"/>
+       <widget class="TaurusLabel" name="TPS1PhaseRead"/>
       </item>
       <item row="1" column="4">
        <widget class="QCheckBox" name="TPS0PhaseCheck">
@@ -131,10 +136,10 @@
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="TaurusLabel" name="TPS0PhaseReading"/>
+       <widget class="TaurusLabel" name="TPS0PhaseRead"/>
       </item>
       <item row="2" column="2">
-       <widget class="QDoubleSpinBox" name="TPSXPhaseValue"/>
+       <widget class="QDoubleSpinBox" name="TPSXPhaseWrite"/>
       </item>
       <item row="4" column="4">
        <widget class="QCheckBox" name="TPS2PhaseCheck">

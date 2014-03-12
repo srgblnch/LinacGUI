@@ -6,9 +6,14 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>363</width>
-    <height>215</height>
+    <width>289</width>
+    <height>218</height>
    </rect>
+  </property>
+  <property name="font">
+   <font>
+    <pointsize>7</pointsize>
+   </font>
   </property>
   <property name="windowTitle">
    <string>Form</string>
@@ -21,7 +26,7 @@
      </property>
      <layout class="QGridLayout" name="gridLayout_2">
       <item row="2" column="1">
-       <widget class="TaurusLed" name="collingLoop1SwitchReading">
+       <widget class="TaurusLed" name="collingLoop1SwitchRead">
         <property name="minimumSize">
          <size>
           <width>15</width>
@@ -58,17 +63,17 @@
        </widget>
       </item>
       <item row="2" column="2">
-       <widget class="QCheckBox" name="collingLoop1SwitchValue">
+       <widget class="QCheckBox" name="collingLoop1SwitchWrite">
         <property name="text">
          <string>on/off</string>
         </property>
        </widget>
       </item>
       <item row="1" column="2">
-       <widget class="QDoubleSpinBox" name="coolingLoop1SetpointValue"/>
+       <widget class="QDoubleSpinBox" name="coolingLoop1SetpointWrite"/>
       </item>
       <item row="1" column="1">
-       <widget class="TaurusLabel" name="coolingLoop1SetpointReading"/>
+       <widget class="TaurusLabel" name="coolingLoop1SetpointRead"/>
       </item>
       <item row="4" column="0">
        <widget class="QLabel" name="collingLoop2SwitchLabel">
@@ -91,7 +96,7 @@
        </spacer>
       </item>
       <item row="0" column="1">
-       <widget class="QLabel" name="PresentValueTitle">
+       <widget class="QLabel" name="PresentWriteTitle">
         <property name="text">
          <string>Present value</string>
         </property>
@@ -133,10 +138,10 @@
        </widget>
       </item>
       <item row="3" column="1">
-       <widget class="TaurusLabel" name="coolingLoop2SetpointReading"/>
+       <widget class="TaurusLabel" name="coolingLoop2SetpointRead"/>
       </item>
       <item row="4" column="1">
-       <widget class="TaurusLed" name="collingLoop2SwitchReading">
+       <widget class="TaurusLed" name="collingLoop2SwitchRead">
         <property name="minimumSize">
          <size>
           <width>15</width>
@@ -152,10 +157,10 @@
        </widget>
       </item>
       <item row="5" column="1">
-       <widget class="TaurusLabel" name="coolingLoop3SetpointReading"/>
+       <widget class="TaurusLabel" name="coolingLoop3SetpointRead"/>
       </item>
       <item row="6" column="1">
-       <widget class="TaurusLed" name="collingLoop3SwitchReading">
+       <widget class="TaurusLed" name="collingLoop3SwitchRead">
         <property name="minimumSize">
          <size>
           <width>15</width>
@@ -171,20 +176,20 @@
        </widget>
       </item>
       <item row="3" column="2">
-       <widget class="QDoubleSpinBox" name="coolingLoop2SetpointValue"/>
+       <widget class="QDoubleSpinBox" name="coolingLoop2SetpointWrite"/>
       </item>
       <item row="4" column="2">
-       <widget class="QCheckBox" name="collingLoop2SwitchValue">
+       <widget class="QCheckBox" name="collingLoop2SwitchWrite">
         <property name="text">
          <string>on/off</string>
         </property>
        </widget>
       </item>
       <item row="5" column="2">
-       <widget class="QDoubleSpinBox" name="coolingLoop3SetpointValue"/>
+       <widget class="QDoubleSpinBox" name="coolingLoop3SetpointWrite"/>
       </item>
       <item row="6" column="2">
-       <widget class="QCheckBox" name="collingLoop3SwitchValue">
+       <widget class="QCheckBox" name="collingLoop3SwitchWrite">
         <property name="text">
          <string>on/off</string>
         </property>
@@ -248,12 +253,6 @@
    <container>1</container>
   </customwidget>
   <customwidget>
-   <class>TaurusGroupBox</class>
-   <extends>QGroupBox</extends>
-   <header>taurus.qt.qtgui.container</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
    <class>TaurusLabel</class>
    <extends>QLabel</extends>
    <header>taurus.qt.qtgui.display</header>
@@ -267,6 +266,12 @@
    <class>QLed</class>
    <extends>QPixmapWidget</extends>
    <header>taurus.qt.qtgui.display</header>
+  </customwidget>
+  <customwidget>
+   <class>TaurusGroupBox</class>
+   <extends>QGroupBox</extends>
+   <header>taurus.qt.qtgui.container</header>
+   <container>1</container>
   </customwidget>
   <customwidget>
    <class>QPixmapWidget</class>

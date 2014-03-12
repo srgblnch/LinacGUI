@@ -6,9 +6,14 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>388</width>
-    <height>276</height>
+    <width>326</width>
+    <height>272</height>
    </rect>
+  </property>
+  <property name="font">
+   <font>
+    <pointsize>7</pointsize>
+   </font>
   </property>
   <property name="windowTitle">
    <string>Form</string>
@@ -21,7 +26,7 @@
      </property>
      <layout class="QGridLayout" name="gridLayout">
       <item row="6" column="1">
-       <widget class="TaurusLabel" name="GPIReading"/>
+       <widget class="TaurusLabel" name="GPIRead"/>
       </item>
       <item row="3" column="4">
        <widget class="QCheckBox" name="GunDelayCheck">
@@ -58,10 +63,10 @@
        </spacer>
       </item>
       <item row="6" column="2">
-       <widget class="QSpinBox" name="GPIValue"/>
+       <widget class="QSpinBox" name="GPIWrite"/>
       </item>
       <item row="1" column="1">
-       <widget class="TaurusLed" name="MBMReading">
+       <widget class="TaurusLed" name="MBMRead">
         <property name="minimumSize">
          <size>
           <width>15</width>
@@ -143,20 +148,20 @@
        </widget>
       </item>
       <item row="1" column="2">
-       <widget class="QCheckBox" name="MBMValue">
+       <widget class="QCheckBox" name="MBMWrite">
         <property name="text">
          <string>multi/single</string>
         </property>
        </widget>
       </item>
       <item row="2" column="1">
-       <widget class="TaurusLabel" name="GPMReading"/>
+       <widget class="TaurusLabel" name="GPMRead"/>
       </item>
       <item row="7" column="2">
-       <widget class="QSpinBox" name="GPNValue"/>
+       <widget class="QSpinBox" name="GPNWrite"/>
       </item>
       <item row="3" column="2">
-       <widget class="QSpinBox" name="GunDelayValue"/>
+       <widget class="QSpinBox" name="GunDelayWrite"/>
       </item>
       <item row="2" column="4">
        <widget class="QCheckBox" name="GPMCheck">
@@ -173,7 +178,7 @@
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QLabel" name="PresentValueTitle">
+       <widget class="QLabel" name="PresentWriteTitle">
         <property name="text">
          <string>Present value</string>
         </property>
@@ -187,10 +192,10 @@
        </widget>
       </item>
       <item row="4" column="1">
-       <widget class="TaurusLabel" name="ka1DelayReading"/>
+       <widget class="TaurusLabel" name="ka1DelayRead"/>
       </item>
       <item row="8" column="1">
-       <widget class="TaurusLabel" name="GPAReading"/>
+       <widget class="TaurusLabel" name="GPARead"/>
       </item>
       <item row="4" column="4">
        <widget class="QCheckBox" name="ka1DelayCheck">
@@ -221,25 +226,25 @@
        </widget>
       </item>
       <item row="5" column="1">
-       <widget class="TaurusLabel" name="ka2DelayReading"/>
+       <widget class="TaurusLabel" name="ka2DelayRead"/>
       </item>
       <item row="3" column="1">
-       <widget class="TaurusLabel" name="GunDelayReaing"/>
+       <widget class="TaurusLabel" name="GunDelayRead"/>
       </item>
       <item row="7" column="1">
-       <widget class="TaurusLabel" name="GPNReading"/>
+       <widget class="TaurusLabel" name="GPNRead"/>
       </item>
       <item row="2" column="2">
-       <widget class="QSpinBox" name="GPMValue"/>
+       <widget class="QSpinBox" name="GPMWrite"/>
       </item>
       <item row="4" column="2">
-       <widget class="QSpinBox" name="ka1DelayValue"/>
+       <widget class="QSpinBox" name="ka1DelayWrite"/>
       </item>
       <item row="5" column="2">
-       <widget class="QSpinBox" name="ka2DelayValue"/>
+       <widget class="QSpinBox" name="ka2DelayWrite"/>
       </item>
       <item row="8" column="2">
-       <widget class="QDoubleSpinBox" name="GPAValue"/>
+       <widget class="QDoubleSpinBox" name="GPAWrite"/>
       </item>
      </layout>
     </widget>
@@ -250,12 +255,6 @@
   <customwidget>
    <class>TaurusWidget</class>
    <extends>QWidget</extends>
-   <header>taurus.qt.qtgui.container</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
-   <class>TaurusGroupBox</class>
-   <extends>QGroupBox</extends>
    <header>taurus.qt.qtgui.container</header>
    <container>1</container>
   </customwidget>
@@ -273,6 +272,12 @@
    <class>QLed</class>
    <extends>QPixmapWidget</extends>
    <header>taurus.qt.qtgui.display</header>
+  </customwidget>
+  <customwidget>
+   <class>TaurusGroupBox</class>
+   <extends>QGroupBox</extends>
+   <header>taurus.qt.qtgui.container</header>
+   <container>1</container>
   </customwidget>
   <customwidget>
    <class>QPixmapWidget</class>
