@@ -189,21 +189,38 @@ class MainWindow(TaurusMainWindow):
     def _setStartup_InterlockUnit(self):
         startup_ui = self.ui.linacStartupSynoptic._ui
         #---- configure the widgets in the top left corner diagram
-        self._setupLed4Attr(startup_ui.klystronAmplifierEnabledLed,'li/ct/plc1/KA_ENB')         #KA_ENB
-        self._setupLed4Attr(startup_ui.magnetInterlockStateLed,'li/ct/plc1/MG_IS')              #MI_IS
-        self._setupLed4Attr(startup_ui.interlockUnitResetLed,'li/ct/plc1/interlock_rc',offColor='black',onColor='yellow')
-        self._setupCheckbox4Attr(startup_ui.interlockUnitResetCheck,'li/ct/plc1/interlock_rc')  #Rst
-        self._setupLed4Attr(startup_ui.utilitiesInterlockStateLed,'li/ct/plc1/UT_IS')           #UI_IS
-        self._setupLed4Attr(startup_ui.compressedAirStateLed,'li/ct/plc2/ac_is')                #AC_IS
-        self._setupLed4Attr(startup_ui.transferlineVacuumStateLed,'li/ct/plc1/TL_VOK')          #TL_VOK
-        self._setupLed4Attr(startup_ui.linacVacuumStateLed,'li/ct/plc2/vc_ok')                  #LI_VOK
-        self._setupLed4Attr(startup_ui.electronGunEnabledLed,'li/ct/plc1/EG_ENB')               #EG_ENB
-        self._setupLed4Attr(startup_ui.gmdiLed,'li/ct/plc1/GM_DI')                              #GM_DI FIXME!!! This was not well documented in the Labview
-        self._setupLed4Attr(startup_ui.interlockUnitReadyStateLed,'li/ct/plc1/UI_RDY')          #UI
-        self._setupLed4Attr(startup_ui.klystron2AmplifierEnabledLed,'li/ct/plc1/ka2_ok')        #KA2_EN
-        self._setupLed4Attr(startup_ui.klystron1AmplifierEnabledLed,'li/ct/plc1/ka1_ok')        #KA1_EN
-        self._setupLed4Attr(startup_ui.linacVacuumStateLed_2,'li/ct/plc2/vc_ok')                #LI_VOK (repeated on the right side of the IU)
-        self._setupLed4Attr(startup_ui.linacReadyStateLed,'li/ct/plc1/li_ok')                   #LI_RDY
+        self._setupLed4Attr(startup_ui.klystronAmplifierEnabledLed,
+                            'li/ct/plc1/KA_ENB')                        #KA_ENB
+        self._setupLed4Attr(startup_ui.magnetInterlockStateLed,
+                            'li/ct/plc1/MG_IS')                          #MI_IS
+        self._setupLed4Attr(startup_ui.interlockUnitResetLed,
+                            'li/ct/plc1/interlock_rc',
+                            offColor='black',onColor='yellow')
+        self._setupCheckbox4Attr(startup_ui.interlockUnitResetCheck,
+                                 'li/ct/plc1/interlock_rc',isRst=True)     #Rst
+        self._setupLed4Attr(startup_ui.utilitiesInterlockStateLed,
+                            'li/ct/plc1/UT_IS')                          #UI_IS
+        self._setupLed4Attr(startup_ui.compressedAirStateLed,
+                            'li/ct/plc2/ac_is')                          #AC_IS
+        self._setupLed4Attr(startup_ui.transferlineVacuumStateLed,
+                            'li/ct/plc1/TL_VOK')                        #TL_VOK
+        self._setupLed4Attr(startup_ui.linacVacuumStateLed,
+                            'li/ct/plc2/vc_ok')                         #LI_VOK
+        self._setupLed4Attr(startup_ui.electronGunEnabledLed,
+                            'li/ct/plc1/EG_ENB')                        #EG_ENB
+        self._setupLed4Attr(startup_ui.gmdiLed,
+                            'li/ct/plc1/GM_DI')                          #GM_DI
+        self._setupLed4Attr(startup_ui.interlockUnitReadyStateLed,
+                            'li/ct/plc1/UI_RDY')                            #UI
+        self._setupLed4Attr(startup_ui.klystron2AmplifierEnabledLed,
+                            'li/ct/plc1/ka2_ok')                        #KA2_EN
+        self._setupLed4Attr(startup_ui.klystron1AmplifierEnabledLed,
+                            'li/ct/plc1/ka1_ok')                        #KA1_EN
+        self._setupLed4Attr(startup_ui.linacVacuumStateLed_2,
+                            'li/ct/plc2/vc_ok')                         #LI_VOK
+                                        #(repeated on the right side of the IU)
+        self._setupLed4Attr(startup_ui.linacReadyStateLed,
+                            'li/ct/plc1/li_ok')                         #LI_RDY
         #---- configure the klystrons popups:
         klystrons = {1:{'check':startup_ui.klystron1InterlockPopupCheck,
                         'widget':startup_ui.klystron1InterlockPopupWidget,
@@ -268,7 +285,8 @@ class MainWindow(TaurusMainWindow):
                                                %number)
             attrName = 'li/ct/plc%d/LV_Interlock_RC'%(klystrons[number]['plc'])
             self._setupLed4Attr(klystrons[number]['rst']['led'],attrName,offColor='black',onColor='yellow')
-            self._setupCheckbox4Attr(klystrons[number]['rst']['check'],attrName)
+            self._setupCheckbox4Attr(klystrons[number]['rst']['check'],attrName,
+                                     isRst=True)
             widget = klystrons[number]['check']
             #prepare the checkmanager
             #klystrons[number]['check'].setCheckState(False)
@@ -448,8 +466,10 @@ class MainWindow(TaurusMainWindow):
         self._setupLed4Attr(startup_ui.vv_oncLed,'li/ct/plc2/VVall_oc')
         self._setupCheckbox4Attr(startup_ui.vv_oncCheck,'li/ct/plc2/VVall_oc')
         #reset vacuum interlocks
-        self._setupLed4Attr(startup_ui.vv_rstLed,'li/ct/plc2/VC_Interlock_RC',offColor='black',onColor='yellow')
-        self._setupCheckbox4Attr(startup_ui.vv_rstCheck,'li/ct/plc2/VC_Interlock_RC')
+        self._setupLed4Attr(startup_ui.vv_rstLed,'li/ct/plc2/VC_Interlock_RC',
+                            offColor='black',onColor='yellow')
+        self._setupCheckbox4Attr(startup_ui.vv_rstCheck,
+                                 'li/ct/plc2/VC_Interlock_RC',isRst=True)
         for number in vacuumValves.keys():
             self._setupLed4Attr(vacuumValves[number]['infoLed'],
                                 vacuumValves[number]['cmd_attrName'])
@@ -470,27 +490,42 @@ class MainWindow(TaurusMainWindow):
         startup_ui.ip8Led.setModel('li/ct/plc2/IP8_IS')
         startup_ui.ip9Led.setModel('li/ct/plc2/IP9_IS')
         startup_ui.hvg1Led.setModel('li/ct/plc2/HVG1_IS')
-        self._setupTaurusLabel4Attr(startup_ui.hvg1Value,'li/ct/plc2/HVG1_P','bar')
+        self._setupTaurusLabel4Attr(startup_ui.hvg1Value,
+                                    'li/ct/plc2/HVG1_P','mbar')
         startup_ui.hvg2Led.setModel('li/ct/plc2/HVG2_IS')
-        self._setupTaurusLabel4Attr(startup_ui.hvg2Value,'li/ct/plc2/HVG2_P','bar')
+        self._setupTaurusLabel4Attr(startup_ui.hvg2Value,
+                                    'li/ct/plc2/HVG2_P','mbar')
         startup_ui.hvg3Led.setModel('li/ct/plc2/HVG3_IS')
-        self._setupTaurusLabel4Attr(startup_ui.hvg3Value,'li/ct/plc2/HVG3_P','bar')
+        self._setupTaurusLabel4Attr(startup_ui.hvg3Value,
+                                    'li/ct/plc2/HVG3_P','mbar')
         startup_ui.hvg4Led.setModel('li/ct/plc2/HVG4_IS')
-        self._setupTaurusLabel4Attr(startup_ui.hvg4Value,'li/ct/plc2/HVG4_P','bar')
+        self._setupTaurusLabel4Attr(startup_ui.hvg4Value,
+                                    'li/ct/plc2/HVG4_P','mbar')
         startup_ui.hvg5Led.setModel('li/ct/plc2/HVG5_IS')
-        self._setupTaurusLabel4Attr(startup_ui.hvg5Value,'li/ct/plc2/HVG5_P','bar')
-        self._setupTaurusLabel4Attr(startup_ui.ipc1Value1,'li/ct/plc2/IP1_P','bar')
-        self._setupTaurusLabel4Attr(startup_ui.ipc1Value2,'li/ct/plc2/IP2_P','bar')
-        self._setupTaurusLabel4Attr(startup_ui.ipc2Value1,'li/ct/plc2/IP3_P','bar')
-        self._setupTaurusLabel4Attr(startup_ui.ipc2Value2,'li/ct/plc2/IP4_P','bar')
-        self._setupTaurusLabel4Attr(startup_ui.ipc3Value1,'li/ct/plc2/IP5_P','bar')
-        self._setupTaurusLabel4Attr(startup_ui.ipc3Value2,'li/ct/plc2/IP6_P','bar')
-        self._setupTaurusLabel4Attr(startup_ui.ipc4Value1,'li/ct/plc2/IP7_P','bar')
-        self._setupTaurusLabel4Attr(startup_ui.ipc4Value2,'li/ct/plc2/IP8_P','bar')
-        self._setupTaurusLabel4Attr(startup_ui.ipc5Value1,'li/ct/plc2/IP9_P','bar')
+        self._setupTaurusLabel4Attr(startup_ui.hvg5Value,
+                                    'li/ct/plc2/HVG5_P','mbar')
+        self._setupTaurusLabel4Attr(startup_ui.ipc1Value1,
+                                    'li/ct/plc2/IP1_P','mbar')
+        self._setupTaurusLabel4Attr(startup_ui.ipc1Value2,
+                                    'li/ct/plc2/IP2_P','mbar')
+        self._setupTaurusLabel4Attr(startup_ui.ipc2Value1,
+                                    'li/ct/plc2/IP3_P','mbar')
+        self._setupTaurusLabel4Attr(startup_ui.ipc2Value2,
+                                    'li/ct/plc2/IP4_P','mbar')
+        self._setupTaurusLabel4Attr(startup_ui.ipc3Value1,
+                                    'li/ct/plc2/IP5_P','mbar')
+        self._setupTaurusLabel4Attr(startup_ui.ipc3Value2,
+                                    'li/ct/plc2/IP6_P','mbar')
+        self._setupTaurusLabel4Attr(startup_ui.ipc4Value1,
+                                    'li/ct/plc2/IP7_P','mbar')
+        self._setupTaurusLabel4Attr(startup_ui.ipc4Value2,
+                                    'li/ct/plc2/IP8_P','mbar')
+        self._setupTaurusLabel4Attr(startup_ui.ipc5Value1,
+                                    'li/ct/plc2/IP9_P','mbar')
 
     def setMainscreen(self):
-        #following the synoptic regions from left to right and from top to bottom
+        #following the synoptic regions from left to right and 
+        #from top to bottom
         self._setMainscreen_tb()
         self._setMainscreen_klystronHV()
         self._setMainscreen_rf()
@@ -505,24 +540,35 @@ class MainWindow(TaurusMainWindow):
         
     def _setMainscreen_tb(self):
         mainscreen_ui = self.ui.linacMainscreenSynoptic._ui
-        self._setupTaurusLabel4Attr(mainscreen_ui.tbKaDelay1Value,'li/ct/plc1/TB_KA1_Delay',unit='us')
-        self._setupTaurusLabel4Attr(mainscreen_ui.tbKaDelay2Value,'li/ct/plc1/TB_KA2_Delay',unit='ns')
-        self._setupTaurusLabel4Attr(mainscreen_ui.tbRf2DelayValue,'li/ct/plc1/TB_RF2_Delay',unit='ns')
-        self._setupSpinBox4Attr(mainscreen_ui.tbGunLevelValue,'li/ct/plc1/TB_GPA',step=0.1)
-        self._setupTaurusLabel4Attr(mainscreen_ui.tbMultiBunchValue, 'li/ct/plc1/TB_MBM_status')
-        self._setupCheckbox4Attr(mainscreen_ui.tbMultiBunchCheck, 'li/ct/plc1/TB_MBM')
+        self._setupTaurusLabel4Attr(mainscreen_ui.tbKaDelay1Value,
+                                    'li/ct/plc1/TB_KA1_Delay',unit='us')
+        self._setupTaurusLabel4Attr(mainscreen_ui.tbKaDelay2Value,
+                                    'li/ct/plc1/TB_KA2_Delay',unit='ns')
+        self._setupTaurusLabel4Attr(mainscreen_ui.tbRf2DelayValue,
+                                    'li/ct/plc1/TB_RF2_Delay',unit='ns')
+        self._setupSpinBox4Attr(mainscreen_ui.tbGunLevelValue,
+                                'li/ct/plc1/TB_GPA',step=0.1)
+        self._setupTaurusLabel4Attr(mainscreen_ui.tbMultiBunchValue,
+                                    'li/ct/plc1/TB_MBM_status')
+        self._setupCheckbox4Attr(mainscreen_ui.tbMultiBunchCheck,
+                                 'li/ct/plc1/TB_MBM')
         self._operationModeMonitor = OperationModeManager(mainscreen_ui)
         #---- FIXME: the addValueNames fails in some versions of taurus,
         #            but it works in the control's room version
         try:
-            self._setupCombobox4Attr(mainscreen_ui.tbGatedPulseModeCombo,'li/ct/plc1/TB_GPM',
+            self._setupCombobox4Attr(mainscreen_ui.tbGatedPulseModeCombo,
+                                     'li/ct/plc1/TB_GPM',
                                      [('off',0),('mix',1),('on',2)])
         except:
             mainscreen_ui.tbGatedPulseModeValue.setEnabled(False)
-        self._setupSpinBox4Attr(mainscreen_ui.tbGunDelayValue,'li/ct/plc1/TB_Gun_Delay',step=32)
-        self._setupSpinBox4Attr(mainscreen_ui.tbWidthValue,'li/ct/plc1/TB_GPI',step=2)
-        self._setupSpinBox4Attr(mainscreen_ui.tbNumberValue,'li/ct/plc1/TB_GPN',step=1)
-        self._setupLed4Attr(mainscreen_ui.tbTimerStatusStateLed,'li/ct/plc1/TB_ST')
+        self._setupSpinBox4Attr(mainscreen_ui.tbGunDelayValue,
+                                'li/ct/plc1/TB_Gun_Delay',step=32)
+        self._setupSpinBox4Attr(mainscreen_ui.tbWidthValue,
+                                'li/ct/plc1/TB_GPI',step=2)
+        self._setupSpinBox4Attr(mainscreen_ui.tbNumberValue,
+                                'li/ct/plc1/TB_GPN',step=1)
+        self._setupLed4Attr(mainscreen_ui.tbTimerStatusStateLed,
+                            'li/ct/plc1/TB_ST')
         self._setupLed4Attr(mainscreen_ui.rfEnbLed,'li/ct/plc1/RF_OK')
     
     def _setMainscreen_klystronHV(self):
@@ -551,9 +597,11 @@ class MainWindow(TaurusMainWindow):
         self._klystronHV = {}
         for number in klystrons.keys():
             self._setupSpinBox4Attr(klystrons[number]['setpoint'],
-                                    klystrons[number]['setpoint_attrName'],step=0.1)
+                                    klystrons[number]['setpoint_attrName'],
+                                    step=0.1)
             self._setupCheckbox4Attr(klystrons[number]['rstCheck'],
-                                     klystrons[number]['rst_attrName'])
+                                     klystrons[number]['rst_attrName'],
+                                     isRst=True)
             self._setupLed4Attr(klystrons[number]['rstLed'],
                                 klystrons[number]['rst_attrName'],pattern='',
                                 offColor='black',onColor='yellow')
@@ -564,21 +612,38 @@ class MainWindow(TaurusMainWindow):
             #prepare the checkmanager
             #klystrons[number]['check'].setCheckState(False)
             klystrons[number]['widget'].hide()
-            self._klystronHV[number] = CheckboxManager(klystrons[number]['check'],
-                                                       klystrons[number]['widget'],
-                                                       "Klystron%dHVManager"%number)
+            self._klystronHV[number] = CheckboxManager(\
+                                                     klystrons[number]['check'],
+                                                    klystrons[number]['widget'],
+                                                   "Klystron%dHVManager"%number)
             widget = klystrons[number]['widget']._ui
-            self._setupTaurusLabel4Attr(widget.hvStatusValue,'li/ct/plc%d/HVPS_Status'%(number+3))
-            self._setupTaurusLabel4Attr(widget.hvVoltageValue,'li/ct/plc%d/HVPS_V'%(number+3),'kV')
-            self._setupTaurusLabel4Attr(widget.hvCurrentValue,'li/ct/plc%d/HVPS_I'%(number+3),'mA')
-            self._setupLed4Attr(widget.hvRampEnableLed,'li/ct/plc%d/HVPS_V_setpointRampEnable'%(number+3))
-            self._setupCheckbox4Attr(widget.hvRampEnableCheck,'li/ct/plc%d/HVPS_V_setpointRampEnable'%(number+3))
-            self._setupTaurusLabel4Attr(widget.hvRampStepValue,'li/ct/plc%d/HVPS_V_setpointStep'%(number+3),'kV')
-            self._setupTaurusLabel4Attr(widget.hvRampStepTimeValue,'li/ct/plc%d/HVPS_V_setpointStepTime'%(number+3),'s')
-            self._setupTaurusLabel4Attr(widget.hvRampThresholdValue,'li/ct/plc%d/HVPS_V_setpointThreshold'%(number+3),'kV')
-            self._setupTaurusLabel4Attr(widget.pulseStatusValue,'li/ct/plc%d/Pulse_Status'%(number+3))
-            self._setupTaurusLabel4Attr(widget.klystronVoltageValue,'li/ct/plc%d/Peak_V'%(number+3),'kV')
-            self._setupTaurusLabel4Attr(widget.klystronCurrentValue,'li/ct/plc%d/Peak_I'%(number+3),'A')
+            self._setupTaurusLabel4Attr(widget.hvStatusValue,
+                                        'li/ct/plc%d/HVPS_Status'%(number+3))
+            self._setupTaurusLabel4Attr(widget.hvVoltageValue,
+                                        'li/ct/plc%d/HVPS_V'%(number+3),'kV')
+            self._setupTaurusLabel4Attr(widget.hvCurrentValue,
+                                        'li/ct/plc%d/HVPS_I'%(number+3),'mA')
+            self._setupLed4Attr(widget.hvRampEnableLed,
+                                'li/ct/plc%d/HVPS_V_setpointRampEnable'
+                                %(number+3))
+            self._setupCheckbox4Attr(widget.hvRampEnableCheck,
+                                     'li/ct/plc%d/HVPS_V_setpointRampEnable'
+                                     %(number+3))
+            self._setupTaurusLabel4Attr(widget.hvRampStepValue,
+                                        'li/ct/plc%d/HVPS_V_setpointStep'
+                                        %(number+3),'kV')
+            self._setupTaurusLabel4Attr(widget.hvRampStepTimeValue,
+                                        'li/ct/plc%d/HVPS_V_setpointStepTime'
+                                        %(number+3),'s')
+            self._setupTaurusLabel4Attr(widget.hvRampThresholdValue,
+                                        'li/ct/plc%d/HVPS_V_setpointThreshold'
+                                        %(number+3),'kV')
+            self._setupTaurusLabel4Attr(widget.pulseStatusValue,
+                                        'li/ct/plc%d/Pulse_Status'%(number+3))
+            self._setupTaurusLabel4Attr(widget.klystronVoltageValue,
+                                        'li/ct/plc%d/Peak_V'%(number+3),'kV')
+            self._setupTaurusLabel4Attr(widget.klystronCurrentValue,
+                                        'li/ct/plc%d/Peak_I'%(number+3),'A')
 
     def _setMainscreen_rf(self):
         mainscreen_ui = self.ui.linacMainscreenSynoptic._ui
@@ -743,76 +808,103 @@ class MainWindow(TaurusMainWindow):
                 self._setupLed4Attr(magnets[magnet]['info'],attrName)
             if magnets[magnet].has_key('h'):
                 attrName = '%s/%sh_I_setpoint'%(deviceName,magnet)
-                self._setupSpinBox4Attr(magnets[magnet]['h'],attrName,step=0.01)
+                self._setupSpinBox4Attr(magnets[magnet]['h'],attrName,
+                                        step=0.01)
             if magnets[magnet].has_key('v'):
                 attrName = '%s/%sv_I_setpoint'%(deviceName,magnet)
-                self._setupSpinBox4Attr(magnets[magnet]['v'],attrName,step=0.01)
+                self._setupSpinBox4Attr(magnets[magnet]['v'],attrName,
+                                        step=0.01)
             if magnets[magnet].has_key('f'):
                 attrName = '%s/%sf_I_setpoint'%(deviceName,magnet)
                 #Special exception:
                 if magnet in ['qt1','qt2']:
-                    self._setupSpinBox4Attr(magnets[magnet]['f'],attrName,step=0.005)
+                    self._setupSpinBox4Attr(magnets[magnet]['f'],attrName,
+                                            step=0.005)
                 else:
-                    self._setupSpinBox4Attr(magnets[magnet]['f'],attrName,step=0.01)
+                    self._setupSpinBox4Attr(magnets[magnet]['f'],attrName,
+                                            step=0.01)
             if magnets[magnet].has_key('cmd'):
                 attrName = '%s/%s_onc'%(deviceName,magnet)
                 self._setupCheckbox4Attr(magnets[magnet]['cmd'],attrName)
-            if magnets[magnet].has_key('check') and magnets[magnet].has_key('widget'):
+            if magnets[magnet].has_key('check') and \
+               magnets[magnet].has_key('widget'):
                 #magnets[magnet]['check'].setCheckState(False)
                 magnets[magnet]['widget'].hide()
-                self._magnets[magnet] = CheckboxManager(magnets[magnet]['check'],
-                                                        magnets[magnet]['widget'],
-                                                        "%s"%magnet)
+                self._magnets[magnet] = CheckboxManager(\
+                                                       magnets[magnet]['check'],
+                                                      magnets[magnet]['widget'],
+                                                                    "%s"%magnet)
                 widget = magnets[magnet]['widget']._ui
                 widget.magnetGroup.setTitle(magnet)
-                #x,y,width,height = widget.x(),widget.y(),widget.width(),widget.height()
+                #x,y,width,height = widget.x(),widget.y(),
+                #                   widget.width(),widget.height()
                 #final_height = 25
                 if magnets[magnet].has_key('h'):
-                    self._setupTaurusLabel4Attr(widget.horizontalValue,'%s/%sh_I'%(deviceName,magnet),'A')
-                    self._setupTaurusLabel4Attr(widget.horizontalStatus,'%s/%sh_Status'%(deviceName,magnet))
+                    self._setupTaurusLabel4Attr(widget.horizontalValue,
+                                                '%s/%sh_I'%(deviceName,magnet),
+                                                'A')
+                    self._setupTaurusLabel4Attr(widget.horizontalStatus,
+                                                '%s/%sh_Status'
+                                                %(deviceName,magnet))
                     #final_height+=25
                 else:
                     widget.horizontalLabel.hide()
                     widget.horizontalValue.hide()
                     widget.horizontalStatus.hide()
                 if magnets[magnet].has_key('v'):
-                    self._setupTaurusLabel4Attr(widget.verticalValue,'%s/%sv_I'%(deviceName,magnet),'A')
-                    self._setupTaurusLabel4Attr(widget.verticalStatus,'%s/%sv_Status'%(deviceName,magnet))
+                    self._setupTaurusLabel4Attr(widget.verticalValue,
+                                                '%s/%sv_I'%(deviceName,magnet),
+                                                'A')
+                    self._setupTaurusLabel4Attr(widget.verticalStatus,
+                                                '%s/%sv_Status'
+                                                %(deviceName,magnet))
                     #final_height+=25
                 else:
                     widget.verticalLabel.hide()
                     widget.verticalValue.hide()
                     widget.verticalStatus.hide()
                 if magnets[magnet].has_key('f'):
-                    self._setupTaurusLabel4Attr(widget.focusValue,'%s/%sf_I'%(deviceName,magnet),'A')
-                    self._setupTaurusLabel4Attr(widget.focusStatus,'%s/%sf_Status'%(deviceName,magnet))
+                    self._setupTaurusLabel4Attr(widget.focusValue,
+                                                '%s/%sf_I'%(deviceName,magnet),
+                                                'A')
+                    self._setupTaurusLabel4Attr(widget.focusStatus,
+                                                '%s/%sf_Status'
+                                                %(deviceName,magnet))
                     #final_height+=25
                 else:
                     widget.focusLabel.hide()
                     widget.focusValue.hide()
                     widget.focusStatus.hide()
                 #wiget.setGeometry(Qt.QtCore.QRect(x,y,width,final_height))
-        self._setupLed4Attr(mainscreen_ui.magnetsRstLed,'li/ct/plc3/MA_Interlock_RC',offColor='black',onColor='yellow')
+        self._setupLed4Attr(mainscreen_ui.magnetsRstLed,
+                            'li/ct/plc3/MA_Interlock_RC',
+                            offColor='black',onColor='yellow')
         self._setupCheckbox4Attr(mainscreen_ui.magnetsRstCheck,
-                                 'li/ct/plc3/MA_Interlock_RC')
+                                 'li/ct/plc3/MA_Interlock_RC',isRst=True)
         #FIXME: there is no attr to power on all magnets at once
         self._setupLed4Attr(mainscreen_ui.magnetsOnLed,'li/ct/plc3/all_onc')
-        self._setupCheckbox4Attr(mainscreen_ui.magnetsOnCheck,'li/ct/plc3/all_onc')
+        self._setupCheckbox4Attr(mainscreen_ui.magnetsOnCheck,
+                                 'li/ct/plc3/all_onc')
         
     def _setMainscreen_hvs(self):
         mainscreen_ui = self.ui.linacMainscreenSynoptic._ui
-        self._setupSpinBox4Attr(mainscreen_ui.hvsVoltageValue,'li/ct/plc1/GUN_HV_V_setpoint',step=0.1)
-        self._setupTaurusLabel4Attr(mainscreen_ui.hvsCurrentValue,'li/ct/plc1/GUN_HV_I','uA')
+        self._setupSpinBox4Attr(mainscreen_ui.hvsVoltageValue,
+                                'li/ct/plc1/GUN_HV_V_setpoint',step=0.1)
+        self._setupTaurusLabel4Attr(mainscreen_ui.hvsCurrentValue,
+                                    'li/ct/plc1/GUN_HV_I','uA')
         self._setupLed4Attr(mainscreen_ui.hvsOnLed,'li/ct/plc1/gun_hv_onc')
-        self._setupCheckbox4Attr(mainscreen_ui.hvsOnCheck,'li/ct/plc1/gun_hv_onc')
+        self._setupCheckbox4Attr(mainscreen_ui.hvsOnCheck,
+                                 'li/ct/plc1/gun_hv_onc')
         #mainscreen_ui.hvsPopupCheck.setCheckState(False)
         mainscreen_ui.hvsPopupWidget.hide()
         self._hvs = CheckboxManager(mainscreen_ui.hvsPopupCheck,
                                     mainscreen_ui.hvsPopupWidget,"HVS")
         widget = mainscreen_ui.hvsPopupWidget._ui
         self._setupLed4Attr(widget.doorInterlockLed,'li/ct/plc1/gm_di')
-        self._setupTaurusLabel4Attr(widget.eGunHVStatus,'li/ct/plc1/Gun_HV_Status')
-        self._setupTaurusLabel4Attr(widget.eGunHVValue,'li/ct/plc1/GUN_HV_V','kV')
+        self._setupTaurusLabel4Attr(widget.eGunHVStatus,
+                                    'li/ct/plc1/Gun_HV_Status')
+        self._setupTaurusLabel4Attr(widget.eGunHVValue,
+                                    'li/ct/plc1/GUN_HV_V','kV')
         
     def _setMainscreen_vacuum(self):
         mainscreen_ui = self.ui.linacMainscreenSynoptic._ui
