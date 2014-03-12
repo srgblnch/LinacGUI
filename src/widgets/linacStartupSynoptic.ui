@@ -1070,9 +1070,6 @@
       <property name="showText">
        <bool>false</bool>
       </property>
-      <property name="DangerOnFallingEdge" stdset="0">
-       <bool>true</bool>
-      </property>
      </widget>
     </item>
    </layout>
@@ -1122,9 +1119,6 @@
      <widget class="LinacValueCheckBox" name="coolingLoop2OnCheck">
       <property name="showText">
        <bool>false</bool>
-      </property>
-      <property name="DangerOnFallingEdge" stdset="0">
-       <bool>true</bool>
       </property>
      </widget>
     </item>
@@ -1176,9 +1170,6 @@
       <property name="showText">
        <bool>false</bool>
       </property>
-      <property name="DangerOnFallingEdge" stdset="0">
-       <bool>true</bool>
-      </property>
      </widget>
     </item>
    </layout>
@@ -1228,9 +1219,6 @@
      <widget class="LinacValueCheckBox" name="vv_rstCheck">
       <property name="showText">
        <bool>false</bool>
-      </property>
-      <property name="ResetCheckBox">
-       <bool>true</bool>
       </property>
      </widget>
     </item>
@@ -1772,9 +1760,6 @@
       <property name="showText">
        <bool>false</bool>
       </property>
-      <property name="ResetCheckBox">
-       <bool>true</bool>
-      </property>
      </widget>
     </item>
    </layout>
@@ -1844,9 +1829,6 @@
      <widget class="LinacValueCheckBox" name="egunonCheck">
       <property name="showText">
        <bool>false</bool>
-      </property>
-      <property name="DangerOnFallingEdge" stdset="0">
-       <bool>true</bool>
       </property>
      </widget>
     </item>
@@ -2530,18 +2512,12 @@
       <property name="showText">
        <bool>false</bool>
       </property>
-      <property name="DangerOnFallingEdge" stdset="0">
-       <bool>true</bool>
-      </property>
      </widget>
     </item>
     <item row="1" column="4">
      <widget class="LinacValueCheckBox" name="klystron1RstCheck">
       <property name="showText">
        <bool>false</bool>
-      </property>
-      <property name="ResetCheckBox">
-       <bool>true</bool>
       </property>
      </widget>
     </item>
@@ -2618,18 +2594,12 @@
       <property name="showText">
        <bool>false</bool>
       </property>
-      <property name="DangerOnFallingEdge" stdset="0">
-       <bool>true</bool>
-      </property>
      </widget>
     </item>
     <item row="1" column="4">
      <widget class="LinacValueCheckBox" name="klystron2RstCheck">
       <property name="showText">
        <bool>false</bool>
-      </property>
-      <property name="ResetCheckBox">
-       <bool>true</bool>
       </property>
      </widget>
     </item>

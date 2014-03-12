@@ -2082,20 +2082,8 @@
     </item>
     <item row="1" column="3">
      <widget class="LinacValueCheckBox" name="klystron1RstCheck">
-      <property name="text">
-       <string/>
-      </property>
       <property name="showText">
        <bool>false</bool>
-      </property>
-      <property name="autoApply">
-       <bool>true</bool>
-      </property>
-      <property name="forcedApply">
-       <bool>true</bool>
-      </property>
-      <property name="ResetCheckBox">
-       <bool>true</bool>
       </property>
      </widget>
     </item>
@@ -2168,9 +2156,6 @@
      <widget class="LinacValueCheckBox" name="klystron2RstCheck">
       <property name="showText">
        <bool>false</bool>
-      </property>
-      <property name="ResetCheckBox">
-       <bool>true</bool>
       </property>
      </widget>
     </item>
@@ -2626,9 +2611,6 @@
     </item>
     <item row="1" column="1">
      <widget class="LinacValueCheckBox" name="tbMultiBunchCheck">
-      <property name="text">
-       <string/>
-      </property>
       <property name="showText">
        <bool>false</bool>
       </property>
@@ -2748,9 +2730,6 @@
      <widget class="LinacValueCheckBox" name="magnetsRstCheck">
       <property name="showText">
        <bool>false</bool>
-      </property>
-      <property name="ResetCheckBox">
-       <bool>true</bool>
       </property>
      </widget>
     </item>

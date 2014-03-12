@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'widgets/linacStartupSynoptic.ui'
 #
-# Created: Thu Mar  6 10:28:25 2014
+# Created: Mon Mar 10 16:53:35 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -330,7 +330,6 @@ class Ui_linacStartupSynoptic(object):
         self.coolingLoop3OnLayout.addWidget(self.coolingLoop3OnLed)
         self.coolingLoop3OnCheck = LinacValueCheckBox(self.layoutWidget)
         self.coolingLoop3OnCheck.setShowText(False)
-        self.coolingLoop3OnCheck.setProperty("DangerOnFallingEdge", True)
         self.coolingLoop3OnCheck.setObjectName(_fromUtf8("coolingLoop3OnCheck"))
         self.coolingLoop3OnLayout.addWidget(self.coolingLoop3OnCheck)
         self.layoutWidget1 = QtGui.QWidget(linacStartupSynoptic)
@@ -352,7 +351,6 @@ class Ui_linacStartupSynoptic(object):
         self.coolingLoop2OnLayout.addWidget(self.coolingLoop2OnLed)
         self.coolingLoop2OnCheck = LinacValueCheckBox(self.layoutWidget1)
         self.coolingLoop2OnCheck.setShowText(False)
-        self.coolingLoop2OnCheck.setProperty("DangerOnFallingEdge", True)
         self.coolingLoop2OnCheck.setObjectName(_fromUtf8("coolingLoop2OnCheck"))
         self.coolingLoop2OnLayout.addWidget(self.coolingLoop2OnCheck)
         self.layoutWidget2 = QtGui.QWidget(linacStartupSynoptic)
@@ -374,7 +372,6 @@ class Ui_linacStartupSynoptic(object):
         self.coolingLoop1OnLayout.addWidget(self.coolingLoop1OnLed)
         self.coolingLoop1OnCheck = LinacValueCheckBox(self.layoutWidget2)
         self.coolingLoop1OnCheck.setShowText(False)
-        self.coolingLoop1OnCheck.setProperty("DangerOnFallingEdge", True)
         self.coolingLoop1OnCheck.setObjectName(_fromUtf8("coolingLoop1OnCheck"))
         self.coolingLoop1OnLayout.addWidget(self.coolingLoop1OnCheck)
         self.layoutWidget3 = QtGui.QWidget(linacStartupSynoptic)
@@ -396,7 +393,6 @@ class Ui_linacStartupSynoptic(object):
         self.vvrstLayout.addWidget(self.vv_rstLed)
         self.vv_rstCheck = LinacValueCheckBox(self.layoutWidget3)
         self.vv_rstCheck.setShowText(False)
-        self.vv_rstCheck.setResetCheckBox(True)
         self.vv_rstCheck.setObjectName(_fromUtf8("vv_rstCheck"))
         self.vvrstLayout.addWidget(self.vv_rstCheck)
         self.layoutWidget4 = QtGui.QWidget(linacStartupSynoptic)
@@ -610,7 +606,6 @@ class Ui_linacStartupSynoptic(object):
         self.interlockUnitResetLayout.addWidget(self.interlockUnitResetLed)
         self.interlockUnitResetCheck = LinacValueCheckBox(self.layoutWidget12)
         self.interlockUnitResetCheck.setShowText(False)
-        self.interlockUnitResetCheck.setResetCheckBox(True)
         self.interlockUnitResetCheck.setObjectName(_fromUtf8("interlockUnitResetCheck"))
         self.interlockUnitResetLayout.addWidget(self.interlockUnitResetCheck)
         self.klystron2InterlockPopupWidget = klystron2itck(linacStartupSynoptic)
@@ -638,7 +633,6 @@ class Ui_linacStartupSynoptic(object):
         self.egunonLayout.addWidget(self.egunonLed)
         self.egunonCheck = LinacValueCheckBox(self.layoutWidget_3)
         self.egunonCheck.setShowText(False)
-        self.egunonCheck.setProperty("DangerOnFallingEdge", True)
         self.egunonCheck.setObjectName(_fromUtf8("egunonCheck"))
         self.egunonLayout.addWidget(self.egunonCheck)
         self.layoutWidget13 = QtGui.QWidget(linacStartupSynoptic)
@@ -844,12 +838,10 @@ class Ui_linacStartupSynoptic(object):
         self.klystron1Layout.addWidget(self.klystron1OnLabel, 0, 2, 1, 1)
         self.klystron1OnCheck = LinacValueCheckBox(self.layoutWidget14)
         self.klystron1OnCheck.setShowText(False)
-        self.klystron1OnCheck.setProperty("DangerOnFallingEdge", True)
         self.klystron1OnCheck.setObjectName(_fromUtf8("klystron1OnCheck"))
         self.klystron1Layout.addWidget(self.klystron1OnCheck, 0, 4, 1, 1)
         self.klystron1RstCheck = LinacValueCheckBox(self.layoutWidget14)
         self.klystron1RstCheck.setShowText(False)
-        self.klystron1RstCheck.setResetCheckBox(True)
         self.klystron1RstCheck.setObjectName(_fromUtf8("klystron1RstCheck"))
         self.klystron1Layout.addWidget(self.klystron1RstCheck, 1, 4, 1, 1)
         self.layoutWidget15 = QtGui.QWidget(linacStartupSynoptic)
@@ -882,12 +874,10 @@ class Ui_linacStartupSynoptic(object):
         self.klystron2Layout.addWidget(self.klystron2RstLed, 1, 3, 1, 1)
         self.klystron2OnCheck = LinacValueCheckBox(self.layoutWidget15)
         self.klystron2OnCheck.setShowText(False)
-        self.klystron2OnCheck.setProperty("DangerOnFallingEdge", True)
         self.klystron2OnCheck.setObjectName(_fromUtf8("klystron2OnCheck"))
         self.klystron2Layout.addWidget(self.klystron2OnCheck, 0, 4, 1, 1)
         self.klystron2RstCheck = LinacValueCheckBox(self.layoutWidget15)
         self.klystron2RstCheck.setShowText(False)
-        self.klystron2RstCheck.setResetCheckBox(True)
         self.klystron2RstCheck.setObjectName(_fromUtf8("klystron2RstCheck"))
         self.klystron2Layout.addWidget(self.klystron2RstCheck, 1, 4, 1, 1)
         self.klystron1LVPopupCheck = QtGui.QToolButton(linacStartupSynoptic)

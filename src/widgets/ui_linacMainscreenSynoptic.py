@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'widgets/linacMainscreenSynoptic.ui'
 #
-# Created: Thu Mar  6 10:28:38 2014
+# Created: Mon Mar 10 16:53:51 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -723,11 +723,7 @@ class Ui_linacMainscreenSynoptic(object):
         self.klystron1RstLed.setObjectName(_fromUtf8("klystron1RstLed"))
         self.klystron1Layout.addWidget(self.klystron1RstLed, 1, 2, 1, 1)
         self.klystron1RstCheck = LinacValueCheckBox(self.layoutWidget1)
-        self.klystron1RstCheck.setText(_fromUtf8(""))
         self.klystron1RstCheck.setShowText(False)
-        self.klystron1RstCheck.setAutoApply(True)
-        self.klystron1RstCheck.setForcedApply(True)
-        self.klystron1RstCheck.setResetCheckBox(True)
         self.klystron1RstCheck.setObjectName(_fromUtf8("klystron1RstCheck"))
         self.klystron1Layout.addWidget(self.klystron1RstCheck, 1, 3, 1, 1)
         self.klystron1OnCheck = LinacValueCheckBox(self.layoutWidget1)
@@ -758,7 +754,6 @@ class Ui_linacMainscreenSynoptic(object):
         self.klystron2Layout.addWidget(self.klystron2RstLed, 1, 2, 1, 1)
         self.klystron2RstCheck = LinacValueCheckBox(self.layoutWidget2)
         self.klystron2RstCheck.setShowText(False)
-        self.klystron2RstCheck.setResetCheckBox(True)
         self.klystron2RstCheck.setObjectName(_fromUtf8("klystron2RstCheck"))
         self.klystron2Layout.addWidget(self.klystron2RstCheck, 1, 4, 1, 1)
         self.klystron2OnCheck = LinacValueCheckBox(self.layoutWidget2)
@@ -898,7 +893,6 @@ class Ui_linacMainscreenSynoptic(object):
         self.label.setObjectName(_fromUtf8("label"))
         self.multibunchLayout.addWidget(self.label, 2, 0, 1, 2)
         self.tbMultiBunchCheck = LinacValueCheckBox(self.layoutWidget4)
-        self.tbMultiBunchCheck.setText(_fromUtf8(""))
         self.tbMultiBunchCheck.setShowText(False)
         self.tbMultiBunchCheck.setObjectName(_fromUtf8("tbMultiBunchCheck"))
         self.multibunchLayout.addWidget(self.tbMultiBunchCheck, 1, 1, 1, 1)
@@ -938,7 +932,6 @@ class Ui_linacMainscreenSynoptic(object):
         self.magnetsLayout.addWidget(self.magnetsOnLed, 1, 1, 1, 1)
         self.magnetsRstCheck = LinacValueCheckBox(self.layoutWidget5)
         self.magnetsRstCheck.setShowText(False)
-        self.magnetsRstCheck.setResetCheckBox(True)
         self.magnetsRstCheck.setObjectName(_fromUtf8("magnetsRstCheck"))
         self.magnetsLayout.addWidget(self.magnetsRstCheck, 0, 2, 1, 1)
         self.magnetsOnCheck = LinacValueCheckBox(self.layoutWidget5)
