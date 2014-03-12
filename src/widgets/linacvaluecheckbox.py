@@ -32,12 +32,13 @@ __docformat__ = 'restructuredtext'
 
 import sys
 from taurus.qt import Qt
-from taurus.qt.qtgui.base import TaurusBaseWritableWidget,\
-                                 TaurusBaseWidget,\
-                                 TaurusBaseComponent
+from taurus.qt.qtgui.input import TaurusValueCheckBox
+#from taurus.qt.qtgui.base import TaurusBaseWritableWidget,\
+#                                 TaurusBaseWidget,\
+#                                 TaurusBaseComponent
 
 
-class LinacValueCheckBox(Qt.QCheckBox, TaurusBaseWritableWidget):
+class LinacValueCheckBox(TaurusValueCheckBox):
     """Clone the TaurusValueCheckBox that connects a boolean writable 
        attribute model, with two extra features:
        - uncheck when a reset is cleaned.
@@ -48,81 +49,102 @@ class LinacValueCheckBox(Qt.QCheckBox, TaurusBaseWritableWidget):
 
     def __init__(self, qt_parent = None, designMode = False):
         name = "LinacValueCheckBox"
-        #this part is the copy from the TaurusValueCheckBox
         try:
-            self.call__init__wo_kw(Qt.QCheckBox, qt_parent)
-            self.call__init__(TaurusBaseWritableWidget, name, designMode=designMode)
-            self.setObjectName(name)
-            self.updateStyle()
-            self.connect(self, Qt.SIGNAL('stateChanged(int)'),self.valueChanged)
-        except Exception,e:
-            print("Uou! Exception: %s"%(e))
-            raise Exception(e)
-
-        #This is the part with the changes related with the TaurusValueCheckBox
-        try:
+            self.call__init__(TaurusValueCheckBox,name,designMode=designMode)
             self._dangerRiseEdge = False
             self._dangerFallingEdge = False
             self._isResetCheckBox = False
         except Exception,e:
-            print("Uou! Exception: %s"%(e))
+            self.error("Uou! Exception: %s"%(e))
             raise Exception(e)
 
-    def keyPressEvent(self, event):
-        if event.key() in (Qt.Qt.Key_Return, Qt.Qt.Key_Enter):
-            self.writeValue()
-            event.accept()
-        else:
-            Qt.QCheckBox.keyPressEvent(self,event)
-            event.ignore()
+    def _my_debug(self,msg):
+        '''FIXME: this is a hackish method to be removed after the development
+           It's used to print some information, about the behaviour of the 
+           widget, filtering by an specific model 
+        '''
+        if self.getModelName() in ['li/ct/plc1/SCM1_DC',
+                                   'li/ct/plc4/HVPS_Interlock_RC']:
+            self.info(msg)
 
-    def minimumSizeHint(self):
-        return Qt.QSize(20, 20)
+    def isResetCheckBox(self):
+        return hasattr(self,'_isResetCheckBox') and self._isResetCheckBox
+    
+    def isDangerRiseEdge(self):
+        return self.getValue() and self._dangerRiseEdge
+    
+    def isDangerFallingEdge(self):
+        return not self.getValue() and self._dangerFallingEdge
+    
+    def isDangerousAction(self):
+        return self.isDangerRiseEdge() or self.isDangerFallingEdge()
+    
+    def _OperationCancelled(self):
+        self._my_debug("_OperationCancelled() ops="%(self._operations))
+        self.setValue(not self.getValue())
+
+    def getDangerRiseEdge(self):
+        return self._dangerRiseEdge
+    def setDangerRiseEdge(self,riseEdge):
+        self._dangerRiseEdge = riseEdge
+        self._isDangerous = len(self._dangerMessage) > 0
+    def resetDangerRiseEdge(self):
+        self.setDangerRiseEdge(False)
+
+    def getDangerFallingEdge(self):
+        return self._dangerFallingEdge
+    def setDangerFallingEdge(self,FallingEdge):
+        self._dangerFallingEdge = FallingEdge
+        self._isDangerous = len(self._dangerMessage) > 0
+    def resetDangerFallingEdge(self):
+        self.setDangerFallingEdge(False)
+
+    def getResetCheckBox(self):
+        return self._isResetCheckBox
+    def setResetCheckBox(self,hasReset):
+        self._isResetCheckBox = hasReset
+    def resetResetCheckBox(self):
+        self.setResetBehaviour(False)
 
     #-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-
     # TaurusValueCheckBox overwriting
     #-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-
 
     def updateStyle(self):
-        TaurusBaseWritableWidget.updateStyle(self)
-        # Show text only if it is not specifically hidden
-        if self._showText:
-            try:
-                self.setText(str(self.getModelObj().getConfig().getLabel()))
-            except:
-                self.setText('----')
-        else:
-            self.setText('')
-        #Update pending operations style
-        
-        if self.hasPendingOperations():
-            if self._isResetCheckBox:
-                #This behalves different than the original TaurusValueCheckBox
-                pass
+        self._my_debug("updateStyle()")
+        try:
+            TaurusValueCheckBox.updateStyle(self)
+            # Show text only if it is not specifically hidden
+            if self._showText and self.isResetCheckBox():
+                try:
+                    self.setText(str(self.getModelObj().getConfig().getLabel()))
+                except:
+                    self.setText('----')
             else:
+                self.setText('')
+            #Update pending operations style
+            
+            if not self.isResetCheckBox():
                 #If it is not a resetCheckBox, proceed like the TaurusValueCheckBox
-                txt = str(self.text()).strip()
-                if len(txt) == 0:
-                    self.setText("!")
-                self.setStyleSheet('TaurusValueCheckBox {color: blue;}')
-        else:
-            if str(self.text()) == "!":
-                self.setText(" ")
-            self.setStyleSheet('TaurusValueCheckBox {}')
-        self.update()
-
-    def setValue(self, v):
-        self.setChecked(bool(v))
-
-    def getValue(self):
-        return self.isChecked()
+                if self.hasPendingOperations():
+#                    txt = str(self.text()).strip()
+#                    if len(txt) == 0:
+#                        self.setText("!")
+                    self.setStyleSheet('TaurusValueCheckBox {color: blue;}')
+                else:
+#                    if str(self.text()) == "!":
+#                        self.setText(" ")
+                    self.setStyleSheet('TaurusValueCheckBox {}')
+                self.update()
+        except Exception,e:
+            self.error("Cannot updateStyle: %s"%(e))
 
     @classmethod
     def getQtDesignerPluginInfo(cls):
-        ret = TaurusBaseWritableWidget.getQtDesignerPluginInfo()
+        ret = TaurusValueCheckBox.getQtDesignerPluginInfo()
         ret['module'] = 'linacvaluecheckbox'
         ret['group'] = 'Taurus Linac'
-        ret['icon'] = ":/designer/checkbox.png"
+#        ret['icon'] = ":/designer/checkbox.png"
         return ret
 
     #-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-
@@ -132,19 +154,27 @@ class LinacValueCheckBox(Qt.QCheckBox, TaurusBaseWritableWidget):
     #---- TODO: when a value change is received, the setChecked() must change 
     #           the same way
     def valueChanged(self, *args):
-        if self._isResetCheckBox and not value and not self.isChecked():
+        self._my_debug("valueChanged(*args=%s) isChecked=%s"%(args,self.isChecked()))
+        if not self.isChecked() and self.isResetCheckBox():
             #when it's a reset checkbox, ignore when is unchecked because it is
             #cause by handleEvent() and the write to the attr must be avoided.
             return
-        TaurusBaseWritableWidget.valueChanged(self, *args)
+        TaurusValueCheckBox.valueChanged(self, *args)
     
     def handleEvent(self, src, evt_type, evt_value):
+        #self._my_debug("handleEvent(src=%s,value=%s)"%(src,evt_value))
         if hasattr(evt_value,'value'):
-            if self._isResetCheckBox:
-                self.debug("received from %s: %s"%(src,evt_value.value))
+            if self.isResetCheckBox():
+                self._my_debug("received from %s: %s"%(src,evt_value.value))
                 if self.isChecked() and evt_value.value ==False:
                     self.setChecked(False)
-        TaurusBaseWritableWidget.handleEvent(self,src,evt_type,evt_value)
+#            else:
+#                self.setChecked(evt_value.w_value)
+        TaurusValueCheckBox.handleEvent(self,src,evt_type,evt_value)
+        
+    def writeValue(self, forceApply=False):
+        self._my_debug("writeValue(forceApply=%s)"%(forceApply))
+        TaurusValueCheckBox.writeValue(self,forceApply)
 
     #-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-
     # TaurusBaseWidget overwriting
@@ -154,108 +184,112 @@ class LinacValueCheckBox(Qt.QCheckBox, TaurusBaseWritableWidget):
         '''Modify the behaviour of the DangerMessage because in this case, 
            different than a button, we may distinguish between set action and 
            unset action.
+           It seems that Taurus will someday support multiple Danger messages,
+           but this widget did not copy this feature.
         '''
-        isChecked = self.getValue()
-        myIsDangerous = (isChecked and self._dangerRiseEdge) or \
-                        (not isChecked and self._dangerFallingEdge)
-        
-        #---- This is almost the same than the superclass, but with an extra if
         if ops is None: ops = self.getPendingOperations()
+        
+        self._my_debug("safeApplyOperations(ops=%s)"%(ops))
         
         #Check if we need to take care of dangerous operations
         if self.getForceDangerousOperations(): dangerMsgs = []
         else: dangerMsgs = [op.getDangerMessage() for op in ops \
                                               if len(op.getDangerMessage()) > 0]
         #warn the user if need be
-        if myIsDangerous:
-            if len(dangerMsgs)==1:
-                result = Qt.QMessageBox.warning(self,
-                                                "Potentially dangerous action",
-                                                "%s\nProceed?"%dangerMsgs[0],
-                                        Qt.QMessageBox.Ok|Qt.QMessageBox.Cancel,
-                                                Qt.QMessageBox.Cancel)
-                #---- Important default behaviour shall be the Cancel
-                if result != Qt.QMessageBox.Ok:
-                    return
-                    
-            elif len(dangerMsgs)>1:
-                warningDlg = Qt.QMessageBox(Qt.QMessageBox.Warning,
-                                            " %d potentially dangerous actions"
-                                             %len(dangerMsgs),
-                                            "You are about to apply %d "\
-                                            "actions that may be potentially "\
-                                            "dangerous. Proceed?"
-                                            %len(dangerMsgs),
-                                        Qt.QMessageBox.Ok|Qt.QMessageBox.Cancel,
-                                            self)
-                details = "\n".join(dangerMsgs)
-                warningDlg.setDetailedText(details)
-                result = warningDlg.exec_()
-                if result != Qt.QMessageBox.Ok:
-                    return
-        self.applyPendingOperations(ops)
+        if self.isDangerousAction():
+            WarnTitle = "Potentially dangerous action"
+            WarnMsg = "%s\nProceed?"%dangerMsgs[0]
+            Buttons = Qt.QMessageBox.Ok|Qt.QMessageBox.Cancel
+            Default = Qt.QMessageBox.Cancel
+            result = Qt.QMessageBox.warning(self,WarnTitle,WarnMsg,
+                                            Buttons,Default)
+            #---- Important default behaviour shall be the Cancel
+            self._my_debug("safeApplyOperations(...) answer = %s"%result)
+            if result == Qt.QMessageBox.Cancel:
+                self._OperationCancelled()
+            else:
+                self.applyPendingOperations(ops)
+        else:
+            self.applyPendingOperations(ops)
+
+    def emitValueChanged(self, *args):
+        self._my_debug("emitValueChanged(args=%s)"%(str(args)))
+        TaurusValueCheckBox.emitValueChanged(self,*args)
+
+    #-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-
+    # TaurusBaseComponent overwriting
+    #-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-
+
+    def setDangerMessage(self, dangerMessage=""):
+        """Sets the danger message when applying an operation.
+           In this widget, setting a danger message is not enough to define
+           a dangerous operation, because it must be defined if the danger is
+           on setting true or false, or both.
+           If dangerMessage is None, the apply operation is considered safe
+        
+        :param dangerMessage: (str or None) the danger message. 
+                              If None is given (default) the apply operation 
+                              is considered safe.
+        """
+        self._dangerMessage = dangerMessage
+        if self._dangerRiseEdge or self._dangerFallingEdge:
+            self._isDangerous = len(dangerMessage) > 0
+        else:
+            self._isDangerous = False
+
+    def hasPendingOperations(self):
+        self._my_debug("hasPendingOperations()")
+        return TaurusValueCheckBox.hasPendingOperations(self)
+
+    def getPendingOperations(self):
+        self._my_debug("getPendingOperations(): %s"%(self._operations))
+        return TaurusValueCheckBox.getPendingOperations(self)
+    
+    def applyPendingOperations(self,ops=None):
+        self._my_debug("applyPendingOperations(ops=%s)"%(ops))
+        TaurusValueCheckBox.applyPendingOperations(self,ops)
 
     #-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-
     # QT properties
     #-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-
 
-    model = Qt.pyqtProperty("QString", TaurusBaseWritableWidget.getModel,
-                            TaurusBaseWritableWidget.setModel,
-                            TaurusBaseWritableWidget.resetModel)
+    model = Qt.pyqtProperty("QString", TaurusValueCheckBox.getModel,
+                            TaurusValueCheckBox.setModel,
+                            TaurusValueCheckBox.resetModel)
 
-    showText = Qt.pyqtProperty("bool", TaurusBaseWritableWidget.getShowText,
-                               TaurusBaseWritableWidget.setShowText,
-                               TaurusBaseWritableWidget.resetShowText)
+    showText = Qt.pyqtProperty("bool", TaurusValueCheckBox.getShowText,
+                               TaurusValueCheckBox.setShowText,
+                               TaurusValueCheckBox.resetShowText)
 
-    useParentModel = Qt.pyqtProperty("bool", TaurusBaseWritableWidget.getUseParentModel,
-                                     TaurusBaseWritableWidget.setUseParentModel,
-                                     TaurusBaseWritableWidget.resetUseParentModel)
+    useParentModel = Qt.pyqtProperty("bool", TaurusValueCheckBox.getUseParentModel,
+                                     TaurusValueCheckBox.setUseParentModel,
+                                     TaurusValueCheckBox.resetUseParentModel)
 
-    autoApply = Qt.pyqtProperty("bool", TaurusBaseWritableWidget.getAutoApply,
-                                TaurusBaseWritableWidget.setAutoApply,
-                                TaurusBaseWritableWidget.resetAutoApply)
+    autoApply = Qt.pyqtProperty("bool", TaurusValueCheckBox.getAutoApply,
+                                TaurusValueCheckBox.setAutoApply,
+                                TaurusValueCheckBox.resetAutoApply)
 
-    forcedApply = Qt.pyqtProperty("bool", TaurusBaseWritableWidget.getForcedApply,
-                                  TaurusBaseWritableWidget.setForcedApply,
-                                  TaurusBaseWritableWidget.resetForcedApply)
+    forcedApply = Qt.pyqtProperty("bool", TaurusValueCheckBox.getForcedApply,
+                                  TaurusValueCheckBox.setForcedApply,
+                                  TaurusValueCheckBox.resetForcedApply)
 
     #New feature different than the TaurusValueCheckBox, 
     #but similar to the one that is implemented in the TaurusCommandButton:
-    DangerMessage = Qt.pyqtProperty("QString", TaurusBaseComponent.getDangerMessage, 
-                                    TaurusBaseComponent.setDangerMessage, 
-                                    TaurusBaseComponent.resetDangerMessage)
+    DangerMessage = Qt.pyqtProperty("QString", TaurusValueCheckBox.getDangerMessage, 
+                                    setDangerMessage, 
+                                    TaurusValueCheckBox.resetDangerMessage)
 
     #extra Qt properties to configure which of the operations can 
     #be dangerous (set, unset, or both).
-    def getDangerRiseEdge(self):
-        return self._dangerRiseEdge
-    def setDangerRiseEdge(self,riseEdge):
-        self._dangerRiseEdge = riseEdge
-    def resetDangerRiseEdge(self):
-        self.setDangerRiseEdge(False)
     DangerOnRiseEdge = Qt.pyqtProperty('bool',getDangerRiseEdge,
                                        setDangerRiseEdge,
                                        resetDangerRiseEdge)
-
-    def getDangerFallingEdge(self):
-        return self._dangerFallingEdge
-    def setDangerFallingEdge(self,FallingEdge):
-        self._dangerFallingEdge = FallingEdge
-    def resetDangerFallingEdge(self):
-        self.setDangerFallingEdge(False)
 
     DangerOnFallingEdge = Qt.pyqtProperty('bool',getDangerFallingEdge,
                                    setDangerFallingEdge,
                                    resetDangerFallingEdge)
     
     #another QT property to define the reset behaviour
-    def getResetCheckBox(self):
-        return self._isResetCheckBox
-    def setResetCheckBox(self,hasReset):
-        self._isResetCheckBox = hasReset
-    def resetResetCheckBox(self):
-        self.setResetBehaviour(False)
-    
     ResetCheckBox = Qt.pyqtProperty("bool",getResetCheckBox,
                                      setResetCheckBox,
                                      resetResetCheckBox)
