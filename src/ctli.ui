@@ -33,7 +33,7 @@
       <enum>QTabWidget::Rounded</enum>
      </property>
      <property name="currentIndex">
-      <number>2</number>
+      <number>3</number>
      </property>
      <property name="elideMode">
       <enum>Qt::ElideMiddle</enum>
@@ -53,8 +53,8 @@
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>71</width>
-            <height>50</height>
+            <width>666</width>
+            <height>676</height>
            </rect>
           </property>
           <layout class="QGridLayout" name="gridLayout_3">
@@ -181,8 +181,8 @@
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>71</width>
-            <height>36</height>
+            <width>1266</width>
+            <height>841</height>
            </rect>
           </property>
           <layout class="QGridLayout" name="gridLayout_5">
@@ -262,8 +262,8 @@
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>1295</width>
-            <height>949</height>
+            <width>1266</width>
+            <height>841</height>
            </rect>
           </property>
           <layout class="QGridLayout" name="gridLayout_7">
@@ -328,6 +328,16 @@
        </item>
       </layout>
      </widget>
+     <widget class="QWidget" name="configurationTab">
+      <attribute name="title">
+       <string>Configuration</string>
+      </attribute>
+      <layout class="QGridLayout" name="gridLayout_8">
+       <item row="0" column="0">
+        <widget class="linacConfigurationScreen" name="linacConfigurationScreen"/>
+       </item>
+      </layout>
+     </widget>
     </widget>
    </item>
   </layout>
@@ -368,6 +378,11 @@
    <extends>TaurusWidget</extends>
    <header>linacmainscreensynoptic</header>
    <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>linacConfigurationScreen</class>
+   <extends>TaurusWidget</extends>
+   <header>linacconfigurationscreen</header>
   </customwidget>
  </customwidgets>
  <resources/>

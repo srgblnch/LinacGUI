@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'ctli.ui'
 #
-# Created: Wed Feb 26 14:51:49 2014
+# Created: Wed Mar 12 09:00:59 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -39,7 +39,7 @@ class Ui_linacGui(object):
         self.communicationsScrollArea.setWidgetResizable(True)
         self.communicationsScrollArea.setObjectName(_fromUtf8("communicationsScrollArea"))
         self.scrollAreaWidgetContents = QtGui.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 71, 50))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 666, 676))
         self.scrollAreaWidgetContents.setObjectName(_fromUtf8("scrollAreaWidgetContents"))
         self.gridLayout_3 = QtGui.QGridLayout(self.scrollAreaWidgetContents)
         self.gridLayout_3.setObjectName(_fromUtf8("gridLayout_3"))
@@ -80,7 +80,7 @@ class Ui_linacGui(object):
         self.startupScrollArea.setWidgetResizable(True)
         self.startupScrollArea.setObjectName(_fromUtf8("startupScrollArea"))
         self.scrollAreaWidgetContents_2 = QtGui.QWidget()
-        self.scrollAreaWidgetContents_2.setGeometry(QtCore.QRect(0, 0, 71, 36))
+        self.scrollAreaWidgetContents_2.setGeometry(QtCore.QRect(0, 0, 1266, 841))
         self.scrollAreaWidgetContents_2.setObjectName(_fromUtf8("scrollAreaWidgetContents_2"))
         self.gridLayout_5 = QtGui.QGridLayout(self.scrollAreaWidgetContents_2)
         self.gridLayout_5.setObjectName(_fromUtf8("gridLayout_5"))
@@ -106,7 +106,7 @@ class Ui_linacGui(object):
         self.mainscreenScrollArea.setWidgetResizable(True)
         self.mainscreenScrollArea.setObjectName(_fromUtf8("mainscreenScrollArea"))
         self.scrollAreaWidgetContents_3 = QtGui.QWidget()
-        self.scrollAreaWidgetContents_3.setGeometry(QtCore.QRect(0, 0, 1295, 949))
+        self.scrollAreaWidgetContents_3.setGeometry(QtCore.QRect(0, 0, 1266, 841))
         self.scrollAreaWidgetContents_3.setObjectName(_fromUtf8("scrollAreaWidgetContents_3"))
         self.gridLayout_7 = QtGui.QGridLayout(self.scrollAreaWidgetContents_3)
         self.gridLayout_7.setObjectName(_fromUtf8("gridLayout_7"))
@@ -124,10 +124,18 @@ class Ui_linacGui(object):
         self.mainscreenScrollArea.setWidget(self.scrollAreaWidgetContents_3)
         self.gridLayout_6.addWidget(self.mainscreenScrollArea, 0, 0, 1, 1)
         self.linacTabs.addTab(self.mainscreenTab, _fromUtf8(""))
+        self.configurationTab = QtGui.QWidget()
+        self.configurationTab.setObjectName(_fromUtf8("configurationTab"))
+        self.gridLayout_8 = QtGui.QGridLayout(self.configurationTab)
+        self.gridLayout_8.setObjectName(_fromUtf8("gridLayout_8"))
+        self.linacConfigurationScreen = linacConfigurationScreen(self.configurationTab)
+        self.linacConfigurationScreen.setObjectName(_fromUtf8("linacConfigurationScreen"))
+        self.gridLayout_8.addWidget(self.linacConfigurationScreen, 0, 0, 1, 1)
+        self.linacTabs.addTab(self.configurationTab, _fromUtf8(""))
         self.gridLayout.addWidget(self.linacTabs, 0, 0, 1, 1)
 
         self.retranslateUi(linacGui)
-        self.linacTabs.setCurrentIndex(2)
+        self.linacTabs.setCurrentIndex(3)
         QtCore.QMetaObject.connectSlotsByName(linacGui)
 
     def retranslateUi(self, linacGui):
@@ -140,9 +148,11 @@ class Ui_linacGui(object):
         self.linacTabs.setTabText(self.linacTabs.indexOf(self.communicationTab), QtGui.QApplication.translate("linacGui", "Communication", None, QtGui.QApplication.UnicodeUTF8))
         self.linacTabs.setTabText(self.linacTabs.indexOf(self.startupTab), QtGui.QApplication.translate("linacGui", "Start up", None, QtGui.QApplication.UnicodeUTF8))
         self.linacTabs.setTabText(self.linacTabs.indexOf(self.mainscreenTab), QtGui.QApplication.translate("linacGui", "Main Screen", None, QtGui.QApplication.UnicodeUTF8))
+        self.linacTabs.setTabText(self.linacTabs.indexOf(self.configurationTab), QtGui.QApplication.translate("linacGui", "Configuration", None, QtGui.QApplication.UnicodeUTF8))
 
-from linacstartupsynoptic import linacStartupSynoptic
+from taurus.qt.qtgui.container import TaurusFrame
 from linacplcwidget import linacPlcWidget
+from linacstartupsynoptic import linacStartupSynoptic
 from linacmainscreensynoptic import linacMainscreenSynoptic
 from linacoverview import linacOverview
-from taurus.qt.qtgui.container import TaurusFrame
+from linacconfigurationscreen import linacConfigurationScreen

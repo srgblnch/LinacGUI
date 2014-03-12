@@ -33,7 +33,7 @@ __docformat__ = 'restructuredtext'
 import sys
 from taurus.qt import Qt
 from taurus.qt.qtgui.input import TaurusValueCheckBox
-#from taurus.qt.qtgui.base import TaurusBaseWritableWidget,\
+from taurus.qt.qtgui.base import TaurusBaseWritableWidget#,\
 #                                 TaurusBaseWidget,\
 #                                 TaurusBaseComponent
 
@@ -54,6 +54,8 @@ class LinacValueCheckBox(TaurusValueCheckBox):
             self._dangerRiseEdge = False
             self._dangerFallingEdge = False
             self._isResetCheckBox = False
+            #The superclass connect the event 'stateChanged(int)' with
+            #the method valueChanged.
         except Exception,e:
             self.error("Uou! Exception: %s"%(e))
             raise Exception(e)
@@ -61,7 +63,8 @@ class LinacValueCheckBox(TaurusValueCheckBox):
     def _my_debug(self,msg):
         '''FIXME: this is a hackish method to be removed after the development
            It's used to print some information, about the behaviour of the 
-           widget, filtering by an specific model 
+           widget, filtering by an specific model to simplify and get readable
+           the tracing logs.
         '''
         if self.getModelName() in ['li/ct/plc1/SCM1_DC',
                                    'li/ct/plc4/HVPS_Interlock_RC']:
@@ -81,7 +84,7 @@ class LinacValueCheckBox(TaurusValueCheckBox):
     
     def _OperationCancelled(self):
         self._my_debug("_OperationCancelled() ops="%(self._operations))
-        self.setValue(not self.getValue())
+        #self.setValue(not self.getValue())
 
     def getDangerRiseEdge(self):
         return self._dangerRiseEdge
@@ -113,7 +116,8 @@ class LinacValueCheckBox(TaurusValueCheckBox):
     def updateStyle(self):
         self._my_debug("updateStyle()")
         try:
-            TaurusValueCheckBox.updateStyle(self)
+            #TaurusValueCheckBox.updateStyle(self)
+            TaurusBaseWritableWidget.updateStyle(self)
             # Show text only if it is not specifically hidden
             if self._showText and self.isResetCheckBox():
                 try:
@@ -138,6 +142,15 @@ class LinacValueCheckBox(TaurusValueCheckBox):
                 self.update()
         except Exception,e:
             self.error("Cannot updateStyle: %s"%(e))
+
+    def setValue(self, v):
+        self._my_debug("setValue(v=%s)"%(v))
+        TaurusValueCheckBox.setChecked(self,bool(v))
+
+    def getValue(self):
+        value = TaurusValueCheckBox.getValue(self)
+        self._my_debug("getValue(): %s"%(value))
+        return value
 
     @classmethod
     def getQtDesignerPluginInfo(cls):
@@ -164,10 +177,10 @@ class LinacValueCheckBox(TaurusValueCheckBox):
     def handleEvent(self, src, evt_type, evt_value):
         #self._my_debug("handleEvent(src=%s,value=%s)"%(src,evt_value))
         if hasattr(evt_value,'value'):
+            self._my_debug("received from %s: %s"%(src,evt_value.value))
             if self.isResetCheckBox():
-                self._my_debug("received from %s: %s"%(src,evt_value.value))
-                if self.isChecked() and evt_value.value ==False:
-                    self.setChecked(False)
+                if self.getValue() and evt_value.value ==False:
+                    self.setValue(False)
 #            else:
 #                self.setChecked(evt_value.w_value)
         TaurusValueCheckBox.handleEvent(self,src,evt_type,evt_value)
@@ -238,12 +251,14 @@ class LinacValueCheckBox(TaurusValueCheckBox):
             self._isDangerous = False
 
     def hasPendingOperations(self):
-        self._my_debug("hasPendingOperations()")
-        return TaurusValueCheckBox.hasPendingOperations(self)
+        value = TaurusValueCheckBox.hasPendingOperations(self)
+        self._my_debug("hasPendingOperations(): %s"%(value))
+        return value
 
     def getPendingOperations(self):
-        self._my_debug("getPendingOperations(): %s"%(self._operations))
-        return TaurusValueCheckBox.getPendingOperations(self)
+        value = TaurusValueCheckBox.getPendingOperations(self)
+        self._my_debug("getPendingOperations(): %s"%(value))
+        return value
     
     def applyPendingOperations(self,ops=None):
         self._my_debug("applyPendingOperations(ops=%s)"%(ops))

@@ -10,8 +10,11 @@ START_UI = linacStartupSynoptic.ui coolingLoop.ui eGunLV.ui \
            klystron1ictk.ui klystron2ictk.ui klystronLV.ui
 MAIN_UI = linacMainscreenSynoptic.ui klystronHV.ui attenuator.ui \
           phaseShifter.ui magnet.ui eGunHV.ui
+SNAPSHOT_UI = snapshot_coolingloops.ui snapshot_klystrons.ui \
+              snapshot_radiofrequency.ui snapshot_vacuum.ui \
+              snapshot_egun.ui snapshot_magnets.ui snapshot_timing.ui
 
-UI_FILES = $(COMM_UI) $(START_UI) $(MAIN_UI)
+UI_FILES = ui/$(COMM_UI) ui/$(START_UI) ui/$(MAIN_UI) ui/$(SNAPSHOT_UI)
 
 ################
 

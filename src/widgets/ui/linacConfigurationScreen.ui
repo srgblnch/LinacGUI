@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>linacConfigurationScreen</class>
+ <widget class="TaurusWidget" name="linacConfigurationScreen">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1250</width>
+    <height>825</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="2" column="0">
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Apply|QDialogButtonBox::Open|QDialogButtonBox::Reset|QDialogButtonBox::Save</set>
+     </property>
+     <property name="centerButtons">
+      <bool>false</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0">
+    <widget class="QScrollArea" name="scrollArea">
+     <property name="widgetResizable">
+      <bool>true</bool>
+     </property>
+     <widget class="QWidget" name="scrollAreaWidgetContents">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>1445</width>
+        <height>816</height>
+       </rect>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_2">
+       <item row="1" column="2">
+        <widget class="timingSnapshot" name="timingSnapshot"/>
+       </item>
+       <item row="0" column="1" rowspan="5">
+        <widget class="magnetSnapshot" name="magnetSnapshot"/>
+       </item>
+       <item row="1" column="0">
+        <widget class="coolingLoopSnapshot" name="coolingLoopSnapshot"/>
+       </item>
+       <item row="0" column="2">
+        <widget class="radioFrequencySnapshot" name="radioFrequencySnapshot"/>
+       </item>
+       <item row="0" column="0">
+        <widget class="electronGunSnapshot" name="electronGunSnapshot"/>
+       </item>
+       <item row="2" column="2">
+        <widget class="klystronSnapshot" name="klystronSnapshot"/>
+       </item>
+       <item row="2" column="0">
+        <widget class="vacuumValveSnapshot" name="vacuumValveSnapshot"/>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>klystronSnapshot</class>
+   <extends>TaurusWidget</extends>
+   <header>klystronsnapshot</header>
+  </customwidget>
+  <customwidget>
+   <class>radioFrequencySnapshot</class>
+   <extends>TaurusWidget</extends>
+   <header>radiofrequencysnapshot</header>
+  </customwidget>
+  <customwidget>
+   <class>electronGunSnapshot</class>
+   <extends>TaurusWidget</extends>
+   <header>electrongunsnapshot</header>
+  </customwidget>
+  <customwidget>
+   <class>TaurusWidget</class>
+   <extends>QWidget</extends>
+   <header>taurus.qt.qtgui.container</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>coolingLoopSnapshot</class>
+   <extends>TaurusWidget</extends>
+   <header>coolingloopsnapshot</header>
+  </customwidget>
+  <customwidget>
+   <class>magnetSnapshot</class>
+   <extends>TaurusWidget</extends>
+   <header>magnetsnapshot</header>
+  </customwidget>
+  <customwidget>
+   <class>timingSnapshot</class>
+   <extends>TaurusWidget</extends>
+   <header>timingsnapshot</header>
+  </customwidget>
+  <customwidget>
+   <class>vacuumValveSnapshot</class>
+   <extends>TaurusWidget</extends>
+   <header>vacuumvalvesnapshot</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
