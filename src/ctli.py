@@ -555,10 +555,10 @@ class MainWindow(TaurusMainWindow):
         
     def _setMainscreen_tb(self):
         mainscreen_ui = self.ui.linacMainscreenSynoptic._ui
-        self._setupTaurusLabel4Attr(mainscreen_ui.tbKaDelay1Value,
-                                    'li/ct/plc1/TB_KA1_Delay',unit='us')
-        self._setupTaurusLabel4Attr(mainscreen_ui.tbKaDelay2Value,
-                                    'li/ct/plc1/TB_KA2_Delay',unit='ns')
+        self._setupSpinBox4Attr(mainscreen_ui.tbKaDelay1Value,
+                                    'li/ct/plc1/TB_KA1_Delay')
+        self._setupSpinBox4Attr(mainscreen_ui.tbKaDelay2Value,
+                                    'li/ct/plc1/TB_KA2_Delay')
         self._setupTaurusLabel4Attr(mainscreen_ui.tbRf2DelayValue,
                                     'li/ct/plc1/TB_RF2_Delay',unit='ns')
         self._setupSpinBox4Attr(mainscreen_ui.tbGunLevelValue,

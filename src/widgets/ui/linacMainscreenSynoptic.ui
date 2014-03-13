@@ -2471,26 +2471,6 @@
     <bool>true</bool>
    </property>
   </widget>
-  <widget class="TaurusLabel" name="tbKaDelay1Value">
-   <property name="geometry">
-    <rect>
-     <x>42</x>
-     <y>52</y>
-     <width>48</width>
-     <height>16</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="TaurusLabel" name="tbKaDelay2Value">
-   <property name="geometry">
-    <rect>
-     <x>107</x>
-     <y>52</y>
-     <width>48</width>
-     <height>16</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="TaurusLabel" name="tbRf2DelayValue">
    <property name="geometry">
     <rect>
@@ -2868,7 +2848,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>790</x>
@@ -2886,7 +2866,7 @@
     </item>
    </layout>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>1080</x>
@@ -2904,6 +2884,28 @@
     </item>
    </layout>
   </widget>
+  <widget class="TaurusValueSpinBox" name="tbKaDelay1Value">
+   <property name="geometry">
+    <rect>
+     <x>38</x>
+     <y>48</y>
+     <width>60</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="TaurusValueSpinBox" name="tbKaDelay2Value">
+   <property name="geometry">
+    <rect>
+     <x>102</x>
+     <y>49</y>
+     <width>60</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <zorder>layoutWidget</zorder>
+  <zorder>layoutWidget</zorder>
   <zorder>as2VacuumWidget</zorder>
   <zorder>as1VacuumWidget</zorder>
   <zorder>buncherVacuumWidget</zorder>
@@ -2931,8 +2933,6 @@
   <zorder>tbNumberValue</zorder>
   <zorder>tbWidthValue</zorder>
   <zorder>tbGunDelayValue</zorder>
-  <zorder>klystron1HVWrite</zorder>
-  <zorder>klystron2HVWrite</zorder>
   <zorder>rfEnbLed</zorder>
   <zorder>tbTimerStatusStateLed</zorder>
   <zorder>rfTimePhaseShifter0Value</zorder>
@@ -3037,8 +3037,6 @@
   <zorder>qt1PopupCheck</zorder>
   <zorder>qt2PopupCheck</zorder>
   <zorder>as2PopupCheck</zorder>
-  <zorder>tbKaDelay1Value</zorder>
-  <zorder>tbKaDelay2Value</zorder>
   <zorder>tbRf2DelayValue</zorder>
   <zorder>tbWidthLabel</zorder>
   <zorder>tbNumberLabel</zorder>
@@ -3053,8 +3051,8 @@
   <zorder>as1VacuumCheck</zorder>
   <zorder>as2VacuumCheck</zorder>
   <zorder>beamChargeMonitors</zorder>
-  <zorder>klystron1HVRead</zorder>
-  <zorder>klystron2HVRead</zorder>
+  <zorder>tbKaDelay1Value</zorder>
+  <zorder>tbKaDelay2Value</zorder>
  </widget>
  <customwidgets>
   <customwidget>
