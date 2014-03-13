@@ -68,6 +68,17 @@ class LinacValueCheckBox(Qt.QCheckBox, TaurusBaseWritableWidget):
             self.error("Uou! Exception: %s"%(e))
             raise Exception(e)
 
+    def keyPressEvent(self, event):
+        if event.key() in (Qt.Qt.Key_Return, Qt.Qt.Key_Enter):
+            self.writeValue()
+            event.accept()
+        else:
+            Qt.QCheckBox.keyPressEvent(self,event)
+            event.ignore()
+
+    def minimumSizeHint(self):
+        return Qt.QSize(20, 20)
+
     def _my_debug(self,msg):
         '''FIXME: this is a hackish method to be removed after the development
            It's used to print some information, about the behaviour of the 
@@ -152,14 +163,16 @@ class LinacValueCheckBox(Qt.QCheckBox, TaurusBaseWritableWidget):
         except Exception,e:
             self.error("Cannot updateStyle: %s"%(e))
 
-#    def setValue(self, v):
-#        self._my_debug("setValue(v=%s)"%(v))
-#        TaurusValueCheckBox.setChecked(self,bool(v))
-#
-#    def getValue(self):
-#        value = TaurusValueCheckBox.getValue(self)
-#        self._my_debug("getValue(): %s"%(value))
-#        return value
+    def setValue(self, v):
+        self._my_debug("setValue(v=%s)"%(v))
+        #TaurusValueCheckBox.setChecked(self,bool(v))
+        self.setChecked(bool(v))
+
+    def getValue(self):
+        #value = TaurusValueCheckBox.getValue(self)
+        value = self.isChecked()
+        self._my_debug("getValue(): %s"%(value))
+        return value
 
     @classmethod
     def getQtDesignerPluginInfo(cls):
