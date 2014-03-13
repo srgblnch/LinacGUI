@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'widgets/linacMainscreenSynoptic.ui'
+# Form implementation generated from reading ui file 'widgets/ui/linacMainscreenSynoptic.ui'
 #
-# Created: Mon Mar 10 16:53:51 2014
+# Created: Thu Mar 13 14:41:22 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -973,6 +973,9 @@ class Ui_linacMainscreenSynoptic(object):
         self.as2VacuumCheck.setGeometry(QtCore.QRect(1019, 569, 40, 20))
         self.as2VacuumCheck.setCheckable(True)
         self.as2VacuumCheck.setObjectName(_fromUtf8("as2VacuumCheck"))
+        self.beamChargeMonitors = beamChargeMonitors(linacMainscreenSynoptic)
+        self.beamChargeMonitors.setGeometry(QtCore.QRect(1120, 420, 131, 81))
+        self.beamChargeMonitors.setObjectName(_fromUtf8("beamChargeMonitors"))
 
         self.retranslateUi(linacMainscreenSynoptic)
         QtCore.QMetaObject.connectSlotsByName(linacMainscreenSynoptic)
@@ -1049,6 +1052,7 @@ from egunhv import eGunHV
 from magnet import magnet
 from taurus.qt.qtgui.panel import TaurusWidget
 from cavityvacuum import CavityVacuum
+from beamchargemonitors import beamChargeMonitors
 from taurus.qt.qtgui.input import TaurusValueSpinBox, TaurusValueComboBox
 from linacvaluecheckbox import LinacValueCheckBox
 from klystronhv import klystronHV
