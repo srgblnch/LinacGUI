@@ -66,9 +66,10 @@ class LinacValueCheckBox(TaurusValueCheckBox):
            widget, filtering by an specific model to simplify and get readable
            the tracing logs.
         '''
-        if self.getModelName() in ['li/ct/plc1/SCM1_DC',
-                                   'li/ct/plc4/HVPS_Interlock_RC']:
-            self.info(msg)
+        pass
+#        if self.getModelName() in ['li/ct/plc1/SCM1_DC',
+#                                   'li/ct/plc4/HVPS_Interlock_RC']:
+#            self.info(msg)
 
     def isResetCheckBox(self):
         return hasattr(self,'_isResetCheckBox') and self._isResetCheckBox
