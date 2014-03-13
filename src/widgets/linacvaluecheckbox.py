@@ -32,13 +32,14 @@ __docformat__ = 'restructuredtext'
 
 import sys
 from taurus.qt import Qt
-from taurus.qt.qtgui.input import TaurusValueCheckBox
+#from taurus.qt.qtgui.input import TaurusValueCheckBox
 from taurus.qt.qtgui.base import TaurusBaseWritableWidget#,\
 #                                 TaurusBaseWidget,\
 #                                 TaurusBaseComponent
 
 
-class LinacValueCheckBox(TaurusValueCheckBox):
+#class LinacValueCheckBox(TaurusValueCheckBox):
+class LinacValueCheckBox(Qt.QCheckBox, TaurusBaseWritableWidget):
     """Clone the TaurusValueCheckBox that connects a boolean writable 
        attribute model, with two extra features:
        - uncheck when a reset is cleaned.
@@ -50,7 +51,14 @@ class LinacValueCheckBox(TaurusValueCheckBox):
     def __init__(self, qt_parent = None, designMode = False):
         name = "LinacValueCheckBox"
         try:
-            self.call__init__(TaurusValueCheckBox,name,designMode=designMode)
+            #self.call__init__(TaurusValueCheckBox,name,designMode=designMode)
+            self.call__init__wo_kw(Qt.QCheckBox, qt_parent)
+            self.call__init__(TaurusBaseWritableWidget, name, designMode=designMode)
+        
+            self.setObjectName(name)
+            self.updateStyle()
+            self.connect(self, Qt.SIGNAL('stateChanged(int)'),self.valueChanged)
+            #End the copy of the TaurusValueCheckBox constructor
             self._dangerRiseEdge = False
             self._dangerFallingEdge = False
             self._isResetCheckBox = False
@@ -144,21 +152,22 @@ class LinacValueCheckBox(TaurusValueCheckBox):
         except Exception,e:
             self.error("Cannot updateStyle: %s"%(e))
 
-    def setValue(self, v):
-        self._my_debug("setValue(v=%s)"%(v))
-        TaurusValueCheckBox.setChecked(self,bool(v))
-
-    def getValue(self):
-        value = TaurusValueCheckBox.getValue(self)
-        self._my_debug("getValue(): %s"%(value))
-        return value
+#    def setValue(self, v):
+#        self._my_debug("setValue(v=%s)"%(v))
+#        TaurusValueCheckBox.setChecked(self,bool(v))
+#
+#    def getValue(self):
+#        value = TaurusValueCheckBox.getValue(self)
+#        self._my_debug("getValue(): %s"%(value))
+#        return value
 
     @classmethod
     def getQtDesignerPluginInfo(cls):
-        ret = TaurusValueCheckBox.getQtDesignerPluginInfo()
+        #ret = TaurusValueCheckBox.getQtDesignerPluginInfo()
+        ret = TaurusBaseWritableWidget.getQtDesignerPluginInfo()
         ret['module'] = 'linacvaluecheckbox'
         ret['group'] = 'Taurus Linac'
-#        ret['icon'] = ":/designer/checkbox.png"
+        ret['icon'] = ":/designer/checkbox.png"
         return ret
 
     #-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-
@@ -173,7 +182,8 @@ class LinacValueCheckBox(TaurusValueCheckBox):
             #when it's a reset checkbox, ignore when is unchecked because it is
             #cause by handleEvent() and the write to the attr must be avoided.
             return
-        TaurusValueCheckBox.valueChanged(self, *args)
+        #TaurusValueCheckBox.valueChanged(self, *args)
+        TaurusBaseWritableWidget.valueChanged(self, *args)
     
     def handleEvent(self, src, evt_type, evt_value):
         #self._my_debug("handleEvent(src=%s,value=%s)"%(src,evt_value))
@@ -184,11 +194,13 @@ class LinacValueCheckBox(TaurusValueCheckBox):
                     self.setValue(False)
 #            else:
 #                self.setChecked(evt_value.w_value)
-        TaurusValueCheckBox.handleEvent(self,src,evt_type,evt_value)
+        #TaurusValueCheckBox.handleEvent(self,src,evt_type,evt_value)
+        TaurusBaseWritableWidget.handleEvent(self,src,evt_type,evt_value)
         
-    def writeValue(self, forceApply=False):
-        self._my_debug("writeValue(forceApply=%s)"%(forceApply))
-        TaurusValueCheckBox.writeValue(self,forceApply)
+#    def writeValue(self, forceApply=False):
+#        self._my_debug("writeValue(forceApply=%s)"%(forceApply))
+#        #TaurusValueCheckBox.writeValue(self,forceApply)
+#        TaurusBaseWritableWidget.writeValue(self,forceApply)
 
     #-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-
     # TaurusBaseWidget overwriting
@@ -226,9 +238,10 @@ class LinacValueCheckBox(TaurusValueCheckBox):
         else:
             self.applyPendingOperations(ops)
 
-    def emitValueChanged(self, *args):
-        self._my_debug("emitValueChanged(args=%s)"%(str(args)))
-        TaurusValueCheckBox.emitValueChanged(self,*args)
+#    def emitValueChanged(self, *args):
+#        self._my_debug("emitValueChanged(args=%s)"%(str(args)))
+#        #TaurusValueCheckBox.emitValueChanged(self,*args)
+#        TaurusBaseWritableWidget.emitValueChanged(self,*args)
 
     #-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-
     # TaurusBaseComponent overwriting
@@ -251,49 +264,52 @@ class LinacValueCheckBox(TaurusValueCheckBox):
         else:
             self._isDangerous = False
 
-    def hasPendingOperations(self):
-        value = TaurusValueCheckBox.hasPendingOperations(self)
-        self._my_debug("hasPendingOperations(): %s"%(value))
-        return value
+#    def hasPendingOperations(self):
+#        #value = TaurusValueCheckBox.hasPendingOperations(self)
+#        value = TaurusBaseWritableWidget.hasPendingOperations(self)
+#        self._my_debug("hasPendingOperations(): %s"%(value))
+#        return value
 
-    def getPendingOperations(self):
-        value = TaurusValueCheckBox.getPendingOperations(self)
-        self._my_debug("getPendingOperations(): %s"%(value))
-        return value
+#    def getPendingOperations(self):
+#        #value = TaurusValueCheckBox.getPendingOperations(self)
+#        value = TaurusBaseWritableWidget.getPendingOperations(self)
+#        self._my_debug("getPendingOperations(): %s"%(value))
+#        return value
     
-    def applyPendingOperations(self,ops=None):
-        self._my_debug("applyPendingOperations(ops=%s)"%(ops))
-        TaurusValueCheckBox.applyPendingOperations(self,ops)
+#    def applyPendingOperations(self,ops=None):
+#        self._my_debug("applyPendingOperations(ops=%s)"%(ops))
+#        #TaurusValueCheckBox.applyPendingOperations(self,ops)
+#        TaurusBaseWritableWidget.applyPendingOperations(self,ops)
 
     #-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-
     # QT properties
     #-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-
 
-    model = Qt.pyqtProperty("QString", TaurusValueCheckBox.getModel,
-                            TaurusValueCheckBox.setModel,
-                            TaurusValueCheckBox.resetModel)
+    model = Qt.pyqtProperty("QString", TaurusBaseWritableWidget.getModel,
+                            TaurusBaseWritableWidget.setModel,
+                            TaurusBaseWritableWidget.resetModel)
 
-    showText = Qt.pyqtProperty("bool", TaurusValueCheckBox.getShowText,
-                               TaurusValueCheckBox.setShowText,
-                               TaurusValueCheckBox.resetShowText)
+    showText = Qt.pyqtProperty("bool", TaurusBaseWritableWidget.getShowText,
+                               TaurusBaseWritableWidget.setShowText,
+                               TaurusBaseWritableWidget.resetShowText)
 
-    useParentModel = Qt.pyqtProperty("bool", TaurusValueCheckBox.getUseParentModel,
-                                     TaurusValueCheckBox.setUseParentModel,
-                                     TaurusValueCheckBox.resetUseParentModel)
+    useParentModel = Qt.pyqtProperty("bool", TaurusBaseWritableWidget.getUseParentModel,
+                                     TaurusBaseWritableWidget.setUseParentModel,
+                                     TaurusBaseWritableWidget.resetUseParentModel)
 
-    autoApply = Qt.pyqtProperty("bool", TaurusValueCheckBox.getAutoApply,
-                                TaurusValueCheckBox.setAutoApply,
-                                TaurusValueCheckBox.resetAutoApply)
+    autoApply = Qt.pyqtProperty("bool", TaurusBaseWritableWidget.getAutoApply,
+                                TaurusBaseWritableWidget.setAutoApply,
+                                TaurusBaseWritableWidget.resetAutoApply)
 
-    forcedApply = Qt.pyqtProperty("bool", TaurusValueCheckBox.getForcedApply,
-                                  TaurusValueCheckBox.setForcedApply,
-                                  TaurusValueCheckBox.resetForcedApply)
+    forcedApply = Qt.pyqtProperty("bool", TaurusBaseWritableWidget.getForcedApply,
+                                  TaurusBaseWritableWidget.setForcedApply,
+                                  TaurusBaseWritableWidget.resetForcedApply)
 
     #New feature different than the TaurusValueCheckBox, 
     #but similar to the one that is implemented in the TaurusCommandButton:
-    DangerMessage = Qt.pyqtProperty("QString", TaurusValueCheckBox.getDangerMessage, 
+    DangerMessage = Qt.pyqtProperty("QString", TaurusBaseWritableWidget.getDangerMessage, 
                                     setDangerMessage, 
-                                    TaurusValueCheckBox.resetDangerMessage)
+                                    TaurusBaseWritableWidget.resetDangerMessage)
 
     #extra Qt properties to configure which of the operations can 
     #be dangerous (set, unset, or both).
