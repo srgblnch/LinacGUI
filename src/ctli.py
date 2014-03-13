@@ -224,7 +224,7 @@ class MainWindow(TaurusMainWindow):
         self._setupLed4Attr(startup_ui.gmdiLed,
                             'li/ct/plc1/GM_DI')                          #GM_DI
         self._setupLed4Attr(startup_ui.interlockUnitReadyStateLed,
-                            'li/ct/plc1/UI_RDY')                            #UI
+                            'li/ct/plc1/IU_RDY')                            #UI
         self._setupLed4Attr(startup_ui.klystron2AmplifierEnabledLed,
                             'li/ct/plc1/ka2_ok')                        #KA2_EN
         self._setupLed4Attr(startup_ui.klystron1AmplifierEnabledLed,
@@ -428,6 +428,16 @@ class MainWindow(TaurusMainWindow):
         self._setupLed4UnknownAttr(startup_ui.as1Led)
         self._setupLed4UnknownAttr(startup_ui.qtLed)
         self._setupLed4UnknownAttr(startup_ui.as2Led)
+#        self._setupLed4Attr(startup_ui.sl1Led,'li/ct/plc3/SL1F_cooling')
+#        self._setupLed4Attr(startup_ui.sl2Led,'li/ct/plc3/SL2F_cooling')
+#        self._setupLed4Attr(startup_ui.sl3Led,'li/ct/plc3/SL3F_cooling')
+#        self._setupLed4Attr(startup_ui.sl4Led,'li/ct/plc3/SL4F_cooling')
+#        self._setupLed4Attr(startup_ui.bc1Led,'li/ct/plc3/BC1F_cooling')
+#        self._setupLed4Attr(startup_ui.bc2Led,'li/ct/plc3/BC2F_cooling')
+#        self._setupLed4Attr(startup_ui.glLed,'li/ct/plc3/GLF_cooling')
+#        self._setupLed4Attr(startup_ui.as1Led,'li/ct/plc3/AS1F_cooling')
+#        self._setupLed4Attr(startup_ui.qtLed,'li/ct/plc3/QTF_cooling')
+#        self._setupLed4Attr(startup_ui.as2Led,'li/ct/plc3/AS2F_cooling')
 
     def _setStartup_vacuum(self):
         startup_ui = self.ui.linacStartupSynoptic._ui
@@ -823,8 +833,9 @@ class MainWindow(TaurusMainWindow):
                 attrName = '%s/%s_onc'%(deviceName,magnet)
                 self._setupLed4Attr(magnets[magnet]['state'],attrName)
             if magnets[magnet].has_key('info'):
-                attrName = '%s/%s_onc'%(deviceName,magnet)
-                self._setupLed4Attr(magnets[magnet]['info'],attrName)
+                #attrName = '%s/%sF_current'%(deviceName,magnet)
+                #self._setupLed4Attr(magnets[magnet]['info'],attrName)
+                self._setupLed4UnknownAttr(magnets[magnet]['info'])
             if magnets[magnet].has_key('h'):
                 attrName = '%s/%sh_I_setpoint'%(deviceName,magnet)
                 self._setupSpinBox4Attr(magnets[magnet]['h'],attrName,
