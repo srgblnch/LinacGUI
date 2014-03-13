@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'widgets/ui/linacMainscreenSynoptic.ui'
 #
-# Created: Thu Mar 13 14:41:22 2014
+# Created: Thu Mar 13 15:05:54 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -614,11 +614,17 @@ class Ui_linacMainscreenSynoptic(object):
         self.fluorescentScreen3LightCheck.setObjectName(_fromUtf8("fluorescentScreen3LightCheck"))
         self.fluorescentScreen3LightLayout.addWidget(self.fluorescentScreen3LightCheck)
         self.layoutWidget = QtGui.QWidget(linacMainscreenSynoptic)
-        self.layoutWidget.setGeometry(QtCore.QRect(30, 640, 81, 51))
+        self.layoutWidget.setGeometry(QtCore.QRect(20, 630, 91, 101))
         self.layoutWidget.setObjectName(_fromUtf8("layoutWidget"))
         self.hvsLayout = QtGui.QVBoxLayout(self.layoutWidget)
         self.hvsLayout.setMargin(0)
         self.hvsLayout.setObjectName(_fromUtf8("hvsLayout"))
+        self.eGunHVStatus = TaurusLabel(self.layoutWidget)
+        self.eGunHVStatus.setObjectName(_fromUtf8("eGunHVStatus"))
+        self.hvsLayout.addWidget(self.eGunHVStatus)
+        self.eGunHVValue = TaurusLabel(self.layoutWidget)
+        self.eGunHVValue.setObjectName(_fromUtf8("eGunHVValue"))
+        self.hvsLayout.addWidget(self.eGunHVValue)
         self.hvsVoltageValue = TaurusValueSpinBox(self.layoutWidget)
         self.hvsVoltageValue.setObjectName(_fromUtf8("hvsVoltageValue"))
         self.hvsLayout.addWidget(self.hvsVoltageValue)
@@ -693,7 +699,7 @@ class Ui_linacMainscreenSynoptic(object):
         self.fluorescentScreen3Status.setGeometry(QtCore.QRect(1100, 770, 60, 16))
         self.fluorescentScreen3Status.setObjectName(_fromUtf8("fluorescentScreen3Status"))
         self.hvsPopupWidget = eGunHV(linacMainscreenSynoptic)
-        self.hvsPopupWidget.setGeometry(QtCore.QRect(140, 375, 140, 120))
+        self.hvsPopupWidget.setGeometry(QtCore.QRect(-2, 529, 114, 60))
         self.hvsPopupWidget.setObjectName(_fromUtf8("hvsPopupWidget"))
         self.MainScreenSchematic = QtGui.QLabel(linacMainscreenSynoptic)
         self.MainScreenSchematic.setGeometry(QtCore.QRect(0, 0, 1265, 829))

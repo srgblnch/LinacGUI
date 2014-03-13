@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'eGunHV.ui'
+# Form implementation generated from reading ui file 'widgets/ui/eGunHV.ui'
 #
-# Created: Wed Feb 12 12:34:47 2014
+# Created: Thu Mar 13 15:04:23 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -17,7 +17,7 @@ except AttributeError:
 class Ui_eGunHV(object):
     def setupUi(self, eGunHV):
         eGunHV.setObjectName(_fromUtf8("eGunHV"))
-        eGunHV.resize(145, 97)
+        eGunHV.resize(109, 55)
         self.gridLayout = QtGui.QGridLayout(eGunHV)
         self.gridLayout.setObjectName(_fromUtf8("gridLayout"))
         self.taurusGroupBox = TaurusGroupBox(eGunHV)
@@ -35,15 +35,6 @@ class Ui_eGunHV(object):
         self.doorInterlockLed.setMaximumSize(QtCore.QSize(15, 15))
         self.doorInterlockLed.setObjectName(_fromUtf8("doorInterlockLed"))
         self.gridLayout_2.addWidget(self.doorInterlockLed, 0, 1, 1, 1)
-        self.eGunHVValue = TaurusLabel(self.taurusGroupBox)
-        self.eGunHVValue.setObjectName(_fromUtf8("eGunHVValue"))
-        self.gridLayout_2.addWidget(self.eGunHVValue, 2, 1, 1, 1)
-        self.eGunHVLabel = QtGui.QLabel(self.taurusGroupBox)
-        self.eGunHVLabel.setObjectName(_fromUtf8("eGunHVLabel"))
-        self.gridLayout_2.addWidget(self.eGunHVLabel, 2, 0, 1, 1)
-        self.eGunHVStatus = TaurusLabel(self.taurusGroupBox)
-        self.eGunHVStatus.setObjectName(_fromUtf8("eGunHVStatus"))
-        self.gridLayout_2.addWidget(self.eGunHVStatus, 1, 0, 1, 2)
         self.gridLayout.addWidget(self.taurusGroupBox, 0, 0, 1, 1)
 
         self.retranslateUi(eGunHV)
@@ -53,8 +44,7 @@ class Ui_eGunHV(object):
         eGunHV.setWindowTitle(QtGui.QApplication.translate("eGunHV", "Form", None, QtGui.QApplication.UnicodeUTF8))
         self.taurusGroupBox.setTitle(QtGui.QApplication.translate("eGunHV", "e-gun status", None, QtGui.QApplication.UnicodeUTF8))
         self.doorInterlockLabel.setText(QtGui.QApplication.translate("eGunHV", "door interlock", None, QtGui.QApplication.UnicodeUTF8))
-        self.eGunHVLabel.setText(QtGui.QApplication.translate("eGunHV", "High Voltage", None, QtGui.QApplication.UnicodeUTF8))
 
-from taurus.qt.qtgui.display import TaurusLabel, TaurusLed
+from taurus.qt.qtgui.display import TaurusLed
 from taurus.qt.qtgui.container import TaurusGroupBox
 from taurus.qt.qtgui.panel import TaurusWidget

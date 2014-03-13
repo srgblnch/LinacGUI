@@ -1749,13 +1749,19 @@
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>640</y>
-     <width>81</width>
-     <height>51</height>
+     <x>20</x>
+     <y>630</y>
+     <width>91</width>
+     <height>101</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="hvsLayout">
+    <item>
+     <widget class="TaurusLabel" name="eGunHVStatus"/>
+    </item>
+    <item>
+     <widget class="TaurusLabel" name="eGunHVValue"/>
+    </item>
     <item>
      <widget class="TaurusValueSpinBox" name="hvsVoltageValue"/>
     </item>
@@ -2001,10 +2007,10 @@
   <widget class="eGunHV" name="hvsPopupWidget">
    <property name="geometry">
     <rect>
-     <x>140</x>
-     <y>375</y>
-     <width>140</width>
-     <height>120</height>
+     <x>-2</x>
+     <y>529</y>
+     <width>114</width>
+     <height>60</height>
     </rect>
    </property>
   </widget>
