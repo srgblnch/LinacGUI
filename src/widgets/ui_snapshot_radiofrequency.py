@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'widgets/ui/snapshot_radiofrequency.ui'
+# Form implementation generated from reading ui file 'ui/snapshot_radiofrequency.ui'
 #
-# Created: Wed Mar 12 14:27:57 2014
+# Created: Wed Mar 12 17:15:24 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -17,7 +17,7 @@ except AttributeError:
 class Ui_radioFrequencySnapshot(object):
     def setupUi(self, radioFrequencySnapshot):
         radioFrequencySnapshot.setObjectName(_fromUtf8("radioFrequencySnapshot"))
-        radioFrequencySnapshot.resize(311, 277)
+        radioFrequencySnapshot.resize(299, 266)
         font = QtGui.QFont()
         font.setPointSize(7)
         radioFrequencySnapshot.setFont(font)
@@ -33,10 +33,6 @@ class Ui_radioFrequencySnapshot(object):
         self.SaveRetrieveTitle = QtGui.QLabel(self.radioFrequencyGroup)
         self.SaveRetrieveTitle.setObjectName(_fromUtf8("SaveRetrieveTitle"))
         self.gridLayout.addWidget(self.SaveRetrieveTitle, 0, 2, 1, 1)
-        self.ToApplyTitle = QtGui.QCheckBox(self.radioFrequencyGroup)
-        self.ToApplyTitle.setLayoutDirection(QtCore.Qt.RightToLeft)
-        self.ToApplyTitle.setObjectName(_fromUtf8("ToApplyTitle"))
-        self.gridLayout.addWidget(self.ToApplyTitle, 0, 4, 1, 1)
         self.TPS0PhaseLabel = QtGui.QLabel(self.radioFrequencyGroup)
         self.TPS0PhaseLabel.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.TPS0PhaseLabel.setObjectName(_fromUtf8("TPS0PhaseLabel"))
@@ -166,7 +162,6 @@ class Ui_radioFrequencySnapshot(object):
         self.radioFrequencyGroup.setTitle(QtGui.QApplication.translate("radioFrequencySnapshot", "Radio Frequency", None, QtGui.QApplication.UnicodeUTF8))
         self.PresentWriteTitle.setText(QtGui.QApplication.translate("radioFrequencySnapshot", "Present value", None, QtGui.QApplication.UnicodeUTF8))
         self.SaveRetrieveTitle.setText(QtGui.QApplication.translate("radioFrequencySnapshot", "Save/Retrieve", None, QtGui.QApplication.UnicodeUTF8))
-        self.ToApplyTitle.setText(QtGui.QApplication.translate("radioFrequencySnapshot", "All", None, QtGui.QApplication.UnicodeUTF8))
         self.TPS0PhaseLabel.setText(QtGui.QApplication.translate("radioFrequencySnapshot", "Time Phase Shifter 0", None, QtGui.QApplication.UnicodeUTF8))
         self.TPSXPhaseLabel.setText(QtGui.QApplication.translate("radioFrequencySnapshot", "Time Phase Shifter X", None, QtGui.QApplication.UnicodeUTF8))
         self.TPS1PhaseLabel.setText(QtGui.QApplication.translate("radioFrequencySnapshot", "Time Phase Shifter 1", None, QtGui.QApplication.UnicodeUTF8))

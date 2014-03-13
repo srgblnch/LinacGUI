@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>325</width>
-    <height>217</height>
+    <width>297</width>
+    <height>114</height>
    </rect>
   </property>
   <property name="font">
@@ -25,24 +25,10 @@
       <string>Klystrons</string>
      </property>
      <layout class="QGridLayout" name="gridLayout">
-      <item row="5" column="0">
+      <item row="3" column="0">
        <widget class="QLabel" name="ka2HVPSLabel">
         <property name="text">
          <string>KA2 High Voltage PS</string>
-        </property>
-       </widget>
-      </item>
-      <item row="4" column="0">
-       <widget class="QLabel" name="ka2LVSwitchLabel">
-        <property name="text">
-         <string>KA2 Low Voltage Switch</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="0">
-       <widget class="QLabel" name="ka1HVSwitchLabel">
-        <property name="text">
-         <string>KA1 HVPS Switch</string>
         </property>
        </widget>
       </item>
@@ -53,46 +39,6 @@
         </property>
        </widget>
       </item>
-      <item row="3" column="4">
-       <widget class="QCheckBox" name="ka1HVSwitchCheck">
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="4">
-       <widget class="QCheckBox" name="checkBox">
-        <property name="layoutDirection">
-         <enum>Qt::RightToLeft</enum>
-        </property>
-        <property name="text">
-         <string>All</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="1">
-       <widget class="TaurusLed" name="ka1HVSwitchRead">
-        <property name="minimumSize">
-         <size>
-          <width>15</width>
-          <height>15</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>15</width>
-          <height>15</height>
-         </size>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="2">
-       <widget class="QCheckBox" name="ka1HVSwitchWrite">
-        <property name="text">
-         <string>on/off</string>
-        </property>
-       </widget>
-      </item>
       <item row="0" column="1">
        <widget class="QLabel" name="PresentWriteTitle">
         <property name="text">
@@ -100,7 +46,7 @@
         </property>
        </widget>
       </item>
-      <item row="7" column="1">
+      <item row="5" column="1">
        <spacer name="verticalSpacer">
         <property name="orientation">
          <enum>Qt::Vertical</enum>
@@ -112,36 +58,6 @@
          </size>
         </property>
        </spacer>
-      </item>
-      <item row="1" column="0">
-       <widget class="QLabel" name="ka1LVSwitchLabel">
-        <property name="text">
-         <string>KA1 Low Voltage Switch</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="1">
-       <widget class="TaurusLed" name="ka1LVSwitchRead">
-        <property name="minimumSize">
-         <size>
-          <width>15</width>
-          <height>15</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>15</width>
-          <height>15</height>
-         </size>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="4">
-       <widget class="QCheckBox" name="ka1LVSwitchCheck">
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
       </item>
       <item row="2" column="4">
        <widget class="QCheckBox" name="ka1HVPSCheck">
@@ -163,94 +79,20 @@
       <item row="2" column="1">
        <widget class="TaurusLabel" name="ka1HVPSRead"/>
       </item>
-      <item row="1" column="2">
-       <widget class="QCheckBox" name="ka1LVSwitchWrite">
-        <property name="text">
-         <string>on/off</string>
-        </property>
-       </widget>
-      </item>
-      <item row="6" column="0">
-       <widget class="QLabel" name="ka2HVSwitchLabel">
-        <property name="text">
-         <string>KA2 HVPS Switch</string>
-        </property>
-       </widget>
-      </item>
-      <item row="4" column="1">
-       <widget class="TaurusLed" name="ka2LVSwitchRead">
-        <property name="minimumSize">
-         <size>
-          <width>15</width>
-          <height>15</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>15</width>
-          <height>15</height>
-         </size>
-        </property>
-       </widget>
-      </item>
-      <item row="5" column="1">
+      <item row="3" column="1">
        <widget class="TaurusLabel" name="ka2HVPSRead"/>
       </item>
-      <item row="6" column="1">
-       <widget class="TaurusLed" name="ka2HVSwitchRead">
-        <property name="minimumSize">
-         <size>
-          <width>15</width>
-          <height>15</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>15</width>
-          <height>15</height>
-         </size>
-        </property>
-       </widget>
-      </item>
-      <item row="4" column="2">
-       <widget class="QCheckBox" name="ka2LVSwitchWrite">
-        <property name="text">
-         <string>on/off</string>
-        </property>
-       </widget>
-      </item>
-      <item row="5" column="2">
+      <item row="3" column="2">
        <widget class="QDoubleSpinBox" name="ka2HVPSWrite"/>
       </item>
-      <item row="6" column="2">
-       <widget class="QCheckBox" name="ka2HVSwitchWrite">
-        <property name="text">
-         <string>on/off</string>
-        </property>
-       </widget>
-      </item>
-      <item row="4" column="4">
-       <widget class="QCheckBox" name="ka2LVSwitchCheck">
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="5" column="4">
+      <item row="3" column="4">
        <widget class="QCheckBox" name="ka2HVPSCheck">
         <property name="text">
          <string/>
         </property>
        </widget>
       </item>
-      <item row="6" column="4">
-       <widget class="QCheckBox" name="ka2HVSwitchCheck">
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="3" rowspan="6">
+      <item row="1" column="3" rowspan="4">
        <widget class="Line" name="line">
         <property name="orientation">
          <enum>Qt::Vertical</enum>
@@ -275,25 +117,10 @@
    <header>taurus.qt.qtgui.display</header>
   </customwidget>
   <customwidget>
-   <class>TaurusLed</class>
-   <extends>QLed</extends>
-   <header>taurus.qt.qtgui.display</header>
-  </customwidget>
-  <customwidget>
-   <class>QLed</class>
-   <extends>QPixmapWidget</extends>
-   <header>taurus.qt.qtgui.display</header>
-  </customwidget>
-  <customwidget>
    <class>TaurusGroupBox</class>
    <extends>QGroupBox</extends>
    <header>taurus.qt.qtgui.container</header>
    <container>1</container>
-  </customwidget>
-  <customwidget>
-   <class>QPixmapWidget</class>
-   <extends>QWidget</extends>
-   <header>taurus.qt.qtgui.display</header>
   </customwidget>
  </customwidgets>
  <resources/>

@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'widgets/ui/snapshot_egun.ui'
+# Form implementation generated from reading ui file 'ui/snapshot_egun.ui'
 #
-# Created: Wed Mar 12 14:27:34 2014
+# Created: Wed Mar 12 17:15:21 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -17,7 +17,7 @@ except AttributeError:
 class Ui_electronGunSnapshot(object):
     def setupUi(self, electronGunSnapshot):
         electronGunSnapshot.setObjectName(_fromUtf8("electronGunSnapshot"))
-        electronGunSnapshot.resize(313, 196)
+        electronGunSnapshot.resize(301, 135)
         font = QtGui.QFont()
         font.setPointSize(7)
         electronGunSnapshot.setFont(font)
@@ -30,6 +30,10 @@ class Ui_electronGunSnapshot(object):
         self.PresentWriteTitle = QtGui.QLabel(self.electronGunGroup)
         self.PresentWriteTitle.setObjectName(_fromUtf8("PresentWriteTitle"))
         self.gridLayout_2.addWidget(self.PresentWriteTitle, 0, 1, 1, 1)
+        self.GunFilamentLowVoltageCheck = QtGui.QCheckBox(self.electronGunGroup)
+        self.GunFilamentLowVoltageCheck.setText(_fromUtf8(""))
+        self.GunFilamentLowVoltageCheck.setObjectName(_fromUtf8("GunFilamentLowVoltageCheck"))
+        self.gridLayout_2.addWidget(self.GunFilamentLowVoltageCheck, 1, 4, 1, 1)
         self.SaveRetrieveTitle = QtGui.QLabel(self.electronGunGroup)
         self.SaveRetrieveTitle.setObjectName(_fromUtf8("SaveRetrieveTitle"))
         self.gridLayout_2.addWidget(self.SaveRetrieveTitle, 0, 2, 1, 1)
@@ -46,11 +50,7 @@ class Ui_electronGunSnapshot(object):
         self.line.setFrameShape(QtGui.QFrame.VLine)
         self.line.setFrameShadow(QtGui.QFrame.Sunken)
         self.line.setObjectName(_fromUtf8("line"))
-        self.gridLayout_2.addWidget(self.line, 1, 3, 7, 1)
-        self.GunFilamentLowVoltageCheck = QtGui.QCheckBox(self.electronGunGroup)
-        self.GunFilamentLowVoltageCheck.setText(_fromUtf8(""))
-        self.GunFilamentLowVoltageCheck.setObjectName(_fromUtf8("GunFilamentLowVoltageCheck"))
-        self.gridLayout_2.addWidget(self.GunFilamentLowVoltageCheck, 1, 4, 1, 1)
+        self.gridLayout_2.addWidget(self.line, 1, 3, 5, 1)
         self.GunKathodeLowVoltageRead = TaurusLabel(self.electronGunGroup)
         self.GunKathodeLowVoltageRead.setObjectName(_fromUtf8("GunKathodeLowVoltageRead"))
         self.gridLayout_2.addWidget(self.GunKathodeLowVoltageRead, 2, 1, 2, 1)
@@ -64,55 +64,21 @@ class Ui_electronGunSnapshot(object):
         self.GunKathodeLowVoltageCheck.setText(_fromUtf8(""))
         self.GunKathodeLowVoltageCheck.setObjectName(_fromUtf8("GunKathodeLowVoltageCheck"))
         self.gridLayout_2.addWidget(self.GunKathodeLowVoltageCheck, 3, 4, 1, 1)
-        self.GunLowVoltageSwitchLabel = QtGui.QLabel(self.electronGunGroup)
-        self.GunLowVoltageSwitchLabel.setObjectName(_fromUtf8("GunLowVoltageSwitchLabel"))
-        self.gridLayout_2.addWidget(self.GunLowVoltageSwitchLabel, 4, 0, 1, 1)
-        self.GunLowVoltageSwitchRead = TaurusLed(self.electronGunGroup)
-        self.GunLowVoltageSwitchRead.setMinimumSize(QtCore.QSize(15, 15))
-        self.GunLowVoltageSwitchRead.setMaximumSize(QtCore.QSize(15, 15))
-        self.GunLowVoltageSwitchRead.setObjectName(_fromUtf8("GunLowVoltageSwitchRead"))
-        self.gridLayout_2.addWidget(self.GunLowVoltageSwitchRead, 4, 1, 1, 1)
-        self.GunLowVoltageSwitchWrite = QtGui.QCheckBox(self.electronGunGroup)
-        self.GunLowVoltageSwitchWrite.setObjectName(_fromUtf8("GunLowVoltageSwitchWrite"))
-        self.gridLayout_2.addWidget(self.GunLowVoltageSwitchWrite, 4, 2, 1, 1)
-        self.GunLowVoltageSwitchCheck = QtGui.QCheckBox(self.electronGunGroup)
-        self.GunLowVoltageSwitchCheck.setText(_fromUtf8(""))
-        self.GunLowVoltageSwitchCheck.setObjectName(_fromUtf8("GunLowVoltageSwitchCheck"))
-        self.gridLayout_2.addWidget(self.GunLowVoltageSwitchCheck, 4, 4, 1, 1)
         self.GunHighVoltagePowerSupplyLabel = QtGui.QLabel(self.electronGunGroup)
         self.GunHighVoltagePowerSupplyLabel.setObjectName(_fromUtf8("GunHighVoltagePowerSupplyLabel"))
-        self.gridLayout_2.addWidget(self.GunHighVoltagePowerSupplyLabel, 5, 0, 1, 1)
+        self.gridLayout_2.addWidget(self.GunHighVoltagePowerSupplyLabel, 4, 0, 1, 1)
         self.GunHighVoltagePowerSupplyRead = TaurusLabel(self.electronGunGroup)
         self.GunHighVoltagePowerSupplyRead.setObjectName(_fromUtf8("GunHighVoltagePowerSupplyRead"))
-        self.gridLayout_2.addWidget(self.GunHighVoltagePowerSupplyRead, 5, 1, 1, 1)
+        self.gridLayout_2.addWidget(self.GunHighVoltagePowerSupplyRead, 4, 1, 1, 1)
         self.GunHighVoltagePowerSupplyWrite = QtGui.QDoubleSpinBox(self.electronGunGroup)
         self.GunHighVoltagePowerSupplyWrite.setObjectName(_fromUtf8("GunHighVoltagePowerSupplyWrite"))
-        self.gridLayout_2.addWidget(self.GunHighVoltagePowerSupplyWrite, 5, 2, 1, 1)
+        self.gridLayout_2.addWidget(self.GunHighVoltagePowerSupplyWrite, 4, 2, 1, 1)
         self.GunHighVoltagePowerSupplyCheck = QtGui.QCheckBox(self.electronGunGroup)
         self.GunHighVoltagePowerSupplyCheck.setText(_fromUtf8(""))
         self.GunHighVoltagePowerSupplyCheck.setObjectName(_fromUtf8("GunHighVoltagePowerSupplyCheck"))
-        self.gridLayout_2.addWidget(self.GunHighVoltagePowerSupplyCheck, 5, 4, 1, 1)
-        self.HighVoltageSwitchLabel = QtGui.QLabel(self.electronGunGroup)
-        self.HighVoltageSwitchLabel.setObjectName(_fromUtf8("HighVoltageSwitchLabel"))
-        self.gridLayout_2.addWidget(self.HighVoltageSwitchLabel, 6, 0, 1, 1)
-        self.HighVoltageSwitchRead = TaurusLed(self.electronGunGroup)
-        self.HighVoltageSwitchRead.setMinimumSize(QtCore.QSize(15, 15))
-        self.HighVoltageSwitchRead.setMaximumSize(QtCore.QSize(15, 15))
-        self.HighVoltageSwitchRead.setObjectName(_fromUtf8("HighVoltageSwitchRead"))
-        self.gridLayout_2.addWidget(self.HighVoltageSwitchRead, 6, 1, 1, 1)
-        self.HighVoltageSwitchWrite = QtGui.QCheckBox(self.electronGunGroup)
-        self.HighVoltageSwitchWrite.setObjectName(_fromUtf8("HighVoltageSwitchWrite"))
-        self.gridLayout_2.addWidget(self.HighVoltageSwitchWrite, 6, 2, 1, 1)
-        self.HighVoltageSwitchCheck = QtGui.QCheckBox(self.electronGunGroup)
-        self.HighVoltageSwitchCheck.setText(_fromUtf8(""))
-        self.HighVoltageSwitchCheck.setObjectName(_fromUtf8("HighVoltageSwitchCheck"))
-        self.gridLayout_2.addWidget(self.HighVoltageSwitchCheck, 6, 4, 1, 1)
+        self.gridLayout_2.addWidget(self.GunHighVoltagePowerSupplyCheck, 4, 4, 1, 1)
         spacerItem = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
-        self.gridLayout_2.addItem(spacerItem, 7, 1, 1, 1)
-        self.ToApplyTitle = QtGui.QCheckBox(self.electronGunGroup)
-        self.ToApplyTitle.setLayoutDirection(QtCore.Qt.RightToLeft)
-        self.ToApplyTitle.setObjectName(_fromUtf8("ToApplyTitle"))
-        self.gridLayout_2.addWidget(self.ToApplyTitle, 0, 4, 1, 1)
+        self.gridLayout_2.addItem(spacerItem, 5, 1, 1, 1)
         self.gridLayout.addWidget(self.electronGunGroup, 0, 0, 1, 1)
 
         self.retranslateUi(electronGunSnapshot)
@@ -125,13 +91,8 @@ class Ui_electronGunSnapshot(object):
         self.SaveRetrieveTitle.setText(QtGui.QApplication.translate("electronGunSnapshot", "Save/Retrieve", None, QtGui.QApplication.UnicodeUTF8))
         self.GunFilamentLowVoltageLabel.setText(QtGui.QApplication.translate("electronGunSnapshot", "Filament Low Voltage", None, QtGui.QApplication.UnicodeUTF8))
         self.GunKathodeLowVoltageLabel.setText(QtGui.QApplication.translate("electronGunSnapshot", "Kathode Low Voltage", None, QtGui.QApplication.UnicodeUTF8))
-        self.GunLowVoltageSwitchLabel.setText(QtGui.QApplication.translate("electronGunSnapshot", "Low Voltage Switch", None, QtGui.QApplication.UnicodeUTF8))
-        self.GunLowVoltageSwitchWrite.setText(QtGui.QApplication.translate("electronGunSnapshot", "on/off", None, QtGui.QApplication.UnicodeUTF8))
         self.GunHighVoltagePowerSupplyLabel.setText(QtGui.QApplication.translate("electronGunSnapshot", "High Voltage PS", None, QtGui.QApplication.UnicodeUTF8))
-        self.HighVoltageSwitchLabel.setText(QtGui.QApplication.translate("electronGunSnapshot", "High Voltage Switch", None, QtGui.QApplication.UnicodeUTF8))
-        self.HighVoltageSwitchWrite.setText(QtGui.QApplication.translate("electronGunSnapshot", "on/off", None, QtGui.QApplication.UnicodeUTF8))
-        self.ToApplyTitle.setText(QtGui.QApplication.translate("electronGunSnapshot", "All", None, QtGui.QApplication.UnicodeUTF8))
 
-from taurus.qt.qtgui.display import TaurusLabel, TaurusLed
+from taurus.qt.qtgui.display import TaurusLabel
 from taurus.qt.qtgui.container import TaurusGroupBox
 from taurus.qt.qtgui.panel import TaurusWidget

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>301</width>
-    <height>265</height>
+    <width>289</width>
+    <height>83</height>
    </rect>
   </property>
   <property name="font">
@@ -25,59 +25,6 @@
       <string>Vacuum Valves</string>
      </property>
      <layout class="QGridLayout" name="gridLayout_2">
-      <item row="5" column="1">
-       <widget class="TaurusLed" name="VaccumValve3Read">
-        <property name="minimumSize">
-         <size>
-          <width>15</width>
-          <height>15</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>15</width>
-          <height>15</height>
-         </size>
-        </property>
-       </widget>
-      </item>
-      <item row="5" column="2" colspan="2">
-       <widget class="QCheckBox" name="VaccumValve3Write">
-        <property name="text">
-         <string>open/close</string>
-        </property>
-       </widget>
-      </item>
-      <item row="6" column="5">
-       <widget class="QCheckBox" name="VaccumValve4Check">
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="7" column="0">
-       <widget class="QLabel" name="VaccumValve5Label">
-        <property name="text">
-         <string>Valve 5</string>
-        </property>
-       </widget>
-      </item>
-      <item row="7" column="1">
-       <widget class="TaurusLed" name="VaccumValve5Read">
-        <property name="minimumSize">
-         <size>
-          <width>15</width>
-          <height>15</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>15</width>
-          <height>15</height>
-         </size>
-        </property>
-       </widget>
-      </item>
       <item row="2" column="1">
        <widget class="TaurusLed" name="VaccumCollimatorValveRead">
         <property name="minimumSize">
@@ -94,126 +41,8 @@
         </property>
        </widget>
       </item>
-      <item row="3" column="1">
-       <widget class="TaurusLed" name="VaccumValve1Read">
-        <property name="minimumSize">
-         <size>
-          <width>15</width>
-          <height>15</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>15</width>
-          <height>15</height>
-         </size>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="2" colspan="2">
-       <widget class="QCheckBox" name="VaccumValve1Write">
-        <property name="text">
-         <string>open/close</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="5">
-       <widget class="QCheckBox" name="VaccumValve1Check">
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="4" column="0">
-       <widget class="QLabel" name="VaccumValve2Label">
-        <property name="text">
-         <string>Valve 2</string>
-        </property>
-       </widget>
-      </item>
-      <item row="8" column="2" colspan="2">
-       <widget class="QCheckBox" name="VaccumValve6Write">
-        <property name="text">
-         <string>open/close</string>
-        </property>
-       </widget>
-      </item>
-      <item row="4" column="1">
-       <widget class="TaurusLed" name="VaccumValve2Read">
-        <property name="minimumSize">
-         <size>
-          <width>15</width>
-          <height>15</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>15</width>
-          <height>15</height>
-         </size>
-        </property>
-       </widget>
-      </item>
-      <item row="4" column="2" colspan="2">
-       <widget class="QCheckBox" name="VaccumValve2Write">
-        <property name="text">
-         <string>open/close</string>
-        </property>
-       </widget>
-      </item>
       <item row="2" column="2" colspan="2">
        <widget class="QCheckBox" name="VaccumCollimatorValveWrite">
-        <property name="text">
-         <string>open/close</string>
-        </property>
-       </widget>
-      </item>
-      <item row="7" column="2" colspan="2">
-       <widget class="QCheckBox" name="VaccumValve5Write">
-        <property name="text">
-         <string>open/close</string>
-        </property>
-       </widget>
-      </item>
-      <item row="7" column="5">
-       <widget class="QCheckBox" name="VaccumValve5Check">
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="4" column="5">
-       <widget class="QCheckBox" name="VaccumValve2Check">
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="5" column="0">
-       <widget class="QLabel" name="VaccumValve3Label">
-        <property name="text">
-         <string>Valve 3</string>
-        </property>
-       </widget>
-      </item>
-      <item row="6" column="1">
-       <widget class="TaurusLed" name="VaccumValve4Read">
-        <property name="minimumSize">
-         <size>
-          <width>15</width>
-          <height>15</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>15</width>
-          <height>15</height>
-         </size>
-        </property>
-       </widget>
-      </item>
-      <item row="6" column="2" colspan="2">
-       <widget class="QCheckBox" name="VaccumValve4Write">
         <property name="text">
          <string>open/close</string>
         </property>
@@ -226,102 +55,7 @@
         </property>
        </widget>
       </item>
-      <item row="3" column="0">
-       <widget class="QLabel" name="VaccumValve1Label">
-        <property name="text">
-         <string>Valve 1</string>
-        </property>
-       </widget>
-      </item>
-      <item row="9" column="1">
-       <widget class="TaurusLed" name="VaccumValve7Read">
-        <property name="minimumSize">
-         <size>
-          <width>15</width>
-          <height>15</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>15</width>
-          <height>15</height>
-         </size>
-        </property>
-       </widget>
-      </item>
-      <item row="9" column="2" colspan="2">
-       <widget class="QCheckBox" name="VaccumValve7Write">
-        <property name="text">
-         <string>open/close</string>
-        </property>
-       </widget>
-      </item>
-      <item row="9" column="5">
-       <widget class="QCheckBox" name="VaccumValve7Check">
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="8" column="1">
-       <widget class="TaurusLed" name="VaccumValve6Read">
-        <property name="minimumSize">
-         <size>
-          <width>15</width>
-          <height>15</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>15</width>
-          <height>15</height>
-         </size>
-        </property>
-       </widget>
-      </item>
-      <item row="8" column="5">
-       <widget class="QCheckBox" name="VaccumValve6Check">
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="9" column="0">
-       <widget class="QLabel" name="VaccumValve7Label">
-        <property name="text">
-         <string>Valve 7</string>
-        </property>
-       </widget>
-      </item>
-      <item row="8" column="0">
-       <widget class="QLabel" name="VaccumValve6Label">
-        <property name="text">
-         <string>Valve 6</string>
-        </property>
-       </widget>
-      </item>
-      <item row="5" column="5">
-       <widget class="QCheckBox" name="VaccumValve3Check">
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="6" column="0">
-       <widget class="QLabel" name="VaccumValve4Label">
-        <property name="text">
-         <string>Valve 4</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="0">
-       <widget class="QLabel" name="VaccumCollimatorValveLabel">
-        <property name="text">
-         <string>Collimator Valve</string>
-        </property>
-       </widget>
-      </item>
-      <item row="10" column="1">
+      <item row="4" column="1">
        <spacer name="verticalSpacer">
         <property name="orientation">
          <enum>Qt::Vertical</enum>
@@ -334,6 +68,20 @@
         </property>
        </spacer>
       </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="VaccumCollimatorValveLabel">
+        <property name="text">
+         <string>Collimator Valve</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="4" rowspan="2">
+       <widget class="Line" name="line">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+       </widget>
+      </item>
       <item row="1" column="1">
        <widget class="QLabel" name="PresentTitle">
         <property name="text">
@@ -345,23 +93,6 @@
        <widget class="QLabel" name="SaveRetrieveTitle">
         <property name="text">
          <string>Save/Retrieve</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="4" rowspan="8">
-       <widget class="Line" name="line">
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="5">
-       <widget class="QCheckBox" name="ToApplyTitle">
-        <property name="layoutDirection">
-         <enum>Qt::RightToLeft</enum>
-        </property>
-        <property name="text">
-         <string>All</string>
         </property>
        </widget>
       </item>
