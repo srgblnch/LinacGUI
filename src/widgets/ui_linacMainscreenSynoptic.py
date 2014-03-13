@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'widgets/ui/linacMainscreenSynoptic.ui'
 #
-# Created: Thu Mar 13 15:14:38 2014
+# Created: Thu Mar 13 15:33:29 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -35,12 +35,6 @@ class Ui_linacMainscreenSynoptic(object):
         self.tbGunDelayValue = TaurusValueSpinBox(linacMainscreenSynoptic)
         self.tbGunDelayValue.setGeometry(QtCore.QRect(170, 107, 60, 22))
         self.tbGunDelayValue.setObjectName(_fromUtf8("tbGunDelayValue"))
-        self.klystron1HVValue = TaurusValueSpinBox(linacMainscreenSynoptic)
-        self.klystron1HVValue.setGeometry(QtCore.QRect(790, 130, 80, 22))
-        self.klystron1HVValue.setObjectName(_fromUtf8("klystron1HVValue"))
-        self.klystron2HVValue = TaurusValueSpinBox(linacMainscreenSynoptic)
-        self.klystron2HVValue.setGeometry(QtCore.QRect(1075, 85, 80, 22))
-        self.klystron2HVValue.setObjectName(_fromUtf8("klystron2HVValue"))
         self.rfEnbLed = TaurusLed(linacMainscreenSynoptic)
         self.rfEnbLed.setGeometry(QtCore.QRect(598, 15, 10, 10))
         self.rfEnbLed.setMinimumSize(QtCore.QSize(10, 10))
@@ -982,6 +976,30 @@ class Ui_linacMainscreenSynoptic(object):
         self.beamChargeMonitors = beamChargeMonitors(linacMainscreenSynoptic)
         self.beamChargeMonitors.setGeometry(QtCore.QRect(1120, 420, 131, 81))
         self.beamChargeMonitors.setObjectName(_fromUtf8("beamChargeMonitors"))
+        self.widget = QtGui.QWidget(linacMainscreenSynoptic)
+        self.widget.setGeometry(QtCore.QRect(790, 110, 81, 51))
+        self.widget.setObjectName(_fromUtf8("widget"))
+        self.verticalLayout = QtGui.QVBoxLayout(self.widget)
+        self.verticalLayout.setMargin(0)
+        self.verticalLayout.setObjectName(_fromUtf8("verticalLayout"))
+        self.klystron1HVRead = TaurusLabel(self.widget)
+        self.klystron1HVRead.setObjectName(_fromUtf8("klystron1HVRead"))
+        self.verticalLayout.addWidget(self.klystron1HVRead)
+        self.klystron1HVWrite = TaurusValueSpinBox(self.widget)
+        self.klystron1HVWrite.setObjectName(_fromUtf8("klystron1HVWrite"))
+        self.verticalLayout.addWidget(self.klystron1HVWrite)
+        self.widget1 = QtGui.QWidget(linacMainscreenSynoptic)
+        self.widget1.setGeometry(QtCore.QRect(1080, 70, 81, 51))
+        self.widget1.setObjectName(_fromUtf8("widget1"))
+        self.verticalLayout_2 = QtGui.QVBoxLayout(self.widget1)
+        self.verticalLayout_2.setMargin(0)
+        self.verticalLayout_2.setObjectName(_fromUtf8("verticalLayout_2"))
+        self.klystron2HVRead = TaurusLabel(self.widget1)
+        self.klystron2HVRead.setObjectName(_fromUtf8("klystron2HVRead"))
+        self.verticalLayout_2.addWidget(self.klystron2HVRead)
+        self.klystron2HVWrite = TaurusValueSpinBox(self.widget1)
+        self.klystron2HVWrite.setObjectName(_fromUtf8("klystron2HVWrite"))
+        self.verticalLayout_2.addWidget(self.klystron2HVWrite)
 
         self.retranslateUi(linacMainscreenSynoptic)
         QtCore.QMetaObject.connectSlotsByName(linacMainscreenSynoptic)

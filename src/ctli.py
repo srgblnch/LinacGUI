@@ -588,7 +588,8 @@ class MainWindow(TaurusMainWindow):
     
     def _setMainscreen_klystronHV(self):
         mainscreen_ui = self.ui.linacMainscreenSynoptic._ui
-        klystrons = {1:{'setpoint':mainscreen_ui.klystron1HVValue,
+        klystrons = {1:{'readBack':mainscreen_ui.klystron1HVRead,
+                        'setpoint':mainscreen_ui.klystron1HVWrite,
                         'setpoint_attrName':'li/ct/plc4/HVPS_V_setpoint',
                         'rstCheck':mainscreen_ui.klystron1RstCheck,
                         'rstLed':mainscreen_ui.klystron1RstLed,
@@ -598,7 +599,8 @@ class MainWindow(TaurusMainWindow):
                         'on_attrName':'li/ct/plc4/HVPS_ONC',
                         'check':mainscreen_ui.klystron1HVPopupCheck,
                         'widget':mainscreen_ui.klystron1HVPopupWidget},
-                     2:{'setpoint':mainscreen_ui.klystron2HVValue,
+                     2:{'readBack':mainscreen_ui.klystron2HVRead,
+                        'setpoint':mainscreen_ui.klystron2HVWrite,
                         'setpoint_attrName':'li/ct/plc5/HVPS_V_setpoint',
                         'rstCheck':mainscreen_ui.klystron2RstCheck,
                         'rstLed':mainscreen_ui.klystron2RstLed,
@@ -611,6 +613,8 @@ class MainWindow(TaurusMainWindow):
                     }
         self._klystronHV = {}
         for number in klystrons.keys():
+            self._setupTaurusLabel4Attr(klystrons[number]['readBack'],
+                                        'li/ct/plc%d/HVPS_V'%(number+3),'kV')
             self._setupSpinBox4Attr(klystrons[number]['setpoint'],
                                     klystrons[number]['setpoint_attrName'],
                                     step=0.1)

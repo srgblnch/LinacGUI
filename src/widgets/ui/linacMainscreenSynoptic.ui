@@ -70,26 +70,6 @@
     </rect>
    </property>
   </widget>
-  <widget class="TaurusValueSpinBox" name="klystron1HVValue">
-   <property name="geometry">
-    <rect>
-     <x>790</x>
-     <y>130</y>
-     <width>80</width>
-     <height>22</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="TaurusValueSpinBox" name="klystron2HVValue">
-   <property name="geometry">
-    <rect>
-     <x>1075</x>
-     <y>85</y>
-     <width>80</width>
-     <height>22</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="TaurusLed" name="rfEnbLed">
    <property name="geometry">
     <rect>
@@ -2888,6 +2868,42 @@
     </rect>
    </property>
   </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>790</x>
+     <y>110</y>
+     <width>81</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="TaurusLabel" name="klystron1HVRead"/>
+    </item>
+    <item>
+     <widget class="TaurusValueSpinBox" name="klystron1HVWrite"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>1080</x>
+     <y>70</y>
+     <width>81</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_2">
+    <item>
+     <widget class="TaurusLabel" name="klystron2HVRead"/>
+    </item>
+    <item>
+     <widget class="TaurusValueSpinBox" name="klystron2HVWrite"/>
+    </item>
+   </layout>
+  </widget>
   <zorder>as2VacuumWidget</zorder>
   <zorder>as1VacuumWidget</zorder>
   <zorder>buncherVacuumWidget</zorder>
@@ -2915,8 +2931,8 @@
   <zorder>tbNumberValue</zorder>
   <zorder>tbWidthValue</zorder>
   <zorder>tbGunDelayValue</zorder>
-  <zorder>klystron1HVValue</zorder>
-  <zorder>klystron2HVValue</zorder>
+  <zorder>klystron1HVWrite</zorder>
+  <zorder>klystron2HVWrite</zorder>
   <zorder>rfEnbLed</zorder>
   <zorder>tbTimerStatusStateLed</zorder>
   <zorder>rfTimePhaseShifter0Value</zorder>
@@ -3037,6 +3053,8 @@
   <zorder>as1VacuumCheck</zorder>
   <zorder>as2VacuumCheck</zorder>
   <zorder>beamChargeMonitors</zorder>
+  <zorder>klystron1HVRead</zorder>
+  <zorder>klystron2HVRead</zorder>
  </widget>
  <customwidgets>
   <customwidget>
