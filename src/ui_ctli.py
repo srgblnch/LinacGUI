@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'ctli.ui'
 #
-# Created: Wed Mar 12 13:14:08 2014
+# Created: Wed Mar 12 17:18:33 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -106,7 +106,7 @@ class Ui_linacGui(object):
         self.mainscreenScrollArea.setWidgetResizable(True)
         self.mainscreenScrollArea.setObjectName(_fromUtf8("mainscreenScrollArea"))
         self.scrollAreaWidgetContents_3 = QtGui.QWidget()
-        self.scrollAreaWidgetContents_3.setGeometry(QtCore.QRect(0, 0, 1266, 841))
+        self.scrollAreaWidgetContents_3.setGeometry(QtCore.QRect(0, 0, 1295, 949))
         self.scrollAreaWidgetContents_3.setObjectName(_fromUtf8("scrollAreaWidgetContents_3"))
         self.gridLayout_7 = QtGui.QGridLayout(self.scrollAreaWidgetContents_3)
         self.gridLayout_7.setObjectName(_fromUtf8("gridLayout_7"))
@@ -124,26 +124,10 @@ class Ui_linacGui(object):
         self.mainscreenScrollArea.setWidget(self.scrollAreaWidgetContents_3)
         self.gridLayout_6.addWidget(self.mainscreenScrollArea, 0, 0, 1, 1)
         self.linacTabs.addTab(self.mainscreenTab, _fromUtf8(""))
-        self.configurationTab = QtGui.QWidget()
-        self.configurationTab.setObjectName(_fromUtf8("configurationTab"))
-        self.gridLayout_8 = QtGui.QGridLayout(self.configurationTab)
-        self.gridLayout_8.setObjectName(_fromUtf8("gridLayout_8"))
-        spacerItem12 = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
-        self.gridLayout_8.addItem(spacerItem12, 2, 1, 1, 1)
-        spacerItem13 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
-        self.gridLayout_8.addItem(spacerItem13, 1, 2, 1, 1)
-        self.linacConfigurationScreen = linacConfigurationScreen(self.configurationTab)
-        self.linacConfigurationScreen.setObjectName(_fromUtf8("linacConfigurationScreen"))
-        self.gridLayout_8.addWidget(self.linacConfigurationScreen, 1, 1, 1, 1)
-        spacerItem14 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
-        self.gridLayout_8.addItem(spacerItem14, 1, 0, 1, 1)
-        spacerItem15 = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
-        self.gridLayout_8.addItem(spacerItem15, 0, 1, 1, 1)
-        self.linacTabs.addTab(self.configurationTab, _fromUtf8(""))
         self.gridLayout.addWidget(self.linacTabs, 0, 0, 1, 1)
 
         self.retranslateUi(linacGui)
-        self.linacTabs.setCurrentIndex(3)
+        self.linacTabs.setCurrentIndex(2)
         QtCore.QMetaObject.connectSlotsByName(linacGui)
 
     def retranslateUi(self, linacGui):
@@ -156,11 +140,9 @@ class Ui_linacGui(object):
         self.linacTabs.setTabText(self.linacTabs.indexOf(self.communicationTab), QtGui.QApplication.translate("linacGui", "Communication", None, QtGui.QApplication.UnicodeUTF8))
         self.linacTabs.setTabText(self.linacTabs.indexOf(self.startupTab), QtGui.QApplication.translate("linacGui", "Start up", None, QtGui.QApplication.UnicodeUTF8))
         self.linacTabs.setTabText(self.linacTabs.indexOf(self.mainscreenTab), QtGui.QApplication.translate("linacGui", "Main Screen", None, QtGui.QApplication.UnicodeUTF8))
-        self.linacTabs.setTabText(self.linacTabs.indexOf(self.configurationTab), QtGui.QApplication.translate("linacGui", "Configuration", None, QtGui.QApplication.UnicodeUTF8))
 
-from taurus.qt.qtgui.container import TaurusFrame
-from linacplcwidget import linacPlcWidget
 from linacstartupsynoptic import linacStartupSynoptic
+from linacplcwidget import linacPlcWidget
 from linacmainscreensynoptic import linacMainscreenSynoptic
 from linacoverview import linacOverview
-from linacconfigurationscreen import linacConfigurationScreen
+from taurus.qt.qtgui.container import TaurusFrame

@@ -33,7 +33,7 @@
       <enum>QTabWidget::Rounded</enum>
      </property>
      <property name="currentIndex">
-      <number>3</number>
+      <number>2</number>
      </property>
      <property name="elideMode">
       <enum>Qt::ElideMiddle</enum>
@@ -262,8 +262,8 @@
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>1266</width>
-            <height>841</height>
+            <width>1295</width>
+            <height>949</height>
            </rect>
           </property>
           <layout class="QGridLayout" name="gridLayout_7">
@@ -328,68 +328,6 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="configurationTab">
-      <attribute name="title">
-       <string>Configuration</string>
-      </attribute>
-      <layout class="QGridLayout" name="gridLayout_8">
-       <item row="2" column="1">
-        <spacer name="verticalSpacer_5">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>40</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="1" column="2">
-        <spacer name="horizontalSpacer_6">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>40</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="1" column="1">
-        <widget class="linacConfigurationScreen" name="linacConfigurationScreen"/>
-       </item>
-       <item row="1" column="0">
-        <spacer name="horizontalSpacer_5">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>40</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="0" column="1">
-        <spacer name="verticalSpacer_6">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>40</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-      </layout>
-     </widget>
     </widget>
    </item>
   </layout>
@@ -430,11 +368,6 @@
    <extends>TaurusWidget</extends>
    <header>linacmainscreensynoptic</header>
    <container>1</container>
-  </customwidget>
-  <customwidget>
-   <class>linacConfigurationScreen</class>
-   <extends>TaurusWidget</extends>
-   <header>linacconfigurationscreen</header>
   </customwidget>
  </customwidgets>
  <resources/>
