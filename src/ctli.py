@@ -1225,6 +1225,8 @@ class MainWindow(TaurusMainWindow):
 #        self.addExternalAppLauncher(bcm)
         lt_magnets = ExternalAppAction(['ctpcgrid','lt'],text="LT magnets")
         self.addExternalAppLauncher(lt_magnets)
+        mach_ccds = ExternalAppAction(['ctdiccd'],text="CCDs")
+        self.addExternalAppLauncher(mach_ccds)
 
 '''First approach to the Labview blinking leds with subboxes of sets of attrs.
 '''
