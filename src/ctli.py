@@ -676,7 +676,7 @@ class MainWindow(TaurusMainWindow):
                 self._setupSpinBox4Attr(timePhaseShifters[timeShifter],attrName,step=0.1)
             else:
                 self._setupSpinBox4Attr(timePhaseShifters[timeShifter],attrName,step=1)
-        self._setupSpinBox4Attr(mainscreen_ui.rfA0OutputPowerValue,'li/ct/plc1/A0_OP',step=0.1)
+        self._setupSpinBox4Attr(mainscreen_ui.rfA0OutputPowerValue,'li/ct/plc1/A0_OP',step=1)
         self._setupLed4Attr(mainscreen_ui.rfA0StatusLed,'li/ct/plc1/RFS_ST')
         self._setupSpinBox4Attr(mainscreen_ui.attenuator2Value,'li/ct/plc1/ATT2_P_setpoint',step=0.1)
         phaseShifters = {'1':{'write':mainscreen_ui.rfPhaseShifter1Value,
@@ -687,7 +687,7 @@ class MainWindow(TaurusMainWindow):
                               'widget':mainscreen_ui.phaseShifter2PopupWidget}}
         for shifter in phaseShifters.keys():
             attrName = 'li/ct/plc1/PHS%s_Phase_setpoint'%shifter
-            self._setupSpinBox4Attr(phaseShifters[shifter]['write'],attrName,step=0.1)
+            self._setupSpinBox4Attr(phaseShifters[shifter]['write'],attrName,step=1)
         sf6pressures = {'1':mainscreen_ui.sf6p1Value,
                         '2':mainscreen_ui.sf6p2Value}
         for pressure in sf6pressures.keys():
