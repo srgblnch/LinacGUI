@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'widgets/ui/linacStartupSynoptic.ui'
 #
-# Created: Fri Mar 14 15:40:31 2014
+# Created: Fri Mar 14 15:50:35 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -617,28 +617,28 @@ class Ui_linacStartupSynoptic(object):
         self.vvRst.setGeometry(QtCore.QRect(0, 520, 50, 40))
         self.vvRst.setObjectName(_fromUtf8("vvRst"))
         self.vvOn = actionForm(linacStartupSynoptic)
-        self.vvOn.setGeometry(QtCore.QRect(70, 760, 60, 40))
+        self.vvOn.setGeometry(QtCore.QRect(70, 763, 60, 40))
         self.vvOn.setObjectName(_fromUtf8("vvOn"))
         self.vacuumValve1On = actionForm(linacStartupSynoptic)
-        self.vacuumValve1On.setGeometry(QtCore.QRect(170, 740, 60, 40))
+        self.vacuumValve1On.setGeometry(QtCore.QRect(170, 763, 60, 40))
         self.vacuumValve1On.setObjectName(_fromUtf8("vacuumValve1On"))
         self.vacuumValve2On = actionForm(linacStartupSynoptic)
-        self.vacuumValve2On.setGeometry(QtCore.QRect(529, 740, 60, 40))
+        self.vacuumValve2On.setGeometry(QtCore.QRect(529, 763, 60, 40))
         self.vacuumValve2On.setObjectName(_fromUtf8("vacuumValve2On"))
         self.vacuumValve3On = actionForm(linacStartupSynoptic)
-        self.vacuumValve3On.setGeometry(QtCore.QRect(666, 740, 60, 40))
+        self.vacuumValve3On.setGeometry(QtCore.QRect(650, 763, 60, 40))
         self.vacuumValve3On.setObjectName(_fromUtf8("vacuumValve3On"))
         self.vacuumValve4On = actionForm(linacStartupSynoptic)
-        self.vacuumValve4On.setGeometry(QtCore.QRect(780, 740, 60, 40))
+        self.vacuumValve4On.setGeometry(QtCore.QRect(783, 763, 60, 40))
         self.vacuumValve4On.setObjectName(_fromUtf8("vacuumValve4On"))
         self.vacuumValve5On = actionForm(linacStartupSynoptic)
-        self.vacuumValve5On.setGeometry(QtCore.QRect(940, 740, 60, 40))
+        self.vacuumValve5On.setGeometry(QtCore.QRect(938, 763, 60, 40))
         self.vacuumValve5On.setObjectName(_fromUtf8("vacuumValve5On"))
         self.vacuumValve6On = actionForm(linacStartupSynoptic)
-        self.vacuumValve6On.setGeometry(QtCore.QRect(1070, 740, 60, 40))
+        self.vacuumValve6On.setGeometry(QtCore.QRect(1070, 763, 60, 40))
         self.vacuumValve6On.setObjectName(_fromUtf8("vacuumValve6On"))
         self.vacuumValve7On = actionForm(linacStartupSynoptic)
-        self.vacuumValve7On.setGeometry(QtCore.QRect(1180, 740, 60, 40))
+        self.vacuumValve7On.setGeometry(QtCore.QRect(1180, 763, 60, 40))
         self.vacuumValve7On.setObjectName(_fromUtf8("vacuumValve7On"))
         self.iuRst = actionForm(linacStartupSynoptic)
         self.iuRst.setGeometry(QtCore.QRect(20, 80, 50, 40))
