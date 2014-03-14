@@ -417,26 +417,16 @@ class MainWindow(TaurusMainWindow):
 
     def _setStartup_magnets(self):
         startup_ui = self.ui.linacStartupSynoptic._ui
-        self._setupLed4UnknownAttr(startup_ui.sl1Led)
-        self._setupLed4UnknownAttr(startup_ui.sl2Led)
-        self._setupLed4UnknownAttr(startup_ui.sl3Led)
-        self._setupLed4UnknownAttr(startup_ui.sl4Led)
-        self._setupLed4UnknownAttr(startup_ui.bc1Led)
-        self._setupLed4UnknownAttr(startup_ui.bc2Led)
-        self._setupLed4UnknownAttr(startup_ui.glLed)
-        self._setupLed4UnknownAttr(startup_ui.as1Led)
-        self._setupLed4UnknownAttr(startup_ui.qtLed)
-        self._setupLed4UnknownAttr(startup_ui.as2Led)
-#        self._setupLed4Attr(startup_ui.sl1Led,'li/ct/plc3/SL1F_cooling')
-#        self._setupLed4Attr(startup_ui.sl2Led,'li/ct/plc3/SL2F_cooling')
-#        self._setupLed4Attr(startup_ui.sl3Led,'li/ct/plc3/SL3F_cooling')
-#        self._setupLed4Attr(startup_ui.sl4Led,'li/ct/plc3/SL4F_cooling')
-#        self._setupLed4Attr(startup_ui.bc1Led,'li/ct/plc3/BC1F_cooling')
-#        self._setupLed4Attr(startup_ui.bc2Led,'li/ct/plc3/BC2F_cooling')
-#        self._setupLed4Attr(startup_ui.glLed,'li/ct/plc3/GLF_cooling')
-#        self._setupLed4Attr(startup_ui.as1Led,'li/ct/plc3/AS1F_cooling')
-#        self._setupLed4Attr(startup_ui.qtLed,'li/ct/plc3/QTF_cooling')
-#        self._setupLed4Attr(startup_ui.as2Led,'li/ct/plc3/AS2F_cooling')
+        self._setupLed4Attr(startup_ui.sl1Led,'li/ct/plc3/SL1_cooling')
+        self._setupLed4Attr(startup_ui.sl2Led,'li/ct/plc3/SL2_cooling')
+        self._setupLed4Attr(startup_ui.sl3Led,'li/ct/plc3/SL3_cooling')
+        self._setupLed4Attr(startup_ui.sl4Led,'li/ct/plc3/SL4_cooling')
+        self._setupLed4Attr(startup_ui.bc1Led,'li/ct/plc3/BC1_cooling')
+        self._setupLed4Attr(startup_ui.bc2Led,'li/ct/plc3/BC2_cooling')
+        self._setupLed4Attr(startup_ui.glLed,'li/ct/plc3/GL_cooling')
+        self._setupLed4Attr(startup_ui.as1Led,'li/ct/plc3/AS1_cooling')
+        self._setupLed4Attr(startup_ui.qtLed,'li/ct/plc3/QT_cooling')
+        self._setupLed4Attr(startup_ui.as2Led,'li/ct/plc3/AS2_cooling')
 
     def _setStartup_vacuum(self):
         startup_ui = self.ui.linacStartupSynoptic._ui
@@ -813,9 +803,8 @@ class MainWindow(TaurusMainWindow):
             deviceName = 'li/ct/plc3'
             if magnets[magnet].has_key('info'):
                 widget = magnets[magnet]['info']
-                #attrName = '%s/%sF_current'%(deviceName,magnet)
-                #self._setupLed4Attr(widget,attrName)
-                self._setupLed4UnknownAttr(widget)
+                attrName = '%s/%s_current_ok'%(deviceName,magnet)
+                self._setupLed4Attr(widget,attrName)
             if magnets[magnet].has_key('h'):
                 widget = magnets[magnet]['h']
                 attrName = '%s/%sh_I_setpoint'%(deviceName,magnet)
