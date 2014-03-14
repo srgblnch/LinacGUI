@@ -25,6 +25,9 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="autoFillBackground">
+   <bool>true</bool>
+  </property>
   <widget class="TaurusLed" name="sl1Led">
    <property name="geometry">
     <rect>
@@ -899,7 +902,7 @@
   <widget class="klystronLV" name="klystron2LVWidget">
    <property name="geometry">
     <rect>
-     <x>1060</x>
+     <x>1080</x>
      <y>10</y>
      <width>150</width>
      <height>200</height>
@@ -912,7 +915,7 @@
   <widget class="klystronLV" name="klystron1LVWidget">
    <property name="geometry">
     <rect>
-     <x>780</x>
+     <x>791</x>
      <y>10</y>
      <width>150</width>
      <height>200</height>
@@ -1024,256 +1027,6 @@
     </font>
    </property>
   </widget>
-  <widget class="QWidget" name="layoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>930</x>
-     <y>270</y>
-     <width>63</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <layout class="QHBoxLayout" name="coolingLoop3OnLayout">
-    <property name="leftMargin">
-     <number>0</number>
-    </property>
-    <item>
-     <widget class="QLabel" name="coolingLoop3OnLabel">
-      <property name="font">
-       <font>
-        <pointsize>7</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>On</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="TaurusLed" name="coolingLoop3OnLed">
-      <property name="minimumSize">
-       <size>
-        <width>15</width>
-        <height>15</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>15</width>
-        <height>15</height>
-       </size>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="LinacValueCheckBox" name="coolingLoop3OnCheck">
-      <property name="showText">
-       <bool>false</bool>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QWidget" name="layoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>640</x>
-     <y>270</y>
-     <width>63</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <layout class="QHBoxLayout" name="coolingLoop2OnLayout">
-    <property name="leftMargin">
-     <number>0</number>
-    </property>
-    <item>
-     <widget class="QLabel" name="coolingLoop2OnLabel">
-      <property name="font">
-       <font>
-        <pointsize>7</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>On</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="TaurusLed" name="coolingLoop2OnLed">
-      <property name="minimumSize">
-       <size>
-        <width>15</width>
-        <height>15</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>15</width>
-        <height>15</height>
-       </size>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="LinacValueCheckBox" name="coolingLoop2OnCheck">
-      <property name="showText">
-       <bool>false</bool>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QWidget" name="layoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>420</x>
-     <y>270</y>
-     <width>63</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <layout class="QHBoxLayout" name="coolingLoop1OnLayout">
-    <property name="leftMargin">
-     <number>0</number>
-    </property>
-    <item>
-     <widget class="QLabel" name="coolingLoop1OnLabel">
-      <property name="font">
-       <font>
-        <pointsize>7</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>On</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="TaurusLed" name="coolingLoop1OnLed">
-      <property name="minimumSize">
-       <size>
-        <width>15</width>
-        <height>15</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>15</width>
-        <height>15</height>
-       </size>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="LinacValueCheckBox" name="coolingLoop1OnCheck">
-      <property name="showText">
-       <bool>false</bool>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QWidget" name="layoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>540</y>
-     <width>83</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <layout class="QHBoxLayout" name="vvrstLayout">
-    <property name="leftMargin">
-     <number>7</number>
-    </property>
-    <item>
-     <widget class="QLabel" name="vv_rstLabel">
-      <property name="font">
-       <font>
-        <pointsize>7</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Reset</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="TaurusLed" name="vv_rstLed">
-      <property name="minimumSize">
-       <size>
-        <width>15</width>
-        <height>15</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>15</width>
-        <height>15</height>
-       </size>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="LinacValueCheckBox" name="vv_rstCheck">
-      <property name="showText">
-       <bool>false</bool>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QWidget" name="layoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>50</x>
-     <y>770</y>
-     <width>75</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <layout class="QHBoxLayout" name="vvLayout">
-    <property name="topMargin">
-     <number>0</number>
-    </property>
-    <item>
-     <widget class="QLabel" name="vv_oncLabel">
-      <property name="font">
-       <font>
-        <pointsize>7</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Open</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="TaurusLed" name="vv_oncLed">
-      <property name="minimumSize">
-       <size>
-        <width>15</width>
-        <height>15</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>15</width>
-        <height>15</height>
-       </size>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="LinacValueCheckBox" name="vv_oncCheck">
-      <property name="showText">
-       <bool>false</bool>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
   <widget class="CoolingLoop" name="coolingLoop1Widget">
    <property name="geometry">
     <rect>
@@ -1370,400 +1123,6 @@
     </size>
    </property>
   </widget>
-  <widget class="QWidget" name="layoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>140</x>
-     <y>750</y>
-     <width>75</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <layout class="QHBoxLayout" name="vacuumValve1OnLayout">
-    <property name="leftMargin">
-     <number>0</number>
-    </property>
-    <item>
-     <widget class="QLabel" name="vacuumValve1OnLabel">
-      <property name="font">
-       <font>
-        <pointsize>7</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Open</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="TaurusLed" name="vacuumValve1OnLed">
-      <property name="minimumSize">
-       <size>
-        <width>15</width>
-        <height>15</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>15</width>
-        <height>15</height>
-       </size>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="LinacValueCheckBox" name="vacuumValve1OnCheck">
-      <property name="showText">
-       <bool>false</bool>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QWidget" name="layoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>500</x>
-     <y>750</y>
-     <width>75</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <layout class="QHBoxLayout" name="vacuumValve2OnLayout">
-    <item>
-     <widget class="QLabel" name="vacuumValve2OnLabel">
-      <property name="font">
-       <font>
-        <pointsize>7</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Open</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="TaurusLed" name="vacuumValve2OnLed">
-      <property name="minimumSize">
-       <size>
-        <width>15</width>
-        <height>15</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>15</width>
-        <height>15</height>
-       </size>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="LinacValueCheckBox" name="vacuumValve2OnCheck">
-      <property name="showText">
-       <bool>false</bool>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QWidget" name="layoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>620</x>
-     <y>750</y>
-     <width>75</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <layout class="QHBoxLayout" name="vacuumValve3OnLayout">
-    <property name="leftMargin">
-     <number>0</number>
-    </property>
-    <item>
-     <widget class="QLabel" name="vacuumValve3OnLabel">
-      <property name="font">
-       <font>
-        <pointsize>7</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Open</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="TaurusLed" name="vacuumValve3OnLed">
-      <property name="minimumSize">
-       <size>
-        <width>15</width>
-        <height>15</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>15</width>
-        <height>15</height>
-       </size>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="LinacValueCheckBox" name="vacuumValve3OnCheck">
-      <property name="showText">
-       <bool>false</bool>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QWidget" name="layoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>750</x>
-     <y>750</y>
-     <width>81</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <layout class="QHBoxLayout" name="vacuumValve4OnLayout">
-    <item>
-     <widget class="QLabel" name="vacuumValve4OnLabel">
-      <property name="font">
-       <font>
-        <pointsize>7</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Open</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="TaurusLed" name="vacuumValve4OnLed">
-      <property name="minimumSize">
-       <size>
-        <width>15</width>
-        <height>15</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>15</width>
-        <height>15</height>
-       </size>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="LinacValueCheckBox" name="vacuumValve4OnCheck">
-      <property name="showText">
-       <bool>false</bool>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QWidget" name="layoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>900</x>
-     <y>750</y>
-     <width>81</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <layout class="QHBoxLayout" name="vacuumValve5OnLayout">
-    <property name="leftMargin">
-     <number>0</number>
-    </property>
-    <item>
-     <widget class="QLabel" name="vacuumValve5OnLabel">
-      <property name="font">
-       <font>
-        <pointsize>7</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Open</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="TaurusLed" name="vacuumValve5OnLed">
-      <property name="minimumSize">
-       <size>
-        <width>15</width>
-        <height>15</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>15</width>
-        <height>15</height>
-       </size>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="LinacValueCheckBox" name="vacuumValve5OnCheck">
-      <property name="showText">
-       <bool>false</bool>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QWidget" name="layoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>1040</x>
-     <y>750</y>
-     <width>81</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <layout class="QHBoxLayout" name="vacuumValve6OnLayout">
-    <property name="leftMargin">
-     <number>0</number>
-    </property>
-    <item>
-     <widget class="QLabel" name="vacuumValve6OnLabel">
-      <property name="font">
-       <font>
-        <pointsize>7</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Open</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="TaurusLed" name="vacuumValve6OnLed">
-      <property name="minimumSize">
-       <size>
-        <width>15</width>
-        <height>15</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>15</width>
-        <height>15</height>
-       </size>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="LinacValueCheckBox" name="vacuumValve6OnCheck">
-      <property name="showText">
-       <bool>false</bool>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QWidget" name="layoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>1160</x>
-     <y>750</y>
-     <width>75</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <layout class="QHBoxLayout" name="vacuumValve7OnLayout">
-    <property name="leftMargin">
-     <number>0</number>
-    </property>
-    <item>
-     <widget class="QLabel" name="vacuumValve7OnLabel">
-      <property name="font">
-       <font>
-        <pointsize>7</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Open</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="TaurusLed" name="vacuumValve7OnLed">
-      <property name="minimumSize">
-       <size>
-        <width>15</width>
-        <height>15</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>15</width>
-        <height>15</height>
-       </size>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="LinacValueCheckBox" name="vacuumValve7OnCheck">
-      <property name="showText">
-       <bool>false</bool>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QWidget" name="layoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>80</y>
-     <width>81</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <layout class="QHBoxLayout" name="interlockUnitResetLayout">
-    <property name="topMargin">
-     <number>0</number>
-    </property>
-    <item>
-     <widget class="QLabel" name="interlockUnitResetLabel">
-      <property name="font">
-       <font>
-        <pointsize>7</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Reset</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="TaurusLed" name="interlockUnitResetLed">
-      <property name="minimumSize">
-       <size>
-        <width>15</width>
-        <height>15</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>15</width>
-        <height>15</height>
-       </size>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="LinacValueCheckBox" name="interlockUnitResetCheck">
-      <property name="showText">
-       <bool>false</bool>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
   <widget class="klystron2itck" name="klystron2InterlockPopupWidget">
    <property name="geometry">
     <rect>
@@ -1783,56 +1142,6 @@
      <height>140</height>
     </rect>
    </property>
-  </widget>
-  <widget class="QWidget" name="layoutWidget_3">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>300</y>
-     <width>63</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <layout class="QHBoxLayout" name="egunonLayout">
-    <property name="leftMargin">
-     <number>0</number>
-    </property>
-    <item>
-     <widget class="QLabel" name="egunonLabel">
-      <property name="font">
-       <font>
-        <pointsize>7</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>On</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="TaurusLed" name="egunonLed">
-      <property name="minimumSize">
-       <size>
-        <width>15</width>
-        <height>15</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>15</width>
-        <height>15</height>
-       </size>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="LinacValueCheckBox" name="egunonCheck">
-      <property name="showText">
-       <bool>false</bool>
-      </property>
-     </widget>
-    </item>
-   </layout>
   </widget>
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
@@ -2441,170 +1750,6 @@
     </size>
    </property>
   </widget>
-  <widget class="QWidget" name="layoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>720</x>
-     <y>200</y>
-     <width>81</width>
-     <height>48</height>
-    </rect>
-   </property>
-   <layout class="QGridLayout" name="klystron1Layout">
-    <item row="1" column="3">
-     <widget class="TaurusLed" name="klystron1RstLed">
-      <property name="minimumSize">
-       <size>
-        <width>15</width>
-        <height>15</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>15</width>
-        <height>15</height>
-       </size>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="2">
-     <widget class="QLabel" name="klystron1RstLabel">
-      <property name="font">
-       <font>
-        <pointsize>7</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Reset</string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="3">
-     <widget class="TaurusLed" name="klystron1OnLed">
-      <property name="minimumSize">
-       <size>
-        <width>15</width>
-        <height>15</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>15</width>
-        <height>15</height>
-       </size>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="2">
-     <widget class="QLabel" name="klystron1OnLabel">
-      <property name="font">
-       <font>
-        <pointsize>7</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>On</string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="4">
-     <widget class="LinacValueCheckBox" name="klystron1OnCheck">
-      <property name="showText">
-       <bool>false</bool>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="4">
-     <widget class="LinacValueCheckBox" name="klystron1RstCheck">
-      <property name="showText">
-       <bool>false</bool>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QWidget" name="layoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>1010</x>
-     <y>200</y>
-     <width>81</width>
-     <height>48</height>
-    </rect>
-   </property>
-   <layout class="QGridLayout" name="klystron2Layout">
-    <item row="1" column="2">
-     <widget class="QLabel" name="klystron2RstLabel">
-      <property name="font">
-       <font>
-        <pointsize>7</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Reset</string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="2">
-     <widget class="QLabel" name="klystron2OnLabel">
-      <property name="font">
-       <font>
-        <pointsize>7</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>On</string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="3">
-     <widget class="TaurusLed" name="klystron2OnLed">
-      <property name="minimumSize">
-       <size>
-        <width>15</width>
-        <height>15</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>15</width>
-        <height>15</height>
-       </size>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="3">
-     <widget class="TaurusLed" name="klystron2RstLed">
-      <property name="minimumSize">
-       <size>
-        <width>15</width>
-        <height>15</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>15</width>
-        <height>15</height>
-       </size>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="4">
-     <widget class="LinacValueCheckBox" name="klystron2OnCheck">
-      <property name="showText">
-       <bool>false</bool>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="4">
-     <widget class="LinacValueCheckBox" name="klystron2RstCheck">
-      <property name="showText">
-       <bool>false</bool>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
   <widget class="QToolButton" name="klystron1LVPopupCheck">
    <property name="geometry">
     <rect>
@@ -2791,6 +1936,186 @@
     <bool>true</bool>
    </property>
   </widget>
+  <widget class="actionForm" name="klystron1On">
+   <property name="geometry">
+    <rect>
+     <x>720</x>
+     <y>170</y>
+     <width>50</width>
+     <height>40</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="actionForm" name="klystron1Rst">
+   <property name="geometry">
+    <rect>
+     <x>720</x>
+     <y>210</y>
+     <width>50</width>
+     <height>40</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="actionForm" name="klystron2On">
+   <property name="geometry">
+    <rect>
+     <x>1020</x>
+     <y>170</y>
+     <width>50</width>
+     <height>40</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="actionForm" name="klystron2Rst">
+   <property name="geometry">
+    <rect>
+     <x>1020</x>
+     <y>210</y>
+     <width>50</width>
+     <height>40</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="actionForm" name="coolingLoop1On">
+   <property name="geometry">
+    <rect>
+     <x>430</x>
+     <y>262</y>
+     <width>50</width>
+     <height>40</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="actionForm" name="coolingLoop2On">
+   <property name="geometry">
+    <rect>
+     <x>640</x>
+     <y>262</y>
+     <width>50</width>
+     <height>40</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="actionForm" name="coolingLoop3On">
+   <property name="geometry">
+    <rect>
+     <x>930</x>
+     <y>262</y>
+     <width>50</width>
+     <height>40</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="actionForm" name="eGunOn">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>300</y>
+     <width>50</width>
+     <height>40</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="actionForm" name="vvRst">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>520</y>
+     <width>50</width>
+     <height>40</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="actionForm" name="vvOn">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>760</y>
+     <width>60</width>
+     <height>40</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="actionForm" name="vacuumValve1On">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>740</y>
+     <width>60</width>
+     <height>40</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="actionForm" name="vacuumValve2On">
+   <property name="geometry">
+    <rect>
+     <x>529</x>
+     <y>740</y>
+     <width>60</width>
+     <height>40</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="actionForm" name="vacuumValve3On">
+   <property name="geometry">
+    <rect>
+     <x>666</x>
+     <y>740</y>
+     <width>60</width>
+     <height>40</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="actionForm" name="vacuumValve4On">
+   <property name="geometry">
+    <rect>
+     <x>780</x>
+     <y>740</y>
+     <width>60</width>
+     <height>40</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="actionForm" name="vacuumValve5On">
+   <property name="geometry">
+    <rect>
+     <x>940</x>
+     <y>740</y>
+     <width>60</width>
+     <height>40</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="actionForm" name="vacuumValve6On">
+   <property name="geometry">
+    <rect>
+     <x>1070</x>
+     <y>740</y>
+     <width>60</width>
+     <height>40</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="actionForm" name="vacuumValve7On">
+   <property name="geometry">
+    <rect>
+     <x>1180</x>
+     <y>740</y>
+     <width>60</width>
+     <height>40</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="actionForm" name="iuRst">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>80</y>
+     <width>50</width>
+     <height>40</height>
+    </rect>
+   </property>
+  </widget>
   <zorder>klystron2LVWidget</zorder>
   <zorder>klystron2InterlockPopupWidget</zorder>
   <zorder>klystron1InterlockPopupWidget</zorder>
@@ -2800,20 +2125,6 @@
   <zorder>coolingLoop1Widget</zorder>
   <zorder>kdeGunLVWidget</zorder>
   <zorder>StartUpSchematic</zorder>
-  <zorder>layoutWidget</zorder>
-  <zorder>layoutWidget</zorder>
-  <zorder>layoutWidget</zorder>
-  <zorder>layoutWidget</zorder>
-  <zorder>layoutWidget</zorder>
-  <zorder>layoutWidget</zorder>
-  <zorder>layoutWidget</zorder>
-  <zorder>layoutWidget</zorder>
-  <zorder>layoutWidget</zorder>
-  <zorder>layoutWidget</zorder>
-  <zorder>layoutWidget</zorder>
-  <zorder>layoutWidget</zorder>
-  <zorder>layoutWidget</zorder>
-  <zorder>layoutWidget</zorder>
   <zorder>layoutWidget</zorder>
   <zorder>sl1Led</zorder>
   <zorder>vacuumValve1OnLedInfo</zorder>
@@ -2860,7 +2171,6 @@
   <zorder>ipc4Value2</zorder>
   <zorder>hvg5Value</zorder>
   <zorder>ipc5Value1</zorder>
-  <zorder>layoutWidget</zorder>
   <zorder>vacuumValve1OnStatus</zorder>
   <zorder>vacuumValve2OnStatus</zorder>
   <zorder>vacuumValve3OnStatus</zorder>
@@ -2871,7 +2181,6 @@
   <zorder>qtLed</zorder>
   <zorder>as1Led</zorder>
   <zorder>as2Led</zorder>
-  <zorder>layoutWidget_3</zorder>
   <zorder>klystronAmplifierEnabledLed</zorder>
   <zorder>magnetInterlockStateLed</zorder>
   <zorder>utilitiesInterlockStateLed</zorder>
@@ -2899,13 +2208,26 @@
   <zorder>coolingLoop3PopupCheck</zorder>
   <zorder>klystron2InterlockPopupCheck</zorder>
   <zorder>klystron1InterlockPopupCheck</zorder>
+  <zorder>klystron1On</zorder>
+  <zorder>klystron1Rst</zorder>
+  <zorder>klystron2On</zorder>
+  <zorder>klystron2Rst</zorder>
+  <zorder>coolingLoop1On</zorder>
+  <zorder>coolingLoop2On</zorder>
+  <zorder>coolingLoop3On</zorder>
+  <zorder>eGunOn</zorder>
+  <zorder>vvRst</zorder>
+  <zorder>vvOn</zorder>
+  <zorder>vacuumValve1On</zorder>
+  <zorder>vacuumValve2On</zorder>
+  <zorder>vacuumValve3On</zorder>
+  <zorder>vacuumValve4On</zorder>
+  <zorder>vacuumValve5On</zorder>
+  <zorder>vacuumValve6On</zorder>
+  <zorder>vacuumValve7On</zorder>
+  <zorder>iuRst</zorder>
  </widget>
  <customwidgets>
-  <customwidget>
-   <class>TaurusValueSpinBox</class>
-   <extends>QWidget</extends>
-   <header>taurus.qt.qtgui.input</header>
-  </customwidget>
   <customwidget>
    <class>klystron2itck</class>
    <extends>TaurusWidget</extends>
@@ -2917,6 +2239,11 @@
    <extends>QWidget</extends>
    <header>taurus.qt.qtgui.container</header>
    <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>actionForm</class>
+   <extends>TaurusWidget</extends>
+   <header>actionform</header>
   </customwidget>
   <customwidget>
    <class>TaurusLabel</class>
@@ -2934,6 +2261,11 @@
    <extends>TaurusWidget</extends>
    <header>coolingloop</header>
    <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>TaurusValueSpinBox</class>
+   <extends>QWidget</extends>
+   <header>taurus.qt.qtgui.input</header>
   </customwidget>
   <customwidget>
    <class>eGunLV</class>
@@ -2962,28 +2294,13 @@
    <extends>QWidget</extends>
    <header>taurus.qt.qtgui.display</header>
   </customwidget>
-  <customwidget>
-   <class>LinacValueCheckBox</class>
-   <extends>QCheckBox</extends>
-   <header>linacvaluecheckbox</header>
-  </customwidget>
  </customwidgets>
  <tabstops>
   <tabstop>coolingLoop1TemperatureValue</tabstop>
   <tabstop>coolingLoop2TemperatureValue</tabstop>
   <tabstop>coolingLoop3TemperatureValue</tabstop>
   <tabstop>cathodeSetpoint</tabstop>
-  <tabstop>vv_oncCheck</tabstop>
-  <tabstop>vacuumValve1OnCheck</tabstop>
-  <tabstop>vacuumValve2OnCheck</tabstop>
-  <tabstop>vacuumValve3OnCheck</tabstop>
-  <tabstop>vacuumValve4OnCheck</tabstop>
-  <tabstop>vacuumValve5OnCheck</tabstop>
-  <tabstop>vacuumValve6OnCheck</tabstop>
-  <tabstop>vacuumValve7OnCheck</tabstop>
-  <tabstop>vv_rstCheck</tabstop>
   <tabstop>filamentSetpoint</tabstop>
-  <tabstop>egunonCheck</tabstop>
  </tabstops>
  <resources/>
  <connections/>
