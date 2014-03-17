@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'widgets/ui/linacMainscreenSynoptic.ui'
 #
-# Created: Fri Mar 14 15:40:33 2014
+# Created: Mon Mar 17 09:10:01 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -536,7 +536,7 @@ class Ui_linacMainscreenSynoptic(object):
         self.as2VacuumCheck.setCheckable(True)
         self.as2VacuumCheck.setObjectName(_fromUtf8("as2VacuumCheck"))
         self.beamChargeMonitors = beamChargeMonitors(linacMainscreenSynoptic)
-        self.beamChargeMonitors.setGeometry(QtCore.QRect(1120, 410, 131, 91))
+        self.beamChargeMonitors.setGeometry(QtCore.QRect(1120, 400, 131, 101))
         self.beamChargeMonitors.setObjectName(_fromUtf8("beamChargeMonitors"))
         self.layoutWidget2 = QtGui.QWidget(linacMainscreenSynoptic)
         self.layoutWidget2.setGeometry(QtCore.QRect(790, 110, 81, 51))
@@ -623,7 +623,7 @@ class Ui_linacMainscreenSynoptic(object):
         self.as2On.setGeometry(QtCore.QRect(1014, 722, 50, 40))
         self.as2On.setObjectName(_fromUtf8("as2On"))
         self.layoutWidget4 = QtGui.QWidget(linacMainscreenSynoptic)
-        self.layoutWidget4.setGeometry(QtCore.QRect(840, 770, 161, 43))
+        self.layoutWidget4.setGeometry(QtCore.QRect(840, 770, 174, 43))
         self.layoutWidget4.setObjectName(_fromUtf8("layoutWidget4"))
         self.fluorescentScreen2Layout = QtGui.QGridLayout(self.layoutWidget4)
         self.fluorescentScreen2Layout.setMargin(0)
@@ -641,7 +641,7 @@ class Ui_linacMainscreenSynoptic(object):
         self.fluorescentScreen2View.setObjectName(_fromUtf8("fluorescentScreen2View"))
         self.fluorescentScreen2Layout.addWidget(self.fluorescentScreen2View, 1, 1, 1, 1)
         self.layoutWidget5 = QtGui.QWidget(linacMainscreenSynoptic)
-        self.layoutWidget5.setGeometry(QtCore.QRect(1040, 770, 161, 43))
+        self.layoutWidget5.setGeometry(QtCore.QRect(1040, 770, 174, 43))
         self.layoutWidget5.setObjectName(_fromUtf8("layoutWidget5"))
         self.fluorescentScreen3Layout = QtGui.QGridLayout(self.layoutWidget5)
         self.fluorescentScreen3Layout.setMargin(0)
@@ -658,22 +658,22 @@ class Ui_linacMainscreenSynoptic(object):
         self.fluorescentScreen3View = QtGui.QPushButton(self.layoutWidget5)
         self.fluorescentScreen3View.setObjectName(_fromUtf8("fluorescentScreen3View"))
         self.fluorescentScreen3Layout.addWidget(self.fluorescentScreen3View, 1, 1, 1, 1)
-        self.widget = QtGui.QWidget(linacMainscreenSynoptic)
-        self.widget.setGeometry(QtCore.QRect(601, 771, 161, 43))
-        self.widget.setObjectName(_fromUtf8("widget"))
-        self.fluorescentScreen1Layout = QtGui.QGridLayout(self.widget)
+        self.layoutWidget6 = QtGui.QWidget(linacMainscreenSynoptic)
+        self.layoutWidget6.setGeometry(QtCore.QRect(601, 771, 174, 43))
+        self.layoutWidget6.setObjectName(_fromUtf8("layoutWidget6"))
+        self.fluorescentScreen1Layout = QtGui.QGridLayout(self.layoutWidget6)
         self.fluorescentScreen1Layout.setMargin(0)
         self.fluorescentScreen1Layout.setObjectName(_fromUtf8("fluorescentScreen1Layout"))
-        self.fluorescentScreen1Valve = actionForm(self.widget)
+        self.fluorescentScreen1Valve = actionForm(self.layoutWidget6)
         self.fluorescentScreen1Valve.setObjectName(_fromUtf8("fluorescentScreen1Valve"))
         self.fluorescentScreen1Layout.addWidget(self.fluorescentScreen1Valve, 0, 0, 2, 1)
-        self.fluorescentScreen1Status = TaurusLabel(self.widget)
+        self.fluorescentScreen1Status = TaurusLabel(self.layoutWidget6)
         self.fluorescentScreen1Status.setObjectName(_fromUtf8("fluorescentScreen1Status"))
         self.fluorescentScreen1Layout.addWidget(self.fluorescentScreen1Status, 0, 1, 1, 1)
-        self.fluorescentScreen1Light = actionForm(self.widget)
+        self.fluorescentScreen1Light = actionForm(self.layoutWidget6)
         self.fluorescentScreen1Light.setObjectName(_fromUtf8("fluorescentScreen1Light"))
         self.fluorescentScreen1Layout.addWidget(self.fluorescentScreen1Light, 0, 2, 2, 1)
-        self.fluorescentScreen1View = QtGui.QPushButton(self.widget)
+        self.fluorescentScreen1View = QtGui.QPushButton(self.layoutWidget6)
         self.fluorescentScreen1View.setObjectName(_fromUtf8("fluorescentScreen1View"))
         self.fluorescentScreen1Layout.addWidget(self.fluorescentScreen1View, 1, 1, 1, 1)
 
