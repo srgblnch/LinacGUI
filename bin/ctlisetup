@@ -1,0 +1,13 @@
+#!/bin/bash
+
+. alba_blissrc
+
+add2var PYTHONPATH $(CompOs ${SICILIA}/lib/python/site-packages)
+export PYTHONPATH
+
+APPNAME=ctlisetup
+
+pushd ${SICILIA}/lib/python/site-packages/$APPNAME
+python $APPNAME.py
+popd
+

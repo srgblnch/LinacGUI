@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'ui/snapshot_magnets.ui'
+# Form implementation generated from reading ui file 'widgets/ui/snapshot_magnets.ui'
 #
-# Created: Wed Mar 12 17:15:23 2014
+# Created: Mon Mar 17 13:08:10 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -261,9 +261,9 @@ class Ui_magnetSnapshot(object):
         self.sl1HCheck.setText(_fromUtf8(""))
         self.sl1HCheck.setObjectName(_fromUtf8("sl1HCheck"))
         self.gridLayout.addWidget(self.sl1HCheck, 1, 5, 1, 1)
-        self.sl3Vvalue = QtGui.QDoubleSpinBox(self.magnetsGroup)
-        self.sl3Vvalue.setObjectName(_fromUtf8("sl3Vvalue"))
-        self.gridLayout.addWidget(self.sl3Vvalue, 8, 2, 1, 1)
+        self.sl3VWrite = QtGui.QDoubleSpinBox(self.magnetsGroup)
+        self.sl3VWrite.setObjectName(_fromUtf8("sl3VWrite"))
+        self.gridLayout.addWidget(self.sl3VWrite, 8, 2, 1, 1)
         self.sl2VCheck = QtGui.QCheckBox(self.magnetsGroup)
         self.sl2VCheck.setText(_fromUtf8(""))
         self.sl2VCheck.setObjectName(_fromUtf8("sl2VCheck"))

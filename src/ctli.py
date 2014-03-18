@@ -38,6 +38,7 @@ from taurus.qt import Qt,QtGui
 from taurus.qt.qtgui.util import ExternalAppAction
 
 from ui_ctli import Ui_linacGui
+import ctliaux
 
 import threading
 
@@ -79,68 +80,78 @@ class MainWindow(TaurusMainWindow):
     ######
     #---- Auxiliar methods to configure widgets
     def _setupLed4UnknownAttr(self,widget):
-        widget.setLedPatternName(":leds/images256/led_{color}_{status}.png")
-        widget.setOnColor('green')
-        widget.setOffColor('white')
+        ctliaux._setupLed4UnknownAttr(widget)
+#        widget.setLedPatternName(":leds/images256/led_{color}_{status}.png")
+#        widget.setOnColor('green')
+#        widget.setOffColor('white')
 
     def _setupLed4Attr(self,widget,attrName,inverted=False,onColor='green',offColor='red',pattern='on'):
-        widget.setModel(attrName)
-        if pattern == 'on':
-            widget.setLedPatternName(":leds/images256/led_{color}_on.png")
-        widget.setOnColor(onColor)
-        widget.setOffColor(offColor)
-        if inverted:
-            widget.setLedInverted(True)
+        ctliaux._setupLed4Attr(widget,attrName,inverted,onColor,offColor,pattern)
+#        widget.setModel(attrName)
+#        if pattern == 'on':
+#            widget.setLedPatternName(":leds/images256/led_{color}_on.png")
+#        widget.setOnColor(onColor)
+#        widget.setOffColor(offColor)
+#        if inverted:
+#            widget.setLedInverted(True)
 
     def _setupCheckbox4UnknownAttr(self,widget):
-        widget.setEnabled(False)
+        ctliaux._setupCheckbox4UnknownAttr(widget)
+#        widget.setEnabled(False)
 
     def _setupCheckbox4Attr(self,widget,attrName,
                             isRst=False,DangerMsg='',
                             riseEdge=False,fallingEdge=False):
-        widget.setModel(attrName)
-        if isRst:
-            widget.setResetCheckBox(True)
-        if len(DangerMsg) > 0:
-            widget.setDangerMessage(DangerMsg)
-        if riseEdge:
-            widget.setDangerRiseEdge(True)
-        if fallingEdge:
-            widget.setDangerFallingEdge(True)
-        if not riseEdge and not fallingEdge:
-            widget.setAutoApply(True)
-            widget.setForcedApply(True)
+        ctliaux._setupCheckbox4Attr(widget,attrName,
+                                    isRst,DangerMsg,riseEdge,fallingEdge)
+#        widget.setModel(attrName)
+#        if isRst:
+#            widget.setResetCheckBox(True)
+#        if len(DangerMsg) > 0:
+#            widget.setDangerMessage(DangerMsg)
+#        if riseEdge:
+#            widget.setDangerRiseEdge(True)
+#        if fallingEdge:
+#            widget.setDangerFallingEdge(True)
+#        if not riseEdge and not fallingEdge:
+#            widget.setAutoApply(True)
+#            widget.setForcedApply(True)
 
     def _setupSpinBox4Attr(self,widget,attrName,step=None):
-        widget.setModel(attrName)
-        widget.setAutoApply(True)
-        widget.setForcedApply(True)
-        #if not step == widget.getSingleStep():
-        if not step == None:
-            widget.setSingleStep(step)
+        ctliaux._setupSpinBox4Attr(widget,attrName,step)
+#        widget.setModel(attrName)
+#        widget.setAutoApply(True)
+#        widget.setForcedApply(True)
+#        #if not step == widget.getSingleStep():
+#        if not step == None:
+#            widget.setSingleStep(step)
 
     def _setupTaurusLabel4Attr(self,widget,attrName,unit=None):
-        widget.setModel(attrName)
-        if unit:
-            widget.setSuffixText(' %s'%unit)
+        ctliaux._setupTaurusLabel4Attr(widget,attrName,unit)
+#        widget.setModel(attrName)
+#        if unit:
+#            widget.setSuffixText(' %s'%unit)
 
     def _setupCombobox4Attr(self,widget,attrName,valueNames=None):
-        widget.setModel(attrName)
-        widget.setAutoApply(True)
-        widget.setForcedApply(True)
-        if valueNames != None and type(valueNames) == list and len(valueNames) > 0:
-            widget.addValueNames(valueNames)
+        ctliaux._setupCombobox4Attr(self,widget,attrName,valueNames)
+#        widget.setModel(attrName)
+#        widget.setAutoApply(True)
+#        widget.setForcedApply(True)
+#        if valueNames != None and type(valueNames) == list and len(valueNames) > 0:
+#            widget.addValueNames(valueNames)
             
     def _setupActionWidget(self,widget,attrName,text='on/off',isRst=False,
                            DangerMsg='',riseEdge=False,fallingEdge=False):
-        widget._ui.Label.setText(text)
-        if isRst:
-            self._setupLed4Attr(widget._ui.Led,attrName,
-                                offColor='black',onColor='yellow')
-        else:
-            self._setupLed4Attr(widget._ui.Led,attrName,pattern='')
-        self._setupCheckbox4Attr(widget._ui.Check,attrName,
-                                 isRst)#,DangerMsg,riseEdge,fallingEdge)
+        ctliaux._setupActionWidget(widget,attrName,text,isRst,
+                           DangerMsg,riseEdge,fallingEdge)
+#        widget._ui.Label.setText(text)
+#        if isRst:
+#            self._setupLed4Attr(widget._ui.Led,attrName,
+#                                offColor='black',onColor='yellow')
+#        else:
+#            self._setupLed4Attr(widget._ui.Led,attrName,pattern='')
+#        self._setupCheckbox4Attr(widget._ui.Check,attrName,
+#                                 isRst)#,DangerMsg,riseEdge,fallingEdge)
     #---- Done auxiliar methods to configure widgets
     ######
 
@@ -424,9 +435,11 @@ class MainWindow(TaurusMainWindow):
         self._setupLed4Attr(startup_ui.bc1Led,'li/ct/plc3/BC1_cooling')
         self._setupLed4Attr(startup_ui.bc2Led,'li/ct/plc3/BC2_cooling')
         self._setupLed4Attr(startup_ui.glLed,'li/ct/plc3/GL_cooling')
-        self._setupLed4Attr(startup_ui.as1Led,'li/ct/plc3/AS1_cooling')
+        #self._setupLed4Attr(startup_ui.as1Led,'li/ct/plc3/AS1_cooling')
+        self._setupLed4UnknownAttr(startup_ui.as1Led)
         self._setupLed4Attr(startup_ui.qtLed,'li/ct/plc3/QT_cooling')
-        self._setupLed4Attr(startup_ui.as2Led,'li/ct/plc3/AS2_cooling')
+        #self._setupLed4Attr(startup_ui.as2Led,'li/ct/plc3/AS2_cooling')
+        self._setupLed4UnknownAttr(startup_ui.as2Led)
 
     def _setStartup_vacuum(self):
         startup_ui = self.ui.linacStartupSynoptic._ui
@@ -569,7 +582,7 @@ class MainWindow(TaurusMainWindow):
                                      'li/ct/plc1/TB_GPM',
                                      [('beam on',0),('mix',1),('beam off',2)])
         except:
-            mainscreen_ui.tbGatedPulseModeValue.setEnabled(False)
+            mainscreen_ui.tbGatedPulseModeCombo.setEnabled(False)
         self._setupSpinBox4Attr(mainscreen_ui.tbGunDelayValue,
                                 'li/ct/plc1/TB_Gun_Delay',step=32)
         self._setupSpinBox4Attr(mainscreen_ui.tbWidthValue,
@@ -1015,189 +1028,7 @@ class MainWindow(TaurusMainWindow):
         self._setupTaurusLabel4Attr(bcm.lt01Value,'lt01/di/bcm-01/charge', unit='nC')
         self._setupTaurusLabel4Attr(bcm.lt02Value,'lt02/di/bcm-01/charge', unit='nC')
 
-#    #---- setModel & others for the Configuration Tab
-#    def setConfiguration(self):
-#        configuration_ui = self.ui.linacConfigurationScreen._ui
-#        self._configurationWidgets = {}
-#        #---- configure the widgets in the panels
-#        self.electronGunConfiguration(configuration_ui.electronGunSnapshot._ui)
-#        self.coolingLoopsConfiguration(configuration_ui.coolingLoopSnapshot._ui)
-#        self.vacuumValvesConfiguration(configuration_ui.vacuumValveSnapshot._ui)
-#        self.magnetsConfiguration(configuration_ui.magnetSnapshot._ui)
-#        self.radiofrequencyConfiguration(configuration_ui.radioFrequencySnapshot._ui)
-#        self.timingConfiguration(configuration_ui.timingSnapshot._ui)
-#        self.klystronsConfiguration(configuration_ui.klystronSnapshot._ui)
-#        #---- TODO: connect buttons to their actions
-#        self.buttonsConfiguration(configuration_ui.buttonBox)
-#        # Those actions must have DangerMessage for eGunLV, CLs and KaLV
-#        #---- TODO: load current values to the "save/retrieve" column of widgets
-#        #           (this is the reset button action)
-#        
-#    def electronGunConfiguration(self,ui):
-#        devName = 'li/ct/plc1'
-#        widgetsSet = {}
-#        
-#        attrName = '%s/GUN_Filament_V_setpoint'%(devName)
-#        widgetsSet[attrName] = {'read': ui.GunFilamentLowVoltageRead,
-#                                'write':ui.GunFilamentLowVoltageWrite,
-#                                'check':ui.GunFilamentLowVoltageCheck}
-#        self._setupTaurusLabel4Attr(widgetsSet[attrName]['read'],attrName)
-#        
-#        attrName = '%s/Gun_kathode_v_setpoint'%(devName)
-#        widgetsSet[attrName] = {'read': ui.GunKathodeLowVoltageRead,
-#                                'write':ui.GunKathodeLowVoltageWrite,
-#                                'check':ui.GunKathodeLowVoltageCheck}
-#        self._setupTaurusLabel4Attr(widgetsSet[attrName]['read'],attrName)
-#        
-#        attrName = '%s/Gun_hv_v_setpoint'%(devName)
-#        widgetsSet[attrName] = {'read':ui.GunHighVoltagePowerSupplyRead,
-#                                'write':ui.GunHighVoltagePowerSupplyWrite,
-#                                'check':ui.GunHighVoltagePowerSupplyCheck}
-#        self._setupTaurusLabel4Attr(widgetsSet[attrName]['read'],attrName)
-#        
-#        #---- TODO: connect the ToApplyTitle to check/uncheck all the *Check
-#        self._configurationWidgets['eGun'] = widgetsSet
-#
-#    def coolingLoopsConfiguration(self,ui):
-#        devName = 'li/ct/plc2'
-#        widgetsSet = {}
-#        
-#        #CL1
-#        attrName = '%s/cl1_t_setpoint'%(devName)
-#        widgetsSet[attrName] = {'read':ui.coolingLoop1SetpointRead,
-#                                'write':ui.coolingLoop1SetpointWrite,
-#                                'check':ui.coolingLoop1SetpointCheck}
-#        self._setupTaurusLabel4Attr(widgetsSet[attrName]['read'],attrName)
-#        
-#        #----
-#        #CL2
-#        attrName = '%s/cl2_t_setpoint'%(devName)
-#        widgetsSet[attrName] = {'read':ui.coolingLoop2SetpointRead,
-#                                'write':ui.coolingLoop2SetpointWrite,
-#                                'check':ui.coolingLoop2SetpointCheck}
-#        self._setupTaurusLabel4Attr(widgetsSet[attrName]['read'],attrName)
-#        #CL3
-#        attrName = '%s/cl3_t_setpoint'%(devName)
-#        widgetsSet[attrName] = {'read':ui.coolingLoop3SetpointRead,
-#                                'write':ui.coolingLoop3SetpointWrite,
-#                                'check':ui.coolingLoop3SetpointCheck}
-#        self._setupTaurusLabel4Attr(widgetsSet[attrName]['read'],attrName)
-#        #---- TODO: connect the ToApplyTitle to check/uncheck all the *Check
-#        self._configurationWidgets['coolingLoop'] = widgetsSet
-#    
-#    def vacuumValvesConfiguration(self,ui):
-#        self._setupLed4Attr(ui.VaccumCollimatorValveRead,'li/ct/plc2/VCV_ONC')
-#        
-#        #---- TODO: connect the ToApplyTitle to check/uncheck all the *Check
-#
-#    def magnetsConfiguration(self,ui):
-#        magnets = {'sl':{'1':{'h':ui.sl1HRead,
-#                              'v':ui.sl1VRead,
-#                              'f':ui.sl1FRead},
-#                         '2':{'h':ui.sl2HRead,
-#                              'v':ui.sl2VRead,
-#                              'f':ui.sl2FRead},
-#                         '3':{'h':ui.sl3HRead,
-#                              'v':ui.sl3VRead,
-#                              'f':ui.sl3FRead},
-#                         '4':{'h':ui.sl4HRead,
-#                              'v':ui.sl4VRead,
-#                              'f':ui.sl4FRead}},
-#                   'bc':{'1':{'h':ui.bc1HRead,
-#                              'v':ui.bc1VRead,
-#                              'f':ui.bc1FRead},
-#                         '2':{'h':ui.bc2HRead,
-#                              'v':ui.bc2VRead,
-#                              'f':ui.bc2FRead}},
-#                   'gl':{'':{'h':ui.glHRead,
-#                             'v':ui.glVRead,
-#                             'f':ui.glFRead}},
-#                   'as':{'1':{'h':ui.as1HRead,
-#                              'v':ui.as1VRead},
-#                         '2':{'h':ui.as2HRead,
-#                              'v':ui.as2VRead}},
-#                   'qt':{'1':{'h':ui.qt1HRead,
-#                              'v':ui.qt1VRead,
-#                              'f':ui.qt1FRead},
-#                         '2':{'f':ui.qt2FRead}}
-#                   }
-#        for family in magnets.keys():
-#            for magnet in magnets[family].keys():
-#                for component in magnets[family][magnet].keys():
-#                    widget = magnets[family][magnet][component]
-#                    if component in ['h','v','f']:
-#                        attrName = 'li/ct/plc3/%s%s%s_I_setpoint'%(family,magnet,component)
-#                        self._setupTaurusLabel4Attr(widget,attrName)
-#        #---- TODO: connect the ToApplyTitle to check/uncheck all the *Check
-#    
-#    def radiofrequencyConfiguration(self,ui):
-#        self._setupTaurusLabel4Attr(ui.TPS0PhaseRead,'li/ct/plc1/TPS0_Phase')
-#        self._setupTaurusLabel4Attr(ui.TPSXPhaseRead,'li/ct/plc1/TPSX_Phase')
-#        self._setupTaurusLabel4Attr(ui.TPS1PhaseRead,'li/ct/plc1/TPS1_Phase')
-#        self._setupTaurusLabel4Attr(ui.TPS2PhaseRead,'li/ct/plc1/TPS2_Phase')
-#        self._setupTaurusLabel4Attr(ui.A0OPRead,'li/ct/plc1/A0_OP')
-#        self._setupTaurusLabel4Attr(ui.ATT2Read,'li/ct/plc1/ATT2_P_setpoint')
-#        self._setupTaurusLabel4Attr(ui.PHS1Read,'li/ct/plc1/PHS1_Phase_setpoint')
-#        self._setupTaurusLabel4Attr(ui.PHS2Read,'li/ct/plc1/PHS2_Phase_setpoint')
-#        #---- TODO: connect the ToApplyTitle to check/uncheck all the *Check
-#    
-#    def timingConfiguration(self,ui):
-#        self._setupLed4Attr(ui.MBMRead,'LI/CT/PLC1/TB_MBM')
-#        self._setupTaurusLabel4Attr(ui.GunDelayRead,'li/ct/plc1/TB_GUN_delay')
-#        self._setupTaurusLabel4Attr(ui.ka1DelayRead,'li/ct/plc1/TB_ka1_delay')
-#        self._setupTaurusLabel4Attr(ui.ka2DelayRead,'li/ct/plc1/TB_ka2_delay')
-#        self._setupTaurusLabel4Attr(ui.GPIRead,'li/ct/plc1/TB_GPI')
-#        self._setupTaurusLabel4Attr(ui.GPNRead,'li/ct/plc1/TB_GPN')
-#        self._setupTaurusLabel4Attr(ui.GPARead,'li/ct/plc1/TB_GPA')
-#        #---- TODO: connect the ToApplyTitle to check/uncheck all the *Check
-#    
-#    def klystronsConfiguration(self,ui):
-#        klystrons = {1:{'setp':ui.ka1HVPSRead},
-#                     2:{'setp':ui.ka2HVPSRead}}
-#        for number in klystrons.keys():
-#            for element in klystrons[number].keys():
-#                widget = klystrons[number][element]
-#                devName = 'li/ct/plc%d'%(number+3)
-#                if element == 'setp':
-#                    self._setupTaurusLabel4Attr(widget,"%s/HVPS_V_setpoint"%(devName))
-#                
-#        #---- TODO: connect the ToApplyTitle to check/uncheck all the *Check
-#    
-#    def buttonsConfiguration(self,buttons):
-#        buttons.button(QtGui.QDialogButtonBox.Reset).setDisabled(True)#.clicked.connect(self.reset)
-#        buttons.button(QtGui.QDialogButtonBox.Save).setDisabled(True)#.clicked.connect(self.save)
-#        buttons.button(QtGui.QDialogButtonBox.Open).setDisabled(True)#.clicked.connect(self.open)
-#        buttons.button(QtGui.QDialogButtonBox.Apply).setDisabled(True)#.clicked.connect(self.apply)
-#    
-#    #---- TODO: should the *Reading widgets be connected to the *Value?
-#    #           Doing this, the operation of the other tabs will be shown in 
-#    #           this Configuration tab according to when it's happening.
-#    
-#    def reset(self):
-#        '''With this call (from a button or at the loading step) we must travel
-#           all the *Reading widgets and copy the value to the *Value widget.
-#        '''
-#        print "Reset()"
-#        
-#        
-#        
-#    def save(self):
-#        '''Travelling along the *Check widgets, the checked ones (name and 
-#           value) will be written in a file indicated by the user.
-#        '''
-#        print "Save()"
-#    def open(self):
-#        '''Given a file of settings provided by the user, show those values in 
-#           the *Value widgets.
-#           Mark (TODO: how?) the changes from the previous value 
-#           in the *Value widget
-#        '''
-#        print "Open()"
-#    def apply(self):
-#        '''Travelling along the *Check, apply the value in *Value 
-#           to the model in the *Reading.
-#        '''
-#        print "Apply()"
+
 
     #---- Configure the access to external applications
     def setExternalApplications(self):
@@ -1210,6 +1041,8 @@ class MainWindow(TaurusMainWindow):
         self.addExternalAppLauncher(lt_magnets)
         mach_ccds = ExternalAppAction(['ctdiccd'],text="CCDs")
         self.addExternalAppLauncher(mach_ccds)
+        saveretrieve = ExternalAppAction(['ctlisetup'],text="save/retrieve")
+        self.addExternalAppLauncher(saveretrieve)
 
 '''First approach to the Labview blinking leds with subboxes of sets of attrs.
 '''
@@ -1305,7 +1138,7 @@ class ViewButtonListener:
 def main():
     parser = argparse.get_taurus_parser()
     app = TaurusApplication(sys.argv, cmd_line_parser=parser,
-                      app_name='cttifilling', app_version='0.1',
+                      app_name='ctli', app_version='0.1',
                       org_domain='ALBA', org_name='ALBA')
     options = app.get_command_line_options()
     ui = MainWindow()

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Comment=Opens linac's save and retrieve settings graphical interface
+Name=ctlisetup
+GenericName=Linac's save&retrieve app
+Exec=ctlisetup
+Icon=albact-li
+Terminal=false
+Type=Application
+Categories=X-albact;X-albact;
+StartupNotify=true

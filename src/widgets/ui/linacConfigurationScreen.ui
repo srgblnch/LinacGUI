@@ -6,103 +6,146 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1250</width>
-    <height>825</height>
+    <width>950</width>
+    <height>950</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>1250</width>
-    <height>825</height>
+    <width>0</width>
+    <height>0</height>
    </size>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout">
-   <item row="2" column="0">
-    <widget class="QDialogButtonBox" name="buttonBox">
-     <property name="standardButtons">
-      <set>QDialogButtonBox::Apply|QDialogButtonBox::Open|QDialogButtonBox::Reset|QDialogButtonBox::Save</set>
+  <layout class="QGridLayout" name="gridLayout_3">
+   <item row="0" column="0">
+    <widget class="QFrame" name="centralFrame">
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
      </property>
-     <property name="centerButtons">
-      <bool>false</bool>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
      </property>
-    </widget>
-   </item>
-   <item row="1" column="0">
-    <widget class="QScrollArea" name="scrollArea">
-     <property name="widgetResizable">
-      <bool>true</bool>
-     </property>
-     <widget class="QWidget" name="scrollAreaWidgetContents">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>1221</width>
-        <height>812</height>
-       </rect>
-      </property>
-      <layout class="QGridLayout" name="gridLayout_2">
-       <item row="3" column="0">
-        <widget class="coolingLoopSnapshot" name="coolingLoopSnapshot"/>
-       </item>
-       <item row="0" column="2" rowspan="6">
-        <widget class="magnetSnapshot" name="magnetSnapshot"/>
-       </item>
-       <item row="1" column="3" rowspan="5">
-        <widget class="QGroupBox" name="groupBox">
-         <property name="maximumSize">
-          <size>
-           <width>350</width>
-           <height>16777215</height>
-          </size>
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="0" column="0">
+       <widget class="QScrollArea" name="scrollArea">
+        <property name="widgetResizable">
+         <bool>true</bool>
+        </property>
+        <widget class="QWidget" name="scrollAreaWidgetContents">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>922</width>
+           <height>893</height>
+          </rect>
          </property>
-         <property name="title">
-          <string>Comments</string>
-         </property>
-         <layout class="QGridLayout" name="gridLayout_4">
+         <layout class="QGridLayout" name="gridLayout_2">
+          <item row="0" column="2" rowspan="6">
+           <widget class="magnetSnapshot" name="magnetSnapshot"/>
+          </item>
+          <item row="1" column="0">
+           <widget class="electronGunSnapshot" name="electronGunSnapshot"/>
+          </item>
+          <item row="4" column="0">
+           <widget class="klystronSnapshot" name="klystronSnapshot"/>
+          </item>
+          <item row="0" column="3">
+           <widget class="radioFrequencySnapshot" name="radioFrequencySnapshot"/>
+          </item>
           <item row="0" column="0">
-           <widget class="QTextEdit" name="textEdit">
+           <widget class="timingSnapshot" name="timingSnapshot"/>
+          </item>
+          <item row="3" column="0">
+           <widget class="coolingLoopSnapshot" name="coolingLoopSnapshot"/>
+          </item>
+          <item row="1" column="3" rowspan="5">
+           <widget class="QGroupBox" name="commentGroup">
             <property name="maximumSize">
              <size>
               <width>350</width>
               <height>16777215</height>
              </size>
             </property>
+            <property name="title">
+             <string>Comments</string>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_4">
+             <item row="0" column="0">
+              <widget class="QSplitter" name="splitter">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+               <widget class="QWidget" name="">
+                <layout class="QVBoxLayout" name="textToSaveLayout">
+                 <item>
+                  <widget class="QLabel" name="textToSaveLabel">
+                   <property name="text">
+                    <string>Comment to be saved:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QTextEdit" name="textToSave">
+                   <property name="maximumSize">
+                    <size>
+                     <width>350</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+               <widget class="QWidget" name="">
+                <layout class="QVBoxLayout" name="textLoadedLayout">
+                 <item>
+                  <widget class="QLabel" name="textLoadedLabel">
+                   <property name="text">
+                    <string>Comment loaded from the file:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QTextEdit" name="textLoaded">
+                   <property name="readOnly">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </widget>
+             </item>
+            </layout>
            </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="vacuumValveSnapshot" name="vacuumValveSnapshot"/>
           </item>
          </layout>
         </widget>
-       </item>
-       <item row="1" column="0">
-        <widget class="electronGunSnapshot" name="electronGunSnapshot"/>
-       </item>
-       <item row="0" column="3">
-        <widget class="radioFrequencySnapshot" name="radioFrequencySnapshot"/>
-       </item>
-       <item row="4" column="0">
-        <widget class="klystronSnapshot" name="klystronSnapshot"/>
-       </item>
-       <item row="2" column="0">
-        <widget class="vacuumValveSnapshot" name="vacuumValveSnapshot"/>
-       </item>
-       <item row="0" column="0">
-        <widget class="timingSnapshot" name="timingSnapshot"/>
-       </item>
-      </layout>
-     </widget>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QDialogButtonBox" name="buttonBox">
+        <property name="standardButtons">
+         <set>QDialogButtonBox::Apply|QDialogButtonBox::Open|QDialogButtonBox::Reset|QDialogButtonBox::Save</set>
+        </property>
+        <property name="centerButtons">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </widget>
    </item>
   </layout>
  </widget>
  <customwidgets>
-  <customwidget>
-   <class>klystronSnapshot</class>
-   <extends>TaurusWidget</extends>
-   <header>klystronsnapshot</header>
-  </customwidget>
   <customwidget>
    <class>radioFrequencySnapshot</class>
    <extends>TaurusWidget</extends>
@@ -112,6 +155,11 @@
    <class>electronGunSnapshot</class>
    <extends>TaurusWidget</extends>
    <header>electrongunsnapshot</header>
+  </customwidget>
+  <customwidget>
+   <class>klystronSnapshot</class>
+   <extends>TaurusWidget</extends>
+   <header>klystronsnapshot</header>
   </customwidget>
   <customwidget>
    <class>TaurusWidget</class>
