@@ -5,9 +5,9 @@
 add2var PYTHONPATH $(CompOs ${SICILIA}/lib/python/site-packages)
 export PYTHONPATH
 
-APPNAME=ctlisetup
+APPNAME=ctli
 
 pushd ${SICILIA}/lib/python/site-packages/$APPNAME
-python $APPNAME.py
+python $APPNAMEsetup.py
 popd
 

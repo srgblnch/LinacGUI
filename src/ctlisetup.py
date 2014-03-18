@@ -103,7 +103,7 @@ class MainWindow(TaurusMainWindow):
         self.klystronsConfiguration(configuration_ui.klystronSnapshot._ui)
         self.commentConfiguration(configuration_ui)
         
-        print self._configurationWidgets
+        #print self._configurationWidgets
         
         #---- TODO: connect buttons to their actions
         self.buttonsConfiguration(configuration_ui.buttonBox)
@@ -360,7 +360,7 @@ class MainWindow(TaurusMainWindow):
     
     def buttonsConfiguration(self,buttons):
         buttons.button(QtGui.QDialogButtonBox.Reset).setText("Reload")
-        buttons.button(QtGui.QDialogButtonBox.Reset).clicked.connect(self.load)
+        buttons.button(QtGui.QDialogButtonBox.Reset).setDisabled(True)#.clicked.connect(self.load)
         buttons.button(QtGui.QDialogButtonBox.Save).setDisabled(True)#.clicked.connect(self.save)
         buttons.button(QtGui.QDialogButtonBox.Open).setDisabled(True)#.clicked.connect(self.open)
         buttons.button(QtGui.QDialogButtonBox.Apply).setDisabled(True)#.clicked.connect(self.apply)
