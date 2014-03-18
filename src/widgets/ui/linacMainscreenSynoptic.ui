@@ -43,9 +43,9 @@
   <widget class="TaurusValueSpinBox" name="tbNumberValue">
    <property name="geometry">
     <rect>
-     <x>295</x>
+     <x>302</x>
      <y>107</y>
-     <width>60</width>
+     <width>50</width>
      <height>22</height>
     </rect>
    </property>
@@ -55,7 +55,7 @@
     <rect>
      <x>232</x>
      <y>107</y>
-     <width>60</width>
+     <width>55</width>
      <height>22</height>
     </rect>
    </property>
@@ -63,9 +63,9 @@
   <widget class="TaurusValueSpinBox" name="tbGunDelayValue">
    <property name="geometry">
     <rect>
-     <x>170</x>
+     <x>165</x>
      <y>107</y>
-     <width>60</width>
+     <width>55</width>
      <height>22</height>
     </rect>
    </property>
@@ -1131,9 +1131,9 @@
    <property name="geometry">
     <rect>
      <x>203</x>
-     <y>610</y>
-     <width>210</width>
-     <height>100</height>
+     <y>600</y>
+     <width>170</width>
+     <height>80</height>
     </rect>
    </property>
   </widget>
@@ -1141,9 +1141,9 @@
    <property name="geometry">
     <rect>
      <x>291</x>
-     <y>610</y>
-     <width>210</width>
-     <height>100</height>
+     <y>600</y>
+     <width>170</width>
+     <height>80</height>
     </rect>
    </property>
   </widget>
@@ -1151,9 +1151,9 @@
    <property name="geometry">
     <rect>
      <x>376</x>
-     <y>610</y>
-     <width>210</width>
-     <height>100</height>
+     <y>600</y>
+     <width>170</width>
+     <height>80</height>
     </rect>
    </property>
   </widget>
@@ -1161,9 +1161,9 @@
    <property name="geometry">
     <rect>
      <x>440</x>
-     <y>610</y>
-     <width>210</width>
-     <height>100</height>
+     <y>600</y>
+     <width>170</width>
+     <height>80</height>
     </rect>
    </property>
   </widget>
@@ -1171,9 +1171,9 @@
    <property name="geometry">
     <rect>
      <x>505</x>
-     <y>610</y>
-     <width>210</width>
-     <height>100</height>
+     <y>600</y>
+     <width>170</width>
+     <height>80</height>
     </rect>
    </property>
   </widget>
@@ -1181,9 +1181,9 @@
    <property name="geometry">
     <rect>
      <x>569</x>
-     <y>610</y>
-     <width>210</width>
-     <height>100</height>
+     <y>600</y>
+     <width>170</width>
+     <height>80</height>
     </rect>
    </property>
   </widget>
@@ -1191,28 +1191,18 @@
    <property name="geometry">
     <rect>
      <x>697</x>
-     <y>610</y>
-     <width>210</width>
-     <height>100</height>
+     <y>600</y>
+     <width>170</width>
+     <height>80</height>
     </rect>
    </property>
   </widget>
-  <widget class="magnet" name="qt1PopupWidget">
+  <widget class="magnet" name="qtPopupWidget">
    <property name="geometry">
     <rect>
      <x>939</x>
-     <y>610</y>
-     <width>210</width>
-     <height>100</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="magnet" name="qt2PopupWidget">
-   <property name="geometry">
-    <rect>
-     <x>1007</x>
-     <y>610</y>
-     <width>210</width>
+     <y>600</y>
+     <width>170</width>
      <height>100</height>
     </rect>
    </property>
@@ -1220,10 +1210,10 @@
   <widget class="magnet" name="as2PopupWidget">
    <property name="geometry">
     <rect>
-     <x>801</x>
-     <y>610</y>
-     <width>210</width>
-     <height>100</height>
+     <x>1071</x>
+     <y>600</y>
+     <width>170</width>
+     <height>60</height>
     </rect>
    </property>
   </widget>
@@ -1231,9 +1221,9 @@
    <property name="geometry">
     <rect>
      <x>798</x>
-     <y>610</y>
-     <width>210</width>
-     <height>100</height>
+     <y>600</y>
+     <width>170</width>
+     <height>60</height>
     </rect>
    </property>
   </widget>
@@ -1490,26 +1480,10 @@
     <bool>true</bool>
    </property>
   </widget>
-  <widget class="QToolButton" name="qt1PopupCheck">
+  <widget class="QToolButton" name="qtPopupCheck">
    <property name="geometry">
     <rect>
-     <x>890</x>
-     <y>513</y>
-     <width>20</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Info</string>
-   </property>
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-  </widget>
-  <widget class="QToolButton" name="qt2PopupCheck">
-   <property name="geometry">
-    <rect>
-     <x>937</x>
+     <x>914</x>
      <y>513</y>
      <width>20</width>
      <height>20</height>
@@ -1567,7 +1541,7 @@
   <widget class="QLabel" name="tbNumberLabel">
    <property name="geometry">
     <rect>
-     <x>300</x>
+     <x>306</x>
      <y>130</y>
      <width>41</width>
      <height>16</height>
@@ -1843,7 +1817,7 @@
   <widget class="TaurusValueSpinBox" name="tbKaDelay1Value">
    <property name="geometry">
     <rect>
-     <x>38</x>
+     <x>28</x>
      <y>48</y>
      <width>60</width>
      <height>22</height>
@@ -2124,6 +2098,68 @@
     </item>
    </layout>
   </widget>
+  <widget class="QLabel" name="tbKaDelay1Unit">
+   <property name="geometry">
+    <rect>
+     <x>87</x>
+     <y>50</y>
+     <width>16</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>us</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="tbKaDelay2Unit">
+   <property name="geometry">
+    <rect>
+     <x>163</x>
+     <y>50</y>
+     <width>16</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>ns</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="tbGunDelayUnit">
+   <property name="geometry">
+    <rect>
+     <x>221</x>
+     <y>110</y>
+     <width>16</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>ns</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="tbGunDelayUnit_2">
+   <property name="geometry">
+    <rect>
+     <x>289</x>
+     <y>110</y>
+     <width>16</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>ns</string>
+   </property>
+  </widget>
+  <zorder>sl1PopupWidget</zorder>
+  <zorder>sl2PopupWidget</zorder>
+  <zorder>sl3PopupWidget</zorder>
+  <zorder>sl4PopupWidget</zorder>
+  <zorder>bc1PopupWidget</zorder>
+  <zorder>bc2PopupWidget</zorder>
+  <zorder>glPopupWidget</zorder>
+  <zorder>as1PopupWidget</zorder>
+  <zorder>qtPopupWidget</zorder>
+  <zorder>as2PopupWidget</zorder>
   <zorder>MainScreenSchematic</zorder>
   <zorder>layoutWidget</zorder>
   <zorder>layoutWidget</zorder>
@@ -2135,17 +2171,6 @@
   <zorder>buncherVacuumWidget</zorder>
   <zorder>preBuncherVacuumWidget</zorder>
   <zorder>eGunVacuumWidget</zorder>
-  <zorder>qt2PopupWidget</zorder>
-  <zorder>as2PopupWidget</zorder>
-  <zorder>qt1PopupWidget</zorder>
-  <zorder>as1PopupWidget</zorder>
-  <zorder>glPopupWidget</zorder>
-  <zorder>bc2PopupWidget</zorder>
-  <zorder>bc1PopupWidget</zorder>
-  <zorder>sl4PopupWidget</zorder>
-  <zorder>sl3PopupWidget</zorder>
-  <zorder>sl2PopupWidget</zorder>
-  <zorder>sl1PopupWidget</zorder>
   <zorder>hvsPopupWidget</zorder>
   <zorder>attenuatorPopupWidget</zorder>
   <zorder>phaseShifter2PopupWidget</zorder>
@@ -2233,8 +2258,7 @@
   <zorder>bc2PopupCheck</zorder>
   <zorder>glPopupCheck</zorder>
   <zorder>as1PopupCheck</zorder>
-  <zorder>qt1PopupCheck</zorder>
-  <zorder>qt2PopupCheck</zorder>
+  <zorder>qtPopupCheck</zorder>
   <zorder>as2PopupCheck</zorder>
   <zorder>tbRf2DelayValue</zorder>
   <zorder>tbWidthLabel</zorder>
@@ -2267,6 +2291,10 @@
   <zorder>as1On</zorder>
   <zorder>qtOn</zorder>
   <zorder>as2On</zorder>
+  <zorder>tbKaDelay1Unit</zorder>
+  <zorder>tbKaDelay2Unit</zorder>
+  <zorder>tbGunDelayUnit</zorder>
+  <zorder>tbGunDelayUnit_2</zorder>
  </widget>
  <customwidgets>
   <customwidget>

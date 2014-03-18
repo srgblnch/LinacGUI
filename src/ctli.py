@@ -87,71 +87,29 @@ class MainWindow(TaurusMainWindow):
 
     def _setupLed4Attr(self,widget,attrName,inverted=False,onColor='green',offColor='red',pattern='on'):
         ctliaux._setupLed4Attr(widget,attrName,inverted,onColor,offColor,pattern)
-#        widget.setModel(attrName)
-#        if pattern == 'on':
-#            widget.setLedPatternName(":leds/images256/led_{color}_on.png")
-#        widget.setOnColor(onColor)
-#        widget.setOffColor(offColor)
-#        if inverted:
-#            widget.setLedInverted(True)
 
     def _setupCheckbox4UnknownAttr(self,widget):
         ctliaux._setupCheckbox4UnknownAttr(widget)
-#        widget.setEnabled(False)
 
     def _setupCheckbox4Attr(self,widget,attrName,
                             isRst=False,DangerMsg='',
                             riseEdge=False,fallingEdge=False):
         ctliaux._setupCheckbox4Attr(widget,attrName,
                                     isRst,DangerMsg,riseEdge,fallingEdge)
-#        widget.setModel(attrName)
-#        if isRst:
-#            widget.setResetCheckBox(True)
-#        if len(DangerMsg) > 0:
-#            widget.setDangerMessage(DangerMsg)
-#        if riseEdge:
-#            widget.setDangerRiseEdge(True)
-#        if fallingEdge:
-#            widget.setDangerFallingEdge(True)
-#        if not riseEdge and not fallingEdge:
-#            widget.setAutoApply(True)
-#            widget.setForcedApply(True)
 
     def _setupSpinBox4Attr(self,widget,attrName,step=None):
         ctliaux._setupSpinBox4Attr(widget,attrName,step)
-#        widget.setModel(attrName)
-#        widget.setAutoApply(True)
-#        widget.setForcedApply(True)
-#        #if not step == widget.getSingleStep():
-#        if not step == None:
-#            widget.setSingleStep(step)
 
     def _setupTaurusLabel4Attr(self,widget,attrName,unit=None):
         ctliaux._setupTaurusLabel4Attr(widget,attrName,unit)
-#        widget.setModel(attrName)
-#        if unit:
-#            widget.setSuffixText(' %s'%unit)
 
     def _setupCombobox4Attr(self,widget,attrName,valueNames=None):
-        ctliaux._setupCombobox4Attr(self,widget,attrName,valueNames)
-#        widget.setModel(attrName)
-#        widget.setAutoApply(True)
-#        widget.setForcedApply(True)
-#        if valueNames != None and type(valueNames) == list and len(valueNames) > 0:
-#            widget.addValueNames(valueNames)
-            
+        ctliaux._setupCombobox4Attr(widget,attrName,valueNames)
+
     def _setupActionWidget(self,widget,attrName,text='on/off',isRst=False,
                            DangerMsg='',riseEdge=False,fallingEdge=False):
         ctliaux._setupActionWidget(widget,attrName,text,isRst,
                            DangerMsg,riseEdge,fallingEdge)
-#        widget._ui.Label.setText(text)
-#        if isRst:
-#            self._setupLed4Attr(widget._ui.Led,attrName,
-#                                offColor='black',onColor='yellow')
-#        else:
-#            self._setupLed4Attr(widget._ui.Led,attrName,pattern='')
-#        self._setupCheckbox4Attr(widget._ui.Check,attrName,
-#                                 isRst)#,DangerMsg,riseEdge,fallingEdge)
     #---- Done auxiliar methods to configure widgets
     ######
 
@@ -563,9 +521,9 @@ class MainWindow(TaurusMainWindow):
     def _setMainscreen_tb(self):
         mainscreen_ui = self.ui.linacMainscreenSynoptic._ui
         self._setupSpinBox4Attr(mainscreen_ui.tbKaDelay1Value,
-                                    'li/ct/plc1/TB_KA1_Delay')
+                                    'li/ct/plc1/TB_KA1_Delay',step=1)
         self._setupSpinBox4Attr(mainscreen_ui.tbKaDelay2Value,
-                                    'li/ct/plc1/TB_KA2_Delay')
+                                    'li/ct/plc1/TB_KA2_Delay',step=32)
         self._setupTaurusLabel4Attr(mainscreen_ui.tbRf2DelayValue,
                                     'li/ct/plc1/TB_RF2_Delay',unit='ns')
         self._setupSpinBox4Attr(mainscreen_ui.tbGunLevelValue,
@@ -795,15 +753,13 @@ class MainWindow(TaurusMainWindow):
                           'v':     mainscreen_ui.as1vValue,
                           'on':    mainscreen_ui.as1On},
                    'qt' :{'info':  mainscreen_ui.qtLedInfo,
-                          'on':    mainscreen_ui.qtOn},
-                   'qt1':{'h':     mainscreen_ui.qt1hValue,
-                          'v':     mainscreen_ui.qt1vValue,
-                          'f':     mainscreen_ui.qt1fValue,
-                          'check': mainscreen_ui.qt1PopupCheck,
-                          'widget':mainscreen_ui.qt1PopupWidget},
-                   'qt2':{'f':     mainscreen_ui.qt2fValue,
-                          'check': mainscreen_ui.qt2PopupCheck,
-                          'widget':mainscreen_ui.qt2PopupWidget},
+                          'on':    mainscreen_ui.qtOn,
+                          '1h':    mainscreen_ui.qt1hValue,
+                          '1v':    mainscreen_ui.qt1vValue,
+                          '1f':    mainscreen_ui.qt1fValue,
+                          '2f':    mainscreen_ui.qt2fValue,
+                          'check': mainscreen_ui.qtPopupCheck,
+                          'widget':mainscreen_ui.qtPopupWidget},
                    'as2':{'info':  mainscreen_ui.as2LedInfo,
                           'check': mainscreen_ui.as2PopupCheck,
                           'widget':mainscreen_ui.as2PopupWidget,
@@ -818,27 +774,43 @@ class MainWindow(TaurusMainWindow):
                 widget = magnets[magnet]['info']
                 attrName = '%s/%s_current_ok'%(deviceName,magnet)
                 self._setupLed4Attr(widget,attrName)
+            #horizontal magnets
             if magnets[magnet].has_key('h'):
                 widget = magnets[magnet]['h']
                 attrName = '%s/%sh_I_setpoint'%(deviceName,magnet)
                 self._setupSpinBox4Attr(widget,attrName,step=0.01)
+            if magnets[magnet].has_key('1h'):
+                widget = magnets[magnet]['1h']
+                attrName = '%s/%s1h_I_setpoint'%(deviceName,magnet)
+                self._setupSpinBox4Attr(widget,attrName,step=0.01)
+            #vertical magnets
             if magnets[magnet].has_key('v'):
                 widget = magnets[magnet]['v']
                 attrName = '%s/%sv_I_setpoint'%(deviceName,magnet)
                 self._setupSpinBox4Attr(widget,attrName,step=0.01)
+            if magnets[magnet].has_key('1v'):
+                widget = magnets[magnet]['1v']
+                attrName = '%s/%s1v_I_setpoint'%(deviceName,magnet)
+                self._setupSpinBox4Attr(widget,attrName,step=0.01)
+            #focus magnets
             if magnets[magnet].has_key('f'):
                 widget = widget = magnets[magnet]['f']
                 attrName = '%s/%sf_I_setpoint'%(deviceName,magnet)
-                #Special exception:
-                if magnet in ['qt1','qt2']:
-                    step = 0.005
-                else:
-                    step = 0.01
-                self._setupSpinBox4Attr(widget,attrName,step)
+                self._setupSpinBox4Attr(widget,attrName,step=0.01)
+            if magnets[magnet].has_key('1f'):
+                widget = widget = magnets[magnet]['1f']
+                attrName = '%s/%s1f_I_setpoint'%(deviceName,magnet)
+                self._setupSpinBox4Attr(widget,attrName,step=0.005)
+            if magnets[magnet].has_key('2f'):
+                widget = widget = magnets[magnet]['2f']
+                attrName = '%s/%s2f_I_setpoint'%(deviceName,magnet)
+                self._setupSpinBox4Attr(widget,attrName,step=0.005)
+            #power on/off magnets
             if magnets[magnet].has_key('on'):
                 widget = magnets[magnet]['on']
                 attrName = '%s/%s_onc'%(deviceName,magnet)
                 self._setupActionWidget(widget,attrName,text='on/off')
+            #pops up for more information
             if magnets[magnet].has_key('check') and \
                magnets[magnet].has_key('widget'):
                 #---- popup with more magnet information
@@ -846,50 +818,10 @@ class MainWindow(TaurusMainWindow):
                 button = magnets[magnet]['check']
                 widget = magnets[magnet]['widget']
                 title = "%s"%magnet
-                self._magnets[magnet] = CheckboxManager(button,widget,title)
+                self._magnets[magnet] = CheckboxManager(button,widget,title.upper())
                 #---- information with in the popup
                 widget = magnets[magnet]['widget']._ui
-                widget.magnetGroup.setTitle(magnet)
-                #x,y,width,height = widget.x(),widget.y(),
-                #                   widget.width(),widget.height()
-                #final_height = 25
-                if magnets[magnet].has_key('h'):
-                    self._setupTaurusLabel4Attr(widget.horizontalValue,
-                                                '%s/%sh_I'%(deviceName,magnet),
-                                                'A')
-                    self._setupTaurusLabel4Attr(widget.horizontalStatus,
-                                                '%s/%sh_Status'
-                                                %(deviceName,magnet))
-                    #final_height+=25
-                else:
-                    widget.horizontalLabel.hide()
-                    widget.horizontalValue.hide()
-                    widget.horizontalStatus.hide()
-                if magnets[magnet].has_key('v'):
-                    self._setupTaurusLabel4Attr(widget.verticalValue,
-                                                '%s/%sv_I'%(deviceName,magnet),
-                                                'A')
-                    self._setupTaurusLabel4Attr(widget.verticalStatus,
-                                                '%s/%sv_Status'
-                                                %(deviceName,magnet))
-                    #final_height+=25
-                else:
-                    widget.verticalLabel.hide()
-                    widget.verticalValue.hide()
-                    widget.verticalStatus.hide()
-                if magnets[magnet].has_key('f'):
-                    self._setupTaurusLabel4Attr(widget.focusValue,
-                                                '%s/%sf_I'%(deviceName,magnet),
-                                                'A')
-                    self._setupTaurusLabel4Attr(widget.focusStatus,
-                                                '%s/%sf_Status'
-                                                %(deviceName,magnet))
-                    #final_height+=25
-                else:
-                    widget.focusLabel.hide()
-                    widget.focusValue.hide()
-                    widget.focusStatus.hide()
-                #wiget.setGeometry(Qt.QtCore.QRect(x,y,width,final_height))
+                self._setupContentsInMagnetPopup(deviceName,magnet,magnets[magnet],widget)
         #---- Reset magnets interlocks
         widget = mainscreen_ui.magnetsRst
         attrName = 'li/ct/plc3/MA_Interlock_RC'
@@ -898,6 +830,73 @@ class MainWindow(TaurusMainWindow):
         widget = mainscreen_ui.magnetsOn
         attrName = 'li/ct/plc3/all_onc'
         self._setupActionWidget(widget,attrName,text='on/off')
+
+    def _setupContentsInMagnetPopup(self,devName,magnetName,contentsDict,widget):
+        widget.magnetGroup.setTitle(magnetName)
+        if contentsDict.has_key('h') or contentsDict.has_key('1h'):
+            if contentsDict.has_key('h'):
+                magnetType = 'h'
+            elif contentsDict.has_key('1h'):
+                magnetType = '1h'
+            self._setupMagnetLine(devName,magnetName,magnetType,
+                                  widget.horizontalLabel,
+                                  widget.horizontalValue,
+                                  widget.horizontalStatus)
+        else:
+            self._hideMagnetLine(widget.horizontalLabel,
+                                 widget.horizontalValue,
+                                 widget.horizontalStatus)
+        if contentsDict.has_key('v') or contentsDict.has_key('1v'):
+            if contentsDict.has_key('v'):
+                magnetType = 'v'
+            elif contentsDict.has_key('1v'):
+                magnetType = '1v'
+            self._setupMagnetLine(devName,magnetName,magnetType,
+                                  widget.verticalLabel,
+                                  widget.verticalValue,
+                                  widget.verticalStatus)
+        else:
+            self._hideMagnetLine(widget.verticalLabel,
+                                 widget.verticalValue,
+                                 widget.verticalStatus)
+        if contentsDict.has_key('f') or contentsDict.has_key('1f'):
+            if contentsDict.has_key('f'):
+                magnetType = 'f'
+            elif contentsDict.has_key('1f'):
+                magnetType = '1f'
+            self._setupMagnetLine(devName,magnetName,magnetType,
+                                  widget.focusLabel,
+                                  widget.focusValue,
+                                  widget.focusStatus)
+        else:
+            self._hideMagnetLine(widget.focusLabel,
+                                 widget.focusValue,
+                                 widget.focusStatus)
+        if contentsDict.has_key('2f'):
+            magnetType = '2f'
+            self._setupMagnetLine(devName,magnetName,magnetType,
+                                  widget.focus2Label,
+                                  widget.focus2Value,
+                                  widget.focus2Status)
+        else:
+            self._hideMagnetLine(widget.focus2Label,
+                                 widget.focus2Value,
+                                 widget.focus2Status)
+
+    def _setupMagnetLine(self,deviceName,magnetName,magnetAxis,
+                         label,value,status):
+        label.setText("%s%s"%(magnetName.upper(),magnetAxis.upper()))
+        print("> %s"%(label.text()))
+        self._setupTaurusLabel4Attr(value,'%s/%s%s_I'
+                                    %(deviceName,magnetName,magnetAxis),'A')
+        self._setupTaurusLabel4Attr(status,
+                                    '%s/%s%s_Status'
+                                    %(deviceName,magnetName,magnetAxis))
+
+    def _hideMagnetLine(self,label,value,status):
+        label.hide()
+        value.hide()
+        status.hide()
 
     def _setMainscreen_hvs(self):
         mainscreen_ui = self.ui.linacMainscreenSynoptic._ui
@@ -959,7 +958,7 @@ class MainWindow(TaurusMainWindow):
             self._vacuumCavities[cavity] = CheckboxManager(check,widget)
             widget._ui.vacuumGroup.setTitle(cavity)
             hvg = vacuumCavities[cavity]['hvg']
-            self._setupTaurusLabel4Attr(widget._ui.HVGValue,hvg,'bar')
+            self._setupTaurusLabel4Attr(widget._ui.HVGValue,hvg,'mbar')
             if vacuumCavities[cavity].has_key('ipA'):
                 ipA = vacuumCavities[cavity]['ipA']
                 widget._ui.IonPumpALabel.setText(ipA)
