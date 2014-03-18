@@ -8,6 +8,6 @@ export PYTHONPATH
 APPNAME=ctli
 
 pushd ${SICILIA}/lib/python/site-packages/$APPNAME
-python $APPNAMEsetup.py
+python ${APPNAME}setup.py
 popd
 
