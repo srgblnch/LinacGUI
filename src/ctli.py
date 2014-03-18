@@ -886,7 +886,6 @@ class MainWindow(TaurusMainWindow):
     def _setupMagnetLine(self,deviceName,magnetName,magnetAxis,
                          label,value,status):
         label.setText("%s%s"%(magnetName.upper(),magnetAxis.upper()))
-        print("> %s"%(label.text()))
         self._setupTaurusLabel4Attr(value,'%s/%s%s_I'
                                     %(deviceName,magnetName,magnetAxis),'A')
         self._setupTaurusLabel4Attr(status,

@@ -8,6 +8,6 @@ export PYTHONPATH
 APPNAME=ctli
 
 pushd ${SICILIA}/lib/python/site-packages/$APPNAME
-python $APPNAME.py
+python $APPNAME.py --taurus-polling-period=333
 popd
 
