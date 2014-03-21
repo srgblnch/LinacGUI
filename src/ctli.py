@@ -605,21 +605,35 @@ class MainWindow(TaurusMainWindow):
                                         'li/ct/plc%d/HVPS_V'%(number+3),'kV')
             self._setupTaurusLabel4Attr(widget.hvCurrentValue,
                                         'li/ct/plc%d/HVPS_I'%(number+3),'mA')
-            self._setupLed4Attr(widget.hvRampEnableLed,
-                                'li/ct/plc%d/HVPS_V_setpointRampEnable'
-                                %(number+3))
-            self._setupCheckbox4Attr(widget.hvRampEnableCheck,
-                                     'li/ct/plc%d/HVPS_V_setpointRampEnable'
-                                     %(number+3))
-            self._setupTaurusLabel4Attr(widget.hvRampStepValue,
-                                        'li/ct/plc%d/HVPS_V_setpointStep'
-                                        %(number+3),'kV')
-            self._setupTaurusLabel4Attr(widget.hvRampStepTimeValue,
-                                        'li/ct/plc%d/HVPS_V_setpointStepTime'
-                                        %(number+3),'s')
-            self._setupTaurusLabel4Attr(widget.hvRampThresholdValue,
-                                        'li/ct/plc%d/HVPS_V_setpointThreshold'
-                                        %(number+3),'kV')
+            #---- Until the ramp works, hide its widgets
+            widget.hvRamp.hide()
+            widget.hvRampEnableLed.hide()
+#            self._setupLed4Attr(widget.hvRampEnableLed,
+#                                'li/ct/plc%d/HVPS_V_setpointRampEnable'
+#                                %(number+3))
+            widget.hvRampEnableCheck.hide()
+#            self._setupCheckbox4Attr(widget.hvRampEnableCheck,
+#                                     'li/ct/plc%d/HVPS_V_setpointRampEnable'
+#                                     %(number+3))
+            widget.hvRampStepLabel.hide()
+            widget.hvRampStepValue.hide()
+#            self._setupTaurusLabel4Attr(widget.hvRampStepValue,
+#                                        'li/ct/plc%d/HVPS_V_setpointStep'
+#                                        %(number+3),'kV')
+            widget.hvRampStepTimeLabel.hide()
+            widget.hvRampStepTimeValue.hide()
+#            self._setupTaurusLabel4Attr(widget.hvRampStepTimeValue,
+#                                        'li/ct/plc%d/HVPS_V_setpointStepTime'
+#                                        %(number+3),'s')
+            widget.hvRampThresholdLabel.hide()
+            widget.hvRampThresholdValue.hide()
+#            self._setupTaurusLabel4Attr(widget.hvRampThresholdValue,
+#                                        'li/ct/plc%d/HVPS_V_setpointThreshold'
+#                                        %(number+3),'kV')
+            bar = klystrons[number]['widget'].geometry()
+            bar.setBottom(200)
+            klystrons[number]['widget'].setGeometry(bar) 
+            #---- End section of the ramp widgets
             self._setupTaurusLabel4Attr(widget.pulseStatusValue,
                                         'li/ct/plc%d/Pulse_Status'%(number+3))
             self._setupTaurusLabel4Attr(widget.klystronVoltageValue,
