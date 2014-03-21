@@ -633,7 +633,7 @@ class MainWindow(TaurusMainWindow):
 #                                        'li/ct/plc%d/HVPS_V_setpointThreshold'
 #                                        %(number+3),'kV')
             bar = klystrons[number]['widget'].geometry()
-            bar.setBottom(200)
+            bar.setBottom(220)
             klystrons[number]['widget'].setGeometry(bar) 
             #---- End section of the ramp widgets
             self._setupTaurusLabel4Attr(widget.pulseStatusValue,
