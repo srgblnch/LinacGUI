@@ -601,10 +601,12 @@ class MainWindow(TaurusMainWindow):
             widget = klystrons[number]['widget']._ui
             self._setupTaurusLabel4Attr(widget.hvStatusValue,
                                         'li/ct/plc%d/HVPS_Status'%(number+3))
-            self._setupTaurusLabel4Attr(widget.hvVoltageValue,
-                                        'li/ct/plc%d/HVPS_V'%(number+3),'kV')
             self._setupTaurusLabel4Attr(widget.hvCurrentValue,
                                         'li/ct/plc%d/HVPS_I'%(number+3),'mA')
+            self._setupTaurusLabel4Attr(widget.hvVoltageValue,
+                                        'li/ct/plc%d/HVPS_V'%(number+3),'kV')
+            self._setupTaurusLabel4Attr(widget.hvSetpointValue,
+                                        'li/ct/plc%d/HVPS_V_setpoint'%(number+3),'kV')
             #---- Until the ramp works, hide its widgets
             widget.hvRamp.hide()
             widget.hvRampEnableLed.hide()
