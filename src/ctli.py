@@ -548,7 +548,7 @@ class MainWindow(TaurusMainWindow):
         self._setupSpinBox4Attr(mainscreen_ui.tbNumberValue,
                                 'li/ct/plc1/TB_GPN',step=1)
         self._setupLed4Attr(mainscreen_ui.tbTimerStatusStateLed,
-                            'li/ct/plc1/TB_ST')
+                            'li/ct/plc1/TB_ST',offColor='white',onColor='red')
         self._setupLed4Attr(mainscreen_ui.rfEnbLed,'li/ct/plc1/RF_OK')
     
     def _setMainscreen_klystronHV(self):
