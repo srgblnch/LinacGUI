@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'klystronLV.ui'
+# Form implementation generated from reading ui file 'widgets/ui/klystronLV.ui'
 #
-# Created: Wed Feb 12 12:36:18 2014
+# Created: Wed Apr  9 11:00:11 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -46,16 +46,17 @@ class Ui_klystronLV(object):
         self.taurusGroupBox_2.setObjectName(_fromUtf8("taurusGroupBox_2"))
         self.gridLayout_2 = QtGui.QGridLayout(self.taurusGroupBox_2)
         self.gridLayout_2.setObjectName(_fromUtf8("gridLayout_2"))
-        self.heatVLabel = QtGui.QLabel(self.taurusGroupBox_2)
-        self.heatVLabel.setObjectName(_fromUtf8("heatVLabel"))
-        self.gridLayout_2.addWidget(self.heatVLabel, 1, 0, 1, 1)
         self.heatVValue = TaurusLabel(self.taurusGroupBox_2)
         self.heatVValue.setMinimumSize(QtCore.QSize(0, 20))
         self.heatVValue.setObjectName(_fromUtf8("heatVValue"))
         self.gridLayout_2.addWidget(self.heatVValue, 1, 1, 1, 1)
-        self.heatILabel = QtGui.QLabel(self.taurusGroupBox_2)
-        self.heatILabel.setObjectName(_fromUtf8("heatILabel"))
-        self.gridLayout_2.addWidget(self.heatILabel, 2, 0, 1, 1)
+        self.heatStatus = TaurusLabel(self.taurusGroupBox_2)
+        self.heatStatus.setMinimumSize(QtCore.QSize(0, 20))
+        self.heatStatus.setObjectName(_fromUtf8("heatStatus"))
+        self.gridLayout_2.addWidget(self.heatStatus, 0, 0, 1, 2)
+        self.heatVLabel = QtGui.QLabel(self.taurusGroupBox_2)
+        self.heatVLabel.setObjectName(_fromUtf8("heatVLabel"))
+        self.gridLayout_2.addWidget(self.heatVLabel, 1, 0, 1, 1)
         self.heatIValue = TaurusLabel(self.taurusGroupBox_2)
         self.heatIValue.setMinimumSize(QtCore.QSize(0, 20))
         self.heatIValue.setObjectName(_fromUtf8("heatIValue"))
@@ -67,11 +68,12 @@ class Ui_klystronLV(object):
         self.heatTValue.setMinimumSize(QtCore.QSize(0, 20))
         self.heatTValue.setObjectName(_fromUtf8("heatTValue"))
         self.gridLayout_2.addWidget(self.heatTValue, 3, 1, 1, 1)
-        self.heatStatus = TaurusLabel(self.taurusGroupBox_2)
-        self.heatStatus.setMinimumSize(QtCore.QSize(0, 20))
-        self.heatStatus.setObjectName(_fromUtf8("heatStatus"))
-        self.gridLayout_2.addWidget(self.heatStatus, 0, 0, 1, 2)
+        self.heatILabel = QtGui.QLabel(self.taurusGroupBox_2)
+        self.heatILabel.setObjectName(_fromUtf8("heatILabel"))
+        self.gridLayout_2.addWidget(self.heatILabel, 2, 0, 1, 1)
         self.gridLayout_3.addWidget(self.taurusGroupBox_2, 1, 0, 1, 1)
+        spacerItem = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
+        self.gridLayout_3.addItem(spacerItem, 2, 0, 1, 1)
 
         self.retranslateUi(klystronLV)
         QtCore.QMetaObject.connectSlotsByName(klystronLV)
@@ -82,12 +84,12 @@ class Ui_klystronLV(object):
         self.LV_TimeLabel.setText(QtGui.QApplication.translate("klystronLV", "Time", None, QtGui.QApplication.UnicodeUTF8))
         self.LV_TimeValue.setSuffixText(QtGui.QApplication.translate("klystronLV", " s", None, QtGui.QApplication.UnicodeUTF8))
         self.taurusGroupBox_2.setTitle(QtGui.QApplication.translate("klystronLV", "Heating", None, QtGui.QApplication.UnicodeUTF8))
-        self.heatVLabel.setText(QtGui.QApplication.translate("klystronLV", "Voltage", None, QtGui.QApplication.UnicodeUTF8))
         self.heatVValue.setSuffixText(QtGui.QApplication.translate("klystronLV", " V", None, QtGui.QApplication.UnicodeUTF8))
-        self.heatILabel.setText(QtGui.QApplication.translate("klystronLV", "Current", None, QtGui.QApplication.UnicodeUTF8))
+        self.heatVLabel.setText(QtGui.QApplication.translate("klystronLV", "Voltage", None, QtGui.QApplication.UnicodeUTF8))
         self.heatIValue.setSuffixText(QtGui.QApplication.translate("klystronLV", " A", None, QtGui.QApplication.UnicodeUTF8))
         self.heatTLabel.setText(QtGui.QApplication.translate("klystronLV", "Time", None, QtGui.QApplication.UnicodeUTF8))
         self.heatTValue.setSuffixText(QtGui.QApplication.translate("klystronLV", " s", None, QtGui.QApplication.UnicodeUTF8))
+        self.heatILabel.setText(QtGui.QApplication.translate("klystronLV", "Current", None, QtGui.QApplication.UnicodeUTF8))
 
 from taurus.qt.qtgui.display import TaurusLabel
 from taurus.qt.qtgui.container import TaurusGroupBox

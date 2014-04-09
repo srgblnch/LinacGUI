@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'widgets/ui/linacStartupSynoptic.ui'
 #
-# Created: Fri Mar 14 15:50:35 2014
+# Created: Wed Apr  9 11:01:34 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -264,11 +264,11 @@ class Ui_linacStartupSynoptic(object):
         self.ipc5Value1.setFont(font)
         self.ipc5Value1.setObjectName(_fromUtf8("ipc5Value1"))
         self.klystron2LVWidget = klystronLV(linacStartupSynoptic)
-        self.klystron2LVWidget.setGeometry(QtCore.QRect(1080, 10, 150, 200))
+        self.klystron2LVWidget.setGeometry(QtCore.QRect(1063, 10, 190, 200))
         self.klystron2LVWidget.setAutoFillBackground(True)
         self.klystron2LVWidget.setObjectName(_fromUtf8("klystron2LVWidget"))
         self.klystron1LVWidget = klystronLV(linacStartupSynoptic)
-        self.klystron1LVWidget.setGeometry(QtCore.QRect(791, 10, 150, 200))
+        self.klystron1LVWidget.setGeometry(QtCore.QRect(768, 10, 190, 200))
         self.klystron1LVWidget.setObjectName(_fromUtf8("klystron1LVWidget"))
         self.vacuumValve1OnStatus = TaurusLabel(linacStartupSynoptic)
         self.vacuumValve1OnStatus.setGeometry(QtCore.QRect(165, 605, 70, 16))
@@ -313,13 +313,13 @@ class Ui_linacStartupSynoptic(object):
         self.vacuumValve7OnStatus.setFont(font)
         self.vacuumValve7OnStatus.setObjectName(_fromUtf8("vacuumValve7OnStatus"))
         self.coolingLoop1Widget = CoolingLoop(linacStartupSynoptic)
-        self.coolingLoop1Widget.setGeometry(QtCore.QRect(535, 310, 130, 140))
+        self.coolingLoop1Widget.setGeometry(QtCore.QRect(526, 310, 170, 100))
         self.coolingLoop1Widget.setObjectName(_fromUtf8("coolingLoop1Widget"))
         self.coolingLoop2Widget = CoolingLoop(linacStartupSynoptic)
-        self.coolingLoop2Widget.setGeometry(QtCore.QRect(745, 310, 130, 140))
+        self.coolingLoop2Widget.setGeometry(QtCore.QRect(745, 310, 200, 100))
         self.coolingLoop2Widget.setObjectName(_fromUtf8("coolingLoop2Widget"))
         self.coolingLoop3Widget = CoolingLoop(linacStartupSynoptic)
-        self.coolingLoop3Widget.setGeometry(QtCore.QRect(1030, 310, 130, 140))
+        self.coolingLoop3Widget.setGeometry(QtCore.QRect(1030, 310, 200, 100))
         self.coolingLoop3Widget.setObjectName(_fromUtf8("coolingLoop3Widget"))
         self.qtLed = TaurusLed(linacStartupSynoptic)
         self.qtLed.setGeometry(QtCore.QRect(915, 475, 10, 10))
@@ -413,7 +413,7 @@ class Ui_linacStartupSynoptic(object):
         self.temperatureLabel.setObjectName(_fromUtf8("temperatureLabel"))
         self.KDLayout.addWidget(self.temperatureLabel, 3, 1, 1, 1)
         self.kdeGunLVWidget = eGunLV(linacStartupSynoptic)
-        self.kdeGunLVWidget.setGeometry(QtCore.QRect(155, 343, 157, 111))
+        self.kdeGunLVWidget.setGeometry(QtCore.QRect(155, 343, 180, 111))
         self.kdeGunLVWidget.setObjectName(_fromUtf8("kdeGunLVWidget"))
         self.klystronAmplifierEnabledLed = TaurusLed(linacStartupSynoptic)
         self.klystronAmplifierEnabledLed.setGeometry(QtCore.QRect(70, 40, 10, 10))

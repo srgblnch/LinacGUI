@@ -902,9 +902,9 @@
   <widget class="klystronLV" name="klystron2LVWidget">
    <property name="geometry">
     <rect>
-     <x>1080</x>
+     <x>1063</x>
      <y>10</y>
-     <width>150</width>
+     <width>190</width>
      <height>200</height>
     </rect>
    </property>
@@ -915,9 +915,9 @@
   <widget class="klystronLV" name="klystron1LVWidget">
    <property name="geometry">
     <rect>
-     <x>791</x>
+     <x>768</x>
      <y>10</y>
-     <width>150</width>
+     <width>190</width>
      <height>200</height>
     </rect>
    </property>
@@ -1030,10 +1030,10 @@
   <widget class="CoolingLoop" name="coolingLoop1Widget">
    <property name="geometry">
     <rect>
-     <x>535</x>
+     <x>526</x>
      <y>310</y>
-     <width>130</width>
-     <height>140</height>
+     <width>170</width>
+     <height>100</height>
     </rect>
    </property>
   </widget>
@@ -1042,8 +1042,8 @@
     <rect>
      <x>745</x>
      <y>310</y>
-     <width>130</width>
-     <height>140</height>
+     <width>200</width>
+     <height>100</height>
     </rect>
    </property>
   </widget>
@@ -1052,8 +1052,8 @@
     <rect>
      <x>1030</x>
      <y>310</y>
-     <width>130</width>
-     <height>140</height>
+     <width>200</width>
+     <height>100</height>
     </rect>
    </property>
   </widget>
@@ -1311,7 +1311,7 @@
     <rect>
      <x>155</x>
      <y>343</y>
-     <width>157</width>
+     <width>180</width>
      <height>111</height>
     </rect>
    </property>
@@ -2235,43 +2235,15 @@
    <container>1</container>
   </customwidget>
   <customwidget>
-   <class>TaurusWidget</class>
-   <extends>QWidget</extends>
-   <header>taurus.qt.qtgui.container</header>
+   <class>eGunLV</class>
+   <extends>TaurusWidget</extends>
+   <header>egunlv</header>
    <container>1</container>
   </customwidget>
   <customwidget>
    <class>actionForm</class>
    <extends>TaurusWidget</extends>
    <header>actionform</header>
-  </customwidget>
-  <customwidget>
-   <class>TaurusLabel</class>
-   <extends>QLabel</extends>
-   <header>taurus.qt.qtgui.display</header>
-  </customwidget>
-  <customwidget>
-   <class>klystron1itck</class>
-   <extends>TaurusWidget</extends>
-   <header>klystron1itck</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
-   <class>CoolingLoop</class>
-   <extends>TaurusWidget</extends>
-   <header>coolingloop</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
-   <class>TaurusValueSpinBox</class>
-   <extends>QWidget</extends>
-   <header>taurus.qt.qtgui.input</header>
-  </customwidget>
-  <customwidget>
-   <class>eGunLV</class>
-   <extends>TaurusWidget</extends>
-   <header>egunlv</header>
-   <container>1</container>
   </customwidget>
   <customwidget>
    <class>TaurusLed</class>
@@ -2284,15 +2256,43 @@
    <header>taurus.qt.qtgui.display</header>
   </customwidget>
   <customwidget>
+   <class>QPixmapWidget</class>
+   <extends>QWidget</extends>
+   <header>taurus.qt.qtgui.display</header>
+  </customwidget>
+  <customwidget>
+   <class>CoolingLoop</class>
+   <extends>TaurusWidget</extends>
+   <header>coolingloop</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>klystron1itck</class>
+   <extends>TaurusWidget</extends>
+   <header>klystron1itck</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>TaurusValueSpinBox</class>
+   <extends>QWidget</extends>
+   <header>taurus.qt.qtgui.input</header>
+  </customwidget>
+  <customwidget>
+   <class>TaurusWidget</class>
+   <extends>QWidget</extends>
+   <header>taurus.qt.qtgui.container</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>TaurusLabel</class>
+   <extends>QLabel</extends>
+   <header>taurus.qt.qtgui.display</header>
+  </customwidget>
+  <customwidget>
    <class>klystronLV</class>
    <extends>TaurusWidget</extends>
    <header>klystronlv</header>
    <container>1</container>
-  </customwidget>
-  <customwidget>
-   <class>QPixmapWidget</class>
-   <extends>QWidget</extends>
-   <header>taurus.qt.qtgui.display</header>
   </customwidget>
  </customwidgets>
  <tabstops>

@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'widgets/ui/klystronHV.ui'
 #
-# Created: Fri Mar 21 12:50:27 2014
+# Created: Wed Apr  9 10:32:35 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -37,6 +37,7 @@ class Ui_klystronHV(object):
         self.hvLabel.setObjectName(_fromUtf8("hvLabel"))
         self.gridLayout_2.addWidget(self.hvLabel, 0, 0, 2, 1)
         self.hvStatusValue = TaurusLabel(self.highVoltageGroup)
+        self.hvStatusValue.setMinimumSize(QtCore.QSize(100, 0))
         font = QtGui.QFont()
         font.setPointSize(7)
         self.hvStatusValue.setFont(font)
@@ -108,6 +109,7 @@ class Ui_klystronHV(object):
         self.line.setObjectName(_fromUtf8("line"))
         self.gridLayout_2.addWidget(self.line, 8, 0, 1, 3)
         self.pulseStatusValue = TaurusLabel(self.highVoltageGroup)
+        self.pulseStatusValue.setMinimumSize(QtCore.QSize(100, 0))
         font = QtGui.QFont()
         font.setPointSize(7)
         self.pulseStatusValue.setFont(font)
@@ -151,7 +153,7 @@ class Ui_klystronHV(object):
         self.hvRampStepLabel.setText(QtGui.QApplication.translate("klystronHV", "step", None, QtGui.QApplication.UnicodeUTF8))
         self.hvRampStepTimeLabel.setText(QtGui.QApplication.translate("klystronHV", "time", None, QtGui.QApplication.UnicodeUTF8))
         self.hvRampThresholdLabel.setText(QtGui.QApplication.translate("klystronHV", "threshold", None, QtGui.QApplication.UnicodeUTF8))
-        self.klystronLabel.setText(QtGui.QApplication.translate("klystronHV", "klystron electron pulsed", None, QtGui.QApplication.UnicodeUTF8))
+        self.klystronLabel.setText(QtGui.QApplication.translate("klystronHV", "klystron electron pulse", None, QtGui.QApplication.UnicodeUTF8))
 
 from taurus.qt.qtgui.display import TaurusLabel, TaurusLed
 from taurus.qt.qtgui.container import TaurusGroupBox

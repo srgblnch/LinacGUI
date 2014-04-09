@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'coolingLoop.ui'
+# Form implementation generated from reading ui file 'widgets/ui/coolingLoop.ui'
 #
-# Created: Wed Feb 12 12:34:21 2014
+# Created: Wed Apr  9 10:59:23 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -17,7 +17,7 @@ except AttributeError:
 class Ui_CoolingLoop(object):
     def setupUi(self, CoolingLoop):
         CoolingLoop.setObjectName(_fromUtf8("CoolingLoop"))
-        CoolingLoop.resize(122, 136)
+        CoolingLoop.resize(163, 100)
         self.gridLayout = QtGui.QGridLayout(CoolingLoop)
         self.gridLayout.setObjectName(_fromUtf8("gridLayout"))
         self.coolingLoopGroup = TaurusGroupBox(CoolingLoop)
@@ -36,14 +36,14 @@ class Ui_CoolingLoop(object):
         self.temperatureValue = TaurusLabel(self.coolingLoopGroup)
         self.temperatureValue.setSuffixText(_fromUtf8(""))
         self.temperatureValue.setObjectName(_fromUtf8("temperatureValue"))
-        self.gridLayout_2.addWidget(self.temperatureValue, 2, 0, 1, 1)
+        self.gridLayout_2.addWidget(self.temperatureValue, 1, 1, 1, 1)
         self.powerValue = TaurusLabel(self.coolingLoopGroup)
         self.powerValue.setSuffixText(_fromUtf8(""))
         self.powerValue.setObjectName(_fromUtf8("powerValue"))
-        self.gridLayout_2.addWidget(self.powerValue, 4, 0, 1, 1)
+        self.gridLayout_2.addWidget(self.powerValue, 3, 1, 1, 1)
         self.coolingLoopStatus = TaurusLabel(self.coolingLoopGroup)
         self.coolingLoopStatus.setObjectName(_fromUtf8("coolingLoopStatus"))
-        self.gridLayout_2.addWidget(self.coolingLoopStatus, 0, 0, 1, 1)
+        self.gridLayout_2.addWidget(self.coolingLoopStatus, 0, 0, 1, 2)
         self.gridLayout.addWidget(self.coolingLoopGroup, 0, 0, 1, 1)
 
         self.retranslateUi(CoolingLoop)

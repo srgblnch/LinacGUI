@@ -115,33 +115,33 @@ class MainWindow(TaurusMainWindow):
 
     def setCommunications(self):
         #about the overview
-        linacOverview = self.ui.linacOverview._ui
-        
-        linacOverview.plcLastUpdateTrend.setModel(['li/ct/plc1/lastUpdate',
-                                                   'li/ct/plc2/lastUpdate',
-                                                   'li/ct/plc3/lastUpdate',
-                                                   'li/ct/plc4/lastUpdate',
-                                                   'li/ct/plc5/lastUpdate'])
-        #linacOverview.plcLastUpdateTrend #FIXME: show dev_name in inspector mode
-        linacOverview.plcLastUpdateTrend.showLegend(False)
-        linacOverview.moveLocal.setModel(DeviceRelocator)
-        linacOverview.moveLocal.setCommand('MoveAllInstances')
-        linacOverview.moveLocal.setParameters('local')
-        linacOverview.moveLocal.setCustomText('Local')
-        linacOverview.moveLocal.setDangerMessage(\
-                                   "Be sure Labview is not link to these PLCs!")
-        linacOverview.moveRemote.setDisabled(True)
-#        linacOverview.moveRemote.setModel(DeviceRelocator)
-#        linacOverview.moveRemote.setCommand('MoveAllInstances')
-#        linacOverview.moveRemote.setParameters('remote')
-        linacOverview.moveRemote.setCustomText('Remote')
-#        linacOverview.moveRemote.setDangerMessage(\
-#                                "After this action you will lose write access.")
-        linacOverview.resetInstance.setModel(DeviceRelocator)
-        linacOverview.resetInstance.setCommand('RestartAllInstance')
-        linacOverview.resetInstance.setCustomText('Restart all')
-        linacOverview.resetInstance.setDangerMessage(\
-                                       "This will stop the control temporally.")
+        self.ui.linacOverview.hide()
+#        linacOverview = self.ui.linacOverview._ui
+#        linacOverview.plcLastUpdateTrend.setModel(['li/ct/plc1/lastUpdate',
+#                                                   'li/ct/plc2/lastUpdate',
+#                                                   'li/ct/plc3/lastUpdate',
+#                                                   'li/ct/plc4/lastUpdate',
+#                                                   'li/ct/plc5/lastUpdate'])
+#        #linacOverview.plcLastUpdateTrend #FIXME: show dev_name in inspector mode
+#        linacOverview.plcLastUpdateTrend.showLegend(False)
+#        linacOverview.moveLocal.setModel(DeviceRelocator)
+#        linacOverview.moveLocal.setCommand('MoveAllInstances')
+#        linacOverview.moveLocal.setParameters('local')
+#        linacOverview.moveLocal.setCustomText('Local')
+#        linacOverview.moveLocal.setDangerMessage(\
+#                                   "Be sure Labview is not link to these PLCs!")
+#        linacOverview.moveRemote.setDisabled(True)
+##        linacOverview.moveRemote.setModel(DeviceRelocator)
+##        linacOverview.moveRemote.setCommand('MoveAllInstances')
+##        linacOverview.moveRemote.setParameters('remote')
+#        linacOverview.moveRemote.setCustomText('Remote')
+##        linacOverview.moveRemote.setDangerMessage(\
+##                                "After this action you will lose write access.")
+#        linacOverview.resetInstance.setModel(DeviceRelocator)
+#        linacOverview.resetInstance.setCommand('RestartAllInstance')
+#        linacOverview.resetInstance.setCustomText('Restart all')
+#        linacOverview.resetInstance.setDangerMessage(\
+#                                       "This will stop the control temporally.")
         #for each of the plcs
         plcWidgets = [self.ui.plc1,self.ui.plc2,self.ui.plc3,self.ui.plc4,self.ui.plc5]
         for i,plc in enumerate(plcWidgets):
@@ -535,6 +535,8 @@ class MainWindow(TaurusMainWindow):
         self._operationModeMonitor = OperationModeManager(mainscreen_ui)
         #---- FIXME: the addValueNames fails in some versions of taurus,
         #            but it works in the control's room version
+        self._setupTaurusLabel4Attr(mainscreen_ui.tbGatedPulseModeValue,
+                                    'li/ct/plc1/TB_GPM_status')
         try:
             self._setupCombobox4Attr(mainscreen_ui.tbGatedPulseModeCombo,
                                      'li/ct/plc1/TB_GPM',
@@ -633,7 +635,9 @@ class MainWindow(TaurusMainWindow):
 #                                        'li/ct/plc%d/HVPS_V_setpointThreshold'
 #                                        %(number+3),'kV')
             bar = klystrons[number]['widget'].geometry()
-            bar.setBottom(220)
+            #print("!"*20+" %s"%(bar))
+            #bar.setBottom(220)
+            #bar.setWidth(220)
             klystrons[number]['widget'].setGeometry(bar) 
             #---- End section of the ramp widgets
             self._setupTaurusLabel4Attr(widget.pulseStatusValue,

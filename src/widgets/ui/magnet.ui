@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>164</width>
-    <height>100</height>
+    <width>208</width>
+    <height>104</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -48,7 +48,7 @@
        <widget class="TaurusLabel" name="horizontalStatus">
         <property name="minimumSize">
          <size>
-          <width>60</width>
+          <width>100</width>
           <height>15</height>
          </size>
         </property>
@@ -104,7 +104,7 @@
        <widget class="TaurusLabel" name="focusStatus">
         <property name="minimumSize">
          <size>
-          <width>60</width>
+          <width>100</width>
           <height>15</height>
          </size>
         </property>
@@ -137,7 +137,7 @@
        <widget class="TaurusLabel" name="verticalStatus">
         <property name="minimumSize">
          <size>
-          <width>60</width>
+          <width>100</width>
           <height>15</height>
          </size>
         </property>
@@ -170,7 +170,7 @@
        <widget class="TaurusLabel" name="focus2Status">
         <property name="minimumSize">
          <size>
-          <width>60</width>
+          <width>100</width>
           <height>15</height>
          </size>
         </property>

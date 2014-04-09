@@ -43,7 +43,7 @@
   <widget class="TaurusValueSpinBox" name="tbNumberValue">
    <property name="geometry">
     <rect>
-     <x>302</x>
+     <x>308</x>
      <y>107</y>
      <width>50</width>
      <height>22</height>
@@ -53,7 +53,7 @@
   <widget class="TaurusValueSpinBox" name="tbWidthValue">
    <property name="geometry">
     <rect>
-     <x>232</x>
+     <x>238</x>
      <y>107</y>
      <width>55</width>
      <height>22</height>
@@ -63,9 +63,9 @@
   <widget class="TaurusValueSpinBox" name="tbGunDelayValue">
    <property name="geometry">
     <rect>
-     <x>165</x>
+     <x>168</x>
      <y>107</y>
-     <width>55</width>
+     <width>60</width>
      <height>22</height>
     </rect>
    </property>
@@ -1036,20 +1036,20 @@
   <widget class="klystronHV" name="klystron2HVPopupWidget">
    <property name="geometry">
     <rect>
-     <x>869</x>
-     <y>25</y>
-     <width>170</width>
-     <height>250</height>
+     <x>870</x>
+     <y>90</y>
+     <width>220</width>
+     <height>180</height>
     </rect>
    </property>
   </widget>
   <widget class="klystronHV" name="klystron1HVPopupWidget">
    <property name="geometry">
     <rect>
-     <x>500</x>
-     <y>25</y>
-     <width>170</width>
-     <height>250</height>
+     <x>480</x>
+     <y>90</y>
+     <width>220</width>
+     <height>180</height>
     </rect>
    </property>
   </widget>
@@ -1100,30 +1100,30 @@
   <widget class="phaseShifter" name="phaseShifter1PopupWidget">
    <property name="geometry">
     <rect>
-     <x>640</x>
+     <x>627</x>
      <y>390</y>
-     <width>100</width>
-     <height>100</height>
+     <width>120</width>
+     <height>80</height>
     </rect>
    </property>
   </widget>
   <widget class="phaseShifter" name="phaseShifter2PopupWidget">
    <property name="geometry">
     <rect>
-     <x>500</x>
-     <y>360</y>
-     <width>100</width>
-     <height>100</height>
+     <x>487</x>
+     <y>340</y>
+     <width>120</width>
+     <height>80</height>
     </rect>
    </property>
   </widget>
   <widget class="Attenuator" name="attenuatorPopupWidget">
    <property name="geometry">
     <rect>
-     <x>300</x>
+     <x>290</x>
      <y>340</y>
-     <width>100</width>
-     <height>100</height>
+     <width>120</width>
+     <height>80</height>
     </rect>
    </property>
   </widget>
@@ -1132,7 +1132,7 @@
     <rect>
      <x>203</x>
      <y>600</y>
-     <width>170</width>
+     <width>220</width>
      <height>80</height>
     </rect>
    </property>
@@ -1142,7 +1142,7 @@
     <rect>
      <x>291</x>
      <y>600</y>
-     <width>170</width>
+     <width>220</width>
      <height>80</height>
     </rect>
    </property>
@@ -1152,7 +1152,7 @@
     <rect>
      <x>376</x>
      <y>600</y>
-     <width>170</width>
+     <width>220</width>
      <height>80</height>
     </rect>
    </property>
@@ -1162,7 +1162,7 @@
     <rect>
      <x>440</x>
      <y>600</y>
-     <width>170</width>
+     <width>220</width>
      <height>80</height>
     </rect>
    </property>
@@ -1172,7 +1172,7 @@
     <rect>
      <x>505</x>
      <y>600</y>
-     <width>170</width>
+     <width>220</width>
      <height>80</height>
     </rect>
    </property>
@@ -1182,7 +1182,7 @@
     <rect>
      <x>569</x>
      <y>600</y>
-     <width>170</width>
+     <width>220</width>
      <height>80</height>
     </rect>
    </property>
@@ -1190,9 +1190,9 @@
   <widget class="magnet" name="glPopupWidget">
    <property name="geometry">
     <rect>
-     <x>697</x>
+     <x>681</x>
      <y>600</y>
-     <width>170</width>
+     <width>220</width>
      <height>80</height>
     </rect>
    </property>
@@ -1202,7 +1202,7 @@
     <rect>
      <x>939</x>
      <y>600</y>
-     <width>170</width>
+     <width>220</width>
      <height>100</height>
     </rect>
    </property>
@@ -1210,9 +1210,9 @@
   <widget class="magnet" name="as2PopupWidget">
    <property name="geometry">
     <rect>
-     <x>1071</x>
-     <y>600</y>
-     <width>170</width>
+     <x>1030</x>
+     <y>585</y>
+     <width>220</width>
      <height>60</height>
     </rect>
    </property>
@@ -1220,9 +1220,9 @@
   <widget class="magnet" name="as1PopupWidget">
    <property name="geometry">
     <rect>
-     <x>798</x>
-     <y>600</y>
-     <width>170</width>
+     <x>786</x>
+     <y>585</y>
+     <width>220</width>
      <height>60</height>
     </rect>
    </property>
@@ -1525,7 +1525,7 @@
   <widget class="QLabel" name="tbWidthLabel">
    <property name="geometry">
     <rect>
-     <x>240</x>
+     <x>246</x>
      <y>130</y>
      <width>41</width>
      <height>16</height>
@@ -1541,7 +1541,7 @@
   <widget class="QLabel" name="tbNumberLabel">
    <property name="geometry">
     <rect>
-     <x>306</x>
+     <x>312</x>
      <y>130</y>
      <width>41</width>
      <height>16</height>
@@ -1557,7 +1557,7 @@
   <widget class="QLabel" name="tbGunDelayLabel">
    <property name="geometry">
     <rect>
-     <x>174</x>
+     <x>180</x>
      <y>130</y>
      <width>57</width>
      <height>14</height>
@@ -1622,6 +1622,9 @@
        <bool>false</bool>
       </property>
      </widget>
+    </item>
+    <item row="0" column="2">
+     <widget class="TaurusLabel" name="tbGatedPulseModeValue"/>
     </item>
    </layout>
   </widget>
@@ -2127,7 +2130,7 @@
   <widget class="QLabel" name="tbGunDelayUnit">
    <property name="geometry">
     <rect>
-     <x>221</x>
+     <x>227</x>
      <y>110</y>
      <width>16</width>
      <height>16</height>
@@ -2140,7 +2143,7 @@
   <widget class="QLabel" name="tbGunDelayUnit_2">
    <property name="geometry">
     <rect>
-     <x>289</x>
+     <x>295</x>
      <y>110</y>
      <width>16</width>
      <height>16</height>
@@ -2298,31 +2301,10 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>beamChargeMonitors</class>
+   <class>klystronHV</class>
    <extends>TaurusWidget</extends>
-   <header>beamchargemonitors</header>
-  </customwidget>
-  <customwidget>
-   <class>eGunHV</class>
-   <extends>TaurusWidget</extends>
-   <header>egunhv</header>
+   <header>klystronhv</header>
    <container>1</container>
-  </customwidget>
-  <customwidget>
-   <class>TaurusWidget</class>
-   <extends>QWidget</extends>
-   <header>taurus.qt.qtgui.container</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
-   <class>actionForm</class>
-   <extends>TaurusWidget</extends>
-   <header>actionform</header>
-  </customwidget>
-  <customwidget>
-   <class>TaurusLabel</class>
-   <extends>QLabel</extends>
-   <header>taurus.qt.qtgui.display</header>
   </customwidget>
   <customwidget>
    <class>phaseShifter</class>
@@ -2331,26 +2313,9 @@
    <container>1</container>
   </customwidget>
   <customwidget>
-   <class>klystronHV</class>
+   <class>beamChargeMonitors</class>
    <extends>TaurusWidget</extends>
-   <header>klystronhv</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
-   <class>TaurusValueSpinBox</class>
-   <extends>QWidget</extends>
-   <header>taurus.qt.qtgui.input</header>
-  </customwidget>
-  <customwidget>
-   <class>TaurusValueComboBox</class>
-   <extends>QComboBox</extends>
-   <header>taurus.qt.qtgui.input</header>
-  </customwidget>
-  <customwidget>
-   <class>magnet</class>
-   <extends>TaurusWidget</extends>
-   <header>magnet</header>
-   <container>1</container>
+   <header>beamchargemonitors</header>
   </customwidget>
   <customwidget>
    <class>Attenuator</class>
@@ -2359,9 +2324,19 @@
    <container>1</container>
   </customwidget>
   <customwidget>
-   <class>CavityVacuum</class>
+   <class>LinacValueCheckBox</class>
+   <extends>QCheckBox</extends>
+   <header>linacvaluecheckbox</header>
+  </customwidget>
+  <customwidget>
+   <class>actionForm</class>
    <extends>TaurusWidget</extends>
-   <header>cavityvacuum</header>
+   <header>actionform</header>
+  </customwidget>
+  <customwidget>
+   <class>TaurusValueComboBox</class>
+   <extends>QComboBox</extends>
+   <header>taurus.qt.qtgui.input</header>
   </customwidget>
   <customwidget>
    <class>TaurusLed</class>
@@ -2379,9 +2354,37 @@
    <header>taurus.qt.qtgui.display</header>
   </customwidget>
   <customwidget>
-   <class>LinacValueCheckBox</class>
-   <extends>QCheckBox</extends>
-   <header>linacvaluecheckbox</header>
+   <class>eGunHV</class>
+   <extends>TaurusWidget</extends>
+   <header>egunhv</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>TaurusValueSpinBox</class>
+   <extends>QWidget</extends>
+   <header>taurus.qt.qtgui.input</header>
+  </customwidget>
+  <customwidget>
+   <class>TaurusWidget</class>
+   <extends>QWidget</extends>
+   <header>taurus.qt.qtgui.container</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>TaurusLabel</class>
+   <extends>QLabel</extends>
+   <header>taurus.qt.qtgui.display</header>
+  </customwidget>
+  <customwidget>
+   <class>magnet</class>
+   <extends>TaurusWidget</extends>
+   <header>magnet</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>CavityVacuum</class>
+   <extends>TaurusWidget</extends>
+   <header>cavityvacuum</header>
   </customwidget>
  </customwidgets>
  <resources/>

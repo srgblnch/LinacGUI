@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'widgets/ui/magnet.ui'
 #
-# Created: Tue Mar 18 15:51:39 2014
+# Created: Wed Apr  9 10:25:43 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -17,7 +17,7 @@ except AttributeError:
 class Ui_magnet(object):
     def setupUi(self, magnet):
         magnet.setObjectName(_fromUtf8("magnet"))
-        magnet.resize(164, 100)
+        magnet.resize(208, 104)
         self.gridLayout = QtGui.QGridLayout(magnet)
         self.gridLayout.setMargin(1)
         self.gridLayout.setObjectName(_fromUtf8("gridLayout"))
@@ -34,7 +34,7 @@ class Ui_magnet(object):
         self.horizontalLabel.setObjectName(_fromUtf8("horizontalLabel"))
         self.gridLayout_2.addWidget(self.horizontalLabel, 0, 0, 1, 1)
         self.horizontalStatus = TaurusLabel(self.magnetGroup)
-        self.horizontalStatus.setMinimumSize(QtCore.QSize(60, 15))
+        self.horizontalStatus.setMinimumSize(QtCore.QSize(100, 15))
         self.horizontalStatus.setObjectName(_fromUtf8("horizontalStatus"))
         self.gridLayout_2.addWidget(self.horizontalStatus, 0, 2, 1, 1)
         self.focusValue = TaurusLabel(self.magnetGroup)
@@ -54,7 +54,7 @@ class Ui_magnet(object):
         self.verticalValue.setObjectName(_fromUtf8("verticalValue"))
         self.gridLayout_2.addWidget(self.verticalValue, 1, 1, 1, 1)
         self.focusStatus = TaurusLabel(self.magnetGroup)
-        self.focusStatus.setMinimumSize(QtCore.QSize(60, 15))
+        self.focusStatus.setMinimumSize(QtCore.QSize(100, 15))
         self.focusStatus.setObjectName(_fromUtf8("focusStatus"))
         self.gridLayout_2.addWidget(self.focusStatus, 2, 2, 1, 1)
         self.horizontalValue = TaurusLabel(self.magnetGroup)
@@ -64,7 +64,7 @@ class Ui_magnet(object):
         spacerItem = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
         self.gridLayout_2.addItem(spacerItem, 4, 1, 1, 1)
         self.verticalStatus = TaurusLabel(self.magnetGroup)
-        self.verticalStatus.setMinimumSize(QtCore.QSize(60, 15))
+        self.verticalStatus.setMinimumSize(QtCore.QSize(100, 15))
         self.verticalStatus.setObjectName(_fromUtf8("verticalStatus"))
         self.gridLayout_2.addWidget(self.verticalStatus, 1, 2, 1, 1)
         self.focus2Label = QtGui.QLabel(self.magnetGroup)
@@ -76,7 +76,7 @@ class Ui_magnet(object):
         self.focus2Value.setObjectName(_fromUtf8("focus2Value"))
         self.gridLayout_2.addWidget(self.focus2Value, 3, 1, 1, 1)
         self.focus2Status = TaurusLabel(self.magnetGroup)
-        self.focus2Status.setMinimumSize(QtCore.QSize(60, 15))
+        self.focus2Status.setMinimumSize(QtCore.QSize(100, 15))
         self.focus2Status.setObjectName(_fromUtf8("focus2Status"))
         self.gridLayout_2.addWidget(self.focus2Status, 3, 2, 1, 1)
         self.gridLayout.addWidget(self.magnetGroup, 0, 0, 1, 1)

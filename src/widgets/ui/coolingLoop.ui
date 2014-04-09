@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>122</width>
-    <height>136</height>
+    <width>163</width>
+    <height>100</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -39,22 +39,35 @@
         </property>
        </widget>
       </item>
-      <item row="2" column="0">
+      <item row="1" column="1">
        <widget class="TaurusLabel" name="temperatureValue">
         <property name="suffixText">
          <string/>
         </property>
        </widget>
       </item>
-      <item row="4" column="0">
+      <item row="3" column="1">
        <widget class="TaurusLabel" name="powerValue">
         <property name="suffixText">
          <string/>
         </property>
        </widget>
       </item>
-      <item row="0" column="0">
+      <item row="0" column="0" colspan="2">
        <widget class="TaurusLabel" name="coolingLoopStatus"/>
+      </item>
+      <item row="4" column="1">
+       <spacer name="verticalSpacer">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
       </item>
      </layout>
     </widget>
@@ -69,15 +82,15 @@
    <container>1</container>
   </customwidget>
   <customwidget>
+   <class>TaurusLabel</class>
+   <extends>QLabel</extends>
+   <header>taurus.qt.qtgui.display</header>
+  </customwidget>
+  <customwidget>
    <class>TaurusGroupBox</class>
    <extends>QGroupBox</extends>
    <header>taurus.qt.qtgui.container</header>
    <container>1</container>
-  </customwidget>
-  <customwidget>
-   <class>TaurusLabel</class>
-   <extends>QLabel</extends>
-   <header>taurus.qt.qtgui.display</header>
   </customwidget>
  </customwidgets>
  <resources/>
