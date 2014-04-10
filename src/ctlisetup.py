@@ -121,6 +121,7 @@ class MainWindow(TaurusMainWindow):
     #---- Done auxiliar methods to configure widgets
     ######
     
+    ######
     #---- setModel & others for the Configuration Tab
     def setConfiguration(self):
         configuration_ui = self.ui
@@ -135,13 +136,11 @@ class MainWindow(TaurusMainWindow):
         self.klystronsConfiguration(configuration_ui.klystronSnapshot._ui)
         self.commentConfiguration(configuration_ui)
         
-        #print self._configurationWidgets
         
-        #---- TODO: connect buttons to their actions
+        #---- connect buttons to their actions
         self.buttonsConfiguration(configuration_ui.buttonBox)
-        # Those actions must have DangerMessage for eGunLV, CLs and KaLV
-        #---- TODO: load current values to the "save/retrieve" column of widgets
-        #           (this is the reset button action)
+        # Those actions doesn't need DangerMessage because eGunLV, CLs and KaLV
+        # are not included in the save/retrive
         
     def electronGunConfiguration(self,ui):
         devName = 'li/ct/plc1'
@@ -171,7 +170,6 @@ class MainWindow(TaurusMainWindow):
                                 'check':ui.GunHighVoltagePowerSupplyCheck}
         self._setupTaurusLabel4Attr(widgetsSet[attrName]['read'],attrName)
         
-        #---- TODO: connect the ToApplyTitle to check/uncheck all the *Check
         self._configurationWidgets['eGun'] = widgetsSet
 
     def coolingLoopsConfiguration(self,ui):
@@ -235,15 +233,15 @@ class MainWindow(TaurusMainWindow):
                          '2':['F']}}
         
         for family in magnets.keys():
-            #print "> %s"%(family)
+            self.debug("> %s"%(family))
             for magnet in magnets[family].keys():
-                #print ">> %s%s"%(family,magnet)
+                self.debug(">> %s%s"%(family,magnet))
                 for component in magnets[family][magnet]:
                     attrName = 'li/ct/plc3/%s%s%s_I_setpoint'\
                                %(family,magnet,component)
                     attrName = attrName.lower()
                     widgetPrefix = "%s%s%s"%(family,magnet,component)
-                    #print ">>> %s"%(widgetPrefix)
+                    self.debug(">>> %s"%(widgetPrefix))
                     labelWidget = getattr(ui,widgetPrefix+'Label')
                     readWidget =  getattr(ui,widgetPrefix+'Read')
                     writeWidget = getattr(ui,widgetPrefix+'Write')
@@ -378,9 +376,9 @@ class MainWindow(TaurusMainWindow):
         klystrons = {1:{'setp':ui.ka1HVPSRead},
                      2:{'setp':ui.ka2HVPSRead}}
         for number in klystrons.keys():
-            #print "> %s"%(number)
+            self.debug("> %s"%(number))
             for element in klystrons[number].keys():
-                #print ">> ka%s_%s"%(number,element)
+                self.debug(">> ka%s_%s"%(number,element))
                 widget = klystrons[number][element]
                 devName = 'li/ct/plc%d'%(number+3)
                 if element == 'setp':
@@ -398,6 +396,8 @@ class MainWindow(TaurusMainWindow):
         ui.commentGroup.hide()
         #ui.textLoadedLabel.hide()
         #ui.textLoaded.hide()
+    #---- Done configure subwidgets
+    ######
     
     def buttonsConfiguration(self,buttons):
         buttons.button(QtGui.QDialogButtonBox.Reset).setText("Reload")
@@ -410,12 +410,15 @@ class MainWindow(TaurusMainWindow):
     #           Doing this, the operation of the other tabs will be shown in 
     #           this Configuration tab according to when it's happening.
     
+    ######
     #---- Distinguish between widget types
     def _isSpinBox(self,widget):
         return hasattr(widget,'setValue')
     def _isCheckBox(self,widget):
         return hasattr(widget,'setChecked')
+    ######
     
+    ######
     #---- Widget backgrounds
     def _setStyleToModified(self,attrStruct):
         saver = attrStruct['write']
@@ -440,7 +443,9 @@ class MainWindow(TaurusMainWindow):
         else:
             raise Exception("Unmanaged %s widget type to tag modified"%(type(widget)))
         attrStruct['check'].setChecked(False)
+    ######
     
+    ######
     #---- Value setters and getters
     def _getAttrValue(self,attrName):
         return PyTango.AttributeProxy(attrName).read().value
@@ -470,7 +475,9 @@ class MainWindow(TaurusMainWindow):
             return saver.isChecked()
         else:
             raise Exception("Unmanaged %s widget type"%(type(saver)))
+    ######
         
+    ######
     #---- manage files
     def _getStorageDirectory(self):
         directory = str(QtGui.QFileDialog.getExistingDirectory(self,
@@ -489,20 +496,30 @@ class MainWindow(TaurusMainWindow):
         fileprefix = time.strftime("%Y%m%d_%H%M",now_struct)
         # 2 MBM vs SBM
         modeAttrName = 'LI/CT/PLC1/TB_MBM'.lower()
-        isMBM = self._getAttrValue(modeAttrName)
-        # 2.1 - MBM_width
-        if isMBM:
-            widthAttrName = 'LI/CT/PLC1/TB_GPI'.lower()
-            width = self._getAttrValue(widthAttrName)
-            fileprefix = ''.join("%s_MBM_%d"%(fileprefix,width))
-        # 2.2 - SBM_pulses_interval
-        else:
-            npulsesAttrName = 'LI/CT/PLC1/TB_GPN'.lower()
-            intervalAttrName = 'LI/CT/PLC1/TB_GPI'.lower()
-            npulses = self._getAttrValue(npulsesAttrName)
-            interval = self._getAttrValue(intervalAttrName)
-            fileprefix = ''.join("%s_SBM_%d_%d"%(fileprefix,pulses,interval))
+        try:
+            isMBM = self._getAttrValue(modeAttrName)
+            # 2.1 - MBM_width
+            if isMBM:
+                widthAttrName = 'LI/CT/PLC1/TB_GPI'.lower()
+                width = self._getAttrValue(widthAttrName)
+                fileprefix = ''.join("%s_MBM_%d"%(fileprefix,width))
+            # 2.2 - SBM_pulses_interval
+            else:
+                npulsesAttrName = 'LI/CT/PLC1/TB_GPN'.lower()
+                intervalAttrName = 'LI/CT/PLC1/TB_GPI'.lower()
+                npulses = self._getAttrValue(npulsesAttrName)
+                interval = self._getAttrValue(intervalAttrName)
+                fileprefix = ''.join("%s_SBM_%d_%d"%(fileprefix,pulses,interval))
+        except Exception,e:
+            self.error("Cannot build a file prefix!")
         return fileprefix
+    
+    def _getFileSuffix(self,prefix=None):
+        msg,ok = QtGui.QInputDialog.getText(self,"Select file name",
+                                          "would you like to write something "\
+                                          "after the file prefix %s?"%(prefix),
+                                          QtGui.QLineEdit.Normal)
+        return str(msg)
     
     def _requestFileName(self):
         dialogTitle = "Select linac's configuration file"
@@ -533,8 +550,9 @@ class MainWindow(TaurusMainWindow):
 
     def _prepareAttrLine(self,attrStruct,attrName):
         tag = attrStruct['label'].text()
+        self._getAttrValue(attrName)#to rise exception if not available
         value = self._getValueFromSaverWidget(attrStruct)
-        return "%30s\t%g\t%s"%(tag,value,attrName)
+        return "%24s\t%g\t%s"%(tag,value,attrName)
 
     def _getAttrLine(self,line,n):
         try:
@@ -549,25 +567,40 @@ class MainWindow(TaurusMainWindow):
         except Exception,e:
             self.error("misunderstanding in line %d: %s"%(n,line))
             return (None,None)
+    ######
 
+    ######
     #---- ActionButtons callbacks
     def loadFromDevices(self):
         '''With this call (from a button or at the loading step) we must travel
            all the *Reading widgets and copy the value to the *Value widget.
         '''
-        
-        #print("In Load: %r"%(self._configurationWidgets))
+        exceptions = {}
         #dump(self._configurationWidgets)
         for group in self._configurationWidgets.keys():
-            #print(">  %s"%group)
+            self.debug(">  %s"%group)
             for attrName in self._configurationWidgets[group].keys():
+                attrStruct = self._configurationWidgets[group][attrName]
                 try:
-                    attrStruct = self._configurationWidgets[group][attrName]
                     value = self._getAttrValue(attrName)
                     self._setValueToSaverWidget(attrStruct, value,style=False)
                 except Exception,e:
                     self.error("Exception trying to load %s value. %s"
                                %(attrName,e))
+                    label = attrStruct['label'].text()
+                    if group in exceptions.keys():
+                        exceptions[group].append(str(label))
+                    else:
+                        exceptions[group] = [str(label)]
+        if len(exceptions.keys()) != 0:
+            msg = ""
+            for group in exceptions.keys():
+                msg = ''.join("%sIn group %s, %d values not uploaded\n"
+                              %(msg,group,len(exceptions[group])))
+                for label in exceptions[group]:
+                    msg = ''.join("%s\t-%s\n"%(msg,label))
+            QtGui.QMessageBox.warning(self, "Exceptions when load from devices",
+                                      msg)
     
     def saveToFile(self):
         '''Travelling along the *Check widgets, the checked ones (name and 
@@ -580,11 +613,12 @@ class MainWindow(TaurusMainWindow):
         #---- TODO: request suffix to the user.
         suffix = ''
         if directory != '':
+            suffix = self._getFileSuffix(prefix)
             if suffix == '':
                 filename = "%s/%s.li"%(directory,prefix)
             else:
-                filename = "%s/%s_%s.li"%(directory,prefix,suffix)
-            print("! filename: %s"%(filename))
+                filename = "%s/%s-%s.li"%(directory,prefix,suffix)
+            self.debug("saveToFile() filename: %s"%(filename))
             saving = self._prepareFileHeader(now_struct)
             exceptions = {}
             for group in self._configurationWidgets.keys():
@@ -598,16 +632,21 @@ class MainWindow(TaurusMainWindow):
                         saving = ''.join("%s\n%s"
                           %(saving,self._prepareAttrLine(attrStruct,attrName)))
                     except Exception,e:
-                        exceptions[attrName] = e
+                        if group in exceptions.keys():
+                            exceptions[group].append(attrName)
+                        else:
+                            exceptions[group] = [attrName]
             saving = ''.join('%s\n'%(saving))
             f = open(filename,'w')
             f.write(saving)
             f.close()
             if len(exceptions.keys()) != 0:
                 msg = ""
-                for attrName in exceptions.keys():
-                    msg = ''.join("%sAttribute %s unsaved:\n-%s\n"
-                                  %(msg,attrName,exceptions[attrName]))
+                for group in exceptions.keys():
+                    msg = ''.join("%sIn group %s happen %d errors\n"\
+                                  %(msg,group,len(exceptions[group])))
+                    for attrName in exceptions[group]:
+                        msg = ''.join("%s\t-%s\n"%(msg,attrName))
                 QtGui.QMessageBox.warning(self, "Exceptions when save",
                                           msg)
 
@@ -619,6 +658,7 @@ class MainWindow(TaurusMainWindow):
         '''
         filename = self._requestFileName()
         group = ''
+        exceptions = {}
         if filename != '':
             file = open(filename,'r')
             nline = 0
@@ -630,11 +670,28 @@ class MainWindow(TaurusMainWindow):
                 else:
                     attrName,value = self._getAttrLine(line, nline)
                     if group != '' and attrName != None:
-                        attrStruct = self._configurationWidgets[group][attrName]
-                        self._setValueToSaverWidget(attrStruct,value)
+                        try:
+                            attrStruct = self._configurationWidgets[group][attrName]
+                        except:
+                            self.error("attribute %s is not member of the "\
+                                       "group %s"%(attrName,group))
+                            if group in exceptions.keys():
+                                exceptions[group].append(attrName)
+                            else:
+                                exceptions[group]=[attrName]
+                        else:
+                            self._setValueToSaverWidget(attrStruct,value)
             file.close()
-        else:
-            print("Open() cancelled")
+            if len(exceptions.keys()) != 0:
+                msg = ""
+                for group in exceptions.keys():
+                    msg = ''.join("%sIn group %s found %d orphan "\
+                                  "attributes:\n"%(msg,group,
+                                                   len(exceptions[group])))
+                    for label in exceptions[group]:
+                        msg = ''.join("%s\t-%s\n"%(msg,label))
+                QtGui.QMessageBox.warning(self, "Exceptions when load file",
+                                          msg)
 
     def applyToDevices(self):
         '''Travelling along the *Check, apply the value in *Value 
@@ -649,19 +706,22 @@ class MainWindow(TaurusMainWindow):
                         value = self._getValueFromSaverWidget(attrStruct)
                         self._setAttrValue(attrName, value)
                         self._setStyleToNoModified(attrStruct)
-                    except PyTango.DevFailed,e:
-                        self.warning("Cannot apply %s: %s"%(attrName,e[0].desc))
-                        exceptions[attrName] = e[0].desc
                     except Exception,e:
-                        exceptions[attrName] = "Check log files"
                         self.error("Exception applying %s: %s"%(attrName,e))
+                        if group in exceptions.keys():
+                            exceptions[group].append(attrName)
+                        else:
+                            exceptions[group] = [attrName]
         if len(exceptions.keys()) != 0:
             msg = ""
-            for attrName in exceptions.keys():
-                msg = ''.join("%sAttribute %s not applied:\n-%s\n"\
-                              %(msg,attrName,exceptions[attrName]))
+            for group in exceptions.keys():
+                msg = ''.join("%sIn group %s found %d applying errors:\n"
+                              %(msg,group,len(exceptions[group])))
+                for attrName in exceptions[group]:
+                    msg = ''.join("%s\t-%s\n"%(msg,attrName))
             QtGui.QMessageBox.warning(self, "Exceptions when apply",
                                       msg)
+    ######
 
 def main():
     parser = argparse.get_taurus_parser()
