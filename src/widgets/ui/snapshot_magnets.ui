@@ -47,19 +47,46 @@
        </widget>
       </item>
       <item row="26" column="2">
-       <widget class="QDoubleSpinBox" name="qt1FWrite"/>
+       <widget class="QDoubleSpinBox" name="qt1FWrite">
+        <property name="maximum">
+         <double>6.000000000000000</double>
+        </property>
+        <property name="singleStep">
+         <double>0.005000000000000</double>
+        </property>
+       </widget>
       </item>
       <item row="16" column="1">
        <widget class="TaurusLabel" name="bc2HRead"/>
       </item>
       <item row="19" column="2">
-       <widget class="QDoubleSpinBox" name="glHWrite"/>
+       <widget class="QDoubleSpinBox" name="glHWrite">
+        <property name="minimum">
+         <double>-2.000000000000000</double>
+        </property>
+        <property name="maximum">
+         <double>2.000000000000000</double>
+        </property>
+        <property name="singleStep">
+         <double>0.010000000000000</double>
+        </property>
+       </widget>
       </item>
       <item row="19" column="1">
        <widget class="TaurusLabel" name="glHRead"/>
       </item>
       <item row="29" column="2">
-       <widget class="QDoubleSpinBox" name="as2VWrite"/>
+       <widget class="QDoubleSpinBox" name="as2VWrite">
+        <property name="minimum">
+         <double>-2.000000000000000</double>
+        </property>
+        <property name="maximum">
+         <double>2.000000000000000</double>
+        </property>
+        <property name="singleStep">
+         <double>0.010000000000000</double>
+        </property>
+       </widget>
       </item>
       <item row="20" column="5">
        <widget class="QCheckBox" name="glVCheck">
@@ -69,7 +96,14 @@
        </widget>
       </item>
       <item row="18" column="2">
-       <widget class="QDoubleSpinBox" name="bc2FWrite"/>
+       <widget class="QDoubleSpinBox" name="bc2FWrite">
+        <property name="maximum">
+         <double>200.000000000000000</double>
+        </property>
+        <property name="singleStep">
+         <double>0.010000000000000</double>
+        </property>
+       </widget>
       </item>
       <item row="25" column="5">
        <widget class="QCheckBox" name="qt1VCheck">
@@ -126,7 +160,17 @@
        </widget>
       </item>
       <item row="23" column="2">
-       <widget class="QDoubleSpinBox" name="as1VWrite"/>
+       <widget class="QDoubleSpinBox" name="as1VWrite">
+        <property name="minimum">
+         <double>-2.000000000000000</double>
+        </property>
+        <property name="maximum">
+         <double>2.000000000000000</double>
+        </property>
+        <property name="singleStep">
+         <double>0.010000000000000</double>
+        </property>
+       </widget>
       </item>
       <item row="21" column="5">
        <widget class="QCheckBox" name="glFCheck">
@@ -143,7 +187,17 @@
        </widget>
       </item>
       <item row="20" column="2">
-       <widget class="QDoubleSpinBox" name="glVWrite"/>
+       <widget class="QDoubleSpinBox" name="glVWrite">
+        <property name="minimum">
+         <double>-2.000000000000000</double>
+        </property>
+        <property name="maximum">
+         <double>2.000000000000000</double>
+        </property>
+        <property name="singleStep">
+         <double>0.010000000000000</double>
+        </property>
+       </widget>
       </item>
       <item row="17" column="1">
        <widget class="TaurusLabel" name="bc2VRead"/>
@@ -211,7 +265,17 @@
        </widget>
       </item>
       <item row="25" column="2">
-       <widget class="QDoubleSpinBox" name="qt1VWrite"/>
+       <widget class="QDoubleSpinBox" name="qt1VWrite">
+        <property name="minimum">
+         <double>-16.000000000000000</double>
+        </property>
+        <property name="maximum">
+         <double>16.000000000000000</double>
+        </property>
+        <property name="singleStep">
+         <double>0.010000000000000</double>
+        </property>
+       </widget>
       </item>
       <item row="27" column="0">
        <widget class="QLabel" name="qt2FLabel">
@@ -221,7 +285,20 @@
        </widget>
       </item>
       <item row="16" column="2">
-       <widget class="QDoubleSpinBox" name="bc2HWrite"/>
+       <widget class="QDoubleSpinBox" name="bc2HWrite">
+        <property name="minimum">
+         <double>-2.000000000000000</double>
+        </property>
+        <property name="maximum">
+         <double>2.000000000000000</double>
+        </property>
+        <property name="singleStep">
+         <double>0.010000000000000</double>
+        </property>
+        <property name="value">
+         <double>0.000000000000000</double>
+        </property>
+       </widget>
       </item>
       <item row="26" column="1">
        <widget class="TaurusLabel" name="qt1FRead"/>
@@ -247,10 +324,27 @@
        <widget class="TaurusLabel" name="as2HRead"/>
       </item>
       <item row="21" column="2">
-       <widget class="QDoubleSpinBox" name="glFWrite"/>
+       <widget class="QDoubleSpinBox" name="glFWrite">
+        <property name="maximum">
+         <double>130.000000000000000</double>
+        </property>
+        <property name="singleStep">
+         <double>0.010000000000000</double>
+        </property>
+       </widget>
       </item>
       <item row="24" column="2">
-       <widget class="QDoubleSpinBox" name="qt1HWrite"/>
+       <widget class="QDoubleSpinBox" name="qt1HWrite">
+        <property name="minimum">
+         <double>-16.000000000000000</double>
+        </property>
+        <property name="maximum">
+         <double>16.000000000000000</double>
+        </property>
+        <property name="singleStep">
+         <double>0.010000000000000</double>
+        </property>
+       </widget>
       </item>
       <item row="17" column="0">
        <widget class="QLabel" name="bc2VLabel">
@@ -284,22 +378,59 @@
        </widget>
       </item>
       <item row="27" column="2">
-       <widget class="QDoubleSpinBox" name="qt2FWrite"/>
+       <widget class="QDoubleSpinBox" name="qt2FWrite">
+        <property name="maximum">
+         <double>6.000000000000000</double>
+        </property>
+        <property name="singleStep">
+         <double>0.005000000000000</double>
+        </property>
+       </widget>
       </item>
       <item row="23" column="1">
        <widget class="TaurusLabel" name="as1VRead"/>
       </item>
       <item row="22" column="2">
-       <widget class="QDoubleSpinBox" name="as1HWrite"/>
+       <widget class="QDoubleSpinBox" name="as1HWrite">
+        <property name="minimum">
+         <double>-2.000000000000000</double>
+        </property>
+        <property name="maximum">
+         <double>2.000000000000000</double>
+        </property>
+        <property name="singleStep">
+         <double>0.010000000000000</double>
+        </property>
+       </widget>
       </item>
       <item row="17" column="2">
-       <widget class="QDoubleSpinBox" name="bc2VWrite"/>
+       <widget class="QDoubleSpinBox" name="bc2VWrite">
+        <property name="minimum">
+         <double>-2.000000000000000</double>
+        </property>
+        <property name="maximum">
+         <double>2.000000000000000</double>
+        </property>
+        <property name="singleStep">
+         <double>0.010000000000000</double>
+        </property>
+       </widget>
       </item>
       <item row="4" column="1">
        <widget class="TaurusLabel" name="sl2HRead"/>
       </item>
       <item row="28" column="2">
-       <widget class="QDoubleSpinBox" name="as2HWrite"/>
+       <widget class="QDoubleSpinBox" name="as2HWrite">
+        <property name="minimum">
+         <double>-2.000000000000000</double>
+        </property>
+        <property name="maximum">
+         <double>2.000000000000000</double>
+        </property>
+        <property name="singleStep">
+         <double>0.010000000000000</double>
+        </property>
+       </widget>
       </item>
       <item row="25" column="0">
        <widget class="QLabel" name="qt1VLabel">
@@ -316,7 +447,14 @@
        </widget>
       </item>
       <item row="12" column="2">
-       <widget class="QDoubleSpinBox" name="sl4FWrite"/>
+       <widget class="QDoubleSpinBox" name="sl4FWrite">
+        <property name="maximum">
+         <double>1.000000000000000</double>
+        </property>
+        <property name="singleStep">
+         <double>0.010000000000000</double>
+        </property>
+       </widget>
       </item>
       <item row="10" column="1">
        <widget class="TaurusLabel" name="sl4HRead"/>
@@ -349,7 +487,17 @@
        <widget class="TaurusLabel" name="sl4VRead"/>
       </item>
       <item row="11" column="2">
-       <widget class="QDoubleSpinBox" name="sl4VWrite"/>
+       <widget class="QDoubleSpinBox" name="sl4VWrite">
+        <property name="minimum">
+         <double>-2.000000000000000</double>
+        </property>
+        <property name="maximum">
+         <double>2.000000000000000</double>
+        </property>
+        <property name="singleStep">
+         <double>0.010000000000000</double>
+        </property>
+       </widget>
       </item>
       <item row="12" column="0">
        <widget class="QLabel" name="sl4FLabel">
@@ -376,7 +524,17 @@
        </widget>
       </item>
       <item row="7" column="2">
-       <widget class="QDoubleSpinBox" name="sl3HWrite"/>
+       <widget class="QDoubleSpinBox" name="sl3HWrite">
+        <property name="minimum">
+         <double>-2.000000000000000</double>
+        </property>
+        <property name="maximum">
+         <double>2.000000000000000</double>
+        </property>
+        <property name="singleStep">
+         <double>0.010000000000000</double>
+        </property>
+       </widget>
       </item>
       <item row="1" column="5">
        <widget class="QCheckBox" name="sl1HCheck">
@@ -386,7 +544,17 @@
        </widget>
       </item>
       <item row="8" column="2">
-       <widget class="QDoubleSpinBox" name="sl3VWrite"/>
+       <widget class="QDoubleSpinBox" name="sl3VWrite">
+        <property name="minimum">
+         <double>-2.000000000000000</double>
+        </property>
+        <property name="maximum">
+         <double>2.000000000000000</double>
+        </property>
+        <property name="singleStep">
+         <double>0.010000000000000</double>
+        </property>
+       </widget>
       </item>
       <item row="5" column="5">
        <widget class="QCheckBox" name="sl2VCheck">
@@ -410,10 +578,33 @@
        </widget>
       </item>
       <item row="4" column="2">
-       <widget class="QDoubleSpinBox" name="sl2HWrite"/>
+       <widget class="QDoubleSpinBox" name="sl2HWrite">
+        <property name="minimum">
+         <double>-2.000000000000000</double>
+        </property>
+        <property name="maximum">
+         <double>2.000000000000000</double>
+        </property>
+        <property name="singleStep">
+         <double>0.010000000000000</double>
+        </property>
+       </widget>
       </item>
       <item row="5" column="2">
-       <widget class="QDoubleSpinBox" name="sl2VWrite"/>
+       <widget class="QDoubleSpinBox" name="sl2VWrite">
+        <property name="minimum">
+         <double>-2.000000000000000</double>
+        </property>
+        <property name="maximum">
+         <double>2.000000000000000</double>
+        </property>
+        <property name="singleStep">
+         <double>0.010000000000000</double>
+        </property>
+        <property name="value">
+         <double>0.000000000000000</double>
+        </property>
+       </widget>
       </item>
       <item row="1" column="1">
        <widget class="TaurusLabel" name="sl1HRead"/>
@@ -498,7 +689,17 @@
        <widget class="TaurusLabel" name="sl1FRead"/>
       </item>
       <item row="1" column="2">
-       <widget class="QDoubleSpinBox" name="sl1HWrite"/>
+       <widget class="QDoubleSpinBox" name="sl1HWrite">
+        <property name="minimum">
+         <double>-2.000000000000000</double>
+        </property>
+        <property name="maximum">
+         <double>2.000000000000000</double>
+        </property>
+        <property name="singleStep">
+         <double>0.010000000000000</double>
+        </property>
+       </widget>
       </item>
       <item row="5" column="1">
        <widget class="TaurusLabel" name="sl2VRead"/>
@@ -521,7 +722,14 @@
        <widget class="TaurusLabel" name="sl3HRead"/>
       </item>
       <item row="9" column="2">
-       <widget class="QDoubleSpinBox" name="sl3FWrite"/>
+       <widget class="QDoubleSpinBox" name="sl3FWrite">
+        <property name="maximum">
+         <double>1.000000000000000</double>
+        </property>
+        <property name="singleStep">
+         <double>0.010000000000000</double>
+        </property>
+       </widget>
       </item>
       <item row="1" column="0">
        <widget class="QLabel" name="sl1HLabel">
@@ -531,7 +739,17 @@
        </widget>
       </item>
       <item row="2" column="2">
-       <widget class="QDoubleSpinBox" name="sl1VWrite"/>
+       <widget class="QDoubleSpinBox" name="sl1VWrite">
+        <property name="minimum">
+         <double>-2.000000000000000</double>
+        </property>
+        <property name="maximum">
+         <double>2.000000000000000</double>
+        </property>
+        <property name="singleStep">
+         <double>0.010000000000000</double>
+        </property>
+       </widget>
       </item>
       <item row="38" column="1">
        <spacer name="verticalSpacer">
@@ -554,16 +772,40 @@
        </widget>
       </item>
       <item row="6" column="2">
-       <widget class="QDoubleSpinBox" name="sl2FWrite"/>
+       <widget class="QDoubleSpinBox" name="sl2FWrite">
+        <property name="maximum">
+         <double>1.000000000000000</double>
+        </property>
+        <property name="singleStep">
+         <double>0.010000000000000</double>
+        </property>
+       </widget>
       </item>
       <item row="3" column="2">
-       <widget class="QDoubleSpinBox" name="sl1FWrite"/>
+       <widget class="QDoubleSpinBox" name="sl1FWrite">
+        <property name="maximum">
+         <double>1.000000000000000</double>
+        </property>
+        <property name="singleStep">
+         <double>0.010000000000000</double>
+        </property>
+       </widget>
       </item>
       <item row="2" column="1">
        <widget class="TaurusLabel" name="sl1VRead"/>
       </item>
       <item row="10" column="2">
-       <widget class="QDoubleSpinBox" name="sl4HWrite"/>
+       <widget class="QDoubleSpinBox" name="sl4HWrite">
+        <property name="minimum">
+         <double>-2.000000000000000</double>
+        </property>
+        <property name="maximum">
+         <double>2.000000000000000</double>
+        </property>
+        <property name="singleStep">
+         <double>0.010000000000000</double>
+        </property>
+       </widget>
       </item>
       <item row="13" column="1">
        <widget class="TaurusLabel" name="bc1HRead"/>
@@ -583,7 +825,17 @@
        </widget>
       </item>
       <item row="13" column="2">
-       <widget class="QDoubleSpinBox" name="bc1HWrite"/>
+       <widget class="QDoubleSpinBox" name="bc1HWrite">
+        <property name="minimum">
+         <double>-2.000000000000000</double>
+        </property>
+        <property name="maximum">
+         <double>2.000000000000000</double>
+        </property>
+        <property name="singleStep">
+         <double>0.010000000000000</double>
+        </property>
+       </widget>
       </item>
       <item row="13" column="5">
        <widget class="QCheckBox" name="bc1HCheck">
@@ -603,7 +855,17 @@
        <widget class="TaurusLabel" name="bc1VRead"/>
       </item>
       <item row="14" column="2">
-       <widget class="QDoubleSpinBox" name="bc1VWrite"/>
+       <widget class="QDoubleSpinBox" name="bc1VWrite">
+        <property name="minimum">
+         <double>-2.000000000000000</double>
+        </property>
+        <property name="maximum">
+         <double>2.000000000000000</double>
+        </property>
+        <property name="singleStep">
+         <double>0.010000000000000</double>
+        </property>
+       </widget>
       </item>
       <item row="14" column="5">
        <widget class="QCheckBox" name="bc1VCheck">
@@ -623,7 +885,14 @@
        <widget class="TaurusLabel" name="bc1FRead"/>
       </item>
       <item row="15" column="2">
-       <widget class="QDoubleSpinBox" name="bc1FWrite"/>
+       <widget class="QDoubleSpinBox" name="bc1FWrite">
+        <property name="maximum">
+         <double>200.000000000000000</double>
+        </property>
+        <property name="singleStep">
+         <double>0.010000000000000</double>
+        </property>
+       </widget>
       </item>
       <item row="15" column="5">
        <widget class="QCheckBox" name="bc1FCheck">

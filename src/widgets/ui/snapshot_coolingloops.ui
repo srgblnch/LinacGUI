@@ -40,7 +40,14 @@
        </widget>
       </item>
       <item row="1" column="2">
-       <widget class="QDoubleSpinBox" name="coolingLoop1SetpointWrite"/>
+       <widget class="QDoubleSpinBox" name="coolingLoop1SetpointWrite">
+        <property name="maximum">
+         <double>50.000000000000000</double>
+        </property>
+        <property name="singleStep">
+         <double>0.100000000000000</double>
+        </property>
+       </widget>
       </item>
       <item row="1" column="1">
        <widget class="TaurusLabel" name="coolingLoop1SetpointRead"/>
@@ -93,10 +100,24 @@
        <widget class="TaurusLabel" name="coolingLoop3SetpointRead"/>
       </item>
       <item row="2" column="2">
-       <widget class="QDoubleSpinBox" name="coolingLoop2SetpointWrite"/>
+       <widget class="QDoubleSpinBox" name="coolingLoop2SetpointWrite">
+        <property name="maximum">
+         <double>50.000000000000000</double>
+        </property>
+        <property name="singleStep">
+         <double>0.100000000000000</double>
+        </property>
+       </widget>
       </item>
       <item row="3" column="2">
-       <widget class="QDoubleSpinBox" name="coolingLoop3SetpointWrite"/>
+       <widget class="QDoubleSpinBox" name="coolingLoop3SetpointWrite">
+        <property name="maximum">
+         <double>50.000000000000000</double>
+        </property>
+        <property name="singleStep">
+         <double>0.100000000000000</double>
+        </property>
+       </widget>
       </item>
       <item row="2" column="4">
        <widget class="QCheckBox" name="coolingLoop2SetpointCheck">

@@ -63,7 +63,14 @@
        </widget>
       </item>
       <item row="6" column="2">
-       <widget class="QSpinBox" name="GPNWrite"/>
+       <widget class="QSpinBox" name="GPNWrite">
+        <property name="minimum">
+         <number>1</number>
+        </property>
+        <property name="maximum">
+         <number>16</number>
+        </property>
+       </widget>
       </item>
       <item row="3" column="1">
        <widget class="TaurusLabel" name="ka1DelayRead"/>
@@ -79,7 +86,17 @@
        <widget class="TaurusLabel" name="GPIRead"/>
       </item>
       <item row="2" column="2">
-       <widget class="QSpinBox" name="GunDelayWrite"/>
+       <widget class="QSpinBox" name="GunDelayWrite">
+        <property name="minimum">
+         <number>32</number>
+        </property>
+        <property name="maximum">
+         <number>4096</number>
+        </property>
+        <property name="singleStep">
+         <number>32</number>
+        </property>
+       </widget>
       </item>
       <item row="4" column="4">
        <widget class="QCheckBox" name="ka2DelayCheck">
@@ -175,7 +192,17 @@
        </widget>
       </item>
       <item row="5" column="2">
-       <widget class="QSpinBox" name="GPIWrite"/>
+       <widget class="QSpinBox" name="GPIWrite">
+        <property name="minimum">
+         <number>6</number>
+        </property>
+        <property name="maximum">
+         <number>1054</number>
+        </property>
+        <property name="singleStep">
+         <number>2</number>
+        </property>
+       </widget>
       </item>
       <item row="6" column="4">
        <widget class="QCheckBox" name="GPNCheck">
@@ -208,13 +235,40 @@
        <widget class="TaurusLabel" name="GPNRead"/>
       </item>
       <item row="3" column="2">
-       <widget class="QSpinBox" name="ka1DelayWrite"/>
+       <widget class="QSpinBox" name="ka1DelayWrite">
+        <property name="minimum">
+         <number>1</number>
+        </property>
+        <property name="maximum">
+         <number>56</number>
+        </property>
+       </widget>
       </item>
       <item row="4" column="2">
-       <widget class="QSpinBox" name="ka2DelayWrite"/>
+       <widget class="QSpinBox" name="ka2DelayWrite">
+        <property name="minimum">
+         <number>2720</number>
+        </property>
+        <property name="maximum">
+         <number>4096</number>
+        </property>
+        <property name="singleStep">
+         <number>32</number>
+        </property>
+       </widget>
       </item>
       <item row="7" column="2">
-       <widget class="QDoubleSpinBox" name="GPAWrite"/>
+       <widget class="QDoubleSpinBox" name="GPAWrite">
+        <property name="minimum">
+         <double>-40.000000000000000</double>
+        </property>
+        <property name="maximum">
+         <double>0.000000000000000</double>
+        </property>
+        <property name="singleStep">
+         <double>0.100000000000000</double>
+        </property>
+       </widget>
       </item>
      </layout>
     </widget>
@@ -222,6 +276,21 @@
   </layout>
  </widget>
  <customwidgets>
+  <customwidget>
+   <class>TaurusLed</class>
+   <extends>QLed</extends>
+   <header>taurus.qt.qtgui.display</header>
+  </customwidget>
+  <customwidget>
+   <class>QLed</class>
+   <extends>QPixmapWidget</extends>
+   <header>taurus.qt.qtgui.display</header>
+  </customwidget>
+  <customwidget>
+   <class>QPixmapWidget</class>
+   <extends>QWidget</extends>
+   <header>taurus.qt.qtgui.display</header>
+  </customwidget>
   <customwidget>
    <class>TaurusWidget</class>
    <extends>QWidget</extends>
@@ -234,25 +303,10 @@
    <header>taurus.qt.qtgui.display</header>
   </customwidget>
   <customwidget>
-   <class>TaurusLed</class>
-   <extends>QLed</extends>
-   <header>taurus.qt.qtgui.display</header>
-  </customwidget>
-  <customwidget>
-   <class>QLed</class>
-   <extends>QPixmapWidget</extends>
-   <header>taurus.qt.qtgui.display</header>
-  </customwidget>
-  <customwidget>
    <class>TaurusGroupBox</class>
    <extends>QGroupBox</extends>
    <header>taurus.qt.qtgui.container</header>
    <container>1</container>
-  </customwidget>
-  <customwidget>
-   <class>QPixmapWidget</class>
-   <extends>QWidget</extends>
-   <header>taurus.qt.qtgui.display</header>
   </customwidget>
  </customwidgets>
  <resources/>

@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'ui/snapshot_klystrons.ui'
+# Form implementation generated from reading ui file 'widgets/ui/snapshot_klystrons.ui'
 #
-# Created: Wed Mar 12 17:15:22 2014
+# Created: Wed Apr  9 13:18:32 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -43,6 +43,8 @@ class Ui_klystronSnapshot(object):
         self.ka1HVPSCheck.setObjectName(_fromUtf8("ka1HVPSCheck"))
         self.gridLayout.addWidget(self.ka1HVPSCheck, 2, 4, 1, 1)
         self.ka1HVPSWrite = QtGui.QDoubleSpinBox(self.klystronGroup)
+        self.ka1HVPSWrite.setMaximum(33.0)
+        self.ka1HVPSWrite.setSingleStep(0.1)
         self.ka1HVPSWrite.setObjectName(_fromUtf8("ka1HVPSWrite"))
         self.gridLayout.addWidget(self.ka1HVPSWrite, 2, 2, 1, 1)
         self.SaveRetrieveTitle = QtGui.QLabel(self.klystronGroup)
@@ -55,6 +57,8 @@ class Ui_klystronSnapshot(object):
         self.ka2HVPSRead.setObjectName(_fromUtf8("ka2HVPSRead"))
         self.gridLayout.addWidget(self.ka2HVPSRead, 3, 1, 1, 1)
         self.ka2HVPSWrite = QtGui.QDoubleSpinBox(self.klystronGroup)
+        self.ka2HVPSWrite.setMaximum(33.0)
+        self.ka2HVPSWrite.setSingleStep(0.1)
         self.ka2HVPSWrite.setObjectName(_fromUtf8("ka2HVPSWrite"))
         self.gridLayout.addWidget(self.ka2HVPSWrite, 3, 2, 1, 1)
         self.ka2HVPSCheck = QtGui.QCheckBox(self.klystronGroup)

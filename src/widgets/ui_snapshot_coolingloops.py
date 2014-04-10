@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'ui/snapshot_coolingloops.ui'
+# Form implementation generated from reading ui file 'widgets/ui/snapshot_coolingloops.ui'
 #
-# Created: Wed Mar 12 17:15:20 2014
+# Created: Wed Apr  9 13:16:37 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -35,6 +35,8 @@ class Ui_coolingLoopSnapshot(object):
         self.coolingLoop1SetpointLabel.setObjectName(_fromUtf8("coolingLoop1SetpointLabel"))
         self.gridLayout_2.addWidget(self.coolingLoop1SetpointLabel, 1, 0, 1, 1)
         self.coolingLoop1SetpointWrite = QtGui.QDoubleSpinBox(self.coolingLoopGroup)
+        self.coolingLoop1SetpointWrite.setMaximum(50.0)
+        self.coolingLoop1SetpointWrite.setSingleStep(0.1)
         self.coolingLoop1SetpointWrite.setObjectName(_fromUtf8("coolingLoop1SetpointWrite"))
         self.gridLayout_2.addWidget(self.coolingLoop1SetpointWrite, 1, 2, 1, 1)
         self.coolingLoop1SetpointRead = TaurusLabel(self.coolingLoopGroup)
@@ -61,9 +63,13 @@ class Ui_coolingLoopSnapshot(object):
         self.coolingLoop3SetpointRead.setObjectName(_fromUtf8("coolingLoop3SetpointRead"))
         self.gridLayout_2.addWidget(self.coolingLoop3SetpointRead, 3, 1, 1, 1)
         self.coolingLoop2SetpointWrite = QtGui.QDoubleSpinBox(self.coolingLoopGroup)
+        self.coolingLoop2SetpointWrite.setMaximum(50.0)
+        self.coolingLoop2SetpointWrite.setSingleStep(0.1)
         self.coolingLoop2SetpointWrite.setObjectName(_fromUtf8("coolingLoop2SetpointWrite"))
         self.gridLayout_2.addWidget(self.coolingLoop2SetpointWrite, 2, 2, 1, 1)
         self.coolingLoop3SetpointWrite = QtGui.QDoubleSpinBox(self.coolingLoopGroup)
+        self.coolingLoop3SetpointWrite.setMaximum(50.0)
+        self.coolingLoop3SetpointWrite.setSingleStep(0.1)
         self.coolingLoop3SetpointWrite.setObjectName(_fromUtf8("coolingLoop3SetpointWrite"))
         self.gridLayout_2.addWidget(self.coolingLoop3SetpointWrite, 3, 2, 1, 1)
         self.coolingLoop2SetpointCheck = QtGui.QCheckBox(self.coolingLoopGroup)
