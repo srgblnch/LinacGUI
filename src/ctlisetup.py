@@ -25,6 +25,7 @@
 
 import os,sys
 import time
+import traceback
 
 #The widgets are stored in a subdirectory and needs to be added to the pythonpath
 linacWidgetsPath = os.environ['PWD']+'/widgets'
@@ -85,7 +86,7 @@ class MainWindow(TaurusMainWindow):
         self.centralwidget = self.ui.centralFrame
         self.setCentralWidget(self.centralwidget)
         self.setConfiguration()
-        self.load()
+        self.loadFromDevices()
     
     ######
     #---- Auxiliar methods to configure widgets
@@ -400,16 +401,157 @@ class MainWindow(TaurusMainWindow):
     
     def buttonsConfiguration(self,buttons):
         buttons.button(QtGui.QDialogButtonBox.Reset).setText("Reload")
-        buttons.button(QtGui.QDialogButtonBox.Reset).clicked.connect(self.load)
-        buttons.button(QtGui.QDialogButtonBox.Save).clicked.connect(self.save)
-        buttons.button(QtGui.QDialogButtonBox.Open).clicked.connect(self.open)
-        buttons.button(QtGui.QDialogButtonBox.Apply).clicked.connect(self.apply)
+        buttons.button(QtGui.QDialogButtonBox.Reset).clicked.connect(self.loadFromDevices)
+        buttons.button(QtGui.QDialogButtonBox.Save).clicked.connect(self.saveToFile)
+        buttons.button(QtGui.QDialogButtonBox.Open).clicked.connect(self.loadFromFile)
+        buttons.button(QtGui.QDialogButtonBox.Apply).clicked.connect(self.applyToDevices)
     
     #---- TODO: should the *Reading widgets be connected to the *Value?
     #           Doing this, the operation of the other tabs will be shown in 
     #           this Configuration tab according to when it's happening.
     
-    def load(self):
+    #---- Distinguish between widget types
+    def _isSpinBox(self,widget):
+        return hasattr(widget,'setValue')
+    def _isCheckBox(self,widget):
+        return hasattr(widget,'setChecked')
+    
+    #---- Widget backgrounds
+    def _setStyleToModified(self,attrStruct):
+        saver = attrStruct['write']
+        if self._isSpinBox(saver):
+            saver.setStyleSheet("background-color: rgb(255, 255, 0);"\
+                                 "color: rgb(0, 0, 255); "\
+                                 "font-weight: bold;")
+        elif self._isCheckBox(saver):
+            saver.setStyleSheet("background-color: rgb(255, 255, 0);"\
+                                 "color: rgb(0, 0, 255);")
+        else:
+            raise Exception("Unmanaged %s widget type to tag modified"%(type(widget)))
+        attrStruct['check'].setChecked(True)
+        
+    def _setStyleToNoModified(self,attrStruct):
+        saver = attrStruct['write']
+        if self._isSpinBox(saver):
+            saver.setStyleSheet("background-color: rgb(255, 255, 255);"\
+                                 "color: rgb(0, 0, 0); ")
+        elif self._isCheckBox(saver):
+            saver.setStyleSheet("color: rgb(0, 0, 0);")
+        else:
+            raise Exception("Unmanaged %s widget type to tag modified"%(type(widget)))
+        attrStruct['check'].setChecked(False)
+    
+    #---- Value setters and getters
+    def _getAttrValue(self,attrName):
+        return PyTango.AttributeProxy(attrName).read().value
+    def _setAttrValue(self,attrName,value):
+        PyTango.AttributeProxy(attrName).write(value)
+    
+    def _setValueToSaverWidget(self,attrStruct,value,style=True):
+        saver = attrStruct['write']
+        if self._isSpinBox(saver):
+            haschanged = (value != saver.value())
+            saver.setValue(value)
+        elif self._isCheckBox(saver):
+            haschanged = (value != saver.isChecked())
+            saver.setChecked(value)
+        else:
+            raise Exception("Unmanaged %s widget type"%(type(saver)))
+        if style and haschanged:
+            self._setStyleToModified(attrStruct)
+        else:
+            self._setStyleToNoModified(attrStruct)
+    
+    def _getValueFromSaverWidget(self,attrStruct):
+        saver = attrStruct['write']
+        if self._isSpinBox(saver):
+            return saver.value()
+        elif self._isCheckBox(saver):
+            return saver.isChecked()
+        else:
+            raise Exception("Unmanaged %s widget type"%(type(saver)))
+        
+    #---- manage files
+    def _getStorageDirectory(self):
+        directory = str(QtGui.QFileDialog.getExistingDirectory(self,
+                                                            "Select Directory",
+                                                            sandbox))
+        if not directory.startswith(sandbox):
+            QtGui.QMessageBox.warning(self, "Sandbox warning",
+                                      "Your selected directory is not in the "\
+                                      "storage shared by NFS")
+        return directory
+    
+    def _getFilePrefix(self,now_struct):
+        #---- Start all the files with the date, 
+        #     then mode and highlight some field on the name
+        # 1 - %Y%m%d_%H%m
+        fileprefix = time.strftime("%Y%m%d_%H%M",now_struct)
+        # 2 MBM vs SBM
+        modeAttrName = 'LI/CT/PLC1/TB_MBM'.lower()
+        isMBM = self._getAttrValue(modeAttrName)
+        # 2.1 - MBM_width
+        if isMBM:
+            widthAttrName = 'LI/CT/PLC1/TB_GPI'.lower()
+            width = self._getAttrValue(widthAttrName)
+            fileprefix = ''.join("%s_MBM_%d"%(fileprefix,width))
+        # 2.2 - SBM_pulses_interval
+        else:
+            npulsesAttrName = 'LI/CT/PLC1/TB_GPN'.lower()
+            intervalAttrName = 'LI/CT/PLC1/TB_GPI'.lower()
+            npulses = self._getAttrValue(npulsesAttrName)
+            interval = self._getAttrValue(intervalAttrName)
+            fileprefix = ''.join("%s_SBM_%d_%d"%(fileprefix,pulses,interval))
+        return fileprefix
+    
+    def _requestFileName(self):
+        dialogTitle = "Select linac's configuration file"
+        filters = "Linac configuration (*.li);;All files (*)"
+        return str(QtGui.QFileDialog.getOpenFileName(self,dialogTitle,
+                                                         sandbox,filters))
+    
+    def _prepareFileHeader(self,now_struct):
+        return "# File stored the %s\n"\
+               %(time.strftime("%Y/%m/%d at %H%m",now_struct))
+
+    def _isCommentLine(self,line):
+        if line[0] == '#' and \
+           not (line.split()[1][:-1] == 'group' and \
+                line.split()[2] in self._configurationWidgets.keys()):
+            return True
+        return False
+
+    def _prepareGroupTag(self,group):
+        return "# group: %s"%(group)
+
+    def _isGroupTagLine(self,line):
+        if line[0] == '#' and \
+           line.split()[1][:-1] == 'group' and \
+           line.split()[2] in self._configurationWidgets.keys():
+            return True
+        return False
+
+    def _prepareAttrLine(self,attrStruct,attrName):
+        tag = attrStruct['label'].text()
+        value = self._getValueFromSaverWidget(attrStruct)
+        return "%30s\t%g\t%s"%(tag,value,attrName)
+
+    def _getAttrLine(self,line,n):
+        try:
+            elements = line.split()
+            attrName = elements[-1]
+            value = elements[-2]
+            if value.count('.'):
+                value = float(value)
+            else:
+                value = int(value)
+            return (attrName,value)
+        except Exception,e:
+            self.error("misunderstanding in line %d: %s"%(n,line))
+            return (None,None)
+
+    #---- ActionButtons callbacks
+    def loadFromDevices(self):
         '''With this call (from a button or at the loading step) we must travel
            all the *Reading widgets and copy the value to the *Value widget.
         '''
@@ -420,184 +562,106 @@ class MainWindow(TaurusMainWindow):
             #print(">  %s"%group)
             for attrName in self._configurationWidgets[group].keys():
                 try:
-                    value = PyTango.AttributeProxy(attrName).read().value
-                    widget = self._configurationWidgets[group][attrName]['write']
-                    self.debug("%s value %g to a %s"
-                               %(attrName,value,type(widget)))
-                    self.value2widget(value,widget)
+                    attrStruct = self._configurationWidgets[group][attrName]
+                    value = self._getAttrValue(attrName)
+                    self._setValueToSaverWidget(attrStruct, value,style=False)
                 except Exception,e:
                     self.error("Exception trying to load %s value. %s"
                                %(attrName,e))
     
-    def value2widget(self,value,widget):
-        if hasattr(widget,'setValue'):
-            widget.setValue(value)
-            widget.setStyleSheet('background-color: rgb(255, 255, 255);\ncolor: rgb(0, 0, 0);')
-        elif hasattr(widget,'setChecked'):
-            widget.setChecked(value)
-            widget.setStyleSheet('\ncolor: rgb(0, 0, 0);')
-        else:
-            raise Exception("unknown how to apply a value to a %s widget"
-                            %(type(widget)))
-    
-    def save(self):
+    def saveToFile(self):
         '''Travelling along the *Check widgets, the checked ones (name and 
            value) will be written in a file indicated by the user.
         '''
         now = time.time()
         now_struct = time.localtime(now)
-        #---- filename suggestion pattern: 
-        #           1 - %Y%m%d_%H%m
-        fileprefix = time.strftime("%Y%m%d_%H%M",now_struct)
-        #           2.1 - MBM_width
-        widget = self._configurationWidgets['timing']['LI/CT/PLC1/TB_MBM'.lower()]['write']
-        value = self.widgetGetValue(widget)
-        if value:
-            widget = self._configurationWidgets['timing']['LI/CT/PLC1/TB_GPI'.lower()]['write']
-            width = self.widgetGetValue(widget)
-            fileprefix = ''.join("%s_MBM_%d"%(fileprefix,width))
-        #           2.2 - SBM_pulses_interval
-        else:
-            widget = self._configurationWidgets['timing']['LI/CT/PLC1/TB_GPN'.lower()]['write']
-            pulses = self.widgetGetValue(widget)
-            widget = self._configurationWidgets['timing']['LI/CT/PLC1/TB_GPI'.lower()]['write']
-            interval = self.widgetGetValue(widget)
-            fileprefix = ''.join("%s_SBM_%d_%d"%(fileprefix,pulses,interval))
-        #---- TODO: request filename to the user
-        directory = str(QtGui.QFileDialog.getExistingDirectory(self, "Select Directory",sandbox))
+        directory = self._getStorageDirectory()
+        prefix = self._getFilePrefix(now_struct)
+        #---- TODO: request suffix to the user.
+        suffix = ''
         if directory != '':
-            filename = "%s/%s.li"%(directory,fileprefix)
+            if suffix == '':
+                filename = "%s/%s.li"%(directory,prefix)
+            else:
+                filename = "%s/%s_%s.li"%(directory,prefix,suffix)
             print("! filename: %s"%(filename))
-            #file header
-            t_str = time.strftime("%Y/%m/%d at %H%m",now_struct)
-            saving = "# File stored the %s\n"%(t_str)
+            saving = self._prepareFileHeader(now_struct)
+            exceptions = {}
             for group in self._configurationWidgets.keys():
-                saving = ''.join("%s\n# group: %s"%(saving,group))
-                attributeNames = self._configurationWidgets[group].keys()
-                attributeNames.sort()
-                for attrName in attributeNames:
-                    #print(">> %s"%attrName)
+                saving = ''.join("%s\n%s"
+                                 %(saving,self._prepareGroupTag(group)))
+                groupAttrNames = self._configurationWidgets[group].keys()
+                groupAttrNames.sort()
+                for attrName in groupAttrNames:
+                    attrStruct = self._configurationWidgets[group][attrName]
                     try:
-                        tag = self._configurationWidgets[group][attrName]['label'].text()
-                        widget = self._configurationWidgets[group][attrName]['write']
-                        value = self.widgetGetValue(widget)
-                        saving = ''.join("%s\n%30s\t%g\t%s"
-                                         %(saving,tag,value,attrName))
+                        saving = ''.join("%s\n%s"
+                          %(saving,self._prepareAttrLine(attrStruct,attrName)))
                     except Exception,e:
-                        print('!  %s'%e)
+                        exceptions[attrName] = e
             saving = ''.join('%s\n'%(saving))
-            #print(saving)
             f = open(filename,'w')
             f.write(saving)
             f.close()
-        else:
-            print("Save() cancelled")
-    
-    def widgetGetValue(self,widget):
-        if hasattr(widget,'value'):
-            return widget.value()
-        elif hasattr(widget,'isChecked'):
-            return widget.isChecked()
-        else:
-            raise Exception("unknown how to get widget's value for %s widget"
-                            %(type(widget)))
+            if len(exceptions.keys()) != 0:
+                msg = ""
+                for attrName in exceptions.keys():
+                    msg = ''.join("%sAttribute %s unsaved:\n-%s\n"
+                                  %(msg,attrName,exceptions[attrName]))
+                QtGui.QMessageBox.warning(self, "Exceptions when save",
+                                          msg)
 
-    def open(self):
+    def loadFromFile(self):
         '''Given a file of settings provided by the user, show those values in 
            the *Value widgets.
            Mark (TODO: how?) the changes from the previous value 
            in the *Value widget
         '''
-        filename = str(QtGui.QFileDialog.getOpenFileName(self, "Select linac's configuration file",
-                                                         sandbox,"Linac configuration (*.li);;All files (*)"))
+        filename = self._requestFileName()
         group = ''
         if filename != '':
-            f = open(filename,'r')
-            for line in f:
-                #print(line)
-                if line[0] == '#':
-                    if line.split()[1][:-1] == 'group' and line.split()[2] in self._configurationWidgets.keys():
-                        group = line.split()[2]
-                        print("found group %s"%(group))
-                    else:
-                        print("comment: %s"%(line))
+            file = open(filename,'r')
+            nline = 0
+            for line in file:
+                if self._isCommentLine(line):
+                    pass#Nothing to do with pure comment lines
+                elif self._isGroupTagLine(line):
+                    group = line.split()[2]
                 else:
-                    try:
-                        elements = line.split()
-                        attrName = elements[-1]
-                        value = elements[-2]
-                        if value.count('.'):
-                            value = float(value)
-                        else:
-                            value = int(value)
-                    except Exception,e:
-                        print("exception splitting line \"%s\""%(line))
-                    else:
-                        print("found attr %s = %g (group:%s)"%(attrName,value,group))
-                        try:
-                            widget = self._configurationWidgets[group][attrName]['write']
-                            check = self._configurationWidgets[group][attrName]['check']
-                            self.widgetSetValue(widget, value, check)
-                        except Exception,e:
-                            print("exception in attr %s: %s"%(attrName,e))
+                    attrName,value = self._getAttrLine(line, nline)
+                    if group != '' and attrName != None:
+                        attrStruct = self._configurationWidgets[group][attrName]
+                        self._setValueToSaverWidget(attrStruct,value)
+            file.close()
         else:
             print("Open() cancelled")
-        
-    def widgetSetValue(self,widget,value,check):
-        if hasattr(widget,'value'):
-            if value != widget.value():
-                widget.setStyleSheet('background-color: rgb(255, 255, 0);\ncolor: rgb(0, 0, 255); font-weight: bold;')
-                widget.setValue(value)
-                check.setChecked(True)
-            else:
-                widget.setStyleSheet('color: rgb(0, 0, 0)')
-                check.setChecked(False)
-        elif hasattr(widget,'isChecked'):
-            value = bool(value)
-            if value != widget.isChecked():
-                widget.setStyleSheet('background-color: rgb(255, 255, 0);\ncolor: rgb(0, 0, 255);')
-                widget.setChecked(value)
-                check.setChecked(True)
-            else:
-                widget.setStyleSheet('color: rgb(0, 0, 255);')
-                check.setChecked(False)
-        else:
-            raise Exception("unknown how to set widget's value for %s widget"%(type(widget)))
-        
-    def apply(self):
+
+    def applyToDevices(self):
         '''Travelling along the *Check, apply the value in *Value 
            to the model in the *Reading.
         '''
         exceptions = {}
         for group in self._configurationWidgets.keys():
             for attrName in self._configurationWidgets[group]:
-                if self._configurationWidgets[group][attrName]['check'].isChecked():
+                attrStruct = self._configurationWidgets[group][attrName]
+                if attrStruct['check'].isChecked():
                     try:
-                        widget = self._configurationWidgets[group][attrName]['write']
-                        self.widgetApplyValue2Attr(widget, attrName)
-                        self._configurationWidgets[group][attrName]['check'].setChecked(False)
+                        value = self._getValueFromSaverWidget(attrStruct)
+                        self._setAttrValue(attrName, value)
+                        self._setStyleToNoModified(attrStruct)
                     except PyTango.DevFailed,e:
-                        print("Cannot apply %s: %s"%(attrName,e[0].desc))
+                        self.warning("Cannot apply %s: %s"%(attrName,e[0].desc))
                         exceptions[attrName] = e[0].desc
                     except Exception,e:
-                        print("Exception applying %s: %s"%(attrName,e))
+                        exceptions[attrName] = "Check log files"
+                        self.error("Exception applying %s: %s"%(attrName,e))
         if len(exceptions.keys()) != 0:
             msg = ""
             for attrName in exceptions.keys():
-                msg = ''.join("%sAttribute %s not applied:\n-%s\n"%(msg,attrName,exceptions[attrName]))
+                msg = ''.join("%sAttribute %s not applied:\n-%s\n"\
+                              %(msg,attrName,exceptions[attrName]))
             QtGui.QMessageBox.warning(self, "Exceptions when apply",
                                       msg)
-
-    def widgetApplyValue2Attr(self,widget,attrName):
-        if hasattr(widget,'value'):
-            PyTango.AttributeProxy(attrName).write(widget.value())
-            widget.setStyleSheet('background-color: rgb(255, 255, 255);\ncolor: rgb(0, 0, 0);')
-        elif hasattr(widget,'isChecked'):
-            PyTango.AttributeProxy(attrName).write(widget.isChecked())
-            widget.setStyleSheet('\ncolor: rgb(0, 0, 0);')
-        else:
-            raise Exception("unknown how to clean widget's background for %s widget"%(type(widget)))
-        
 
 def main():
     parser = argparse.get_taurus_parser()
