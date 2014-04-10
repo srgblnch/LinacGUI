@@ -118,6 +118,13 @@ class MainWindow(TaurusMainWindow):
                            DangerMsg='',riseEdge=False,fallingEdge=False):
         ctliaux._setupActionWidget(widget,attrName,text,isRst,
                            DangerMsg,riseEdge,fallingEdge)
+    
+    def _setupQSpinBox(self,widget,min=0,max=99,decimals=2,step=1):
+        widget.setMinimum(min)
+        widget.setMaximum(max)
+        if hasattr(widget,'setDecimals'):
+            widget.setDecimals(decimals)
+        widget.setSingleStep(step)
     #---- Done auxiliar methods to configure widgets
     ######
     
@@ -153,6 +160,8 @@ class MainWindow(TaurusMainWindow):
                                 'write':ui.GunFilamentLowVoltageWrite,
                                 'check':ui.GunFilamentLowVoltageCheck}
         self._setupTaurusLabel4Attr(widgetsSet[attrName]['read'],attrName)
+        self._setupQSpinBox(widgetsSet[attrName]['write'],
+                            min=0.0,max=10.0,step=0.1)
         
         attrName = '%s/Gun_kathode_v_setpoint'%(devName)
         attrName = attrName.lower()
@@ -161,6 +170,8 @@ class MainWindow(TaurusMainWindow):
                                 'write':ui.GunKathodeLowVoltageWrite,
                                 'check':ui.GunKathodeLowVoltageCheck}
         self._setupTaurusLabel4Attr(widgetsSet[attrName]['read'],attrName)
+        self._setupQSpinBox(widgetsSet[attrName]['write'],
+                            min=0.0,max=50.0,step=0.1)
         
         attrName = '%s/Gun_hv_v_setpoint'%(devName)
         attrName = attrName.lower()
@@ -169,6 +180,8 @@ class MainWindow(TaurusMainWindow):
                                 'write':ui.GunHighVoltagePowerSupplyWrite,
                                 'check':ui.GunHighVoltagePowerSupplyCheck}
         self._setupTaurusLabel4Attr(widgetsSet[attrName]['read'],attrName)
+        self._setupQSpinBox(widgetsSet[attrName]['write'],
+                            min=-90.0,max=0.0,step=0.1)
         
         self._configurationWidgets['eGun'] = widgetsSet
 
@@ -184,8 +197,8 @@ class MainWindow(TaurusMainWindow):
                                 'write':ui.coolingLoop1SetpointWrite,
                                 'check':ui.coolingLoop1SetpointCheck}
         self._setupTaurusLabel4Attr(widgetsSet[attrName]['read'],attrName)
-        
-        #----
+        self._setupQSpinBox(widgetsSet[attrName]['write'],
+                            min=0.0,max=50.0,step=0.1)
         #CL2
         attrName = '%s/cl2_t_setpoint'%(devName)
         attrName = attrName.lower()
@@ -194,6 +207,8 @@ class MainWindow(TaurusMainWindow):
                                 'write':ui.coolingLoop2SetpointWrite,
                                 'check':ui.coolingLoop2SetpointCheck}
         self._setupTaurusLabel4Attr(widgetsSet[attrName]['read'],attrName)
+        self._setupQSpinBox(widgetsSet[attrName]['write'],
+                            min=0.0,max=50.0,step=0.1)
         #CL3
         attrName = '%s/cl3_t_setpoint'%(devName)
         attrName = attrName.lower()
@@ -202,7 +217,8 @@ class MainWindow(TaurusMainWindow):
                                 'write':ui.coolingLoop3SetpointWrite,
                                 'check':ui.coolingLoop3SetpointCheck}
         self._setupTaurusLabel4Attr(widgetsSet[attrName]['read'],attrName)
-        #---- TODO: connect the ToApplyTitle to check/uncheck all the *Check
+        self._setupQSpinBox(widgetsSet[attrName]['write'],
+                            min=0.0,max=50.0,step=0.1)
         self._configurationWidgets['coolingLoop'] = widgetsSet
     
     def vacuumValvesConfiguration(self,ui):
@@ -214,7 +230,6 @@ class MainWindow(TaurusMainWindow):
                                 'write':ui.VaccumCollimatorValveWrite,
                                 'check':ui.VaccumCollimatorValveCheck}
         self._setupLed4Attr(ui.VaccumCollimatorValveRead,attrName)
-        #---- TODO: connect the ToApplyTitle to check/uncheck all the *Check
         self._configurationWidgets['vacuumValves'] = widgetsSet
 
     def magnetsConfiguration(self,ui):
@@ -252,6 +267,33 @@ class MainWindow(TaurusMainWindow):
                                             'check':checkWidget}
                     widget = widgetsSet[attrName]['read']
                     self._setupTaurusLabel4Attr(widget,attrName)
+                    if component in ['H','V']:
+                        if family == 'qt':
+                            min=-16
+                            max=16
+                        else:
+                            min=-2
+                            max=2
+                        step=0.01
+                    else:
+                        if family == 'sl':
+                            min=0
+                            max=1
+                            step=0.01
+                        elif family == 'bc':
+                            min=0
+                            max=200
+                            step=0.01
+                        elif family == 'gl':
+                            min=0
+                            max=130
+                            step=0.01
+                        elif family == 'qt':
+                            min=0
+                            max=6
+                            step=0.005
+                    self._setupQSpinBox(widgetsSet[attrName]['write'],
+                            min=min,max=max,step=step)
         #---- TODO: connect the ToApplyTitle to check/uncheck all the *Check
         self._configurationWidgets['magnets'] = widgetsSet
     
@@ -264,6 +306,8 @@ class MainWindow(TaurusMainWindow):
                                 'write':ui.TPS0PhaseWrite,
                                 'check':ui.TPS0PhaseCheck}
         self._setupTaurusLabel4Attr(ui.TPS0PhaseRead,attrName)
+        self._setupQSpinBox(widgetsSet[attrName]['write'],
+                            min=0.0,max=380,decimals=1,step=0.1)
         
         attrName = 'li/ct/plc1/TPSX_Phase'.lower()
         widgetsSet[attrName] = {'label':ui.TPSXPhaseLabel,
@@ -271,6 +315,8 @@ class MainWindow(TaurusMainWindow):
                                 'write':ui.TPSXPhaseWrite,
                                 'check':ui.TPSXPhaseCheck}
         self._setupTaurusLabel4Attr(ui.TPSXPhaseRead,attrName)
+        self._setupQSpinBox(widgetsSet[attrName]['write'],
+                            min=0.0,max=380,decimals=0,step=1)
         
         attrName = 'li/ct/plc1/TPS1_Phase'.lower()
         widgetsSet[attrName] = {'label':ui.TPS1PhaseLabel,
@@ -278,6 +324,8 @@ class MainWindow(TaurusMainWindow):
                                 'write':ui.TPS1PhaseWrite,
                                 'check':ui.TPS1PhaseCheck}
         self._setupTaurusLabel4Attr(ui.TPS1PhaseRead,attrName)
+        self._setupQSpinBox(widgetsSet[attrName]['write'],
+                            min=0.0,max=380,decimals=0,step=1)
         
         attrName = 'li/ct/plc1/TPS2_Phase'.lower()
         widgetsSet[attrName] = {'label':ui.TPS2PhaseLabel,
@@ -285,6 +333,8 @@ class MainWindow(TaurusMainWindow):
                                 'write':ui.TPS2PhaseWrite,
                                 'check':ui.TPS2PhaseCheck}
         self._setupTaurusLabel4Attr(ui.TPS2PhaseRead,attrName)
+        self._setupQSpinBox(widgetsSet[attrName]['write'],
+                            min=0.0,max=380,decimals=0,step=1)
         
         attrName = 'li/ct/plc1/A0_OP'.lower()
         widgetsSet[attrName] = {'label':ui.A0OPLabel,
@@ -292,6 +342,8 @@ class MainWindow(TaurusMainWindow):
                                 'write':ui.A0OPWrite,
                                 'check':ui.A0OPCheck}
         self._setupTaurusLabel4Attr(ui.A0OPRead,attrName)
+        self._setupQSpinBox(widgetsSet[attrName]['write'],
+                            min=75,max=760,decimals=0,step=1)
         
         attrName = 'li/ct/plc1/ATT2_P_setpoint'.lower()
         widgetsSet[attrName] = {'label':ui.ATT2Label,
@@ -299,6 +351,8 @@ class MainWindow(TaurusMainWindow):
                                 'write':ui.ATT2Write,
                                 'check':ui.ATT2Check}
         self._setupTaurusLabel4Attr(ui.ATT2Read,attrName)
+        self._setupQSpinBox(widgetsSet[attrName]['write'],
+                            min=-10.0,max=0,decimals=1,step=0.1)
         
         attrName = 'li/ct/plc1/PHS1_Phase_setpoint'.lower()
         widgetsSet[attrName] = {'label':ui.PHS1Label,
@@ -306,6 +360,8 @@ class MainWindow(TaurusMainWindow):
                                 'write':ui.PHS1Write,
                                 'check':ui.PHS1Check}
         self._setupTaurusLabel4Attr(ui.PHS1Read,attrName)
+        self._setupQSpinBox(widgetsSet[attrName]['write'],
+                            min=0.0,max=160,decimals=0,step=1)
         
         attrName = 'li/ct/plc1/PHS2_Phase_setpoint'.lower()
         widgetsSet[attrName] = {'label':ui.PHS2Label,
@@ -313,7 +369,9 @@ class MainWindow(TaurusMainWindow):
                                 'write':ui.PHS2Write,
                                 'check':ui.PHS2Check}
         self._setupTaurusLabel4Attr(ui.PHS2Read,attrName)
-        #---- TODO: connect the ToApplyTitle to check/uncheck all the *Check
+        self._setupQSpinBox(widgetsSet[attrName]['write'],
+                            min=0.0,max=380,decimals=0,step=1)
+        
         self._configurationWidgets['radioFrequency'] = widgetsSet
     
     def timingConfiguration(self,ui):
@@ -332,6 +390,8 @@ class MainWindow(TaurusMainWindow):
                                 'write':ui.GunDelayWrite,
                                 'check':ui.GunDelayCheck}
         self._setupTaurusLabel4Attr(ui.GunDelayRead,attrName)
+        self._setupQSpinBox(widgetsSet[attrName]['write'],
+                            min=32,max=4096,step=32)
         
         attrName = 'li/ct/plc1/TB_ka1_delay'.lower()
         widgetsSet[attrName] = {'label':ui.ka1DelayLabel,
@@ -339,6 +399,8 @@ class MainWindow(TaurusMainWindow):
                                 'write':ui.ka1DelayWrite,
                                 'check':ui.ka1DelayCheck}
         self._setupTaurusLabel4Attr(ui.ka1DelayRead,attrName)
+        self._setupQSpinBox(widgetsSet[attrName]['write'],
+                            min=1,max=56,step=1)
         
         attrName = 'li/ct/plc1/TB_ka2_delay'.lower()
         widgetsSet[attrName] = {'label':ui.ka2DelayLabel,
@@ -346,6 +408,8 @@ class MainWindow(TaurusMainWindow):
                                 'write':ui.ka2DelayWrite,
                                 'check':ui.ka2DelayCheck}
         self._setupTaurusLabel4Attr(ui.ka2DelayRead,attrName)
+        self._setupQSpinBox(widgetsSet[attrName]['write'],
+                            min=2720,max=4096,step=32)
         
         attrName = 'li/ct/plc1/TB_GPI'.lower()
         widgetsSet[attrName] = {'label':ui.GPILabel,
@@ -353,6 +417,8 @@ class MainWindow(TaurusMainWindow):
                                 'write':ui.GPIWrite,
                                 'check':ui.GPICheck}
         self._setupTaurusLabel4Attr(ui.GPIRead,attrName)
+        self._setupQSpinBox(widgetsSet[attrName]['write'],
+                            min=6,max=1054,step=2)
         
         attrName = 'li/ct/plc1/TB_GPN'.lower()
         widgetsSet[attrName] = {'label':ui.GPNLabel,
@@ -360,6 +426,8 @@ class MainWindow(TaurusMainWindow):
                                 'write':ui.GPNWrite,
                                 'check':ui.GPNCheck}
         self._setupTaurusLabel4Attr(ui.GPNRead,attrName)
+        self._setupQSpinBox(widgetsSet[attrName]['write'],
+                            min=1,max=16,step=1)
         
         attrName = 'li/ct/plc1/TB_GPA'.lower()
         widgetsSet[attrName] = {'label':ui.GPALabel,
@@ -367,6 +435,8 @@ class MainWindow(TaurusMainWindow):
                                 'write':ui.GPAWrite,
                                 'check':ui.GPACheck}
         self._setupTaurusLabel4Attr(ui.GPARead,attrName)
+        self._setupQSpinBox(widgetsSet[attrName]['write'],
+                            min=-40.0,max=0,decimals=1,step=0.1)
         #---- TODO: connect the ToApplyTitle to check/uncheck all the *Check
         self._configurationWidgets['timing'] = widgetsSet
     
@@ -389,6 +459,8 @@ class MainWindow(TaurusMainWindow):
                                             'check':getattr(ui,'ka%dHVPSCheck'%(number)),}
                     widget = widgetsSet[attrName]['read']
                     self._setupTaurusLabel4Attr(widget,attrName)
+                    self._setupQSpinBox(widgetsSet[attrName]['write'],
+                                        min=0.0,max=33,decimals=1,step=0.1)
         #---- TODO: connect the ToApplyTitle to check/uncheck all the *Check
         self._configurationWidgets['klystrons'] = widgetsSet
     

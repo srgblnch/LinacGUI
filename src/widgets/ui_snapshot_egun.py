@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'widgets/ui/snapshot_egun.ui'
 #
-# Created: Wed Apr  9 13:17:49 2014
+# Created: Thu Apr 10 16:31:34 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -44,8 +44,6 @@ class Ui_electronGunSnapshot(object):
         self.GunFilamentLowVoltageRead.setObjectName(_fromUtf8("GunFilamentLowVoltageRead"))
         self.gridLayout_2.addWidget(self.GunFilamentLowVoltageRead, 1, 1, 1, 1)
         self.GunFilamentLowVoltageWrite = QtGui.QDoubleSpinBox(self.electronGunGroup)
-        self.GunFilamentLowVoltageWrite.setMaximum(10.0)
-        self.GunFilamentLowVoltageWrite.setSingleStep(0.1)
         self.GunFilamentLowVoltageWrite.setObjectName(_fromUtf8("GunFilamentLowVoltageWrite"))
         self.gridLayout_2.addWidget(self.GunFilamentLowVoltageWrite, 1, 2, 1, 1)
         self.line = QtGui.QFrame(self.electronGunGroup)
@@ -57,8 +55,6 @@ class Ui_electronGunSnapshot(object):
         self.GunKathodeLowVoltageRead.setObjectName(_fromUtf8("GunKathodeLowVoltageRead"))
         self.gridLayout_2.addWidget(self.GunKathodeLowVoltageRead, 2, 1, 2, 1)
         self.GunKathodeLowVoltageWrite = QtGui.QDoubleSpinBox(self.electronGunGroup)
-        self.GunKathodeLowVoltageWrite.setMaximum(50.0)
-        self.GunKathodeLowVoltageWrite.setSingleStep(0.1)
         self.GunKathodeLowVoltageWrite.setObjectName(_fromUtf8("GunKathodeLowVoltageWrite"))
         self.gridLayout_2.addWidget(self.GunKathodeLowVoltageWrite, 2, 2, 2, 1)
         self.GunKathodeLowVoltageLabel = QtGui.QLabel(self.electronGunGroup)
@@ -75,9 +71,6 @@ class Ui_electronGunSnapshot(object):
         self.GunHighVoltagePowerSupplyRead.setObjectName(_fromUtf8("GunHighVoltagePowerSupplyRead"))
         self.gridLayout_2.addWidget(self.GunHighVoltagePowerSupplyRead, 4, 1, 1, 1)
         self.GunHighVoltagePowerSupplyWrite = QtGui.QDoubleSpinBox(self.electronGunGroup)
-        self.GunHighVoltagePowerSupplyWrite.setMinimum(-90.0)
-        self.GunHighVoltagePowerSupplyWrite.setMaximum(0.0)
-        self.GunHighVoltagePowerSupplyWrite.setSingleStep(0.1)
         self.GunHighVoltagePowerSupplyWrite.setObjectName(_fromUtf8("GunHighVoltagePowerSupplyWrite"))
         self.gridLayout_2.addWidget(self.GunHighVoltagePowerSupplyWrite, 4, 2, 1, 1)
         self.GunHighVoltagePowerSupplyCheck = QtGui.QCheckBox(self.electronGunGroup)

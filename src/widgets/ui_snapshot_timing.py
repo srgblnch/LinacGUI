@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'widgets/ui/snapshot_timing.ui'
 #
-# Created: Wed Apr  9 13:05:01 2014
+# Created: Thu Apr 10 16:32:11 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -43,8 +43,6 @@ class Ui_timingSnapshot(object):
         self.ka1DelayCheck.setObjectName(_fromUtf8("ka1DelayCheck"))
         self.gridLayout.addWidget(self.ka1DelayCheck, 3, 4, 1, 1)
         self.GPNWrite = QtGui.QSpinBox(self.timingGroup)
-        self.GPNWrite.setMinimum(1)
-        self.GPNWrite.setMaximum(16)
         self.GPNWrite.setObjectName(_fromUtf8("GPNWrite"))
         self.gridLayout.addWidget(self.GPNWrite, 6, 2, 1, 1)
         self.ka1DelayRead = TaurusLabel(self.timingGroup)
@@ -59,9 +57,6 @@ class Ui_timingSnapshot(object):
         self.GPIRead.setObjectName(_fromUtf8("GPIRead"))
         self.gridLayout.addWidget(self.GPIRead, 5, 1, 1, 1)
         self.GunDelayWrite = QtGui.QSpinBox(self.timingGroup)
-        self.GunDelayWrite.setMinimum(32)
-        self.GunDelayWrite.setMaximum(4096)
-        self.GunDelayWrite.setSingleStep(32)
         self.GunDelayWrite.setObjectName(_fromUtf8("GunDelayWrite"))
         self.gridLayout.addWidget(self.GunDelayWrite, 2, 2, 1, 1)
         self.ka2DelayCheck = QtGui.QCheckBox(self.timingGroup)
@@ -106,9 +101,6 @@ class Ui_timingSnapshot(object):
         self.MBMRead.setObjectName(_fromUtf8("MBMRead"))
         self.gridLayout.addWidget(self.MBMRead, 1, 1, 1, 1)
         self.GPIWrite = QtGui.QSpinBox(self.timingGroup)
-        self.GPIWrite.setMinimum(6)
-        self.GPIWrite.setMaximum(1054)
-        self.GPIWrite.setSingleStep(2)
         self.GPIWrite.setObjectName(_fromUtf8("GPIWrite"))
         self.gridLayout.addWidget(self.GPIWrite, 5, 2, 1, 1)
         self.GPNCheck = QtGui.QCheckBox(self.timingGroup)
@@ -133,20 +125,12 @@ class Ui_timingSnapshot(object):
         self.GPNRead.setObjectName(_fromUtf8("GPNRead"))
         self.gridLayout.addWidget(self.GPNRead, 6, 1, 1, 1)
         self.ka1DelayWrite = QtGui.QSpinBox(self.timingGroup)
-        self.ka1DelayWrite.setMinimum(1)
-        self.ka1DelayWrite.setMaximum(56)
         self.ka1DelayWrite.setObjectName(_fromUtf8("ka1DelayWrite"))
         self.gridLayout.addWidget(self.ka1DelayWrite, 3, 2, 1, 1)
         self.ka2DelayWrite = QtGui.QSpinBox(self.timingGroup)
-        self.ka2DelayWrite.setMinimum(2720)
-        self.ka2DelayWrite.setMaximum(4096)
-        self.ka2DelayWrite.setSingleStep(32)
         self.ka2DelayWrite.setObjectName(_fromUtf8("ka2DelayWrite"))
         self.gridLayout.addWidget(self.ka2DelayWrite, 4, 2, 1, 1)
         self.GPAWrite = QtGui.QDoubleSpinBox(self.timingGroup)
-        self.GPAWrite.setMinimum(-40.0)
-        self.GPAWrite.setMaximum(0.0)
-        self.GPAWrite.setSingleStep(0.1)
         self.GPAWrite.setObjectName(_fromUtf8("GPAWrite"))
         self.gridLayout.addWidget(self.GPAWrite, 7, 2, 1, 1)
         self.gridLayout_2.addWidget(self.timingGroup, 0, 0, 1, 1)
