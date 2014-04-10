@@ -473,10 +473,18 @@ class MainWindow(TaurusMainWindow):
     
     def buttonsConfiguration(self,buttons):
         buttons.button(QtGui.QDialogButtonBox.Reset).setText("Reload")
-        buttons.button(QtGui.QDialogButtonBox.Reset).clicked.connect(self.loadFromDevices)
-        buttons.button(QtGui.QDialogButtonBox.Save).clicked.connect(self.saveToFile)
-        buttons.button(QtGui.QDialogButtonBox.Open).clicked.connect(self.loadFromFile)
-        buttons.button(QtGui.QDialogButtonBox.Apply).clicked.connect(self.applyToDevices)
+        #buttons.button(QtGui.QDialogButtonBox.Reset).clicked.connect(self.loadFromDevices)
+        Qt.QObject.connect(buttons.button(QtGui.QDialogButtonBox.Reset),
+                           Qt.SIGNAL('clicked(bool)'),self.loadFromDevices)
+        #buttons.button(QtGui.QDialogButtonBox.Save).clicked.connect(self.saveToFile)
+        Qt.QObject.connect(buttons.button(QtGui.QDialogButtonBox.Save),
+                           Qt.SIGNAL('clicked(bool)'),self.saveToFile)
+        #buttons.button(QtGui.QDialogButtonBox.Open).clicked.connect(self.loadFromFile)
+        Qt.QObject.connect(buttons.button(QtGui.QDialogButtonBox.Open),
+                           Qt.SIGNAL('clicked(bool)'),self.loadFromFile)
+        #buttons.button(QtGui.QDialogButtonBox.Apply).clicked.connect(self.applyToDevices)
+        Qt.QObject.connect(buttons.button(QtGui.QDialogButtonBox.Apply),
+                           Qt.SIGNAL('clicked(bool)'),self.applyToDevices)
     
     #---- TODO: should the *Reading widgets be connected to the *Value?
     #           Doing this, the operation of the other tabs will be shown in 
@@ -669,8 +677,13 @@ class MainWindow(TaurusMainWindow):
             for group in exceptions.keys():
                 msg = ''.join("%sIn group %s, %d values not uploaded\n"
                               %(msg,group,len(exceptions[group])))
-                for label in exceptions[group]:
-                    msg = ''.join("%s\t-%s\n"%(msg,label))
+                if len(exceptions[group]) > 5:
+                    for i in range(5):
+                        msg = ''.join("%s\t-%s\n"%(msg,exceptions[group][i]))
+                    msg = ''.join("%s\t ...and another %d\n"%(msg,len(exceptions[group])-5))
+                else:
+                    for label in exceptions[group]:
+                        msg = ''.join("%s\t-%s\n"%(msg,label))
             QtGui.QMessageBox.warning(self, "Exceptions when load from devices",
                                       msg)
     
@@ -717,8 +730,13 @@ class MainWindow(TaurusMainWindow):
                 for group in exceptions.keys():
                     msg = ''.join("%sIn group %s happen %d errors\n"\
                                   %(msg,group,len(exceptions[group])))
-                    for attrName in exceptions[group]:
-                        msg = ''.join("%s\t-%s\n"%(msg,attrName))
+                    if len(exceptions[group]) > 5:
+                        for i in range(5):
+                            msg = ''.join("%s\t-%s\n"%(msg,exceptions[group][i]))
+                        msg = ''.join("%s\t ...and another %d\n"%(msg,len(exceptions[group])-5))
+                    else:
+                        for attrName in exceptions[group]:
+                            msg = ''.join("%s\t-%s\n"%(msg,attrName))
                 QtGui.QMessageBox.warning(self, "Exceptions when save",
                                           msg)
 
@@ -760,8 +778,13 @@ class MainWindow(TaurusMainWindow):
                     msg = ''.join("%sIn group %s found %d orphan "\
                                   "attributes:\n"%(msg,group,
                                                    len(exceptions[group])))
-                    for label in exceptions[group]:
-                        msg = ''.join("%s\t-%s\n"%(msg,label))
+                    if len(exceptions[group]) > 5:
+                        for i in range(5):
+                            msg = ''.join("%s\t-%s\n"%(msg,exceptions[group][i]))
+                        msg = ''.join("%s\t ...and another %d\n"%(msg,len(exceptions[group])-5))
+                    else:
+                        for attrName in exceptions[group]:
+                            msg = ''.join("%s\t-%s\n"%(msg,attrName))
                 QtGui.QMessageBox.warning(self, "Exceptions when load file",
                                           msg)
 
@@ -789,8 +812,13 @@ class MainWindow(TaurusMainWindow):
             for group in exceptions.keys():
                 msg = ''.join("%sIn group %s found %d applying errors:\n"
                               %(msg,group,len(exceptions[group])))
-                for attrName in exceptions[group]:
-                    msg = ''.join("%s\t-%s\n"%(msg,attrName))
+                if len(exceptions[group]) > 5:
+                    for i in range(5):
+                        msg = ''.join("%s\t-%s\n"%(msg,exceptions[group][i]))
+                    msg = ''.join("%s\t ...and another %d\n"%(msg,len(exceptions[group])-5))
+                else:
+                    for attrName in exceptions[group]:
+                        msg = ''.join("%s\t-%s\n"%(msg,attrName))
             QtGui.QMessageBox.warning(self, "Exceptions when apply",
                                       msg)
     ######

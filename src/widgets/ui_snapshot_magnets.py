@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'widgets/ui/snapshot_magnets.ui'
 #
-# Created: Thu Apr 10 16:31:54 2014
+# Created: Thu Apr 10 16:38:33 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -279,7 +279,6 @@ class Ui_magnetSnapshot(object):
         self.sl2HWrite.setObjectName(_fromUtf8("sl2HWrite"))
         self.gridLayout.addWidget(self.sl2HWrite, 4, 2, 1, 1)
         self.sl2VWrite = QtGui.QDoubleSpinBox(self.magnetsGroup)
-        self.sl2VWrite.setProperty("value", 0.0)
         self.sl2VWrite.setObjectName(_fromUtf8("sl2VWrite"))
         self.gridLayout.addWidget(self.sl2VWrite, 5, 2, 1, 1)
         self.sl1HRead = TaurusLabel(self.magnetsGroup)
