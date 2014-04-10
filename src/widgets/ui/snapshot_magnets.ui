@@ -121,7 +121,7 @@
       <item row="16" column="0">
        <widget class="QLabel" name="bc2HLabel">
         <property name="text">
-         <string>bc2 Horizontal</string>
+         <string>BC2 Horizontal</string>
         </property>
        </widget>
       </item>
@@ -229,7 +229,7 @@
       <item row="21" column="0">
        <widget class="QLabel" name="glFLabel">
         <property name="text">
-         <string>gl Focus</string>
+         <string>GLFocus</string>
         </property>
        </widget>
       </item>
@@ -260,7 +260,7 @@
       <item row="19" column="0">
        <widget class="QLabel" name="glHLabel">
         <property name="text">
-         <string>gl Horizontal</string>
+         <string>GL Horizontal</string>
         </property>
        </widget>
       </item>
@@ -306,14 +306,14 @@
       <item row="20" column="0">
        <widget class="QLabel" name="glVLabel">
         <property name="text">
-         <string>gl Vertical</string>
+         <string>GL Vertical</string>
         </property>
        </widget>
       </item>
       <item row="18" column="0">
        <widget class="QLabel" name="bc2FLabel">
         <property name="text">
-         <string>bc2 Focus</string>
+         <string>BC2 Focus</string>
         </property>
        </widget>
       </item>
@@ -349,7 +349,7 @@
       <item row="17" column="0">
        <widget class="QLabel" name="bc2VLabel">
         <property name="text">
-         <string>bc2 Vertical</string>
+         <string>BC2 Vertical</string>
         </property>
        </widget>
       </item>
@@ -442,7 +442,7 @@
       <item row="11" column="0">
        <widget class="QLabel" name="sl4VLabel">
         <property name="text">
-         <string>sl4 Vertical</string>
+         <string>SL4 Vertical</string>
         </property>
        </widget>
       </item>
@@ -465,7 +465,7 @@
       <item row="10" column="0">
        <widget class="QLabel" name="sl4HLabel">
         <property name="text">
-         <string>sl4 Horizontal</string>
+         <string>SL4 Horizontal</string>
         </property>
        </widget>
       </item>
@@ -502,7 +502,7 @@
       <item row="12" column="0">
        <widget class="QLabel" name="sl4FLabel">
         <property name="text">
-         <string>sl4 Focus</string>
+         <string>SL4 Focus</string>
         </property>
        </widget>
       </item>
@@ -573,7 +573,7 @@
       <item row="9" column="0">
        <widget class="QLabel" name="sl3FLabel">
         <property name="text">
-         <string>sl3 Focus</string>
+         <string>SL3 Focus</string>
         </property>
        </widget>
       </item>
@@ -612,7 +612,7 @@
       <item row="3" column="0">
        <widget class="QLabel" name="sl1FLabel">
         <property name="text">
-         <string>sl1 Focus</string>
+         <string>SL1 Focus</string>
         </property>
        </widget>
       </item>
@@ -643,21 +643,21 @@
       <item row="4" column="0">
        <widget class="QLabel" name="sl2HLabel">
         <property name="text">
-         <string>sl2 Horizontal</string>
+         <string>SL2 Horizontal</string>
         </property>
        </widget>
       </item>
       <item row="7" column="0">
        <widget class="QLabel" name="sl3HLabel">
         <property name="text">
-         <string>sl3 Horizontal</string>
+         <string>SL3 Horizontal</string>
         </property>
        </widget>
       </item>
       <item row="5" column="0">
        <widget class="QLabel" name="sl2VLabel">
         <property name="text">
-         <string>sl2 Vertical</string>
+         <string>SL2 Vertical</string>
         </property>
        </widget>
       </item>
@@ -678,7 +678,7 @@
       <item row="6" column="0">
        <widget class="QLabel" name="sl2FLabel">
         <property name="text">
-         <string>sl2 Focus</string>
+         <string>SL2 Focus</string>
         </property>
        </widget>
       </item>
@@ -707,14 +707,14 @@
       <item row="8" column="0">
        <widget class="QLabel" name="sl3VLabel">
         <property name="text">
-         <string>sl3 Vertical</string>
+         <string>SL3 Vertical</string>
         </property>
        </widget>
       </item>
       <item row="2" column="0">
        <widget class="QLabel" name="sl1VLabel">
         <property name="text">
-         <string>sl1 Vertical</string>
+         <string>SL1 Vertical</string>
         </property>
        </widget>
       </item>
@@ -734,7 +734,7 @@
       <item row="1" column="0">
        <widget class="QLabel" name="sl1HLabel">
         <property name="text">
-         <string>sl1 Horizontal</string>
+         <string>SL1 Horizontal</string>
         </property>
        </widget>
       </item>
@@ -820,7 +820,7 @@
       <item row="13" column="0">
        <widget class="QLabel" name="bc1HLabel">
         <property name="text">
-         <string>bc1 Horizontal</string>
+         <string>BC1 Horizontal</string>
         </property>
        </widget>
       </item>
@@ -847,7 +847,7 @@
       <item row="14" column="0">
        <widget class="QLabel" name="bc1VLabel">
         <property name="text">
-         <string>bc1 Vertical</string>
+         <string>BC1 Vertical</string>
         </property>
        </widget>
       </item>
@@ -877,7 +877,7 @@
       <item row="15" column="0">
        <widget class="QLabel" name="bc1FLabel">
         <property name="text">
-         <string>bc1 Focus</string>
+         <string>BC1 Focus</string>
         </property>
        </widget>
       </item>

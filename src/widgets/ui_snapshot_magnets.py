@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'widgets/ui/snapshot_magnets.ui'
 #
-# Created: Wed Apr  9 13:15:10 2014
+# Created: Thu Apr 10 14:20:39 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -506,36 +506,36 @@ class Ui_magnetSnapshot(object):
         magnetSnapshot.setWindowTitle(QtGui.QApplication.translate("magnetSnapshot", "Form", None, QtGui.QApplication.UnicodeUTF8))
         self.magnetsGroup.setTitle(QtGui.QApplication.translate("magnetSnapshot", "Magnets", None, QtGui.QApplication.UnicodeUTF8))
         self.as1HLabel.setText(QtGui.QApplication.translate("magnetSnapshot", "AS1 Horizontal", None, QtGui.QApplication.UnicodeUTF8))
-        self.bc2HLabel.setText(QtGui.QApplication.translate("magnetSnapshot", "bc2 Horizontal", None, QtGui.QApplication.UnicodeUTF8))
+        self.bc2HLabel.setText(QtGui.QApplication.translate("magnetSnapshot", "BC2 Horizontal", None, QtGui.QApplication.UnicodeUTF8))
         self.qt1HLabel.setText(QtGui.QApplication.translate("magnetSnapshot", "QT1 Horizontal", None, QtGui.QApplication.UnicodeUTF8))
-        self.glFLabel.setText(QtGui.QApplication.translate("magnetSnapshot", "gl Focus", None, QtGui.QApplication.UnicodeUTF8))
+        self.glFLabel.setText(QtGui.QApplication.translate("magnetSnapshot", "GLFocus", None, QtGui.QApplication.UnicodeUTF8))
         self.as2VLabel.setText(QtGui.QApplication.translate("magnetSnapshot", "AS2 Vertical", None, QtGui.QApplication.UnicodeUTF8))
         self.as2HLabel.setText(QtGui.QApplication.translate("magnetSnapshot", "AS2 Horizontal", None, QtGui.QApplication.UnicodeUTF8))
-        self.glHLabel.setText(QtGui.QApplication.translate("magnetSnapshot", "gl Horizontal", None, QtGui.QApplication.UnicodeUTF8))
+        self.glHLabel.setText(QtGui.QApplication.translate("magnetSnapshot", "GL Horizontal", None, QtGui.QApplication.UnicodeUTF8))
         self.qt2FLabel.setText(QtGui.QApplication.translate("magnetSnapshot", "QT2 Focus", None, QtGui.QApplication.UnicodeUTF8))
-        self.glVLabel.setText(QtGui.QApplication.translate("magnetSnapshot", "gl Vertical", None, QtGui.QApplication.UnicodeUTF8))
-        self.bc2FLabel.setText(QtGui.QApplication.translate("magnetSnapshot", "bc2 Focus", None, QtGui.QApplication.UnicodeUTF8))
-        self.bc2VLabel.setText(QtGui.QApplication.translate("magnetSnapshot", "bc2 Vertical", None, QtGui.QApplication.UnicodeUTF8))
+        self.glVLabel.setText(QtGui.QApplication.translate("magnetSnapshot", "GL Vertical", None, QtGui.QApplication.UnicodeUTF8))
+        self.bc2FLabel.setText(QtGui.QApplication.translate("magnetSnapshot", "BC2 Focus", None, QtGui.QApplication.UnicodeUTF8))
+        self.bc2VLabel.setText(QtGui.QApplication.translate("magnetSnapshot", "BC2 Vertical", None, QtGui.QApplication.UnicodeUTF8))
         self.as1VLabel.setText(QtGui.QApplication.translate("magnetSnapshot", "AS1 Vertical", None, QtGui.QApplication.UnicodeUTF8))
         self.qt1FLabel.setText(QtGui.QApplication.translate("magnetSnapshot", "QT1 Focus", None, QtGui.QApplication.UnicodeUTF8))
         self.qt1VLabel.setText(QtGui.QApplication.translate("magnetSnapshot", "QT1 Vertical", None, QtGui.QApplication.UnicodeUTF8))
-        self.sl4VLabel.setText(QtGui.QApplication.translate("magnetSnapshot", "sl4 Vertical", None, QtGui.QApplication.UnicodeUTF8))
-        self.sl4HLabel.setText(QtGui.QApplication.translate("magnetSnapshot", "sl4 Horizontal", None, QtGui.QApplication.UnicodeUTF8))
-        self.sl4FLabel.setText(QtGui.QApplication.translate("magnetSnapshot", "sl4 Focus", None, QtGui.QApplication.UnicodeUTF8))
+        self.sl4VLabel.setText(QtGui.QApplication.translate("magnetSnapshot", "SL4 Vertical", None, QtGui.QApplication.UnicodeUTF8))
+        self.sl4HLabel.setText(QtGui.QApplication.translate("magnetSnapshot", "SL4 Horizontal", None, QtGui.QApplication.UnicodeUTF8))
+        self.sl4FLabel.setText(QtGui.QApplication.translate("magnetSnapshot", "SL4 Focus", None, QtGui.QApplication.UnicodeUTF8))
         self.SaveRetrieveTitle.setText(QtGui.QApplication.translate("magnetSnapshot", "Save/Retrieve", None, QtGui.QApplication.UnicodeUTF8))
-        self.sl3FLabel.setText(QtGui.QApplication.translate("magnetSnapshot", "sl3 Focus", None, QtGui.QApplication.UnicodeUTF8))
-        self.sl1FLabel.setText(QtGui.QApplication.translate("magnetSnapshot", "sl1 Focus", None, QtGui.QApplication.UnicodeUTF8))
+        self.sl3FLabel.setText(QtGui.QApplication.translate("magnetSnapshot", "SL3 Focus", None, QtGui.QApplication.UnicodeUTF8))
+        self.sl1FLabel.setText(QtGui.QApplication.translate("magnetSnapshot", "SL1 Focus", None, QtGui.QApplication.UnicodeUTF8))
         self.PresentWriteTitle.setText(QtGui.QApplication.translate("magnetSnapshot", "Present value", None, QtGui.QApplication.UnicodeUTF8))
-        self.sl2HLabel.setText(QtGui.QApplication.translate("magnetSnapshot", "sl2 Horizontal", None, QtGui.QApplication.UnicodeUTF8))
-        self.sl3HLabel.setText(QtGui.QApplication.translate("magnetSnapshot", "sl3 Horizontal", None, QtGui.QApplication.UnicodeUTF8))
-        self.sl2VLabel.setText(QtGui.QApplication.translate("magnetSnapshot", "sl2 Vertical", None, QtGui.QApplication.UnicodeUTF8))
-        self.sl2FLabel.setText(QtGui.QApplication.translate("magnetSnapshot", "sl2 Focus", None, QtGui.QApplication.UnicodeUTF8))
-        self.sl3VLabel.setText(QtGui.QApplication.translate("magnetSnapshot", "sl3 Vertical", None, QtGui.QApplication.UnicodeUTF8))
-        self.sl1VLabel.setText(QtGui.QApplication.translate("magnetSnapshot", "sl1 Vertical", None, QtGui.QApplication.UnicodeUTF8))
-        self.sl1HLabel.setText(QtGui.QApplication.translate("magnetSnapshot", "sl1 Horizontal", None, QtGui.QApplication.UnicodeUTF8))
-        self.bc1HLabel.setText(QtGui.QApplication.translate("magnetSnapshot", "bc1 Horizontal", None, QtGui.QApplication.UnicodeUTF8))
-        self.bc1VLabel.setText(QtGui.QApplication.translate("magnetSnapshot", "bc1 Vertical", None, QtGui.QApplication.UnicodeUTF8))
-        self.bc1FLabel.setText(QtGui.QApplication.translate("magnetSnapshot", "bc1 Focus", None, QtGui.QApplication.UnicodeUTF8))
+        self.sl2HLabel.setText(QtGui.QApplication.translate("magnetSnapshot", "SL2 Horizontal", None, QtGui.QApplication.UnicodeUTF8))
+        self.sl3HLabel.setText(QtGui.QApplication.translate("magnetSnapshot", "SL3 Horizontal", None, QtGui.QApplication.UnicodeUTF8))
+        self.sl2VLabel.setText(QtGui.QApplication.translate("magnetSnapshot", "SL2 Vertical", None, QtGui.QApplication.UnicodeUTF8))
+        self.sl2FLabel.setText(QtGui.QApplication.translate("magnetSnapshot", "SL2 Focus", None, QtGui.QApplication.UnicodeUTF8))
+        self.sl3VLabel.setText(QtGui.QApplication.translate("magnetSnapshot", "SL3 Vertical", None, QtGui.QApplication.UnicodeUTF8))
+        self.sl1VLabel.setText(QtGui.QApplication.translate("magnetSnapshot", "SL1 Vertical", None, QtGui.QApplication.UnicodeUTF8))
+        self.sl1HLabel.setText(QtGui.QApplication.translate("magnetSnapshot", "SL1 Horizontal", None, QtGui.QApplication.UnicodeUTF8))
+        self.bc1HLabel.setText(QtGui.QApplication.translate("magnetSnapshot", "BC1 Horizontal", None, QtGui.QApplication.UnicodeUTF8))
+        self.bc1VLabel.setText(QtGui.QApplication.translate("magnetSnapshot", "BC1 Vertical", None, QtGui.QApplication.UnicodeUTF8))
+        self.bc1FLabel.setText(QtGui.QApplication.translate("magnetSnapshot", "BC1 Focus", None, QtGui.QApplication.UnicodeUTF8))
 
 from taurus.qt.qtgui.display import TaurusLabel
 from taurus.qt.qtgui.container import TaurusGroupBox
