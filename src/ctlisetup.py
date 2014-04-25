@@ -609,7 +609,7 @@ class MainWindow(TaurusMainWindow):
     
     def _prepareFileHeader(self,now_struct):
         return "# File stored the %s\n"\
-               %(time.strftime("%Y/%m/%d at %H%m",now_struct))
+               %(time.strftime("%Y/%m/%d at %H:%m",now_struct))
 
     def _isCommentLine(self,line):
         if line[0] == '#' and \
