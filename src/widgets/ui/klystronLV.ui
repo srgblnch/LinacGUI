@@ -165,7 +165,7 @@
          </size>
         </property>
         <property name="suffixText">
-         <string>0 s</string>
+         <string> min</string>
         </property>
        </widget>
       </item>

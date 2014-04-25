@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'widgets/ui/klystronLV.ui'
 #
-# Created: Fri Apr 25 10:44:41 2014
+# Created: Fri Apr 25 12:29:43 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -104,7 +104,7 @@ class Ui_klystronLV(object):
         self.heatILabel.setText(QtGui.QApplication.translate("klystronLV", "Current", None, QtGui.QApplication.UnicodeUTF8))
         self.heatIValue.setSuffixText(QtGui.QApplication.translate("klystronLV", " A", None, QtGui.QApplication.UnicodeUTF8))
         self.heatTLabel.setText(QtGui.QApplication.translate("klystronLV", "Time cooling up", None, QtGui.QApplication.UnicodeUTF8))
-        self.heatTValue.setSuffixText(QtGui.QApplication.translate("klystronLV", "0 s", None, QtGui.QApplication.UnicodeUTF8))
+        self.heatTValue.setSuffixText(QtGui.QApplication.translate("klystronLV", " min", None, QtGui.QApplication.UnicodeUTF8))
 
 from taurus.qt.qtgui.display import TaurusLabel
 from taurus.qt.qtgui.container import TaurusGroupBox
