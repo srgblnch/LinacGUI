@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'phaseShifter.ui'
+# Form implementation generated from reading ui file 'widgets/ui/phaseShifter.ui'
 #
-# Created: Wed Feb 12 12:38:07 2014
+# Created: Fri Apr 25 11:29:57 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -26,6 +26,7 @@ class Ui_phaseShifter(object):
         self.phaseShifterGroup.setFont(font)
         self.phaseShifterGroup.setObjectName(_fromUtf8("phaseShifterGroup"))
         self.gridLayout_2 = QtGui.QGridLayout(self.phaseShifterGroup)
+        self.gridLayout_2.setMargin(0)
         self.gridLayout_2.setObjectName(_fromUtf8("gridLayout_2"))
         self.statusValue = TaurusLabel(self.phaseShifterGroup)
         self.statusValue.setObjectName(_fromUtf8("statusValue"))
