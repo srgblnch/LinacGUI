@@ -905,7 +905,7 @@
      <x>1063</x>
      <y>10</y>
      <width>190</width>
-     <height>200</height>
+     <height>255</height>
     </rect>
    </property>
    <property name="autoFillBackground">
@@ -918,7 +918,7 @@
      <x>768</x>
      <y>10</y>
      <width>190</width>
-     <height>200</height>
+     <height>255</height>
     </rect>
    </property>
   </widget>
@@ -1959,7 +1959,7 @@
   <widget class="actionForm" name="klystron2On">
    <property name="geometry">
     <rect>
-     <x>1020</x>
+     <x>1010</x>
      <y>170</y>
      <width>50</width>
      <height>40</height>
@@ -1969,7 +1969,7 @@
   <widget class="actionForm" name="klystron2Rst">
    <property name="geometry">
     <rect>
-     <x>1020</x>
+     <x>1010</x>
      <y>210</y>
      <width>50</width>
      <height>40</height>

@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'widgets/ui/linacStartupSynoptic.ui'
 #
-# Created: Wed Apr  9 11:01:34 2014
+# Created: Fri Apr 25 10:46:23 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -264,11 +264,11 @@ class Ui_linacStartupSynoptic(object):
         self.ipc5Value1.setFont(font)
         self.ipc5Value1.setObjectName(_fromUtf8("ipc5Value1"))
         self.klystron2LVWidget = klystronLV(linacStartupSynoptic)
-        self.klystron2LVWidget.setGeometry(QtCore.QRect(1063, 10, 190, 200))
+        self.klystron2LVWidget.setGeometry(QtCore.QRect(1063, 10, 190, 255))
         self.klystron2LVWidget.setAutoFillBackground(True)
         self.klystron2LVWidget.setObjectName(_fromUtf8("klystron2LVWidget"))
         self.klystron1LVWidget = klystronLV(linacStartupSynoptic)
-        self.klystron1LVWidget.setGeometry(QtCore.QRect(768, 10, 190, 200))
+        self.klystron1LVWidget.setGeometry(QtCore.QRect(768, 10, 190, 255))
         self.klystron1LVWidget.setObjectName(_fromUtf8("klystron1LVWidget"))
         self.vacuumValve1OnStatus = TaurusLabel(linacStartupSynoptic)
         self.vacuumValve1OnStatus.setGeometry(QtCore.QRect(165, 605, 70, 16))
@@ -596,10 +596,10 @@ class Ui_linacStartupSynoptic(object):
         self.klystron1Rst.setGeometry(QtCore.QRect(720, 210, 50, 40))
         self.klystron1Rst.setObjectName(_fromUtf8("klystron1Rst"))
         self.klystron2On = actionForm(linacStartupSynoptic)
-        self.klystron2On.setGeometry(QtCore.QRect(1020, 170, 50, 40))
+        self.klystron2On.setGeometry(QtCore.QRect(1010, 170, 50, 40))
         self.klystron2On.setObjectName(_fromUtf8("klystron2On"))
         self.klystron2Rst = actionForm(linacStartupSynoptic)
-        self.klystron2Rst.setGeometry(QtCore.QRect(1020, 210, 50, 40))
+        self.klystron2Rst.setGeometry(QtCore.QRect(1010, 210, 50, 40))
         self.klystron2Rst.setObjectName(_fromUtf8("klystron2Rst"))
         self.coolingLoop1On = actionForm(linacStartupSynoptic)
         self.coolingLoop1On.setGeometry(QtCore.QRect(430, 262, 50, 40))
