@@ -36,6 +36,7 @@ from taurus.qt.qtgui.container import TaurusMainWindow
 from taurus.qt.qtgui.base import TaurusBaseComponent
 from taurus.qt import Qt,QtGui
 from taurus.qt.qtgui.util import ExternalAppAction
+from taurus.qt.qtgui.display import TaurusLed
 
 from ui_ctli import Ui_linacGui
 import ctliaux
@@ -1061,6 +1062,14 @@ class MainWindow(TaurusMainWindow):
         self.addExternalAppLauncher(mach_ccds)
         saveretrieve = ExternalAppAction(['ctlisetup'],text="save/retrieve")
         self.addExternalAppLauncher(saveretrieve)
+        #---- PLCs state leds in the statusBar
+        for i in range(1,6):
+            stateLed = TaurusLed(self)
+            stateLed.setModel('li/ct/plc%d/state'%(i))
+            stateText = QtGui.QLabel(self)
+            stateText.setText("PLC%d"%(i))
+            self.statusBar().addWidget(stateLed)
+            self.statusBar().addWidget(stateText)
 
 '''First approach to the Labview blinking leds with subboxes of sets of attrs.
 '''
