@@ -902,7 +902,7 @@
   <widget class="klystronLV" name="klystron2LVWidget">
    <property name="geometry">
     <rect>
-     <x>1063</x>
+     <x>1060</x>
      <y>10</y>
      <width>190</width>
      <height>255</height>
@@ -1897,7 +1897,7 @@
   <widget class="QToolButton" name="klystron2InterlockPopupCheck">
    <property name="geometry">
     <rect>
-     <x>120</x>
+     <x>140</x>
      <y>43</y>
      <width>20</width>
      <height>20</height>
@@ -1918,7 +1918,7 @@
   <widget class="QToolButton" name="klystron1InterlockPopupCheck">
    <property name="geometry">
     <rect>
-     <x>120</x>
+     <x>140</x>
      <y>114</y>
      <width>20</width>
      <height>20</height>
@@ -2116,6 +2116,182 @@
     </rect>
    </property>
   </widget>
+  <widget class="TaurusLed" name="kdeGunLVLed">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>370</y>
+     <width>10</width>
+     <height>10</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>10</width>
+     <height>10</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>10</width>
+     <height>10</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="TaurusLed" name="klystron2InterlockLed">
+   <property name="geometry">
+    <rect>
+     <x>125</x>
+     <y>48</y>
+     <width>10</width>
+     <height>10</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>10</width>
+     <height>10</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>10</width>
+     <height>10</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="TaurusLed" name="klystron1InterlockLed">
+   <property name="geometry">
+    <rect>
+     <x>125</x>
+     <y>120</y>
+     <width>10</width>
+     <height>10</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>10</width>
+     <height>10</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>10</width>
+     <height>10</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="TaurusLed" name="coolingLoop1Led">
+   <property name="geometry">
+    <rect>
+     <x>508</x>
+     <y>334</y>
+     <width>10</width>
+     <height>10</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>10</width>
+     <height>10</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>10</width>
+     <height>10</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="TaurusLed" name="coolingLoop2Led">
+   <property name="geometry">
+    <rect>
+     <x>724</x>
+     <y>334</y>
+     <width>10</width>
+     <height>10</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>10</width>
+     <height>10</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>10</width>
+     <height>10</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="TaurusLed" name="coolingLoop3Led">
+   <property name="geometry">
+    <rect>
+     <x>1012</x>
+     <y>334</y>
+     <width>10</width>
+     <height>10</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>10</width>
+     <height>10</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>10</width>
+     <height>10</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="TaurusLed" name="klystron1LVLed">
+   <property name="geometry">
+    <rect>
+     <x>737</x>
+     <y>105</y>
+     <width>10</width>
+     <height>10</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>10</width>
+     <height>10</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>10</width>
+     <height>10</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="TaurusLed" name="klystron2LVLed">
+   <property name="geometry">
+    <rect>
+     <x>1027</x>
+     <y>34</y>
+     <width>10</width>
+     <height>10</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>10</width>
+     <height>10</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>10</width>
+     <height>10</height>
+    </size>
+   </property>
+  </widget>
   <zorder>klystron2LVWidget</zorder>
   <zorder>klystron2InterlockPopupWidget</zorder>
   <zorder>klystron1InterlockPopupWidget</zorder>
@@ -2226,6 +2402,14 @@
   <zorder>vacuumValve6On</zorder>
   <zorder>vacuumValve7On</zorder>
   <zorder>iuRst</zorder>
+  <zorder>kdeGunLVLed</zorder>
+  <zorder>klystron2InterlockLed</zorder>
+  <zorder>klystron1InterlockLed</zorder>
+  <zorder>coolingLoop1Led</zorder>
+  <zorder>coolingLoop2Led</zorder>
+  <zorder>coolingLoop3Led</zorder>
+  <zorder>klystron1LVLed</zorder>
+  <zorder>klystron2LVLed</zorder>
  </widget>
  <customwidgets>
   <customwidget>

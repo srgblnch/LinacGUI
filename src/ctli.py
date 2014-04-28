@@ -186,10 +186,14 @@ class MainWindow(TaurusMainWindow):
         #---- configure the widgets in the top left corner diagram
         self._setupLed4Attr(startup_ui.klystronAmplifierEnabledLed,
                             'li/ct/plc1/KA_ENB')                        #KA_ENB
+        self._setupLed4Attr(startup_ui.klystron2InterlockLed,
+                            'li/ct/plc1/ka2_ic')                        #KA2_IC
         self._setupLed4Attr(startup_ui.magnetInterlockStateLed,
                             'li/ct/plc1/MG_IS')                          #MI_IS
         self._setupActionWidget(startup_ui.iuRst,'li/ct/plc1/interlock_rc',
                                 text='Reset',isRst=True)                   #Rst
+        self._setupLed4Attr(startup_ui.klystron1InterlockLed,
+                            'li/ct/plc1/ka1_ic')                        #KA1_IC
         self._setupLed4Attr(startup_ui.utilitiesInterlockStateLed,
                             'li/ct/plc1/UT_IS')                          #UI_IS
         self._setupLed4Attr(startup_ui.compressedAirStateLed,
@@ -255,11 +259,13 @@ class MainWindow(TaurusMainWindow):
         klystrons = {1:{'plc':4,
                         'on':startup_ui.klystron1On,
                         'rst':startup_ui.klystron1Rst,
+                        'led':startup_ui.klystron1LVLed,
                         'check':startup_ui.klystron1LVPopupCheck,
                         'widget':startup_ui.klystron1LVWidget},
                      2:{'plc':5,
                         'on':startup_ui.klystron2On,
                         'rst':startup_ui.klystron2Rst,
+                        'led':startup_ui.klystron2LVLed,
                         'check':startup_ui.klystron2LVPopupCheck,
                         'widget':startup_ui.klystron2LVWidget}}
         self._klystronLV = {}
@@ -274,6 +280,9 @@ class MainWindow(TaurusMainWindow):
             self._setupActionWidget(klystrons[number]['rst'],attrName,
                                     text='Reset',isRst=True)
             #---- popup more information
+            widget = klystrons[number]['led']
+            self._setupLed4Attr(widget,'li/ct/plc%d/LV_ready'
+                                %(klystrons[number]['plc']))
             widget = klystrons[number]['check']
             #prepare the checkmanager
             #klystrons[number]['check'].setCheckState(False)
@@ -304,6 +313,7 @@ class MainWindow(TaurusMainWindow):
         self._setupTaurusLabel4Attr(startup_ui.filamentCurrent,'li/ct/plc1/GUN_Filament_I','A')
         self._setupTaurusLabel4Attr(startup_ui.temperatureValue,'li/ct/plc1/GUN_Kathode_T','C')
         #---- popup information shown in the KD box
+        self._setupLed4Attr(startup_ui.kdeGunLVLed,'li/ct/plc1/Gun_ready')
         startup_ui.kdeGunLVWidget.hide()
         self._egunManager = CheckboxManager(startup_ui.kdeGunLVPopupCheck,
                                             startup_ui.kdeGunLVWidget,
@@ -319,6 +329,7 @@ class MainWindow(TaurusMainWindow):
                            'on_attrName':'li/ct/plc2/CL1_ONC',
                            'Temperature':startup_ui.coolingLoop1TemperatureValue,
                            'Temperature_attrName':'li/ct/plc2/CL1_T',
+                           'led':startup_ui.coolingLoop1Led,
                            'check':startup_ui.coolingLoop1PopupCheck,
                            'widget':startup_ui.coolingLoop1Widget,
                            'status_attrName':'li/ct/plc2/CL1_Status',
@@ -331,6 +342,7 @@ class MainWindow(TaurusMainWindow):
                            'on_attrName':'li/ct/plc2/CL2_ONC',
                            'Temperature':startup_ui.coolingLoop2TemperatureValue,
                            'Temperature_attrName':'li/ct/plc2/CL2_T',
+                           'led':startup_ui.coolingLoop2Led,
                            'check':startup_ui.coolingLoop2PopupCheck,
                            'widget':startup_ui.coolingLoop2Widget,
                            'status_attrName':'li/ct/plc2/CL2_Status',
@@ -343,6 +355,7 @@ class MainWindow(TaurusMainWindow):
                            'on_attrName':'li/ct/plc2/CL3_ONC',
                            'Temperature':startup_ui.coolingLoop3TemperatureValue,
                            'Temperature_attrName':'li/ct/plc2/CL3_T',
+                           'led':startup_ui.coolingLoop3Led,
                            'check':startup_ui.coolingLoop3PopupCheck,
                            'widget':startup_ui.coolingLoop3Widget,
                            'status_attrName':'li/ct/plc2/CL3_Status',
@@ -365,6 +378,8 @@ class MainWindow(TaurusMainWindow):
             attrName = coolingLoops[number]['Temperature_attrName']+'_setpoint'
             self._setupSpinBox4Attr(widget,attrName,step=0.1)
             #---- popup information about each cooling loop
+            widget = coolingLoops[number]['led']
+            self._setupLed4Attr(widget, 'li/ct/plc2/CL%d_ready'%(number))
             button = coolingLoops[number]['check']
             widget = coolingLoops[number]['widget']
             title = "CollingLoopPopup%d"%number
