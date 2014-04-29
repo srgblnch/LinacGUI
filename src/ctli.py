@@ -1029,7 +1029,8 @@ class MainWindow(TaurusMainWindow):
                                           'attrName':'li/ct/plc1/SCM1_DC'},
                                  'light':{'widget':mainscreen_ui.fluorescentScreen1Light,
                                           'attrName':'li/ct/plc1/SCM1_LC'},
-                                 'status':{'widget':mainscreen_ui.fluorescentScreen1Status,
+                                 'status':{'led':mainscreen_ui.sm1Led,
+                                           'widget':mainscreen_ui.fluorescentScreen1Status,
                                            'attrName':'li/ct/plc1/SCM1_Status'},
                                  'view':{'widget':mainscreen_ui.fluorescentScreen1View,
                                          'attrName':'li/di/fs-01'}},
@@ -1037,7 +1038,8 @@ class MainWindow(TaurusMainWindow):
                                           'attrName':'li/ct/plc1/SCM2_DC'},
                                  'light':{'widget':mainscreen_ui.fluorescentScreen2Light,
                                           'attrName':'li/ct/plc1/SCM2_LC'},
-                                 'status':{'widget':mainscreen_ui.fluorescentScreen2Status,
+                                 'status':{'led':mainscreen_ui.sm2Led,
+                                           'widget':mainscreen_ui.fluorescentScreen2Status,
                                            'attrName':'li/ct/plc1/SCM2_Status'},
                                  'view':{'widget':mainscreen_ui.fluorescentScreen2View,
                                          'attrName':'li/di/fs-02'}},
@@ -1045,7 +1047,8 @@ class MainWindow(TaurusMainWindow):
                                           'attrName':'li/ct/plc1/SCM3_DC'},
                                  'light':{'widget':mainscreen_ui.fluorescentScreen3Light,
                                           'attrName':'li/ct/plc1/SCM3_LC'},
-                                 'status':{'widget':mainscreen_ui.fluorescentScreen3Status,
+                                 'status':{'led':mainscreen_ui.sm3Led,
+                                           'widget':mainscreen_ui.fluorescentScreen3Status,
                                            'attrName':'li/ct/plc1/SCM3_Status'},
                                  'view':{'widget':mainscreen_ui.fluorescentScreen3View,
                                          'attrName':'li/di/fs-03'}}}
@@ -1061,6 +1064,9 @@ class MainWindow(TaurusMainWindow):
                         text = 'on/off'
                     self._setupActionWidget(widget,attrName,text)
                 elif element == 'status':
+                    widget = fluorescentScreens[fs][element]['led']
+                    attrName = 'li/ct/plc1/SCM%d_alert'%(fs)
+                    self._setupLed4Attr(widget, attrName, onColor='red',offColor='green')
                     widget = fluorescentScreens[fs][element]['widget']
                     attrName = fluorescentScreens[fs][element]['attrName']
                     self._setupTaurusLabel4Attr(widget,attrName)
