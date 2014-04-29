@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'widgets/ui/klystronHV.ui'
 #
-# Created: Wed Apr  9 10:32:35 2014
+# Created: Tue Apr 29 13:17:19 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -17,7 +17,7 @@ except AttributeError:
 class Ui_klystronHV(object):
     def setupUi(self, klystronHV):
         klystronHV.setObjectName(_fromUtf8("klystronHV"))
-        klystronHV.resize(170, 265)
+        klystronHV.resize(172, 265)
         self.gridLayout = QtGui.QGridLayout(klystronHV)
         self.gridLayout.setObjectName(_fromUtf8("gridLayout"))
         self.highVoltageGroup = TaurusGroupBox(klystronHV)
@@ -37,7 +37,7 @@ class Ui_klystronHV(object):
         self.hvLabel.setObjectName(_fromUtf8("hvLabel"))
         self.gridLayout_2.addWidget(self.hvLabel, 0, 0, 2, 1)
         self.hvStatusValue = TaurusLabel(self.highVoltageGroup)
-        self.hvStatusValue.setMinimumSize(QtCore.QSize(100, 0))
+        self.hvStatusValue.setMinimumSize(QtCore.QSize(100, 20))
         font = QtGui.QFont()
         font.setPointSize(7)
         self.hvStatusValue.setFont(font)
@@ -109,7 +109,7 @@ class Ui_klystronHV(object):
         self.line.setObjectName(_fromUtf8("line"))
         self.gridLayout_2.addWidget(self.line, 8, 0, 1, 3)
         self.pulseStatusValue = TaurusLabel(self.highVoltageGroup)
-        self.pulseStatusValue.setMinimumSize(QtCore.QSize(100, 0))
+        self.pulseStatusValue.setMinimumSize(QtCore.QSize(100, 20))
         font = QtGui.QFont()
         font.setPointSize(7)
         self.pulseStatusValue.setFont(font)
