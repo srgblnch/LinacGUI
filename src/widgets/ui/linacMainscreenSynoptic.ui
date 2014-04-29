@@ -2153,6 +2153,116 @@
     <string>ns</string>
    </property>
   </widget>
+  <widget class="TaurusLed" name="attenuatorLed">
+   <property name="geometry">
+    <rect>
+     <x>400</x>
+     <y>427</y>
+     <width>10</width>
+     <height>10</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>10</width>
+     <height>10</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>10</width>
+     <height>10</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="TaurusLed" name="phaseShifter2Led">
+   <property name="geometry">
+    <rect>
+     <x>453</x>
+     <y>427</y>
+     <width>10</width>
+     <height>10</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>10</width>
+     <height>10</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>10</width>
+     <height>10</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="TaurusLed" name="phaseShifter1Led">
+   <property name="geometry">
+    <rect>
+     <x>592</x>
+     <y>459</y>
+     <width>10</width>
+     <height>10</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>10</width>
+     <height>10</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>10</width>
+     <height>10</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="TaurusLed" name="klystron1HVLed">
+   <property name="geometry">
+    <rect>
+     <x>740</x>
+     <y>115</y>
+     <width>10</width>
+     <height>10</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>10</width>
+     <height>10</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>10</width>
+     <height>10</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="TaurusLed" name="klystron2HVLed">
+   <property name="geometry">
+    <rect>
+     <x>1029</x>
+     <y>75</y>
+     <width>10</width>
+     <height>10</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>10</width>
+     <height>10</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>10</width>
+     <height>10</height>
+    </size>
+   </property>
+  </widget>
   <zorder>sl1PopupWidget</zorder>
   <zorder>sl2PopupWidget</zorder>
   <zorder>sl3PopupWidget</zorder>
@@ -2298,6 +2408,11 @@
   <zorder>tbKaDelay2Unit</zorder>
   <zorder>tbGunDelayUnit</zorder>
   <zorder>tbGunDelayUnit_2</zorder>
+  <zorder>attenuatorLed</zorder>
+  <zorder>phaseShifter2Led</zorder>
+  <zorder>phaseShifter1Led</zorder>
+  <zorder>klystron1HVLed</zorder>
+  <zorder>klystron2HVLed</zorder>
  </widget>
  <customwidgets>
   <customwidget>

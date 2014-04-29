@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'widgets/ui/linacMainscreenSynoptic.ui'
 #
-# Created: Wed Apr  9 11:39:05 2014
+# Created: Tue Apr 29 10:37:03 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -684,6 +684,31 @@ class Ui_linacMainscreenSynoptic(object):
         self.tbGunDelayUnit_2 = QtGui.QLabel(linacMainscreenSynoptic)
         self.tbGunDelayUnit_2.setGeometry(QtCore.QRect(295, 110, 16, 16))
         self.tbGunDelayUnit_2.setObjectName(_fromUtf8("tbGunDelayUnit_2"))
+        self.attenuatorLed = TaurusLed(linacMainscreenSynoptic)
+        self.attenuatorLed.setGeometry(QtCore.QRect(400, 427, 10, 10))
+        self.attenuatorLed.setMinimumSize(QtCore.QSize(10, 10))
+        self.attenuatorLed.setMaximumSize(QtCore.QSize(10, 10))
+        self.attenuatorLed.setObjectName(_fromUtf8("attenuatorLed"))
+        self.phaseShifter2Led = TaurusLed(linacMainscreenSynoptic)
+        self.phaseShifter2Led.setGeometry(QtCore.QRect(453, 427, 10, 10))
+        self.phaseShifter2Led.setMinimumSize(QtCore.QSize(10, 10))
+        self.phaseShifter2Led.setMaximumSize(QtCore.QSize(10, 10))
+        self.phaseShifter2Led.setObjectName(_fromUtf8("phaseShifter2Led"))
+        self.phaseShifter1Led = TaurusLed(linacMainscreenSynoptic)
+        self.phaseShifter1Led.setGeometry(QtCore.QRect(592, 459, 10, 10))
+        self.phaseShifter1Led.setMinimumSize(QtCore.QSize(10, 10))
+        self.phaseShifter1Led.setMaximumSize(QtCore.QSize(10, 10))
+        self.phaseShifter1Led.setObjectName(_fromUtf8("phaseShifter1Led"))
+        self.klystron1HVLed = TaurusLed(linacMainscreenSynoptic)
+        self.klystron1HVLed.setGeometry(QtCore.QRect(740, 115, 10, 10))
+        self.klystron1HVLed.setMinimumSize(QtCore.QSize(10, 10))
+        self.klystron1HVLed.setMaximumSize(QtCore.QSize(10, 10))
+        self.klystron1HVLed.setObjectName(_fromUtf8("klystron1HVLed"))
+        self.klystron2HVLed = TaurusLed(linacMainscreenSynoptic)
+        self.klystron2HVLed.setGeometry(QtCore.QRect(1029, 75, 10, 10))
+        self.klystron2HVLed.setMinimumSize(QtCore.QSize(10, 10))
+        self.klystron2HVLed.setMaximumSize(QtCore.QSize(10, 10))
+        self.klystron2HVLed.setObjectName(_fromUtf8("klystron2HVLed"))
 
         self.retranslateUi(linacMainscreenSynoptic)
         QtCore.QMetaObject.connectSlotsByName(linacMainscreenSynoptic)

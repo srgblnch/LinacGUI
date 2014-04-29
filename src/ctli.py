@@ -579,6 +579,7 @@ class MainWindow(TaurusMainWindow):
                                'attrName':'li/ct/plc4/HVPS_Interlock_RC'},
                         'on':{'widget':mainscreen_ui.klystron1On,
                               'attrName':'li/ct/plc4/HVPS_ONC'},
+                        'led':mainscreen_ui.klystron1HVLed,
                         'check':mainscreen_ui.klystron1HVPopupCheck,
                         'widget':mainscreen_ui.klystron1HVPopupWidget},
                      2:{'readBack':{'widget':mainscreen_ui.klystron2HVRead,
@@ -589,6 +590,7 @@ class MainWindow(TaurusMainWindow):
                                'attrName':'li/ct/plc5/HVPS_Interlock_RC'},
                         'on':{'widget':mainscreen_ui.klystron2On,
                               'attrName':'li/ct/plc5/HVPS_ONC'},
+                        'led':mainscreen_ui.klystron2HVLed,
                         'check':mainscreen_ui.klystron2HVPopupCheck,
                         'widget':mainscreen_ui.klystron2HVPopupWidget}
                     }
@@ -612,6 +614,8 @@ class MainWindow(TaurusMainWindow):
             self._setupActionWidget(widget,attrName,text='Reset',isRst=True)
             #---- popup more information
             klystrons[number]['widget'].hide()
+            widget = klystrons[number]['led']
+            self._setupLed4Attr(widget,'li/ct/plc%d/HVPS_ready'%(number+3))
             self._klystronHV[number] = CheckboxManager(\
                                                      klystrons[number]['check'],
                                                     klystrons[number]['widget'],
@@ -679,9 +683,11 @@ class MainWindow(TaurusMainWindow):
         self._setupLed4Attr(mainscreen_ui.rfA0StatusLed,'li/ct/plc1/RFS_ST')
         self._setupSpinBox4Attr(mainscreen_ui.attenuator2Value,'li/ct/plc1/ATT2_P_setpoint',step=0.1)
         phaseShifters = {'1':{'write':mainscreen_ui.rfPhaseShifter1Value,
+                              'led':mainscreen_ui.phaseShifter1Led,
                               'check':mainscreen_ui.phaseShifter1PopupCheck,
                               'widget':mainscreen_ui.phaseShifter1PopupWidget},
                          '2':{'write':mainscreen_ui.rfPhaseShifter2Value,
+                              'led':mainscreen_ui.phaseShifter2Led,
                               'check':mainscreen_ui.phaseShifter2PopupCheck,
                               'widget':mainscreen_ui.phaseShifter2PopupWidget}}
         for shifter in phaseShifters.keys():
@@ -695,25 +701,33 @@ class MainWindow(TaurusMainWindow):
         self._setupLed4Attr(mainscreen_ui.rfSourceStatusLed,'li/ct/plc1/RFS_ST')
         #popups
         #mainscreen_ui.attenuatorPopupCheck.setCheckState(False)
+        self._setupLed4Attr(mainscreen_ui.attenuatorLed,
+                            'li/ct/plc1/ATT2_ready')
         mainscreen_ui.attenuatorPopupWidget.hide()
         self._attenuator = CheckboxManager(mainscreen_ui.attenuatorPopupCheck,
                                            mainscreen_ui.attenuatorPopupWidget,
                                            "Attenuator2")
         widget = mainscreen_ui.attenuatorPopupWidget._ui
         widget.attenuatorGroup.setTitle("Attenuator 2")
-        self._setupTaurusLabel4Attr(widget.statusValue,'li/ct/plc1/ATT2_Status')
+        self._setupTaurusLabel4Attr(widget.statusValue,
+                                    'li/ct/plc1/ATT2_Status')
         self._setupTaurusLabel4Attr(widget.AttrValue,'li/ct/plc1/ATT2_P','dB')
         self._phaseShifters = {}
         for shifter in phaseShifters.keys():
             #phaseShifters[shifter]['check'].setCheckState(False)
             phaseShifters[shifter]['widget'].hide()
-            self._phaseShifters[shifter] = CheckboxManager(phaseShifters[shifter]['check'],
-                                                           phaseShifters[shifter]['widget'],
-                                                           "PhaseShifter%s"%shifter)
+            self._setupLed4Attr(phaseShifters[shifter]['led'],
+                                'li/ct/plc1/PHS%s_ready'%shifter)
+            self._phaseShifters[shifter] = CheckboxManager(
+                                               phaseShifters[shifter]['check'],
+                                              phaseShifters[shifter]['widget'],
+                                                      "PhaseShifter%s"%shifter)
             widget = phaseShifters[shifter]['widget']._ui
             widget.phaseShifterGroup.setTitle("Phase Shifter %s"%shifter)
-            self._setupTaurusLabel4Attr(widget.statusValue,'li/ct/plc1/PHS%s_Status'%shifter)
-            self._setupTaurusLabel4Attr(widget.attrValue,'li/ct/plc1/PHS%s_Phase'%shifter)
+            self._setupTaurusLabel4Attr(widget.statusValue,
+                                        'li/ct/plc1/PHS%s_Status'%shifter)
+            self._setupTaurusLabel4Attr(widget.attrValue,
+                                        'li/ct/plc1/PHS%s_Phase'%shifter)
 
     def _setMainscreen_cl(self):
         mainscreen_ui = self.ui.linacMainscreenSynoptic._ui
