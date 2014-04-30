@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'widgets/ui/klystronHV.ui'
 #
-# Created: Tue Apr 29 13:17:19 2014
+# Created: Wed Apr 30 12:58:03 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -44,6 +44,7 @@ class Ui_klystronHV(object):
         self.hvStatusValue.setObjectName(_fromUtf8("hvStatusValue"))
         self.gridLayout_2.addWidget(self.hvStatusValue, 0, 1, 1, 2)
         self.hvCurrentValue = TaurusLabel(self.highVoltageGroup)
+        self.hvCurrentValue.setMinimumSize(QtCore.QSize(0, 20))
         font = QtGui.QFont()
         font.setPointSize(7)
         self.hvCurrentValue.setFont(font)
@@ -54,6 +55,7 @@ class Ui_klystronHV(object):
         self.hvCurrentLabel.setObjectName(_fromUtf8("hvCurrentLabel"))
         self.gridLayout_2.addWidget(self.hvCurrentLabel, 2, 0, 1, 1)
         self.hvVoltageValue = TaurusLabel(self.highVoltageGroup)
+        self.hvVoltageValue.setMinimumSize(QtCore.QSize(0, 20))
         font = QtGui.QFont()
         font.setPointSize(7)
         self.hvVoltageValue.setFont(font)
@@ -64,6 +66,7 @@ class Ui_klystronHV(object):
         self.hvRampStepLabel_2.setObjectName(_fromUtf8("hvRampStepLabel_2"))
         self.gridLayout_2.addWidget(self.hvRampStepLabel_2, 3, 0, 1, 1)
         self.hvSetpointValue = TaurusLabel(self.highVoltageGroup)
+        self.hvSetpointValue.setMinimumSize(QtCore.QSize(0, 20))
         self.hvSetpointValue.setObjectName(_fromUtf8("hvSetpointValue"))
         self.gridLayout_2.addWidget(self.hvSetpointValue, 3, 1, 1, 2)
         self.hvRamp = QtGui.QLabel(self.highVoltageGroup)
@@ -116,12 +119,14 @@ class Ui_klystronHV(object):
         self.pulseStatusValue.setObjectName(_fromUtf8("pulseStatusValue"))
         self.gridLayout_2.addWidget(self.pulseStatusValue, 9, 1, 1, 2)
         self.klystronVoltageValue = TaurusLabel(self.highVoltageGroup)
+        self.klystronVoltageValue.setMinimumSize(QtCore.QSize(0, 20))
         font = QtGui.QFont()
         font.setPointSize(7)
         self.klystronVoltageValue.setFont(font)
         self.klystronVoltageValue.setObjectName(_fromUtf8("klystronVoltageValue"))
         self.gridLayout_2.addWidget(self.klystronVoltageValue, 10, 1, 1, 2)
         self.klystronCurrentValue = TaurusLabel(self.highVoltageGroup)
+        self.klystronCurrentValue.setMinimumSize(QtCore.QSize(0, 20))
         font = QtGui.QFont()
         font.setPointSize(7)
         self.klystronCurrentValue.setFont(font)

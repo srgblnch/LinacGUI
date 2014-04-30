@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'widgets/ui/linacMainscreenSynoptic.ui'
 #
-# Created: Tue Apr 29 10:37:03 2014
+# Created: Wed Apr 30 12:59:41 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -320,10 +320,10 @@ class Ui_linacMainscreenSynoptic(object):
         self.hvsCurrentValue.setObjectName(_fromUtf8("hvsCurrentValue"))
         self.hvsLayout.addWidget(self.hvsCurrentValue)
         self.klystron2HVPopupWidget = klystronHV(linacMainscreenSynoptic)
-        self.klystron2HVPopupWidget.setGeometry(QtCore.QRect(870, 90, 220, 180))
+        self.klystron2HVPopupWidget.setGeometry(QtCore.QRect(870, 90, 220, 190))
         self.klystron2HVPopupWidget.setObjectName(_fromUtf8("klystron2HVPopupWidget"))
         self.klystron1HVPopupWidget = klystronHV(linacMainscreenSynoptic)
-        self.klystron1HVPopupWidget.setGeometry(QtCore.QRect(480, 90, 220, 180))
+        self.klystron1HVPopupWidget.setGeometry(QtCore.QRect(480, 90, 220, 190))
         self.klystron1HVPopupWidget.setObjectName(_fromUtf8("klystron1HVPopupWidget"))
         self.rfSourceStatusLed = TaurusLed(linacMainscreenSynoptic)
         self.rfSourceStatusLed.setGeometry(QtCore.QRect(1104, 278, 10, 10))
