@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'widgets/ui/linacMainscreenSynoptic.ui'
 #
-# Created: Wed Apr 30 12:59:41 2014
+# Created: Wed Apr 30 13:07:40 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -497,7 +497,7 @@ class Ui_linacMainscreenSynoptic(object):
         self.label_2.setGeometry(QtCore.QRect(459, 66, 16, 16))
         self.label_2.setObjectName(_fromUtf8("label_2"))
         self.eGunVacuumWidget = CavityVacuum(linacMainscreenSynoptic)
-        self.eGunVacuumWidget.setGeometry(QtCore.QRect(140, 570, 116, 97))
+        self.eGunVacuumWidget.setGeometry(QtCore.QRect(140, 487, 116, 97))
         self.eGunVacuumWidget.setObjectName(_fromUtf8("eGunVacuumWidget"))
         self.preBuncherVacuumWidget = CavityVacuum(linacMainscreenSynoptic)
         self.preBuncherVacuumWidget.setGeometry(QtCore.QRect(300, 570, 116, 97))
@@ -586,7 +586,7 @@ class Ui_linacMainscreenSynoptic(object):
         self.magnetsOn.setGeometry(QtCore.QRect(85, 774, 50, 40))
         self.magnetsOn.setObjectName(_fromUtf8("magnetsOn"))
         self.vcvOn = actionForm(linacMainscreenSynoptic)
-        self.vcvOn.setGeometry(QtCore.QRect(170, 780, 60, 40))
+        self.vcvOn.setGeometry(QtCore.QRect(170, 780, 60, 45))
         self.vcvOn.setObjectName(_fromUtf8("vcvOn"))
         self.sl2On = actionForm(linacMainscreenSynoptic)
         self.sl2On.setGeometry(QtCore.QRect(220, 722, 50, 40))
@@ -709,6 +709,9 @@ class Ui_linacMainscreenSynoptic(object):
         self.klystron2HVLed.setMinimumSize(QtCore.QSize(10, 10))
         self.klystron2HVLed.setMaximumSize(QtCore.QSize(10, 10))
         self.klystron2HVLed.setObjectName(_fromUtf8("klystron2HVLed"))
+        self.vacuumCollimatorValveOnStatus = TaurusLabel(linacMainscreenSynoptic)
+        self.vacuumCollimatorValveOnStatus.setGeometry(QtCore.QRect(166, 764, 70, 16))
+        self.vacuumCollimatorValveOnStatus.setObjectName(_fromUtf8("vacuumCollimatorValveOnStatus"))
 
         self.retranslateUi(linacMainscreenSynoptic)
         QtCore.QMetaObject.connectSlotsByName(linacMainscreenSynoptic)

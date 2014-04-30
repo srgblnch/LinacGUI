@@ -1645,7 +1645,7 @@
    <property name="geometry">
     <rect>
      <x>140</x>
-     <y>570</y>
+     <y>487</y>
      <width>116</width>
      <height>97</height>
     </rect>
@@ -1913,7 +1913,7 @@
      <x>170</x>
      <y>780</y>
      <width>60</width>
-     <height>40</height>
+     <height>45</height>
     </rect>
    </property>
   </widget>
@@ -2263,6 +2263,16 @@
     </size>
    </property>
   </widget>
+  <widget class="TaurusLabel" name="vacuumCollimatorValveOnStatus">
+   <property name="geometry">
+    <rect>
+     <x>166</x>
+     <y>764</y>
+     <width>70</width>
+     <height>16</height>
+    </rect>
+   </property>
+  </widget>
   <zorder>sl1PopupWidget</zorder>
   <zorder>sl2PopupWidget</zorder>
   <zorder>sl3PopupWidget</zorder>
@@ -2413,6 +2423,7 @@
   <zorder>phaseShifter1Led</zorder>
   <zorder>klystron1HVLed</zorder>
   <zorder>klystron2HVLed</zorder>
+  <zorder>vacuumCollimatorValveOnStatus</zorder>
  </widget>
  <customwidgets>
   <customwidget>

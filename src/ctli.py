@@ -970,11 +970,15 @@ class MainWindow(TaurusMainWindow):
         
     def _setMainscreen_vacuum(self):
         mainscreen_ui = self.ui.linacMainscreenSynoptic._ui
+        #---- collimator valve
         attrName = 'li/ct/plc2/VCV_ONC'
+        widget = mainscreen_ui.vacuumCollimatorValveOnStatus
+        self._setupTaurusLabel4Attr(widget, attrName)
         widget = mainscreen_ui.vcvOnLedInfo
         self._setupLed4Attr(widget,attrName)
         widget = mainscreen_ui.vcvOn
-        self._setupActionWidget(widget,attrName,text='open/close')
+        self._setupActionWidget(widget,attrName,text='collimator\nopen/close')
+        
         vacuumCavities = {'eGun':{'check':mainscreen_ui.eGunVacuumCheck,
                                   'widget':mainscreen_ui.eGunVacuumWidget,
                                   'hvg':'li/ct/plc2/HVG1_P',
