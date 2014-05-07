@@ -111,6 +111,8 @@ class MainWindow(TaurusMainWindow):
                            DangerMsg='',riseEdge=False,fallingEdge=False):
         ctliaux._setupActionWidget(widget,attrName,text,isRst,
                            DangerMsg,riseEdge,fallingEdge)
+        if isRst:
+            widget._ui.actionFrame.setStyleSheet("background-color: rgb(255, 255, 95);")
     #---- Done auxiliar methods to configure widgets
     ######
 
@@ -971,11 +973,13 @@ class MainWindow(TaurusMainWindow):
     def _setMainscreen_vacuum(self):
         mainscreen_ui = self.ui.linacMainscreenSynoptic._ui
         #---- collimator valve
-        attrName = 'li/ct/plc2/VCV_ONC'
+        attrName = 'li/ct/plc2/VCV_Status'
         widget = mainscreen_ui.vacuumCollimatorValveOnStatus
         self._setupTaurusLabel4Attr(widget, attrName)
+        attrName = 'li/ct/plc2/VCV_St'
         widget = mainscreen_ui.vcvOnLedInfo
         self._setupLed4Attr(widget,attrName)
+        attrName = 'li/ct/plc2/VCV_ONC'
         widget = mainscreen_ui.vcvOn
         self._setupActionWidget(widget,attrName,text='collimator\nopen/close')
         
