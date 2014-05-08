@@ -582,14 +582,14 @@ class MainWindow(TaurusMainWindow):
             if isMBM:
                 widthAttrName = 'LI/CT/PLC1/TB_GPI'.lower()
                 width = self._getAttrValue(widthAttrName)
-                fileprefix = ''.join("%s_MBM_%d"%(fileprefix,width))
+                fileprefix = ''.join("%s_MBM_%dns"%(fileprefix,width))
             # 2.2 - SBM_pulses_interval
             else:
                 npulsesAttrName = 'LI/CT/PLC1/TB_GPN'.lower()
                 intervalAttrName = 'LI/CT/PLC1/TB_GPI'.lower()
                 npulses = self._getAttrValue(npulsesAttrName)
                 interval = self._getAttrValue(intervalAttrName)
-                fileprefix = ''.join("%s_SBM_%d_%d"%(fileprefix,pulses,interval))
+                fileprefix = ''.join("%s_SBM_%dns_%d"%(fileprefix,pulses,interval))
         except Exception,e:
             self.error("Cannot build a file prefix!")
         return fileprefix
