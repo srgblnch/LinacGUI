@@ -275,25 +275,30 @@ class MainWindow(TaurusMainWindow):
                             min=-2
                             max=2
                         step=0.01
+                        decimals=2
                     else:
                         if family == 'sl':
                             min=0
                             max=1
                             step=0.01
+                            decimals=2
                         elif family == 'bc':
                             min=0
                             max=200
                             step=0.01
+                            decimals=2
                         elif family == 'gl':
                             min=0
                             max=130
                             step=0.01
+                            decimals=2
                         elif family == 'qt':
                             min=0
                             max=6
                             step=0.005
+                            decimals=3
                     self._setupQSpinBox(widgetsSet[attrName]['write'],
-                            min=min,max=max,step=step)
+                            min=min,max=max,step=step,decimals=decimals)
         #---- TODO: connect the ToApplyTitle to check/uncheck all the *Check
         self._configurationWidgets['magnets'] = widgetsSet
     
