@@ -112,7 +112,11 @@ class MainWindow(TaurusMainWindow):
         ctliaux._setupActionWidget(widget,attrName,text,isRst,
                            DangerMsg,riseEdge,fallingEdge)
         if isRst:
-            widget._ui.actionFrame.setStyleSheet("background-color: rgb(255, 255, 95);")
+            try:
+                widget._ui.actionFrame.setStyleSheet("background-color: rgba(192, 192, 0, 63);")
+            except Exception,e:
+                self.error("Cannot modify the background color of the "\
+                           "actionWidget for the attribute %s: %s"%(attrName,e))
     #---- Done auxiliar methods to configure widgets
     ######
 
@@ -742,8 +746,7 @@ class MainWindow(TaurusMainWindow):
             self._setupLed4Attr(coolingLoops[loop], attrName)
     def _setMainscreen_kd(self):
         mainscreen_ui = self.ui.linacMainscreenSynoptic._ui
-        self._setupSpinBox4Attr(mainscreen_ui.filamentSetpoint,'li/ct/plc1/GUN_Filament_V_setpoint',step=0.1)
-        self._setupSpinBox4Attr(mainscreen_ui.cathodeSetpoint,'li/ct/plc1/GUN_Kathode_V_setpoint',step=0.1)
+        self._setupTaurusLabel4Attr(mainscreen_ui.cathodeCurrent,'li/ct/plc1/GUN_Kathode_V','V')
         self._setupTaurusLabel4Attr(mainscreen_ui.filamentCurrent,'li/ct/plc1/GUN_Filament_I','A')
         self._setupTaurusLabel4Attr(mainscreen_ui.temperatureValue,'li/ct/plc1/GUN_Kathode_T','C')
 

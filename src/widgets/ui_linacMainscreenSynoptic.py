@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'widgets/ui/linacMainscreenSynoptic.ui'
 #
-# Created: Wed Apr 30 13:07:40 2014
+# Created: Thu May  8 12:26:20 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -96,25 +96,6 @@ class Ui_linacMainscreenSynoptic(object):
         self.kdLayout = QtGui.QGridLayout(self.layoutWidget_2)
         self.kdLayout.setContentsMargins(7, -1, -1, -1)
         self.kdLayout.setObjectName(_fromUtf8("kdLayout"))
-        self.filamentSetpoint = TaurusValueSpinBox(self.layoutWidget_2)
-        self.filamentSetpoint.setMinimumSize(QtCore.QSize(60, 20))
-        self.filamentSetpoint.setAutoApply(True)
-        self.filamentSetpoint.setObjectName(_fromUtf8("filamentSetpoint"))
-        self.kdLayout.addWidget(self.filamentSetpoint, 0, 0, 1, 1)
-        self.cathodeSetpoint = TaurusValueSpinBox(self.layoutWidget_2)
-        self.cathodeSetpoint.setMinimumSize(QtCore.QSize(60, 20))
-        self.cathodeSetpoint.setAutoApply(True)
-        self.cathodeSetpoint.setObjectName(_fromUtf8("cathodeSetpoint"))
-        self.kdLayout.addWidget(self.cathodeSetpoint, 0, 1, 1, 1)
-        self.filamentVLabel = QtGui.QLabel(self.layoutWidget_2)
-        self.filamentVLabel.setMinimumSize(QtCore.QSize(0, 20))
-        font = QtGui.QFont()
-        font.setPointSize(7)
-        font.setBold(False)
-        font.setWeight(50)
-        self.filamentVLabel.setFont(font)
-        self.filamentVLabel.setObjectName(_fromUtf8("filamentVLabel"))
-        self.kdLayout.addWidget(self.filamentVLabel, 1, 0, 1, 1)
         self.cathodeLabel = QtGui.QLabel(self.layoutWidget_2)
         font = QtGui.QFont()
         font.setPointSize(7)
@@ -144,6 +125,9 @@ class Ui_linacMainscreenSynoptic(object):
         self.temperatureLabel.setFont(font)
         self.temperatureLabel.setObjectName(_fromUtf8("temperatureLabel"))
         self.kdLayout.addWidget(self.temperatureLabel, 3, 1, 1, 1)
+        self.cathodeCurrent = TaurusLabel(self.layoutWidget_2)
+        self.cathodeCurrent.setObjectName(_fromUtf8("cathodeCurrent"))
+        self.kdLayout.addWidget(self.cathodeCurrent, 0, 1, 1, 1)
         self.bc2hValue = TaurusValueSpinBox(linacMainscreenSynoptic)
         self.bc2hValue.setGeometry(QtCore.QRect(505, 640, 65, 22))
         self.bc2hValue.setObjectName(_fromUtf8("bc2hValue"))
@@ -718,7 +702,6 @@ class Ui_linacMainscreenSynoptic(object):
 
     def retranslateUi(self, linacMainscreenSynoptic):
         linacMainscreenSynoptic.setWindowTitle(QtGui.QApplication.translate("linacMainscreenSynoptic", "Form", None, QtGui.QApplication.UnicodeUTF8))
-        self.filamentVLabel.setText(QtGui.QApplication.translate("linacMainscreenSynoptic", "Filament V", None, QtGui.QApplication.UnicodeUTF8))
         self.cathodeLabel.setText(QtGui.QApplication.translate("linacMainscreenSynoptic", "Cathode V", None, QtGui.QApplication.UnicodeUTF8))
         self.filamentCurrent.setSuffixText(QtGui.QApplication.translate("linacMainscreenSynoptic", " A", None, QtGui.QApplication.UnicodeUTF8))
         self.temperatureValue.setSuffixText(QtGui.QApplication.translate("linacMainscreenSynoptic", " C", None, QtGui.QApplication.UnicodeUTF8))
