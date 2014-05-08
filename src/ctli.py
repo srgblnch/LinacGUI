@@ -675,30 +675,58 @@ class MainWindow(TaurusMainWindow):
 
     def _setMainscreen_rf(self):
         mainscreen_ui = self.ui.linacMainscreenSynoptic._ui
-        timePhaseShifters = {'0':mainscreen_ui.rfTimePhaseShifter0Value,
-                             '1':mainscreen_ui.rfTimePhaseShifter1Value,
-                             '2':mainscreen_ui.rfTimePhaseShifter2Value,
-                             'X':mainscreen_ui.rfTimePhaseShifterXValue}
+        timePhaseShifters = {'0':{'read':mainscreen_ui.rfTimePhaseShifter0Value,
+                                  'write':mainscreen_ui.rfTimePhaseShifter0Setpoint},
+                             '1':{'read':mainscreen_ui.rfTimePhaseShifter1Value,
+                                  'write':mainscreen_ui.rfTimePhaseShifter1Setpoint},
+                             '2':{'read':mainscreen_ui.rfTimePhaseShifter2Value,
+                                  'write':mainscreen_ui.rfTimePhaseShifter2Setpoint},
+                             'X':{'read':mainscreen_ui.rfTimePhaseShifterXValue,
+                                  'write':mainscreen_ui.rfTimePhaseShifterXSetpoint},
+                             }
         for timeShifter in timePhaseShifters.keys():
             attrName = 'li/ct/plc1/TPS%s_Phase'%timeShifter
+            widget = timePhaseShifters[timeShifter]['read']
+            self._setupTaurusLabel4Attr(widget, attrName)
+            widget = timePhaseShifters[timeShifter]['write']
             if timeShifter in ['0']:
-                self._setupSpinBox4Attr(timePhaseShifters[timeShifter],attrName,step=0.1)
+                self._setupSpinBox4Attr(widget,attrName,step=0.1)
             else:
-                self._setupSpinBox4Attr(timePhaseShifters[timeShifter],attrName,step=1)
-        self._setupSpinBox4Attr(mainscreen_ui.rfA0OutputPowerValue,'li/ct/plc1/A0_OP',step=1)
-        self._setupLed4Attr(mainscreen_ui.rfA0StatusLed,'li/ct/plc1/RFS_ST')
-        self._setupSpinBox4Attr(mainscreen_ui.attenuator2Value,'li/ct/plc1/ATT2_P_setpoint',step=0.1)
-        phaseShifters = {'1':{'write':mainscreen_ui.rfPhaseShifter1Value,
+                self._setupSpinBox4Attr(widget,attrName,step=1)
+        #-
+        attrName = 'li/ct/plc1/A0_OP'
+        widget = mainscreen_ui.rfA0OutputPowerValue
+        self._setupTaurusLabel4Attr(widget,attrName,unit='W')
+        widget = mainscreen_ui.rfA0OutputPowerSetpoint
+        self._setupSpinBox4Attr(widget,attrName,step=1)
+        #-
+        attrName = 'li/ct/plc1/RFS_ST'
+        widget = mainscreen_ui.rfA0StatusLed
+        self._setupLed4Attr(widget,attrName)
+        #-
+        attrName = 'li/ct/plc1/ATT2_P'
+        widget = mainscreen_ui.attenuator2Value
+        self._setupTaurusLabel4Attr(widget,attrName,unit='dB')
+        widget = mainscreen_ui.attenuator2Setpoint
+        self._setupSpinBox4Attr(widget,attrName+'_setpoint',step=0.1)
+        #- 
+        phaseShifters = {'1':{'read':mainscreen_ui.rfPhaseShifter1Value,
+                              'write':mainscreen_ui.rfPhaseShifter1Setpoint,
                               'led':mainscreen_ui.phaseShifter1Led,
                               'check':mainscreen_ui.phaseShifter1PopupCheck,
                               'widget':mainscreen_ui.phaseShifter1PopupWidget},
-                         '2':{'write':mainscreen_ui.rfPhaseShifter2Value,
+                         '2':{'read':mainscreen_ui.rfPhaseShifter2Value,
+                              'write':mainscreen_ui.rfPhaseShifter2Setpoint,
                               'led':mainscreen_ui.phaseShifter2Led,
                               'check':mainscreen_ui.phaseShifter2PopupCheck,
                               'widget':mainscreen_ui.phaseShifter2PopupWidget}}
         for shifter in phaseShifters.keys():
-            attrName = 'li/ct/plc1/PHS%s_Phase_setpoint'%shifter
-            self._setupSpinBox4Attr(phaseShifters[shifter]['write'],attrName,step=1)
+            attrName = 'li/ct/plc1/PHS%s_Phase'%shifter
+            widget = phaseShifters[shifter]['read']
+            self._setupTaurusLabel4Attr(widget,attrName)
+            widget = phaseShifters[shifter]['write']
+            self._setupSpinBox4Attr(widget,attrName+'_setpoint',step=1)
+        #-
         sf6pressures = {'1':mainscreen_ui.sf6p1Value,
                         '2':mainscreen_ui.sf6p2Value}
         for pressure in sf6pressures.keys():
@@ -706,7 +734,6 @@ class MainWindow(TaurusMainWindow):
             self._setupTaurusLabel4Attr(sf6pressures[pressure],attrName,'bar')
         self._setupLed4Attr(mainscreen_ui.rfSourceStatusLed,'li/ct/plc1/RFS_ST')
         #popups
-        #mainscreen_ui.attenuatorPopupCheck.setCheckState(False)
         self._setupLed4Attr(mainscreen_ui.attenuatorLed,
                             'li/ct/plc1/ATT2_ready')
         mainscreen_ui.attenuatorPopupWidget.hide()
@@ -720,7 +747,6 @@ class MainWindow(TaurusMainWindow):
         self._setupTaurusLabel4Attr(widget.AttrValue,'li/ct/plc1/ATT2_P','dB')
         self._phaseShifters = {}
         for shifter in phaseShifters.keys():
-            #phaseShifters[shifter]['check'].setCheckState(False)
             phaseShifters[shifter]['widget'].hide()
             self._setupLed4Attr(phaseShifters[shifter]['led'],
                                 'li/ct/plc1/PHS%s_ready'%shifter)
