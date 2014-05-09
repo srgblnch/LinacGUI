@@ -1005,10 +1005,10 @@ class MainWindow(TaurusMainWindow):
         attrName = 'li/ct/plc2/VCV_Status'
         widget = mainscreen_ui.vacuumCollimatorValveOnStatus
         self._setupTaurusLabel4Attr(widget, attrName)
-        attrName = 'li/ct/plc2/VCV_St'
+        attrName = 'li/ct/plc2/VCV_ONC'
         widget = mainscreen_ui.vcvOnLedInfo
         self._setupLed4Attr(widget,attrName)
-        attrName = 'li/ct/plc2/VCV_ONC'
+        #attrName = 'li/ct/plc2/VCV_ONC'
         widget = mainscreen_ui.vcvOn
         self._setupActionWidget(widget,attrName,text='collimator\nopen/close')
         
