@@ -79,12 +79,19 @@ def _setupCombobox4Attr(widget,attrName,valueNames=None):
     if valueNames != None and type(valueNames) == list and len(valueNames) > 0:
         widget.addValueNames(valueNames)
         
-def _setupActionWidget(widget,attrName,text='on/off',isRst=False,
+def _setupActionWidget(widget,attrName,text='on/off',
+                       isRst=False,isValve=False,isLight=False,
                        DangerMsg='',riseEdge=False,fallingEdge=False):
     widget._ui.Label.setText(text)
     if isRst:
         _setupLed4Attr(widget._ui.Led,attrName,
                        offColor='black',onColor='yellow')
+    elif isValve:
+        _setupLed4Attr(widget._ui.Led,attrName,
+                       offColor='green',onColor='red',pattern='')
+    elif isLight:
+        _setupLed4Attr(widget._ui.Led,attrName,
+                       offColor='black',onColor='white')
     else:
         _setupLed4Attr(widget._ui.Led,attrName,pattern='')
     _setupCheckbox4Attr(widget._ui.Check,attrName,

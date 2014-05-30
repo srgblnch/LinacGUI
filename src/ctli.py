@@ -108,7 +108,8 @@ class MainWindow(TaurusMainWindow):
     def _setupCombobox4Attr(self,widget,attrName,valueNames=None):
         ctliaux._setupCombobox4Attr(widget,attrName,valueNames)
 
-    def _setupActionWidget(self,widget,attrName,text='on/off',isRst=False,
+    def _setupActionWidget(self,widget,attrName,text='on/off',
+                           isRst=False,isValve=False,isLight=False,
                            DangerMsg='',riseEdge=False,fallingEdge=False):
         #Hackish!!
         pyqtVersion = QtCore.PYQT_VERSION_STR
@@ -121,7 +122,7 @@ class MainWindow(TaurusMainWindow):
         #This is because in Alba's qt version the text is very close to the 
         #checkbox, but in newer ones the distance is bigger and this doesn't 
         # allow to see the '!' when pending operations.
-        ctliaux._setupActionWidget(widget,attrName,text,isRst,
+        ctliaux._setupActionWidget(widget,attrName,text,isRst,isValve,isLight,
                            DangerMsg,riseEdge,fallingEdge)
         if isRst:
             try:
@@ -1109,9 +1110,10 @@ class MainWindow(TaurusMainWindow):
                     attrName = fluorescentScreens[fs][element]['attrName']
                     if element == 'valve':
                         text = 'in/out'
+                        self._setupActionWidget(widget,attrName,text,isValve=True)
                     else:
                         text = 'on/off'
-                    self._setupActionWidget(widget,attrName,text)
+                        self._setupActionWidget(widget,attrName,text,isLight=True)
                 elif element == 'status':
                     widget = fluorescentScreens[fs][element]['led']
                     attrName = 'li/ct/plc1/SCM%d_alert'%(fs)
