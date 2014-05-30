@@ -541,6 +541,14 @@ class MainWindow(TaurusMainWindow):
     def _getAttrValue(self,attrName):
         return PyTango.AttributeProxy(attrName).read().value
     def _setAttrValue(self,attrName,value):
+        #hackish to because we've seen some attributes not well applied
+        if type(value) == bool:
+            pass
+        elif type(value) == int:
+            PyTango.AttributeProxy(attrName).write(int(value*0.95))
+        elif type(value) == float:
+            PyTango.AttributeProxy(attrName).write(value*0.95)
+        time.sleep(0.3)
         PyTango.AttributeProxy(attrName).write(value)
     
     def _setValueToSaverWidget(self,attrStruct,value,style=True):
