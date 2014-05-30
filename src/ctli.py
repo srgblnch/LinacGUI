@@ -1183,6 +1183,7 @@ class OperationModeManager(TaurusBaseComponent,Qt.QObject):
         self._checker = mainscreen_ui.tbMultiBunchCheck
         self._mainscreen_ui = mainscreen_ui
         Qt.QObject.connect(self._checker,Qt.SIGNAL('stateChanged(int)'),self._operationModeChanges)
+        self._operationModeChanges(self._checker.isChecked())
     def _operationModeChanges(self,mode):
         if self._checker.isChecked():
             self._mainscreen_ui.tbWidthLabel.setText('Width')
