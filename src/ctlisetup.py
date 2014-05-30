@@ -183,7 +183,7 @@ class MainWindow(TaurusMainWindow):
                                 'check':ui.GunHighVoltagePowerSupplyCheck}
         self._setupTaurusLabel4Attr(widgetsSet[attrName]['read'],attrName)
         self._setupQSpinBox(widgetsSet[attrName]['write'],
-                            min=-90.0,max=0.0,step=0.1)
+                            min=-100.0,max=0.0,step=0.1)
         
         self._configurationWidgets['eGun'] = widgetsSet
 
