@@ -31,11 +31,17 @@
       </property>
       <item row="0" column="2">
        <widget class="LinacValueCheckBox" name="Check">
+        <property name="minimumSize">
+         <size>
+          <width>30</width>
+          <height>0</height>
+         </size>
+        </property>
         <property name="layoutDirection">
          <enum>Qt::RightToLeft</enum>
         </property>
         <property name="showText">
-         <bool>false</bool>
+         <bool>true</bool>
         </property>
        </widget>
       </item>
@@ -103,10 +109,9 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>TaurusWidget</class>
-   <extends>QWidget</extends>
-   <header>taurus.qt.qtgui.container</header>
-   <container>1</container>
+   <class>LinacValueCheckBox</class>
+   <extends>QCheckBox</extends>
+   <header>linacvaluecheckbox</header>
   </customwidget>
   <customwidget>
    <class>TaurusLed</class>
@@ -124,9 +129,10 @@
    <header>taurus.qt.qtgui.display</header>
   </customwidget>
   <customwidget>
-   <class>LinacValueCheckBox</class>
-   <extends>QCheckBox</extends>
-   <header>linacvaluecheckbox</header>
+   <class>TaurusWidget</class>
+   <extends>QWidget</extends>
+   <header>taurus.qt.qtgui.container</header>
+   <container>1</container>
   </customwidget>
  </customwidgets>
  <resources/>

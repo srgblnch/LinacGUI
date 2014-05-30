@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'widgets/ui/actionWidget.ui'
 #
-# Created: Fri Mar 14 15:29:38 2014
+# Created: Thu May 29 15:11:49 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -29,8 +29,9 @@ class Ui_actionForm(object):
         self.gridLayout.setMargin(0)
         self.gridLayout.setObjectName(_fromUtf8("gridLayout"))
         self.Check = LinacValueCheckBox(self.actionFrame)
+        self.Check.setMinimumSize(QtCore.QSize(30, 0))
         self.Check.setLayoutDirection(QtCore.Qt.RightToLeft)
-        self.Check.setShowText(False)
+        self.Check.setShowText(True)
         self.Check.setObjectName(_fromUtf8("Check"))
         self.gridLayout.addWidget(self.Check, 0, 2, 1, 1)
         spacerItem = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
