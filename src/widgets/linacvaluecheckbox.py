@@ -85,10 +85,11 @@ class LinacValueCheckBox(Qt.QCheckBox, TaurusBaseWritableWidget):
            widget, filtering by an specific model to simplify and get readable
            the tracing logs.
         '''
-        pass
-#        if self.getModelName() in ['li/ct/plc1/SCM1_DC',
-#                                   'li/ct/plc4/HVPS_Interlock_RC']:
-#            self.info(msg)
+        model = self.getModelName().lower()
+        if len(model.split('/')) == 5:
+            model = model.split('/',1)[1]
+        if model in ['li/ct/plc1/gun_hv_onc']:
+            self.info(msg)
 
     def isResetCheckBox(self):
         return hasattr(self,'_isResetCheckBox') and self._isResetCheckBox
@@ -210,10 +211,10 @@ class LinacValueCheckBox(Qt.QCheckBox, TaurusBaseWritableWidget):
         #TaurusValueCheckBox.handleEvent(self,src,evt_type,evt_value)
         TaurusBaseWritableWidget.handleEvent(self,src,evt_type,evt_value)
         
-#    def writeValue(self, forceApply=False):
-#        self._my_debug("writeValue(forceApply=%s)"%(forceApply))
-#        #TaurusValueCheckBox.writeValue(self,forceApply)
-#        TaurusBaseWritableWidget.writeValue(self,forceApply)
+    def writeValue(self, forceApply=False):
+        self._my_debug("writeValue(forceApply=%s)"%(forceApply))
+        #TaurusValueCheckBox.writeValue(self,forceApply)
+        TaurusBaseWritableWidget.writeValue(self,forceApply)
 
     #-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-
     # TaurusBaseWidget overwriting
@@ -342,6 +343,7 @@ class LinacValueCheckBox(Qt.QCheckBox, TaurusBaseWritableWidget):
 def main():
     app = Qt.QApplication(sys.argv)
     w = LinacValueCheckBox()
+    w.setModel('sys/tg_test/1/boolean_scalar')
     w.show()
     sys.exit(app.exec_())
 
