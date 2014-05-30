@@ -85,11 +85,13 @@ class LinacValueCheckBox(Qt.QCheckBox, TaurusBaseWritableWidget):
            widget, filtering by an specific model to simplify and get readable
            the tracing logs.
         '''
-        model = self.getModelName().lower()
-        if len(model.split('/')) == 5:
-            model = model.split('/',1)[1]
-        if model in ['li/ct/plc1/gun_hv_onc']:
-            self.info(msg)
+        pass
+#        model = self.getModelName().lower()
+#        if len(model.split('/')) == 5:
+#            model = model.split('/',1)[1]
+#        if model in ['li/ct/plc1/gun_hv_onc',
+#                     'li/ct/plc3/ma_interlock_rc']:
+#            self.info(msg)
 
     def isResetCheckBox(self):
         return hasattr(self,'_isResetCheckBox') and self._isResetCheckBox
@@ -139,27 +141,19 @@ class LinacValueCheckBox(Qt.QCheckBox, TaurusBaseWritableWidget):
         try:
             #TaurusValueCheckBox.updateStyle(self)
             TaurusBaseWritableWidget.updateStyle(self)
-            # Show text only if it is not specifically hidden
-            if self._showText and self.isResetCheckBox():
-                try:
-                    self.setText(str(self.getModelObj().getConfig().getLabel()))
-                except:
-                    self.setText('----')
+            if self.isResetCheckBox():
+                return
             else:
-                self.setText('')
-            #Update pending operations style
-            
-            if not self.isResetCheckBox():
                 #If it is not a resetCheckBox, proceed like the TaurusValueCheckBox
                 if self.hasPendingOperations():
                     txt = str(self.text()).strip()
                     if len(txt) == 0:
                         self.setText("!")
-                    self.setStyleSheet('TaurusValueCheckBox {color: blue;}')
+                    self.setStyleSheet('LinacValueCheckBox {color: blue;}')
                 else:
                     if str(self.text()) == "!":
                         self.setText(" ")
-                    self.setStyleSheet('TaurusValueCheckBox {}')
+                    self.setStyleSheet('LinacValueCheckBox {}')
                 self.update()
         except Exception,e:
             self.error("Cannot updateStyle: %s"%(e))
