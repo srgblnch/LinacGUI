@@ -40,7 +40,7 @@
            <x>0</x>
            <y>0</y>
            <width>922</width>
-           <height>893</height>
+           <height>867</height>
           </rect>
          </property>
          <layout class="QGridLayout" name="gridLayout_2">
@@ -79,7 +79,7 @@
                <property name="orientation">
                 <enum>Qt::Vertical</enum>
                </property>
-               <widget class="QWidget" name="">
+               <widget class="QWidget" name="layoutWidget">
                 <layout class="QVBoxLayout" name="textToSaveLayout">
                  <item>
                   <widget class="QLabel" name="textToSaveLabel">
@@ -100,7 +100,7 @@
                  </item>
                 </layout>
                </widget>
-               <widget class="QWidget" name="">
+               <widget class="QWidget" name="layoutWidget">
                 <layout class="QVBoxLayout" name="textLoadedLayout">
                  <item>
                   <widget class="QLabel" name="textLoadedLabel">
@@ -140,17 +140,15 @@
         </property>
        </widget>
       </item>
+      <item row="2" column="0">
+       <widget class="QProgressBar" name="progressBar"/>
+      </item>
      </layout>
     </widget>
    </item>
   </layout>
  </widget>
  <customwidgets>
-  <customwidget>
-   <class>radioFrequencySnapshot</class>
-   <extends>TaurusWidget</extends>
-   <header>radiofrequencysnapshot</header>
-  </customwidget>
   <customwidget>
    <class>electronGunSnapshot</class>
    <extends>TaurusWidget</extends>
@@ -162,15 +160,14 @@
    <header>klystronsnapshot</header>
   </customwidget>
   <customwidget>
-   <class>TaurusWidget</class>
-   <extends>QWidget</extends>
-   <header>taurus.qt.qtgui.container</header>
-   <container>1</container>
+   <class>timingSnapshot</class>
+   <extends>TaurusWidget</extends>
+   <header>timingsnapshot</header>
   </customwidget>
   <customwidget>
-   <class>coolingLoopSnapshot</class>
+   <class>radioFrequencySnapshot</class>
    <extends>TaurusWidget</extends>
-   <header>coolingloopsnapshot</header>
+   <header>radiofrequencysnapshot</header>
   </customwidget>
   <customwidget>
    <class>magnetSnapshot</class>
@@ -178,14 +175,20 @@
    <header>magnetsnapshot</header>
   </customwidget>
   <customwidget>
-   <class>timingSnapshot</class>
+   <class>coolingLoopSnapshot</class>
    <extends>TaurusWidget</extends>
-   <header>timingsnapshot</header>
+   <header>coolingloopsnapshot</header>
   </customwidget>
   <customwidget>
    <class>vacuumValveSnapshot</class>
    <extends>TaurusWidget</extends>
    <header>vacuumvalvesnapshot</header>
+  </customwidget>
+  <customwidget>
+   <class>TaurusWidget</class>
+   <extends>QWidget</extends>
+   <header>taurus.qt.qtgui.container</header>
+   <container>1</container>
   </customwidget>
  </customwidgets>
  <resources/>

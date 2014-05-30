@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'widgets/ui/linacConfigurationScreen.ui'
 #
-# Created: Mon Mar 17 12:36:26 2014
+# Created: Fri May 30 16:20:08 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -31,7 +31,7 @@ class Ui_linacConfigurationScreen(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName(_fromUtf8("scrollArea"))
         self.scrollAreaWidgetContents = QtGui.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 922, 893))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 922, 867))
         self.scrollAreaWidgetContents.setObjectName(_fromUtf8("scrollAreaWidgetContents"))
         self.gridLayout_2 = QtGui.QGridLayout(self.scrollAreaWidgetContents)
         self.gridLayout_2.setObjectName(_fromUtf8("gridLayout_2"))
@@ -61,27 +61,27 @@ class Ui_linacConfigurationScreen(object):
         self.splitter = QtGui.QSplitter(self.commentGroup)
         self.splitter.setOrientation(QtCore.Qt.Vertical)
         self.splitter.setObjectName(_fromUtf8("splitter"))
-        self.widget = QtGui.QWidget(self.splitter)
-        self.widget.setObjectName(_fromUtf8("widget"))
-        self.textToSaveLayout = QtGui.QVBoxLayout(self.widget)
+        self.layoutWidget = QtGui.QWidget(self.splitter)
+        self.layoutWidget.setObjectName(_fromUtf8("layoutWidget"))
+        self.textToSaveLayout = QtGui.QVBoxLayout(self.layoutWidget)
         self.textToSaveLayout.setMargin(0)
         self.textToSaveLayout.setObjectName(_fromUtf8("textToSaveLayout"))
-        self.textToSaveLabel = QtGui.QLabel(self.widget)
+        self.textToSaveLabel = QtGui.QLabel(self.layoutWidget)
         self.textToSaveLabel.setObjectName(_fromUtf8("textToSaveLabel"))
         self.textToSaveLayout.addWidget(self.textToSaveLabel)
-        self.textToSave = QtGui.QTextEdit(self.widget)
+        self.textToSave = QtGui.QTextEdit(self.layoutWidget)
         self.textToSave.setMaximumSize(QtCore.QSize(350, 16777215))
         self.textToSave.setObjectName(_fromUtf8("textToSave"))
         self.textToSaveLayout.addWidget(self.textToSave)
-        self.widget1 = QtGui.QWidget(self.splitter)
-        self.widget1.setObjectName(_fromUtf8("widget1"))
-        self.textLoadedLayout = QtGui.QVBoxLayout(self.widget1)
+        self.layoutWidget1 = QtGui.QWidget(self.splitter)
+        self.layoutWidget1.setObjectName(_fromUtf8("layoutWidget1"))
+        self.textLoadedLayout = QtGui.QVBoxLayout(self.layoutWidget1)
         self.textLoadedLayout.setMargin(0)
         self.textLoadedLayout.setObjectName(_fromUtf8("textLoadedLayout"))
-        self.textLoadedLabel = QtGui.QLabel(self.widget1)
+        self.textLoadedLabel = QtGui.QLabel(self.layoutWidget1)
         self.textLoadedLabel.setObjectName(_fromUtf8("textLoadedLabel"))
         self.textLoadedLayout.addWidget(self.textLoadedLabel)
-        self.textLoaded = QtGui.QTextEdit(self.widget1)
+        self.textLoaded = QtGui.QTextEdit(self.layoutWidget1)
         self.textLoaded.setReadOnly(True)
         self.textLoaded.setObjectName(_fromUtf8("textLoaded"))
         self.textLoadedLayout.addWidget(self.textLoaded)
@@ -97,6 +97,9 @@ class Ui_linacConfigurationScreen(object):
         self.buttonBox.setCenterButtons(False)
         self.buttonBox.setObjectName(_fromUtf8("buttonBox"))
         self.gridLayout.addWidget(self.buttonBox, 1, 0, 1, 1)
+        self.progressBar = QtGui.QProgressBar(self.centralFrame)
+        self.progressBar.setObjectName(_fromUtf8("progressBar"))
+        self.gridLayout.addWidget(self.progressBar, 2, 0, 1, 1)
         self.gridLayout_3.addWidget(self.centralFrame, 0, 0, 1, 1)
 
         self.retranslateUi(linacConfigurationScreen)

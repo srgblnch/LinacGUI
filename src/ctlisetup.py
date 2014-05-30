@@ -82,6 +82,7 @@ class MainWindow(TaurusMainWindow):
         self.initComponents()
         #kill splash screen
         self.splashScreen().finish(self)
+        self.ui.progressBar.hide()#setValue(100)
 
     def initComponents(self):
         self.setWindowTitle("Linac Save/Retrieve Interface")
@@ -669,6 +670,22 @@ class MainWindow(TaurusMainWindow):
             return (None,None)
     ######
 
+    def prepareProgressBar(self):
+        self.ui.progressBar.show()
+        self.ui.progressBar.setValue(0)
+
+    def getNumberOfElements(self):
+        nElements = 0
+        for group in self._configurationWidgets.keys():
+            nElements += len(self._configurationWidgets[group].keys())
+        return nElements
+    
+    def setProgressBarValue(self,i,nElements):
+        self.ui.progressBar.setValue(i*100/nElements)
+    
+    def doneProgressBar(self):
+        self.ui.progressBar.hide()
+
     ######
     #---- ActionButtons callbacks
     def loadFromDevices(self):
@@ -677,6 +694,9 @@ class MainWindow(TaurusMainWindow):
         '''
         exceptions = {}
         #dump(self._configurationWidgets)
+        #prepare progress bar
+        self.prepareProgressBar()
+        nElements = self.getNumberOfElements(); i=0
         for group in self._configurationWidgets.keys():
             self.debug(">  %s"%group)
             for attrName in self._configurationWidgets[group].keys():
@@ -692,6 +712,9 @@ class MainWindow(TaurusMainWindow):
                         exceptions[group].append(str(label))
                     else:
                         exceptions[group] = [str(label)]
+                #progressbar
+                i += 1;
+                self.setProgressBarValue(i, nElements)
         if len(exceptions.keys()) != 0:
             msg = ""
             for group in exceptions.keys():
@@ -706,6 +729,7 @@ class MainWindow(TaurusMainWindow):
                         msg = ''.join("%s\t-%s\n"%(msg,label))
             QtGui.QMessageBox.warning(self, "Exceptions when load from devices",
                                       msg)
+        self.doneProgressBar()
     
     def saveToFile(self):
         '''Travelling along the *Check widgets, the checked ones (name and 
@@ -726,6 +750,8 @@ class MainWindow(TaurusMainWindow):
             self.debug("saveToFile() filename: %s"%(filename))
             saving = self._prepareFileHeader(now_struct)
             exceptions = {}
+            self.prepareProgressBar()
+            nElements = self.getNumberOfElements(); i=0
             for group in self._configurationWidgets.keys():
                 saving = ''.join("%s\n%s"
                                  %(saving,self._prepareGroupTag(group)))
@@ -741,6 +767,9 @@ class MainWindow(TaurusMainWindow):
                             exceptions[group].append(attrName)
                         else:
                             exceptions[group] = [attrName]
+                    #progressbar
+                    i += 1;
+                    self.setProgressBarValue(i, nElements)
             saving = ''.join('%s\n'%(saving))
             f = open(filename,'w')
             f.write(saving)
@@ -759,6 +788,7 @@ class MainWindow(TaurusMainWindow):
                             msg = ''.join("%s\t-%s\n"%(msg,attrName))
                 QtGui.QMessageBox.warning(self, "Exceptions when save",
                                           msg)
+            self.doneProgressBar()
 
     def loadFromFile(self):
         '''Given a file of settings provided by the user, show those values in 
@@ -770,28 +800,34 @@ class MainWindow(TaurusMainWindow):
         group = ''
         exceptions = {}
         if filename != '':
-            file = open(filename,'r')
-            nline = 0
-            for line in file:
-                if self._isCommentLine(line):
-                    pass#Nothing to do with pure comment lines
-                elif self._isGroupTagLine(line):
-                    group = line.split()[2]
-                else:
-                    attrName,value = self._getAttrLine(line, nline)
-                    if group != '' and attrName != None:
-                        try:
-                            attrStruct = self._configurationWidgets[group][attrName]
-                        except:
-                            self.error("attribute %s is not member of the "\
-                                       "group %s"%(attrName,group))
-                            if group in exceptions.keys():
-                                exceptions[group].append(attrName)
+            nElements = 0; i=0
+            with open(filename,'r') as file:
+                lines = file.readlines()
+                nElements = len(lines); i=0
+                self.prepareProgressBar()
+                for nline in range(nElements):
+                    line = lines[nline]
+                    if self._isCommentLine(line):
+                        pass#Nothing to do with pure comment lines
+                    elif self._isGroupTagLine(line):
+                        group = line.split()[2]
+                    else:
+                        attrName,value = self._getAttrLine(line, nline)
+                        if group != '' and attrName != None:
+                            try:
+                                attrStruct = self._configurationWidgets[group][attrName]
+                            except:
+                                self.error("attribute %s is not member of the "\
+                                           "group %s"%(attrName,group))
+                                if group in exceptions.keys():
+                                    exceptions[group].append(attrName)
+                                else:
+                                    exceptions[group]=[attrName]
                             else:
-                                exceptions[group]=[attrName]
-                        else:
-                            self._setValueToSaverWidget(attrStruct,value)
-            file.close()
+                                self._setValueToSaverWidget(attrStruct,value)
+                    #progressBar
+                    self.setProgressBarValue(nline, nElements)
+            #file.close()
             if len(exceptions.keys()) != 0:
                 msg = ""
                 for group in exceptions.keys():
@@ -807,12 +843,15 @@ class MainWindow(TaurusMainWindow):
                             msg = ''.join("%s\t-%s\n"%(msg,attrName))
                 QtGui.QMessageBox.warning(self, "Exceptions when load file",
                                           msg)
+            self.doneProgressBar()
 
     def applyToDevices(self):
         '''Travelling along the *Check, apply the value in *Value 
            to the model in the *Reading.
         '''
         exceptions = {}
+        self.prepareProgressBar()
+        nElements = self.getNumberOfElements(); i=0
         for group in self._configurationWidgets.keys():
             for attrName in self._configurationWidgets[group]:
                 attrStruct = self._configurationWidgets[group][attrName]
@@ -827,6 +866,9 @@ class MainWindow(TaurusMainWindow):
                             exceptions[group].append(attrName)
                         else:
                             exceptions[group] = [attrName]
+                #progressBar
+                i += 1
+                self.setProgressBarValue(i, nElements)
         if len(exceptions.keys()) != 0:
             msg = ""
             for group in exceptions.keys():
@@ -841,6 +883,7 @@ class MainWindow(TaurusMainWindow):
                         msg = ''.join("%s\t-%s\n"%(msg,attrName))
             QtGui.QMessageBox.warning(self, "Exceptions when apply",
                                       msg)
+        self.doneProgressBar()
     ######
 
 def main():
