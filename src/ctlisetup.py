@@ -83,6 +83,7 @@ class MainWindow(TaurusMainWindow):
         self.splashScreen().finish(self)
 
     def initComponents(self):
+        self.setWindowTitle("Linac Save/Retrieve Interface")
         self.centralwidget = self.ui.centralFrame
         self.setCentralWidget(self.centralwidget)
         self.setConfiguration()

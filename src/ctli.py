@@ -62,6 +62,7 @@ class MainWindow(TaurusMainWindow):
         self.splashScreen().finish(self)
         
     def initComponents(self):
+        self.setWindowTitle("Linac Taurus User Interface")
         self.centralwidget = self.ui.linacTabs
         self.setCentralWidget(self.centralwidget)
         self.centralwidget.setCurrentIndex(2)#Force to start in "main screen"
