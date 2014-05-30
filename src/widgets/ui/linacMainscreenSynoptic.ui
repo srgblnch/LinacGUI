@@ -1008,7 +1008,7 @@
    <property name="geometry">
     <rect>
      <x>203</x>
-     <y>600</y>
+     <y>627</y>
      <width>220</width>
      <height>80</height>
     </rect>
@@ -1788,9 +1788,9 @@
    <property name="geometry">
     <rect>
      <x>170</x>
-     <y>780</y>
+     <y>767</y>
      <width>60</width>
-     <height>45</height>
+     <height>58</height>
     </rect>
    </property>
   </widget>
@@ -2143,9 +2143,9 @@
   <widget class="TaurusLabel" name="vacuumCollimatorValveOnStatus">
    <property name="geometry">
     <rect>
-     <x>166</x>
-     <y>764</y>
-     <width>70</width>
+     <x>178</x>
+     <y>611</y>
+     <width>60</width>
      <height>16</height>
     </rect>
    </property>
@@ -2314,7 +2314,7 @@
     </item>
    </layout>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>440</x>
@@ -2339,7 +2339,7 @@
     </item>
    </layout>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>370</x>
@@ -2365,13 +2365,15 @@
    </layout>
   </widget>
   <zorder>MainScreenSchematic</zorder>
-  <zorder>layoutWidget</zorder>
-  <zorder>layoutWidget</zorder>
-  <zorder>layoutWidget</zorder>
-  <zorder>layoutWidget</zorder>
-  <zorder>layoutWidget</zorder>
-  <zorder>layoutWidget</zorder>
   <zorder>sl1PopupWidget</zorder>
+  <zorder>layoutWidget</zorder>
+  <zorder>layoutWidget</zorder>
+  <zorder>layoutWidget</zorder>
+  <zorder>layoutWidget</zorder>
+  <zorder>layoutWidget</zorder>
+  <zorder>layoutWidget</zorder>
+  <zorder>layoutWidget</zorder>
+  <zorder>layoutWidget</zorder>
   <zorder>sl2PopupWidget</zorder>
   <zorder>sl3PopupWidget</zorder>
   <zorder>sl4PopupWidget</zorder>
@@ -2403,8 +2405,6 @@
   <zorder>tbGunDelayValue</zorder>
   <zorder>rfEnbLed</zorder>
   <zorder>tbTimerStatusStateLed</zorder>
-  <zorder>attenuator2Setpoint</zorder>
-  <zorder>rfPhaseShifter2Setpoint</zorder>
   <zorder>sf6p1Value</zorder>
   <zorder>sf6p2Value</zorder>
   <zorder>coolingLoop1Led</zorder>
@@ -2515,8 +2515,6 @@
   <zorder>klystron1HVLed</zorder>
   <zorder>klystron2HVLed</zorder>
   <zorder>vacuumCollimatorValveOnStatus</zorder>
-  <zorder>attenuator2Value</zorder>
-  <zorder>rfPhaseShifter2Value</zorder>
  </widget>
  <customwidgets>
   <customwidget>
