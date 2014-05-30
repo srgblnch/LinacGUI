@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'widgets/ui/linacStartupSynoptic.ui'
 #
-# Created: Mon Apr 28 16:59:13 2014
+# Created: Mon May 26 15:13:58 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -614,7 +614,7 @@ class Ui_linacStartupSynoptic(object):
         self.eGunOn.setGeometry(QtCore.QRect(20, 300, 50, 40))
         self.eGunOn.setObjectName(_fromUtf8("eGunOn"))
         self.vvRst = actionForm(linacStartupSynoptic)
-        self.vvRst.setGeometry(QtCore.QRect(0, 520, 50, 40))
+        self.vvRst.setGeometry(QtCore.QRect(0, 503, 50, 55))
         self.vvRst.setObjectName(_fromUtf8("vvRst"))
         self.vvOn = actionForm(linacStartupSynoptic)
         self.vvOn.setGeometry(QtCore.QRect(70, 763, 60, 40))
@@ -641,7 +641,7 @@ class Ui_linacStartupSynoptic(object):
         self.vacuumValve7On.setGeometry(QtCore.QRect(1180, 763, 60, 40))
         self.vacuumValve7On.setObjectName(_fromUtf8("vacuumValve7On"))
         self.iuRst = actionForm(linacStartupSynoptic)
-        self.iuRst.setGeometry(QtCore.QRect(20, 80, 50, 40))
+        self.iuRst.setGeometry(QtCore.QRect(20, 73, 50, 55))
         self.iuRst.setObjectName(_fromUtf8("iuRst"))
         self.kdeGunLVLed = TaurusLed(linacStartupSynoptic)
         self.kdeGunLVLed.setGeometry(QtCore.QRect(100, 370, 10, 10))

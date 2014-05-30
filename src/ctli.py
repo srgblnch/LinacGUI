@@ -198,7 +198,7 @@ class MainWindow(TaurusMainWindow):
         self._setupLed4Attr(startup_ui.magnetInterlockStateLed,
                             'li/ct/plc1/MG_IS')                          #MI_IS
         self._setupActionWidget(startup_ui.iuRst,'li/ct/plc1/interlock_rc',
-                                text='Reset',isRst=True)                   #Rst
+                           text='PLC1\nReset',isRst=True)                   #Rst
         self._setupLed4Attr(startup_ui.klystron1InterlockLed,
                             'li/ct/plc1/ka1_ic')                        #KA1_IC
         self._setupLed4Attr(startup_ui.utilitiesInterlockStateLed,
@@ -466,8 +466,8 @@ class MainWindow(TaurusMainWindow):
         self._setupActionWidget(widget,attrName,text='open/close')
         #---- reset vacuum interlocks
         widget = startup_ui.vvRst
-        attrName = 'li/ct/plc2/VC_Interlock_RC'
-        self._setupActionWidget(widget,attrName,text='Reset',isRst=True)
+        attrName = 'li/ct/plc2/Util_Interlock_RC'
+        self._setupActionWidget(widget,attrName,text='Util itck\nReset',isRst=True)
         for number in vacuumValves.keys():
             #---- on/off each vacuum valve
             attrName = vacuumValves[number]['open_attrName']

@@ -2020,9 +2020,9 @@
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>520</y>
+     <y>503</y>
      <width>50</width>
-     <height>40</height>
+     <height>55</height>
     </rect>
    </property>
   </widget>
@@ -2110,9 +2110,9 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>80</y>
+     <y>73</y>
      <width>50</width>
-     <height>40</height>
+     <height>55</height>
     </rect>
    </property>
   </widget>
