@@ -1894,90 +1894,6 @@
     </rect>
    </property>
   </widget>
-  <widget class="QWidget" name="layoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>840</x>
-     <y>770</y>
-     <width>184</width>
-     <height>43</height>
-    </rect>
-   </property>
-   <layout class="QGridLayout" name="fluorescentScreen2Layout">
-    <item row="0" column="0" rowspan="2">
-     <widget class="actionForm" name="fluorescentScreen2Valve"/>
-    </item>
-    <item row="0" column="1">
-     <widget class="TaurusLabel" name="fluorescentScreen2Status"/>
-    </item>
-    <item row="0" column="2" rowspan="2">
-     <widget class="actionForm" name="fluorescentScreen2Light"/>
-    </item>
-    <item row="1" column="1">
-     <widget class="QPushButton" name="fluorescentScreen2View">
-      <property name="text">
-       <string>View</string>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QWidget" name="layoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>1040</x>
-     <y>770</y>
-     <width>184</width>
-     <height>43</height>
-    </rect>
-   </property>
-   <layout class="QGridLayout" name="fluorescentScreen3Layout">
-    <item row="0" column="0" rowspan="2">
-     <widget class="actionForm" name="fluorescentScreen3Valve"/>
-    </item>
-    <item row="0" column="1">
-     <widget class="TaurusLabel" name="fluorescentScreen3Status"/>
-    </item>
-    <item row="0" column="2" rowspan="2">
-     <widget class="actionForm" name="fluorescentScreen3Light"/>
-    </item>
-    <item row="1" column="1">
-     <widget class="QPushButton" name="fluorescentScreen3View">
-      <property name="text">
-       <string>View</string>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QWidget" name="layoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>601</x>
-     <y>771</y>
-     <width>184</width>
-     <height>43</height>
-    </rect>
-   </property>
-   <layout class="QGridLayout" name="fluorescentScreen1Layout">
-    <item row="0" column="0" rowspan="2">
-     <widget class="actionForm" name="fluorescentScreen1Valve"/>
-    </item>
-    <item row="0" column="1">
-     <widget class="TaurusLabel" name="fluorescentScreen1Status"/>
-    </item>
-    <item row="0" column="2" rowspan="2">
-     <widget class="actionForm" name="fluorescentScreen1Light"/>
-    </item>
-    <item row="1" column="1">
-     <widget class="QPushButton" name="fluorescentScreen1View">
-      <property name="text">
-       <string>View</string>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
   <widget class="QLabel" name="tbKaDelay1Unit">
    <property name="geometry">
     <rect>
@@ -2359,6 +2275,171 @@
         <width>65</width>
         <height>22</height>
        </size>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>510</x>
+     <y>770</y>
+     <width>201</width>
+     <height>43</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0" rowspan="2">
+     <widget class="actionForm" name="fluorescentScreen1Valve">
+      <property name="minimumSize">
+       <size>
+        <width>65</width>
+        <height>0</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="TaurusLabel" name="fluorescentScreen1Status">
+      <property name="minimumSize">
+       <size>
+        <width>50</width>
+        <height>0</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="2" rowspan="2">
+     <widget class="actionForm" name="fluorescentScreen1Light">
+      <property name="minimumSize">
+       <size>
+        <width>65</width>
+        <height>0</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QPushButton" name="fluorescentScreen1View">
+      <property name="minimumSize">
+       <size>
+        <width>50</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>View</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>760</x>
+     <y>770</y>
+     <width>201</width>
+     <height>43</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout_2">
+    <item row="0" column="0" rowspan="2">
+     <widget class="actionForm" name="fluorescentScreen2Valve">
+      <property name="minimumSize">
+       <size>
+        <width>65</width>
+        <height>0</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="TaurusLabel" name="fluorescentScreen2Status">
+      <property name="minimumSize">
+       <size>
+        <width>50</width>
+        <height>0</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="2" rowspan="2">
+     <widget class="actionForm" name="fluorescentScreen2Light">
+      <property name="minimumSize">
+       <size>
+        <width>65</width>
+        <height>0</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QPushButton" name="fluorescentScreen2View">
+      <property name="minimumSize">
+       <size>
+        <width>50</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>View</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>1040</x>
+     <y>770</y>
+     <width>201</width>
+     <height>43</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout_3">
+    <item row="0" column="0" rowspan="2">
+     <widget class="actionForm" name="fluorescentScreen3Valve">
+      <property name="minimumSize">
+       <size>
+        <width>65</width>
+        <height>0</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="TaurusLabel" name="fluorescentScreen3Status">
+      <property name="minimumSize">
+       <size>
+        <width>50</width>
+        <height>0</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="2" rowspan="2">
+     <widget class="actionForm" name="fluorescentScreen3Light">
+      <property name="minimumSize">
+       <size>
+        <width>65</width>
+        <height>0</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QPushButton" name="fluorescentScreen3View">
+      <property name="minimumSize">
+       <size>
+        <width>50</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="text">
+       <string>View</string>
       </property>
      </widget>
     </item>

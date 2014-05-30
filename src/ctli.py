@@ -113,11 +113,11 @@ class MainWindow(TaurusMainWindow):
         #Hackish!!
         pyqtVersion = QtCore.PYQT_VERSION_STR
         qtVersion = QtCore.QT_VERSION_STR
-        self.info("Detected Qt version: %s (PyQt %s)"%(qtVersion,pyqtVersion))
+        #self.info("Detected Qt version: %s (PyQt %s)"%(qtVersion,pyqtVersion))
         major,middle,minor = qtVersion.split('.')
         major = int(major); middle = int(middle); minor = int(minor)
         if major == 4 and middle == 4:
-            widget._ui.Check.setMinimumWidth(20)
+            widget._ui.Check.setMinimumWidth(25)
         #This is because in Alba's qt version the text is very close to the 
         #checkbox, but in newer ones the distance is bigger and this doesn't 
         # allow to see the '!' when pending operations.
