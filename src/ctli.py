@@ -34,7 +34,7 @@ from taurus.core.util import argparse
 from taurus.qt.qtgui.application import TaurusApplication
 from taurus.qt.qtgui.container import TaurusMainWindow
 from taurus.qt.qtgui.base import TaurusBaseComponent
-from taurus.qt import Qt,QtGui
+from taurus.qt import Qt,QtGui,QtCore
 from taurus.qt.qtgui.util import ExternalAppAction
 from taurus.qt.qtgui.display import TaurusLed
 
@@ -110,6 +110,17 @@ class MainWindow(TaurusMainWindow):
 
     def _setupActionWidget(self,widget,attrName,text='on/off',isRst=False,
                            DangerMsg='',riseEdge=False,fallingEdge=False):
+        #Hackish!!
+        pyqtVersion = QtCore.PYQT_VERSION_STR
+        qtVersion = QtCore.QT_VERSION_STR
+        self.info("Detected Qt version: %s (PyQt %s)"%(qtVersion,pyqtVersion))
+        major,middle,minor = qtVersion.split('.')
+        major = int(major); middle = int(middle); minor = int(minor)
+        if major == 4 and middle == 4:
+            widget._ui.Check.setMinimumWidth(20)
+        #This is because in Alba's qt version the text is very close to the 
+        #checkbox, but in newer ones the distance is bigger and this doesn't 
+        # allow to see the '!' when pending operations.
         ctliaux._setupActionWidget(widget,attrName,text,isRst,
                            DangerMsg,riseEdge,fallingEdge)
         if isRst:
