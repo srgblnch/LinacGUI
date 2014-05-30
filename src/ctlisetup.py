@@ -45,6 +45,7 @@ from ui_linacConfigurationScreen import Ui_linacConfigurationScreen
 
 #---- storage sandbox
 sandbox = '/data'
+defaultConfigurations = "%s/LINAC/Configurations"%(sandbox)
 
 def dump(obj, nested_level=0, output=sys.stdout):
     """Method found in http://stackoverflow.com/questions/15785719/how-to-print-a-dictionary-line-by-line-in-python
@@ -511,10 +512,12 @@ class MainWindow(TaurusMainWindow):
         if self._isSpinBox(saver):
             saver.setStyleSheet("background-color: rgb(255, 255, 0);"\
                                  "color: rgb(0, 0, 255); "\
-                                 "font-weight: bold;")
+                                 "font-weight: bold;"\
+                                 "font: 7pt \"DejaVu Sans\";")
         elif self._isCheckBox(saver):
             saver.setStyleSheet("background-color: rgb(255, 255, 0);"\
-                                 "color: rgb(0, 0, 255);")
+                                 "color: rgb(0, 0, 255);"\
+                                 "font: 7pt \"DejaVu Sans\";")
         else:
             raise Exception("Unmanaged %s widget type to tag modified"%(type(widget)))
         attrStruct['check'].setChecked(True)
@@ -523,9 +526,11 @@ class MainWindow(TaurusMainWindow):
         saver = attrStruct['write']
         if self._isSpinBox(saver):
             saver.setStyleSheet("background-color: rgb(255, 255, 255);"\
-                                 "color: rgb(0, 0, 0); ")
+                                 "color: rgb(0, 0, 0); "\
+                                 "font: 7pt \"DejaVu Sans\";")
         elif self._isCheckBox(saver):
-            saver.setStyleSheet("color: rgb(0, 0, 0);")
+            saver.setStyleSheet("color: rgb(0, 0, 0);"\
+                                 "font: 7pt \"DejaVu Sans\";")
         else:
             raise Exception("Unmanaged %s widget type to tag modified"%(type(widget)))
         attrStruct['check'].setChecked(False)
@@ -566,9 +571,10 @@ class MainWindow(TaurusMainWindow):
     ######
     #---- manage files
     def _getStorageDirectory(self):
+        print defaultConfigurations
         directory = str(QtGui.QFileDialog.getExistingDirectory(self,
                                                             "Select Directory",
-                                                            sandbox))
+                                                        defaultConfigurations))
         if not directory.startswith(sandbox):
             QtGui.QMessageBox.warning(self, "Sandbox warning",
                                       "Your selected directory is not in the "\
@@ -611,7 +617,7 @@ class MainWindow(TaurusMainWindow):
         dialogTitle = "Select linac's configuration file"
         filters = "Linac configuration (*.li);;All files (*)"
         return str(QtGui.QFileDialog.getOpenFileName(self,dialogTitle,
-                                                         sandbox,filters))
+                                                defaultConfigurations,filters))
     
     def _prepareFileHeader(self,now_struct):
         return "# File stored the %s\n"\
