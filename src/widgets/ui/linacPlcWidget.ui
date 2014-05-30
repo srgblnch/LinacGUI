@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>300</width>
-    <height>333</height>
+    <height>335</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -93,19 +93,16 @@
                <height>20</height>
               </size>
              </property>
-             <property name="model" stdset="0">
+             <property name="model">
               <string>/Locking</string>
              </property>
-             <property name="showText" stdset="0">
-              <bool>false</bool>
-             </property>
-             <property name="useParentModel" stdset="0">
+             <property name="useParentModel">
               <bool>true</bool>
              </property>
-             <property name="autoApply" stdset="0">
+             <property name="autoApply">
               <bool>true</bool>
              </property>
-             <property name="forcedApply" stdset="0">
+             <property name="forcedApply">
               <bool>true</bool>
              </property>
             </widget>
@@ -182,7 +179,7 @@
             </size>
            </property>
            <property name="alignment">
-            <set>Qt::AlignBottom|Qt::AlignTop</set>
+            <set>Qt::AlignBottom|Qt::AlignVCenter</set>
            </property>
            <property name="model">
             <string>/HeartBeat</string>
@@ -350,26 +347,14 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>TaurusWidget</class>
-   <extends>QWidget</extends>
-   <header>taurus.qt.qtgui.container</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
-   <class>TaurusGroupBox</class>
-   <extends>QGroupBox</extends>
-   <header>taurus.qt.qtgui.container</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
-   <class>TaurusLabel</class>
-   <extends>QLabel</extends>
-   <header>taurus.qt.qtgui.display</header>
-  </customwidget>
-  <customwidget>
    <class>TaurusCommandButton</class>
    <extends>QPushButton</extends>
    <header>taurus.qt.qtgui.button</header>
+  </customwidget>
+  <customwidget>
+   <class>LinacValueCheckBox</class>
+   <extends>QCheckBox</extends>
+   <header>linacvaluecheckbox</header>
   </customwidget>
   <customwidget>
    <class>TaurusLed</class>
@@ -387,9 +372,21 @@
    <header>taurus.qt.qtgui.display</header>
   </customwidget>
   <customwidget>
-   <class>LinacValueCheckBox</class>
-   <extends>QCheckBox</extends>
-   <header>linacvaluecheckbox</header>
+   <class>TaurusWidget</class>
+   <extends>QWidget</extends>
+   <header>taurus.qt.qtgui.container</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>TaurusLabel</class>
+   <extends>QLabel</extends>
+   <header>taurus.qt.qtgui.display</header>
+  </customwidget>
+  <customwidget>
+   <class>TaurusGroupBox</class>
+   <extends>QGroupBox</extends>
+   <header>taurus.qt.qtgui.container</header>
+   <container>1</container>
   </customwidget>
  </customwidgets>
  <resources/>
