@@ -580,11 +580,11 @@ class MainWindow(TaurusMainWindow):
     ######
     #---- manage files
     def _getStorageDirectory(self):
-        print defaultConfigurations
         directory = str(QtGui.QFileDialog.getExistingDirectory(self,
                                                             "Select Directory",
                                                         defaultConfigurations))
-        if not directory.startswith(sandbox):
+        print("_getStorageDirectory() type(directory)= %s"%(type(directory)))
+        if not directory == '' and not directory.startswith(sandbox):
             QtGui.QMessageBox.warning(self, "Sandbox warning",
                                       "Your selected directory is not in the "\
                                       "storage shared by NFS")
@@ -620,7 +620,8 @@ class MainWindow(TaurusMainWindow):
                                           "would you like to write something "\
                                           "after the file prefix %s?"%(prefix),
                                           QtGui.QLineEdit.Normal)
-        return str(msg)
+        print("_getFileSuffix(): ok = %s (%s)"%(str(ok),type(ok)))
+        return (str(msg),ok)
     
     def _requestFileName(self):
         dialogTitle = "Select linac's configuration file"
@@ -738,12 +739,20 @@ class MainWindow(TaurusMainWindow):
         now = time.time()
         now_struct = time.localtime(now)
         directory = self._getStorageDirectory()
+        if directory == '':#when cancel the QFileDialog
+            QtGui.QMessageBox.warning(self, "Operation Cancelled",
+                                      "The Save action has been cancelled!\n"\
+                                      "No file written.")
         prefix = self._getFilePrefix(now_struct)
         #---- TODO: request suffix to the user.
         suffix = ''
         if directory != '':
-            suffix = self._getFileSuffix(prefix)
-            if suffix == '':
+            suffix,ok = self._getFileSuffix(prefix)
+            if ok == False:
+                QtGui.QMessageBox.warning(self, "Operation Cancelled",
+                                      "The Save action has been cancelled!\n"\
+                                      "No file written.")
+            elif suffix == '':
                 filename = "%s/%s.li"%(directory,prefix)
             else:
                 filename = "%s/%s-%s.li"%(directory,prefix,suffix)
