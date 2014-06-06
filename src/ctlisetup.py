@@ -771,9 +771,14 @@ class MainWindow(TaurusMainWindow):
                     i += 1;
                     self.setProgressBarValue(i, nElements)
             saving = ''.join('%s\n'%(saving))
-            f = open(filename,'w')
-            f.write(saving)
-            f.close()
+            try:
+                with open(filename,'w') as file:#file = open(filename,'w')
+                    file.write(saving)
+                #file.close()
+            except Exception,e:
+                QtGui.QMessageBox.critical(self, "Exceptions when save",
+                    "File with the settings was NOT saved!\nException: %s"%(e))
+                traceback.print_exc()
             if len(exceptions.keys()) != 0:
                 msg = ""
                 for group in exceptions.keys():
