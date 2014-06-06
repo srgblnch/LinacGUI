@@ -479,7 +479,7 @@ class MainWindow(TaurusMainWindow):
         #---- reset vacuum interlocks
         widget = startup_ui.vvRst
         attrName = 'li/ct/plc2/Util_Interlock_RC'
-        self._setupActionWidget(widget,attrName,text='Util itck\nReset',isRst=True)
+        self._setupActionWidget(widget,attrName,text='Vacuum\nReset',isRst=True)
         for number in vacuumValves.keys():
             #---- on/off each vacuum valve
             attrName = vacuumValves[number]['open_attrName']
@@ -919,7 +919,7 @@ class MainWindow(TaurusMainWindow):
         #---- Reset magnets interlocks
         widget = mainscreen_ui.magnetsRst
         attrName = 'li/ct/plc3/MA_Interlock_RC'
-        self._setupActionWidget(widget,attrName,text='Reset',isRst=True)
+        self._setupActionWidget(widget,attrName,text='Magnets\nReset',isRst=True)
         #---- on/off all the magnets
         widget = mainscreen_ui.magnetsOn
         attrName = 'li/ct/plc3/all_onc'
