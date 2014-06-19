@@ -543,13 +543,21 @@ class MainWindow(TaurusMainWindow):
         return PyTango.AttributeProxy(attrName).read().value
     def _setAttrValue(self,attrName,value):
         #hackish to because we've seen some attributes not well applied
-        if type(value) == bool:
-            pass
-        elif type(value) == int:
-            PyTango.AttributeProxy(attrName).write(int(value*0.95))
-        elif type(value) == float:
-            PyTango.AttributeProxy(attrName).write(value*0.95)
-        time.sleep(0.3)
+        #and we don't have rights to study further why this had happen
+        try:
+            if type(value) == bool:
+                pass
+            elif type(value) == int:
+                PyTango.AttributeProxy(attrName).write(int(value*0.95))
+            elif type(value) == float:
+                PyTango.AttributeProxy(attrName).write(value*0.95)
+            time.sleep(0.3)
+        except Exception,e:
+            #in boundary cases it had seen that this produces an exception
+            #but it's not a blocking issue and we can continue.
+            self.warning("Attribute %s fail the '.95' hackish: "\
+                         "value=%g value*0.95=%g. The exception was: %s"
+                         %(attrName,value,value*0.95,e))
         PyTango.AttributeProxy(attrName).write(value)
     
     def _setValueToSaverWidget(self,attrStruct,value,style=True):
