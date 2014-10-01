@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>163</width>
-    <height>127</height>
+    <height>167</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -55,6 +55,12 @@
       </item>
       <item row="1" column="1">
        <widget class="TaurusLabel" name="temperatureValue">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>20</height>
+         </size>
+        </property>
         <property name="suffixText">
          <string/>
         </property>
@@ -62,6 +68,12 @@
       </item>
       <item row="3" column="1">
        <widget class="TaurusLabel" name="powerValue">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>20</height>
+         </size>
+        </property>
         <property name="suffixText">
          <string/>
         </property>
@@ -81,7 +93,14 @@
        </spacer>
       </item>
       <item row="0" column="0" colspan="2">
-       <widget class="TaurusLabel" name="coolingLoopStatus"/>
+       <widget class="TaurusLabel" name="coolingLoopStatus">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>20</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="6" column="0">
        <widget class="QLabel" name="epsPressureLabel">
@@ -91,10 +110,24 @@
        </widget>
       </item>
       <item row="5" column="1">
-       <widget class="TaurusLabel" name="epsTempValue"/>
+       <widget class="TaurusLabel" name="epsTempValue">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>20</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="6" column="1">
-       <widget class="TaurusLabel" name="epsPressureValue"/>
+       <widget class="TaurusLabel" name="epsPressureValue">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>20</height>
+         </size>
+        </property>
+       </widget>
       </item>
      </layout>
     </widget>

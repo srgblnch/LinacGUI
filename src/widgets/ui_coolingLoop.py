@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'widgets/ui/coolingLoop.ui'
 #
-# Created: Wed Oct  1 15:51:10 2014
+# Created: Wed Oct  1 16:27:55 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -17,7 +17,7 @@ except AttributeError:
 class Ui_CoolingLoop(object):
     def setupUi(self, CoolingLoop):
         CoolingLoop.setObjectName(_fromUtf8("CoolingLoop"))
-        CoolingLoop.resize(163, 127)
+        CoolingLoop.resize(163, 167)
         self.gridLayout = QtGui.QGridLayout(CoolingLoop)
         self.gridLayout.setObjectName(_fromUtf8("gridLayout"))
         self.coolingLoopGroup = TaurusGroupBox(CoolingLoop)
@@ -42,25 +42,30 @@ class Ui_CoolingLoop(object):
         self.powerLabel.setObjectName(_fromUtf8("powerLabel"))
         self.gridLayout_2.addWidget(self.powerLabel, 3, 0, 1, 1)
         self.temperatureValue = TaurusLabel(self.coolingLoopGroup)
+        self.temperatureValue.setMinimumSize(QtCore.QSize(0, 20))
         self.temperatureValue.setSuffixText(_fromUtf8(""))
         self.temperatureValue.setObjectName(_fromUtf8("temperatureValue"))
         self.gridLayout_2.addWidget(self.temperatureValue, 1, 1, 1, 1)
         self.powerValue = TaurusLabel(self.coolingLoopGroup)
+        self.powerValue.setMinimumSize(QtCore.QSize(0, 20))
         self.powerValue.setSuffixText(_fromUtf8(""))
         self.powerValue.setObjectName(_fromUtf8("powerValue"))
         self.gridLayout_2.addWidget(self.powerValue, 3, 1, 1, 1)
         spacerItem = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
         self.gridLayout_2.addItem(spacerItem, 7, 1, 1, 1)
         self.coolingLoopStatus = TaurusLabel(self.coolingLoopGroup)
+        self.coolingLoopStatus.setMinimumSize(QtCore.QSize(0, 20))
         self.coolingLoopStatus.setObjectName(_fromUtf8("coolingLoopStatus"))
         self.gridLayout_2.addWidget(self.coolingLoopStatus, 0, 0, 1, 2)
         self.epsPressureLabel = QtGui.QLabel(self.coolingLoopGroup)
         self.epsPressureLabel.setObjectName(_fromUtf8("epsPressureLabel"))
         self.gridLayout_2.addWidget(self.epsPressureLabel, 6, 0, 1, 1)
         self.epsTempValue = TaurusLabel(self.coolingLoopGroup)
+        self.epsTempValue.setMinimumSize(QtCore.QSize(0, 20))
         self.epsTempValue.setObjectName(_fromUtf8("epsTempValue"))
         self.gridLayout_2.addWidget(self.epsTempValue, 5, 1, 1, 1)
         self.epsPressureValue = TaurusLabel(self.coolingLoopGroup)
+        self.epsPressureValue.setMinimumSize(QtCore.QSize(0, 20))
         self.epsPressureValue.setObjectName(_fromUtf8("epsPressureValue"))
         self.gridLayout_2.addWidget(self.epsPressureValue, 6, 1, 1, 1)
         self.gridLayout.addWidget(self.coolingLoopGroup, 0, 0, 1, 1)
