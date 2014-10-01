@@ -1252,7 +1252,7 @@ class ViewButtonListener:
 def main():
     parser = argparse.get_taurus_parser()
     app = TaurusApplication(sys.argv, cmd_line_parser=parser,
-                      app_name='ctli', app_version='1.0',
+                      app_name='ctli', app_version=ctliaux.VERSION,
                       org_domain='ALBA', org_name='ALBA')
     options = app.get_command_line_options()
     ui = MainWindow()

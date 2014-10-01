@@ -23,6 +23,8 @@
 ##
 ###########################################################################
 
+VERSION = '2.4.2'
+
 ######
 #---- Auxiliar methods to configure widgets
 def _setupLed4UnknownAttr(widget):
