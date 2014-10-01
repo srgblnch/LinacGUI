@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'widgets/ui/linacMainscreenSynoptic.ui'
 #
-# Created: Fri Jun  6 11:33:36 2014
+# Created: Wed Oct  1 15:40:26 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -790,6 +790,11 @@ class Ui_linacMainscreenSynoptic(object):
         self.fluorescentScreen3View.setMinimumSize(QtCore.QSize(50, 0))
         self.fluorescentScreen3View.setObjectName(_fromUtf8("fluorescentScreen3View"))
         self.gridLayout_3.addWidget(self.fluorescentScreen3View, 1, 1, 1, 1)
+        self.vacuumValve7OnLedInfo = TaurusLed(linacMainscreenSynoptic)
+        self.vacuumValve7OnLedInfo.setGeometry(QtCore.QRect(1219, 540, 10, 10))
+        self.vacuumValve7OnLedInfo.setMinimumSize(QtCore.QSize(10, 10))
+        self.vacuumValve7OnLedInfo.setMaximumSize(QtCore.QSize(10, 10))
+        self.vacuumValve7OnLedInfo.setObjectName(_fromUtf8("vacuumValve7OnLedInfo"))
 
         self.retranslateUi(linacMainscreenSynoptic)
         QtCore.QMetaObject.connectSlotsByName(linacMainscreenSynoptic)

@@ -356,7 +356,11 @@ class MainWindow(TaurusMainWindow):
                            'window':startup_ui.w1Led,
                            'window_attrName':'li/ct/plc1/w1_uf',
                            'resistorLoad':startup_ui.rl1Led,
-                           'resistorLoad_attrName':'li/ct/plc1/rl1_uf'},
+                           'resistorLoad_attrName':'li/ct/plc1/rl1_uf',
+                           'epsTemperature_attrName':
+                                              'li/ct/cloops/CL1_Temp_Resistor',
+                           'epsPressure_attrName':
+                                             'li/ct/cloops/CL1_Temp_Resistor'},
                         2:{'on':startup_ui.coolingLoop2On,
                            'on_attrName':'li/ct/plc2/CL2_ONC',
                            'Temperature':startup_ui.coolingLoop2TemperatureValue,
@@ -369,7 +373,11 @@ class MainWindow(TaurusMainWindow):
                            'window':startup_ui.w2Led,
                            'window_attrName':'li/ct/plc1/w2_uf',
                            'resistorLoad':startup_ui.rl2Led,
-                           'resistorLoad_attrName':'li/ct/plc1/rl2_uf'},
+                           'resistorLoad_attrName':'li/ct/plc1/rl2_uf',
+                           'epsTemperature_attrName':
+                                              'li/ct/cloops/CL2_Temp_Resistor',
+                           'epsPressure_attrName':
+                                             'li/ct/cloops/CL2_Temp_Resistor'},
                         3:{'on':startup_ui.coolingLoop3On,
                            'on_attrName':'li/ct/plc2/CL3_ONC',
                            'Temperature':startup_ui.coolingLoop3TemperatureValue,
@@ -382,7 +390,11 @@ class MainWindow(TaurusMainWindow):
                            'window':startup_ui.w3Led,
                            'window_attrName':'li/ct/plc1/w3_uf',
                            'resistorLoad':startup_ui.rl3Led,
-                           'resistorLoad_attrName':'li/ct/plc1/rl3_uf'}
+                           'resistorLoad_attrName':'li/ct/plc1/rl3_uf',
+                           'epsTemperature_attrName':
+                                              'li/ct/cloops/CL3_Temp_Resistor',
+                           'epsPressure_attrName':
+                                              'li/ct/cloops/CL3_Temp_Resistor'}
                        }
         self._coolingLoopManagers = {}
         for number in coolingLoops.keys():
@@ -414,10 +426,15 @@ class MainWindow(TaurusMainWindow):
                               coolingLoops[number]['Temperature_attrName'],'C')
             self._setupTaurusLabel4Attr(popupWidget.powerValue,
                                     coolingLoops[number]['power_attrName'],'%')
+            self._setupTaurusLabel4Attr(popupWidget.epsTempValue,
+                           coolingLoops[number]['epsTemperature_attrName'],'C')
+            self._setupTaurusLabel4Attr(popupWidget.epsPressureValue,
+                            coolingLoops[number]['epsPressure_attrName'],'bar')
             self._setupLed4Attr(coolingLoops[number]['window'],
                                 coolingLoops[number]['window_attrName'])
             self._setupLed4Attr(coolingLoops[number]['resistorLoad'],
                                 coolingLoops[number]['resistorLoad_attrName'])
+            
 
     def _setStartup_magnets(self):
         startup_ui = self.ui.linacStartupSynoptic._ui
@@ -1072,6 +1089,10 @@ class MainWindow(TaurusMainWindow):
             else:
                 widget._ui.IonPumpBLabel.hide()
                 widget._ui.IonPumpBLed.hide()
+        #The led at the end of the linac about the vacuum valve
+        widget = mainscreen_ui.vacuumValve7OnLedInfo
+        attrName = 'li/ct/plc2/VV7_OC'
+        self._setupLed4Attr(widget,attrName)
         
     def _setMainscreen_fs(self):
         mainscreen_ui = self.ui.linacMainscreenSynoptic._ui

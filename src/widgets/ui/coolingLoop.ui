@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>163</width>
-    <height>100</height>
+    <height>127</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -25,6 +25,20 @@
       <string>Cooling Loop #</string>
      </property>
      <layout class="QGridLayout" name="gridLayout_2">
+      <item row="4" column="0">
+       <widget class="Line" name="line">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="0">
+       <widget class="QLabel" name="epsTempLabel">
+        <property name="text">
+         <string>Temperature</string>
+        </property>
+       </widget>
+      </item>
       <item row="1" column="0">
        <widget class="QLabel" name="temperatureLabel">
         <property name="text">
@@ -53,10 +67,7 @@
         </property>
        </widget>
       </item>
-      <item row="0" column="0" colspan="2">
-       <widget class="TaurusLabel" name="coolingLoopStatus"/>
-      </item>
-      <item row="4" column="1">
+      <item row="7" column="1">
        <spacer name="verticalSpacer">
         <property name="orientation">
          <enum>Qt::Vertical</enum>
@@ -68,6 +79,22 @@
          </size>
         </property>
        </spacer>
+      </item>
+      <item row="0" column="0" colspan="2">
+       <widget class="TaurusLabel" name="coolingLoopStatus"/>
+      </item>
+      <item row="6" column="0">
+       <widget class="QLabel" name="epsPressureLabel">
+        <property name="text">
+         <string>Pressure</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="1">
+       <widget class="TaurusLabel" name="epsTempValue"/>
+      </item>
+      <item row="6" column="1">
+       <widget class="TaurusLabel" name="epsPressureValue"/>
       </item>
      </layout>
     </widget>

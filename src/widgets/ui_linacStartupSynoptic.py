@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'widgets/ui/linacStartupSynoptic.ui'
 #
-# Created: Thu May 29 15:33:14 2014
+# Created: Wed Oct  1 16:12:45 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -313,13 +313,13 @@ class Ui_linacStartupSynoptic(object):
         self.vacuumValve7OnStatus.setFont(font)
         self.vacuumValve7OnStatus.setObjectName(_fromUtf8("vacuumValve7OnStatus"))
         self.coolingLoop1Widget = CoolingLoop(linacStartupSynoptic)
-        self.coolingLoop1Widget.setGeometry(QtCore.QRect(526, 310, 170, 100))
+        self.coolingLoop1Widget.setGeometry(QtCore.QRect(526, 310, 170, 130))
         self.coolingLoop1Widget.setObjectName(_fromUtf8("coolingLoop1Widget"))
         self.coolingLoop2Widget = CoolingLoop(linacStartupSynoptic)
-        self.coolingLoop2Widget.setGeometry(QtCore.QRect(745, 310, 200, 100))
+        self.coolingLoop2Widget.setGeometry(QtCore.QRect(745, 310, 200, 130))
         self.coolingLoop2Widget.setObjectName(_fromUtf8("coolingLoop2Widget"))
         self.coolingLoop3Widget = CoolingLoop(linacStartupSynoptic)
-        self.coolingLoop3Widget.setGeometry(QtCore.QRect(1030, 310, 200, 100))
+        self.coolingLoop3Widget.setGeometry(QtCore.QRect(1030, 310, 200, 130))
         self.coolingLoop3Widget.setObjectName(_fromUtf8("coolingLoop3Widget"))
         self.qtLed = TaurusLed(linacStartupSynoptic)
         self.qtLed.setGeometry(QtCore.QRect(915, 475, 10, 10))

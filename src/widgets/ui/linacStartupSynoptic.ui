@@ -1033,7 +1033,7 @@
      <x>526</x>
      <y>310</y>
      <width>170</width>
-     <height>100</height>
+     <height>130</height>
     </rect>
    </property>
   </widget>
@@ -1043,7 +1043,7 @@
      <x>745</x>
      <y>310</y>
      <width>200</width>
-     <height>100</height>
+     <height>130</height>
     </rect>
    </property>
   </widget>
@@ -1053,7 +1053,7 @@
      <x>1030</x>
      <y>310</y>
      <width>200</width>
-     <height>100</height>
+     <height>130</height>
     </rect>
    </property>
   </widget>
@@ -2413,9 +2413,42 @@
  </widget>
  <customwidgets>
   <customwidget>
+   <class>TaurusValueSpinBox</class>
+   <extends>QWidget</extends>
+   <header>taurus.qt.qtgui.input</header>
+  </customwidget>
+  <customwidget>
    <class>klystron2itck</class>
    <extends>TaurusWidget</extends>
    <header>klystron2itck</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>TaurusWidget</class>
+   <extends>QWidget</extends>
+   <header>taurus.qt.qtgui.container</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>actionForm</class>
+   <extends>TaurusWidget</extends>
+   <header>actionform</header>
+  </customwidget>
+  <customwidget>
+   <class>TaurusLabel</class>
+   <extends>QLabel</extends>
+   <header>taurus.qt.qtgui.display</header>
+  </customwidget>
+  <customwidget>
+   <class>klystron1itck</class>
+   <extends>TaurusWidget</extends>
+   <header>klystron1itck</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>CoolingLoop</class>
+   <extends>TaurusWidget</extends>
+   <header>coolingloop</header>
    <container>1</container>
   </customwidget>
   <customwidget>
@@ -2423,11 +2456,6 @@
    <extends>TaurusWidget</extends>
    <header>egunlv</header>
    <container>1</container>
-  </customwidget>
-  <customwidget>
-   <class>actionForm</class>
-   <extends>TaurusWidget</extends>
-   <header>actionform</header>
   </customwidget>
   <customwidget>
    <class>TaurusLed</class>
@@ -2440,43 +2468,15 @@
    <header>taurus.qt.qtgui.display</header>
   </customwidget>
   <customwidget>
-   <class>QPixmapWidget</class>
-   <extends>QWidget</extends>
-   <header>taurus.qt.qtgui.display</header>
-  </customwidget>
-  <customwidget>
-   <class>CoolingLoop</class>
-   <extends>TaurusWidget</extends>
-   <header>coolingloop</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
-   <class>klystron1itck</class>
-   <extends>TaurusWidget</extends>
-   <header>klystron1itck</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
-   <class>TaurusValueSpinBox</class>
-   <extends>QWidget</extends>
-   <header>taurus.qt.qtgui.input</header>
-  </customwidget>
-  <customwidget>
-   <class>TaurusWidget</class>
-   <extends>QWidget</extends>
-   <header>taurus.qt.qtgui.container</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
-   <class>TaurusLabel</class>
-   <extends>QLabel</extends>
-   <header>taurus.qt.qtgui.display</header>
-  </customwidget>
-  <customwidget>
    <class>klystronLV</class>
    <extends>TaurusWidget</extends>
    <header>klystronlv</header>
    <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>QPixmapWidget</class>
+   <extends>QWidget</extends>
+   <header>taurus.qt.qtgui.display</header>
   </customwidget>
  </customwidgets>
  <tabstops>
