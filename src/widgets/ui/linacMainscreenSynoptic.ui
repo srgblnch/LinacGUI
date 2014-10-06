@@ -30,42 +30,12 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="TaurusValueSpinBox" name="tbGunLevelValue">
+  <widget class="TaurusValueSpinBox" name="tbGunLevelSetpoint">
    <property name="geometry">
     <rect>
      <x>386</x>
      <y>62</y>
      <width>70</width>
-     <height>22</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="TaurusValueSpinBox" name="tbNumberValue">
-   <property name="geometry">
-    <rect>
-     <x>308</x>
-     <y>107</y>
-     <width>50</width>
-     <height>22</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="TaurusValueSpinBox" name="tbWidthValue">
-   <property name="geometry">
-    <rect>
-     <x>238</x>
-     <y>107</y>
-     <width>55</width>
-     <height>22</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="TaurusValueSpinBox" name="tbGunDelayValue">
-   <property name="geometry">
-    <rect>
-     <x>168</x>
-     <y>107</y>
-     <width>60</width>
      <height>22</height>
     </rect>
    </property>
@@ -1399,51 +1369,6 @@
     </rect>
    </property>
   </widget>
-  <widget class="QLabel" name="tbWidthLabel">
-   <property name="geometry">
-    <rect>
-     <x>246</x>
-     <y>130</y>
-     <width>41</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Interval</string>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
-   </property>
-  </widget>
-  <widget class="QLabel" name="tbNumberLabel">
-   <property name="geometry">
-    <rect>
-     <x>312</x>
-     <y>130</y>
-     <width>41</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Number</string>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
-   </property>
-  </widget>
-  <widget class="QLabel" name="tbGunDelayLabel">
-   <property name="geometry">
-    <rect>
-     <x>180</x>
-     <y>130</y>
-     <width>57</width>
-     <height>14</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Gun Delay</string>
-   </property>
-  </widget>
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
@@ -1694,7 +1619,7 @@
     </item>
    </layout>
   </widget>
-  <widget class="TaurusValueSpinBox" name="tbKaDelay1Value">
+  <widget class="TaurusValueSpinBox" name="tbKaDelay1Setpoint">
    <property name="geometry">
     <rect>
      <x>28</x>
@@ -1704,7 +1629,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="TaurusValueSpinBox" name="tbKaDelay2Value">
+  <widget class="TaurusValueSpinBox" name="tbKaDelay2Setpoint">
    <property name="geometry">
     <rect>
      <x>102</x>
@@ -1912,32 +1837,6 @@
     <rect>
      <x>163</x>
      <y>50</y>
-     <width>16</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>ns</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="tbGunDelayUnit">
-   <property name="geometry">
-    <rect>
-     <x>227</x>
-     <y>110</y>
-     <width>16</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>ns</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="tbGunDelayUnit_2">
-   <property name="geometry">
-    <rect>
-     <x>295</x>
-     <y>110</y>
      <width>16</width>
      <height>16</height>
     </rect>
@@ -2467,6 +2366,122 @@
     </size>
    </property>
   </widget>
+  <widget class="TaurusLabel" name="tbKaDelay1Value">
+   <property name="geometry">
+    <rect>
+     <x>38</x>
+     <y>18</y>
+     <width>60</width>
+     <height>16</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="TaurusLabel" name="tbKaDelay2Value">
+   <property name="geometry">
+    <rect>
+     <x>105</x>
+     <y>18</y>
+     <width>60</width>
+     <height>16</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="TaurusLabel" name="tbGunLevelValue">
+   <property name="geometry">
+    <rect>
+     <x>385</x>
+     <y>40</y>
+     <width>70</width>
+     <height>16</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>90</y>
+     <width>192</width>
+     <height>56</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <layout class="QGridLayout" name="tbGunDelayLayout">
+      <item row="0" column="0">
+       <widget class="TaurusLabel" name="tbGunDelayValue"/>
+      </item>
+      <item row="1" column="0">
+       <widget class="TaurusValueSpinBox" name="tbGunDelaySetpoint"/>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="tbGunDelayLabel">
+        <property name="text">
+         <string>Gun Delay</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QLabel" name="tbGunDelayUnit">
+      <property name="text">
+       <string>ns</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <layout class="QGridLayout" name="tbWidthLayout">
+      <item row="1" column="0">
+       <widget class="TaurusValueSpinBox" name="tbWidthSetpoint"/>
+      </item>
+      <item row="0" column="0">
+       <widget class="TaurusLabel" name="tbWidthValue"/>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="tbWidthLabel">
+        <property name="text">
+         <string>Interval</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QLabel" name="tbGunDelayUnit_2">
+      <property name="text">
+       <string>ns</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <layout class="QGridLayout" name="tbNumberLayout">
+      <item row="0" column="0">
+       <widget class="TaurusLabel" name="tbNumberValue"/>
+      </item>
+      <item row="1" column="0">
+       <widget class="TaurusValueSpinBox" name="tbNumberSetpoint"/>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="tbNumberLabel">
+        <property name="text">
+         <string>Number</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
   <zorder>MainScreenSchematic</zorder>
   <zorder>sl1PopupWidget</zorder>
   <zorder>layoutWidget</zorder>
@@ -2502,10 +2517,10 @@
   <zorder>phaseShifter1PopupWidget</zorder>
   <zorder>klystron2HVPopupWidget</zorder>
   <zorder>klystron1HVPopupWidget</zorder>
-  <zorder>tbGunLevelValue</zorder>
-  <zorder>tbNumberValue</zorder>
-  <zorder>tbWidthValue</zorder>
-  <zorder>tbGunDelayValue</zorder>
+  <zorder>tbGunLevelSetpoint</zorder>
+  <zorder>tbNumberSetpoint</zorder>
+  <zorder>tbWidthSetpoint</zorder>
+  <zorder>tbGunDelaySetpoint</zorder>
   <zorder>rfEnbLed</zorder>
   <zorder>tbTimerStatusStateLed</zorder>
   <zorder>sf6p1Value</zorder>
@@ -2588,8 +2603,8 @@
   <zorder>as1VacuumCheck</zorder>
   <zorder>as2VacuumCheck</zorder>
   <zorder>beamChargeMonitors</zorder>
-  <zorder>tbKaDelay1Value</zorder>
-  <zorder>tbKaDelay2Value</zorder>
+  <zorder>tbKaDelay1Setpoint</zorder>
+  <zorder>tbKaDelay2Setpoint</zorder>
   <zorder>klystron1On</zorder>
   <zorder>klystron1Rst</zorder>
   <zorder>klystron2On</zorder>
@@ -2619,6 +2634,12 @@
   <zorder>klystron2HVLed</zorder>
   <zorder>vacuumCollimatorValveOnStatus</zorder>
   <zorder>vacuumValve7OnLedInfo</zorder>
+  <zorder>tbKaDelay1Value</zorder>
+  <zorder>tbKaDelay2Value</zorder>
+  <zorder>tbGunDelayValue</zorder>
+  <zorder>tbWidthValue</zorder>
+  <zorder>tbNumberValue</zorder>
+  <zorder>tbGunLevelValue</zorder>
  </widget>
  <customwidgets>
   <customwidget>

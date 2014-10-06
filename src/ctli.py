@@ -572,14 +572,25 @@ class MainWindow(TaurusMainWindow):
         
     def _setMainscreen_tb(self):
         mainscreen_ui = self.ui.linacMainscreenSynoptic._ui
-        self._setupSpinBox4Attr(mainscreen_ui.tbKaDelay1Value,
+        #tbKaDelay1
+        self._setupTaurusLabel4Attr(mainscreen_ui.tbKaDelay1Value,
+                                    'li/ct/plc1/TB_KA1_Delay')
+        self._setupSpinBox4Attr(mainscreen_ui.tbKaDelay1Setpoint,
                                     'li/ct/plc1/TB_KA1_Delay',step=1)
-        self._setupSpinBox4Attr(mainscreen_ui.tbKaDelay2Value,
+        #tbKaDelay2
+        self._setupTaurusLabel4Attr(mainscreen_ui.tbKaDelay2Value,
+                                    'li/ct/plc1/TB_KA2_Delay')
+        self._setupSpinBox4Attr(mainscreen_ui.tbKaDelay2Setpoint,
                                     'li/ct/plc1/TB_KA2_Delay',step=32)
+        #tbRf2Delay
         self._setupTaurusLabel4Attr(mainscreen_ui.tbRf2DelayValue,
                                     'li/ct/plc1/TB_RF2_Delay',unit='ns')
-        self._setupSpinBox4Attr(mainscreen_ui.tbGunLevelValue,
+        #tbGunLevel
+        self._setupTaurusLabel4Attr(mainscreen_ui.tbGunLevelValue,
+                                    'li/ct/plc1/TB_GPA')
+        self._setupSpinBox4Attr(mainscreen_ui.tbGunLevelSetpoint,
                                 'li/ct/plc1/TB_GPA',step=0.1)
+        #tbMultiBunch
         self._setupTaurusLabel4Attr(mainscreen_ui.tbMultiBunchValue,
                                     'li/ct/plc1/TB_MBM_status')
         self._setupCheckbox4Attr(mainscreen_ui.tbMultiBunchCheck,
@@ -587,6 +598,7 @@ class MainWindow(TaurusMainWindow):
         self._operationModeMonitor = OperationModeManager(mainscreen_ui)
         #---- FIXME: the addValueNames fails in some versions of taurus,
         #            but it works in the control's room version
+        #tbGatedPulse
         self._setupTaurusLabel4Attr(mainscreen_ui.tbGatedPulseModeValue,
                                     'li/ct/plc1/TB_GPM_status')
         try:
@@ -595,14 +607,25 @@ class MainWindow(TaurusMainWindow):
                                      [('beam on',0),('mix',1),('beam off',2)])
         except:
             mainscreen_ui.tbGatedPulseModeCombo.setEnabled(False)
-        self._setupSpinBox4Attr(mainscreen_ui.tbGunDelayValue,
+        #tbGunDelay
+        self._setupTaurusLabel4Attr(mainscreen_ui.tbGunDelayValue,
+                                    'li/ct/plc1/TB_Gun_Delay')
+        self._setupSpinBox4Attr(mainscreen_ui.tbGunDelaySetpoint,
                                 'li/ct/plc1/TB_Gun_Delay',step=32)
-        self._setupSpinBox4Attr(mainscreen_ui.tbWidthValue,
+        #tbWidth
+        self._setupTaurusLabel4Attr(mainscreen_ui.tbWidthValue,
+                                    'li/ct/plc1/TB_GPI')
+        self._setupSpinBox4Attr(mainscreen_ui.tbWidthSetpoint,
                                 'li/ct/plc1/TB_GPI',step=2)
-        self._setupSpinBox4Attr(mainscreen_ui.tbNumberValue,
+        #tbNumber
+        self._setupTaurusLabel4Attr(mainscreen_ui.tbNumberValue,
+                                    'li/ct/plc1/TB_GPN')
+        self._setupSpinBox4Attr(mainscreen_ui.tbNumberSetpoint,
                                 'li/ct/plc1/TB_GPN',step=1)
+        #tbTimerStatusStateLed
         self._setupLed4Attr(mainscreen_ui.tbTimerStatusStateLed,
                             'li/ct/plc1/TB_ST',offColor='white',onColor='red')
+        #rfEnb
         self._setupLed4Attr(mainscreen_ui.rfEnbLed,'li/ct/plc1/RF_OK')
     
     def _setMainscreen_klystronHV(self):
@@ -1212,10 +1235,12 @@ class OperationModeManager(TaurusBaseComponent,Qt.QObject):
             self._mainscreen_ui.tbWidthLabel.setText('Width')
             self._mainscreen_ui.tbNumberLabel.setEnabled(False)
             self._mainscreen_ui.tbNumberValue.setEnabled(False)
+            self._mainscreen_ui.tbNumberSetpoint.setEnabled(False)
         else:
             self._mainscreen_ui.tbWidthLabel.setText('Interval')
             self._mainscreen_ui.tbNumberLabel.setEnabled(True)
             self._mainscreen_ui.tbNumberValue.setEnabled(True)
+            self._mainscreen_ui.tbNumberSetpoint.setEnabled(True)
 
 #---- This is a copy from fsotrGUI
 from PyQt4 import QtCore
