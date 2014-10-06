@@ -32,7 +32,8 @@ if not linacWidgetsPath in sys.path:
 
 from taurus.core.util import argparse
 from taurus.qt.qtgui.application import TaurusApplication
-from taurus.qt.qtgui.container import TaurusMainWindow
+#from taurus.qt.qtgui.container import TaurusMainWindow
+from taurus.qt.qtgui.taurusgui import TaurusGui
 from taurus.qt.qtgui.base import TaurusBaseComponent
 from taurus.qt import Qt,QtGui,QtCore
 from taurus.qt.qtgui.util import ExternalAppAction
@@ -49,9 +50,9 @@ for i in range(1,6):
     LinacDeviceNames.append("%s%d"%(LinacDeviceNameRoot,i))
 DeviceRelocator = 'li/ct/linacDataRelocator-01'
 
-class MainWindow(TaurusMainWindow):
+class MainWindow(TaurusGui):
     def __init__(self, parent=None):
-        TaurusMainWindow.__init__(self)
+        TaurusGui.__init__(self)
         # setup main window
         self.ui = Ui_linacGui()
         self.ui.setupUi(self)
