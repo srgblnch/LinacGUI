@@ -502,7 +502,7 @@ class MainWindow(TaurusGui):
             #---- on/off each vacuum valve
             attrName = vacuumValves[number]['open_attrName']
             widget = vacuumValves[number]['led']
-            self._setupLed4Attr(widget,attrName)
+            self._setupLed4Attr(widget,attrName,offColor='red')
             widget = vacuumValves[number]['open']
             self._setupActionWidget(widget,attrName,text='open/close')
             #---- status of each vacuum valve
@@ -511,28 +511,28 @@ class MainWindow(TaurusGui):
             self._setupTaurusLabel4Attr(widget,attrName)
 
         #---- area of the vacuum information (TODO: may not well written)
-        startup_ui.ip1Led.setModel('li/ct/plc2/IP1_IS')
-        startup_ui.ip2Led.setModel('li/ct/plc2/IP2_IS')
-        startup_ui.ip3Led.setModel('li/ct/plc2/IP3_IS')
-        startup_ui.ip4Led.setModel('li/ct/plc2/IP4_IS')
-        startup_ui.ip5Led.setModel('li/ct/plc2/IP5_IS')
-        startup_ui.ip6Led.setModel('li/ct/plc2/IP6_IS')
-        startup_ui.ip7Led.setModel('li/ct/plc2/IP7_IS')
-        startup_ui.ip8Led.setModel('li/ct/plc2/IP8_IS')
-        startup_ui.ip9Led.setModel('li/ct/plc2/IP9_IS')
-        startup_ui.hvg1Led.setModel('li/ct/plc2/HVG1_IS')
+        self._setupLed4Attr(startup_ui.ip1Led,'li/ct/plc2/IP1_IS')
+        self._setupLed4Attr(startup_ui.ip2Led,'li/ct/plc2/IP2_IS')
+        self._setupLed4Attr(startup_ui.ip3Led,'li/ct/plc2/IP3_IS')
+        self._setupLed4Attr(startup_ui.ip4Led,'li/ct/plc2/IP4_IS')
+        self._setupLed4Attr(startup_ui.ip5Led,'li/ct/plc2/IP5_IS')
+        self._setupLed4Attr(startup_ui.ip6Led,'li/ct/plc2/IP6_IS')
+        self._setupLed4Attr(startup_ui.ip7Led,'li/ct/plc2/IP7_IS')
+        self._setupLed4Attr(startup_ui.ip8Led,'li/ct/plc2/IP8_IS')
+        self._setupLed4Attr(startup_ui.ip9Led,'li/ct/plc2/IP9_IS')
+        self._setupLed4Attr(startup_ui.hvg1Led,'li/ct/plc2/HVG1_IS')
         self._setupTaurusLabel4Attr(startup_ui.hvg1Value,
                                     'li/ct/plc2/HVG1_P','mbar')
-        startup_ui.hvg2Led.setModel('li/ct/plc2/HVG2_IS')
+        self._setupLed4Attr(startup_ui.hvg2Led,'li/ct/plc2/HVG2_IS')
         self._setupTaurusLabel4Attr(startup_ui.hvg2Value,
                                     'li/ct/plc2/HVG2_P','mbar')
-        startup_ui.hvg3Led.setModel('li/ct/plc2/HVG3_IS')
+        self._setupLed4Attr(startup_ui.hvg3Led,'li/ct/plc2/HVG3_IS')
         self._setupTaurusLabel4Attr(startup_ui.hvg3Value,
                                     'li/ct/plc2/HVG3_P','mbar')
-        startup_ui.hvg4Led.setModel('li/ct/plc2/HVG4_IS')
+        self._setupLed4Attr(startup_ui.hvg4Led,'li/ct/plc2/HVG4_IS')
         self._setupTaurusLabel4Attr(startup_ui.hvg4Value,
                                     'li/ct/plc2/HVG4_P','mbar')
-        startup_ui.hvg5Led.setModel('li/ct/plc2/HVG5_IS')
+        self._setupLed4Attr(startup_ui.hvg5Led,'li/ct/plc2/HVG5_IS')
         self._setupTaurusLabel4Attr(startup_ui.hvg5Value,
                                     'li/ct/plc2/HVG5_P','mbar')
         self._setupTaurusLabel4Attr(startup_ui.ipc1Value1,
