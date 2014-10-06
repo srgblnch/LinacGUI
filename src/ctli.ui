@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1325</width>
+    <width>1360</width>
     <height>1000</height>
    </rect>
   </property>
@@ -53,8 +53,8 @@
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>666</width>
-            <height>676</height>
+            <width>796</width>
+            <height>678</height>
            </rect>
           </property>
           <layout class="QGridLayout" name="gridLayout_3">
@@ -262,7 +262,7 @@
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>1295</width>
+            <width>1330</width>
             <height>949</height>
            </rect>
           </property>
@@ -346,15 +346,15 @@
    <container>1</container>
   </customwidget>
   <customwidget>
-   <class>linacOverview</class>
-   <extends>TaurusWidget</extends>
-   <header>linacoverview</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
    <class>linacStartupSynoptic</class>
    <extends>TaurusWidget</extends>
    <header>linacstartupsynoptic</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>linacOverview</class>
+   <extends>TaurusWidget</extends>
+   <header>linacoverview</header>
    <container>1</container>
   </customwidget>
   <customwidget>

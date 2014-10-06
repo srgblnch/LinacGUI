@@ -66,7 +66,7 @@
    <property name="geometry">
     <rect>
      <x>464</x>
-     <y>20</y>
+     <y>7</y>
      <width>10</width>
      <height>10</height>
     </rect>
@@ -82,26 +82,6 @@
      <width>10</width>
      <height>10</height>
     </size>
-   </property>
-  </widget>
-  <widget class="TaurusLabel" name="sf6p1Value">
-   <property name="geometry">
-    <rect>
-     <x>720</x>
-     <y>310</y>
-     <width>90</width>
-     <height>16</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="TaurusLabel" name="sf6p2Value">
-   <property name="geometry">
-    <rect>
-     <x>1000</x>
-     <y>310</y>
-     <width>90</width>
-     <height>16</height>
-    </rect>
    </property>
   </widget>
   <widget class="TaurusLed" name="coolingLoop1Led">
@@ -904,7 +884,7 @@
    <property name="geometry">
     <rect>
      <x>1104</x>
-     <y>278</y>
+     <y>254</y>
      <width>10</width>
      <height>10</height>
     </rect>
@@ -1359,20 +1339,10 @@
     <bool>true</bool>
    </property>
   </widget>
-  <widget class="TaurusLabel" name="tbRf2DelayValue">
-   <property name="geometry">
-    <rect>
-     <x>177</x>
-     <y>52</y>
-     <width>48</width>
-     <height>16</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>20</x>
+     <x>10</x>
      <y>80</y>
      <width>141</width>
      <height>71</height>
@@ -1429,19 +1399,6 @@
      <widget class="TaurusLabel" name="tbGatedPulseModeValue"/>
     </item>
    </layout>
-  </widget>
-  <widget class="QLabel" name="label_2">
-   <property name="geometry">
-    <rect>
-     <x>459</x>
-     <y>66</y>
-     <width>16</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>dB</string>
-   </property>
   </widget>
   <widget class="CavityVacuum" name="eGunVacuumWidget">
    <property name="geometry">
@@ -1618,26 +1575,6 @@
      <widget class="TaurusValueSpinBox" name="klystron2HVWrite"/>
     </item>
    </layout>
-  </widget>
-  <widget class="TaurusValueSpinBox" name="tbKaDelay1Setpoint">
-   <property name="geometry">
-    <rect>
-     <x>28</x>
-     <y>48</y>
-     <width>60</width>
-     <height>22</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="TaurusValueSpinBox" name="tbKaDelay2Setpoint">
-   <property name="geometry">
-    <rect>
-     <x>102</x>
-     <y>49</y>
-     <width>60</width>
-     <height>22</height>
-    </rect>
-   </property>
   </widget>
   <widget class="actionForm" name="klystron1On">
    <property name="geometry">
@@ -1819,32 +1756,6 @@
     </rect>
    </property>
   </widget>
-  <widget class="QLabel" name="tbKaDelay1Unit">
-   <property name="geometry">
-    <rect>
-     <x>87</x>
-     <y>50</y>
-     <width>16</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>us</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="tbKaDelay2Unit">
-   <property name="geometry">
-    <rect>
-     <x>163</x>
-     <y>50</y>
-     <width>16</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>ns</string>
-   </property>
-  </widget>
   <widget class="TaurusLed" name="attenuatorLed">
    <property name="geometry">
     <rect>
@@ -1969,12 +1880,22 @@
    <property name="geometry">
     <rect>
      <x>110</x>
-     <y>310</y>
+     <y>280</y>
      <width>71</width>
-     <height>50</height>
+     <height>64</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="rfTimePhaseShifter0Layout">
+    <item>
+     <widget class="QLabel" name="rfTimePhaseShifter0Label">
+      <property name="text">
+       <string>TPS0</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
     <item>
      <widget class="TaurusValueSpinBox" name="rfTimePhaseShifter0Setpoint"/>
     </item>
@@ -1994,12 +1915,22 @@
    <property name="geometry">
     <rect>
      <x>180</x>
-     <y>310</y>
+     <y>280</y>
      <width>71</width>
-     <height>50</height>
+     <height>64</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="rfA0OutputPowerLayout">
+    <item>
+     <widget class="QLabel" name="rfA0OutputPowerLabel">
+      <property name="text">
+       <string>A0GS</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
     <item>
      <widget class="TaurusValueSpinBox" name="rfA0OutputPowerSetpoint"/>
     </item>
@@ -2019,9 +1950,9 @@
    <property name="geometry">
     <rect>
      <x>260</x>
-     <y>250</y>
+     <y>260</y>
      <width>67</width>
-     <height>50</height>
+     <height>64</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="rfTimePhaseShifterXLayout">
@@ -2038,18 +1969,28 @@
     <item>
      <widget class="TaurusValueSpinBox" name="rfTimePhaseShifterXSetpoint"/>
     </item>
+    <item>
+     <widget class="QLabel" name="rfTimePhaseShifterXLabel">
+      <property name="text">
+       <string>TPSX</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
    </layout>
   </widget>
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>510</x>
-     <y>250</y>
+     <y>260</y>
      <width>67</width>
-     <height>50</height>
+     <height>64</height>
     </rect>
    </property>
-   <layout class="QVBoxLayout" name="verticalLayout_6">
+   <layout class="QVBoxLayout" name="rfTimePhaseShifter1Layout">
     <item>
      <widget class="TaurusLabel" name="rfTimePhaseShifter1Value">
       <property name="minimumSize">
@@ -2063,67 +2004,13 @@
     <item>
      <widget class="TaurusValueSpinBox" name="rfTimePhaseShifter1Setpoint"/>
     </item>
-   </layout>
-  </widget>
-  <widget class="QWidget" name="layoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>770</x>
-     <y>270</y>
-     <width>136</width>
-     <height>24</height>
-    </rect>
-   </property>
-   <layout class="QHBoxLayout" name="rfTimePhaseShifter2Layout">
     <item>
-     <widget class="TaurusLabel" name="rfTimePhaseShifter2Value">
-      <property name="minimumSize">
-       <size>
-        <width>65</width>
-        <height>22</height>
-       </size>
+     <widget class="QLabel" name="rfTimePhaseShifter1Label">
+      <property name="text">
+       <string>TPS1</string>
       </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="TaurusValueSpinBox" name="rfTimePhaseShifter2Setpoint">
-      <property name="minimumSize">
-       <size>
-        <width>65</width>
-        <height>0</height>
-       </size>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QWidget" name="layoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>570</x>
-     <y>310</y>
-     <width>136</width>
-     <height>24</height>
-    </rect>
-   </property>
-   <layout class="QHBoxLayout" name="rfPhaseShifter1Layout">
-    <item>
-     <widget class="TaurusLabel" name="rfPhaseShifter1Value">
-      <property name="minimumSize">
-       <size>
-        <width>65</width>
-        <height>22</height>
-       </size>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="TaurusValueSpinBox" name="rfPhaseShifter1Setpoint">
-      <property name="minimumSize">
-       <size>
-        <width>65</width>
-        <height>22</height>
-       </size>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
       </property>
      </widget>
     </item>
@@ -2133,12 +2020,22 @@
    <property name="geometry">
     <rect>
      <x>440</x>
-     <y>310</y>
+     <y>280</y>
      <width>67</width>
-     <height>50</height>
+     <height>64</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="rfPhaseShifter2Layout">
+    <item>
+     <widget class="QLabel" name="rfPhaseShifter2Label">
+      <property name="text">
+       <string>PHS2</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
     <item>
      <widget class="TaurusValueSpinBox" name="rfPhaseShifter2Setpoint"/>
     </item>
@@ -2158,12 +2055,22 @@
    <property name="geometry">
     <rect>
      <x>370</x>
-     <y>310</y>
+     <y>280</y>
      <width>67</width>
-     <height>50</height>
+     <height>64</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="attenuator2Layout">
+    <item>
+     <widget class="QLabel" name="attenuator2Label">
+      <property name="text">
+       <string>ATT2</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
     <item>
      <widget class="TaurusValueSpinBox" name="attenuator2Setpoint"/>
     </item>
@@ -2183,7 +2090,7 @@
    <property name="geometry">
     <rect>
      <x>510</x>
-     <y>770</y>
+     <y>780</y>
      <width>201</width>
      <height>43</height>
     </rect>
@@ -2238,7 +2145,7 @@
    <property name="geometry">
     <rect>
      <x>760</x>
-     <y>770</y>
+     <y>780</y>
      <width>201</width>
      <height>43</height>
     </rect>
@@ -2293,7 +2200,7 @@
    <property name="geometry">
     <rect>
      <x>1040</x>
-     <y>770</y>
+     <y>780</y>
      <width>201</width>
      <height>43</height>
     </rect>
@@ -2366,26 +2273,6 @@
     </size>
    </property>
   </widget>
-  <widget class="TaurusLabel" name="tbKaDelay1Value">
-   <property name="geometry">
-    <rect>
-     <x>38</x>
-     <y>18</y>
-     <width>60</width>
-     <height>16</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="TaurusLabel" name="tbKaDelay2Value">
-   <property name="geometry">
-    <rect>
-     <x>105</x>
-     <y>18</y>
-     <width>60</width>
-     <height>16</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="TaurusLabel" name="tbGunLevelValue">
    <property name="geometry">
     <rect>
@@ -2396,12 +2283,12 @@
     </rect>
    </property>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>160</x>
+     <x>170</x>
      <y>90</y>
-     <width>192</width>
+     <width>194</width>
      <height>56</height>
     </rect>
    </property>
@@ -2412,7 +2299,14 @@
        <widget class="TaurusLabel" name="tbGunDelayValue"/>
       </item>
       <item row="1" column="0">
-       <widget class="TaurusValueSpinBox" name="tbGunDelaySetpoint"/>
+       <widget class="TaurusValueSpinBox" name="tbGunDelaySetpoint">
+        <property name="minimumSize">
+         <size>
+          <width>60</width>
+          <height>22</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="2" column="0">
        <widget class="QLabel" name="tbGunDelayLabel">
@@ -2427,16 +2321,16 @@
      </layout>
     </item>
     <item>
-     <widget class="QLabel" name="tbGunDelayUnit">
-      <property name="text">
-       <string>ns</string>
-      </property>
-     </widget>
-    </item>
-    <item>
      <layout class="QGridLayout" name="tbWidthLayout">
       <item row="1" column="0">
-       <widget class="TaurusValueSpinBox" name="tbWidthSetpoint"/>
+       <widget class="TaurusValueSpinBox" name="tbWidthSetpoint">
+        <property name="minimumSize">
+         <size>
+          <width>40</width>
+          <height>22</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="0" column="0">
        <widget class="TaurusLabel" name="tbWidthValue"/>
@@ -2454,19 +2348,19 @@
      </layout>
     </item>
     <item>
-     <widget class="QLabel" name="tbGunDelayUnit_2">
-      <property name="text">
-       <string>ns</string>
-      </property>
-     </widget>
-    </item>
-    <item>
      <layout class="QGridLayout" name="tbNumberLayout">
       <item row="0" column="0">
        <widget class="TaurusLabel" name="tbNumberValue"/>
       </item>
       <item row="1" column="0">
-       <widget class="TaurusValueSpinBox" name="tbNumberSetpoint"/>
+       <widget class="TaurusValueSpinBox" name="tbNumberSetpoint">
+        <property name="minimumSize">
+         <size>
+          <width>40</width>
+          <height>22</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="2" column="0">
        <widget class="QLabel" name="tbNumberLabel">
@@ -2482,7 +2376,268 @@
     </item>
    </layout>
   </widget>
+  <widget class="QLabel" name="tbGunLevelLabel">
+   <property name="geometry">
+    <rect>
+     <x>390</x>
+     <y>20</y>
+     <width>57</width>
+     <height>14</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Gun Level</string>
+   </property>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>10</y>
+     <width>51</width>
+     <height>62</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_3">
+    <item>
+     <widget class="QLabel" name="tbKaDelay1Label">
+      <property name="text">
+       <string>KA1 Delay</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="TaurusLabel" name="tbKaDelay1Value">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>20</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="TaurusValueSpinBox" name="tbKaDelay1Setpoint"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>90</x>
+     <y>10</y>
+     <width>62</width>
+     <height>62</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_4">
+    <item>
+     <widget class="QLabel" name="tbKaDelay2Label">
+      <property name="text">
+       <string>KA1 Delay</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="TaurusLabel" name="tbKaDelay2Value">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>20</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="TaurusValueSpinBox" name="tbKaDelay2Setpoint">
+      <property name="minimumSize">
+       <size>
+        <width>60</width>
+        <height>0</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>40</y>
+     <width>51</width>
+     <height>36</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_5">
+    <item>
+     <widget class="QLabel" name="tbRf2DelayLabel">
+      <property name="text">
+       <string>RF2 Delay</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="TaurusLabel" name="tbRf2DelayValue">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>20</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>580</x>
+     <y>280</y>
+     <width>67</width>
+     <height>64</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="rfPhaseShifter1Layout">
+    <item>
+     <widget class="QLabel" name="rfPhaseShifter1Label">
+      <property name="text">
+       <string>PHS1</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="TaurusLabel" name="rfPhaseShifter1Value">
+      <property name="minimumSize">
+       <size>
+        <width>65</width>
+        <height>22</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="TaurusValueSpinBox" name="rfPhaseShifter1Setpoint">
+      <property name="minimumSize">
+       <size>
+        <width>65</width>
+        <height>22</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>830</x>
+     <y>260</y>
+     <width>67</width>
+     <height>64</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="rfTimePhaseShifter2Layout">
+    <item>
+     <widget class="TaurusValueSpinBox" name="rfTimePhaseShifter2Setpoint">
+      <property name="minimumSize">
+       <size>
+        <width>65</width>
+        <height>0</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="TaurusLabel" name="rfTimePhaseShifter2Value">
+      <property name="minimumSize">
+       <size>
+        <width>65</width>
+        <height>22</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="rfTimePhaseShifter2Label">
+      <property name="text">
+       <string>TPS2</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>1000</x>
+     <y>290</y>
+     <width>92</width>
+     <height>36</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="sf6p2Layout">
+    <item>
+     <widget class="QLabel" name="sf6p2Label">
+      <property name="text">
+       <string>SF6P2</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="TaurusLabel" name="sf6p2Value">
+      <property name="minimumSize">
+       <size>
+        <width>90</width>
+        <height>20</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>710</x>
+     <y>290</y>
+     <width>92</width>
+     <height>36</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_6">
+    <item>
+     <widget class="QLabel" name="sf6p1Label">
+      <property name="text">
+       <string>SF6P1</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="TaurusLabel" name="sf6p1Value">
+      <property name="minimumSize">
+       <size>
+        <width>90</width>
+        <height>20</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
   <zorder>MainScreenSchematic</zorder>
+  <zorder>layoutWidget</zorder>
+  <zorder>layoutWidget</zorder>
+  <zorder>layoutWidget</zorder>
+  <zorder>layoutWidget</zorder>
+  <zorder>layoutWidget</zorder>
+  <zorder>layoutWidget</zorder>
   <zorder>sl1PopupWidget</zorder>
   <zorder>layoutWidget</zorder>
   <zorder>layoutWidget</zorder>
@@ -2518,13 +2673,8 @@
   <zorder>klystron2HVPopupWidget</zorder>
   <zorder>klystron1HVPopupWidget</zorder>
   <zorder>tbGunLevelSetpoint</zorder>
-  <zorder>tbNumberSetpoint</zorder>
-  <zorder>tbWidthSetpoint</zorder>
-  <zorder>tbGunDelaySetpoint</zorder>
   <zorder>rfEnbLed</zorder>
   <zorder>tbTimerStatusStateLed</zorder>
-  <zorder>sf6p1Value</zorder>
-  <zorder>sf6p2Value</zorder>
   <zorder>coolingLoop1Led</zorder>
   <zorder>coolingLoop2Led</zorder>
   <zorder>coolingLoop3Led</zorder>
@@ -2592,19 +2742,12 @@
   <zorder>as1PopupCheck</zorder>
   <zorder>qtPopupCheck</zorder>
   <zorder>as2PopupCheck</zorder>
-  <zorder>tbRf2DelayValue</zorder>
-  <zorder>tbWidthLabel</zorder>
-  <zorder>tbNumberLabel</zorder>
-  <zorder>tbGunDelayLabel</zorder>
-  <zorder>label_2</zorder>
   <zorder>eGunVacuumCheck</zorder>
   <zorder>preBuncherVacuumCheck</zorder>
   <zorder>buncherVacuumCheck</zorder>
   <zorder>as1VacuumCheck</zorder>
   <zorder>as2VacuumCheck</zorder>
   <zorder>beamChargeMonitors</zorder>
-  <zorder>tbKaDelay1Setpoint</zorder>
-  <zorder>tbKaDelay2Setpoint</zorder>
   <zorder>klystron1On</zorder>
   <zorder>klystron1Rst</zorder>
   <zorder>klystron2On</zorder>
@@ -2623,10 +2766,6 @@
   <zorder>as1On</zorder>
   <zorder>qtOn</zorder>
   <zorder>as2On</zorder>
-  <zorder>tbKaDelay1Unit</zorder>
-  <zorder>tbKaDelay2Unit</zorder>
-  <zorder>tbGunDelayUnit</zorder>
-  <zorder>tbGunDelayUnit_2</zorder>
   <zorder>attenuatorLed</zorder>
   <zorder>phaseShifter2Led</zorder>
   <zorder>phaseShifter1Led</zorder>
@@ -2634,12 +2773,8 @@
   <zorder>klystron2HVLed</zorder>
   <zorder>vacuumCollimatorValveOnStatus</zorder>
   <zorder>vacuumValve7OnLedInfo</zorder>
-  <zorder>tbKaDelay1Value</zorder>
-  <zorder>tbKaDelay2Value</zorder>
-  <zorder>tbGunDelayValue</zorder>
-  <zorder>tbWidthValue</zorder>
-  <zorder>tbNumberValue</zorder>
   <zorder>tbGunLevelValue</zorder>
+  <zorder>tbGunLevelLabel</zorder>
  </widget>
  <customwidgets>
   <customwidget>

@@ -575,12 +575,12 @@ class MainWindow(TaurusGui):
         mainscreen_ui = self.ui.linacMainscreenSynoptic._ui
         #tbKaDelay1
         self._setupTaurusLabel4Attr(mainscreen_ui.tbKaDelay1Value,
-                                    'li/ct/plc1/TB_KA1_Delay')
+                                    'li/ct/plc1/TB_KA1_Delay',unit='us')
         self._setupSpinBox4Attr(mainscreen_ui.tbKaDelay1Setpoint,
                                     'li/ct/plc1/TB_KA1_Delay',step=1)
         #tbKaDelay2
         self._setupTaurusLabel4Attr(mainscreen_ui.tbKaDelay2Value,
-                                    'li/ct/plc1/TB_KA2_Delay')
+                                    'li/ct/plc1/TB_KA2_Delay',unit='ns')
         self._setupSpinBox4Attr(mainscreen_ui.tbKaDelay2Setpoint,
                                     'li/ct/plc1/TB_KA2_Delay',step=32)
         #tbRf2Delay
@@ -588,7 +588,7 @@ class MainWindow(TaurusGui):
                                     'li/ct/plc1/TB_RF2_Delay',unit='ns')
         #tbGunLevel
         self._setupTaurusLabel4Attr(mainscreen_ui.tbGunLevelValue,
-                                    'li/ct/plc1/TB_GPA')
+                                    'li/ct/plc1/TB_GPA',unit='dB')
         self._setupSpinBox4Attr(mainscreen_ui.tbGunLevelSetpoint,
                                 'li/ct/plc1/TB_GPA',step=0.1)
         #tbMultiBunch
@@ -610,12 +610,12 @@ class MainWindow(TaurusGui):
             mainscreen_ui.tbGatedPulseModeCombo.setEnabled(False)
         #tbGunDelay
         self._setupTaurusLabel4Attr(mainscreen_ui.tbGunDelayValue,
-                                    'li/ct/plc1/TB_Gun_Delay')
+                                    'li/ct/plc1/TB_Gun_Delay',unit='ns')
         self._setupSpinBox4Attr(mainscreen_ui.tbGunDelaySetpoint,
                                 'li/ct/plc1/TB_Gun_Delay',step=32)
         #tbWidth
         self._setupTaurusLabel4Attr(mainscreen_ui.tbWidthValue,
-                                    'li/ct/plc1/TB_GPI')
+                                    'li/ct/plc1/TB_GPI',unit='ns')
         self._setupSpinBox4Attr(mainscreen_ui.tbWidthSetpoint,
                                 'li/ct/plc1/TB_GPI',step=2)
         #tbNumber
