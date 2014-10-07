@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'widgets/ui/linacMainscreenSynoptic.ui'
 #
-# Created: Mon Oct  6 13:04:05 2014
+# Created: Tue Oct  7 12:32:50 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -890,19 +890,34 @@ class Ui_linacMainscreenSynoptic(object):
         self.sf6p2Value.setMinimumSize(QtCore.QSize(90, 20))
         self.sf6p2Value.setObjectName(_fromUtf8("sf6p2Value"))
         self.sf6p2Layout.addWidget(self.sf6p2Value)
-        self.widget = QtGui.QWidget(linacMainscreenSynoptic)
-        self.widget.setGeometry(QtCore.QRect(710, 290, 92, 36))
-        self.widget.setObjectName(_fromUtf8("widget"))
-        self.verticalLayout_6 = QtGui.QVBoxLayout(self.widget)
+        self.layoutWidget20 = QtGui.QWidget(linacMainscreenSynoptic)
+        self.layoutWidget20.setGeometry(QtCore.QRect(710, 290, 92, 36))
+        self.layoutWidget20.setObjectName(_fromUtf8("layoutWidget20"))
+        self.verticalLayout_6 = QtGui.QVBoxLayout(self.layoutWidget20)
         self.verticalLayout_6.setMargin(0)
         self.verticalLayout_6.setObjectName(_fromUtf8("verticalLayout_6"))
-        self.sf6p1Label = QtGui.QLabel(self.widget)
+        self.sf6p1Label = QtGui.QLabel(self.layoutWidget20)
         self.sf6p1Label.setObjectName(_fromUtf8("sf6p1Label"))
         self.verticalLayout_6.addWidget(self.sf6p1Label)
-        self.sf6p1Value = TaurusLabel(self.widget)
+        self.sf6p1Value = TaurusLabel(self.layoutWidget20)
         self.sf6p1Value.setMinimumSize(QtCore.QSize(90, 20))
         self.sf6p1Value.setObjectName(_fromUtf8("sf6p1Value"))
         self.verticalLayout_6.addWidget(self.sf6p1Value)
+        self.tl_vokFrame = QtGui.QFrame(linacMainscreenSynoptic)
+        self.tl_vokFrame.setGeometry(QtCore.QRect(1180, 500, 62, 24))
+        self.tl_vokFrame.setFrameShape(QtGui.QFrame.StyledPanel)
+        self.tl_vokFrame.setFrameShadow(QtGui.QFrame.Raised)
+        self.tl_vokFrame.setObjectName(_fromUtf8("tl_vokFrame"))
+        self.gridLayout_4 = QtGui.QGridLayout(self.tl_vokFrame)
+        self.gridLayout_4.setObjectName(_fromUtf8("gridLayout_4"))
+        self.tl_vokLabel = QtGui.QLabel(self.tl_vokFrame)
+        self.tl_vokLabel.setObjectName(_fromUtf8("tl_vokLabel"))
+        self.gridLayout_4.addWidget(self.tl_vokLabel, 0, 0, 1, 1)
+        self.tl_vokLedInfo = TaurusLed(self.tl_vokFrame)
+        self.tl_vokLedInfo.setMinimumSize(QtCore.QSize(10, 10))
+        self.tl_vokLedInfo.setMaximumSize(QtCore.QSize(10, 10))
+        self.tl_vokLedInfo.setObjectName(_fromUtf8("tl_vokLedInfo"))
+        self.gridLayout_4.addWidget(self.tl_vokLedInfo, 0, 1, 1, 1)
 
         self.retranslateUi(linacMainscreenSynoptic)
         QtCore.QMetaObject.connectSlotsByName(linacMainscreenSynoptic)
@@ -958,6 +973,7 @@ class Ui_linacMainscreenSynoptic(object):
         self.rfTimePhaseShifter2Label.setText(QtGui.QApplication.translate("linacMainscreenSynoptic", "TPS2", None, QtGui.QApplication.UnicodeUTF8))
         self.sf6p2Label.setText(QtGui.QApplication.translate("linacMainscreenSynoptic", "SF6P2", None, QtGui.QApplication.UnicodeUTF8))
         self.sf6p1Label.setText(QtGui.QApplication.translate("linacMainscreenSynoptic", "SF6P1", None, QtGui.QApplication.UnicodeUTF8))
+        self.tl_vokLabel.setText(QtGui.QApplication.translate("linacMainscreenSynoptic", "TL_VOK", None, QtGui.QApplication.UnicodeUTF8))
 
 from taurus.qt.qtgui.display import TaurusLed, TaurusLabel
 from attenuator import Attenuator

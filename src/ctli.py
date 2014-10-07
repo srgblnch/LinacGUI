@@ -32,8 +32,8 @@ if not linacWidgetsPath in sys.path:
 
 from taurus.core.util import argparse
 from taurus.qt.qtgui.application import TaurusApplication
-#from taurus.qt.qtgui.container import TaurusMainWindow
-from taurus.qt.qtgui.taurusgui import TaurusGui
+from taurus.qt.qtgui.container import TaurusMainWindow
+#from taurus.qt.qtgui.taurusgui import TaurusGui
 from taurus.qt.qtgui.base import TaurusBaseComponent
 from taurus.qt import Qt,QtGui,QtCore
 from taurus.qt.qtgui.util import ExternalAppAction
@@ -50,9 +50,11 @@ for i in range(1,6):
     LinacDeviceNames.append("%s%d"%(LinacDeviceNameRoot,i))
 DeviceRelocator = 'li/ct/linacDataRelocator-01'
 
-class MainWindow(TaurusGui):
+class MainWindow(TaurusMainWindow):
+#class MainWindow(TaurusGui):
     def __init__(self, parent=None):
-        TaurusGui.__init__(self)
+        TaurusMainWindow.__init__(self)
+        #TaurusGui.__init__(self)
         # setup main window
         self.ui = Ui_linacGui()
         self.ui.setupUi(self)
@@ -1113,6 +1115,10 @@ class MainWindow(TaurusGui):
         #The led at the end of the linac about the vacuum valve
         widget = mainscreen_ui.vacuumValve7OnLedInfo
         attrName = 'li/ct/plc2/VV7_OC'
+        self._setupLed4Attr(widget,attrName)
+        #The led at the end of the linac about the LT vacuum state.
+        widget = mainscreen_ui.tl_vokLedInfo
+        attrName = 'li/ct/plc1/TL_VOK'
         self._setupLed4Attr(widget,attrName)
         
     def _setMainscreen_fs(self):

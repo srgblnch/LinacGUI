@@ -2602,7 +2602,7 @@
     </item>
    </layout>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>710</x>
@@ -2625,6 +2625,47 @@
        <size>
         <width>90</width>
         <height>20</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QFrame" name="tl_vokFrame">
+   <property name="geometry">
+    <rect>
+     <x>1180</x>
+     <y>500</y>
+     <width>62</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <layout class="QGridLayout" name="gridLayout_4">
+    <item row="0" column="0">
+     <widget class="QLabel" name="tl_vokLabel">
+      <property name="text">
+       <string>TL_VOK</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="TaurusLed" name="tl_vokLedInfo">
+      <property name="minimumSize">
+       <size>
+        <width>10</width>
+        <height>10</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>10</width>
+        <height>10</height>
        </size>
       </property>
      </widget>
@@ -2775,6 +2816,8 @@
   <zorder>vacuumValve7OnLedInfo</zorder>
   <zorder>tbGunLevelValue</zorder>
   <zorder>tbGunLevelLabel</zorder>
+  <zorder>tl_vokLedInfo</zorder>
+  <zorder>tl_vokFrame</zorder>
  </widget>
  <customwidgets>
   <customwidget>
