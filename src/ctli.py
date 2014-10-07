@@ -360,8 +360,7 @@ class MainWindow(TaurusGui):
                            'resistorLoad_attrName':'li/ct/plc1/rl1_uf',
                            'epsTemperature_attrName':
                                               'li/ct/cloops/CL1_Temp_Resistor',
-                           'epsPressure_attrName':
-                                             'li/ct/cloops/CL1_Temp_Resistor'},
+                           'epsPressure_attrName':'li/ct/cloops/CL1_P'},
                         2:{'on':startup_ui.coolingLoop2On,
                            'on_attrName':'li/ct/plc2/CL2_ONC',
                            'Temperature':startup_ui.coolingLoop2TemperatureValue,
@@ -377,8 +376,7 @@ class MainWindow(TaurusGui):
                            'resistorLoad_attrName':'li/ct/plc1/rl2_uf',
                            'epsTemperature_attrName':
                                               'li/ct/cloops/CL2_Temp_Resistor',
-                           'epsPressure_attrName':
-                                             'li/ct/cloops/CL2_Temp_Resistor'},
+                           'epsPressure_attrName':'li/ct/cloops/CL2_P'},
                         3:{'on':startup_ui.coolingLoop3On,
                            'on_attrName':'li/ct/plc2/CL3_ONC',
                            'Temperature':startup_ui.coolingLoop3TemperatureValue,
@@ -394,8 +392,7 @@ class MainWindow(TaurusGui):
                            'resistorLoad_attrName':'li/ct/plc1/rl3_uf',
                            'epsTemperature_attrName':
                                               'li/ct/cloops/CL3_Temp_Resistor',
-                           'epsPressure_attrName':
-                                              'li/ct/cloops/CL3_Temp_Resistor'}
+                           'epsPressure_attrName':'li/ct/cloops/CL3_P'}
                        }
         self._coolingLoopManagers = {}
         for number in coolingLoops.keys():
