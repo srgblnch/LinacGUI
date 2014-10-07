@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'widgets/ui/linacMainscreenSynoptic.ui'
 #
-# Created: Tue Oct  7 12:32:50 2014
+# Created: Tue Oct  7 12:50:55 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -909,8 +909,10 @@ class Ui_linacMainscreenSynoptic(object):
         self.tl_vokFrame.setFrameShadow(QtGui.QFrame.Raised)
         self.tl_vokFrame.setObjectName(_fromUtf8("tl_vokFrame"))
         self.gridLayout_4 = QtGui.QGridLayout(self.tl_vokFrame)
+        self.gridLayout_4.setMargin(0)
         self.gridLayout_4.setObjectName(_fromUtf8("gridLayout_4"))
         self.tl_vokLabel = QtGui.QLabel(self.tl_vokFrame)
+        self.tl_vokLabel.setMinimumSize(QtCore.QSize(40, 20))
         self.tl_vokLabel.setObjectName(_fromUtf8("tl_vokLabel"))
         self.gridLayout_4.addWidget(self.tl_vokLabel, 0, 0, 1, 1)
         self.tl_vokLedInfo = TaurusLed(self.tl_vokFrame)
