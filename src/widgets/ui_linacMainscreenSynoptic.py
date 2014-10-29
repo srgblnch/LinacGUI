@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'widgets/ui/linacMainscreenSynoptic.ui'
 #
-# Created: Tue Oct  7 12:50:55 2014
+# Created: Wed Oct 29 14:56:41 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -969,7 +969,7 @@ class Ui_linacMainscreenSynoptic(object):
         self.tbNumberLabel.setText(QtGui.QApplication.translate("linacMainscreenSynoptic", "Number", None, QtGui.QApplication.UnicodeUTF8))
         self.tbGunLevelLabel.setText(QtGui.QApplication.translate("linacMainscreenSynoptic", "Gun Level", None, QtGui.QApplication.UnicodeUTF8))
         self.tbKaDelay1Label.setText(QtGui.QApplication.translate("linacMainscreenSynoptic", "KA1 Delay", None, QtGui.QApplication.UnicodeUTF8))
-        self.tbKaDelay2Label.setText(QtGui.QApplication.translate("linacMainscreenSynoptic", "KA1 Delay", None, QtGui.QApplication.UnicodeUTF8))
+        self.tbKaDelay2Label.setText(QtGui.QApplication.translate("linacMainscreenSynoptic", "KA2 Delay", None, QtGui.QApplication.UnicodeUTF8))
         self.tbRf2DelayLabel.setText(QtGui.QApplication.translate("linacMainscreenSynoptic", "RF2 Delay", None, QtGui.QApplication.UnicodeUTF8))
         self.rfPhaseShifter1Label.setText(QtGui.QApplication.translate("linacMainscreenSynoptic", "PHS1", None, QtGui.QApplication.UnicodeUTF8))
         self.rfTimePhaseShifter2Label.setText(QtGui.QApplication.translate("linacMainscreenSynoptic", "TPS2", None, QtGui.QApplication.UnicodeUTF8))

@@ -2434,7 +2434,7 @@
     <item>
      <widget class="QLabel" name="tbKaDelay2Label">
       <property name="text">
-       <string>KA1 Delay</string>
+       <string>KA2 Delay</string>
       </property>
      </widget>
     </item>
@@ -2825,7 +2825,6 @@
   <zorder>vacuumValve7OnLedInfo</zorder>
   <zorder>tbGunLevelValue</zorder>
   <zorder>tbGunLevelLabel</zorder>
-  <zorder>tl_vokLedInfo</zorder>
   <zorder>tl_vokFrame</zorder>
  </widget>
  <customwidgets>
