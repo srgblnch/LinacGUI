@@ -38,11 +38,17 @@ from taurus.qt.qtgui.base import TaurusBaseComponent
 from taurus.qt import Qt,QtGui,QtCore
 from taurus.qt.qtgui.util import ExternalAppAction
 from taurus.qt.qtgui.display import TaurusLed
+try:
+    from taurus.external.qt import Qwt5
+except:
+    from taurus.qt import Qwt5
 
 from ui_ctli import Ui_linacGui
+from deviceevents import deviceEvents
 import ctliaux
 
 import threading
+import time
 
 LinacDeviceNameRoot = 'li/ct/plc'
 LinacDeviceNames = []
@@ -81,6 +87,7 @@ class MainWindow(TaurusMainWindow):
         self.setMainscreen()
         #self.setConfiguration()
         self.setExternalApplications()
+        self.setMenuOptions()
 
     ######
     #---- Auxiliar methods to configure widgets
@@ -1204,6 +1211,35 @@ class MainWindow(TaurusMainWindow):
             stateText.setText("PLC%d"%(i))
             self.statusBar().addWidget(stateLed)
             self.statusBar().addWidget(stateText)
+
+    def setMenuOptions(self):
+        self.perspectivesToolBar.clear()
+        self.eventsPlotAction = Qt.QAction('Plot events info',self)
+        Qt.QObject.connect(self.eventsPlotAction,Qt.SIGNAL("triggered()"),
+                           self.plotEventsInfo)
+        self.toolsMenu.addAction(self.eventsPlotAction)
+
+    def plotEventsInfo(self):
+        if not hasattr(self,'_eventPlotWindow'):
+            self._eventPlotWindow = deviceEvents()
+            attributes = ['EventsNumber','EventsTime']
+            widgets = {1:self._eventPlotWindow._ui.eventsplc1,
+                       2:self._eventPlotWindow._ui.eventsplc2,
+                       3:self._eventPlotWindow._ui.eventsplc3,
+                       4:self._eventPlotWindow._ui.eventsplc4,
+                       5:self._eventPlotWindow._ui.eventsplc5}
+            for i in widgets.keys():
+                widget = widgets[i]
+                device = "%s%d"%(LinacDeviceNameRoot,i)
+                widget.setDefaultCurvesTitle("<dev_name>/<attr_name>")
+                #legend with device name and attrname
+                models = ["%s/%s"%(device,attr) for attr in attributes]
+                widget.addModels(models)
+                self.debug("setting models for plc %d events plot (device %s): %s"
+                           %(i,device,models))
+                toY2 = widget.getCurve("%s/%s"%(device,attributes[1]))
+                toY2.setYAxis(Qwt5.QwtPlot.Axis(1))#move time to axis2
+        self._eventPlotWindow.show()
 
 '''First approach to the Labview blinking leds with subboxes of sets of attrs.
 '''
