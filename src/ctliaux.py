@@ -57,8 +57,8 @@ def _setupCheckbox4Attr(widget,attrName,
         widget.setDangerRiseEdge(True)
     if fallingEdge:
         widget.setDangerFallingEdge(True)
+    widget.setAutoApply(True)
     if not riseEdge and not fallingEdge:
-        widget.setAutoApply(True)
         widget.setForcedApply(True)
 
 def _setupSpinBox4Attr(widget,attrName,step=None):
@@ -97,6 +97,6 @@ def _setupActionWidget(widget,attrName,text='on/off',
     else:
         _setupLed4Attr(widget._ui.Led,attrName,pattern='')
     _setupCheckbox4Attr(widget._ui.Check,attrName,
-                        isRst)#,DangerMsg,riseEdge,fallingEdge)
+                        isRst,DangerMsg,riseEdge,fallingEdge)
 #---- Done auxiliar methods to configure widgets
 ######

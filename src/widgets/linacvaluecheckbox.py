@@ -85,13 +85,24 @@ class LinacValueCheckBox(Qt.QCheckBox, TaurusBaseWritableWidget):
            widget, filtering by an specific model to simplify and get readable
            the tracing logs.
         '''
-        pass
-#        model = self.getModelName().lower()
-#        if len(model.split('/')) == 5:
-#            model = model.split('/',1)[1]
-#        if model in ['li/ct/plc1/gun_hv_onc',
-#                     'li/ct/plc3/ma_interlock_rc']:
-#            self.info(msg)
+        monitoredAttrs = [
+                          'li/ct/plc1/gun_hv_onc',
+                          'li/ct/plc1/gun_lv_onc',
+                          'li/ct/plc2/cl1_onc',
+                          'li/ct/plc2/cl2_onc',
+                          'li/ct/plc2/cl3_onc',
+                          'li/ct/plc2/vvall_oc',
+                          'li/ct/plc3/ma_interlock_rc',
+                          'li/ct/plc4/lv_onc',
+                          'li/ct/plc4/hvps_onc',
+                          'li/ct/plc5/lv_onc',
+                          'li/ct/plc5/hvps_onc',
+                         ]
+        model = self.getModelName().lower()
+        if len(model.split('/')) == 5:
+            model = model.split('/',1)[1]
+        if model in monitoredAttrs:
+            self.info(msg)
 
     def isResetCheckBox(self):
         return hasattr(self,'_isResetCheckBox') and self._isResetCheckBox
@@ -106,8 +117,18 @@ class LinacValueCheckBox(Qt.QCheckBox, TaurusBaseWritableWidget):
         return self.isDangerRiseEdge() or self.isDangerFallingEdge()
     
     def _OperationCancelled(self):
-        self._my_debug("_OperationCancelled() ops="%(self._operations))
+        self._my_debug("_OperationCancelled() ops="
+                       %(self.getPendingOperations()))
+        #FIXME: This method is thought to left the checkbox widget with the 
+        #       previous value, before the cancellation.
+        #       But with the next two lines, that looks ok for this purpose, 
+        #       the following click will not act, requiring a third and a 
+        #       fourth.
+        #self.resetPendingOperations()
+        #self.setValue(self.getValue())
+        #or
         #self.setValue(not self.getValue())
+        #self.valueChanged()
 
     def getDangerRiseEdge(self):
         return self._dangerRiseEdge
@@ -238,18 +259,19 @@ class LinacValueCheckBox(Qt.QCheckBox, TaurusBaseWritableWidget):
             result = Qt.QMessageBox.warning(self,WarnTitle,WarnMsg,
                                             Buttons,Default)
             #---- Important default behaviour shall be the Cancel
-            self._my_debug("safeApplyOperations(...) answer = %s"%result)
             if result == Qt.QMessageBox.Cancel:
+                self._my_debug("safeApplyOperations(...) answer = Cancel")
                 self._OperationCancelled()
             else:
+                self._my_debug("safeApplyOperations(...) answer = Ok")
                 self.applyPendingOperations(ops)
         else:
             self.applyPendingOperations(ops)
 
-#    def emitValueChanged(self, *args):
-#        self._my_debug("emitValueChanged(args=%s)"%(str(args)))
-#        #TaurusValueCheckBox.emitValueChanged(self,*args)
-#        TaurusBaseWritableWidget.emitValueChanged(self,*args)
+    def emitValueChanged(self, *args):
+        self._my_debug("emitValueChanged(args=%s)"%(str(args)))
+        #TaurusValueCheckBox.emitValueChanged(self,*args)
+        TaurusBaseWritableWidget.emitValueChanged(self,*args)
 
     #-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-
     # TaurusBaseComponent overwriting

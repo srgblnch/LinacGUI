@@ -1239,6 +1239,7 @@ class MainWindow(TaurusMainWindow):
                            %(i,device,models))
                 toY2 = widget.getCurve("%s/%s"%(device,attributes[1]))
                 toY2.setYAxis(Qwt5.QwtPlot.Axis(1))#move time to axis2
+                widget.autoShowYAxes()
         self._eventPlotWindow.show()
 
 '''First approach to the Labview blinking leds with subboxes of sets of attrs.
