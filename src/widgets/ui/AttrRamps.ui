@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>deviceEvents</class>
- <widget class="TaurusWidget" name="deviceEvents">
+ <class>AttrRamps</class>
+ <widget class="TaurusWidget" name="AttrRamps">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>643</width>
-    <height>901</height>
+    <width>765</width>
+    <height>810</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Plc Devices Events</string>
+   <string>Configure ramps</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout">
+  <layout class="QGridLayout" name="gridLayout_2">
    <item row="0" column="0">
     <widget class="QScrollArea" name="scrollArea">
      <property name="widgetResizable">
@@ -24,25 +24,28 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>614</width>
-        <height>1024</height>
+        <width>751</width>
+        <height>796</height>
        </rect>
       </property>
-      <layout class="QVBoxLayout" name="verticalLayout">
-       <item>
-        <widget class="TaurusPlot" name="eventsplc1"/>
+      <layout class="QGridLayout" name="gridLayout">
+       <item row="2" column="0">
+        <widget class="TaurusForm" name="KA2_HV"/>
        </item>
-       <item>
-        <widget class="TaurusPlot" name="eventsplc2"/>
+       <item row="0" column="0">
+        <widget class="TaurusForm" name="GUN_HV"/>
        </item>
-       <item>
-        <widget class="TaurusPlot" name="eventsplc3"/>
+       <item row="1" column="0">
+        <widget class="TaurusForm" name="KA1_HV"/>
        </item>
-       <item>
-        <widget class="TaurusPlot" name="eventsplc4"/>
+       <item row="0" column="1">
+        <widget class="TaurusTrend" name="GUN_HV_Setpoint"/>
        </item>
-       <item>
-        <widget class="TaurusPlot" name="eventsplc5"/>
+       <item row="1" column="1">
+        <widget class="TaurusTrend" name="KA1_HV_Setpoint"/>
+       </item>
+       <item row="2" column="1">
+        <widget class="TaurusTrend" name="KA2_HV_Setpoint"/>
        </item>
       </layout>
      </widget>
@@ -56,6 +59,16 @@
    <extends>QWidget</extends>
    <header>taurus.qt.qtgui.container</header>
    <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>TaurusTrend</class>
+   <extends>TaurusPlot</extends>
+   <header>taurus.qt.qtgui.plot</header>
+  </customwidget>
+  <customwidget>
+   <class>TaurusForm</class>
+   <extends>TaurusWidget</extends>
+   <header>taurus.qt.qtgui.panel</header>
   </customwidget>
   <customwidget>
    <class>TaurusPlot</class>

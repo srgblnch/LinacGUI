@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'widgets/ui/DeviceEvents.ui'
 #
-# Created: Fri Oct 31 10:35:14 2014
+# Created: Fri Nov  7 09:40:05 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -50,7 +50,7 @@ class Ui_deviceEvents(object):
         QtCore.QMetaObject.connectSlotsByName(deviceEvents)
 
     def retranslateUi(self, deviceEvents):
-        deviceEvents.setWindowTitle(QtGui.QApplication.translate("deviceEvents", "Form", None, QtGui.QApplication.UnicodeUTF8))
+        deviceEvents.setWindowTitle(QtGui.QApplication.translate("deviceEvents", "Plc Devices Events", None, QtGui.QApplication.UnicodeUTF8))
 
 from taurus.qt.qtgui.panel import TaurusWidget
 from taurus.qt.qtgui.plot import TaurusPlot
