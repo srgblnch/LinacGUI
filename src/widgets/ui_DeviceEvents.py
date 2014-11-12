@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'widgets/ui/DeviceEvents.ui'
 #
-# Created: Fri Nov  7 15:46:10 2014
+# Created: Wed Nov 12 11:23:34 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -17,32 +17,31 @@ except AttributeError:
 class Ui_deviceEvents(object):
     def setupUi(self, deviceEvents):
         deviceEvents.setObjectName(_fromUtf8("deviceEvents"))
-        deviceEvents.resize(1030, 255)
+        deviceEvents.resize(1024, 224)
         self.gridLayout = QtGui.QGridLayout(deviceEvents)
         self.gridLayout.setObjectName(_fromUtf8("gridLayout"))
         self.scrollArea = QtGui.QScrollArea(deviceEvents)
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName(_fromUtf8("scrollArea"))
         self.scrollAreaWidgetContents = QtGui.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 1001, 1024))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 995, 1020))
         self.scrollAreaWidgetContents.setObjectName(_fromUtf8("scrollAreaWidgetContents"))
-        self.verticalLayout = QtGui.QVBoxLayout(self.scrollAreaWidgetContents)
-        self.verticalLayout.setObjectName(_fromUtf8("verticalLayout"))
-        self.eventsplc1 = TaurusPlot(self.scrollAreaWidgetContents)
+        self.gridLayout_2 = QtGui.QGridLayout(self.scrollAreaWidgetContents)
+        self.gridLayout_2.setObjectName(_fromUtf8("gridLayout_2"))
+        self.splitter = QtGui.QSplitter(self.scrollAreaWidgetContents)
+        self.splitter.setOrientation(QtCore.Qt.Vertical)
+        self.splitter.setObjectName(_fromUtf8("splitter"))
+        self.eventsplc1 = TaurusPlot(self.splitter)
         self.eventsplc1.setObjectName(_fromUtf8("eventsplc1"))
-        self.verticalLayout.addWidget(self.eventsplc1)
-        self.eventsplc2 = TaurusPlot(self.scrollAreaWidgetContents)
+        self.eventsplc2 = TaurusPlot(self.splitter)
         self.eventsplc2.setObjectName(_fromUtf8("eventsplc2"))
-        self.verticalLayout.addWidget(self.eventsplc2)
-        self.eventsplc3 = TaurusPlot(self.scrollAreaWidgetContents)
+        self.eventsplc3 = TaurusPlot(self.splitter)
         self.eventsplc3.setObjectName(_fromUtf8("eventsplc3"))
-        self.verticalLayout.addWidget(self.eventsplc3)
-        self.eventsplc4 = TaurusPlot(self.scrollAreaWidgetContents)
+        self.eventsplc4 = TaurusPlot(self.splitter)
         self.eventsplc4.setObjectName(_fromUtf8("eventsplc4"))
-        self.verticalLayout.addWidget(self.eventsplc4)
-        self.eventsplc5 = TaurusPlot(self.scrollAreaWidgetContents)
+        self.eventsplc5 = TaurusPlot(self.splitter)
         self.eventsplc5.setObjectName(_fromUtf8("eventsplc5"))
-        self.verticalLayout.addWidget(self.eventsplc5)
+        self.gridLayout_2.addWidget(self.splitter, 0, 0, 1, 1)
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
         self.gridLayout.addWidget(self.scrollArea, 0, 0, 1, 1)
 

@@ -100,6 +100,14 @@ class MainWindow(TaurusMainWindow):
         self.splashScreen().showMessage("Preparing Menus...")
         self.setMenuOptions()
 
+    def closeEvent(self,event):
+        if hasattr(self,'_eventPlotWindow') and self._eventPlotWindow != None:
+            self._eventPlotWindow.close()
+            self._eventPlotWindow = None
+        if hasattr(self,'_attrRampsWindow') and self._attrRampsWindow != None:
+            self._attrRampsWindow.close()
+            self._eventPlotWindow = None
+
     ######
     #---- Auxiliar methods to configure widgets
     def _setupLed4UnknownAttr(self,widget):
@@ -1240,9 +1248,9 @@ class MainWindow(TaurusMainWindow):
         if not hasattr(self,'_eventPlotWindow') or \
                                                  self._eventPlotWindow == None:
             self._eventPlotWindow = deviceEvents()
-            Qt.QObject.connect(self._eventPlotWindow,
-                               Qt.SIGNAL("closeApp"),
-                               self._closeEventPlotWindow)
+#            Qt.QObject.connect(self._eventPlotWindow,
+#                               Qt.SIGNAL("closeApp"),
+#                               self._closeEventPlotWindow)
             attributes = ['EventsNumber','EventsTime']
             widgets = {1:self._eventPlotWindow._ui.eventsplc1,
                        2:self._eventPlotWindow._ui.eventsplc2,
@@ -1263,17 +1271,20 @@ class MainWindow(TaurusMainWindow):
                 widget.autoShowYAxes()
         self._eventPlotWindow.show()
 
-    def _closeEventPlotWindow(self):
-        self.info("Close Event Plot Window")
-        self._eventPlotWindow = None
+#    def _closeEventPlotWindow(self):
+#        self.info("Close Event Plot Window")
+#        self._eventPlotWindow = None
 
     def attributeRampsDefinitions(self):
         if not hasattr(self,'_attrRampsWindow') or \
                                                  self._attrRampsWindow == None:
             self._attrRampsWindow = AttrRamps()
-            Qt.QObject.connect(self._attrRampsWindow,
-                               Qt.SIGNAL("closeApp"),
-                               self._closeAttrRampsWindow)
+#            def closeEvent(self,event):
+#                QtCore.QObject.emit(QtCore.SIGNAL('closeApp'))
+#            self._attrRampsWindow.closeEvent = closeEvent
+#            Qt.QObject.connect(self._attrRampsWindow,
+#                               Qt.SIGNAL("closeApp"),
+#                               self._closeAttrRampsWindow)
             #first the electron gun
             device = "%s1"%(LinacDeviceNameRoot)
             attributes = ["GUN_HV_V","GUN_HV_V_setpoint",
@@ -1310,9 +1321,9 @@ class MainWindow(TaurusMainWindow):
                 widget.addModels(models)
         self._attrRampsWindow.show()
 
-    def _closeAttrRampsWindow(self):
-        self.info("Close Attribute Ramps Window")
-        self._eventPlotWindow = None
+#    def _closeAttrRampsWindow(self):
+#        self.info("Close Attribute Ramps Window")
+#        self._eventPlotWindow = None
 
 '''First approach to the Labview blinking leds with subboxes of sets of attrs.
 '''

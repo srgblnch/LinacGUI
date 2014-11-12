@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1078</width>
-    <height>364</height>
+    <width>1024</width>
+    <height>224</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -24,36 +24,37 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>1049</width>
-        <height>616</height>
+        <width>995</width>
+        <height>614</height>
        </rect>
       </property>
-      <layout class="QVBoxLayout" name="verticalLayout">
-       <item>
+      <layout class="QGridLayout" name="gridLayout">
+       <item row="0" column="0">
         <widget class="QSplitter" name="splitter">
          <property name="orientation">
-          <enum>Qt::Horizontal</enum>
+          <enum>Qt::Vertical</enum>
          </property>
-         <widget class="TaurusForm" name="GUN_HV"/>
-         <widget class="TaurusTrend" name="GUN_HV_Setpoint"/>
-        </widget>
-       </item>
-       <item>
-        <widget class="QSplitter" name="splitter_2">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <widget class="TaurusForm" name="KA1_HV"/>
-         <widget class="TaurusTrend" name="KA1_HV_Setpoint"/>
-        </widget>
-       </item>
-       <item>
-        <widget class="QSplitter" name="splitter_3">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <widget class="TaurusForm" name="KA2_HV"/>
-         <widget class="TaurusTrend" name="KA2_HV_Setpoint"/>
+         <widget class="QSplitter" name="GUN_HV_splitter">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <widget class="TaurusForm" name="GUN_HV"/>
+          <widget class="TaurusTrend" name="GUN_HV_Setpoint"/>
+         </widget>
+         <widget class="QSplitter" name="KA1_HV_splitter">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <widget class="TaurusForm" name="KA1_HV"/>
+          <widget class="TaurusTrend" name="KA1_HV_Setpoint"/>
+         </widget>
+         <widget class="QSplitter" name="KA2_HV_splitter">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <widget class="TaurusForm" name="KA2_HV"/>
+          <widget class="TaurusTrend" name="KA2_HV_Setpoint"/>
+         </widget>
         </widget>
        </item>
       </layout>
