@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>765</width>
-    <height>810</height>
+    <width>1078</width>
+    <height>364</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -24,28 +24,37 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>751</width>
-        <height>796</height>
+        <width>1049</width>
+        <height>616</height>
        </rect>
       </property>
-      <layout class="QGridLayout" name="gridLayout">
-       <item row="2" column="0">
-        <widget class="TaurusForm" name="KA2_HV"/>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QSplitter" name="splitter">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <widget class="TaurusForm" name="GUN_HV"/>
+         <widget class="TaurusTrend" name="GUN_HV_Setpoint"/>
+        </widget>
        </item>
-       <item row="0" column="0">
-        <widget class="TaurusForm" name="GUN_HV"/>
+       <item>
+        <widget class="QSplitter" name="splitter_2">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <widget class="TaurusForm" name="KA1_HV"/>
+         <widget class="TaurusTrend" name="KA1_HV_Setpoint"/>
+        </widget>
        </item>
-       <item row="1" column="0">
-        <widget class="TaurusForm" name="KA1_HV"/>
-       </item>
-       <item row="0" column="1">
-        <widget class="TaurusTrend" name="GUN_HV_Setpoint"/>
-       </item>
-       <item row="1" column="1">
-        <widget class="TaurusTrend" name="KA1_HV_Setpoint"/>
-       </item>
-       <item row="2" column="1">
-        <widget class="TaurusTrend" name="KA2_HV_Setpoint"/>
+       <item>
+        <widget class="QSplitter" name="splitter_3">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <widget class="TaurusForm" name="KA2_HV"/>
+         <widget class="TaurusTrend" name="KA2_HV_Setpoint"/>
+        </widget>
        </item>
       </layout>
      </widget>
@@ -55,15 +64,15 @@
  </widget>
  <customwidgets>
   <customwidget>
+   <class>TaurusPlot</class>
+   <extends>QwtPlot</extends>
+   <header>taurus.qt.qtgui.plot</header>
+  </customwidget>
+  <customwidget>
    <class>TaurusWidget</class>
    <extends>QWidget</extends>
    <header>taurus.qt.qtgui.container</header>
    <container>1</container>
-  </customwidget>
-  <customwidget>
-   <class>TaurusTrend</class>
-   <extends>TaurusPlot</extends>
-   <header>taurus.qt.qtgui.plot</header>
   </customwidget>
   <customwidget>
    <class>TaurusForm</class>
@@ -71,8 +80,8 @@
    <header>taurus.qt.qtgui.panel</header>
   </customwidget>
   <customwidget>
-   <class>TaurusPlot</class>
-   <extends>QwtPlot</extends>
+   <class>TaurusTrend</class>
+   <extends>TaurusPlot</extends>
    <header>taurus.qt.qtgui.plot</header>
   </customwidget>
   <customwidget>

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>643</width>
-    <height>901</height>
+    <width>1030</width>
+    <height>255</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -24,7 +24,7 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>614</width>
+        <width>1001</width>
         <height>1024</height>
        </rect>
       </property>
@@ -52,15 +52,15 @@
  </widget>
  <customwidgets>
   <customwidget>
+   <class>TaurusPlot</class>
+   <extends>QwtPlot</extends>
+   <header>taurus.qt.qtgui.plot</header>
+  </customwidget>
+  <customwidget>
    <class>TaurusWidget</class>
    <extends>QWidget</extends>
    <header>taurus.qt.qtgui.container</header>
    <container>1</container>
-  </customwidget>
-  <customwidget>
-   <class>TaurusPlot</class>
-   <extends>QwtPlot</extends>
-   <header>taurus.qt.qtgui.plot</header>
   </customwidget>
   <customwidget>
    <class>QwtPlot</class>

@@ -77,17 +77,27 @@ class MainWindow(TaurusMainWindow):
         self.setCentralWidget(self.centralwidget)
         self.centralwidget.setCurrentIndex(2)#Force to start in "main screen"
         #concurrency in the big setModel and early return
-#         self._init_threads['Communications'] = threading.Thread(name="a",target=self.setCommunications)
-#         self._init_threads['Startup'] = threading.Thread(name="b",target=self.setStartup)
-#         for threadName in self._init_threads.keys():
-#             self._init_threads[threadName].setDaemon(True)
-#             self._init_threads[threadName].start()
+#        self._init_threads['Communications'] = threading.Thread(\
+#                                                       name="'Communications'",
+#                                                 target=self.setCommunications)
+#        self._init_threads['Startup'] = threading.Thread(name="Startup",
+#                                                        target=self.setStartup)
+#        self._init_threads['MainScreen'] = threading.Thread(name="MainScreen",
+#                                                     target=self.setMainscreen)
+#        for threadName in self._init_threads.keys():
+#            self._init_threads[threadName].setDaemon(True)
+#            self._init_threads[threadName].start()
         #serialised alternative of setModel
+        self.splashScreen().showMessage("Preparing communication...")
         self.setCommunications()
+        self.splashScreen().showMessage("Preparing stat up tab...")
         self.setStartup()
+        self.splashScreen().showMessage("Preparing main screen tab...")
         self.setMainscreen()
         #self.setConfiguration()
+        self.splashScreen().showMessage("Preparing External applications...")
         self.setExternalApplications()
+        self.splashScreen().showMessage("Preparing Menus...")
         self.setMenuOptions()
 
     ######
@@ -1227,8 +1237,12 @@ class MainWindow(TaurusMainWindow):
         self.toolsMenu.addAction(self.attrRampConfigurationAtion)
 
     def plotEventsInfo(self):
-        if not hasattr(self,'_eventPlotWindow'):
+        if not hasattr(self,'_eventPlotWindow') or \
+                                                 self._eventPlotWindow == None:
             self._eventPlotWindow = deviceEvents()
+            Qt.QObject.connect(self._eventPlotWindow,
+                               Qt.SIGNAL("closeApp"),
+                               self._closeEventPlotWindow)
             attributes = ['EventsNumber','EventsTime']
             widgets = {1:self._eventPlotWindow._ui.eventsplc1,
                        2:self._eventPlotWindow._ui.eventsplc2,
@@ -1242,16 +1256,24 @@ class MainWindow(TaurusMainWindow):
                 #legend with device name and attrname
                 models = ["%s/%s"%(device,attr) for attr in attributes]
                 widget.addModels(models)
-                self.debug("setting models for plc %d events plot (device %s): %s"
-                           %(i,device,models))
+                self.debug("setting models for plc %d events plot (device %s):"\
+                           " %s"%(i,device,models))
                 toY2 = widget.getCurve("%s/%s"%(device,attributes[1]))
                 toY2.setYAxis(Qwt5.QwtPlot.Axis(1))#move time to axis2
                 widget.autoShowYAxes()
         self._eventPlotWindow.show()
-        
+
+    def _closeEventPlotWindow(self):
+        self.info("Close Event Plot Window")
+        self._eventPlotWindow = None
+
     def attributeRampsDefinitions(self):
-        if not hasattr(self,'_attrRampsWindow'):
+        if not hasattr(self,'_attrRampsWindow') or \
+                                                 self._attrRampsWindow == None:
             self._attrRampsWindow = AttrRamps()
+            Qt.QObject.connect(self._attrRampsWindow,
+                               Qt.SIGNAL("closeApp"),
+                               self._closeAttrRampsWindow)
             #first the electron gun
             device = "%s1"%(LinacDeviceNameRoot)
             attributes = ["GUN_HV_V","GUN_HV_V_setpoint",
@@ -1287,6 +1309,10 @@ class MainWindow(TaurusMainWindow):
                 models = ["%s/%s"%(device,attributes[j]) for j in [0,1]]
                 widget.addModels(models)
         self._attrRampsWindow.show()
+
+    def _closeAttrRampsWindow(self):
+        self.info("Close Attribute Ramps Window")
+        self._eventPlotWindow = None
 
 '''First approach to the Labview blinking leds with subboxes of sets of attrs.
 '''
