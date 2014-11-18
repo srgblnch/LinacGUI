@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1024</width>
-    <height>224</height>
+    <height>906</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -24,8 +24,8 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>995</width>
-        <height>614</height>
+        <width>1010</width>
+        <height>892</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout">
@@ -34,6 +34,13 @@
          <property name="orientation">
           <enum>Qt::Vertical</enum>
          </property>
+         <widget class="QSplitter" name="Filament_LV_splitter">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <widget class="TaurusForm" name="Filament_LV"/>
+          <widget class="TaurusTrend" name="Filament_LV_Setpoint"/>
+         </widget>
          <widget class="QSplitter" name="GUN_HV_splitter">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>

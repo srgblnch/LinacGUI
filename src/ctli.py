@@ -1285,9 +1285,27 @@ class MainWindow(TaurusMainWindow):
 #            Qt.QObject.connect(self._attrRampsWindow,
 #                               Qt.SIGNAL("closeApp"),
 #                               self._closeAttrRampsWindow)
-            #first the electron gun
+            #first the filament
             device = "%s1"%(LinacDeviceNameRoot)
-            attributes = ["GUN_HV_V","GUN_HV_V_setpoint",
+            attributes = ["GUN_Filament_V",
+                          "GUN_Filament_V_setpoint","GUN_LV_ONC",
+                          "GUN_Filament_V_setpoint_ascending_step",
+                          "GUN_Filament_V_setpoint_ascending_steptime",
+                          "GUN_Filament_V_setpoint_ascending_threshold",
+                          "GUN_Filament_V_setpoint_descending_step",
+                          "GUN_Filament_V_setpoint_descending_steptime",
+                          "GUN_Filament_V_setpoint_descending_threshold",
+                          "GUN_Filament_V_setpoint_rampEnable"]
+            widget = self._attrRampsWindow._ui.Filament_LV
+            plot = self._attrRampsWindow._ui.Filament_LV_Setpoint
+            models = ["%s/%s"%(device,attr) for attr in attributes]
+            widget.addModels(models)
+            models = ["%s/%s"%(device,attributes[j]) for j in [0,1]]
+            plot.addModels(models)
+            
+            #second the electron gun
+            device = "%s1"%(LinacDeviceNameRoot)
+            attributes = ["GUN_HV_V","GUN_HV_V_setpoint","GUN_HV_ONC",
                           "GUN_HV_V_setpoint_ascending_step",
                           "GUN_HV_V_setpoint_ascending_steptime",
                           "GUN_HV_V_setpoint_ascending_threshold",
@@ -1306,7 +1324,7 @@ class MainWindow(TaurusMainWindow):
                        2:self._attrRampsWindow._ui.KA2_HV}
             plots = {1:self._attrRampsWindow._ui.KA1_HV_Setpoint,
                      2:self._attrRampsWindow._ui.KA2_HV_Setpoint}
-            attributes = ["HVPS_V","HVPS_V_setpoint",
+            attributes = ["HVPS_V","HVPS_V_setpoint","HVPS_ONC",
                           "HVPS_V_setpoint_ascending_step",
                           "HVPS_V_setpoint_ascending_steptime",
                           "HVPS_V_setpoint_ascending_threshold",
@@ -1320,10 +1338,6 @@ class MainWindow(TaurusMainWindow):
                 models = ["%s/%s"%(device,attributes[j]) for j in [0,1]]
                 widget.addModels(models)
         self._attrRampsWindow.show()
-
-#    def _closeAttrRampsWindow(self):
-#        self.info("Close Attribute Ramps Window")
-#        self._eventPlotWindow = None
 
 '''First approach to the Labview blinking leds with subboxes of sets of attrs.
 '''

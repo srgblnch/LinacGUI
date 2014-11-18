@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'widgets/ui/AttrRamps.ui'
 #
-# Created: Wed Nov 12 11:22:38 2014
+# Created: Fri Nov 14 12:45:45 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -17,20 +17,27 @@ except AttributeError:
 class Ui_AttrRamps(object):
     def setupUi(self, AttrRamps):
         AttrRamps.setObjectName(_fromUtf8("AttrRamps"))
-        AttrRamps.resize(1024, 224)
+        AttrRamps.resize(1024, 906)
         self.gridLayout_2 = QtGui.QGridLayout(AttrRamps)
         self.gridLayout_2.setObjectName(_fromUtf8("gridLayout_2"))
         self.scrollArea = QtGui.QScrollArea(AttrRamps)
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName(_fromUtf8("scrollArea"))
         self.scrollAreaWidgetContents = QtGui.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 995, 614))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 1010, 892))
         self.scrollAreaWidgetContents.setObjectName(_fromUtf8("scrollAreaWidgetContents"))
         self.gridLayout = QtGui.QGridLayout(self.scrollAreaWidgetContents)
         self.gridLayout.setObjectName(_fromUtf8("gridLayout"))
         self.splitter = QtGui.QSplitter(self.scrollAreaWidgetContents)
         self.splitter.setOrientation(QtCore.Qt.Vertical)
         self.splitter.setObjectName(_fromUtf8("splitter"))
+        self.Filament_LV_splitter = QtGui.QSplitter(self.splitter)
+        self.Filament_LV_splitter.setOrientation(QtCore.Qt.Horizontal)
+        self.Filament_LV_splitter.setObjectName(_fromUtf8("Filament_LV_splitter"))
+        self.Filament_LV = TaurusForm(self.Filament_LV_splitter)
+        self.Filament_LV.setObjectName(_fromUtf8("Filament_LV"))
+        self.Filament_LV_Setpoint = TaurusTrend(self.Filament_LV_splitter)
+        self.Filament_LV_Setpoint.setObjectName(_fromUtf8("Filament_LV_Setpoint"))
         self.GUN_HV_splitter = QtGui.QSplitter(self.splitter)
         self.GUN_HV_splitter.setOrientation(QtCore.Qt.Horizontal)
         self.GUN_HV_splitter.setObjectName(_fromUtf8("GUN_HV_splitter"))

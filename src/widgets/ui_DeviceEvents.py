@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'widgets/ui/DeviceEvents.ui'
 #
-# Created: Wed Nov 12 11:23:34 2014
+# Created: Fri Nov 14 12:45:38 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -17,14 +17,14 @@ except AttributeError:
 class Ui_deviceEvents(object):
     def setupUi(self, deviceEvents):
         deviceEvents.setObjectName(_fromUtf8("deviceEvents"))
-        deviceEvents.resize(1024, 224)
+        deviceEvents.resize(1024, 1120)
         self.gridLayout = QtGui.QGridLayout(deviceEvents)
         self.gridLayout.setObjectName(_fromUtf8("gridLayout"))
         self.scrollArea = QtGui.QScrollArea(deviceEvents)
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName(_fromUtf8("scrollArea"))
         self.scrollAreaWidgetContents = QtGui.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 995, 1020))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 1010, 1106))
         self.scrollAreaWidgetContents.setObjectName(_fromUtf8("scrollAreaWidgetContents"))
         self.gridLayout_2 = QtGui.QGridLayout(self.scrollAreaWidgetContents)
         self.gridLayout_2.setObjectName(_fromUtf8("gridLayout_2"))
