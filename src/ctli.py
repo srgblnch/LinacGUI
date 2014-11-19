@@ -1346,6 +1346,7 @@ class MainWindow(TaurusMainWindow):
             models = ["%s/%s"%(device,attributes[j]) for j in [0,1]]
             plot.addModels(models)
             plot.setForcedReadingPeriod(1000)
+            plot.setLegendPosition(Qwt5.QwtPlot.BottomLegend)
             #second the electron gun
             device = "%s1"%(LinacDeviceNameRoot)
             attributes = ["GUN_HV_V","GUN_HV_V_setpoint","GUN_HV_ONC",
@@ -1363,6 +1364,7 @@ class MainWindow(TaurusMainWindow):
             models = ["%s/%s"%(device,attributes[j]) for j in [0,1]]
             plot.addModels(models)
             plot.setForcedReadingPeriod(1000)
+            plot.setLegendPosition(Qwt5.QwtPlot.BottomLegend)
             #then the klystrons
             widgets = {1:self._attrRampsWindow._ui.KA1_HV,
                        2:self._attrRampsWindow._ui.KA2_HV}
@@ -1382,6 +1384,7 @@ class MainWindow(TaurusMainWindow):
                 models = ["%s/%s"%(device,attributes[j]) for j in [0,1]]
                 widget.addModels(models)
                 widget.setForcedReadingPeriod(1000)
+                widget.setLegendPosition(Qwt5.QwtPlot.BottomLegend)
         self._attrRampsWindow.show()
 
 '''First approach to the Labview blinking leds with subboxes of sets of attrs.
