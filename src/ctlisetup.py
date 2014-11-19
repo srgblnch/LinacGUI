@@ -617,8 +617,8 @@ class MainWindow(TaurusMainWindow):
                 npulsesAttrName = 'LI/CT/PLC1/TB_GPN'.lower()
                 intervalAttrName = 'LI/CT/PLC1/TB_GPI'.lower()
                 npulses = self._getAttrValue(npulsesAttrName)
-                interval = self._getAttrValue(intervalAttrName)
-                fileprefix = ''.join("%s_SBM_%dns_%d"%(fileprefix,interval,npulses))
+                #interval = self._getAttrValue(intervalAttrName)
+                fileprefix = ''.join("%s_SBM_%dpulses"%(fileprefix,npulses))
         except Exception,e:
             self.error("Cannot build a file prefix! %s"%(e))
         return fileprefix
