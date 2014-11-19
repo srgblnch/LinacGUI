@@ -67,6 +67,9 @@ class MainWindow(TaurusMainWindow):
         self.ui.setupUi(self)
         #place the ui in the window
         self._init_threads = {}
+        self._initComponentsTask = ""
+        self._initComponentsSubtask = ""
+        self._initComponentsNsubtask = 0
         self.initComponents()
         #kill splash screen
         self.splashScreen().finish(self)
@@ -88,16 +91,16 @@ class MainWindow(TaurusMainWindow):
 #            self._init_threads[threadName].setDaemon(True)
 #            self._init_threads[threadName].start()
         #serialised alternative of setModel
-        self.splashScreen().showMessage("Preparing communication...")
+        self._setSplashScreenTask("Preparing communication...")
         self.setCommunications()
-        self.splashScreen().showMessage("Preparing stat up tab...")
+        self._setSplashScreenTask("Preparing stat up tab...")
         self.setStartup()
-        self.splashScreen().showMessage("Preparing main screen tab...")
+        self._setSplashScreenTask("Preparing main screen tab...")
         self.setMainscreen()
         #self.setConfiguration()
-        self.splashScreen().showMessage("Preparing External applications...")
+        self._setSplashScreenTask("Preparing External applications...")
         self.setExternalApplications()
-        self.splashScreen().showMessage("Preparing Menus...")
+        self._setSplashScreenTask("Preparing Menus...")
         self.setMenuOptions()
 
     def closeEvent(self,event):
@@ -107,6 +110,23 @@ class MainWindow(TaurusMainWindow):
         if hasattr(self,'_attrRampsWindow') and self._attrRampsWindow != None:
             self._attrRampsWindow.close()
             self._eventPlotWindow = None
+
+    ######
+    #---- Section for the splashScreen message
+    def refreshSplashScreenMessage(self):
+        msg = "Preparing %s... "%(self._initComponentsTask)
+        if len(self._initComponentsSubtask) > 0:
+            msg = "%s(%s)"%(msg,self._initComponentsSubtask)
+        self.debug("Setting SplashScreen message: %s"%(msg))
+        self.splashScreen().showMessage(msg)
+    def _setSplashScreenTask(self,task):
+        self._initComponentsTask = task
+        self.refreshSplashScreenMessage()
+    def _setSplashScreenSubtask(self,subtask):
+        self._initComponentsSubtask = subtask
+        self.refreshSplashScreenMessage()
+    #---- done section for the splashScreen message
+    ######
 
     ######
     #---- Auxiliar methods to configure widgets
@@ -194,6 +214,7 @@ class MainWindow(TaurusMainWindow):
         #for each of the plcs
         plcWidgets = [self.ui.plc1,self.ui.plc2,self.ui.plc3,self.ui.plc4,self.ui.plc5]
         for i,plc in enumerate(plcWidgets):
+            self._setSplashScreenSubtask("PLC%d"%(i+1))
             #plc._ui.plcGroup.setTitle("PLC %d"%(i+1))
             plc._ui.plcGroup.setModel("%s%d"%(LinacDeviceNameRoot,i+1))
             plc._ui.ResetState.setModel("%s%d"%(LinacDeviceNameRoot,i+1))
@@ -219,11 +240,17 @@ class MainWindow(TaurusMainWindow):
     #---- setModel & others for the Start up Tab
     def setStartup(self):
         #following the synoptic regions from left to right and from top to bottom
+        self._setSplashScreenSubtask("Interlock Unit")
         self._setStartup_InterlockUnit()
+        self._setSplashScreenSubtask("klystron Low Voltage")
         self._setStartup_klystronLV()
+        self._setSplashScreenSubtask("Electron Gun")
         self._setStartup_egun()
+        self._setSplashScreenSubtask("Cooling")
         self._setStartup_cooling()
+        self._setSplashScreenSubtask("Magnets")
         self._setStartup_magnets()
+        self._setSplashScreenSubtask("Vacuum")
         self._setStartup_vacuum()
         startup_ui = self.ui.linacStartupSynoptic._ui
         startup_ui.StartUpSchematic.lower()
@@ -583,15 +610,25 @@ class MainWindow(TaurusMainWindow):
     def setMainscreen(self):
         #following the synoptic regions from left to right and 
         #from top to bottom
+        self._setSplashScreenSubtask("Timming")
         self._setMainscreen_tb()
+        self._setSplashScreenSubtask("Klystron High Voltage")
         self._setMainscreen_klystronHV()
+        self._setSplashScreenSubtask("Radio Frequency")
         self._setMainscreen_rf()
+        self._setSplashScreenSubtask("Cooling loops")
         self._setMainscreen_cl()
+        self._setSplashScreenSubtask("KD")
         self._setMainscreen_kd()
+        self._setSplashScreenSubtask("Magnets")
         self._setMainscreen_magnets()
+        self._setSplashScreenSubtask("HVS")
         self._setMainscreen_hvs()
+        self._setSplashScreenSubtask("Vacuum")
         self._setMainscreen_vacuum()
+        self._setSplashScreenSubtask("Fluorescent screens")
         self._setMainscreen_fs()
+        self._setSplashScreenSubtask("Beam Charge Monitors")
         self._setMainscreen_bcm()
         startup_ui = self.ui.linacMainscreenSynoptic._ui
         startup_ui.MainScreenSchematic.lower()
@@ -1216,14 +1253,18 @@ class MainWindow(TaurusMainWindow):
 #                                 '--window-name=BCM'],
 #                                text="BCM")
 #        self.addExternalAppLauncher(bcm)
+        self._setSplashScreenSubtask("ctpcgrid")
         lt_magnets = ExternalAppAction(['ctpcgrid','lt'],text="LT magnets")
         self.addExternalAppLauncher(lt_magnets)
+        self._setSplashScreenSubtask("ctdiccd")
         mach_ccds = ExternalAppAction(['ctdiccd'],text="CCDs")
         self.addExternalAppLauncher(mach_ccds)
+        self._setSplashScreenSubtask("Save and retrieve")
         saveretrieve = ExternalAppAction(['ctlisetup'],text="save/retrieve")
         self.addExternalAppLauncher(saveretrieve)
         #---- PLCs state leds in the statusBar
         for i in range(1,6):
+            self._setSplashScreenSubtask("Status Bar")
             stateLed = TaurusLed(self)
             stateLed.setModel('li/ct/plc%d/state'%(i))
             stateText = QtGui.QLabel(self)
@@ -1233,10 +1274,12 @@ class MainWindow(TaurusMainWindow):
 
     def setMenuOptions(self):
         self.perspectivesToolBar.clear()
+        self._setSplashScreenSubtask("Plot events info")
         self.eventsPlotAction = Qt.QAction('Plot events info',self)
         Qt.QObject.connect(self.eventsPlotAction,Qt.SIGNAL("triggered()"),
                            self.plotEventsInfo)
         self.toolsMenu.addAction(self.eventsPlotAction)
+        self._setSplashScreenSubtask("Ramping configuration")
         self.attrRampConfigurationAtion = Qt.QAction('Ramping configuration',
                                                      self)
         Qt.QObject.connect(self.attrRampConfigurationAtion,
@@ -1302,7 +1345,7 @@ class MainWindow(TaurusMainWindow):
             widget.addModels(models)
             models = ["%s/%s"%(device,attributes[j]) for j in [0,1]]
             plot.addModels(models)
-            
+            plot.setForcedReadingPeriod(1000)
             #second the electron gun
             device = "%s1"%(LinacDeviceNameRoot)
             attributes = ["GUN_HV_V","GUN_HV_V_setpoint","GUN_HV_ONC",
@@ -1319,6 +1362,7 @@ class MainWindow(TaurusMainWindow):
             widget.addModels(models)
             models = ["%s/%s"%(device,attributes[j]) for j in [0,1]]
             plot.addModels(models)
+            plot.setForcedReadingPeriod(1000)
             #then the klystrons
             widgets = {1:self._attrRampsWindow._ui.KA1_HV,
                        2:self._attrRampsWindow._ui.KA2_HV}
@@ -1337,6 +1381,7 @@ class MainWindow(TaurusMainWindow):
                 widget = plots[i]
                 models = ["%s/%s"%(device,attributes[j]) for j in [0,1]]
                 widget.addModels(models)
+                widget.setForcedReadingPeriod(1000)
         self._attrRampsWindow.show()
 
 '''First approach to the Labview blinking leds with subboxes of sets of attrs.
