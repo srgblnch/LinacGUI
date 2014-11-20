@@ -38,6 +38,7 @@ from taurus.qt.qtgui.base import TaurusBaseComponent
 from taurus.qt import Qt,QtGui,QtCore
 from taurus.qt.qtgui.util import ExternalAppAction
 from taurus.qt.qtgui.display import TaurusLed
+from taurus.qt.qtgui.table import TaurusValuesTable
 try:
     from taurus.external.qt import Qwt5
 except:
@@ -79,6 +80,7 @@ class MainWindow(TaurusMainWindow):
         self.centralwidget = self.ui.linacTabs
         self.setCentralWidget(self.centralwidget)
         self.centralwidget.setCurrentIndex(2)#Force to start in "main screen"
+        self.setDockNestingEnabled(True)
         #concurrency in the big setModel and early return
 #        self._init_threads['Communications'] = threading.Thread(\
 #                                                       name="'Communications'",
@@ -91,16 +93,16 @@ class MainWindow(TaurusMainWindow):
 #            self._init_threads[threadName].setDaemon(True)
 #            self._init_threads[threadName].start()
         #serialised alternative of setModel
-        self._setSplashScreenTask("Preparing communication...")
+        self._setSplashScreenTask("Preparing communication")
         self.setCommunications()
-        self._setSplashScreenTask("Preparing stat up tab...")
+        self._setSplashScreenTask("Preparing stat up tab")
         self.setStartup()
-        self._setSplashScreenTask("Preparing main screen tab...")
+        self._setSplashScreenTask("Preparing main screen tab")
         self.setMainscreen()
         #self.setConfiguration()
-        self._setSplashScreenTask("Preparing External applications...")
+        self._setSplashScreenTask("Preparing External applications")
         self.setExternalApplications()
-        self._setSplashScreenTask("Preparing Menus...")
+        self._setSplashScreenTask("Preparing Menus")
         self.setMenuOptions()
 
     def closeEvent(self,event):
@@ -179,6 +181,7 @@ class MainWindow(TaurusMainWindow):
             except Exception,e:
                 self.error("Cannot modify the background color of the "\
                            "actionWidget for the attribute %s: %s"%(attrName,e))
+
     #---- Done auxiliar methods to configure widgets
     ######
 
@@ -450,6 +453,7 @@ class MainWindow(TaurusMainWindow):
                            'epsPressure_attrName':'li/ct/cloops/CL3_P'}
                        }
         self._coolingLoopManagers = {}
+        self._coolingLoopHistory = {}
         for number in coolingLoops.keys():
             #---- on/off the cooling loops
             widget = coolingLoops[number]['on']
@@ -475,6 +479,10 @@ class MainWindow(TaurusMainWindow):
             #inside the popup
             self._setupTaurusLabel4Attr(popupWidget.coolingLoopStatus,
                                        coolingLoops[number]['status_attrName'])
+            self._coolingLoopHistory[number] = DockWidgetManager(\
+                                          popupWidget.coolingLoopStatusHistory,
+                            coolingLoops[number]['status_attrName']+'_History',
+                                                                          self)
             self._setupTaurusLabel4Attr(popupWidget.temperatureValue,
                               coolingLoops[number]['Temperature_attrName'],'C')
             self._setupTaurusLabel4Attr(popupWidget.powerValue,
@@ -1392,7 +1400,8 @@ class MainWindow(TaurusMainWindow):
 class CheckboxManager(TaurusBaseComponent,Qt.QObject):
     #TODO: instead of checkboxes them should be leds with a composition of the
     #      internal values in the subbox
-    def __init__(self,checker,widget,name=None,qt_parent=None,designMode=False):
+    def __init__(self,checker,widget,
+                 name=None,qt_parent=None,designMode=False):
         if not name: name = "CheckboxManager"
         self.call__init__wo_kw(Qt.QObject, qt_parent)
         self.call__init__(TaurusBaseComponent, name, designMode=designMode)
@@ -1407,8 +1416,54 @@ class CheckboxManager(TaurusBaseComponent,Qt.QObject):
         else:
             self._widget.hide()
 
+class DockWidgetManager(TaurusBaseComponent,Qt.QWidget):
+    def __init__(self,button,attrName,mainWindow,
+                 name=None,qt_parent=None,designMode=False):
+        if not name: name = "DockWidgetManager"
+        self.call__init__wo_kw(Qt.QWidget, qt_parent)
+        self.call__init__(TaurusBaseComponent, name, designMode=designMode)
+        self._attrName = attrName
+        self._mainWindow = mainWindow
+        self._dockwidget = None
+        self._table = None
+        Qt.QObject.connect(button,Qt.SIGNAL("clicked(bool)"),
+                           self._clicked)
+        self.debug("Build a dock widget launcher for %s"%(self._attrName))
+    def _clicked(self,checked):
+        if self._dockwidget == None or self._table == None:
+            self._dockwidget = QtGui.QDockWidget(self._attrName, self)
+            #FIXME: check what's need and what can be excluded
+            self._dockwidget.setFeatures(QtGui.QDockWidget.DockWidgetClosable
+                                           |QtGui.QDockWidget.DockWidgetMovable
+                                         |QtGui.QDockWidget.DockWidgetFloatable
+                                 #|QtGui.QDockWidget.DockWidgetVerticalTitleBar
+                                                                              )
+            self._dockwidget.setAllowedAreas(QtCore.Qt.AllDockWidgetAreas)
+            self._dockwidget.setWindowTitle(self._attrName)
+#            Qt.QObject.connect(self._dockwidget,Qt.SIGNAL('closeEvent'),
+#                               self._close)
+            self._table = TaurusValuesTable()
+            self._table.setModel(self._attrName)
+            self._table._applyBT.setVisible(False)
+            self._table._cancelBT.setVisible(False)
+            self._table._rwModeCB.setVisible(False)
+            #FIXME: self._table.isReadOnly()? or similar
+            self._dockwidget.setWidget(self._table)
+            self._mainWindow.addDockWidget(QtCore.Qt.LeftDockWidgetArea,
+                                           self._dockwidget)
+            #self._dockwidget.toggleViewAction()
+        self._dockwidget.show()
+        self.debug("Showing a dock widget for attribute %s"%(self._attrName))
+#    def _close(self):
+#        #FIXME: check it works
+#        self.info("Close the dock widget for %s"%(self._attrName))
+#        self._mainWindow.removeDockWidget(self._dockwidget)
+#        self._dockwidget = None
+#        self._table = None
+
 class OperationModeManager(TaurusBaseComponent,Qt.QObject):
-    def __init__(self,mainscreen_ui,name=None,qt_parent=None,designMode=False):
+    def __init__(self,mainscreen_ui,
+                 name=None,qt_parent=None,designMode=False):
         if not name: name = "OperationModeManager"
         self.call__init__wo_kw(Qt.QObject, qt_parent)
         self.call__init__(TaurusBaseComponent, name, designMode=designMode)

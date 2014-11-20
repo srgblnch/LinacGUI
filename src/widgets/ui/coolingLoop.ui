@@ -25,56 +25,10 @@
       <string>Cooling Loop #</string>
      </property>
      <layout class="QGridLayout" name="gridLayout_2">
-      <item row="6" column="0">
-       <widget class="QLabel" name="epsTempLabel">
+      <item row="1" column="0">
+       <widget class="QLabel" name="temperatureLabel">
         <property name="text">
-         <string>Temp Resistor</string>
-        </property>
-       </widget>
-      </item>
-      <item row="6" column="1">
-       <widget class="TaurusLabel" name="epsTempValue">
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>20</height>
-         </size>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="0" colspan="2">
-       <widget class="TaurusLabel" name="coolingLoopStatus">
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>20</height>
-         </size>
-        </property>
-       </widget>
-      </item>
-      <item row="8" column="1">
-       <spacer name="verticalSpacer">
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>20</width>
-          <height>40</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item row="3" column="1">
-       <widget class="TaurusLabel" name="powerValue">
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>20</height>
-         </size>
-        </property>
-        <property name="suffixText">
-         <string/>
+         <string>Temp Water</string>
         </property>
        </widget>
       </item>
@@ -91,28 +45,34 @@
         </property>
        </widget>
       </item>
-      <item row="3" column="0">
+      <item row="2" column="0">
        <widget class="QLabel" name="powerLabel">
         <property name="text">
          <string>Power drive</string>
         </property>
        </widget>
       </item>
-      <item row="1" column="0">
-       <widget class="QLabel" name="temperatureLabel">
-        <property name="text">
-         <string>Temp Water</string>
+      <item row="2" column="1">
+       <widget class="TaurusLabel" name="powerValue">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>20</height>
+         </size>
+        </property>
+        <property name="suffixText">
+         <string/>
         </property>
        </widget>
       </item>
-      <item row="4" column="0">
+      <item row="3" column="0">
        <widget class="QLabel" name="epsPressureLabel">
         <property name="text">
          <string>Pressure</string>
         </property>
        </widget>
       </item>
-      <item row="4" column="1">
+      <item row="3" column="1">
        <widget class="TaurusLabel" name="epsPressureValue">
         <property name="minimumSize">
          <size>
@@ -122,12 +82,63 @@
         </property>
        </widget>
       </item>
-      <item row="5" column="0" colspan="2">
+      <item row="4" column="0" colspan="2">
        <widget class="Line" name="line">
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
         </property>
        </widget>
+      </item>
+      <item row="5" column="0">
+       <widget class="QLabel" name="epsTempLabel">
+        <property name="text">
+         <string>Temp Resistor</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="1">
+       <widget class="TaurusLabel" name="epsTempValue">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>20</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="1">
+       <spacer name="verticalSpacer">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="0" column="0" colspan="2">
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="TaurusLabel" name="coolingLoopStatus">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>20</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QToolButton" name="coolingLoopStatusHistory">
+          <property name="text">
+           <string>...</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </item>
      </layout>
     </widget>
