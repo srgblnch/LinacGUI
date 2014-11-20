@@ -27,7 +27,7 @@ class linacPlcWidget(TaurusWidget):
     def getQtDesignerPluginInfo(cls):
         ret = TaurusWidget.getQtDesignerPluginInfo()
         ret['module'] = 'linacplcwidget'
-        ret['group'] = 'Taurus Linac'
+        ret['group'] = 'Taurus Linac Widgets'
         ret['icon'] = ':/designer/groupbox.png'
         ret['container'] = False
         return ret

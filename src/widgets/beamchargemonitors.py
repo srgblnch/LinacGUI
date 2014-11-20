@@ -27,7 +27,7 @@ class beamChargeMonitors(TaurusWidget):
     def getQtDesignerPluginInfo(cls):
         ret = TaurusWidget.getQtDesignerPluginInfo()
         ret['module'] = 'beamchargemonitors'
-        ret['group'] = 'Taurus Linac'
+        ret['group'] = 'Taurus Linac Widgets'
         ret['container'] = ':/designer/widgetstack.png'
         ret['container'] = False
         return ret

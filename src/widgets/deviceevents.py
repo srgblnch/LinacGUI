@@ -27,7 +27,7 @@ class deviceEvents(TaurusWidget):
     def getQtDesignerPluginInfo(cls):
         ret = TaurusWidget.getQtDesignerPluginInfo()
         ret['module'] = 'widgets.deviceevents'
-        ret['group'] = 'Taurus Containers'
+        ret['group'] = 'Taurus Linac Widgets'
         ret['container'] = ':/designer/frame.png'
         ret['container'] = False
         return ret

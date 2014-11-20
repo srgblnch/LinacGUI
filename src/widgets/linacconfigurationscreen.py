@@ -27,8 +27,8 @@ class linacConfigurationScreen(TaurusWidget):
     def getQtDesignerPluginInfo(cls):
         ret = TaurusWidget.getQtDesignerPluginInfo()
         ret['module'] = 'linacconfigurationscreen'
-        ret['group'] = 'Taurus Linac'
-        ret['container'] = ':/designer/frame.png'
+        ret['group'] = 'Taurus Linac Main'
+        ret['container'] = ':/designer/tabwidget.png'
         ret['container'] = False
         return ret
 

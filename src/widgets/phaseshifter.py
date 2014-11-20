@@ -27,7 +27,7 @@ class phaseShifter(TaurusWidget):
     def getQtDesignerPluginInfo(cls):
         ret = TaurusWidget.getQtDesignerPluginInfo()
         ret['module'] = 'phaseshifter'
-        ret['group'] = 'Taurus Linac'
+        ret['group'] = 'Taurus Linac Widgets'
         ret['icon'] = ':/designer/widgetstack.png'
         ret['container'] = False
         return ret

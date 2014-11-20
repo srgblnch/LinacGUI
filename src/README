@@ -1,0 +1,14 @@
+Very basic information to develop on this gui:
+
+From the source directory (src), and to have the widgets specifically developed, the call to the designer can be:
+$ taurusdesigner --taurus-path=./widgets widgets/ui/*.ui &
+
+With this all the widgets made for this interface opened and having them in the widget box. There are three groups:
+- Taurus Linac Main: with the three tabbed widgets
+- Taurus Linac Widgets: with the collection of widgets used in the previous group
+- Taurus Linac Snapshot: the widgets used in the ctlisetup application for the save/retreve.
+
+To generate py files:
+$ taurusuic4 widgets/ui/+.ui -o widgets/ui_+.py
+Where + means the name of the widget.
+

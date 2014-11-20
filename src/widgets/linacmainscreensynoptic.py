@@ -27,7 +27,7 @@ class linacMainscreenSynoptic(TaurusWidget):
     def getQtDesignerPluginInfo(cls):
         ret = TaurusWidget.getQtDesignerPluginInfo()
         ret['module'] = 'linacmainscreensynoptic'
-        ret['group'] = 'Taurus Linac'
+        ret['group'] = 'Taurus Linac Main'
         ret['icon'] = ':/designer/tabwidget.png'
         ret['container'] = False
         return ret

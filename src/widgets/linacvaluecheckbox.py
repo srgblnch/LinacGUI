@@ -86,17 +86,17 @@ class LinacValueCheckBox(Qt.QCheckBox, TaurusBaseWritableWidget):
            the tracing logs.
         '''
         monitoredAttrs = [
-                          'li/ct/plc1/gun_hv_onc',
-                          'li/ct/plc1/gun_lv_onc',
-                          'li/ct/plc2/cl1_onc',
-                          'li/ct/plc2/cl2_onc',
-                          'li/ct/plc2/cl3_onc',
-                          'li/ct/plc2/vvall_oc',
-                          'li/ct/plc3/ma_interlock_rc',
-                          'li/ct/plc4/lv_onc',
-                          'li/ct/plc4/hvps_onc',
-                          'li/ct/plc5/lv_onc',
-                          'li/ct/plc5/hvps_onc',
+#                          'li/ct/plc1/gun_hv_onc',
+#                          'li/ct/plc1/gun_lv_onc',
+#                          'li/ct/plc2/cl1_onc',
+#                          'li/ct/plc2/cl2_onc',
+#                          'li/ct/plc2/cl3_onc',
+#                          'li/ct/plc2/vvall_oc',
+#                          'li/ct/plc3/ma_interlock_rc',
+#                          'li/ct/plc4/lv_onc',
+#                          'li/ct/plc4/hvps_onc',
+#                          'li/ct/plc5/lv_onc',
+#                          'li/ct/plc5/hvps_onc',
                          ]
         model = self.getModelName().lower()
         if len(model.split('/')) == 5:
@@ -195,7 +195,7 @@ class LinacValueCheckBox(Qt.QCheckBox, TaurusBaseWritableWidget):
         #ret = TaurusValueCheckBox.getQtDesignerPluginInfo()
         ret = TaurusBaseWritableWidget.getQtDesignerPluginInfo()
         ret['module'] = 'linacvaluecheckbox'
-        ret['group'] = 'Taurus Linac'
+        ret['group'] = 'Taurus Linac Widgets'
         ret['icon'] = ":/designer/checkbox.png"
         return ret
 

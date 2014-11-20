@@ -27,7 +27,7 @@ class actionForm(TaurusWidget):
     def getQtDesignerPluginInfo(cls):
         ret = TaurusWidget.getQtDesignerPluginInfo()
         ret['module'] = 'actionform'
-        ret['group'] = 'Taurus Linac'
+        ret['group'] = 'Taurus Linac Widgets'
         ret['container'] = ':/designer/dialogbuttonbox.png'
         ret['container'] = False
         return ret
