@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>109</width>
-    <height>55</height>
+    <height>78</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -26,27 +26,49 @@
      </property>
      <layout class="QGridLayout" name="gridLayout_2">
       <item row="0" column="0">
-       <widget class="QLabel" name="doorInterlockLabel">
-        <property name="text">
-         <string>door interlock</string>
-        </property>
-       </widget>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QLabel" name="doorInterlockLabel">
+          <property name="text">
+           <string>door interlock</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="TaurusLed" name="doorInterlockLed">
+          <property name="minimumSize">
+           <size>
+            <width>15</width>
+            <height>15</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>15</width>
+            <height>15</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </item>
-      <item row="0" column="1">
-       <widget class="TaurusLed" name="doorInterlockLed">
-        <property name="minimumSize">
-         <size>
-          <width>15</width>
-          <height>15</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>15</width>
-          <height>15</height>
-         </size>
-        </property>
-       </widget>
+      <item row="1" column="0">
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <item>
+         <widget class="QToolButton" name="RampConfigurator">
+          <property name="text">
+           <string>Ramp</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QToolButton" name="AutoStopConfiguration">
+          <property name="text">
+           <string>Stopper</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </item>
      </layout>
     </widget>
@@ -54,12 +76,6 @@
   </layout>
  </widget>
  <customwidgets>
-  <customwidget>
-   <class>TaurusWidget</class>
-   <extends>QWidget</extends>
-   <header>taurus.qt.qtgui.container</header>
-   <container>1</container>
-  </customwidget>
   <customwidget>
    <class>TaurusLed</class>
    <extends>QLed</extends>
@@ -71,15 +87,21 @@
    <header>taurus.qt.qtgui.display</header>
   </customwidget>
   <customwidget>
-   <class>TaurusGroupBox</class>
-   <extends>QGroupBox</extends>
+   <class>QPixmapWidget</class>
+   <extends>QWidget</extends>
+   <header>taurus.qt.qtgui.display</header>
+  </customwidget>
+  <customwidget>
+   <class>TaurusWidget</class>
+   <extends>QWidget</extends>
    <header>taurus.qt.qtgui.container</header>
    <container>1</container>
   </customwidget>
   <customwidget>
-   <class>QPixmapWidget</class>
-   <extends>QWidget</extends>
-   <header>taurus.qt.qtgui.display</header>
+   <class>TaurusGroupBox</class>
+   <extends>QGroupBox</extends>
+   <header>taurus.qt.qtgui.container</header>
+   <container>1</container>
   </customwidget>
  </customwidgets>
  <resources/>

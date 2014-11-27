@@ -39,6 +39,7 @@ from taurus.qt import Qt,QtGui,QtCore
 from taurus.qt.qtgui.util import ExternalAppAction
 from taurus.qt.qtgui.display import TaurusLed
 from taurus.qt.qtgui.table import TaurusValuesTable
+from taurus.qt.qtgui.plot import TaurusPlot
 try:
     from taurus.external.qt import Qwt5
 except:
@@ -47,6 +48,7 @@ except:
 from ui_ctli import Ui_linacGui
 from deviceevents import deviceEvents
 from attrramps import AttrRamps
+from attrautostopper import AttrAutostopper
 import ctliaux
 
 import threading
@@ -400,6 +402,20 @@ class MainWindow(TaurusMainWindow):
         self._setupTaurusLabel4Attr(popupWidget.eGunStatus,'li/ct/plc1/Gun_Status')
         self._setupTaurusLabel4Attr(popupWidget.filamentValue,'li/ct/plc1/GUN_Filament_V','V')
         self._setupTaurusLabel4Attr(popupWidget.cathodeValue,'li/ct/plc1/GUN_Kathode_V','V')
+        #ramp configuration
+        button = popupWidget.RampConfigurator
+        device = 'li/ct/plc1'
+        attributes = ["GUN_Filament_V",
+                      "GUN_Filament_V_setpoint","GUN_LV_ONC",
+                      "GUN_Filament_V_setpoint_ascending_step",
+                      "GUN_Filament_V_setpoint_ascending_steptime",
+                      "GUN_Filament_V_setpoint_ascending_threshold",
+                      "GUN_Filament_V_setpoint_descending_step",
+                      "GUN_Filament_V_setpoint_descending_steptime",
+                      "GUN_Filament_V_setpoint_descending_threshold",
+                      "GUN_Filament_V_setpoint_rampEnable"]
+        self._eGunLVRamp = RampConfigurationWidget(button,device,\
+                                                               attributes,self)
 
     def _setStartup_cooling(self):
         startup_ui = self.ui.linacStartupSynoptic._ui
@@ -479,7 +495,7 @@ class MainWindow(TaurusMainWindow):
             #inside the popup
             self._setupTaurusLabel4Attr(popupWidget.coolingLoopStatus,
                                        coolingLoops[number]['status_attrName'])
-            self._coolingLoopHistory[number] = DockWidgetManager(\
+            self._coolingLoopHistory[number] = HistoryWidgetManager(\
                                           popupWidget.coolingLoopStatusHistory,
                             coolingLoops[number]['status_attrName']+'_History',
                                                                           self)
@@ -725,6 +741,7 @@ class MainWindow(TaurusMainWindow):
                         'widget':mainscreen_ui.klystron2HVPopupWidget}
                     }
         self._klystronHV = {}
+        self._klystronHVRamps = {}
         for number in klystrons.keys():
             #---- readback for the klystron HV
             widget = klystrons[number]['readBack']['widget']
@@ -760,30 +777,41 @@ class MainWindow(TaurusMainWindow):
             self._setupTaurusLabel4Attr(widget.hvSetpointValue,
                                         'li/ct/plc%d/HVPS_V_setpoint'%(number+3),'kV')
             #---- Until the ramp works, hide its widgets
-            widget.hvRamp.hide()
-            widget.hvRampEnableLed.hide()
-#            self._setupLed4Attr(widget.hvRampEnableLed,
-#                                'li/ct/plc%d/HVPS_V_setpointRampEnable'
-#                                %(number+3))
-            widget.hvRampEnableCheck.hide()
-#            self._setupCheckbox4Attr(widget.hvRampEnableCheck,
-#                                     'li/ct/plc%d/HVPS_V_setpointRampEnable'
-#                                     %(number+3))
-            widget.hvRampStepLabel.hide()
-            widget.hvRampStepValue.hide()
-#            self._setupTaurusLabel4Attr(widget.hvRampStepValue,
-#                                        'li/ct/plc%d/HVPS_V_setpointStep'
-#                                        %(number+3),'kV')
-            widget.hvRampStepTimeLabel.hide()
-            widget.hvRampStepTimeValue.hide()
-#            self._setupTaurusLabel4Attr(widget.hvRampStepTimeValue,
-#                                        'li/ct/plc%d/HVPS_V_setpointStepTime'
-#                                        %(number+3),'s')
-            widget.hvRampThresholdLabel.hide()
-            widget.hvRampThresholdValue.hide()
-#            self._setupTaurusLabel4Attr(widget.hvRampThresholdValue,
-#                                        'li/ct/plc%d/HVPS_V_setpointThreshold'
-#                                        %(number+3),'kV')
+            button = widget.RampConfigurator
+            device = 'li/ct/plc%d'%(number+3)
+            attributes = ["HVPS_V","HVPS_V_setpoint","HVPS_ONC",
+                          "HVPS_V_setpoint_ascending_step",
+                          "HVPS_V_setpoint_ascending_steptime",
+                          "HVPS_V_setpoint_ascending_threshold",
+                          "HVPS_V_setpoint_rampEnable"]
+            self._klystronHVRamps[number] = RampConfigurationWidget(button,\
+                                                        device,attributes,self)
+            
+            
+#            widget.hvRamp.hide()
+#            widget.hvRampEnableLed.hide()
+##            self._setupLed4Attr(widget.hvRampEnableLed,
+##                                'li/ct/plc%d/HVPS_V_setpointRampEnable'
+##                                %(number+3))
+#            widget.hvRampEnableCheck.hide()
+##            self._setupCheckbox4Attr(widget.hvRampEnableCheck,
+##                                     'li/ct/plc%d/HVPS_V_setpointRampEnable'
+##                                     %(number+3))
+#            widget.hvRampStepLabel.hide()
+#            widget.hvRampStepValue.hide()
+##            self._setupTaurusLabel4Attr(widget.hvRampStepValue,
+##                                        'li/ct/plc%d/HVPS_V_setpointStep'
+##                                        %(number+3),'kV')
+#            widget.hvRampStepTimeLabel.hide()
+#            widget.hvRampStepTimeValue.hide()
+##            self._setupTaurusLabel4Attr(widget.hvRampStepTimeValue,
+##                                        'li/ct/plc%d/HVPS_V_setpointStepTime'
+##                                        %(number+3),'s')
+#            widget.hvRampThresholdLabel.hide()
+#            widget.hvRampThresholdValue.hide()
+##            self._setupTaurusLabel4Attr(widget.hvRampThresholdValue,
+##                                        'li/ct/plc%d/HVPS_V_setpointThreshold'
+##                                        %(number+3),'kV')
             bar = klystrons[number]['widget'].geometry()
             #print("!"*20+" %s"%(bar))
             #bar.setBottom(220)
@@ -1122,6 +1150,32 @@ class MainWindow(TaurusMainWindow):
                                     mainscreen_ui.hvsPopupWidget,"HVS")
         widget = mainscreen_ui.hvsPopupWidget._ui
         self._setupLed4Attr(widget.doorInterlockLed,'li/ct/plc1/gm_di')
+        #ramp configuration
+        button = widget.RampConfigurator
+        device = 'li/ct/plc1'
+        attributes = ["GUN_HV_V","GUN_HV_V_setpoint","GUN_HV_ONC",
+                      "GUN_HV_V_setpoint_ascending_step",
+                      "GUN_HV_V_setpoint_ascending_steptime",
+                      "GUN_HV_V_setpoint_ascending_threshold",
+                      "GUN_HV_V_setpoint_descending_step",
+                      "GUN_HV_V_setpoint_descending_steptime",
+                      "GUN_HV_V_setpoint_descending_threshold",
+                      "GUN_HV_V_setpoint_rampEnable"]
+        self._eGunHVRamp = RampConfigurationWidget(button,device,\
+                                                               attributes,self)
+        #autostop configuration
+        button = widget.AutoStopConfiguration
+        device = 'li/ct/plc1'
+        attributes = ["GUN_HV_I",
+                      "GUN_HV_I_AutoStop_Below_Threshold",
+                      "GUN_HV_I_AutoStop_IntegrationTime",
+                      "GUN_HV_I_AutoStop_Enable",
+                      "GUN_HV_I_AutoStop_Mean",
+                      "GUN_HV_I_AutoStop_Std",
+                      "GUN_HV_I_AutoStop_Triggered",
+                      "GUN_HV_I_AutoStop"]
+        self._filamentAutoStop = AutoStopConfigurationWidget(button,\
+                                                        device,attributes,self)
         
     def _setMainscreen_vacuum(self):
         mainscreen_ui = self.ui.linacMainscreenSynoptic._ui
@@ -1287,13 +1341,13 @@ class MainWindow(TaurusMainWindow):
         Qt.QObject.connect(self.eventsPlotAction,Qt.SIGNAL("triggered()"),
                            self.plotEventsInfo)
         self.toolsMenu.addAction(self.eventsPlotAction)
-        self._setSplashScreenSubtask("Ramping configuration")
-        self.attrRampConfigurationAtion = Qt.QAction('Ramping configuration',
-                                                     self)
-        Qt.QObject.connect(self.attrRampConfigurationAtion,
-                           Qt.SIGNAL("triggered()"),
-                           self.attributeRampsDefinitions)
-        self.toolsMenu.addAction(self.attrRampConfigurationAtion)
+#        self._setSplashScreenSubtask("Ramping configuration")
+#        self.attrRampConfigurationAtion = Qt.QAction('Ramping configuration',
+#                                                     self)
+#        Qt.QObject.connect(self.attrRampConfigurationAtion,
+#                           Qt.SIGNAL("triggered()"),
+#                           self.attributeRampsDefinitions)
+#        self.toolsMenu.addAction(self.attrRampConfigurationAtion)
 
     def plotEventsInfo(self):
         if not hasattr(self,'_eventPlotWindow') or \
@@ -1326,74 +1380,74 @@ class MainWindow(TaurusMainWindow):
 #        self.info("Close Event Plot Window")
 #        self._eventPlotWindow = None
 
-    def attributeRampsDefinitions(self):
-        if not hasattr(self,'_attrRampsWindow') or \
-                                                 self._attrRampsWindow == None:
-            self._attrRampsWindow = AttrRamps()
-#            def closeEvent(self,event):
-#                QtCore.QObject.emit(QtCore.SIGNAL('closeApp'))
-#            self._attrRampsWindow.closeEvent = closeEvent
-#            Qt.QObject.connect(self._attrRampsWindow,
-#                               Qt.SIGNAL("closeApp"),
-#                               self._closeAttrRampsWindow)
-            #first the filament
-            device = "%s1"%(LinacDeviceNameRoot)
-            attributes = ["GUN_Filament_V",
-                          "GUN_Filament_V_setpoint","GUN_LV_ONC",
-                          "GUN_Filament_V_setpoint_ascending_step",
-                          "GUN_Filament_V_setpoint_ascending_steptime",
-                          "GUN_Filament_V_setpoint_ascending_threshold",
-                          "GUN_Filament_V_setpoint_descending_step",
-                          "GUN_Filament_V_setpoint_descending_steptime",
-                          "GUN_Filament_V_setpoint_descending_threshold",
-                          "GUN_Filament_V_setpoint_rampEnable"]
-            widget = self._attrRampsWindow._ui.Filament_LV
-            plot = self._attrRampsWindow._ui.Filament_LV_Setpoint
-            models = ["%s/%s"%(device,attr) for attr in attributes]
-            widget.addModels(models)
-            models = ["%s/%s"%(device,attributes[j]) for j in [0,1]]
-            plot.addModels(models)
-            plot.setForcedReadingPeriod(1000)
-            plot.setLegendPosition(Qwt5.QwtPlot.BottomLegend)
-            #second the electron gun
-            device = "%s1"%(LinacDeviceNameRoot)
-            attributes = ["GUN_HV_V","GUN_HV_V_setpoint","GUN_HV_ONC",
-                          "GUN_HV_V_setpoint_ascending_step",
-                          "GUN_HV_V_setpoint_ascending_steptime",
-                          "GUN_HV_V_setpoint_ascending_threshold",
-                          "GUN_HV_V_setpoint_descending_step",
-                          "GUN_HV_V_setpoint_descending_steptime",
-                          "GUN_HV_V_setpoint_descending_threshold",
-                          "GUN_HV_V_setpoint_rampEnable"]
-            widget = self._attrRampsWindow._ui.GUN_HV
-            plot = self._attrRampsWindow._ui.GUN_HV_Setpoint
-            models = ["%s/%s"%(device,attr) for attr in attributes]
-            widget.addModels(models)
-            models = ["%s/%s"%(device,attributes[j]) for j in [0,1]]
-            plot.addModels(models)
-            plot.setForcedReadingPeriod(1000)
-            plot.setLegendPosition(Qwt5.QwtPlot.BottomLegend)
-            #then the klystrons
-            widgets = {1:self._attrRampsWindow._ui.KA1_HV,
-                       2:self._attrRampsWindow._ui.KA2_HV}
-            plots = {1:self._attrRampsWindow._ui.KA1_HV_Setpoint,
-                     2:self._attrRampsWindow._ui.KA2_HV_Setpoint}
-            attributes = ["HVPS_V","HVPS_V_setpoint","HVPS_ONC",
-                          "HVPS_V_setpoint_ascending_step",
-                          "HVPS_V_setpoint_ascending_steptime",
-                          "HVPS_V_setpoint_ascending_threshold",
-                          "HVPS_V_setpoint_rampEnable"]
-            for i in [1,2]:
-                widget = widgets[i]
-                device = "%s%d"%(LinacDeviceNameRoot,i+3)
-                models = ["%s/%s"%(device,attr) for attr in attributes]
-                widget.addModels(models)
-                widget = plots[i]
-                models = ["%s/%s"%(device,attributes[j]) for j in [0,1]]
-                widget.addModels(models)
-                widget.setForcedReadingPeriod(1000)
-                widget.setLegendPosition(Qwt5.QwtPlot.BottomLegend)
-        self._attrRampsWindow.show()
+#    def attributeRampsDefinitions(self):
+#        if not hasattr(self,'_attrRampsWindow') or \
+#                                                 self._attrRampsWindow == None:
+#            self._attrRampsWindow = AttrRamps()
+##            def closeEvent(self,event):
+##                QtCore.QObject.emit(QtCore.SIGNAL('closeApp'))
+##            self._attrRampsWindow.closeEvent = closeEvent
+##            Qt.QObject.connect(self._attrRampsWindow,
+##                               Qt.SIGNAL("closeApp"),
+##                               self._closeAttrRampsWindow)
+#            #first the filament
+#            device = "%s1"%(LinacDeviceNameRoot)
+#            attributes = ["GUN_Filament_V",
+#                          "GUN_Filament_V_setpoint","GUN_LV_ONC",
+#                          "GUN_Filament_V_setpoint_ascending_step",
+#                          "GUN_Filament_V_setpoint_ascending_steptime",
+#                          "GUN_Filament_V_setpoint_ascending_threshold",
+#                          "GUN_Filament_V_setpoint_descending_step",
+#                          "GUN_Filament_V_setpoint_descending_steptime",
+#                          "GUN_Filament_V_setpoint_descending_threshold",
+#                          "GUN_Filament_V_setpoint_rampEnable"]
+#            widget = self._attrRampsWindow._ui.Filament_LV
+#            plot = self._attrRampsWindow._ui.Filament_LV_Setpoint
+#            models = ["%s/%s"%(device,attr) for attr in attributes]
+#            widget.addModels(models)
+#            models = ["%s/%s"%(device,attributes[j]) for j in [0,1]]
+#            plot.addModels(models)
+#            plot.setForcedReadingPeriod(1000)
+#            plot.setLegendPosition(Qwt5.QwtPlot.BottomLegend)
+#            #second the electron gun
+#            device = "%s1"%(LinacDeviceNameRoot)
+#            attributes = ["GUN_HV_V","GUN_HV_V_setpoint","GUN_HV_ONC",
+#                          "GUN_HV_V_setpoint_ascending_step",
+#                          "GUN_HV_V_setpoint_ascending_steptime",
+#                          "GUN_HV_V_setpoint_ascending_threshold",
+#                          "GUN_HV_V_setpoint_descending_step",
+#                          "GUN_HV_V_setpoint_descending_steptime",
+#                          "GUN_HV_V_setpoint_descending_threshold",
+#                          "GUN_HV_V_setpoint_rampEnable"]
+#            widget = self._attrRampsWindow._ui.GUN_HV
+#            plot = self._attrRampsWindow._ui.GUN_HV_Setpoint
+#            models = ["%s/%s"%(device,attr) for attr in attributes]
+#            widget.addModels(models)
+#            models = ["%s/%s"%(device,attributes[j]) for j in [0,1]]
+#            plot.addModels(models)
+#            plot.setForcedReadingPeriod(1000)
+#            plot.setLegendPosition(Qwt5.QwtPlot.BottomLegend)
+#            #then the klystrons
+#            widgets = {1:self._attrRampsWindow._ui.KA1_HV,
+#                       2:self._attrRampsWindow._ui.KA2_HV}
+#            plots = {1:self._attrRampsWindow._ui.KA1_HV_Setpoint,
+#                     2:self._attrRampsWindow._ui.KA2_HV_Setpoint}
+#            attributes = ["HVPS_V","HVPS_V_setpoint","HVPS_ONC",
+#                          "HVPS_V_setpoint_ascending_step",
+#                          "HVPS_V_setpoint_ascending_steptime",
+#                          "HVPS_V_setpoint_ascending_threshold",
+#                          "HVPS_V_setpoint_rampEnable"]
+#            for i in [1,2]:
+#                widget = widgets[i]
+#                device = "%s%d"%(LinacDeviceNameRoot,i+3)
+#                models = ["%s/%s"%(device,attr) for attr in attributes]
+#                widget.addModels(models)
+#                widget = plots[i]
+#                models = ["%s/%s"%(device,attributes[j]) for j in [0,1]]
+#                widget.addModels(models)
+#                widget.setForcedReadingPeriod(1000)
+#                widget.setLegendPosition(Qwt5.QwtPlot.BottomLegend)
+#        self._attrRampsWindow.show()
 
 '''First approach to the Labview blinking leds with subboxes of sets of attrs.
 '''
@@ -1416,10 +1470,10 @@ class CheckboxManager(TaurusBaseComponent,Qt.QObject):
         else:
             self._widget.hide()
 
-class DockWidgetManager(TaurusBaseComponent,Qt.QWidget):
+class HistoryWidgetManager(TaurusBaseComponent,Qt.QWidget):
     def __init__(self,button,attrName,mainWindow,
                  name=None,qt_parent=None,designMode=False):
-        if not name: name = "DockWidgetManager"
+        if not name: name = "HistoryWidgetManager"
         self.call__init__wo_kw(Qt.QWidget, qt_parent)
         self.call__init__(TaurusBaseComponent, name, designMode=designMode)
         self._attrName = attrName
@@ -1430,36 +1484,153 @@ class DockWidgetManager(TaurusBaseComponent,Qt.QWidget):
                            self._clicked)
         self.debug("Build a dock widget launcher for %s"%(self._attrName))
     def _clicked(self,checked):
-        if self._dockwidget == None or self._table == None:
-            self._dockwidget = QtGui.QDockWidget(self._attrName, self)
-            #FIXME: check what's need and what can be excluded
-            self._dockwidget.setFeatures(QtGui.QDockWidget.DockWidgetClosable
-                                           |QtGui.QDockWidget.DockWidgetMovable
-                                         |QtGui.QDockWidget.DockWidgetFloatable
-                                 #|QtGui.QDockWidget.DockWidgetVerticalTitleBar
+        try:
+            if self._dockwidget == None:
+                self._dockwidget = QtGui.QDockWidget(self._attrName, self)
+                #FIXME: check what's need and what can be excluded
+                self._dockwidget.setFeatures(\
+                                          QtGui.QDockWidget.DockWidgetClosable\
+                                          |QtGui.QDockWidget.DockWidgetMovable\
+                                        |QtGui.QDockWidget.DockWidgetFloatable\
                                                                               )
-            self._dockwidget.setAllowedAreas(QtCore.Qt.AllDockWidgetAreas)
-            self._dockwidget.setWindowTitle(self._attrName)
-#            Qt.QObject.connect(self._dockwidget,Qt.SIGNAL('closeEvent'),
-#                               self._close)
-            self._table = TaurusValuesTable()
-            self._table.setModel(self._attrName)
-            self._table._applyBT.setVisible(False)
-            self._table._cancelBT.setVisible(False)
-            self._table._rwModeCB.setVisible(False)
-            #FIXME: self._table.isReadOnly()? or similar
-            self._dockwidget.setWidget(self._table)
-            self._mainWindow.addDockWidget(QtCore.Qt.LeftDockWidgetArea,
-                                           self._dockwidget)
-            #self._dockwidget.toggleViewAction()
-        self._dockwidget.show()
-        self.debug("Showing a dock widget for attribute %s"%(self._attrName))
-#    def _close(self):
-#        #FIXME: check it works
-#        self.info("Close the dock widget for %s"%(self._attrName))
-#        self._mainWindow.removeDockWidget(self._dockwidget)
-#        self._dockwidget = None
-#        self._table = None
+                self._dockwidget.setAllowedAreas(QtCore.Qt.AllDockWidgetAreas)
+                self._dockwidget.setWindowTitle(self._attrName)
+                Qt.QObject.connect(self._dockwidget,
+                                   Qt.SIGNAL('visibilityChanged(bool)'),
+                                   self._close)
+                self._mainWindow.addDockWidget(QtCore.Qt.LeftDockWidgetArea,
+                                               self._dockwidget)
+            if self._table == None:
+                self._table = TaurusValuesTable()
+                self._table.setModel(self._attrName)
+                self._table._applyBT.setVisible(False)
+                self._table._cancelBT.setVisible(False)
+                self._table._rwModeCB.setVisible(False)
+                self._dockwidget.setWidget(self._table)
+            self._dockwidget.show()
+            self.debug("Showing a dock widget for attribute %s"
+                       %(self._attrName))
+        except Exception,e:
+            self.error("Error when click to open the %s dockwidget: %s"
+                       %(self._attrName,e))
+            traceback.print_exc()
+    def _close(self,visible):
+        if visible == False:
+            self.info("Close the dock widget for %s"%(self._attrName))
+            #self._dockwidget.setWidget(None)
+            #self._table = None
+            #self._mainWindow.removeDockWidget(self._dockwidget)
+
+class RampConfigurationWidget(TaurusBaseComponent,Qt.QWidget):
+    def __init__(self,button,devicaName,attrList,mainWindow,
+                 name=None,qt_parent=None,designMode=False):
+        if not name: name = "RampConfigurationWidget"
+        self.call__init__wo_kw(Qt.QWidget, qt_parent)
+        self.call__init__(TaurusBaseComponent, name, designMode=designMode)
+        self._devicaName = devicaName
+        self._attrList = attrList
+        self._mainWindow = mainWindow
+        self._dockwidget = None
+        self._widget = None
+        Qt.QObject.connect(button,Qt.SIGNAL("clicked(bool)"),
+                           self._clicked)
+        self.debug("Build a dock widget launcher for %s"%(self._devicaName))
+    def _clicked(self,checked):
+        try:
+            if self._dockwidget == None:
+                self._dockwidget = QtGui.QDockWidget(self._devicaName, self)
+                #FIXME: check what's need and what can be excluded
+                self._dockwidget.setFeatures(\
+                                          QtGui.QDockWidget.DockWidgetClosable\
+                                          |QtGui.QDockWidget.DockWidgetMovable\
+                                        |QtGui.QDockWidget.DockWidgetFloatable\
+                                                                              )
+                self._dockwidget.setAllowedAreas(QtCore.Qt.AllDockWidgetAreas)
+                self._dockwidget.setWindowTitle(self._devicaName+'/'+\
+                                                             self._attrList[0])
+                Qt.QObject.connect(self._dockwidget,
+                                   Qt.SIGNAL('visibilityChanged(bool)'),
+                                   self._close)
+                self._mainWindow.addDockWidget(QtCore.Qt.BottomDockWidgetArea,
+                                               self._dockwidget)
+            if self._widget == None:
+                models = ["%s/%s"%(self._devicaName,attr) \
+                                                    for attr in self._attrList]
+                self._widget = AttrRamps()
+                form = self._widget._ui.AttributesForm
+                form.addModels(models)
+                plot = self._widget._ui.AttributesPlot
+                plot.addModels(["%s/%s"%(self._devicaName,self._attrList[j]) \
+                                                               for j in [0,1]])
+                plot.setForcedReadingPeriod(1000)
+                plot.setLegendPosition(Qwt5.QwtPlot.BottomLegend)
+                self._dockwidget.setWidget(self._widget)
+            self._dockwidget.show()
+        except Exception,e:
+            self.error("Error when click to open the %s dockwidget: %s"
+                       %(self._devicaName,e))
+            traceback.print_exc()
+    def _close(self,visible):
+        if visible == False:
+            self.info("Close the dock widget for %s"%(self._devicaName))
+            #self._dockwidget.setWidget(None)
+            #self._widget = None
+            #self._mainWindow.removeDockWidget(self._dockwidget)
+
+class AutoStopConfigurationWidget(TaurusBaseComponent,Qt.QWidget):
+    def __init__(self,button,devicaName,attrList,mainWindow,
+                 name=None,qt_parent=None,designMode=False):
+        if not name: name = "AutoStopConfigurationWidget"
+        self.call__init__wo_kw(Qt.QWidget, qt_parent)
+        self.call__init__(TaurusBaseComponent, name, designMode=designMode)
+        self._devicaName = devicaName
+        self._attrList = attrList
+        self._mainWindow = mainWindow
+        self._dockwidget = None
+        self._widget = None
+        Qt.QObject.connect(button,Qt.SIGNAL("clicked(bool)"),
+                           self._clicked)
+        self.debug("Build a dock widget launcher for %s"%(self._devicaName))
+    def _clicked(self,checked):
+        try:
+            if self._dockwidget == None:
+                self._dockwidget = QtGui.QDockWidget(self._devicaName, self)
+                #FIXME: check what's need and what can be excluded
+                self._dockwidget.setFeatures(\
+                                          QtGui.QDockWidget.DockWidgetClosable\
+                                          |QtGui.QDockWidget.DockWidgetMovable\
+                                        |QtGui.QDockWidget.DockWidgetFloatable\
+                                                                              )
+                self._dockwidget.setAllowedAreas(QtCore.Qt.AllDockWidgetAreas)
+                self._dockwidget.setWindowTitle(self._devicaName+'/'+\
+                                                             self._attrList[0])
+                Qt.QObject.connect(self._dockwidget,
+                                   Qt.SIGNAL('visibilityChanged(bool)'),
+                                   self._close)
+                self._mainWindow.addDockWidget(QtCore.Qt.BottomDockWidgetArea,
+                                               self._dockwidget)
+            if self._widget == None:
+                models = ["%s/%s"%(self._devicaName,attr) \
+                                               for attr in self._attrList[:-1]]
+                self._widget = AttrAutostopper()
+                form = self._widget._ui.AttributesForm
+                form.addModels(models)
+                plot = self._widget._ui.AttributesPlot
+                plot.addModels(["%s/%s"%(self._devicaName,self._attrList[-1])])
+                #plot.setForcedReadingPeriod(1000)
+                plot.setLegendPosition(Qwt5.QwtPlot.BottomLegend)
+                self._dockwidget.setWidget(self._widget)
+            self._dockwidget.show()
+        except Exception,e:
+            self.error("Error when click to open the %s dockwidget: %s"
+                       %(self._devicaName,e))
+            traceback.print_exc()
+    def _close(self,visible):
+        if visible == False:
+            self.info("Close the dock widget for %s"%(self._devicaName))
+            #self._dockwidget.setWidget(None)
+            #self._widget = None
+            #self._mainWindow.removeDockWidget(self._dockwidget)
 
 class OperationModeManager(TaurusBaseComponent,Qt.QObject):
     def __init__(self,mainscreen_ui,

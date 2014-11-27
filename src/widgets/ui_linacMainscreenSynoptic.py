@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'widgets/ui/linacMainscreenSynoptic.ui'
 #
-# Created: Wed Oct 29 14:56:41 2014
+# Created: Wed Nov 26 14:34:07 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -320,7 +320,7 @@ class Ui_linacMainscreenSynoptic(object):
         self.as1PopupWidget.setGeometry(QtCore.QRect(786, 585, 220, 60))
         self.as1PopupWidget.setObjectName(_fromUtf8("as1PopupWidget"))
         self.hvsPopupWidget = eGunHV(linacMainscreenSynoptic)
-        self.hvsPopupWidget.setGeometry(QtCore.QRect(-2, 529, 114, 60))
+        self.hvsPopupWidget.setGeometry(QtCore.QRect(0, 523, 114, 78))
         self.hvsPopupWidget.setObjectName(_fromUtf8("hvsPopupWidget"))
         self.MainScreenSchematic = QtGui.QLabel(linacMainscreenSynoptic)
         self.MainScreenSchematic.setGeometry(QtCore.QRect(0, 0, 1265, 829))

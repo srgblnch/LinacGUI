@@ -1057,10 +1057,10 @@
   <widget class="eGunHV" name="hvsPopupWidget">
    <property name="geometry">
     <rect>
-     <x>-2</x>
-     <y>529</y>
+     <x>0</x>
+     <y>523</y>
      <width>114</width>
-     <height>60</height>
+     <height>78</height>
     </rect>
    </property>
   </widget>
@@ -2829,53 +2829,15 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>eGunHV</class>
-   <extends>TaurusWidget</extends>
-   <header>egunhv</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
-   <class>TaurusValueSpinBox</class>
-   <extends>QWidget</extends>
-   <header>taurus.qt.qtgui.input</header>
-  </customwidget>
-  <customwidget>
-   <class>TaurusWidget</class>
-   <extends>QWidget</extends>
-   <header>taurus.qt.qtgui.container</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
-   <class>actionForm</class>
-   <extends>TaurusWidget</extends>
-   <header>actionform</header>
-  </customwidget>
-  <customwidget>
-   <class>TaurusLabel</class>
-   <extends>QLabel</extends>
-   <header>taurus.qt.qtgui.display</header>
-  </customwidget>
-  <customwidget>
-   <class>phaseShifter</class>
-   <extends>TaurusWidget</extends>
-   <header>phaseshifter</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
    <class>klystronHV</class>
    <extends>TaurusWidget</extends>
    <header>klystronhv</header>
    <container>1</container>
   </customwidget>
   <customwidget>
-   <class>TaurusValueComboBox</class>
-   <extends>QComboBox</extends>
-   <header>taurus.qt.qtgui.input</header>
-  </customwidget>
-  <customwidget>
-   <class>magnet</class>
+   <class>phaseShifter</class>
    <extends>TaurusWidget</extends>
-   <header>magnet</header>
+   <header>phaseshifter</header>
    <container>1</container>
   </customwidget>
   <customwidget>
@@ -2885,14 +2847,19 @@
    <container>1</container>
   </customwidget>
   <customwidget>
-   <class>CavityVacuum</class>
-   <extends>TaurusWidget</extends>
-   <header>cavityvacuum</header>
+   <class>LinacValueCheckBox</class>
+   <extends>QCheckBox</extends>
+   <header>linacvaluecheckbox</header>
   </customwidget>
   <customwidget>
-   <class>beamChargeMonitors</class>
+   <class>actionForm</class>
    <extends>TaurusWidget</extends>
-   <header>beamchargemonitors</header>
+   <header>actionform</header>
+  </customwidget>
+  <customwidget>
+   <class>TaurusValueComboBox</class>
+   <extends>QComboBox</extends>
+   <header>taurus.qt.qtgui.input</header>
   </customwidget>
   <customwidget>
    <class>TaurusLed</class>
@@ -2910,9 +2877,42 @@
    <header>taurus.qt.qtgui.display</header>
   </customwidget>
   <customwidget>
-   <class>LinacValueCheckBox</class>
-   <extends>QCheckBox</extends>
-   <header>linacvaluecheckbox</header>
+   <class>eGunHV</class>
+   <extends>TaurusWidget</extends>
+   <header>egunhv</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>beamChargeMonitors</class>
+   <extends>TaurusWidget</extends>
+   <header>beamchargemonitors</header>
+  </customwidget>
+  <customwidget>
+   <class>TaurusValueSpinBox</class>
+   <extends>QWidget</extends>
+   <header>taurus.qt.qtgui.input</header>
+  </customwidget>
+  <customwidget>
+   <class>TaurusWidget</class>
+   <extends>QWidget</extends>
+   <header>taurus.qt.qtgui.container</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>TaurusLabel</class>
+   <extends>QLabel</extends>
+   <header>taurus.qt.qtgui.display</header>
+  </customwidget>
+  <customwidget>
+   <class>magnet</class>
+   <extends>TaurusWidget</extends>
+   <header>magnet</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>CavityVacuum</class>
+   <extends>TaurusWidget</extends>
+   <header>cavityvacuum</header>
   </customwidget>
  </customwidgets>
  <resources/>

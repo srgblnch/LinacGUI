@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>AttrRamps</class>
- <widget class="TaurusWidget" name="AttrRamps">
+ <class>AttrAutostopper</class>
+ <widget class="TaurusWidget" name="AttrAutostopper">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -35,7 +35,7 @@
           <enum>Qt::Horizontal</enum>
          </property>
          <widget class="TaurusForm" name="AttributesForm"/>
-         <widget class="TaurusTrend" name="AttributesPlot"/>
+         <widget class="TaurusPlot" name="AttributesPlot"/>
         </widget>
        </item>
       </layout>
@@ -60,11 +60,6 @@
    <class>TaurusForm</class>
    <extends>TaurusWidget</extends>
    <header>taurus.qt.qtgui.panel</header>
-  </customwidget>
-  <customwidget>
-   <class>TaurusTrend</class>
-   <extends>TaurusPlot</extends>
-   <header>taurus.qt.qtgui.plot</header>
   </customwidget>
   <customwidget>
    <class>QwtPlot</class>

@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'eGunLV.ui'
+# Form implementation generated from reading ui file 'widgets/ui/eGunLV.ui'
 #
-# Created: Wed Feb 12 12:34:56 2014
+# Created: Wed Nov 26 14:31:27 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -27,23 +27,35 @@ class Ui_eGunLV(object):
         self.eGunGroup.setObjectName(_fromUtf8("eGunGroup"))
         self.gridLayout = QtGui.QGridLayout(self.eGunGroup)
         self.gridLayout.setObjectName(_fromUtf8("gridLayout"))
+        self.verticalLayout = QtGui.QVBoxLayout()
+        self.verticalLayout.setObjectName(_fromUtf8("verticalLayout"))
         self.filamentValue = TaurusLabel(self.eGunGroup)
         self.filamentValue.setSuffixText(_fromUtf8(""))
         self.filamentValue.setObjectName(_fromUtf8("filamentValue"))
-        self.gridLayout.addWidget(self.filamentValue, 1, 1, 1, 1)
+        self.verticalLayout.addWidget(self.filamentValue)
         self.filamentLabel = QtGui.QLabel(self.eGunGroup)
         self.filamentLabel.setObjectName(_fromUtf8("filamentLabel"))
-        self.gridLayout.addWidget(self.filamentLabel, 2, 1, 1, 1)
+        self.verticalLayout.addWidget(self.filamentLabel)
+        self.gridLayout.addLayout(self.verticalLayout, 1, 0, 1, 1)
+        self.verticalLayout_2 = QtGui.QVBoxLayout()
+        self.verticalLayout_2.setObjectName(_fromUtf8("verticalLayout_2"))
         self.cathodeValue = TaurusLabel(self.eGunGroup)
         self.cathodeValue.setSuffixText(_fromUtf8(""))
         self.cathodeValue.setObjectName(_fromUtf8("cathodeValue"))
-        self.gridLayout.addWidget(self.cathodeValue, 1, 2, 1, 1)
+        self.verticalLayout_2.addWidget(self.cathodeValue)
         self.cathodeLabel = QtGui.QLabel(self.eGunGroup)
         self.cathodeLabel.setObjectName(_fromUtf8("cathodeLabel"))
-        self.gridLayout.addWidget(self.cathodeLabel, 2, 2, 1, 1)
+        self.verticalLayout_2.addWidget(self.cathodeLabel)
+        self.gridLayout.addLayout(self.verticalLayout_2, 1, 1, 1, 1)
+        self.horizontalLayout = QtGui.QHBoxLayout()
+        self.horizontalLayout.setObjectName(_fromUtf8("horizontalLayout"))
         self.eGunStatus = TaurusLabel(self.eGunGroup)
         self.eGunStatus.setObjectName(_fromUtf8("eGunStatus"))
-        self.gridLayout.addWidget(self.eGunStatus, 0, 1, 1, 2)
+        self.horizontalLayout.addWidget(self.eGunStatus)
+        self.RampConfigurator = QtGui.QToolButton(self.eGunGroup)
+        self.RampConfigurator.setObjectName(_fromUtf8("RampConfigurator"))
+        self.horizontalLayout.addWidget(self.RampConfigurator)
+        self.gridLayout.addLayout(self.horizontalLayout, 0, 0, 1, 2)
         self.gridLayout_2.addWidget(self.eGunGroup, 0, 0, 1, 1)
 
         self.retranslateUi(eGunLV)
@@ -54,6 +66,7 @@ class Ui_eGunLV(object):
         self.eGunGroup.setTitle(QtGui.QApplication.translate("eGunLV", "e- gun status", None, QtGui.QApplication.UnicodeUTF8))
         self.filamentLabel.setText(QtGui.QApplication.translate("eGunLV", "Filament V", None, QtGui.QApplication.UnicodeUTF8))
         self.cathodeLabel.setText(QtGui.QApplication.translate("eGunLV", "Cathode V", None, QtGui.QApplication.UnicodeUTF8))
+        self.RampConfigurator.setText(QtGui.QApplication.translate("eGunLV", "Ramp", None, QtGui.QApplication.UnicodeUTF8))
 
 from taurus.qt.qtgui.display import TaurusLabel
 from taurus.qt.qtgui.container import TaurusGroupBox
