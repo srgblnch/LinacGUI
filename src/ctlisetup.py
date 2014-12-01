@@ -45,7 +45,9 @@ from ui_linacConfigurationScreen import Ui_linacConfigurationScreen
 
 #---- storage sandbox
 sandbox = '/data'
-defaultConfigurations = "%s/LINAC/Configurations"%(sandbox)
+linacbox = "%s/LINAC"%(sandbox)
+defaultConfigurations = "%s/Configurations"%(linacbox)
+commentsfile = "%s/.ctli_comments"%(linacbox)
 
 def dump(obj, nested_level=0, output=sys.stdout):
     """Method found in http://stackoverflow.com/questions/15785719/how-to-print-a-dictionary-line-by-line-in-python
@@ -92,7 +94,7 @@ class MainWindow(TaurusMainWindow):
         self.loadFromDevices()
     
     ######
-    #---- Auxiliar methods to configure widgets
+    #----# Auxiliar methods to configure widgets
     def _setupLed4UnknownAttr(self,widget):
         ctliaux._setupLed4UnknownAttr(widget)
 
@@ -132,7 +134,7 @@ class MainWindow(TaurusMainWindow):
     ######
     
     ######
-    #---- setModel & others for the Configuration Tab
+    #----# setModel & others for the Configuration Tab
     def setConfiguration(self):
         configuration_ui = self.ui
         self._configurationWidgets = {}
@@ -473,9 +475,8 @@ class MainWindow(TaurusMainWindow):
         self._configurationWidgets['klystrons'] = widgetsSet
     
     def commentConfiguration(self,ui):
-        ui.commentGroup.hide()
-        #ui.textLoadedLabel.hide()
-        #ui.textLoaded.hide()
+        #self._loadPreviousComment(ui)
+        self.ui.commentGroup.hide()
     #---- Done configure subwidgets
     ######
     
@@ -499,15 +500,16 @@ class MainWindow(TaurusMainWindow):
     #           this Configuration tab according to when it's happening.
     
     ######
-    #---- Distinguish between widget types
+    #----# Distinguish between widget types
     def _isSpinBox(self,widget):
         return hasattr(widget,'setValue')
     def _isCheckBox(self,widget):
         return hasattr(widget,'setChecked')
+    #---- Done widget types
     ######
     
     ######
-    #---- Widget backgrounds
+    #----# Widget backgrounds
     def _setStyleToModified(self,attrStruct):
         saver = attrStruct['write']
         if self._isSpinBox(saver):
@@ -535,10 +537,11 @@ class MainWindow(TaurusMainWindow):
         else:
             raise Exception("Unmanaged %s widget type to tag modified"%(type(widget)))
         attrStruct['check'].setChecked(False)
+    #---- done widget backgrounds
     ######
     
     ######
-    #---- Value setters and getters
+    #----# Value setters and getters
     def _getAttrValue(self,attrName):
         return PyTango.AttributeProxy(attrName).read().value
     def _setAttrValue(self,attrName,value):
@@ -583,15 +586,16 @@ class MainWindow(TaurusMainWindow):
             return saver.isChecked()
         else:
             raise Exception("Unmanaged %s widget type"%(type(saver)))
+    #---- done Value setters and getters
     ######
         
     ######
-    #---- manage files
+    #----# manage files
     def _getStorageDirectory(self):
         directory = str(QtGui.QFileDialog.getExistingDirectory(self,
                                                             "Select Directory",
                                                         defaultConfigurations))
-        print("_getStorageDirectory() type(directory)= %s"%(type(directory)))
+        #print("_getStorageDirectory() type(directory)= %s"%(type(directory)))
         if not directory == '' and not directory.startswith(sandbox):
             QtGui.QMessageBox.warning(self, "Sandbox warning",
                                       "Your selected directory is not in the "\
@@ -628,7 +632,7 @@ class MainWindow(TaurusMainWindow):
                                           "would you like to write something "\
                                           "after the file prefix %s?"%(prefix),
                                           QtGui.QLineEdit.Normal)
-        print("_getFileSuffix(): ok = %s (%s)"%(str(ok),type(ok)))
+        #print("_getFileSuffix(): ok = %s (%s)"%(str(ok),type(ok)))
         return (str(msg),ok)
     
     def _requestFileName(self):
@@ -639,31 +643,36 @@ class MainWindow(TaurusMainWindow):
     
     def _prepareFileHeader(self,now_struct):
         return "# File stored the %s\n"\
-               %(time.strftime("%Y/%m/%d at %H:%m",now_struct))
-
+          %(time.strftime("%Y/%m/%d at %H:%m",now_struct))
+    
     def _isCommentLine(self,line):
-        if line[0] == '#' and \
-           not (line.split()[1][:-1] == 'group' and \
-                line.split()[2] in self._configurationWidgets.keys()):
+        if line[0] == '#':
+            if not self._isGroupTagLine(line):
+                return True
+        return False
+    def _isGroupTagLine(self,line):
+        try:
+            if line[0] == '#' and \
+               line.split()[1][:-1] == 'group' and \
+               line.split()[2] in self._configurationWidgets.keys():
+                return True
+        except:
+            pass
+        return False
+    def _isSpecialCommentLine(self,line):
+        if self._isCommentLine(line) and line[1] == '@':
             return True
         return False
-
+    
     def _prepareGroupTag(self,group):
         return "# group: %s"%(group)
-
-    def _isGroupTagLine(self,line):
-        if line[0] == '#' and \
-           line.split()[1][:-1] == 'group' and \
-           line.split()[2] in self._configurationWidgets.keys():
-            return True
-        return False
-
+    
     def _prepareAttrLine(self,attrStruct,attrName):
         tag = attrStruct['label'].text()
         self._getAttrValue(attrName)#to rise exception if not available
         value = self._getValueFromSaverWidget(attrStruct)
         return "%24s\t%g\t%s"%(tag,value,attrName)
-
+    
     def _getAttrLine(self,line,n):
         try:
             elements = line.split()
@@ -675,8 +684,40 @@ class MainWindow(TaurusMainWindow):
                 value = int(value)
             return (attrName,value)
         except Exception,e:
-            self.error("misunderstanding in line %d: %s"%(n,line))
+            self.error("misunderstanding in line %d: '%s'"%(n+1,line))
             return (None,None)
+    #---- done manage files
+    ######
+
+    ######
+    #----# Comments region
+    def _loadPreviousComment(self,ui):
+        if os.path.isfile(commentsfile):
+            with open(commentsfile,'r') as file:
+                lines = file.readlines()
+                text = ""
+                for line in lines:
+                    text = ''.join("%s%s"%(text,line))
+                ui.textToSave.setText(text)
+        else:
+            self.warning("The previous-comments file doesn't exist.")
+    def _storeComments(self):
+        comments = self.ui.textToSave.toPlainText()
+        if len(comments) == 0:
+            self.warning("No comments to be stored.")
+            return None
+        with open(commentsfile,'w') as file:
+            file.write(comments)
+        # the tag #@ is to distinguish it in the file
+        comments = "#@ %s"%(comments)
+        comments = comments.replace('\n','\n#@ ')
+        return comments
+    def _cleanSpecialCommentsFromFile(self):
+        self.ui.textLoaded.setText("")
+    def _recoverSpecialCommentLine(self,line):
+        self.ui.textLoaded.setText("%s%s"
+                     %(self.ui.textLoaded.toPlainText(),line.replace('#@ ','')))
+    #---- done commects region
     ######
 
     def prepareProgressBar(self):
@@ -696,7 +737,7 @@ class MainWindow(TaurusMainWindow):
         self.ui.progressBar.hide()
 
     ######
-    #---- ActionButtons callbacks
+    #----# ActionButtons callbacks
     def loadFromDevices(self):
         '''With this call (from a button or at the loading step) we must travel
            all the *Reading widgets and copy the value to the *Value widget.
@@ -766,6 +807,10 @@ class MainWindow(TaurusMainWindow):
                 filename = "%s/%s-%s.li"%(directory,prefix,suffix)
             self.debug("saveToFile() filename: %s"%(filename))
             saving = self._prepareFileHeader(now_struct)
+            #TODO: store comments
+            comments = self._storeComments()
+            if comments != None and len(comments) > 0:
+                saving = ''.join("%s\n%s\n"%(saving,comments))
             exceptions = {}
             self.prepareProgressBar()
             nElements = self.getNumberOfElements(); i=0
@@ -821,6 +866,7 @@ class MainWindow(TaurusMainWindow):
         filename = self._requestFileName()
         group = ''
         exceptions = {}
+        self._cleanSpecialCommentsFromFile()
         if filename != '':
             nElements = 0; i=0
             with open(filename,'r') as file:
@@ -829,7 +875,11 @@ class MainWindow(TaurusMainWindow):
                 self.prepareProgressBar()
                 for nline in range(nElements):
                     line = lines[nline]
-                    if self._isCommentLine(line):
+                    if line == '\n':
+                        pass#line with no content
+                    elif self._isSpecialCommentLine(line):
+                        self._recoverSpecialCommentLine(line)
+                    elif self._isCommentLine(line):
                         pass#Nothing to do with pure comment lines
                     elif self._isGroupTagLine(line):
                         group = line.split()[2]
@@ -906,6 +956,7 @@ class MainWindow(TaurusMainWindow):
             QtGui.QMessageBox.warning(self, "Exceptions when apply",
                                       msg)
         self.doneProgressBar()
+    #---- done ActionButtons callbacks
     ######
 
 def main():

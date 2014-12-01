@@ -1555,7 +1555,7 @@ class RampConfigurationWidget(TaurusBaseComponent,Qt.QWidget):
                                                self._dockwidget)
             if self._widget == None:
                 models = ["%s/%s"%(self._devicaName,attr) \
-                                                    for attr in self._attrList]
+                                                for attr in self._attrList[3:]]
                 self._widget = AttrRamps()
                 form = self._widget._ui.AttributesForm
                 form.addModels(models)
