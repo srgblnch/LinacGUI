@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'widgets/ui/linacStartupSynoptic.ui'
 #
-# Created: Wed Oct  1 16:27:25 2014
+# Created: Thu Nov 27 12:52:50 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -264,11 +264,11 @@ class Ui_linacStartupSynoptic(object):
         self.ipc5Value1.setFont(font)
         self.ipc5Value1.setObjectName(_fromUtf8("ipc5Value1"))
         self.klystron2LVWidget = klystronLV(linacStartupSynoptic)
-        self.klystron2LVWidget.setGeometry(QtCore.QRect(1060, 10, 190, 255))
+        self.klystron2LVWidget.setGeometry(QtCore.QRect(1062, 10, 188, 255))
         self.klystron2LVWidget.setAutoFillBackground(True)
         self.klystron2LVWidget.setObjectName(_fromUtf8("klystron2LVWidget"))
         self.klystron1LVWidget = klystronLV(linacStartupSynoptic)
-        self.klystron1LVWidget.setGeometry(QtCore.QRect(774, 10, 190, 255))
+        self.klystron1LVWidget.setGeometry(QtCore.QRect(776, 10, 188, 255))
         self.klystron1LVWidget.setObjectName(_fromUtf8("klystron1LVWidget"))
         self.vacuumValve1OnStatus = TaurusLabel(linacStartupSynoptic)
         self.vacuumValve1OnStatus.setGeometry(QtCore.QRect(165, 605, 70, 16))

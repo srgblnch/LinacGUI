@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'widgets/ui/linacMainscreenSynoptic.ui'
 #
-# Created: Wed Nov 26 14:34:07 2014
+# Created: Thu Nov 27 12:52:41 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -265,10 +265,10 @@ class Ui_linacMainscreenSynoptic(object):
         self.hvsCurrentValue.setObjectName(_fromUtf8("hvsCurrentValue"))
         self.hvsLayout.addWidget(self.hvsCurrentValue)
         self.klystron2HVPopupWidget = klystronHV(linacMainscreenSynoptic)
-        self.klystron2HVPopupWidget.setGeometry(QtCore.QRect(870, 90, 220, 190))
+        self.klystron2HVPopupWidget.setGeometry(QtCore.QRect(870, 90, 210, 190))
         self.klystron2HVPopupWidget.setObjectName(_fromUtf8("klystron2HVPopupWidget"))
         self.klystron1HVPopupWidget = klystronHV(linacMainscreenSynoptic)
-        self.klystron1HVPopupWidget.setGeometry(QtCore.QRect(480, 57, 220, 190))
+        self.klystron1HVPopupWidget.setGeometry(QtCore.QRect(480, 57, 210, 190))
         self.klystron1HVPopupWidget.setObjectName(_fromUtf8("klystron1HVPopupWidget"))
         self.rfSourceStatusLed = TaurusLed(linacMainscreenSynoptic)
         self.rfSourceStatusLed.setGeometry(QtCore.QRect(1104, 254, 10, 10))
@@ -460,7 +460,7 @@ class Ui_linacMainscreenSynoptic(object):
         self.as2VacuumCheck.setCheckable(True)
         self.as2VacuumCheck.setObjectName(_fromUtf8("as2VacuumCheck"))
         self.beamChargeMonitors = beamChargeMonitors(linacMainscreenSynoptic)
-        self.beamChargeMonitors.setGeometry(QtCore.QRect(1120, 400, 131, 101))
+        self.beamChargeMonitors.setGeometry(QtCore.QRect(1120, 400, 131, 90))
         self.beamChargeMonitors.setObjectName(_fromUtf8("beamChargeMonitors"))
         self.layoutWidget2 = QtGui.QWidget(linacMainscreenSynoptic)
         self.layoutWidget2.setGeometry(QtCore.QRect(790, 110, 81, 51))

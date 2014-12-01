@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'widgets/ui/klystronLV.ui'
 #
-# Created: Tue Apr 29 10:54:42 2014
+# Created: Thu Nov 27 12:42:09 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -28,6 +28,7 @@ class Ui_klystronLV(object):
         self.lowVoltageGroup.setFont(font)
         self.lowVoltageGroup.setObjectName(_fromUtf8("lowVoltageGroup"))
         self.verticalLayout = QtGui.QVBoxLayout(self.lowVoltageGroup)
+        self.verticalLayout.setMargin(2)
         self.verticalLayout.setObjectName(_fromUtf8("verticalLayout"))
         self.LV_StatusLabel = QtGui.QLabel(self.lowVoltageGroup)
         self.LV_StatusLabel.setAlignment(QtCore.Qt.AlignCenter)
@@ -55,6 +56,7 @@ class Ui_klystronLV(object):
         self.taurusGroupBox_2.setFont(font)
         self.taurusGroupBox_2.setObjectName(_fromUtf8("taurusGroupBox_2"))
         self.gridLayout_2 = QtGui.QGridLayout(self.taurusGroupBox_2)
+        self.gridLayout_2.setMargin(2)
         self.gridLayout_2.setObjectName(_fromUtf8("gridLayout_2"))
         self.heatStatus = TaurusLabel(self.taurusGroupBox_2)
         self.heatStatus.setMinimumSize(QtCore.QSize(0, 20))

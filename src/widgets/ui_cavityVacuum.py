@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'widgets/cavityVacuum.ui'
+# Form implementation generated from reading ui file 'widgets/ui/cavityVacuum.ui'
 #
-# Created: Thu Feb 27 19:07:41 2014
+# Created: Thu Nov 27 12:41:00 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -19,10 +19,12 @@ class Ui_CavityVacuum(object):
         CavityVacuum.setObjectName(_fromUtf8("CavityVacuum"))
         CavityVacuum.resize(116, 100)
         self.gridLayout = QtGui.QGridLayout(CavityVacuum)
+        self.gridLayout.setMargin(1)
         self.gridLayout.setObjectName(_fromUtf8("gridLayout"))
         self.vacuumGroup = TaurusGroupBox(CavityVacuum)
         self.vacuumGroup.setObjectName(_fromUtf8("vacuumGroup"))
         self.gridLayout_2 = QtGui.QGridLayout(self.vacuumGroup)
+        self.gridLayout_2.setMargin(2)
         self.gridLayout_2.setObjectName(_fromUtf8("gridLayout_2"))
         self.HVGValue = TaurusLabel(self.vacuumGroup)
         self.HVGValue.setMinimumSize(QtCore.QSize(60, 15))

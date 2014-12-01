@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'widgets/ui/klystronHV.ui'
 #
-# Created: Wed Nov 26 12:55:59 2014
+# Created: Thu Nov 27 12:42:04 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -19,6 +19,7 @@ class Ui_klystronHV(object):
         klystronHV.setObjectName(_fromUtf8("klystronHV"))
         klystronHV.resize(172, 215)
         self.gridLayout = QtGui.QGridLayout(klystronHV)
+        self.gridLayout.setMargin(1)
         self.gridLayout.setObjectName(_fromUtf8("gridLayout"))
         self.highVoltageGroup = TaurusGroupBox(klystronHV)
         font = QtGui.QFont()
@@ -26,6 +27,7 @@ class Ui_klystronHV(object):
         self.highVoltageGroup.setFont(font)
         self.highVoltageGroup.setObjectName(_fromUtf8("highVoltageGroup"))
         self.gridLayout_2 = QtGui.QGridLayout(self.highVoltageGroup)
+        self.gridLayout_2.setMargin(2)
         self.gridLayout_2.setObjectName(_fromUtf8("gridLayout_2"))
         self.RampConfigurator = QtGui.QToolButton(self.highVoltageGroup)
         self.RampConfigurator.setObjectName(_fromUtf8("RampConfigurator"))
@@ -117,7 +119,7 @@ class Ui_klystronHV(object):
     def retranslateUi(self, klystronHV):
         klystronHV.setWindowTitle(QtGui.QApplication.translate("klystronHV", "Form", None, QtGui.QApplication.UnicodeUTF8))
         self.highVoltageGroup.setTitle(QtGui.QApplication.translate("klystronHV", "klystron high voltage", None, QtGui.QApplication.UnicodeUTF8))
-        self.RampConfigurator.setText(QtGui.QApplication.translate("klystronHV", "...", None, QtGui.QApplication.UnicodeUTF8))
+        self.RampConfigurator.setText(QtGui.QApplication.translate("klystronHV", "Ramp", None, QtGui.QApplication.UnicodeUTF8))
         self.hvLabel.setText(QtGui.QApplication.translate("klystronHV", "Power Supply", None, QtGui.QApplication.UnicodeUTF8))
         self.hvCurrentLabel.setText(QtGui.QApplication.translate("klystronHV", "readback", None, QtGui.QApplication.UnicodeUTF8))
         self.hvRampStepLabel_2.setText(QtGui.QApplication.translate("klystronHV", "setpoint", None, QtGui.QApplication.UnicodeUTF8))

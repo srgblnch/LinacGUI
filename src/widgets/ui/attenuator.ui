@@ -14,6 +14,9 @@
    <string>Form</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
+   <property name="margin">
+    <number>1</number>
+   </property>
    <item row="0" column="0">
     <widget class="TaurusGroupBox" name="attenuatorGroup">
      <property name="font">
@@ -26,7 +29,7 @@
      </property>
      <layout class="QGridLayout" name="gridLayout_2">
       <property name="margin">
-       <number>0</number>
+       <number>2</number>
       </property>
       <item row="0" column="0">
        <widget class="TaurusLabel" name="statusValue"/>

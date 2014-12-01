@@ -14,6 +14,9 @@
    <string>Form</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
+   <property name="margin">
+    <number>1</number>
+   </property>
    <item row="0" column="0">
     <widget class="TaurusGroupBox" name="ictkGroup">
      <property name="font">
@@ -25,6 +28,9 @@
       <string>klystron 2 interlock</string>
      </property>
      <layout class="QGridLayout" name="gridLayout_2">
+      <property name="margin">
+       <number>2</number>
+      </property>
       <item row="1" column="0">
        <widget class="QLabel" name="rfw3Label">
         <property name="text">
@@ -101,18 +107,6 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>TaurusWidget</class>
-   <extends>QWidget</extends>
-   <header>taurus.qt.qtgui.container</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
-   <class>TaurusGroupBox</class>
-   <extends>QGroupBox</extends>
-   <header>taurus.qt.qtgui.container</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
    <class>TaurusLed</class>
    <extends>QLed</extends>
    <header>taurus.qt.qtgui.display</header>
@@ -126,6 +120,18 @@
    <class>QPixmapWidget</class>
    <extends>QWidget</extends>
    <header>taurus.qt.qtgui.display</header>
+  </customwidget>
+  <customwidget>
+   <class>TaurusWidget</class>
+   <extends>QWidget</extends>
+   <header>taurus.qt.qtgui.container</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>TaurusGroupBox</class>
+   <extends>QGroupBox</extends>
+   <header>taurus.qt.qtgui.container</header>
+   <container>1</container>
   </customwidget>
  </customwidgets>
  <resources/>

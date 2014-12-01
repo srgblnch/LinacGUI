@@ -14,6 +14,9 @@
    <string>Form</string>
   </property>
   <layout class="QGridLayout" name="gridLayout_2">
+   <property name="margin">
+    <number>1</number>
+   </property>
    <item row="0" column="0">
     <widget class="TaurusGroupBox" name="eGunGroup">
      <property name="font">
@@ -25,6 +28,9 @@
       <string>e- gun status</string>
      </property>
      <layout class="QGridLayout" name="gridLayout">
+      <property name="margin">
+       <number>2</number>
+      </property>
       <item row="1" column="0">
        <layout class="QVBoxLayout" name="verticalLayout">
         <item>

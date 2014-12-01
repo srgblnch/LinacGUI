@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'widgets/ui/magnet.ui'
 #
-# Created: Wed Apr  9 10:25:43 2014
+# Created: Thu Nov 27 12:42:27 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -27,7 +27,7 @@ class Ui_magnet(object):
         self.magnetGroup.setFont(font)
         self.magnetGroup.setObjectName(_fromUtf8("magnetGroup"))
         self.gridLayout_2 = QtGui.QGridLayout(self.magnetGroup)
-        self.gridLayout_2.setMargin(1)
+        self.gridLayout_2.setMargin(2)
         self.gridLayout_2.setObjectName(_fromUtf8("gridLayout_2"))
         self.horizontalLabel = QtGui.QLabel(self.magnetGroup)
         self.horizontalLabel.setMinimumSize(QtCore.QSize(30, 0))

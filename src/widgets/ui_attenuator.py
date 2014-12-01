@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'widgets/ui/attenuator.ui'
 #
-# Created: Fri Apr 25 11:28:49 2014
+# Created: Thu Nov 27 12:40:38 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -19,6 +19,7 @@ class Ui_Attenuator(object):
         Attenuator.setObjectName(_fromUtf8("Attenuator"))
         Attenuator.resize(108, 78)
         self.gridLayout = QtGui.QGridLayout(Attenuator)
+        self.gridLayout.setMargin(1)
         self.gridLayout.setObjectName(_fromUtf8("gridLayout"))
         self.attenuatorGroup = TaurusGroupBox(Attenuator)
         font = QtGui.QFont()
@@ -26,7 +27,7 @@ class Ui_Attenuator(object):
         self.attenuatorGroup.setFont(font)
         self.attenuatorGroup.setObjectName(_fromUtf8("attenuatorGroup"))
         self.gridLayout_2 = QtGui.QGridLayout(self.attenuatorGroup)
-        self.gridLayout_2.setMargin(0)
+        self.gridLayout_2.setMargin(2)
         self.gridLayout_2.setObjectName(_fromUtf8("gridLayout_2"))
         self.statusValue = TaurusLabel(self.attenuatorGroup)
         self.statusValue.setObjectName(_fromUtf8("statusValue"))

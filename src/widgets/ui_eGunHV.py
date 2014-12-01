@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'widgets/ui/eGunHV.ui'
 #
-# Created: Wed Nov 26 14:58:14 2014
+# Created: Thu Nov 27 12:41:22 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -17,8 +17,9 @@ except AttributeError:
 class Ui_eGunHV(object):
     def setupUi(self, eGunHV):
         eGunHV.setObjectName(_fromUtf8("eGunHV"))
-        eGunHV.resize(109, 78)
+        eGunHV.resize(120, 78)
         self.gridLayout = QtGui.QGridLayout(eGunHV)
+        self.gridLayout.setMargin(1)
         self.gridLayout.setObjectName(_fromUtf8("gridLayout"))
         self.taurusGroupBox = TaurusGroupBox(eGunHV)
         font = QtGui.QFont()
@@ -26,6 +27,7 @@ class Ui_eGunHV(object):
         self.taurusGroupBox.setFont(font)
         self.taurusGroupBox.setObjectName(_fromUtf8("taurusGroupBox"))
         self.gridLayout_2 = QtGui.QGridLayout(self.taurusGroupBox)
+        self.gridLayout_2.setMargin(2)
         self.gridLayout_2.setObjectName(_fromUtf8("gridLayout_2"))
         self.horizontalLayout = QtGui.QHBoxLayout()
         self.horizontalLayout.setObjectName(_fromUtf8("horizontalLayout"))

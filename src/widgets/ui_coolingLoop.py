@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'widgets/ui/coolingLoop.ui'
 #
-# Created: Thu Nov 20 11:31:01 2014
+# Created: Thu Nov 27 12:41:10 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -17,8 +17,9 @@ except AttributeError:
 class Ui_CoolingLoop(object):
     def setupUi(self, CoolingLoop):
         CoolingLoop.setObjectName(_fromUtf8("CoolingLoop"))
-        CoolingLoop.resize(163, 167)
+        CoolingLoop.resize(163, 169)
         self.gridLayout = QtGui.QGridLayout(CoolingLoop)
+        self.gridLayout.setMargin(1)
         self.gridLayout.setObjectName(_fromUtf8("gridLayout"))
         self.coolingLoopGroup = TaurusGroupBox(CoolingLoop)
         font = QtGui.QFont()
@@ -26,6 +27,7 @@ class Ui_CoolingLoop(object):
         self.coolingLoopGroup.setFont(font)
         self.coolingLoopGroup.setObjectName(_fromUtf8("coolingLoopGroup"))
         self.gridLayout_2 = QtGui.QGridLayout(self.coolingLoopGroup)
+        self.gridLayout_2.setMargin(2)
         self.gridLayout_2.setObjectName(_fromUtf8("gridLayout_2"))
         self.temperatureLabel = QtGui.QLabel(self.coolingLoopGroup)
         self.temperatureLabel.setObjectName(_fromUtf8("temperatureLabel"))

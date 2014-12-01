@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'widgets/ui/beamChargeMonitors.ui'
 #
-# Created: Fri May 30 15:03:11 2014
+# Created: Thu Nov 27 12:40:48 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -19,11 +19,12 @@ class Ui_beamChargeMonitors(object):
         beamChargeMonitors.setObjectName(_fromUtf8("beamChargeMonitors"))
         beamChargeMonitors.resize(170, 104)
         self.gridLayout_2 = QtGui.QGridLayout(beamChargeMonitors)
+        self.gridLayout_2.setMargin(1)
         self.gridLayout_2.setObjectName(_fromUtf8("gridLayout_2"))
         self.beamChargeMonitorsGroup = TaurusGroupBox(beamChargeMonitors)
         self.beamChargeMonitorsGroup.setObjectName(_fromUtf8("beamChargeMonitorsGroup"))
         self.gridLayout = QtGui.QGridLayout(self.beamChargeMonitorsGroup)
-        self.gridLayout.setMargin(0)
+        self.gridLayout.setMargin(2)
         self.gridLayout.setObjectName(_fromUtf8("gridLayout"))
         self.liLabel = QtGui.QLabel(self.beamChargeMonitorsGroup)
         self.liLabel.setMaximumSize(QtCore.QSize(40, 16777215))

@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'widgets/ui/eGunLV.ui'
 #
-# Created: Wed Nov 26 14:31:27 2014
+# Created: Thu Nov 27 12:41:27 2014
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -19,6 +19,7 @@ class Ui_eGunLV(object):
         eGunLV.setObjectName(_fromUtf8("eGunLV"))
         eGunLV.resize(158, 95)
         self.gridLayout_2 = QtGui.QGridLayout(eGunLV)
+        self.gridLayout_2.setMargin(1)
         self.gridLayout_2.setObjectName(_fromUtf8("gridLayout_2"))
         self.eGunGroup = TaurusGroupBox(eGunLV)
         font = QtGui.QFont()
@@ -26,6 +27,7 @@ class Ui_eGunLV(object):
         self.eGunGroup.setFont(font)
         self.eGunGroup.setObjectName(_fromUtf8("eGunGroup"))
         self.gridLayout = QtGui.QGridLayout(self.eGunGroup)
+        self.gridLayout.setMargin(2)
         self.gridLayout.setObjectName(_fromUtf8("gridLayout"))
         self.verticalLayout = QtGui.QVBoxLayout()
         self.verticalLayout.setObjectName(_fromUtf8("verticalLayout"))
