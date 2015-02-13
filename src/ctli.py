@@ -405,17 +405,17 @@ class MainWindow(TaurusMainWindow):
         #ramp configuration
         button = popupWidget.RampConfigurator
         device = 'li/ct/plc1'
-        attributes = ["GUN_Filament_V",
-                      "GUN_Filament_V_setpoint","GUN_LV_ONC",
-                      "GUN_Filament_V_setpoint_ascending_step",
-                      "GUN_Filament_V_setpoint_ascending_steptime",
-                      "GUN_Filament_V_setpoint_ascending_threshold",
-                      "GUN_Filament_V_setpoint_descending_step",
-                      "GUN_Filament_V_setpoint_descending_steptime",
-                      "GUN_Filament_V_setpoint_descending_threshold",
-                      "GUN_Filament_V_setpoint_rampEnable"]
+        title = "GUN_Filament_V"
+        formAttrs = ["GUN_Filament_V_setpoint_rampEnable",
+                     "GUN_Filament_V_setpoint_ascending_step",
+                     "GUN_Filament_V_setpoint_ascending_steptime",
+                     "GUN_Filament_V_setpoint_ascending_threshold",
+                     "GUN_Filament_V_setpoint_descending_step",
+                     "GUN_Filament_V_setpoint_descending_steptime",
+                     "GUN_Filament_V_setpoint_descending_threshold"]
+        plotAttrs = ["GUN_Filament_V","GUN_Filament_V_setpoint"]
         self._eGunLVRamp = RampConfigurationWidget(button,device,\
-                                                               attributes,self)
+                                                title,formAttrs,plotAttrs,self)
 
     def _setStartup_cooling(self):
         startup_ui = self.ui.linacStartupSynoptic._ui
@@ -779,13 +779,14 @@ class MainWindow(TaurusMainWindow):
             #---- Until the ramp works, hide its widgets
             button = widget.RampConfigurator
             device = 'li/ct/plc%d'%(number+3)
-            attributes = ["HVPS_V","HVPS_V_setpoint","HVPS_ONC",
-                          "HVPS_V_setpoint_ascending_step",
-                          "HVPS_V_setpoint_ascending_steptime",
-                          "HVPS_V_setpoint_ascending_threshold",
-                          "HVPS_V_setpoint_rampEnable"]
+            title = "HVPS_V"
+            formAttrs = ["HVPS_V_setpoint_rampEnable",
+                         "HVPS_V_setpoint_ascending_step",
+                         "HVPS_V_setpoint_ascending_steptime",
+                         "HVPS_V_setpoint_ascending_threshold"]
+            plotAttrs  = ["HVPS_V","HVPS_V_setpoint"]
             self._klystronHVRamps[number] = RampConfigurationWidget(button,\
-                                                        device,attributes,self)
+                                         device,title,formAttrs,plotAttrs,self)
             
             
 #            widget.hvRamp.hide()
@@ -1153,16 +1154,17 @@ class MainWindow(TaurusMainWindow):
         #ramp configuration
         button = widget.RampConfigurator
         device = 'li/ct/plc1'
-        attributes = ["GUN_HV_V","GUN_HV_V_setpoint","GUN_HV_ONC",
-                      "GUN_HV_V_setpoint_ascending_step",
-                      "GUN_HV_V_setpoint_ascending_steptime",
-                      "GUN_HV_V_setpoint_ascending_threshold",
-                      "GUN_HV_V_setpoint_descending_step",
-                      "GUN_HV_V_setpoint_descending_steptime",
-                      "GUN_HV_V_setpoint_descending_threshold",
-                      "GUN_HV_V_setpoint_rampEnable"]
-        self._eGunHVRamp = RampConfigurationWidget(button,device,\
-                                                               attributes,self)
+        title = "GUN_HV_V"
+        formAttrs = ["GUN_HV_V_setpoint_rampEnable",
+                     "GUN_HV_V_setpoint_ascending_step",
+                     "GUN_HV_V_setpoint_ascending_steptime",
+                     "GUN_HV_V_setpoint_ascending_threshold",
+                     "GUN_HV_V_setpoint_descending_step",
+                     "GUN_HV_V_setpoint_descending_steptime",
+                     "GUN_HV_V_setpoint_descending_threshold"]
+        plotAttrs = ["GUN_HV_V","GUN_HV_V_setpoint"]
+        self._eGunHVRamp = RampConfigurationWidget(button,device,title,\
+                                                      formAttrs,plotAttrs,self)
         #autostop configuration
         button = widget.AutoStopConfiguration
         device = 'li/ct/plc1'
@@ -1174,8 +1176,9 @@ class MainWindow(TaurusMainWindow):
                       "GUN_HV_I_AutoStop_Std",
                       "GUN_HV_I_AutoStop_Triggered",
                       "GUN_HV_I_AutoStop"]
+        redLeds = ["GUN_HV_I_AutoStop_Triggered"]
         self._filamentAutoStop = AutoStopConfigurationWidget(button,\
-                                                        device,attributes,self)
+                                    device,attributes,self,redLedAttrs=redLeds)
         
     def _setMainscreen_vacuum(self):
         mainscreen_ui = self.ui.linacMainscreenSynoptic._ui
@@ -1522,13 +1525,15 @@ class HistoryWidgetManager(TaurusBaseComponent,Qt.QWidget):
             #self._mainWindow.removeDockWidget(self._dockwidget)
 
 class RampConfigurationWidget(TaurusBaseComponent,Qt.QWidget):
-    def __init__(self,button,devicaName,attrList,mainWindow,
+    def __init__(self,button,devicaName,title,formAttrs,plotAttrs,mainWindow,
                  name=None,qt_parent=None,designMode=False):
         if not name: name = "RampConfigurationWidget"
         self.call__init__wo_kw(Qt.QWidget, qt_parent)
         self.call__init__(TaurusBaseComponent, name, designMode=designMode)
         self._devicaName = devicaName
-        self._attrList = attrList
+        self._title = title
+        self._formAttrs = formAttrs
+        self._plotAttrs = plotAttrs
         self._mainWindow = mainWindow
         self._dockwidget = None
         self._widget = None
@@ -1547,21 +1552,24 @@ class RampConfigurationWidget(TaurusBaseComponent,Qt.QWidget):
                                                                               )
                 self._dockwidget.setAllowedAreas(QtCore.Qt.AllDockWidgetAreas)
                 self._dockwidget.setWindowTitle(self._devicaName+'/'+\
-                                                             self._attrList[0])
+                                                                   self._title)
                 Qt.QObject.connect(self._dockwidget,
                                    Qt.SIGNAL('visibilityChanged(bool)'),
                                    self._close)
                 self._mainWindow.addDockWidget(QtCore.Qt.BottomDockWidgetArea,
                                                self._dockwidget)
             if self._widget == None:
+                #form
                 models = ["%s/%s"%(self._devicaName,attr) \
-                                                for attr in self._attrList[3:]]
+                                                   for attr in self._formAttrs]
                 self._widget = AttrRamps()
                 form = self._widget._ui.AttributesForm
                 form.addModels(models)
+                #plot
+                models = ["%s/%s"%(self._devicaName,attr) \
+                                                   for attr in self._plotAttrs]
                 plot = self._widget._ui.AttributesPlot
-                plot.addModels(["%s/%s"%(self._devicaName,self._attrList[j]) \
-                                                               for j in [0,1]])
+                plot.addModels(models)
                 plot.setForcedReadingPeriod(1000)
                 plot.setLegendPosition(Qwt5.QwtPlot.BottomLegend)
                 self._dockwidget.setWidget(self._widget)
@@ -1579,12 +1587,14 @@ class RampConfigurationWidget(TaurusBaseComponent,Qt.QWidget):
 
 class AutoStopConfigurationWidget(TaurusBaseComponent,Qt.QWidget):
     def __init__(self,button,devicaName,attrList,mainWindow,
-                 name=None,qt_parent=None,designMode=False):
+                 name=None,qt_parent=None,designMode=False,
+                 redLedAttrs=None):
         if not name: name = "AutoStopConfigurationWidget"
         self.call__init__wo_kw(Qt.QWidget, qt_parent)
         self.call__init__(TaurusBaseComponent, name, designMode=designMode)
         self._devicaName = devicaName
         self._attrList = attrList
+        self._redLedAttrs = redLedAttrs
         self._mainWindow = mainWindow
         self._dockwidget = None
         self._widget = None
@@ -1615,6 +1625,15 @@ class AutoStopConfigurationWidget(TaurusBaseComponent,Qt.QWidget):
                 self._widget = AttrAutostopper()
                 form = self._widget._ui.AttributesForm
                 form.addModels(models)
+                #TODO: can be changed the 'on color' of the autostop trigger 
+                #      attribute to red?
+                if self._redLedAttrs != None and \
+                                               type(self._redLedAttrs) == list:
+                    for attr in self._redLedAttrs:
+                        widget = form.getItemByModel("%s/%s"
+                                                   %(self._devicaName,attr))
+                        widget.readWidget().setOnColor('red')
+                
                 plot = self._widget._ui.AttributesPlot
                 plot.addModels(["%s/%s"%(self._devicaName,self._attrList[-1])])
                 #plot.setForcedReadingPeriod(1000)
