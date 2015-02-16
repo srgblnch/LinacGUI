@@ -34,7 +34,8 @@ if not linacWidgetsPath in sys.path:
 
 from taurus.core.util import argparse
 from taurus.qt.qtgui.application import TaurusApplication
-from taurus.qt.qtgui.container import TaurusMainWindow
+#from taurus.qt.qtgui.container import TaurusMainWindow
+from taurus.qt.qtgui.base.taurusbase import TaurusBaseComponent
 from taurus.qt import Qt,QtGui
 
 import ctliaux
@@ -74,22 +75,27 @@ def dump(obj, nested_level=0, output=sys.stdout):
     else:
         print >> output, '%s%s' % (nested_level * spacing, obj)
 
-class MainWindow(TaurusMainWindow):
+#class MainWindow(TaurusMainWindow):
+class MainWindow(Qt.QDialog,TaurusBaseComponent):
     def __init__(self, parent=None):
-        TaurusMainWindow.__init__(self)
+        TaurusBaseComponent.__init__(self,'ctlisetup')
+        Qt.QDialog.__init__(self, parent)
         # setup main window
         self.ui = Ui_linacConfigurationScreen()
         self.ui.setupUi(self)
         #place the ui in the window
         self.initComponents()
         #kill splash screen
-        self.splashScreen().finish(self)
+        #self.splashScreen().finish(self)
         self.ui.progressBar.hide()#setValue(100)
 
     def initComponents(self):
+#        if hasattr(self.parent(),'setWindowTitle'):
+#            self.parent().setWindowTitle("Linac Save/Retrieve Interface")
         self.setWindowTitle("Linac Save/Retrieve Interface")
-        self.centralwidget = self.ui.centralFrame
-        self.setCentralWidget(self.centralwidget)
+        if hasattr(self.parent(),'setCentralWidget'):
+            self.centralwidget = self.ui.centralFrame
+            self.setCentralWidget(self.centralwidget)
         self.setConfiguration()
         self.loadFromDevices()
     
@@ -147,8 +153,6 @@ class MainWindow(TaurusMainWindow):
         self.timingConfiguration(configuration_ui.timingSnapshot._ui)
         self.klystronsConfiguration(configuration_ui.klystronSnapshot._ui)
         self.commentConfiguration(configuration_ui)
-        
-        
         #---- connect buttons to their actions
         self.buttonsConfiguration(configuration_ui.buttonBox)
         # Those actions doesn't need DangerMessage because eGunLV, CLs and KaLV
@@ -475,8 +479,8 @@ class MainWindow(TaurusMainWindow):
         self._configurationWidgets['klystrons'] = widgetsSet
     
     def commentConfiguration(self,ui):
-        #self._loadPreviousComment(ui)
-        self.ui.commentGroup.hide()
+        self._loadPreviousComment(ui)
+        #self.ui.commentGroup.hide()
     #---- Done configure subwidgets
     ######
     

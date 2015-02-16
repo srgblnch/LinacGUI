@@ -1183,9 +1183,6 @@ class MainWindow(TaurusMainWindow):
         redLeds = ["GUN_HV_I_AutoStop_Triggered"]
         self._filamentAutoStop = AutoStopConfigurationWidget(button,\
                                     device,attributes,self,redLedAttrs=redLeds)
-#        widget = mainscreen_ui.AutostopperTrigger
-#        attrName = "%s/GUN_HV_I_AutoStop_Triggered"%(device)
-#        self._setupLed4Attr(widget, attrName, onColor='red', offColor='green')
         
     def _setMainscreen_vacuum(self):
         mainscreen_ui = self.ui.linacMainscreenSynoptic._ui
