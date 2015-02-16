@@ -33,7 +33,8 @@ def _setupLed4UnknownAttr(widget):
     widget.setOffColor('white')
     widget.hide()
 
-def _setupLed4Attr(widget,attrName,inverted=False,onColor='green',offColor='red',pattern='on'):
+def _setupLed4Attr(widget,attrName,inverted=False,
+                   onColor='green',offColor='red',pattern='on'):
     widget.setModel(attrName)
     if pattern == 'on':
         widget.setLedPatternName(":leds/images256/led_{color}_on.png")

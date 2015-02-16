@@ -1151,6 +1151,10 @@ class MainWindow(TaurusMainWindow):
                                     mainscreen_ui.hvsPopupWidget,"HVS")
         widget = mainscreen_ui.hvsPopupWidget._ui
         self._setupLed4Attr(widget.doorInterlockLed,'li/ct/plc1/gm_di')
+        #widget = mainscreen_ui.AutostopperTrigger
+        attrName = "li/ct/plc1/GUN_HV_I_AutoStop_Triggered"
+        self._setupLed4Attr(widget.AutostopperTriggerLed,attrName,
+                            onColor='red',offColor='green')
         #ramp configuration
         button = widget.RampConfigurator
         device = 'li/ct/plc1'
@@ -1179,6 +1183,9 @@ class MainWindow(TaurusMainWindow):
         redLeds = ["GUN_HV_I_AutoStop_Triggered"]
         self._filamentAutoStop = AutoStopConfigurationWidget(button,\
                                     device,attributes,self,redLedAttrs=redLeds)
+#        widget = mainscreen_ui.AutostopperTrigger
+#        attrName = "%s/GUN_HV_I_AutoStop_Triggered"%(device)
+#        self._setupLed4Attr(widget, attrName, onColor='red', offColor='green')
         
     def _setMainscreen_vacuum(self):
         mainscreen_ui = self.ui.linacMainscreenSynoptic._ui

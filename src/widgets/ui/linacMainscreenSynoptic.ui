@@ -150,94 +150,6 @@
     </size>
    </property>
   </widget>
-  <widget class="QWidget" name="layoutWidget_2">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>430</y>
-     <width>132</width>
-     <height>96</height>
-    </rect>
-   </property>
-   <layout class="QGridLayout" name="kdLayout">
-    <property name="leftMargin">
-     <number>7</number>
-    </property>
-    <item row="1" column="1">
-     <widget class="QLabel" name="cathodeLabel">
-      <property name="font">
-       <font>
-        <pointsize>7</pointsize>
-        <weight>50</weight>
-        <bold>false</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>Cathode V</string>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="0">
-     <widget class="TaurusLabel" name="filamentCurrent">
-      <property name="minimumSize">
-       <size>
-        <width>60</width>
-        <height>20</height>
-       </size>
-      </property>
-      <property name="suffixText">
-       <string> A</string>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="1">
-     <widget class="TaurusLabel" name="temperatureValue">
-      <property name="minimumSize">
-       <size>
-        <width>60</width>
-        <height>20</height>
-       </size>
-      </property>
-      <property name="suffixText">
-       <string> C</string>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="0">
-     <widget class="QLabel" name="filamentILabel">
-      <property name="minimumSize">
-       <size>
-        <width>0</width>
-        <height>20</height>
-       </size>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>7</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Filament I</string>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="1">
-     <widget class="QLabel" name="temperatureLabel">
-      <property name="font">
-       <font>
-        <pointsize>7</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Temperature</string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="1">
-     <widget class="TaurusLabel" name="cathodeCurrent"/>
-    </item>
-   </layout>
-  </widget>
   <widget class="TaurusValueSpinBox" name="bc2hValue">
    <property name="geometry">
     <rect>
@@ -836,30 +748,6 @@
     </size>
    </property>
   </widget>
-  <widget class="QWidget" name="layoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>30</x>
-     <y>630</y>
-     <width>81</width>
-     <height>91</height>
-    </rect>
-   </property>
-   <layout class="QVBoxLayout" name="hvsLayout">
-    <item>
-     <widget class="TaurusLabel" name="eGunHVStatus"/>
-    </item>
-    <item>
-     <widget class="TaurusLabel" name="eGunHVValue"/>
-    </item>
-    <item>
-     <widget class="TaurusValueSpinBox" name="hvsVoltageValue"/>
-    </item>
-    <item>
-     <widget class="TaurusLabel" name="hvsCurrentValue"/>
-    </item>
-   </layout>
-  </widget>
   <widget class="klystronHV" name="klystron2HVPopupWidget">
    <property name="geometry">
     <rect>
@@ -1058,9 +946,9 @@
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>523</y>
+     <y>506</y>
      <width>114</width>
-     <height>78</height>
+     <height>95</height>
     </rect>
    </property>
   </widget>
@@ -1549,7 +1437,7 @@
      <height>51</height>
     </rect>
    </property>
-   <layout class="QVBoxLayout" name="verticalLayout">
+   <layout class="QVBoxLayout" name="klystron1HVLayout">
     <item>
      <widget class="TaurusLabel" name="klystron1HVRead"/>
     </item>
@@ -1567,7 +1455,7 @@
      <height>51</height>
     </rect>
    </property>
-   <layout class="QVBoxLayout" name="verticalLayout_2">
+   <layout class="QVBoxLayout" name="klystron2HVLayout">
     <item>
      <widget class="TaurusLabel" name="klystron2HVRead"/>
     </item>
@@ -2095,7 +1983,7 @@
      <height>43</height>
     </rect>
    </property>
-   <layout class="QGridLayout" name="gridLayout">
+   <layout class="QGridLayout" name="fluorescentScreen1Layout">
     <item row="0" column="0" rowspan="2">
      <widget class="actionForm" name="fluorescentScreen1Valve">
       <property name="minimumSize">
@@ -2150,7 +2038,7 @@
      <height>43</height>
     </rect>
    </property>
-   <layout class="QGridLayout" name="gridLayout_2">
+   <layout class="QGridLayout" name="fluorescentScreen2Layout">
     <item row="0" column="0" rowspan="2">
      <widget class="actionForm" name="fluorescentScreen2Valve">
       <property name="minimumSize">
@@ -2205,7 +2093,7 @@
      <height>43</height>
     </rect>
    </property>
-   <layout class="QGridLayout" name="gridLayout_3">
+   <layout class="QGridLayout" name="fluorescentScreen3Layout">
     <item row="0" column="0" rowspan="2">
      <widget class="actionForm" name="fluorescentScreen3Valve">
       <property name="minimumSize">
@@ -2292,7 +2180,7 @@
      <height>56</height>
     </rect>
    </property>
-   <layout class="QHBoxLayout" name="horizontalLayout">
+   <layout class="QHBoxLayout" name="tbGunLayout">
     <item>
      <layout class="QGridLayout" name="tbGunDelayLayout">
       <item row="0" column="0">
@@ -2398,7 +2286,7 @@
      <height>62</height>
     </rect>
    </property>
-   <layout class="QVBoxLayout" name="verticalLayout_3">
+   <layout class="QVBoxLayout" name="tbKa1DelayLayout">
     <item>
      <widget class="QLabel" name="tbKaDelay1Label">
       <property name="text">
@@ -2430,7 +2318,7 @@
      <height>62</height>
     </rect>
    </property>
-   <layout class="QVBoxLayout" name="verticalLayout_4">
+   <layout class="QVBoxLayout" name="TbKaDelay2Layout">
     <item>
      <widget class="QLabel" name="tbKaDelay2Label">
       <property name="text">
@@ -2469,7 +2357,7 @@
      <height>36</height>
     </rect>
    </property>
-   <layout class="QVBoxLayout" name="verticalLayout_5">
+   <layout class="QVBoxLayout" name="tbRf2DelayLayout">
     <item>
      <widget class="QLabel" name="tbRf2DelayLabel">
       <property name="text">
@@ -2611,7 +2499,7 @@
      <height>36</height>
     </rect>
    </property>
-   <layout class="QVBoxLayout" name="verticalLayout_6">
+   <layout class="QVBoxLayout" name="sf6p1Layout">
     <item>
      <widget class="QLabel" name="sf6p1Label">
       <property name="text">
@@ -2681,6 +2569,141 @@
     </item>
    </layout>
   </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>21</x>
+     <y>631</y>
+     <width>91</width>
+     <height>91</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="hvsLayout">
+    <item row="1" column="0" colspan="2">
+     <widget class="TaurusLabel" name="eGunHVValue"/>
+    </item>
+    <item row="2" column="0" colspan="2">
+     <widget class="TaurusValueSpinBox" name="hvsVoltageValue"/>
+    </item>
+    <item row="3" column="0" colspan="2">
+     <widget class="TaurusLabel" name="hvsCurrentValue"/>
+    </item>
+    <item row="0" column="0" colspan="2">
+     <widget class="TaurusLabel" name="eGunHVStatus"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>17</x>
+     <y>436</y>
+     <width>126</width>
+     <height>70</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="kdLayout">
+    <item row="0" column="0">
+     <widget class="QLabel" name="cathodeLabel">
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>7</pointsize>
+        <weight>50</weight>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Cathode V</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="TaurusLabel" name="cathodeCurrent">
+      <property name="minimumSize">
+       <size>
+        <width>60</width>
+        <height>20</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="temperatureLabel">
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>7</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Temperature</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="TaurusLabel" name="temperatureValue">
+      <property name="minimumSize">
+       <size>
+        <width>60</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="suffixText">
+       <string> C</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="filamentILabel">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>7</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Filament I</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1">
+     <widget class="TaurusLabel" name="filamentCurrent">
+      <property name="minimumSize">
+       <size>
+        <width>60</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="suffixText">
+       <string> A</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <zorder>layoutWidget</zorder>
   <zorder>MainScreenSchematic</zorder>
   <zorder>layoutWidget</zorder>
   <zorder>layoutWidget</zorder>
@@ -2728,7 +2751,6 @@
   <zorder>coolingLoop1Led</zorder>
   <zorder>coolingLoop2Led</zorder>
   <zorder>coolingLoop3Led</zorder>
-  <zorder>layoutWidget_2</zorder>
   <zorder>bc2hValue</zorder>
   <zorder>bc2vValue</zorder>
   <zorder>bc2fValue</zorder>
