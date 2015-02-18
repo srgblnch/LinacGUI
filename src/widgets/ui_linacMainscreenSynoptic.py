@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'widgets/ui/linacMainscreenSynoptic.ui'
 #
-# Created: Mon Feb 16 11:26:01 2015
+# Created: Wed Feb 18 13:16:26 2015
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -835,7 +835,7 @@ class Ui_linacMainscreenSynoptic(object):
         self.sf6p2Value.setObjectName(_fromUtf8("sf6p2Value"))
         self.sf6p2Layout.addWidget(self.sf6p2Value)
         self.layoutWidget19 = QtGui.QWidget(linacMainscreenSynoptic)
-        self.layoutWidget19.setGeometry(QtCore.QRect(710, 290, 92, 36))
+        self.layoutWidget19.setGeometry(QtCore.QRect(720, 290, 92, 36))
         self.layoutWidget19.setObjectName(_fromUtf8("layoutWidget19"))
         self.sf6p1Layout = QtGui.QVBoxLayout(self.layoutWidget19)
         self.sf6p1Layout.setMargin(0)
@@ -883,7 +883,7 @@ class Ui_linacMainscreenSynoptic(object):
         self.eGunHVStatus.setObjectName(_fromUtf8("eGunHVStatus"))
         self.hvsLayout.addWidget(self.eGunHVStatus, 0, 0, 1, 2)
         self.layoutWidget21 = QtGui.QWidget(linacMainscreenSynoptic)
-        self.layoutWidget21.setGeometry(QtCore.QRect(17, 436, 126, 70))
+        self.layoutWidget21.setGeometry(QtCore.QRect(20, 430, 126, 70))
         self.layoutWidget21.setObjectName(_fromUtf8("layoutWidget21"))
         self.kdLayout = QtGui.QGridLayout(self.layoutWidget21)
         self.kdLayout.setMargin(0)
