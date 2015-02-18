@@ -1160,9 +1160,9 @@ class MainWindow(TaurusMainWindow):
         device = 'li/ct/plc1'
         title = "GUN_HV_V"
         formAttrs = ["GUN_HV_V_setpoint_rampEnable",
-                     "GUN_HV_V_setpoint_ascending_step",
-                     "GUN_HV_V_setpoint_ascending_steptime",
-                     "GUN_HV_V_setpoint_ascending_threshold",
+#                     "GUN_HV_V_setpoint_ascending_step",
+#                     "GUN_HV_V_setpoint_ascending_steptime",
+#                     "GUN_HV_V_setpoint_ascending_threshold",
                      "GUN_HV_V_setpoint_descending_step",
                      "GUN_HV_V_setpoint_descending_steptime",
                      "GUN_HV_V_setpoint_descending_threshold"]
