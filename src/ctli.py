@@ -1146,6 +1146,9 @@ class MainWindow(TaurusMainWindow):
         attrName = 'li/ct/plc1/gun_hv_onc'
         self._setupActionWidget(widget,attrName,text='on/off')
         #---- popup with extra information
+        widget = mainscreen_ui.hvsLed
+        attrName = 'li/ct/plc1/Gun_HV_ready'
+        self._setupLed4Attr(widget, attrName,offColor='red')
         mainscreen_ui.hvsPopupWidget.hide()
         self._hvs = CheckboxManager(mainscreen_ui.hvsPopupCheck,
                                     mainscreen_ui.hvsPopupWidget,"HVS")

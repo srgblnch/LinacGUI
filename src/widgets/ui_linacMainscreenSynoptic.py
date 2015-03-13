@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'widgets/ui/linacMainscreenSynoptic.ui'
 #
-# Created: Wed Feb 18 13:16:26 2015
+# Created: Fri Mar 13 15:07:31 2015
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -924,6 +924,11 @@ class Ui_linacMainscreenSynoptic(object):
         self.filamentCurrent.setMinimumSize(QtCore.QSize(60, 20))
         self.filamentCurrent.setObjectName(_fromUtf8("filamentCurrent"))
         self.kdLayout.addWidget(self.filamentCurrent, 2, 1, 1, 1)
+        self.hvsLed = TaurusLed(linacMainscreenSynoptic)
+        self.hvsLed.setGeometry(QtCore.QRect(80, 606, 10, 10))
+        self.hvsLed.setMinimumSize(QtCore.QSize(10, 10))
+        self.hvsLed.setMaximumSize(QtCore.QSize(10, 10))
+        self.hvsLed.setObjectName(_fromUtf8("hvsLed"))
 
         self.retranslateUi(linacMainscreenSynoptic)
         QtCore.QMetaObject.connectSlotsByName(linacMainscreenSynoptic)

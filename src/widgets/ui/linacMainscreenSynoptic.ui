@@ -2703,6 +2703,28 @@
     </item>
    </layout>
   </widget>
+  <widget class="TaurusLed" name="hvsLed">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>606</y>
+     <width>10</width>
+     <height>10</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>10</width>
+     <height>10</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>10</width>
+     <height>10</height>
+    </size>
+   </property>
+  </widget>
   <zorder>layoutWidget</zorder>
   <zorder>MainScreenSchematic</zorder>
   <zorder>layoutWidget</zorder>
@@ -2848,6 +2870,7 @@
   <zorder>tbGunLevelValue</zorder>
   <zorder>tbGunLevelLabel</zorder>
   <zorder>tl_vokFrame</zorder>
+  <zorder>hvsLed</zorder>
  </widget>
  <customwidgets>
   <customwidget>
