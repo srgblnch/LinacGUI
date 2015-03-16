@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'widgets/ui/linacConfigurationScreen.ui'
 #
-# Created: Fri May 30 16:20:08 2014
+# Created: Mon Mar 16 10:40:53 2015
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -108,8 +108,8 @@ class Ui_linacConfigurationScreen(object):
     def retranslateUi(self, linacConfigurationScreen):
         linacConfigurationScreen.setWindowTitle(QtGui.QApplication.translate("linacConfigurationScreen", "Form", None, QtGui.QApplication.UnicodeUTF8))
         self.commentGroup.setTitle(QtGui.QApplication.translate("linacConfigurationScreen", "Comments", None, QtGui.QApplication.UnicodeUTF8))
-        self.textToSaveLabel.setText(QtGui.QApplication.translate("linacConfigurationScreen", "Comment to be saved:", None, QtGui.QApplication.UnicodeUTF8))
-        self.textLoadedLabel.setText(QtGui.QApplication.translate("linacConfigurationScreen", "Comment loaded from the file:", None, QtGui.QApplication.UnicodeUTF8))
+        self.textToSaveLabel.setText(QtGui.QApplication.translate("linacConfigurationScreen", "Current comment:", None, QtGui.QApplication.UnicodeUTF8))
+        self.textLoadedLabel.setText(QtGui.QApplication.translate("linacConfigurationScreen", "Old comment:", None, QtGui.QApplication.UnicodeUTF8))
 
 from timingsnapshot import timingSnapshot
 from vacuumvalvesnapshot import vacuumValveSnapshot

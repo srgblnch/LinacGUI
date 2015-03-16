@@ -479,8 +479,9 @@ class MainWindow(Qt.QDialog,TaurusBaseComponent):
         self._configurationWidgets['klystrons'] = widgetsSet
     
     def commentConfiguration(self,ui):
+        #configure the splitter to start at 66%-33% relation.
+        w = ui.commentGroup.width();ui.splitter.setSizes([2*w/3,w/3])
         self._loadPreviousComment(ui)
-        #self.ui.commentGroup.hide()
     #---- Done configure subwidgets
     ######
     
@@ -960,6 +961,7 @@ class MainWindow(Qt.QDialog,TaurusBaseComponent):
             QtGui.QMessageBox.warning(self, "Exceptions when apply",
                                       msg)
         self.doneProgressBar()
+        self._cleanSpecialCommentsFromFile()
     #---- done ActionButtons callbacks
     ######
 

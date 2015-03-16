@@ -84,7 +84,7 @@
                  <item>
                   <widget class="QLabel" name="textToSaveLabel">
                    <property name="text">
-                    <string>Comment to be saved:</string>
+                    <string>Current comment:</string>
                    </property>
                   </widget>
                  </item>
@@ -105,7 +105,7 @@
                  <item>
                   <widget class="QLabel" name="textLoadedLabel">
                    <property name="text">
-                    <string>Comment loaded from the file:</string>
+                    <string>Old comment:</string>
                    </property>
                   </widget>
                  </item>
@@ -180,15 +180,15 @@
    <header>coolingloopsnapshot</header>
   </customwidget>
   <customwidget>
-   <class>vacuumValveSnapshot</class>
-   <extends>TaurusWidget</extends>
-   <header>vacuumvalvesnapshot</header>
-  </customwidget>
-  <customwidget>
    <class>TaurusWidget</class>
    <extends>QWidget</extends>
    <header>taurus.qt.qtgui.container</header>
    <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>vacuumValveSnapshot</class>
+   <extends>TaurusWidget</extends>
+   <header>vacuumvalvesnapshot</header>
   </customwidget>
  </customwidgets>
  <resources/>
