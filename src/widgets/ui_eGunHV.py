@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'widgets/ui/eGunHV.ui'
 #
-# Created: Mon Feb 16 11:15:50 2015
+# Created: Mon Mar 16 10:34:52 2015
 #      by: PyQt4 UI code generator 4.9.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -65,7 +65,7 @@ class Ui_eGunHV(object):
         eGunHV.setWindowTitle(QtGui.QApplication.translate("eGunHV", "Form", None, QtGui.QApplication.UnicodeUTF8))
         self.taurusGroupBox.setTitle(QtGui.QApplication.translate("eGunHV", "e-gun status", None, QtGui.QApplication.UnicodeUTF8))
         self.doorInterlockLabel.setText(QtGui.QApplication.translate("eGunHV", "door interlock", None, QtGui.QApplication.UnicodeUTF8))
-        self.AutostopperTriggerLabel.setText(QtGui.QApplication.translate("eGunHV", "Autostop Trigger", None, QtGui.QApplication.UnicodeUTF8))
+        self.AutostopperTriggerLabel.setText(QtGui.QApplication.translate("eGunHV", "Leak I stopper", None, QtGui.QApplication.UnicodeUTF8))
         self.RampConfigurator.setText(QtGui.QApplication.translate("eGunHV", "Ramp", None, QtGui.QApplication.UnicodeUTF8))
         self.AutoStopConfiguration.setText(QtGui.QApplication.translate("eGunHV", "Stopper", None, QtGui.QApplication.UnicodeUTF8))
 

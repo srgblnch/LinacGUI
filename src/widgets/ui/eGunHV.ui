@@ -56,7 +56,7 @@
         <item row="1" column="0">
          <widget class="QLabel" name="AutostopperTriggerLabel">
           <property name="text">
-           <string>Autostop Trigger</string>
+           <string>Leak I stopper</string>
           </property>
          </widget>
         </item>
