@@ -51,6 +51,7 @@ from attrramps import AttrRamps
 from attrautostopper import AttrAutostopper
 import ctliaux
 
+import subprocess
 import threading
 import time
 
@@ -1351,13 +1352,12 @@ class MainWindow(TaurusMainWindow):
         Qt.QObject.connect(self.eventsPlotAction,Qt.SIGNAL("triggered()"),
                            self.plotEventsInfo)
         self.toolsMenu.addAction(self.eventsPlotAction)
-#        self._setSplashScreenSubtask("Ramping configuration")
-#        self.attrRampConfigurationAtion = Qt.QAction('Ramping configuration',
-#                                                     self)
-#        Qt.QObject.connect(self.attrRampConfigurationAtion,
-#                           Qt.SIGNAL("triggered()"),
-#                           self.attributeRampsDefinitions)
-#        self.toolsMenu.addAction(self.attrRampConfigurationAtion)
+        self.taurustrendLauncherAction = Qt.QAction(\
+                                        'Preconfigured trends',self)
+        Qt.QObject.connect(self.taurustrendLauncherAction,Qt.SIGNAL("triggered()"),
+                           self.taurustrendLauncher)
+        self.toolsMenu.addAction(self.taurustrendLauncherAction)
+
 
     def plotEventsInfo(self):
         if not hasattr(self,'_eventPlotWindow') or \
@@ -1385,6 +1385,32 @@ class MainWindow(TaurusMainWindow):
                 toY2.setYAxis(Qwt5.QwtPlot.Axis(1))#move time to axis2
                 widget.autoShowYAxes()
         self._eventPlotWindow.show()
+
+    def taurustrendLauncher(self):
+        """Provide the user with a dialog to a default directory where some 
+           preconfigured trends are save to select one. Then launch a system
+           process like if the user executes it from the console.
+        """
+        fileName = self._requestPreconfigFileName()
+        if self._checkValidFileName(fileName):
+            cmd = "taurustrend --config=%s"%fileName
+            subprocess.call(cmd)
+
+    def _requestPreconfigFileName(self):
+        dialogTitle = "Select preconfigured taurustrend"
+        filters = "Taurustrend preconfig (*.pck);;All files (*)"
+        return str(QtGui.QFileDialog.getOpenFileName(self,dialogTitle,
+                                         ctliaux.defaultPreconfTrends,filters))
+
+    def _checkValidFileName(self,name):
+        if name.count(';') or name.count('&') or name.count('|'):
+            #avoid shell code injection but it's extremelly minimal
+            QtGui.QMessageBox.warning(self,
+                            "Exceptions validating the file name",
+                            "The given file name contain forbidden "\
+                            "characters (;&|)")
+            return False
+        return True
 
 #    def _closeEventPlotWindow(self):
 #        self.info("Close Event Plot Window")

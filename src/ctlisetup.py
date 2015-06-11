@@ -44,12 +44,6 @@ import PyTango
 
 from ui_linacConfigurationScreen import Ui_linacConfigurationScreen
 
-#---- storage sandbox
-sandbox = '/data'
-linacbox = "%s/LINAC"%(sandbox)
-defaultConfigurations = "%s/Configurations"%(linacbox)
-commentsfile = "%s/.ctli_comments"%(linacbox)
-
 def dump(obj, nested_level=0, output=sys.stdout):
     """Method found in http://stackoverflow.com/questions/15785719/how-to-print-a-dictionary-line-by-line-in-python
        that helps to print in a human readable way nested dictionaries
@@ -599,9 +593,9 @@ class MainWindow(Qt.QDialog,TaurusBaseComponent):
     def _getStorageDirectory(self):
         directory = str(QtGui.QFileDialog.getExistingDirectory(self,
                                                             "Select Directory",
-                                                        defaultConfigurations))
+                                                ctliaux.defaultConfigurations))
         #print("_getStorageDirectory() type(directory)= %s"%(type(directory)))
-        if not directory == '' and not directory.startswith(sandbox):
+        if not directory == '' and not directory.startswith(ctliaux.sandbox):
             QtGui.QMessageBox.warning(self, "Sandbox warning",
                                       "Your selected directory is not in the "\
                                       "storage shared by NFS")
@@ -644,7 +638,7 @@ class MainWindow(Qt.QDialog,TaurusBaseComponent):
         dialogTitle = "Select linac's configuration file"
         filters = "Linac configuration (*.li);;All files (*)"
         return str(QtGui.QFileDialog.getOpenFileName(self,dialogTitle,
-                                                defaultConfigurations,filters))
+                                        ctliaux.defaultConfigurations,filters))
     
     def _prepareFileHeader(self,now_struct):
         return "# File stored the %s\n"\
@@ -697,8 +691,8 @@ class MainWindow(Qt.QDialog,TaurusBaseComponent):
     ######
     #----# Comments region
     def _loadPreviousComment(self,ui):
-        if os.path.isfile(commentsfile):
-            with open(commentsfile,'r') as file:
+        if os.path.isfile(ctliaux.commentsfile):
+            with open(ctliaux.commentsfile,'r') as file:
                 lines = file.readlines()
                 text = ""
                 for line in lines:
@@ -711,7 +705,7 @@ class MainWindow(Qt.QDialog,TaurusBaseComponent):
         if len(comments) == 0:
             self.warning("No comments to be stored.")
             return None
-        with open(commentsfile,'w') as file:
+        with open(ctliaux.commentsfile,'w') as file:
             file.write(comments)
         # the tag #@ is to distinguish it in the file
         comments = "#@ %s"%(comments)

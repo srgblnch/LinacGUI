@@ -25,6 +25,13 @@
 
 VERSION = '2.4.2'
 
+#---- storage sandbox
+sandbox = '/data'
+linacbox = "%s/LINAC"%(sandbox)
+defaultConfigurations = "%s/Configurations"%(linacbox)
+commentsfile = "%s/.ctli_comments"%(linacbox)
+defaultPreconfTrends = "%s/Taurustrend_preconfig"%(linacbox)
+
 ######
 #---- Auxiliar methods to configure widgets
 def _setupLed4UnknownAttr(widget):
