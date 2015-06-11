@@ -1392,9 +1392,15 @@ class MainWindow(TaurusMainWindow):
            process like if the user executes it from the console.
         """
         fileName = self._requestPreconfigFileName()
-        if self._checkValidFileName(fileName):
-            cmd = "taurustrend --config=%s"%fileName
-            subprocess.call(cmd)
+        self.info("Receive a request to launch a taurustrend with the %r "\
+                  "configuration file"%(fileName))
+        #if not self._checkValidFileName(fileName):
+        cmd = "taurustrend"
+        args= "--config=%s"%fileName
+        self.info("Ready to launch the command: %r with args %r"
+                  %(cmd,args))
+        subprocess.call([cmd,args])
+        #FIXME: if the command fails, there is no way to report the user!
 
     def _requestPreconfigFileName(self):
         dialogTitle = "Select preconfigured taurustrend"
@@ -1402,15 +1408,15 @@ class MainWindow(TaurusMainWindow):
         return str(QtGui.QFileDialog.getOpenFileName(self,dialogTitle,
                                          ctliaux.defaultPreconfTrends,filters))
 
-    def _checkValidFileName(self,name):
-        if name.count(';') or name.count('&') or name.count('|'):
-            #avoid shell code injection but it's extremelly minimal
-            QtGui.QMessageBox.warning(self,
-                            "Exceptions validating the file name",
-                            "The given file name contain forbidden "\
-                            "characters (;&|)")
-            return False
-        return True
+#    def _checkValidFileName(self,name):
+#        if self._searchCharacters(name):
+#            #avoid shell code injection but it's extremelly minimal
+#            QtGui.QMessageBox.warning(self,
+#                            "Exceptions validating the file name",
+#                            "The given file name contain forbidden "\
+#                            "characters\nAvoid symbols like:  ;  &  |")
+#            return False
+#        return True
 
 #    def _closeEventPlotWindow(self):
 #        self.info("Close Event Plot Window")
