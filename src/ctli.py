@@ -1399,7 +1399,7 @@ class MainWindow(TaurusMainWindow):
         args= "--config=%s"%fileName
         self.info("Ready to launch the command: %r with args %r"
                   %(cmd,args))
-        subprocess.call([cmd,args])
+        subprocess.Popen([cmd,args])#Don't use 'call' because it's blocking
         #FIXME: if the command fails, there is no way to report the user!
 
     def _requestPreconfigFileName(self):
