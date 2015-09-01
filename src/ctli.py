@@ -31,24 +31,26 @@ if not linacWidgetsPath in sys.path:
     sys.path.append(linacWidgetsPath)
 
 from taurus.core.util import argparse
-from taurus.qt.qtgui.application import TaurusApplication
-from taurus.qt.qtgui.container import TaurusMainWindow
-#from taurus.qt.qtgui.taurusgui import TaurusGui
-from taurus.qt.qtgui.base import TaurusBaseComponent
+from taurus.core.util.log import LogExceptHook, Logger
 from taurus.qt import Qt,QtGui,QtCore
-from taurus.qt.qtgui.util import ExternalAppAction
+from taurus.qt.qtgui.application import TaurusApplication
+from taurus.qt.qtgui.base import TaurusBaseComponent
+from taurus.qt.qtgui.container import TaurusMainWindow
 from taurus.qt.qtgui.display import TaurusLed
-from taurus.qt.qtgui.table import TaurusValuesTable
 from taurus.qt.qtgui.plot import TaurusPlot
+from taurus.qt.qtgui.util import ExternalAppAction
+from taurus.qt.qtgui.table import TaurusValuesTable
+#from taurus.qt.qtgui.taurusgui import TaurusGui
 try:
     from taurus.external.qt import Qwt5
 except:
     from taurus.qt import Qwt5
 
-from ui_ctli import Ui_linacGui
-from deviceevents import deviceEvents
-from attrramps import AttrRamps
 from attrautostopper import AttrAutostopper
+from attrramps import AttrRamps
+from deviceevents import deviceEvents
+from ui_ctli import Ui_linacGui
+
 import ctliaux
 
 import subprocess
@@ -61,8 +63,8 @@ for i in range(1,6):
     LinacDeviceNames.append("%s%d"%(LinacDeviceNameRoot,i))
 DeviceRelocator = 'li/ct/linacDataRelocator-01'
 
-class MainWindow(TaurusMainWindow):
-#class MainWindow(TaurusGui):
+class LinacMainWindow(TaurusMainWindow):
+#class LinacMainWindow(TaurusGui):
     def __init__(self, parent=None):
         TaurusMainWindow.__init__(self)
         #TaurusGui.__init__(self)
@@ -1348,15 +1350,22 @@ class MainWindow(TaurusMainWindow):
     def setMenuOptions(self):
         self.perspectivesToolBar.clear()
         self._setSplashScreenSubtask("Plot events info")
+        #---- Plot events info
         self.eventsPlotAction = Qt.QAction('Plot events info',self)
         Qt.QObject.connect(self.eventsPlotAction,Qt.SIGNAL("triggered()"),
                            self.plotEventsInfo)
         self.toolsMenu.addAction(self.eventsPlotAction)
+        #---- Access to preconfigured trends
         self.taurustrendLauncherAction = Qt.QAction(\
                                         'Preconfigured trends',self)
         Qt.QObject.connect(self.taurustrendLauncherAction,Qt.SIGNAL("triggered()"),
                            self.taurustrendLauncher)
         self.toolsMenu.addAction(self.taurustrendLauncherAction)
+        #---- Access to Linac's accelerators documentation
+        self.LinacDocsAction = Qt.QAction("Linac's documentation",self)
+        Qt.QObject.connect(self.LinacDocsAction,Qt.SIGNAL("triggered()"),
+                           self.LinacDocsLauncher)
+        self.helpMenu.addAction(self.LinacDocsAction)
 
 
     def plotEventsInfo(self):
@@ -1401,6 +1410,18 @@ class MainWindow(TaurusMainWindow):
                   %(cmd,args))
         subprocess.Popen([cmd,args])#Don't use 'call' because it's blocking
         #FIXME: if the command fails, there is no way to report the user!
+
+    def LinacDocsLauncher(self):
+        """
+            Provide access to the directory where accelerators stores 
+            information about the Linac.
+            Important: this is accelerators information
+        """
+        cmd = "dolphin"
+        args = "/data/LINAC/Documentation"
+        self.info("Ready to launch the command: %r with args %r"
+                  %(cmd,args))
+        subprocess.Popen([cmd,args])
 
     def _requestPreconfigFileName(self):
         dialogTitle = "Select preconfigured taurustrend"
@@ -1765,13 +1786,64 @@ class ViewButtonListener:
         for line in output:
             print("%s %s\t%s"%(self.__screen,type,line))
 
-def main():
+class Debugger(Logger):
+    """
+        Build this object for debugging purposes from an ipython console.
+        It will launch the graphical interface and the console will have access
+        to internal objects of the gui.
+    """
+    def __init__(self):
+        Logger.__init__(self,name="Debugger")
+        self._thread = threading.Thread(target=self.__threadmain)
+        self._thread.start()
+        while not hasattr(self,"_ui"):
+            self.info("waiting ui")
+            time.sleep(1)
+        self._AllObjects()
+        self.info("objects dictionary done")
+
+    def __threadmain(self):
+        self._qapp = build_application()
+        self.info("application build")
+        self._ui = build_ui()
+        self.info("UI build")
+        self._ui.show()
+        self.info("show")
+        self._exitCode = self._qapp.exec_()
+        self.info("Application exit code: %d"%(self._exitCode))
+
+    def _AllObjects(self):
+        self._objs = {}
+        for widget in self._qapp.allWidgets():
+            #print widget
+            if hasattr(widget,'getModel'):
+                #print "\thas model:",
+                model = "%r"%widget.getModel()
+                #print model
+                if not self._objs.has_key(model):
+                    self._objs[model] = []
+                self._objs[model].append(widget)
+        self.info("object models (%d)"%(len(self._objs.keys())))
+        #for model in self._objs.keys():
+        #    print("\t%s"%(model))
+        
+    def MonitorAttribute(self,attrName):
+        pass
+
+def build_application():
     parser = argparse.get_taurus_parser()
     app = TaurusApplication(sys.argv, cmd_line_parser=parser,
                       app_name='ctli', app_version=ctliaux.VERSION,
                       org_domain='ALBA', org_name='ALBA')
     options = app.get_command_line_options()
-    ui = MainWindow()
+    return app
+
+def build_ui():
+    return LinacMainWindow()
+
+def main():
+    app = build_application()
+    ui = build_ui()
     ui.show()
     sys.exit(app.exec_())
 
