@@ -1346,6 +1346,14 @@ class LinacMainWindow(TaurusMainWindow):
             stateText.setText("PLC%d"%(i))
             self.statusBar().addWidget(stateLed)
             self.statusBar().addWidget(stateText)
+        #---- Linac's IU ready to the status bar
+        self._setSplashScreenSubtask("Linac IU ready")
+        stateLed = TaurusLed(self)
+        stateLed.setModel('li/ct/plc1/IU_RDY')
+        stateText = QtGui.QLabel(self)
+        stateText.setText("Interlock Unit")
+        self.statusBar().addWidget(stateLed)
+        self.statusBar().addWidget(stateText)
 
     def setMenuOptions(self):
         self.perspectivesToolBar.clear()
