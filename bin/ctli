@@ -6,8 +6,22 @@ add2var PYTHONPATH $(CompOs ${SICILIA}/lib/python/site-packages)
 export PYTHONPATH
 
 APPNAME=ctli
+echo "APPNAME "$APPNAME
+
+HOSTNAME=`hostname`
+echo "HOSTNAME "$HOSTNAME
+LOGDIR=/tmp/$APPNAME
+echo "LOGDIR "$LOGDIR
+if [ ! -d $LOGDIR ]; then
+    mkdir -p $LOGDIR
+    echo "directory created"
+fi
+DATE=$(date +"%Y%m%d_%H%M%S")
+echo "DATE "$DATE
+LOGFILE=$LOGDIR"/"$DATE"_"$HOSTNAME"_"$USER".log"
+echo "LOGFILE "$LOGFILE
 
 pushd ${SICILIA}/lib/python/site-packages/$APPNAME
-python $APPNAME.py
+python $APPNAME.py 2>&1 |tee $LOGFILE
 popd
 
