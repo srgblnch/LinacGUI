@@ -25,6 +25,11 @@
 
 VERSION = '2.4.2'
 
+import os
+from socket import gethostname
+from getpass import getuser
+from taurus import setLogLevel,Trace
+
 #---- storage sandbox
 sandbox = '/data'
 linacbox = "%s/LINAC"%(sandbox)
@@ -107,4 +112,21 @@ def _setupActionWidget(widget,attrName,text='on/off',
     _setupCheckbox4Attr(widget._ui.Check,attrName,
                         isRst,DangerMsg,riseEdge,fallingEdge)
 #---- Done auxiliar methods to configure widgets
+######
+
+######
+#---- log the output
+def prepareToLog(app,appName):
+    LOGDIR = "/control/logs"
+    ALTERNATIVE_LOGDIR = "/tmp"
+    if os.path.isdir(LOGDIR):
+        logdirectory = LOGDIR
+    else:
+        logdirectory = ALTERNATIVE_LOGDIR
+    hostname = gethostname()
+    username = getuser()
+    logfilename = "%s/%s_%s_%s.log"%(logdirectory,appName,hostname,username)
+    app.basicConfig(log_file_name=logfilename)
+    setLogLevel(Trace)
+#---- Done logging the output
 ######

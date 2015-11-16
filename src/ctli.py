@@ -24,6 +24,8 @@
 ###########################################################################
 
 import os,sys
+from socket import gethostname
+from getpass import getuser
 
 #The widgets are stored in a subdirectory and needs to be added to the pythonpath
 linacWidgetsPath = os.environ['PWD']+'/widgets'
@@ -1840,10 +1842,12 @@ class Debugger(Logger):
 
 def build_application():
     parser = argparse.get_taurus_parser()
+    APPNAME = 'ctli'
     app = TaurusApplication(sys.argv, cmd_line_parser=parser,
-                      app_name='ctli', app_version=ctliaux.VERSION,
+                      app_name=APPNAME, app_version=ctliaux.VERSION,
                       org_domain='ALBA', org_name='ALBA')
     options = app.get_command_line_options()
+    ctliaux.prepareToLog(app,APPNAME)
     return app
 
 def build_ui():
