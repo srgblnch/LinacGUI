@@ -10,7 +10,11 @@ echo "APPNAME "$APPNAME
 
 HOSTNAME=`hostname`
 echo "HOSTNAME "$HOSTNAME
-LOGDIR=/tmp/$APPNAME
+if [ -d /control/logs ]; then
+    LOGDIR=/control/logs/$APPNAME
+else
+    LOGDIR=/tmp/$APPNAME
+fi
 echo "LOGDIR "$LOGDIR
 if [ ! -d $LOGDIR ]; then
     mkdir -p $LOGDIR

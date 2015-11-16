@@ -8,12 +8,21 @@ export PYTHONPATH
 APPNAME=ctlisetup
 
 HOSTNAME=`hostname`
-LOGDIR=/tmp/$APPNAME
+echo "HOSTNAME "$HOSTNAME
+if [ -d /control/logs ]; then
+    LOGDIR=/control/logs/$APPNAME
+else
+    LOGDIR=/tmp/$APPNAME
+fi
+echo "LOGDIR "$LOGDIR
 if [ ! -d $LOGDIR ]; then
     mkdir -p $LOGDIR
+    echo "directory created"
 fi
 DATE=$(date +"%Y%m%d_%H%M%S")
+echo "DATE "$DATE
 LOGFILE=$LOGDIR"/"$DATE"_"$HOSTNAME"_"$USER".log"
+echo "LOGFILE "$LOGFILE
 
 pushd ${SICILIA}/lib/python/site-packages/$APPNAME
 python $APPNAME.py 2>&1 |tee $LOGFILE
