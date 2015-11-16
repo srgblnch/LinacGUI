@@ -71,8 +71,8 @@ def _setupCheckbox4Attr(widget,attrName,
 
 def _setupSpinBox4Attr(widget,attrName,step=None):
     widget.setModel(attrName)
-    widget.setAutoApply(True)
-    widget.setForcedApply(True)
+    widget.setAutoApply(False)
+    widget.setForcedApply(False)
     #if not step == widget.getSingleStep():
     if not step == None:
         widget.setSingleStep(step)
