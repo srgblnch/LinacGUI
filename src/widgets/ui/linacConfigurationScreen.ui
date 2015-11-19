@@ -43,26 +43,32 @@
            <height>867</height>
           </rect>
          </property>
-         <layout class="QGridLayout" name="gridLayout_2">
-          <item row="0" column="2" rowspan="6">
-           <widget class="magnetSnapshot" name="magnetSnapshot"/>
-          </item>
+         <layout class="QGridLayout" name="gridLayout_2">         
+          <item row="0" column="0">
+           <widget class="timingSnapshot" name="timingSnapshot"/>
+          </item>         
           <item row="1" column="0">
            <widget class="electronGunSnapshot" name="electronGunSnapshot"/>
           </item>
+          <item row="2" column="0">
+           <widget class="vacuumValveSnapshot" name="vacuumValveSnapshot"/>
+          </item>          
+          <item row="3" column="0">
+           <widget class="coolingLoopSnapshot" name="coolingLoopSnapshot"/>
+          </item>          
           <item row="4" column="0">
-           <widget class="klystronSnapshot" name="klystronSnapshot"/>
-          </item>
+           <widget class="evrSnapshot" name="evrSnapshot"/>
+          </item>          
+          <item row="0" column="2" rowspan="6">
+           <widget class="magnetSnapshot" name="magnetSnapshot"/>
+          </item>          
           <item row="0" column="3">
            <widget class="radioFrequencySnapshot" name="radioFrequencySnapshot"/>
           </item>
-          <item row="0" column="0">
-           <widget class="timingSnapshot" name="timingSnapshot"/>
-          </item>
-          <item row="3" column="0">
-           <widget class="coolingLoopSnapshot" name="coolingLoopSnapshot"/>
-          </item>
-          <item row="1" column="3" rowspan="5">
+          <item row="1" column="3">
+           <widget class="klystronSnapshot" name="klystronSnapshot"/>
+          </item>          
+          <item row="2" column="3" rowspan="5">
            <widget class="QGroupBox" name="commentGroup">
             <property name="maximumSize">
              <size>
@@ -123,9 +129,6 @@
             </layout>
            </widget>
           </item>
-          <item row="2" column="0">
-           <widget class="vacuumValveSnapshot" name="vacuumValveSnapshot"/>
-          </item>
          </layout>
         </widget>
        </widget>
@@ -164,6 +167,11 @@
    <extends>TaurusWidget</extends>
    <header>timingsnapshot</header>
   </customwidget>
+  <customwidget>
+   <class>evrSnapshot</class>
+   <extends>TaurusWidget</extends>
+   <header>evrsnapshot</header>
+  </customwidget>  
   <customwidget>
    <class>radioFrequencySnapshot</class>
    <extends>TaurusWidget</extends>

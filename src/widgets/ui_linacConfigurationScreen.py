@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'widgets/ui/linacConfigurationScreen.ui'
+# Form implementation generated from reading ui file 'ui/linacConfigurationScreen.ui'
 #
-# Created: Mon Mar 16 10:40:53 2015
-#      by: PyQt4 UI code generator 4.9.3
+# Created by: PyQt4 UI code generator 4.11.1
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -12,7 +11,16 @@ from PyQt4 import QtCore, QtGui
 try:
     _fromUtf8 = QtCore.QString.fromUtf8
 except AttributeError:
-    _fromUtf8 = lambda s: s
+    def _fromUtf8(s):
+        return s
+
+try:
+    _encoding = QtGui.QApplication.UnicodeUTF8
+    def _translate(context, text, disambig):
+        return QtGui.QApplication.translate(context, text, disambig, _encoding)
+except AttributeError:
+    def _translate(context, text, disambig):
+        return QtGui.QApplication.translate(context, text, disambig)
 
 class Ui_linacConfigurationScreen(object):
     def setupUi(self, linacConfigurationScreen):
@@ -35,24 +43,30 @@ class Ui_linacConfigurationScreen(object):
         self.scrollAreaWidgetContents.setObjectName(_fromUtf8("scrollAreaWidgetContents"))
         self.gridLayout_2 = QtGui.QGridLayout(self.scrollAreaWidgetContents)
         self.gridLayout_2.setObjectName(_fromUtf8("gridLayout_2"))
-        self.magnetSnapshot = magnetSnapshot(self.scrollAreaWidgetContents)
-        self.magnetSnapshot.setObjectName(_fromUtf8("magnetSnapshot"))
-        self.gridLayout_2.addWidget(self.magnetSnapshot, 0, 2, 6, 1)
-        self.electronGunSnapshot = electronGunSnapshot(self.scrollAreaWidgetContents)
-        self.electronGunSnapshot.setObjectName(_fromUtf8("electronGunSnapshot"))
-        self.gridLayout_2.addWidget(self.electronGunSnapshot, 1, 0, 1, 1)
-        self.klystronSnapshot = klystronSnapshot(self.scrollAreaWidgetContents)
-        self.klystronSnapshot.setObjectName(_fromUtf8("klystronSnapshot"))
-        self.gridLayout_2.addWidget(self.klystronSnapshot, 4, 0, 1, 1)
-        self.radioFrequencySnapshot = radioFrequencySnapshot(self.scrollAreaWidgetContents)
-        self.radioFrequencySnapshot.setObjectName(_fromUtf8("radioFrequencySnapshot"))
-        self.gridLayout_2.addWidget(self.radioFrequencySnapshot, 0, 3, 1, 1)
         self.timingSnapshot = timingSnapshot(self.scrollAreaWidgetContents)
         self.timingSnapshot.setObjectName(_fromUtf8("timingSnapshot"))
         self.gridLayout_2.addWidget(self.timingSnapshot, 0, 0, 1, 1)
+        self.electronGunSnapshot = electronGunSnapshot(self.scrollAreaWidgetContents)
+        self.electronGunSnapshot.setObjectName(_fromUtf8("electronGunSnapshot"))
+        self.gridLayout_2.addWidget(self.electronGunSnapshot, 1, 0, 1, 1)
+        self.vacuumValveSnapshot = vacuumValveSnapshot(self.scrollAreaWidgetContents)
+        self.vacuumValveSnapshot.setObjectName(_fromUtf8("vacuumValveSnapshot"))
+        self.gridLayout_2.addWidget(self.vacuumValveSnapshot, 2, 0, 1, 1)
         self.coolingLoopSnapshot = coolingLoopSnapshot(self.scrollAreaWidgetContents)
         self.coolingLoopSnapshot.setObjectName(_fromUtf8("coolingLoopSnapshot"))
         self.gridLayout_2.addWidget(self.coolingLoopSnapshot, 3, 0, 1, 1)
+        self.evrSnapshot = evrSnapshot(self.scrollAreaWidgetContents)
+        self.evrSnapshot.setObjectName(_fromUtf8("evrSnapshot"))
+        self.gridLayout_2.addWidget(self.evrSnapshot, 4, 0, 1, 1)
+        self.magnetSnapshot = magnetSnapshot(self.scrollAreaWidgetContents)
+        self.magnetSnapshot.setObjectName(_fromUtf8("magnetSnapshot"))
+        self.gridLayout_2.addWidget(self.magnetSnapshot, 0, 2, 6, 1)
+        self.radioFrequencySnapshot = radioFrequencySnapshot(self.scrollAreaWidgetContents)
+        self.radioFrequencySnapshot.setObjectName(_fromUtf8("radioFrequencySnapshot"))
+        self.gridLayout_2.addWidget(self.radioFrequencySnapshot, 0, 3, 1, 1)
+        self.klystronSnapshot = klystronSnapshot(self.scrollAreaWidgetContents)
+        self.klystronSnapshot.setObjectName(_fromUtf8("klystronSnapshot"))
+        self.gridLayout_2.addWidget(self.klystronSnapshot, 1, 3, 1, 1)
         self.commentGroup = QtGui.QGroupBox(self.scrollAreaWidgetContents)
         self.commentGroup.setMaximumSize(QtCore.QSize(350, 16777215))
         self.commentGroup.setObjectName(_fromUtf8("commentGroup"))
@@ -86,10 +100,7 @@ class Ui_linacConfigurationScreen(object):
         self.textLoaded.setObjectName(_fromUtf8("textLoaded"))
         self.textLoadedLayout.addWidget(self.textLoaded)
         self.gridLayout_4.addWidget(self.splitter, 0, 0, 1, 1)
-        self.gridLayout_2.addWidget(self.commentGroup, 1, 3, 5, 1)
-        self.vacuumValveSnapshot = vacuumValveSnapshot(self.scrollAreaWidgetContents)
-        self.vacuumValveSnapshot.setObjectName(_fromUtf8("vacuumValveSnapshot"))
-        self.gridLayout_2.addWidget(self.vacuumValveSnapshot, 2, 0, 1, 1)
+        self.gridLayout_2.addWidget(self.commentGroup, 2, 3, 5, 1)
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
         self.gridLayout.addWidget(self.scrollArea, 0, 0, 1, 1)
         self.buttonBox = QtGui.QDialogButtonBox(self.centralFrame)
@@ -106,16 +117,17 @@ class Ui_linacConfigurationScreen(object):
         QtCore.QMetaObject.connectSlotsByName(linacConfigurationScreen)
 
     def retranslateUi(self, linacConfigurationScreen):
-        linacConfigurationScreen.setWindowTitle(QtGui.QApplication.translate("linacConfigurationScreen", "Form", None, QtGui.QApplication.UnicodeUTF8))
-        self.commentGroup.setTitle(QtGui.QApplication.translate("linacConfigurationScreen", "Comments", None, QtGui.QApplication.UnicodeUTF8))
-        self.textToSaveLabel.setText(QtGui.QApplication.translate("linacConfigurationScreen", "Current comment:", None, QtGui.QApplication.UnicodeUTF8))
-        self.textLoadedLabel.setText(QtGui.QApplication.translate("linacConfigurationScreen", "Old comment:", None, QtGui.QApplication.UnicodeUTF8))
+        linacConfigurationScreen.setWindowTitle(_translate("linacConfigurationScreen", "Form", None))
+        self.commentGroup.setTitle(_translate("linacConfigurationScreen", "Comments", None))
+        self.textToSaveLabel.setText(_translate("linacConfigurationScreen", "Current comment:", None))
+        self.textLoadedLabel.setText(_translate("linacConfigurationScreen", "Old comment:", None))
 
-from timingsnapshot import timingSnapshot
+from taurus.qt.qtgui.container import TaurusWidget
+from evrsnapshot import evrSnapshot
+from coolingloopsnapshot import coolingLoopSnapshot
 from vacuumvalvesnapshot import vacuumValveSnapshot
 from electrongunsnapshot import electronGunSnapshot
 from radiofrequencysnapshot import radioFrequencySnapshot
-from taurus.qt.qtgui.panel import TaurusWidget
-from klystronsnapshot import klystronSnapshot
 from magnetsnapshot import magnetSnapshot
-from coolingloopsnapshot import coolingLoopSnapshot
+from klystronsnapshot import klystronSnapshot
+from timingsnapshot import timingSnapshot

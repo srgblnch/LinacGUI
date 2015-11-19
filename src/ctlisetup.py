@@ -26,6 +26,7 @@
 import os,sys
 import time
 import traceback
+import taurus
 
 #The widgets are stored in a subdirectory and needs to be added to the pythonpath
 linacWidgetsPath = os.environ['PWD']+'/widgets'
@@ -145,6 +146,7 @@ class MainWindow(Qt.QDialog,TaurusBaseComponent):
         self.magnetsConfiguration(configuration_ui.magnetSnapshot._ui)
         self.radiofrequencyConfiguration(configuration_ui.radioFrequencySnapshot._ui)
         self.timingConfiguration(configuration_ui.timingSnapshot._ui)
+        self.evrConfiguration(configuration_ui.evrSnapshot._ui)
         self.klystronsConfiguration(configuration_ui.klystronSnapshot._ui)
         self.commentConfiguration(configuration_ui)
         #---- connect buttons to their actions
@@ -445,8 +447,34 @@ class MainWindow(Qt.QDialog,TaurusBaseComponent):
         self._setupTaurusLabel4Attr(ui.GPARead,attrName)
         self._setupQSpinBox(widgetsSet[attrName]['write'],
                             min=-40.0,max=0,decimals=1,step=0.1)
+
         #---- TODO: connect the ToApplyTitle to check/uncheck all the *Check
         self._configurationWidgets['timing'] = widgetsSet
+
+    def evrConfiguration(self,ui):
+        widgetsSet = {}
+
+        LINAC_FINE_TIMING_DEVICE      = 'LI/TI/EVR300-CLI0302-A'
+        LINAC_OUTPUTS = [0,1,2,3]
+        ui.linac_wheels = {}
+        for i in LINAC_OUTPUTS:        
+            for row, attr in enumerate(['PulseDelay','PulseWidth','FineDelay']):
+                model = '%s/%s%d' % (LINAC_FINE_TIMING_DEVICE, attr, i)
+                attrName = model.lower()
+                prefix = (s for s in ('Width','Fine','Delay') if s in attr).next()+str(i)
+                Label = getattr(ui,prefix+'Label')
+                Read = getattr(ui,prefix+'Read')
+                Write = getattr(ui,prefix+'Write')
+                Check = getattr(ui,prefix+'Check')
+                widgetsSet[attrName] = {'label':Label,
+                                'read': Read,
+                                'write':Write,
+                                'check':Check}
+                self._setupTaurusLabel4Attr(Read,attrName)
+                self._setupQSpinBox(widgetsSet[attrName]['write'],min=0,max=1e10,step=8)
+
+        #---- TODO: connect the ToApplyTitle to check/uncheck all the *Check
+        self._configurationWidgets['evr'] = widgetsSet
     
     def klystronsConfiguration(self,ui):
         widgetsSet = {}
@@ -550,9 +578,9 @@ class MainWindow(Qt.QDialog,TaurusBaseComponent):
             if type(value) == bool:
                 pass
             elif type(value) == int:
-                PyTango.AttributeProxy(attrName).write(int(value*0.95))
+                taurus.Attribute(attrName).write(int(value*0.95))
             elif type(value) == float:
-                PyTango.AttributeProxy(attrName).write(value*0.95)
+                taurus.Attribute(attrName).write(value*0.95)
             time.sleep(0.3)
         except Exception,e:
             #in boundary cases it had seen that this produces an exception
@@ -560,7 +588,11 @@ class MainWindow(Qt.QDialog,TaurusBaseComponent):
             self.warning("Attribute %s fail the '.95' hackish: "\
                          "value=%g value*0.95=%g. The exception was: %s"
                          %(attrName,value,value*0.95,e))
-        PyTango.AttributeProxy(attrName).write(value)
+            
+        self.info('_setAttrVAlue(%s,%s,(%s))'%(attrName,value,type(value)))
+        try:
+          taurus.Attribute(attrName).write(value)
+        except: self.error(traceback.format_exc())
     
     def _setValueToSaverWidget(self,attrStruct,value,style=True):
         saver = attrStruct['write']
@@ -668,8 +700,10 @@ class MainWindow(Qt.QDialog,TaurusBaseComponent):
     
     def _prepareAttrLine(self,attrStruct,attrName):
         tag = attrStruct['label'].text()
-        self._getAttrValue(attrName)#to rise exception if not available
-        value = self._getValueFromSaverWidget(attrStruct)
+        rvalue = self._getAttrValue(attrName)#to rise exception if not available
+        wvalue = self._getValueFromSaverWidget(attrStruct)
+        if rvalue!=wvalue: print('%s: %s != %s'%(attrName,rvalue,wvalue))
+        value = wvalue or rvalue
         return "%24s\t%g\t%s"%(tag,value,attrName)
     
     def _getAttrLine(self,line,n):
@@ -807,7 +841,11 @@ class MainWindow(Qt.QDialog,TaurusBaseComponent):
             self.debug("saveToFile() filename: %s"%(filename))
             saving = self._prepareFileHeader(now_struct)
             #TODO: store comments
-            comments = self._storeComments()
+            try: 
+                comments = self._storeComments()
+            except: 
+                traceback.print_exc()
+                comments = None
             if comments != None and len(comments) > 0:
                 saving = ''.join("%s\n%s\n"%(saving,comments))
             exceptions = {}
@@ -884,12 +922,15 @@ class MainWindow(Qt.QDialog,TaurusBaseComponent):
                         group = line.split()[2]
                     else:
                         attrName,value = self._getAttrLine(line, nline)
+                        print(attrName,value)
                         if group != '' and attrName != None:
                             try:
                                 attrStruct = self._configurationWidgets[group][attrName]
                             except:
-                                self.error("attribute %s is not member of the "\
+                                msg = ("attribute %s is not member of the "\
                                            "group %s"%(attrName,group))
+                                self.error(msg)
+                                print(msg)
                                 if group in exceptions.keys():
                                     exceptions[group].append(attrName)
                                 else:
@@ -932,7 +973,7 @@ class MainWindow(Qt.QDialog,TaurusBaseComponent):
                         self._setAttrValue(attrName, value)
                         self._setStyleToNoModified(attrStruct)
                     except Exception,e:
-                        self.error("Exception applying %s: %s"%(attrName,e))
+                        self.error("Exception applying %s: %s"%(attrName,traceback.format_exc()))
                         if group in exceptions.keys():
                             exceptions[group].append(attrName)
                         else:
