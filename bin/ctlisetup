@@ -7,20 +7,7 @@ export PYTHONPATH
 
 APPNAME=ctli
 
-#HOSTNAME=`hostname`
-#if [ -d /control/logs ]; then
-#    LOGDIR=/control/logs/$APPNAME
-#else
-#    LOGDIR=/tmp/$APPNAME
-#fi
-#if [ ! -d $LOGDIR ]; then
-#    mkdir -p $LOGDIR
-#fi
-#DATE=$(date +"%Y%m%d_%H%M%S")
-#LOGFILE=$LOGDIR"/"$DATE"_"$HOSTNAME"_"$USER".log"
-
 pushd ${SICILIA}/lib/python/site-packages/$APPNAME
-#python $APPNAME.py 2>&1 |tee $LOGFILE
-screen -dmS $APPNAME-setup python ${APPNAME}setup.py $*
+python ${APPNAME}setup.py
 popd
 

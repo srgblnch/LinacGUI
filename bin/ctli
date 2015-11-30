@@ -6,22 +6,8 @@ add2var PYTHONPATH $(CompOs ${SICILIA}/lib/python/site-packages)
 export PYTHONPATH
 
 APPNAME=ctli
-#echo "APPNAME "$APPNAME
-
-#HOSTNAME=`hostname`
-#if [ -d /control/logs ]; then
-#    LOGDIR=/control/logs/$APPNAME
-#else
-#    LOGDIR=/tmp/$APPNAME
-#fi
-#if [ ! -d $LOGDIR ]; then
-#    mkdir -p $LOGDIR
-#fi
-#DATE=$(date +"%Y%m%d_%H%M%S")
-#LOGFILE=$LOGDIR"/"$DATE"_"$HOSTNAME"_"$USER".log"
 
 pushd ${SICILIA}/lib/python/site-packages/$APPNAME
-#python $APPNAME.py 2>&1 |tee $LOGFILE
-screen -dmS $APPNAME python $APPNAME.py $*
+python $APPNAME.py
 popd
 
