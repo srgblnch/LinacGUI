@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>289</width>
-    <height>383</height>
+    <width>267</width>
+    <height>366</height>
    </rect>
   </property>
   <property name="font">
@@ -25,6 +25,45 @@
       <string>EVR300</string>
      </property>
      <layout class="QGridLayout" name="gridLayout">
+      <item row="13" column="2">
+       <spacer name="verticalSpacer">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="12" column="2">
+       <widget class="TaurusLabel" name="Fine3Read"/>
+      </item>
+      <item row="12" column="0">
+       <widget class="QLabel" name="Fine3Label">
+        <property name="text">
+         <string>CH3 Fine tune</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="2">
+       <widget class="TaurusLabel" name="Width0Read"/>
+      </item>
+      <item row="10" column="2">
+       <widget class="TaurusLabel" name="Delay3Read"/>
+      </item>
+      <item row="11" column="6">
+       <widget class="QCheckBox" name="Width3Check">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="12" column="3">
+       <widget class="QDoubleSpinBox" name="Fine3Write"/>
+      </item>
       <item row="9" column="2">
        <widget class="TaurusLabel" name="Fine2Read"/>
       </item>
@@ -34,24 +73,11 @@
       <item row="8" column="2">
        <widget class="TaurusLabel" name="Width2Read"/>
       </item>
-      <item row="0" column="4" rowspan="14" colspan="2">
-       <widget class="Line" name="line">
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
-        </property>
-       </widget>
-      </item>
       <item row="1" column="2">
        <widget class="TaurusLabel" name="Delay0Read"/>
       </item>
       <item row="6" column="2">
        <widget class="TaurusLabel" name="Fine1Read"/>
-      </item>
-      <item row="10" column="2">
-       <widget class="TaurusLabel" name="Delay3Read"/>
-      </item>
-      <item row="2" column="2">
-       <widget class="TaurusLabel" name="Width0Read"/>
       </item>
       <item row="3" column="2">
        <widget class="TaurusLabel" name="Fine0Read"/>
@@ -89,7 +115,10 @@
       <item row="1" column="3">
        <widget class="QDoubleSpinBox" name="Delay0Write"/>
       </item>
-      <item row="1" column="5">
+      <item row="8" column="3">
+       <widget class="QDoubleSpinBox" name="Width2Write"/>
+      </item>
+      <item row="1" column="6">
        <widget class="QCheckBox" name="Delay0Check">
         <property name="text">
          <string/>
@@ -106,7 +135,7 @@
       <item row="2" column="3">
        <widget class="QDoubleSpinBox" name="Width0Write"/>
       </item>
-      <item row="2" column="5">
+      <item row="2" column="6">
        <widget class="QCheckBox" name="Width0Check">
         <property name="text">
          <string/>
@@ -123,7 +152,7 @@
       <item row="3" column="3">
        <widget class="QDoubleSpinBox" name="Fine0Write"/>
       </item>
-      <item row="3" column="5">
+      <item row="3" column="6">
        <widget class="QCheckBox" name="Fine0Check">
         <property name="text">
          <string/>
@@ -140,7 +169,7 @@
       <item row="4" column="3">
        <widget class="QDoubleSpinBox" name="Delay1Write"/>
       </item>
-      <item row="4" column="5">
+      <item row="4" column="6">
        <widget class="QCheckBox" name="Delay1Check">
         <property name="text">
          <string/>
@@ -157,7 +186,7 @@
       <item row="5" column="3">
        <widget class="QDoubleSpinBox" name="Width1Write"/>
       </item>
-      <item row="5" column="5">
+      <item row="5" column="6">
        <widget class="QCheckBox" name="Width1Check">
         <property name="text">
          <string/>
@@ -174,7 +203,7 @@
       <item row="6" column="3">
        <widget class="QDoubleSpinBox" name="Fine1Write"/>
       </item>
-      <item row="6" column="5">
+      <item row="6" column="6">
        <widget class="QCheckBox" name="Fine1Check">
         <property name="text">
          <string/>
@@ -191,7 +220,7 @@
       <item row="7" column="3">
        <widget class="QDoubleSpinBox" name="Delay2Write"/>
       </item>
-      <item row="7" column="5">
+      <item row="7" column="6">
        <widget class="QCheckBox" name="Delay2Check">
         <property name="text">
          <string/>
@@ -205,10 +234,7 @@
         </property>
        </widget>
       </item>
-      <item row="8" column="3">
-       <widget class="QDoubleSpinBox" name="Width2Write"/>
-      </item>
-      <item row="8" column="5">
+      <item row="8" column="6">
        <widget class="QCheckBox" name="Width2Check">
         <property name="text">
          <string/>
@@ -225,7 +251,7 @@
       <item row="9" column="3">
        <widget class="QDoubleSpinBox" name="Fine2Write"/>
       </item>
-      <item row="9" column="5">
+      <item row="9" column="6">
        <widget class="QCheckBox" name="Fine2Check">
         <property name="text">
          <string/>
@@ -242,7 +268,7 @@
       <item row="10" column="3">
        <widget class="QDoubleSpinBox" name="Delay3Write"/>
       </item>
-      <item row="10" column="5">
+      <item row="10" column="6">
        <widget class="QCheckBox" name="Delay3Check">
         <property name="text">
          <string/>
@@ -259,45 +285,19 @@
       <item row="11" column="3">
        <widget class="QDoubleSpinBox" name="Width3Write"/>
       </item>
-      <item row="11" column="5">
-       <widget class="QCheckBox" name="Width3Check">
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </item>
-      <item row="12" column="0">
-       <widget class="QLabel" name="Fine3Label">
-        <property name="text">
-         <string>CH3 Fine tune</string>
-        </property>
-       </widget>
-      </item>
-      <item row="12" column="3">
-       <widget class="QDoubleSpinBox" name="Fine3Write"/>
-      </item>
-      <item row="12" column="5">
+      <item row="12" column="6">
        <widget class="QCheckBox" name="Fine3Check">
         <property name="text">
          <string/>
         </property>
        </widget>
       </item>
-      <item row="13" column="2">
-       <spacer name="verticalSpacer">
+      <item row="1" column="5" rowspan="12">
+       <widget class="Line" name="line">
         <property name="orientation">
          <enum>Qt::Vertical</enum>
         </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>20</width>
-          <height>40</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item row="12" column="2">
-       <widget class="TaurusLabel" name="Fine3Read"/>
+       </widget>
       </item>
      </layout>
     </widget>
@@ -312,15 +312,15 @@
    <container>1</container>
   </customwidget>
   <customwidget>
-   <class>TaurusLabel</class>
-   <extends>QLabel</extends>
-   <header>taurus.qt.qtgui.display</header>
-  </customwidget>
-  <customwidget>
    <class>TaurusGroupBox</class>
    <extends>QGroupBox</extends>
    <header>taurus.qt.qtgui.container</header>
    <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>TaurusLabel</class>
+   <extends>QLabel</extends>
+   <header>taurus.qt.qtgui.display</header>
   </customwidget>
  </customwidgets>
  <resources/>
