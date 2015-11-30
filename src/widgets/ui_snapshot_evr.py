@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'ui/snapshot_evr.ui'
+# Form implementation generated from reading ui file 'widgets/ui/snapshot_evr.ui'
 #
-# Created by: PyQt4 UI code generator 4.11.1
+# Created: Mon Nov 30 15:17:37 2015
+#      by: PyQt4 UI code generator 4.11.2
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -82,7 +83,7 @@ class Ui_evrSnapshot(object):
         self.Delay0Label = QtGui.QLabel(self.evrGroup)
         self.Delay0Label.setObjectName(_fromUtf8("Delay0Label"))
         self.gridLayout.addWidget(self.Delay0Label, 1, 0, 1, 1)
-        self.Delay0Write = QtGui.QSpinBox(self.evrGroup)
+        self.Delay0Write = QtGui.QDoubleSpinBox(self.evrGroup)
         self.Delay0Write.setObjectName(_fromUtf8("Delay0Write"))
         self.gridLayout.addWidget(self.Delay0Write, 1, 3, 1, 1)
         self.Delay0Check = QtGui.QCheckBox(self.evrGroup)
@@ -92,7 +93,7 @@ class Ui_evrSnapshot(object):
         self.Width0Label = QtGui.QLabel(self.evrGroup)
         self.Width0Label.setObjectName(_fromUtf8("Width0Label"))
         self.gridLayout.addWidget(self.Width0Label, 2, 0, 1, 1)
-        self.Width0Write = QtGui.QSpinBox(self.evrGroup)
+        self.Width0Write = QtGui.QDoubleSpinBox(self.evrGroup)
         self.Width0Write.setObjectName(_fromUtf8("Width0Write"))
         self.gridLayout.addWidget(self.Width0Write, 2, 3, 1, 1)
         self.Width0Check = QtGui.QCheckBox(self.evrGroup)
@@ -102,7 +103,7 @@ class Ui_evrSnapshot(object):
         self.Fine0Label = QtGui.QLabel(self.evrGroup)
         self.Fine0Label.setObjectName(_fromUtf8("Fine0Label"))
         self.gridLayout.addWidget(self.Fine0Label, 3, 0, 1, 1)
-        self.Fine0Write = QtGui.QSpinBox(self.evrGroup)
+        self.Fine0Write = QtGui.QDoubleSpinBox(self.evrGroup)
         self.Fine0Write.setObjectName(_fromUtf8("Fine0Write"))
         self.gridLayout.addWidget(self.Fine0Write, 3, 3, 1, 1)
         self.Fine0Check = QtGui.QCheckBox(self.evrGroup)
@@ -112,7 +113,7 @@ class Ui_evrSnapshot(object):
         self.Delay1Label = QtGui.QLabel(self.evrGroup)
         self.Delay1Label.setObjectName(_fromUtf8("Delay1Label"))
         self.gridLayout.addWidget(self.Delay1Label, 4, 0, 1, 1)
-        self.Delay1Write = QtGui.QSpinBox(self.evrGroup)
+        self.Delay1Write = QtGui.QDoubleSpinBox(self.evrGroup)
         self.Delay1Write.setObjectName(_fromUtf8("Delay1Write"))
         self.gridLayout.addWidget(self.Delay1Write, 4, 3, 1, 1)
         self.Delay1Check = QtGui.QCheckBox(self.evrGroup)
@@ -122,7 +123,7 @@ class Ui_evrSnapshot(object):
         self.Width1Label = QtGui.QLabel(self.evrGroup)
         self.Width1Label.setObjectName(_fromUtf8("Width1Label"))
         self.gridLayout.addWidget(self.Width1Label, 5, 0, 1, 1)
-        self.Width1Write = QtGui.QSpinBox(self.evrGroup)
+        self.Width1Write = QtGui.QDoubleSpinBox(self.evrGroup)
         self.Width1Write.setObjectName(_fromUtf8("Width1Write"))
         self.gridLayout.addWidget(self.Width1Write, 5, 3, 1, 1)
         self.Width1Check = QtGui.QCheckBox(self.evrGroup)
@@ -132,7 +133,7 @@ class Ui_evrSnapshot(object):
         self.Fine1Label = QtGui.QLabel(self.evrGroup)
         self.Fine1Label.setObjectName(_fromUtf8("Fine1Label"))
         self.gridLayout.addWidget(self.Fine1Label, 6, 0, 1, 1)
-        self.Fine1Write = QtGui.QSpinBox(self.evrGroup)
+        self.Fine1Write = QtGui.QDoubleSpinBox(self.evrGroup)
         self.Fine1Write.setObjectName(_fromUtf8("Fine1Write"))
         self.gridLayout.addWidget(self.Fine1Write, 6, 3, 1, 1)
         self.Fine1Check = QtGui.QCheckBox(self.evrGroup)
@@ -142,7 +143,7 @@ class Ui_evrSnapshot(object):
         self.Delay2Label = QtGui.QLabel(self.evrGroup)
         self.Delay2Label.setObjectName(_fromUtf8("Delay2Label"))
         self.gridLayout.addWidget(self.Delay2Label, 7, 0, 1, 1)
-        self.Delay2Write = QtGui.QSpinBox(self.evrGroup)
+        self.Delay2Write = QtGui.QDoubleSpinBox(self.evrGroup)
         self.Delay2Write.setObjectName(_fromUtf8("Delay2Write"))
         self.gridLayout.addWidget(self.Delay2Write, 7, 3, 1, 1)
         self.Delay2Check = QtGui.QCheckBox(self.evrGroup)
@@ -152,7 +153,7 @@ class Ui_evrSnapshot(object):
         self.Width2Label = QtGui.QLabel(self.evrGroup)
         self.Width2Label.setObjectName(_fromUtf8("Width2Label"))
         self.gridLayout.addWidget(self.Width2Label, 8, 0, 1, 1)
-        self.Width2Write = QtGui.QSpinBox(self.evrGroup)
+        self.Width2Write = QtGui.QDoubleSpinBox(self.evrGroup)
         self.Width2Write.setObjectName(_fromUtf8("Width2Write"))
         self.gridLayout.addWidget(self.Width2Write, 8, 3, 1, 1)
         self.Width2Check = QtGui.QCheckBox(self.evrGroup)
@@ -162,7 +163,7 @@ class Ui_evrSnapshot(object):
         self.Fine2Label = QtGui.QLabel(self.evrGroup)
         self.Fine2Label.setObjectName(_fromUtf8("Fine2Label"))
         self.gridLayout.addWidget(self.Fine2Label, 9, 0, 1, 1)
-        self.Fine2Write = QtGui.QSpinBox(self.evrGroup)
+        self.Fine2Write = QtGui.QDoubleSpinBox(self.evrGroup)
         self.Fine2Write.setObjectName(_fromUtf8("Fine2Write"))
         self.gridLayout.addWidget(self.Fine2Write, 9, 3, 1, 1)
         self.Fine2Check = QtGui.QCheckBox(self.evrGroup)
@@ -172,7 +173,7 @@ class Ui_evrSnapshot(object):
         self.Delay3Label = QtGui.QLabel(self.evrGroup)
         self.Delay3Label.setObjectName(_fromUtf8("Delay3Label"))
         self.gridLayout.addWidget(self.Delay3Label, 10, 0, 1, 1)
-        self.Delay3Write = QtGui.QSpinBox(self.evrGroup)
+        self.Delay3Write = QtGui.QDoubleSpinBox(self.evrGroup)
         self.Delay3Write.setObjectName(_fromUtf8("Delay3Write"))
         self.gridLayout.addWidget(self.Delay3Write, 10, 3, 1, 1)
         self.Delay3Check = QtGui.QCheckBox(self.evrGroup)
@@ -182,7 +183,7 @@ class Ui_evrSnapshot(object):
         self.Width3Label = QtGui.QLabel(self.evrGroup)
         self.Width3Label.setObjectName(_fromUtf8("Width3Label"))
         self.gridLayout.addWidget(self.Width3Label, 11, 0, 1, 1)
-        self.Width3Write = QtGui.QSpinBox(self.evrGroup)
+        self.Width3Write = QtGui.QDoubleSpinBox(self.evrGroup)
         self.Width3Write.setObjectName(_fromUtf8("Width3Write"))
         self.gridLayout.addWidget(self.Width3Write, 11, 3, 1, 1)
         self.Width3Check = QtGui.QCheckBox(self.evrGroup)
@@ -192,7 +193,7 @@ class Ui_evrSnapshot(object):
         self.Fine3Label = QtGui.QLabel(self.evrGroup)
         self.Fine3Label.setObjectName(_fromUtf8("Fine3Label"))
         self.gridLayout.addWidget(self.Fine3Label, 12, 0, 1, 1)
-        self.Fine3Write = QtGui.QSpinBox(self.evrGroup)
+        self.Fine3Write = QtGui.QDoubleSpinBox(self.evrGroup)
         self.Fine3Write.setObjectName(_fromUtf8("Fine3Write"))
         self.gridLayout.addWidget(self.Fine3Write, 12, 3, 1, 1)
         self.Fine3Check = QtGui.QCheckBox(self.evrGroup)

@@ -87,7 +87,7 @@
        </widget>
       </item>
       <item row="1" column="3">
-       <widget class="QSpinBox" name="Delay0Write"/>
+       <widget class="QDoubleSpinBox" name="Delay0Write"/>
       </item>
       <item row="1" column="5">
        <widget class="QCheckBox" name="Delay0Check">
@@ -104,7 +104,7 @@
        </widget>
       </item>
       <item row="2" column="3">
-       <widget class="QSpinBox" name="Width0Write"/>
+       <widget class="QDoubleSpinBox" name="Width0Write"/>
       </item>
       <item row="2" column="5">
        <widget class="QCheckBox" name="Width0Check">
@@ -121,7 +121,7 @@
        </widget>
       </item>
       <item row="3" column="3">
-       <widget class="QSpinBox" name="Fine0Write"/>
+       <widget class="QDoubleSpinBox" name="Fine0Write"/>
       </item>
       <item row="3" column="5">
        <widget class="QCheckBox" name="Fine0Check">
@@ -138,7 +138,7 @@
        </widget>
       </item>
       <item row="4" column="3">
-       <widget class="QSpinBox" name="Delay1Write"/>
+       <widget class="QDoubleSpinBox" name="Delay1Write"/>
       </item>
       <item row="4" column="5">
        <widget class="QCheckBox" name="Delay1Check">
@@ -155,7 +155,7 @@
        </widget>
       </item>
       <item row="5" column="3">
-       <widget class="QSpinBox" name="Width1Write"/>
+       <widget class="QDoubleSpinBox" name="Width1Write"/>
       </item>
       <item row="5" column="5">
        <widget class="QCheckBox" name="Width1Check">
@@ -172,7 +172,7 @@
        </widget>
       </item>
       <item row="6" column="3">
-       <widget class="QSpinBox" name="Fine1Write"/>
+       <widget class="QDoubleSpinBox" name="Fine1Write"/>
       </item>
       <item row="6" column="5">
        <widget class="QCheckBox" name="Fine1Check">
@@ -189,7 +189,7 @@
        </widget>
       </item>
       <item row="7" column="3">
-       <widget class="QSpinBox" name="Delay2Write"/>
+       <widget class="QDoubleSpinBox" name="Delay2Write"/>
       </item>
       <item row="7" column="5">
        <widget class="QCheckBox" name="Delay2Check">
@@ -206,7 +206,7 @@
        </widget>
       </item>
       <item row="8" column="3">
-       <widget class="QSpinBox" name="Width2Write"/>
+       <widget class="QDoubleSpinBox" name="Width2Write"/>
       </item>
       <item row="8" column="5">
        <widget class="QCheckBox" name="Width2Check">
@@ -223,7 +223,7 @@
        </widget>
       </item>
       <item row="9" column="3">
-       <widget class="QSpinBox" name="Fine2Write"/>
+       <widget class="QDoubleSpinBox" name="Fine2Write"/>
       </item>
       <item row="9" column="5">
        <widget class="QCheckBox" name="Fine2Check">
@@ -240,7 +240,7 @@
        </widget>
       </item>
       <item row="10" column="3">
-       <widget class="QSpinBox" name="Delay3Write"/>
+       <widget class="QDoubleSpinBox" name="Delay3Write"/>
       </item>
       <item row="10" column="5">
        <widget class="QCheckBox" name="Delay3Check">
@@ -257,7 +257,7 @@
        </widget>
       </item>
       <item row="11" column="3">
-       <widget class="QSpinBox" name="Width3Write"/>
+       <widget class="QDoubleSpinBox" name="Width3Write"/>
       </item>
       <item row="11" column="5">
        <widget class="QCheckBox" name="Width3Check">
@@ -274,7 +274,7 @@
        </widget>
       </item>
       <item row="12" column="3">
-       <widget class="QSpinBox" name="Fine3Write"/>
+       <widget class="QDoubleSpinBox" name="Fine3Write"/>
       </item>
       <item row="12" column="5">
        <widget class="QCheckBox" name="Fine3Check">

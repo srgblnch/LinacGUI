@@ -57,7 +57,8 @@ def dump(obj, nested_level=0, output=sys.stdout):
                 print >> output, '%s%s:' % ((nested_level + 1) * spacing, k)
                 dump(v, nested_level + 1, output)
             else:
-                print >> output, '%s%s: %s' % ((nested_level + 1) * spacing, k, v)
+                print >> output, '%s%s: %s' % ((nested_level + 1) * spacing, 
+                                               k, v)
         print >> output, '%s}' % (nested_level * spacing)
     elif type(obj) == list:
         print >> output, '%s[' % ((nested_level) * spacing)
@@ -99,8 +100,10 @@ class MainWindow(Qt.QDialog,TaurusBaseComponent):
     def _setupLed4UnknownAttr(self,widget):
         ctliaux._setupLed4UnknownAttr(widget)
 
-    def _setupLed4Attr(self,widget,attrName,inverted=False,onColor='green',offColor='red',pattern='on'):
-        ctliaux._setupLed4Attr(widget,attrName,inverted,onColor,offColor,pattern)
+    def _setupLed4Attr(self,widget,attrName,inverted=False,onColor='green',
+                       offColor='red',pattern='on'):
+        ctliaux._setupLed4Attr(widget,attrName,inverted,onColor,offColor,
+                               pattern)
 
     def _setupCheckbox4UnknownAttr(self,widget):
         ctliaux._setupCheckbox4UnknownAttr(widget)
@@ -125,9 +128,9 @@ class MainWindow(Qt.QDialog,TaurusBaseComponent):
         ctliaux._setupActionWidget(widget,attrName,text,isRst,
                            DangerMsg,riseEdge,fallingEdge)
     
-    def _setupQSpinBox(self,widget,min=0,max=99,decimals=2,step=1):
-        widget.setMinimum(min)
-        widget.setMaximum(max)
+    def _setupQSpinBox(self,widget,minVal=0,maxVal=99,decimals=2,step=1):
+        widget.setMinimum(minVal)
+        widget.setMaximum(maxVal)
         if hasattr(widget,'setDecimals'):
             widget.setDecimals(decimals)
         widget.setSingleStep(step)
@@ -140,11 +143,15 @@ class MainWindow(Qt.QDialog,TaurusBaseComponent):
         configuration_ui = self.ui
         self._configurationWidgets = {}
         #---- configure the widgets in the panels
-        self.electronGunConfiguration(configuration_ui.electronGunSnapshot._ui)
-        self.coolingLoopsConfiguration(configuration_ui.coolingLoopSnapshot._ui)
-        self.vacuumValvesConfiguration(configuration_ui.vacuumValveSnapshot._ui)
+        self.electronGunConfiguration(\
+            configuration_ui.electronGunSnapshot._ui)
+        self.coolingLoopsConfiguration(\
+            configuration_ui.coolingLoopSnapshot._ui)
+        self.vacuumValvesConfiguration(\
+            configuration_ui.vacuumValveSnapshot._ui)
         self.magnetsConfiguration(configuration_ui.magnetSnapshot._ui)
-        self.radiofrequencyConfiguration(configuration_ui.radioFrequencySnapshot._ui)
+        self.radiofrequencyConfiguration(\
+            configuration_ui.radioFrequencySnapshot._ui)
         self.timingConfiguration(configuration_ui.timingSnapshot._ui)
         self.evrConfiguration(configuration_ui.evrSnapshot._ui)
         self.klystronsConfiguration(configuration_ui.klystronSnapshot._ui)
@@ -166,7 +173,7 @@ class MainWindow(Qt.QDialog,TaurusBaseComponent):
                                 'check':ui.GunFilamentLowVoltageCheck}
         self._setupTaurusLabel4Attr(widgetsSet[attrName]['read'],attrName)
         self._setupQSpinBox(widgetsSet[attrName]['write'],
-                            min=0.0,max=10.0,step=0.1)
+                            minVal=0.0,maxVal=10.0,step=0.1)
         
         attrName = '%s/Gun_kathode_v_setpoint'%(devName)
         attrName = attrName.lower()
@@ -176,7 +183,7 @@ class MainWindow(Qt.QDialog,TaurusBaseComponent):
                                 'check':ui.GunKathodeLowVoltageCheck}
         self._setupTaurusLabel4Attr(widgetsSet[attrName]['read'],attrName)
         self._setupQSpinBox(widgetsSet[attrName]['write'],
-                            min=0.0,max=50.0,step=0.1)
+                            minVal=0.0,maxVal=50.0,step=0.1)
         
         attrName = '%s/Gun_hv_v_setpoint'%(devName)
         attrName = attrName.lower()
@@ -186,7 +193,7 @@ class MainWindow(Qt.QDialog,TaurusBaseComponent):
                                 'check':ui.GunHighVoltagePowerSupplyCheck}
         self._setupTaurusLabel4Attr(widgetsSet[attrName]['read'],attrName)
         self._setupQSpinBox(widgetsSet[attrName]['write'],
-                            min=-90.0,max=0.0,step=0.1)
+                            minVal=-90.0,maxVal=0.0,step=0.1)
         
         self._configurationWidgets['eGun'] = widgetsSet
 
@@ -203,7 +210,7 @@ class MainWindow(Qt.QDialog,TaurusBaseComponent):
                                 'check':ui.coolingLoop1SetpointCheck}
         self._setupTaurusLabel4Attr(widgetsSet[attrName]['read'],attrName)
         self._setupQSpinBox(widgetsSet[attrName]['write'],
-                            min=0.0,max=50.0,step=0.1)
+                            minVal=0.0,maxVal=50.0,step=0.1)
         #CL2
         attrName = '%s/cl2_t_setpoint'%(devName)
         attrName = attrName.lower()
@@ -213,7 +220,7 @@ class MainWindow(Qt.QDialog,TaurusBaseComponent):
                                 'check':ui.coolingLoop2SetpointCheck}
         self._setupTaurusLabel4Attr(widgetsSet[attrName]['read'],attrName)
         self._setupQSpinBox(widgetsSet[attrName]['write'],
-                            min=0.0,max=50.0,step=0.1)
+                            minVal=0.0,maxVal=50.0,step=0.1)
         #CL3
         attrName = '%s/cl3_t_setpoint'%(devName)
         attrName = attrName.lower()
@@ -223,7 +230,7 @@ class MainWindow(Qt.QDialog,TaurusBaseComponent):
                                 'check':ui.coolingLoop3SetpointCheck}
         self._setupTaurusLabel4Attr(widgetsSet[attrName]['read'],attrName)
         self._setupQSpinBox(widgetsSet[attrName]['write'],
-                            min=0.0,max=50.0,step=0.1)
+                            minVal=0.0,maxVal=50.0,step=0.1)
         self._configurationWidgets['coolingLoop'] = widgetsSet
     
     def vacuumValvesConfiguration(self,ui):
@@ -274,36 +281,36 @@ class MainWindow(Qt.QDialog,TaurusBaseComponent):
                     self._setupTaurusLabel4Attr(widget,attrName)
                     if component in ['H','V']:
                         if family == 'qt':
-                            min=-16
-                            max=16
+                            minVal=-16
+                            maxVal=16
                         else:
-                            min=-2
-                            max=2
+                            minVal=-2
+                            maxVal=2
                         step=0.01
                         decimals=2
                     else:
                         if family == 'sl':
-                            min=0
-                            max=1
+                            minVal=0
+                            maxVal=1
                             step=0.01
                             decimals=2
                         elif family == 'bc':
-                            min=0
-                            max=200
+                            minVal=0
+                            maxVal=200
                             step=0.01
                             decimals=2
                         elif family == 'gl':
-                            min=0
-                            max=130
+                            minVal=0
+                            maxVal=130
                             step=0.01
                             decimals=2
                         elif family == 'qt':
-                            min=0
-                            max=6
+                            minVal=0
+                            maxVal=6
                             step=0.005
                             decimals=3
                     self._setupQSpinBox(widgetsSet[attrName]['write'],
-                            min=min,max=max,step=step,decimals=decimals)
+                            minVal=minVal,maxVal=maxVal,step=step,decimals=decimals)
         #---- TODO: connect the ToApplyTitle to check/uncheck all the *Check
         self._configurationWidgets['magnets'] = widgetsSet
     
@@ -317,7 +324,7 @@ class MainWindow(Qt.QDialog,TaurusBaseComponent):
                                 'check':ui.TPS0PhaseCheck}
         self._setupTaurusLabel4Attr(ui.TPS0PhaseRead,attrName)
         self._setupQSpinBox(widgetsSet[attrName]['write'],
-                            min=0.0,max=380,decimals=1,step=0.1)
+                            minVal=0.0,maxVal=380,decimals=1,step=0.1)
         
         attrName = 'li/ct/plc1/TPSX_Phase'.lower()
         widgetsSet[attrName] = {'label':ui.TPSXPhaseLabel,
@@ -326,7 +333,7 @@ class MainWindow(Qt.QDialog,TaurusBaseComponent):
                                 'check':ui.TPSXPhaseCheck}
         self._setupTaurusLabel4Attr(ui.TPSXPhaseRead,attrName)
         self._setupQSpinBox(widgetsSet[attrName]['write'],
-                            min=0.0,max=380,decimals=0,step=1)
+                            minVal=0.0,maxVal=380,decimals=0,step=1)
         
         attrName = 'li/ct/plc1/TPS1_Phase'.lower()
         widgetsSet[attrName] = {'label':ui.TPS1PhaseLabel,
@@ -335,7 +342,7 @@ class MainWindow(Qt.QDialog,TaurusBaseComponent):
                                 'check':ui.TPS1PhaseCheck}
         self._setupTaurusLabel4Attr(ui.TPS1PhaseRead,attrName)
         self._setupQSpinBox(widgetsSet[attrName]['write'],
-                            min=0.0,max=380,decimals=0,step=1)
+                            minVal=0.0,maxVal=380,decimals=0,step=1)
         
         attrName = 'li/ct/plc1/TPS2_Phase'.lower()
         widgetsSet[attrName] = {'label':ui.TPS2PhaseLabel,
@@ -344,7 +351,7 @@ class MainWindow(Qt.QDialog,TaurusBaseComponent):
                                 'check':ui.TPS2PhaseCheck}
         self._setupTaurusLabel4Attr(ui.TPS2PhaseRead,attrName)
         self._setupQSpinBox(widgetsSet[attrName]['write'],
-                            min=0.0,max=380,decimals=0,step=1)
+                            minVal=0.0,maxVal=380,decimals=0,step=1)
         
         attrName = 'li/ct/plc1/A0_OP'.lower()
         widgetsSet[attrName] = {'label':ui.A0OPLabel,
@@ -353,7 +360,7 @@ class MainWindow(Qt.QDialog,TaurusBaseComponent):
                                 'check':ui.A0OPCheck}
         self._setupTaurusLabel4Attr(ui.A0OPRead,attrName)
         self._setupQSpinBox(widgetsSet[attrName]['write'],
-                            min=75,max=760,decimals=0,step=1)
+                            minVal=75,maxVal=760,decimals=0,step=1)
         
         attrName = 'li/ct/plc1/ATT2_P_setpoint'.lower()
         widgetsSet[attrName] = {'label':ui.ATT2Label,
@@ -362,7 +369,7 @@ class MainWindow(Qt.QDialog,TaurusBaseComponent):
                                 'check':ui.ATT2Check}
         self._setupTaurusLabel4Attr(ui.ATT2Read,attrName)
         self._setupQSpinBox(widgetsSet[attrName]['write'],
-                            min=-10.0,max=0,decimals=1,step=0.1)
+                            minVal=-10.0,maxVal=0,decimals=1,step=0.1)
         
         attrName = 'li/ct/plc1/PHS1_Phase_setpoint'.lower()
         widgetsSet[attrName] = {'label':ui.PHS1Label,
@@ -371,7 +378,7 @@ class MainWindow(Qt.QDialog,TaurusBaseComponent):
                                 'check':ui.PHS1Check}
         self._setupTaurusLabel4Attr(ui.PHS1Read,attrName)
         self._setupQSpinBox(widgetsSet[attrName]['write'],
-                            min=0.0,max=160,decimals=0,step=1)
+                            minVal=0.0,maxVal=160,decimals=0,step=1)
         
         attrName = 'li/ct/plc1/PHS2_Phase_setpoint'.lower()
         widgetsSet[attrName] = {'label':ui.PHS2Label,
@@ -380,7 +387,7 @@ class MainWindow(Qt.QDialog,TaurusBaseComponent):
                                 'check':ui.PHS2Check}
         self._setupTaurusLabel4Attr(ui.PHS2Read,attrName)
         self._setupQSpinBox(widgetsSet[attrName]['write'],
-                            min=0.0,max=380,decimals=0,step=1)
+                            minVal=0.0,maxVal=380,decimals=0,step=1)
         
         self._configurationWidgets['radioFrequency'] = widgetsSet
     
@@ -401,7 +408,7 @@ class MainWindow(Qt.QDialog,TaurusBaseComponent):
                                 'check':ui.GunDelayCheck}
         self._setupTaurusLabel4Attr(ui.GunDelayRead,attrName)
         self._setupQSpinBox(widgetsSet[attrName]['write'],
-                            min=32,max=4096,step=32)
+                            minVal=32,maxVal=4096,step=32)
         
         attrName = 'li/ct/plc1/TB_ka1_delay'.lower()
         widgetsSet[attrName] = {'label':ui.ka1DelayLabel,
@@ -410,7 +417,7 @@ class MainWindow(Qt.QDialog,TaurusBaseComponent):
                                 'check':ui.ka1DelayCheck}
         self._setupTaurusLabel4Attr(ui.ka1DelayRead,attrName)
         self._setupQSpinBox(widgetsSet[attrName]['write'],
-                            min=1,max=56,step=1)
+                            minVal=1,maxVal=56,step=1)
         
         attrName = 'li/ct/plc1/TB_ka2_delay'.lower()
         widgetsSet[attrName] = {'label':ui.ka2DelayLabel,
@@ -419,7 +426,7 @@ class MainWindow(Qt.QDialog,TaurusBaseComponent):
                                 'check':ui.ka2DelayCheck}
         self._setupTaurusLabel4Attr(ui.ka2DelayRead,attrName)
         self._setupQSpinBox(widgetsSet[attrName]['write'],
-                            min=2720,max=4096,step=32)
+                            minVal=2720,maxVal=4096,step=32)
         
         attrName = 'li/ct/plc1/TB_GPI'.lower()
         widgetsSet[attrName] = {'label':ui.GPILabel,
@@ -428,7 +435,7 @@ class MainWindow(Qt.QDialog,TaurusBaseComponent):
                                 'check':ui.GPICheck}
         self._setupTaurusLabel4Attr(ui.GPIRead,attrName)
         self._setupQSpinBox(widgetsSet[attrName]['write'],
-                            min=6,max=1054,step=2)
+                            minVal=6,maxVal=1054,step=2)
         
         attrName = 'li/ct/plc1/TB_GPN'.lower()
         widgetsSet[attrName] = {'label':ui.GPNLabel,
@@ -437,7 +444,7 @@ class MainWindow(Qt.QDialog,TaurusBaseComponent):
                                 'check':ui.GPNCheck}
         self._setupTaurusLabel4Attr(ui.GPNRead,attrName)
         self._setupQSpinBox(widgetsSet[attrName]['write'],
-                            min=1,max=16,step=1)
+                            minVal=1,maxVal=16,step=1)
         
         attrName = 'li/ct/plc1/TB_GPA'.lower()
         widgetsSet[attrName] = {'label':ui.GPALabel,
@@ -446,7 +453,7 @@ class MainWindow(Qt.QDialog,TaurusBaseComponent):
                                 'check':ui.GPACheck}
         self._setupTaurusLabel4Attr(ui.GPARead,attrName)
         self._setupQSpinBox(widgetsSet[attrName]['write'],
-                            min=-40.0,max=0,decimals=1,step=0.1)
+                            minVal=-40.0,maxVal=0,decimals=1,step=0.1)
 
         #---- TODO: connect the ToApplyTitle to check/uncheck all the *Check
         self._configurationWidgets['timing'] = widgetsSet
@@ -458,10 +465,12 @@ class MainWindow(Qt.QDialog,TaurusBaseComponent):
         LINAC_OUTPUTS = [0,1,2,3]
         ui.linac_wheels = {}
         for i in LINAC_OUTPUTS:        
-            for row, attr in enumerate(['PulseDelay','PulseWidth','FineDelay']):
+            for row, attr in \
+            enumerate(['PulseDelay','PulseWidth','FineDelay']):
                 model = '%s/%s%d' % (LINAC_FINE_TIMING_DEVICE, attr, i)
                 attrName = model.lower()
-                prefix = (s for s in ('Width','Fine','Delay') if s in attr).next()+str(i)
+                prefix = (s for s in ('Width','Fine','Delay') \
+                          if s in attr).next()+str(i)
                 Label = getattr(ui,prefix+'Label')
                 Read = getattr(ui,prefix+'Read')
                 Write = getattr(ui,prefix+'Write')
@@ -471,7 +480,8 @@ class MainWindow(Qt.QDialog,TaurusBaseComponent):
                                 'write':Write,
                                 'check':Check}
                 self._setupTaurusLabel4Attr(Read,attrName)
-                self._setupQSpinBox(widgetsSet[attrName]['write'],min=0,max=1e10,step=8)
+                self._setupQSpinBox(widgetsSet[attrName]['write'],
+                                    minVal=0,maxVal=1e10,step=8,decimals=0)
 
         #---- TODO: connect the ToApplyTitle to check/uncheck all the *Check
         self._configurationWidgets['evr'] = widgetsSet
@@ -489,14 +499,15 @@ class MainWindow(Qt.QDialog,TaurusBaseComponent):
                 devName = 'li/ct/plc%d'%(number+3)
                 if element == 'setp':
                     attrName = "%s/HVPS_V_setpoint"%(devName).lower()
-                    widgetsSet[attrName] = {'label':getattr(ui,'ka%dHVPSLabel'%(number)),
-                                            'read': getattr(ui,'ka%dHVPSRead'%(number)),
-                                            'write':getattr(ui,'ka%dHVPSWrite'%(number)),
-                                            'check':getattr(ui,'ka%dHVPSCheck'%(number)),}
+                    widgetsSet[attrName] = \
+                        {'label':getattr(ui,'ka%dHVPSLabel'%(number)),
+                         'read': getattr(ui,'ka%dHVPSRead'%(number)),
+                         'write':getattr(ui,'ka%dHVPSWrite'%(number)),
+                         'check':getattr(ui,'ka%dHVPSCheck'%(number)),}
                     widget = widgetsSet[attrName]['read']
                     self._setupTaurusLabel4Attr(widget,attrName)
                     self._setupQSpinBox(widgetsSet[attrName]['write'],
-                                        min=0.0,max=33,decimals=1,step=0.1)
+                                        minVal=0.0,maxVal=33,decimals=1,step=0.1)
         #---- TODO: connect the ToApplyTitle to check/uncheck all the *Check
         self._configurationWidgets['klystrons'] = widgetsSet
     
@@ -509,16 +520,20 @@ class MainWindow(Qt.QDialog,TaurusBaseComponent):
     
     def buttonsConfiguration(self,buttons):
         buttons.button(QtGui.QDialogButtonBox.Reset).setText("Reload")
-        #buttons.button(QtGui.QDialogButtonBox.Reset).clicked.connect(self.loadFromDevices)
+        #buttons.button(QtGui.QDialogButtonBox.Reset).clicked.connect(\
+        #    self.loadFromDevices)
         Qt.QObject.connect(buttons.button(QtGui.QDialogButtonBox.Reset),
                            Qt.SIGNAL('clicked(bool)'),self.loadFromDevices)
-        #buttons.button(QtGui.QDialogButtonBox.Save).clicked.connect(self.saveToFile)
+        #buttons.button(QtGui.QDialogButtonBox.Save).clicked.connect(\
+        #    self.saveToFile)
         Qt.QObject.connect(buttons.button(QtGui.QDialogButtonBox.Save),
                            Qt.SIGNAL('clicked(bool)'),self.saveToFile)
-        #buttons.button(QtGui.QDialogButtonBox.Open).clicked.connect(self.loadFromFile)
+        #buttons.button(QtGui.QDialogButtonBox.Open).clicked.connect(\
+        #    self.loadFromFile)
         Qt.QObject.connect(buttons.button(QtGui.QDialogButtonBox.Open),
                            Qt.SIGNAL('clicked(bool)'),self.loadFromFile)
-        #buttons.button(QtGui.QDialogButtonBox.Apply).clicked.connect(self.applyToDevices)
+        #buttons.button(QtGui.QDialogButtonBox.Apply).clicked.connect(\
+        #    self.applyToDevices)
         Qt.QObject.connect(buttons.button(QtGui.QDialogButtonBox.Apply),
                            Qt.SIGNAL('clicked(bool)'),self.applyToDevices)
     
@@ -549,7 +564,8 @@ class MainWindow(Qt.QDialog,TaurusBaseComponent):
                                  "color: rgb(0, 0, 255);"\
                                  "font: 7pt \"DejaVu Sans\";")
         else:
-            raise Exception("Unmanaged %s widget type to tag modified"%(type(widget)))
+            raise Exception("Unmanaged %s widget type to tag modified"
+                            %(type(widget)))
         attrStruct['check'].setChecked(True)
         
     def _setStyleToNoModified(self,attrStruct):
@@ -562,7 +578,8 @@ class MainWindow(Qt.QDialog,TaurusBaseComponent):
             saver.setStyleSheet("color: rgb(0, 0, 0);"\
                                  "font: 7pt \"DejaVu Sans\";")
         else:
-            raise Exception("Unmanaged %s widget type to tag modified"%(type(widget)))
+            raise Exception("Unmanaged %s widget type to tag modified"
+                            %(type(widget)))
         attrStruct['check'].setChecked(False)
     #---- done widget backgrounds
     ######
@@ -749,7 +766,7 @@ class MainWindow(Qt.QDialog,TaurusBaseComponent):
         self.ui.textLoaded.setText("")
     def _recoverSpecialCommentLine(self,line):
         self.ui.textLoaded.setText("%s%s"
-                     %(self.ui.textLoaded.toPlainText(),line.replace('#@ ','')))
+            %(self.ui.textLoaded.toPlainText(),line.replace('#@ ','')))
     #---- done commects region
     ######
 
@@ -806,12 +823,13 @@ class MainWindow(Qt.QDialog,TaurusBaseComponent):
                 if len(exceptions[group]) > 5:
                     for i in range(5):
                         msg = ''.join("%s\t-%s\n"%(msg,exceptions[group][i]))
-                    msg = ''.join("%s\t ...and another %d\n"%(msg,len(exceptions[group])-5))
+                    msg = ''.join("%s\t ...and another %d\n"
+                                  %(msg,len(exceptions[group])-5))
                 else:
                     for label in exceptions[group]:
                         msg = ''.join("%s\t-%s\n"%(msg,label))
-            QtGui.QMessageBox.warning(self, "Exceptions when load from devices",
-                                      msg)
+            QtGui.QMessageBox.warning(self, "Exceptions when load from "\
+                                      "devices",msg)
         self.doneProgressBar()
     
     def saveToFile(self):
@@ -885,8 +903,10 @@ class MainWindow(Qt.QDialog,TaurusBaseComponent):
                                   %(msg,group,len(exceptions[group])))
                     if len(exceptions[group]) > 5:
                         for i in range(5):
-                            msg = ''.join("%s\t-%s\n"%(msg,exceptions[group][i]))
-                        msg = ''.join("%s\t ...and another %d\n"%(msg,len(exceptions[group])-5))
+                            msg = ''.join("%s\t-%s\n"
+                                          %(msg,exceptions[group][i]))
+                        msg = ''.join("%s\t ...and another %d\n"
+                                      %(msg,len(exceptions[group])-5))
                     else:
                         for attrName in exceptions[group]:
                             msg = ''.join("%s\t-%s\n"%(msg,attrName))
@@ -925,7 +945,8 @@ class MainWindow(Qt.QDialog,TaurusBaseComponent):
                         print(attrName,value)
                         if group != '' and attrName != None:
                             try:
-                                attrStruct = self._configurationWidgets[group][attrName]
+                                attrStruct = \
+                                self._configurationWidgets[group][attrName]
                             except:
                                 msg = ("attribute %s is not member of the "\
                                            "group %s"%(attrName,group))
@@ -948,8 +969,10 @@ class MainWindow(Qt.QDialog,TaurusBaseComponent):
                                                    len(exceptions[group])))
                     if len(exceptions[group]) > 5:
                         for i in range(5):
-                            msg = ''.join("%s\t-%s\n"%(msg,exceptions[group][i]))
-                        msg = ''.join("%s\t ...and another %d\n"%(msg,len(exceptions[group])-5))
+                            msg = ''.join("%s\t-%s\n"
+                                          %(msg,exceptions[group][i]))
+                        msg = ''.join("%s\t ...and another %d\n"
+                                      %(msg,len(exceptions[group])-5))
                     else:
                         for attrName in exceptions[group]:
                             msg = ''.join("%s\t-%s\n"%(msg,attrName))
@@ -973,7 +996,8 @@ class MainWindow(Qt.QDialog,TaurusBaseComponent):
                         self._setAttrValue(attrName, value)
                         self._setStyleToNoModified(attrStruct)
                     except Exception,e:
-                        self.error("Exception applying %s: %s"%(attrName,traceback.format_exc()))
+                        self.error("Exception applying %s: %s"
+                                   %(attrName,traceback.format_exc()))
                         if group in exceptions.keys():
                             exceptions[group].append(attrName)
                         else:
@@ -989,7 +1013,8 @@ class MainWindow(Qt.QDialog,TaurusBaseComponent):
                 if len(exceptions[group]) > 5:
                     for i in range(5):
                         msg = ''.join("%s\t-%s\n"%(msg,exceptions[group][i]))
-                    msg = ''.join("%s\t ...and another %d\n"%(msg,len(exceptions[group])-5))
+                    msg = ''.join("%s\t ...and another %d\n"
+                                  %(msg,len(exceptions[group])-5))
                 else:
                     for attrName in exceptions[group]:
                         msg = ''.join("%s\t-%s\n"%(msg,attrName))
