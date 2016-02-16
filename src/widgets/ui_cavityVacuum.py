@@ -38,7 +38,7 @@ class Ui_CavityVacuum(object):
         self.IonPumpALabel.setFont(font)
         self.IonPumpALabel.setObjectName(_fromUtf8("IonPumpALabel"))
         self.gridLayout_2.addWidget(self.IonPumpALabel, 1, 0, 1, 1)
-        self.IonPumpALed = TaurusLed(self.vacuumGroup)
+        self.IonPumpALed = LinacLed(self.vacuumGroup)
         self.IonPumpALed.setMinimumSize(QtCore.QSize(15, 15))
         self.IonPumpALed.setMaximumSize(QtCore.QSize(15, 15))
         self.IonPumpALed.setObjectName(_fromUtf8("IonPumpALed"))
@@ -50,7 +50,7 @@ class Ui_CavityVacuum(object):
         self.IonPumpBLabel.setFont(font)
         self.IonPumpBLabel.setObjectName(_fromUtf8("IonPumpBLabel"))
         self.gridLayout_2.addWidget(self.IonPumpBLabel, 2, 0, 1, 1)
-        self.IonPumpBLed = TaurusLed(self.vacuumGroup)
+        self.IonPumpBLed = LinacLed(self.vacuumGroup)
         self.IonPumpBLed.setMinimumSize(QtCore.QSize(15, 15))
         self.IonPumpBLed.setMaximumSize(QtCore.QSize(15, 15))
         self.IonPumpBLed.setObjectName(_fromUtf8("IonPumpBLed"))
@@ -66,6 +66,8 @@ class Ui_CavityVacuum(object):
         self.IonPumpALabel.setText(QtGui.QApplication.translate("CavityVacuum", "IP_A", None, QtGui.QApplication.UnicodeUTF8))
         self.IonPumpBLabel.setText(QtGui.QApplication.translate("CavityVacuum", "IP_B", None, QtGui.QApplication.UnicodeUTF8))
 
-from taurus.qt.qtgui.display import TaurusLabel, TaurusLed
+from taurus.qt.qtgui.display import TaurusLabel
 from taurus.qt.qtgui.container import TaurusGroupBox
 from taurus.qt.qtgui.panel import TaurusWidget
+from linacled import LinacLed
+

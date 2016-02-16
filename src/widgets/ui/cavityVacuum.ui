@@ -61,7 +61,7 @@
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="TaurusLed" name="IonPumpALed">
+       <widget class="LinacLed" name="IonPumpALed">
         <property name="minimumSize">
          <size>
           <width>15</width>
@@ -95,7 +95,7 @@
        </widget>
       </item>
       <item row="2" column="1">
-       <widget class="TaurusLed" name="IonPumpBLed">
+       <widget class="LinacLed" name="IonPumpBLed">
         <property name="minimumSize">
          <size>
           <width>15</width>
@@ -117,9 +117,9 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>TaurusLed</class>
-   <extends>QLed</extends>
-   <header>taurus.qt.qtgui.display</header>
+   <class>LinacLed</class>
+   <extends>TaurusLed</extends>
+   <header>linacled</header>
   </customwidget>
   <customwidget>
    <class>QLed</class>

@@ -30,7 +30,7 @@ class Ui_eGunHV(object):
         self.gridLayout_3.setObjectName(_fromUtf8("gridLayout_3"))
         self.gridLayout_2 = QtGui.QGridLayout()
         self.gridLayout_2.setObjectName(_fromUtf8("gridLayout_2"))
-        self.doorInterlockLed = TaurusLed(self.taurusGroupBox)
+        self.doorInterlockLed = LinacLed(self.taurusGroupBox)
         self.doorInterlockLed.setMinimumSize(QtCore.QSize(15, 15))
         self.doorInterlockLed.setMaximumSize(QtCore.QSize(15, 15))
         self.doorInterlockLed.setObjectName(_fromUtf8("doorInterlockLed"))
@@ -41,7 +41,7 @@ class Ui_eGunHV(object):
         self.AutostopperTriggerLabel = QtGui.QLabel(self.taurusGroupBox)
         self.AutostopperTriggerLabel.setObjectName(_fromUtf8("AutostopperTriggerLabel"))
         self.gridLayout_2.addWidget(self.AutostopperTriggerLabel, 1, 0, 1, 1)
-        self.AutostopperTriggerLed = TaurusLed(self.taurusGroupBox)
+        self.AutostopperTriggerLed = LinacLed(self.taurusGroupBox)
         self.AutostopperTriggerLed.setMinimumSize(QtCore.QSize(15, 15))
         self.AutostopperTriggerLed.setMaximumSize(QtCore.QSize(15, 15))
         self.AutostopperTriggerLed.setObjectName(_fromUtf8("AutostopperTriggerLed"))
@@ -69,6 +69,6 @@ class Ui_eGunHV(object):
         self.RampConfigurator.setText(QtGui.QApplication.translate("eGunHV", "Ramp", None, QtGui.QApplication.UnicodeUTF8))
         self.AutoStopConfiguration.setText(QtGui.QApplication.translate("eGunHV", "Stopper", None, QtGui.QApplication.UnicodeUTF8))
 
-from taurus.qt.qtgui.display import TaurusLed
 from taurus.qt.qtgui.container import TaurusGroupBox
 from taurus.qt.qtgui.panel import TaurusWidget
+from linacled import LinacLed

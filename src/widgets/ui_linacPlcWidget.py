@@ -29,7 +29,7 @@ class Ui_linacPlcWidget(object):
         self.gridLayout_2.setObjectName(_fromUtf8("gridLayout_2"))
         self.gridLayout = QtGui.QGridLayout()
         self.gridLayout.setObjectName(_fromUtf8("gridLayout"))
-        self.stateRead = TaurusLed(self.plcGroup)
+        self.stateRead = LinacLed(self.plcGroup)
         self.stateRead.setMinimumSize(QtCore.QSize(25, 25))
         self.stateRead.setMaximumSize(QtCore.QSize(25, 25))
         self.stateRead.setUseParentModel(True)
@@ -40,7 +40,7 @@ class Ui_linacPlcWidget(object):
         self.gridLayout.addWidget(self.statusLabel, 4, 0, 1, 1)
         self.horizontalLayout = QtGui.QHBoxLayout()
         self.horizontalLayout.setObjectName(_fromUtf8("horizontalLayout"))
-        self.lockingRead = TaurusLed(self.plcGroup)
+        self.lockingRead = LinacLed(self.plcGroup)
         self.lockingRead.setMinimumSize(QtCore.QSize(25, 25))
         self.lockingRead.setMaximumSize(QtCore.QSize(25, 25))
         self.lockingRead.setUseParentModel(True)
@@ -69,7 +69,7 @@ class Ui_linacPlcWidget(object):
         self.statusRead.setUseParentModel(True)
         self.statusRead.setObjectName(_fromUtf8("statusRead"))
         self.gridLayout.addWidget(self.statusRead, 4, 1, 1, 1)
-        self.heartbeatRead = TaurusLed(self.plcGroup)
+        self.heartbeatRead = LinacLed(self.plcGroup)
         self.heartbeatRead.setMinimumSize(QtCore.QSize(25, 25))
         self.heartbeatRead.setMaximumSize(QtCore.QSize(25, 25))
         self.heartbeatRead.setAlignment(QtCore.Qt.AlignBottom|QtCore.Qt.AlignVCenter)
@@ -111,7 +111,7 @@ class Ui_linacPlcWidget(object):
         self.instanceLocationRead.setMaximumSize(QtCore.QSize(16777215, 25))
         self.instanceLocationRead.setObjectName(_fromUtf8("instanceLocationRead"))
         self.instanceLayout.addWidget(self.instanceLocationRead, 1, 1, 1, 2)
-        self.instanceStateRead = TaurusLed(self.instanceGroup)
+        self.instanceStateRead = LinacLed(self.instanceGroup)
         self.instanceStateRead.setMinimumSize(QtCore.QSize(25, 25))
         self.instanceStateRead.setMaximumSize(QtCore.QSize(25, 25))
         self.instanceStateRead.setObjectName(_fromUtf8("instanceStateRead"))
@@ -158,8 +158,10 @@ class Ui_linacPlcWidget(object):
         self.moveRemote.setText(QtGui.QApplication.translate("linacPlcWidget", "---", None, QtGui.QApplication.UnicodeUTF8))
         self.moveRemote.setCommand(QtGui.QApplication.translate("linacPlcWidget", "MoveInstance", None, QtGui.QApplication.UnicodeUTF8))
 
-from taurus.qt.qtgui.display import TaurusLed, TaurusLabel
+from taurus.qt.qtgui.display import TaurusLabel
 from taurus.qt.qtgui.container import TaurusGroupBox
 from taurus.qt.qtgui.panel import TaurusWidget
 from taurus.qt.qtgui.button import TaurusCommandButton
 from linacvaluecheckbox import LinacValueCheckBox
+from linacled import LinacLed
+

@@ -36,7 +36,7 @@ class Ui_actionForm(object):
         self.gridLayout.addWidget(self.Check, 0, 2, 1, 1)
         spacerItem = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
         self.gridLayout.addItem(spacerItem, 0, 0, 1, 1)
-        self.Led = TaurusLed(self.actionFrame)
+        self.Led = LinacLed(self.actionFrame)
         self.Led.setMinimumSize(QtCore.QSize(15, 15))
         self.Led.setMaximumSize(QtCore.QSize(15, 15))
         self.Led.setObjectName(_fromUtf8("Led"))
@@ -59,6 +59,6 @@ class Ui_actionForm(object):
         actionForm.setWindowTitle(QtGui.QApplication.translate("actionForm", "Form", None, QtGui.QApplication.UnicodeUTF8))
         self.Label.setText(QtGui.QApplication.translate("actionForm", "true/false", None, QtGui.QApplication.UnicodeUTF8))
 
-from taurus.qt.qtgui.display import TaurusLed
 from taurus.qt.qtgui.panel import TaurusWidget
 from linacvaluecheckbox import LinacValueCheckBox
+from linacled import LinacLed

@@ -31,7 +31,7 @@
       <item row="0" column="0">
        <layout class="QGridLayout" name="gridLayout_2">
         <item row="0" column="1">
-         <widget class="TaurusLed" name="doorInterlockLed">
+         <widget class="LinacLed" name="doorInterlockLed">
           <property name="minimumSize">
            <size>
             <width>15</width>
@@ -61,7 +61,7 @@
          </widget>
         </item>
         <item row="1" column="1">
-         <widget class="TaurusLed" name="AutostopperTriggerLed">
+         <widget class="LinacLed" name="AutostopperTriggerLed">
           <property name="minimumSize">
            <size>
             <width>15</width>
@@ -103,9 +103,9 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>TaurusLed</class>
-   <extends>QLed</extends>
-   <header>taurus.qt.qtgui.display</header>
+   <class>LinacLed</class>
+   <extends>TaurusLed</extends>
+   <header>linacled</header>
   </customwidget>
   <customwidget>
    <class>QLed</class>

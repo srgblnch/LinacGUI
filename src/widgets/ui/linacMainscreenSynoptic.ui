@@ -40,7 +40,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="TaurusLed" name="rfEnbLed">
+  <widget class="LinacLed" name="rfEnbLed">
    <property name="geometry">
     <rect>
      <x>598</x>
@@ -62,7 +62,7 @@
     </size>
    </property>
   </widget>
-  <widget class="TaurusLed" name="tbTimerStatusStateLed">
+  <widget class="LinacLed" name="tbTimerStatusStateLed">
    <property name="geometry">
     <rect>
      <x>464</x>
@@ -84,7 +84,7 @@
     </size>
    </property>
   </widget>
-  <widget class="TaurusLed" name="coolingLoop1Led">
+  <widget class="LinacLed" name="coolingLoop1Led">
    <property name="geometry">
     <rect>
      <x>1170</x>
@@ -106,7 +106,7 @@
     </size>
    </property>
   </widget>
-  <widget class="TaurusLed" name="coolingLoop2Led">
+  <widget class="LinacLed" name="coolingLoop2Led">
    <property name="geometry">
     <rect>
      <x>1170</x>
@@ -128,7 +128,7 @@
     </size>
    </property>
   </widget>
-  <widget class="TaurusLed" name="coolingLoop3Led">
+  <widget class="LinacLed" name="coolingLoop3Led">
    <property name="geometry">
     <rect>
      <x>1170</x>
@@ -440,7 +440,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="TaurusLed" name="sl1LedInfo">
+  <widget class="LinacLed" name="sl1LedInfo">
    <property name="geometry">
     <rect>
      <x>162</x>
@@ -462,7 +462,7 @@
     </size>
    </property>
   </widget>
-  <widget class="TaurusLed" name="vcvOnLedInfo">
+  <widget class="LinacLed" name="vcvOnLedInfo">
    <property name="geometry">
     <rect>
      <x>196</x>
@@ -484,7 +484,7 @@
     </size>
    </property>
   </widget>
-  <widget class="TaurusLed" name="sl2LedInfo">
+  <widget class="LinacLed" name="sl2LedInfo">
    <property name="geometry">
     <rect>
      <x>247</x>
@@ -506,7 +506,7 @@
     </size>
    </property>
   </widget>
-  <widget class="TaurusLed" name="sl3LedInfo">
+  <widget class="LinacLed" name="sl3LedInfo">
    <property name="geometry">
     <rect>
      <x>331</x>
@@ -528,7 +528,7 @@
     </size>
    </property>
   </widget>
-  <widget class="TaurusLed" name="sl4LedInfo">
+  <widget class="LinacLed" name="sl4LedInfo">
    <property name="geometry">
     <rect>
      <x>403</x>
@@ -550,7 +550,7 @@
     </size>
    </property>
   </widget>
-  <widget class="TaurusLed" name="bc1LedInfo">
+  <widget class="LinacLed" name="bc1LedInfo">
    <property name="geometry">
     <rect>
      <x>457</x>
@@ -572,7 +572,7 @@
     </size>
    </property>
   </widget>
-  <widget class="TaurusLed" name="bc2LedInfo">
+  <widget class="LinacLed" name="bc2LedInfo">
    <property name="geometry">
     <rect>
      <x>517</x>
@@ -594,7 +594,7 @@
     </size>
    </property>
   </widget>
-  <widget class="TaurusLed" name="sm1Led">
+  <widget class="LinacLed" name="sm1Led">
    <property name="geometry">
     <rect>
      <x>606</x>
@@ -616,7 +616,7 @@
     </size>
    </property>
   </widget>
-  <widget class="TaurusLed" name="glLedInfo">
+  <widget class="LinacLed" name="glLedInfo">
    <property name="geometry">
     <rect>
      <x>643</x>
@@ -638,7 +638,7 @@
     </size>
    </property>
   </widget>
-  <widget class="TaurusLed" name="as1LedInfo">
+  <widget class="LinacLed" name="as1LedInfo">
    <property name="geometry">
     <rect>
      <x>746</x>
@@ -660,7 +660,7 @@
     </size>
    </property>
   </widget>
-  <widget class="TaurusLed" name="sm2Led">
+  <widget class="LinacLed" name="sm2Led">
    <property name="geometry">
     <rect>
      <x>859</x>
@@ -682,7 +682,7 @@
     </size>
    </property>
   </widget>
-  <widget class="TaurusLed" name="qtLedInfo">
+  <widget class="LinacLed" name="qtLedInfo">
    <property name="geometry">
     <rect>
      <x>919</x>
@@ -704,7 +704,7 @@
     </size>
    </property>
   </widget>
-  <widget class="TaurusLed" name="as2LedInfo">
+  <widget class="LinacLed" name="as2LedInfo">
    <property name="geometry">
     <rect>
      <x>1033</x>
@@ -726,7 +726,7 @@
     </size>
    </property>
   </widget>
-  <widget class="TaurusLed" name="sm3Led">
+  <widget class="LinacLed" name="sm3Led">
    <property name="geometry">
     <rect>
      <x>1135</x>
@@ -768,7 +768,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="TaurusLed" name="rfSourceStatusLed">
+  <widget class="LinacLed" name="rfSourceStatusLed">
    <property name="geometry">
     <rect>
      <x>1104</x>
@@ -790,7 +790,7 @@
     </size>
    </property>
   </widget>
-  <widget class="TaurusLed" name="rfA0StatusLed">
+  <widget class="LinacLed" name="rfA0StatusLed">
    <property name="geometry">
     <rect>
      <x>280</x>
@@ -1644,7 +1644,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="TaurusLed" name="attenuatorLed">
+  <widget class="LinacLed" name="attenuatorLed">
    <property name="geometry">
     <rect>
      <x>400</x>
@@ -1666,7 +1666,7 @@
     </size>
    </property>
   </widget>
-  <widget class="TaurusLed" name="phaseShifter2Led">
+  <widget class="LinacLed" name="phaseShifter2Led">
    <property name="geometry">
     <rect>
      <x>453</x>
@@ -1688,7 +1688,7 @@
     </size>
    </property>
   </widget>
-  <widget class="TaurusLed" name="phaseShifter1Led">
+  <widget class="LinacLed" name="phaseShifter1Led">
    <property name="geometry">
     <rect>
      <x>592</x>
@@ -1710,7 +1710,7 @@
     </size>
    </property>
   </widget>
-  <widget class="TaurusLed" name="klystron1HVLed">
+  <widget class="LinacLed" name="klystron1HVLed">
    <property name="geometry">
     <rect>
      <x>740</x>
@@ -1732,7 +1732,7 @@
     </size>
    </property>
   </widget>
-  <widget class="TaurusLed" name="klystron2HVLed">
+  <widget class="LinacLed" name="klystron2HVLed">
    <property name="geometry">
     <rect>
      <x>1029</x>
@@ -2139,7 +2139,7 @@
     </item>
    </layout>
   </widget>
-  <widget class="TaurusLed" name="vacuumValve7OnLedInfo">
+  <widget class="LinacLed" name="vacuumValve7OnLedInfo">
    <property name="geometry">
     <rect>
      <x>1219</x>
@@ -2552,7 +2552,7 @@
      </widget>
     </item>
     <item row="0" column="1">
-     <widget class="TaurusLed" name="tl_vokLedInfo">
+     <widget class="LinacLed" name="tl_vokLedInfo">
       <property name="minimumSize">
        <size>
         <width>10</width>
@@ -2703,7 +2703,7 @@
     </item>
    </layout>
   </widget>
-  <widget class="TaurusLed" name="hvsLed">
+  <widget class="LinacLed" name="hvsLed">
    <property name="geometry">
     <rect>
      <x>80</x>
@@ -2907,9 +2907,9 @@
    <header>taurus.qt.qtgui.input</header>
   </customwidget>
   <customwidget>
-   <class>TaurusLed</class>
-   <extends>QLed</extends>
-   <header>taurus.qt.qtgui.display</header>
+   <class>LinacLed</class>
+   <extends>TaurusLed</extends>
+   <header>linacled</header>
   </customwidget>
   <customwidget>
    <class>QLed</class>

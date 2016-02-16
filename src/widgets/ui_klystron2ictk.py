@@ -38,17 +38,17 @@ class Ui_klystron2itck(object):
         self.rfl3Label = QtGui.QLabel(self.ictkGroup)
         self.rfl3Label.setObjectName(_fromUtf8("rfl3Label"))
         self.gridLayout_2.addWidget(self.rfl3Label, 2, 0, 1, 1)
-        self.sf6p2Led = TaurusLed(self.ictkGroup)
+        self.sf6p2Led = LinacLed(self.ictkGroup)
         self.sf6p2Led.setMinimumSize(QtCore.QSize(15, 15))
         self.sf6p2Led.setMaximumSize(QtCore.QSize(15, 15))
         self.sf6p2Led.setObjectName(_fromUtf8("sf6p2Led"))
         self.gridLayout_2.addWidget(self.sf6p2Led, 0, 1, 1, 1)
-        self.rfw3Led = TaurusLed(self.ictkGroup)
+        self.rfw3Led = LinacLed(self.ictkGroup)
         self.rfw3Led.setMinimumSize(QtCore.QSize(15, 15))
         self.rfw3Led.setMaximumSize(QtCore.QSize(15, 15))
         self.rfw3Led.setObjectName(_fromUtf8("rfw3Led"))
         self.gridLayout_2.addWidget(self.rfw3Led, 1, 1, 1, 1)
-        self.rfl3Led = TaurusLed(self.ictkGroup)
+        self.rfl3Led = LinacLed(self.ictkGroup)
         self.rfl3Led.setMinimumSize(QtCore.QSize(15, 15))
         self.rfl3Led.setMaximumSize(QtCore.QSize(15, 15))
         self.rfl3Led.setObjectName(_fromUtf8("rfl3Led"))
@@ -65,6 +65,6 @@ class Ui_klystron2itck(object):
         self.sf6p2Label.setText(QtGui.QApplication.translate("klystron2itck", "SF6 Pressure 2", None, QtGui.QApplication.UnicodeUTF8))
         self.rfl3Label.setText(QtGui.QApplication.translate("klystron2itck", "RF load 3 underflow", None, QtGui.QApplication.UnicodeUTF8))
 
-from taurus.qt.qtgui.display import TaurusLed
 from taurus.qt.qtgui.container import TaurusGroupBox
 from taurus.qt.qtgui.panel import TaurusWidget
+from linacled import LinacLed

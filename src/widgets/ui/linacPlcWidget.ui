@@ -27,7 +27,7 @@
        <item row="0" column="0">
         <layout class="QGridLayout" name="gridLayout">
          <item row="3" column="1">
-          <widget class="TaurusLed" name="stateRead">
+          <widget class="LinacLed" name="stateRead">
            <property name="minimumSize">
             <size>
              <width>25</width>
@@ -58,7 +58,7 @@
          <item row="2" column="1">
           <layout class="QHBoxLayout" name="horizontalLayout">
            <item>
-            <widget class="TaurusLed" name="lockingRead">
+            <widget class="LinacLed" name="lockingRead">
              <property name="minimumSize">
               <size>
                <width>25</width>
@@ -165,7 +165,7 @@
           </widget>
          </item>
          <item row="0" column="1">
-          <widget class="TaurusLed" name="heartbeatRead">
+          <widget class="LinacLed" name="heartbeatRead">
            <property name="minimumSize">
             <size>
              <width>25</width>
@@ -289,7 +289,7 @@
           </widget>
          </item>
          <item row="0" column="1" colspan="2">
-          <widget class="TaurusLed" name="instanceStateRead">
+          <widget class="LinacLed" name="instanceStateRead">
            <property name="minimumSize">
             <size>
              <width>25</width>
@@ -357,9 +357,9 @@
    <header>linacvaluecheckbox</header>
   </customwidget>
   <customwidget>
-   <class>TaurusLed</class>
-   <extends>QLed</extends>
-   <header>taurus.qt.qtgui.display</header>
+   <class>LinacLed</class>
+   <extends>TaurusLed</extends>
+   <header>linacled</header>
   </customwidget>
   <customwidget>
    <class>QLed</class>

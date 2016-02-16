@@ -59,7 +59,7 @@
        </spacer>
       </item>
       <item row="0" column="1">
-       <widget class="TaurusLed" name="Led">
+       <widget class="LinacLed" name="Led">
         <property name="minimumSize">
          <size>
           <width>15</width>
@@ -114,8 +114,8 @@
    <header>linacvaluecheckbox</header>
   </customwidget>
   <customwidget>
-   <class>TaurusLed</class>
-   <extends>QLed</extends>
+   <class>LinacLed</class>
+   <extends>TaurusLed</extends>
    <header>taurus.qt.qtgui.display</header>
   </customwidget>
   <customwidget>

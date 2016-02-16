@@ -67,7 +67,7 @@
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="TaurusLed" name="sf6p1Led">
+       <widget class="LinacLed" name="sf6p1Led">
         <property name="minimumSize">
          <size>
           <width>15</width>
@@ -83,7 +83,7 @@
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="TaurusLed" name="rfw1Led">
+       <widget class="LinacLed" name="rfw1Led">
         <property name="minimumSize">
          <size>
           <width>15</width>
@@ -99,7 +99,7 @@
        </widget>
       </item>
       <item row="2" column="1">
-       <widget class="TaurusLed" name="rfw2Led">
+       <widget class="LinacLed" name="rfw2Led">
         <property name="minimumSize">
          <size>
           <width>15</width>
@@ -115,7 +115,7 @@
        </widget>
       </item>
       <item row="3" column="1">
-       <widget class="TaurusLed" name="rfl1Led">
+       <widget class="LinacLed" name="rfl1Led">
         <property name="minimumSize">
          <size>
           <width>15</width>
@@ -131,7 +131,7 @@
        </widget>
       </item>
       <item row="4" column="1">
-       <widget class="TaurusLed" name="rfl2Led">
+       <widget class="LinacLed" name="rfl2Led">
         <property name="minimumSize">
          <size>
           <width>15</width>
@@ -153,9 +153,9 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>TaurusLed</class>
-   <extends>QLed</extends>
-   <header>taurus.qt.qtgui.display</header>
+   <class>LinacLed</class>
+   <extends>TaurusLed</extends>
+   <header>linacled</header>
   </customwidget>
   <customwidget>
    <class>QLed</class>

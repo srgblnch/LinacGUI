@@ -1853,9 +1853,18 @@ def build_application():
 def build_ui():
     return LinacMainWindow()
 
+def refreshButton(w):
+    try:
+        sys.path.append('/control/user-packages')
+        from ctguirefresh.guirefreshbutton import GuiRefreshButton
+        GuiRefreshButton.attachToWindow(w)  # w is your main window instance
+    except Exception as e:# ImportError
+        print("module ctguirefresh not loaded: %s"%e)
+
 def main():
     app = build_application()
     ui = build_ui()
+    refreshButton(ui)
     ui.show()
     sys.exit(app.exec_())
 
