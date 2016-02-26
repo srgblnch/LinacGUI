@@ -38,7 +38,7 @@ class LinacLed(TaurusLed):
         super(LinacLed,self).__init__(parent,designMode)
     def _calculate_controller_class(self):
         try:
-            return TaurusLed._calculate_controller_class()
+            return TaurusLed._calculate_controller_class(self)
         except Exception as e:
             self.warning("For %s model exception in "\
                          "_calculate_controller_class(): %s"
