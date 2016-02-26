@@ -599,48 +599,63 @@ class MainWindow(Qt.QDialog, TaurusBaseComponent):
         return PyTango.AttributeProxy(attrName).read().value
 
     def _setAttrValue(self, attrName, value):
-        # hackish to because we've seen some attributes not well applied
-        # and we don't have rights to study further why this had happen
+        rvalue = self._getAttrValue(attrName)
+        if value == rvalue:
+            # hackish to because we've seen some attributes not well applied
+            # and we don't have rights to study further why this had happen
+            self._doubleWrite(attrName, value, 0.99)
+        self.info('_setAttrValue(%s,%s,(%s))' % (attrName, value, type(value)))
+        try:
+            taurus.Attribute(attrName).write(value)
+        except Exception as e:
+            self.error("Exception in the %s write(%s) operation: %s\n%s"
+                       % (attrName, value, e, traceback.format_exc()))
+        self._checkReadWrite(attrName, rvalue, value)
+
+    def _doubleWrite(self, attrName, value, near):
+        '''This method is to do two different writes with close values to
+           make sure the newer value is set.
+        '''
         try:
             if type(value) == bool:
-                pass
+                return
             elif type(value) == int:
-                taurus.Attribute(attrName).write(int(value*0.95))
+                taurus.Attribute(attrName).write(int(value*near))
             elif type(value) == float:
-                taurus.Attribute(attrName).write(value*0.95)
+                taurus.Attribute(attrName).write(value*near)
             time.sleep(0.3)
         except Exception as e:
             # in boundary cases it had seen that this produces an exception
             # but it's not a blocking issue and we can continue.
-            self.warning("Attribute %s fail the '.95' hackish: "
-                         "value=%g value*0.95=%g. The exception was: %s"
-                         % (attrName, value, value*0.95, e))
-        self.info('_setAttrVAlue(%s,%s,(%s))' % (attrName, value, type(value)))
-        try:
-            taurus.Attribute(attrName).write(value)
-        except:
-            self.error(traceback.format_exc())
-        # At the end, check if the write has been acknowledge
-        # by the plc reading
-        rvalue = self._getAttrValue(attrName)
-        if rvalue != value:
-            # TODO: With bools and integers that's all, but floats are more
-            # complicated to compare.
-            if type(value) == float:
-                try:
-                    attrFormat = PyTango.AttributeProxy(attrName\
-                                                        ).get_config().format
-                except Exception as e:
-                    self.error("Not possible to get %s format" % (attrName))
-                    attrFormat = '%6.3f'
-                if attrFormat % rvalue == attrFormat % value:
-                    self.warning("The format (%s) representation matches, "
-                                 "even the floats are not exactly equal "
-                                 "%g != %g" % (attrFormat, rvalue, value))
-                    return
-            raise ValueError("The attribute reading (%s) didn't "
-                             "correspond to what has been set (%s)"
-                             % (rvalue, value))
+            self.warning("Attribute %s fail the '%s' hackish: "
+                         "value=%g value*near=%g. The exception was: %s"
+                         % (attrName, near, value, value*near, e))
+
+    def _checkReadWrite(self, attrName, rvalue, wvalue):
+        # check if the write has been acknowledge by the plc reading
+        if rvalue == wvalue:
+            return
+        if type(rvalue) == float:
+            # With bools and integers the compare is simple, but floats,
+            # because of the different byte precisions, can be equivalent
+            # not being exacly the same.
+            try:
+                attr = PyTango.AttributeProxy(attrName)
+                attrFormat = attr.get_config().format
+            except Exception as e:
+                self.error("It hasn't been possible to get %s's format"
+                           % (attrName))
+                attrFormat = '%6.3f'
+            rvalueStr = attrFormat % rvalue
+            wvalueStr = attrFormat % wvalue
+            if rvalueStr == wvalueStr:
+                self.warning("The format (%s) representation matches, "
+                             "even the floats are not exactly equal "
+                             "%g != %g" % (attrFormat, rvalue, wvalue))
+                return
+        raise ValueError("The attribute reading (%s) didn't "
+                         "correspond to what has been set (%s)"
+                         % (rvalue, wvalue))
 
     def _setValueToSaverWidget(self, attrStruct, value, style=True):
         saver = attrStruct['write']
@@ -854,22 +869,7 @@ class MainWindow(Qt.QDialog, TaurusBaseComponent):
                 # progressbar
                 i += 1
                 self.setProgressBarValue(i, nElements)
-        if len(exceptions.keys()) != 0:
-            msg = ""
-            for group in exceptions.keys():
-                msg = ''.join("%sIn group %s, %d values not uploaded\n"
-                              % (msg, group, len(exceptions[group])))
-                if len(exceptions[group]) > 5:
-                    for i in range(5):
-                        msg = ''.join("%s\t-%s\n"
-                                      % (msg, exceptions[group][i]))
-                    msg = ''.join("%s\t ...and another %d\n"
-                                  % (msg, len(exceptions[group])-5))
-                else:
-                    for label in exceptions[group]:
-                        msg = ''.join("%s\t-%s\n" % (msg, label))
-            QtGui.QMessageBox.warning(self, "Exceptions when load from "
-                                      "devices", msg)
+        self._raiseCollectedExceptions("load", exceptions)
         self.doneProgressBar()
 
     def saveToFile(self):
@@ -940,21 +940,7 @@ class MainWindow(Qt.QDialog, TaurusBaseComponent):
                                            "File with the settings was "
                                            "NOT saved!\nException: %s" % (e))
                 traceback.print_exc()
-            if len(exceptions.keys()) != 0:
-                msg = ""
-                for group in exceptions.keys():
-                    msg = ''.join("%sIn group %s happen %d errors\n"
-                                  % (msg, group, len(exceptions[group])))
-                    if len(exceptions[group]) > 5:
-                        for i in range(5):
-                            msg = ''.join("%s\t-%s\n"
-                                          % (msg, exceptions[group][i]))
-                        msg = ''.join("%s\t ...and another %d\n"
-                                      % (msg, len(exceptions[group])-5))
-                    else:
-                        for attrName in exceptions[group]:
-                            msg = ''.join("%s\t-%s\n" % (msg, attrName))
-                QtGui.QMessageBox.warning(self, "Exceptions when save", msg)
+            self._raiseCollectedExceptions("save", exceptions)
             self.doneProgressBar()
 
     #---- #loadFromFile()
@@ -1013,23 +999,7 @@ class MainWindow(Qt.QDialog, TaurusBaseComponent):
                     # progressBar
                     self.setProgressBarValue(nline, nElements)
             # file.close()
-            if len(exceptions.keys()) != 0:
-                msg = ""
-                for group in exceptions.keys():
-                    msg = ''.join("%sIn group %s found %d orphan "
-                                  "attributes:\n" % (msg, group,
-                                                     len(exceptions[group])))
-                    if len(exceptions[group]) > 5:
-                        for i in range(5):
-                            msg = ''.join("%s\t-%s\n"
-                                          % (msg, exceptions[group][i]))
-                        msg = ''.join("%s\t ...and another %d\n"
-                                      % (msg, len(exceptions[group])-5))
-                    else:
-                        for attrName in exceptions[group]:
-                            msg = ''.join("%s\t-%s\n" % (msg, attrName))
-                QtGui.QMessageBox.warning(self, "Exceptions when load file",
-                                          msg)
+            self._raiseCollectedExceptions("load", exceptions)
             self.doneProgressBar()
 
     #---- Descending level for the loadFromFile()
@@ -1047,7 +1017,7 @@ class MainWindow(Qt.QDialog, TaurusBaseComponent):
                     # progressBar
                     self.setProgressBarValue(nline, nElements)
             # file.close()
-            self._showExceptions(exceptions, 'load')
+            self._raiseCollectedExceptions('load', exceptions)
             self.doneProgressBar()
 
     def _processLine(self, nline, line, group, exceptions):
@@ -1084,7 +1054,7 @@ class MainWindow(Qt.QDialog, TaurusBaseComponent):
         exceptions = {}
         self.prepareProgressBar()
         self._iterateAttribute(exceptions)
-        self._showExceptions(exceptions, 'apply')
+        self._raiseCollectedExceptions('apply', exceptions)
         self.doneProgressBar()
         self._cleanSpecialCommentsFromFile()
 
@@ -1119,26 +1089,26 @@ class MainWindow(Qt.QDialog, TaurusBaseComponent):
                 exceptions[group].append(attrName)
             else:
                 exceptions[group] = [attrName]
+    #---- done ActionButtons callbacks
+    ######
 
-    def _showExceptions(self, exceptions, action):
+    def _raiseCollectedExceptions(self, operation, exceptions):
         if len(exceptions.keys()) != 0:
             msg = ""
             for group in exceptions.keys():
-                msg = ''.join("%sIn group %s found %d %sing errors:\n"
-                              % (msg, group, len(exceptions[group]), action))
+                msg = ''.join("%sIn group %s, %d values not uploaded\n"
+                              % (msg, group, len(exceptions[group])))
                 if len(exceptions[group]) > 5:
                     for i in range(5):
-                        msg = ''.join("%s\t-%s\n" % (msg,
-                                                     exceptions[group][i]))
+                        msg = ''.join("%s\t-%s\n"
+                                      % (msg, exceptions[group][i]))
                     msg = ''.join("%s\t ...and another %d\n"
                                   % (msg, len(exceptions[group])-5))
                 else:
-                    for attrName in exceptions[group]:
-                        msg = ''.join("%s\t-%s\n" % (msg, attrName))
-            QtGui.QMessageBox.warning(self, "Exceptions when %s" % action, msg)
-
-    #---- done ActionButtons callbacks
-    ######
+                    for label in exceptions[group]:
+                        msg = ''.join("%s\t-%s\n" % (msg, label))
+            QtGui.QMessageBox.warning(self, "Exceptions when %s from "
+                                      "devices" % (operation), msg)
 
 
 def main():
