@@ -620,10 +620,20 @@ class MainWindow(Qt.QDialog, TaurusBaseComponent):
             if type(value) == bool:
                 return
             elif type(value) == int:
-                taurus.Attribute(attrName).write(int(value*near))
+                #it would be in the maximum or in the minimum, but one above
+                # or one below will be possible to be writable, isn't it?
+                try:
+                    taurus.Attribute(attrName).write(int(value+1))
+                except:
+                    try:
+                        taurus.Attribute(attrName).write(int(value-1))
+                    except:
+                        self.error("It hasn't been possible to write a near "
+                                   "setpoint for attribute %s"%(attrName))
+                time.sleep(0.3)
             elif type(value) == float:
                 taurus.Attribute(attrName).write(value*near)
-            time.sleep(0.3)
+                time.sleep(0.3)
         except Exception as e:
             # in boundary cases it had seen that this produces an exception
             # but it's not a blocking issue and we can continue.
@@ -633,12 +643,25 @@ class MainWindow(Qt.QDialog, TaurusBaseComponent):
 
     def _checkReadWrite(self, attrName, rvalue, wvalue):
         # check if the write has been acknowledge by the plc reading
-        if rvalue == wvalue:
-            return
-        if type(rvalue) == float:
-            # With bools and integers the compare is simple, but floats,
-            # because of the different byte precisions, can be equivalent
-            # not being exacly the same.
+        i = 0
+        while i < 10:
+            if self._checkValue(rvalue, wvalue, attrName):
+                self.debug("For %s, reading corresponds to what has been "
+                           "written (%d)"%(attrName,i))
+                return
+            time.sleep(0.1)  # when they are different, wait to recheck
+            i += 1
+            rvalue = self._getAttrValue(attrName)
+            # (1 second of rechecks maximum)
+        raise ValueError("The attribute reading (%s) didn't "
+                         "correspond to what has been set (%s)"
+                         % (rvalue, wvalue))
+
+    def _checkValue(self,a,b,attrName):
+        # With bools and integers the compare is simple, but floats,
+        # because of the different byte precisions, can be equivalent
+        # not being exacly the same.
+        if type(a) == float or type(b) == float:
             try:
                 attr = PyTango.AttributeProxy(attrName)
                 attrFormat = attr.get_config().format
@@ -646,16 +669,18 @@ class MainWindow(Qt.QDialog, TaurusBaseComponent):
                 self.error("It hasn't been possible to get %s's format"
                            % (attrName))
                 attrFormat = '%6.3f'
-            rvalueStr = attrFormat % rvalue
-            wvalueStr = attrFormat % wvalue
-            if rvalueStr == wvalueStr:
+            aStr = attrFormat % a
+            bStr = attrFormat % b
+            if aStr == bStr:
                 self.warning("The format (%s) representation matches, "
                              "even the floats are not exactly equal "
-                             "%g != %g" % (attrFormat, rvalue, wvalue))
-                return
-        raise ValueError("The attribute reading (%s) didn't "
-                         "correspond to what has been set (%s)"
-                         % (rvalue, wvalue))
+                             "%g != %g" % (attrFormat, a, b))
+                return True
+            self.warning("For attribute %s %g != %g and %s != %s"
+                         % (attrName,a,b,aStr,bStr))
+        else:
+            return a == b
+        return False
 
     def _setValueToSaverWidget(self, attrStruct, value, style=True):
         saver = attrStruct['write']
@@ -944,93 +969,59 @@ class MainWindow(Qt.QDialog, TaurusBaseComponent):
             self.doneProgressBar()
 
     #---- #loadFromFile()
-#     def loadFromFile(self):
-#         '''Given a file of settings provided by the user, show those values
-#            in the *Value widgets.
-#            Mark (TODO: how?) the changes from the previous value
-#            in the *Value widget
-#         '''
-#         filename = self._requestFileName()
-#         self._cleanSpecialCommentsFromFile()
-#         self._doLoadFromFile(filename)
-
     def loadFromFile(self):
-        '''Given a file of settings provided by the user, show those values in
-           the *Value widgets.
+        '''Given a file of settings provided by the user, show those values
+           in the *Value widgets.
            Mark (TODO: how?) the changes from the previous value
            in the *Value widget
         '''
         filename = self._requestFileName()
-        group = ''
-        exceptions = {}
         self._cleanSpecialCommentsFromFile()
-        if filename != '':
-            with open(filename, 'r') as file:
-                lines = file.readlines()
-                nElements = len(lines)
-                i = 0
-                self.prepareProgressBar()
-                for nline in range(nElements):
-                    line = lines[nline]
-                    if line == '\n':
-                        pass  # line with no content
-                    elif self._isSpecialCommentLine(line):
-                        self._recoverSpecialCommentLine(line)
-                    elif self._isCommentLine(line):
-                        pass  # Nothing to do with pure comment lines
-                    elif self._isGroupTagLine(line):
-                        group = line.split()[2]
-                    else:
-                        attrName, value = self._getAttrLine(line, nline)
-                        if group != '' and attrName is not None:
-                            try:
-                                attrStruct = \
-                                    self._configurationWidgets[group][attrName]
-                            except:
-                                msg = ("attribute %s is not member of the "
-                                       "group %s" % (attrName, group))
-                                self.error(msg)
-                                if group in exceptions.keys():
-                                    exceptions[group].append(attrName)
-                                else:
-                                    exceptions[group] = [attrName]
-                            else:
-                                self._setValueToSaverWidget(attrStruct, value)
-                    # progressBar
-                    self.setProgressBarValue(nline, nElements)
-            # file.close()
-            self._raiseCollectedExceptions("load", exceptions)
-            self.doneProgressBar()
+        self._doLoadFromFile(filename)
 
     #---- Descending level for the loadFromFile()
     def _doLoadFromFile(self, filename):
         group = ''
         exceptions = {}
         if filename != '':
+            self.debug("Loading from file: %r" % (filename))
             with open(filename, 'r') as file:
+                self.debug("File open()")
                 lines = file.readlines()
                 nElements = len(lines)
+                self.debug("Read %d lines" % (nElements))
                 i = 0
                 self.prepareProgressBar()
+                environment = {'nline': 0,'group': ''}
                 for nline in range(nElements):
-                    self._processLine(nline, lines[nline], group, exceptions)
+                    environment['nline'] = nline
+                    self.debug("Processing line %d" % (nline))
+                    self._processLine(lines[nline], environment, exceptions)
                     # progressBar
                     self.setProgressBarValue(nline, nElements)
             # file.close()
             self._raiseCollectedExceptions('load', exceptions)
             self.doneProgressBar()
+        else:
+            raise NameError("No file name specified: %r"%(filename))
 
-    def _processLine(self, nline, line, group, exceptions):
+    def _processLine(self, line, environment, exceptions):
         if line == '\n':
+            self.debug("line with no content")
             pass  # line with no content
         elif self._isSpecialCommentLine(line):
+            self.debug("Special Comment line")
             self._recoverSpecialCommentLine(line)
         elif self._isCommentLine(line):
+            self.debug("Normal Comment line")
             pass  # Nothing to do with pure comment lines
         elif self._isGroupTagLine(line):
-            group = line.split()[2]
+            environment['group'] = line.split()[2]
+            self.debug("group tag line: %s" % (environment['group']))
         else:
-            attrName, value = self._getAttrLine(line, nline)
+            group = environment['group']
+            attrName, value = self._getAttrLine(line, environment['nline'])
+            self.debug("Attribute line: %s = %s" % (attrName, value))
             if group != '' and attrName is not None:
                 try:
                     attrStruct = \
@@ -1044,7 +1035,13 @@ class MainWindow(Qt.QDialog, TaurusBaseComponent):
                     else:
                         exceptions[group] = [attrName]
                 else:
+                    self.debug("Value2Widget")
                     self._setValueToSaverWidget(attrStruct, value)
+            else:
+                if group == '':
+                    self.warning("No group defined!")
+                elif attrName is None:
+                    self.warning("No attribute name!")
 
     #---- #applyToDevices()
     def applyToDevices(self):
