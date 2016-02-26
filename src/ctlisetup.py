@@ -626,7 +626,18 @@ class MainWindow(Qt.QDialog, TaurusBaseComponent):
         if rvalue != value:
             # TODO: With bools and integers that's all, but floats are more
             # complicated to compare.
-            # if type(value) == float:
+            if type(value) == float:
+                try:
+                    attrFormat = PyTango.AttributeProxy(attrName\
+                                                        ).get_config().format
+                except Exception as e:
+                    self.error("Not possible to get %s format" % (attrName))
+                    attrFormat = '%6.3f'
+                if attrFormat % rvalue == attrFormat % value:
+                    self.warning("The format (%s) representation matches, "
+                                 "even the floats are not exactly equal "
+                                 "%g != %g" % (attrFormat, rvalue, value))
+                    return
             raise ValueError("The attribute reading (%s) didn't "
                              "correspond to what has been set (%s)"
                              % (rvalue, value))
