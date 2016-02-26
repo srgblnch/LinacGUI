@@ -609,7 +609,8 @@ class MainWindow(Qt.QDialog,TaurusBaseComponent):
         self.info('_setAttrVAlue(%s,%s,(%s))'%(attrName,value,type(value)))
         try:
           taurus.Attribute(attrName).write(value)
-        except: self.error(traceback.format_exc())
+        except:
+            self.error(traceback.format_exc())
         #At the end, check if the write has been acknowledge by the plc reading
         rvalue = self._getAttrValue(attrName)
         if rvalue != value:
@@ -920,6 +921,17 @@ class MainWindow(Qt.QDialog,TaurusBaseComponent):
                                           msg)
             self.doneProgressBar()
 
+    #---- #loadFromFile()
+#     def loadFromFile(self):
+#         '''Given a file of settings provided by the user, show those values in 
+#            the *Value widgets.
+#            Mark (TODO: how?) the changes from the previous value 
+#            in the *Value widget
+#         '''
+#         filename = self._requestFileName()
+#         self._cleanSpecialCommentsFromFile()
+#         self._doLoadFromFile(filename)
+
     def loadFromFile(self):
         '''Given a file of settings provided by the user, show those values in 
            the *Value widgets.
@@ -986,36 +998,102 @@ class MainWindow(Qt.QDialog,TaurusBaseComponent):
                                           msg)
             self.doneProgressBar()
 
+    #---- Descending level for the loadFromFile()
+    def _doLoadFromFile(self,filename):
+        group = ''
+        exceptions = {}
+        if filename != '':
+            nElements = 0; i=0
+            with open(filename,'r') as file:
+                lines = file.readlines()
+                nElements = len(lines); i=0
+                self.prepareProgressBar()
+                for nline in range(nElements):
+                    self._processLine(nline,lines[nline],group,exceptions)
+                    #progressBar
+                    self.setProgressBarValue(nline, nElements)
+            #file.close()
+            self._showExceptions(exceptions,'load')
+            self.doneProgressBar()
+
+    def _processLine(self,nline,line,group,exceptions):
+        if line == '\n':
+            pass#line with no content
+        elif self._isSpecialCommentLine(line):
+            self._recoverSpecialCommentLine(line)
+        elif self._isCommentLine(line):
+            pass#Nothing to do with pure comment lines
+        elif self._isGroupTagLine(line):
+            group = line.split()[2]
+        else:
+            attrName,value = self._getAttrLine(line, nline)
+            print(attrName,value)
+            if group != '' and attrName != None:
+                try:
+                    attrStruct = \
+                    self._configurationWidgets[group][attrName]
+                except:
+                    msg = ("attribute %s is not member of the "\
+                               "group %s"%(attrName,group))
+                    self.error(msg)
+                    print(msg)
+                    if group in exceptions.keys():
+                        exceptions[group].append(attrName)
+                    else:
+                        exceptions[group]=[attrName]
+                else:
+                    self._setValueToSaverWidget(attrStruct,value)
+
+    #---- #applyToDevices()
     def applyToDevices(self):
         '''Travelling along the *Check, apply the value in *Value 
            to the model in the *Reading.
         '''
         exceptions = {}
         self.prepareProgressBar()
-        nElements = self.getNumberOfElements(); i=0
+        self._iterateAttribute(exceptions)
+        self._showExceptions(exceptions,'apply')
+        self.doneProgressBar()
+        self._cleanSpecialCommentsFromFile()
+    
+    #---- Descending level for the applyToDevices()
+    def _iterateAttribute(self, exceptions):
+        i = 0
+        nElements = self.getNumberOfElements();
         for group in self._configurationWidgets.keys():
             for attrName in self._configurationWidgets[group]:
                 attrStruct = self._configurationWidgets[group][attrName]
-                if attrStruct['check'].isChecked():
-                    try:
-                        value = self._getValueFromSaverWidget(attrStruct)
-                        self._setAttrValue(attrName, value)
-                        self._setStyleToNoModified(attrStruct)
-                    except Exception,e:
-                        self.error("Exception applying %s: %s"
-                                   %(attrName,traceback.format_exc()))
-                        if group in exceptions.keys():
-                            exceptions[group].append(attrName)
-                        else:
-                            exceptions[group] = [attrName]
+                if self._attrIsSelected(attrStruct):
+                    self._attrApplyValue(attrName, attrStruct, group, exceptions)
                 #progressBar
                 i += 1
                 self.setProgressBarValue(i, nElements)
+    
+    def _attrIsSelected(self, attrStruct):
+        if attrStruct.has_key('check') and attrStruct['check'].isChecked():
+            return True
+        return False
+    
+    def _attrApplyValue(self, attrName, attrStruct, group, exceptions):
+        try:
+            
+            value = self._getValueFromSaverWidget(attrStruct)
+            self._setAttrValue(attrName, value)
+            self._setStyleToNoModified(attrStruct)
+        except Exception,e:
+            self.error("Exception applying %s: %s"
+                       %(attrName,traceback.format_exc()))
+            if group in exceptions.keys():
+                exceptions[group].append(attrName)
+            else:
+                exceptions[group] = [attrName]
+    
+    def _showExceptions(self,exceptions,action):
         if len(exceptions.keys()) != 0:
             msg = ""
             for group in exceptions.keys():
-                msg = ''.join("%sIn group %s found %d applying errors:\n"
-                              %(msg,group,len(exceptions[group])))
+                msg = ''.join("%sIn group %s found %d %sing errors:\n"
+                              %(msg,group,len(exceptions[group]),action))
                 if len(exceptions[group]) > 5:
                     for i in range(5):
                         msg = ''.join("%s\t-%s\n"%(msg,exceptions[group][i]))
@@ -1024,10 +1102,9 @@ class MainWindow(Qt.QDialog,TaurusBaseComponent):
                 else:
                     for attrName in exceptions[group]:
                         msg = ''.join("%s\t-%s\n"%(msg,attrName))
-            QtGui.QMessageBox.warning(self, "Exceptions when apply",
+            QtGui.QMessageBox.warning(self, "Exceptions when %s"%action,
                                       msg)
-        self.doneProgressBar()
-        self._cleanSpecialCommentsFromFile()
+    
     #---- done ActionButtons callbacks
     ######
 
