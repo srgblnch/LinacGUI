@@ -610,6 +610,12 @@ class MainWindow(Qt.QDialog,TaurusBaseComponent):
         try:
           taurus.Attribute(attrName).write(value)
         except: self.error(traceback.format_exc())
+        #At the end, check if the write has been acknowledge by the plc reading
+        rvalue = self._getAttrValue(attrName)
+        if rvalue != value:
+            raise AttributeError("The attribute reading (%s) didn't "\
+                                 "correspond to what has been set (%s)"
+                                 %(rvalue,value))
     
     def _setValueToSaverWidget(self,attrStruct,value,style=True):
         saver = attrStruct['write']
