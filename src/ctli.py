@@ -408,19 +408,21 @@ class LinacMainWindow(TaurusMainWindow):
         self._setupTaurusLabel4Attr(popupWidget.filamentValue,'li/ct/plc1/GUN_Filament_V','V')
         self._setupTaurusLabel4Attr(popupWidget.cathodeValue,'li/ct/plc1/GUN_Kathode_V','V')
         #ramp configuration
-        button = popupWidget.RampConfigurator
-        device = 'li/ct/plc1'
-        title = "GUN_Filament_V"
-        formAttrs = ["GUN_Filament_V_setpoint_rampEnable",
-                     "GUN_Filament_V_setpoint_ascending_step",
-                     "GUN_Filament_V_setpoint_ascending_steptime",
-                     "GUN_Filament_V_setpoint_ascending_threshold",
-                     "GUN_Filament_V_setpoint_descending_step",
-                     "GUN_Filament_V_setpoint_descending_steptime",
-                     "GUN_Filament_V_setpoint_descending_threshold"]
-        plotAttrs = ["GUN_Filament_V","GUN_Filament_V_setpoint"]
-        self._eGunLVRamp = RampConfigurationWidget(button,device,\
-                                                title,formAttrs,plotAttrs,self)
+        # FIXME: temporally disabled all the ramps
+#         button = popupWidget.RampConfigurator
+#         device = 'li/ct/plc1'
+#         title = "GUN_Filament_V"
+#         formAttrs = ["GUN_Filament_V_setpoint_rampEnable",
+#                      "GUN_Filament_V_setpoint_ascending_step",
+#                      "GUN_Filament_V_setpoint_ascending_steptime",
+#                      "GUN_Filament_V_setpoint_ascending_threshold",
+#                      "GUN_Filament_V_setpoint_descending_step",
+#                      "GUN_Filament_V_setpoint_descending_steptime",
+#                      "GUN_Filament_V_setpoint_descending_threshold"]
+#         plotAttrs = ["GUN_Filament_V","GUN_Filament_V_setpoint"]
+#         self._eGunLVRamp = RampConfigurationWidget(button,device,\
+#                                                 title,formAttrs,plotAttrs,self)
+        popupWidget.RampConfigurator.setEnabled(False)
 
     def _setStartup_cooling(self):
         startup_ui = self.ui.linacStartupSynoptic._ui
@@ -781,19 +783,18 @@ class LinacMainWindow(TaurusMainWindow):
                                         'li/ct/plc%d/HVPS_V'%(number+3),'kV')
             self._setupTaurusLabel4Attr(widget.hvSetpointValue,
                                         'li/ct/plc%d/HVPS_V_setpoint'%(number+3),'kV')
-            #---- Until the ramp works, hide its widgets
+            # FIXME: temporally disabled all the ramps
             button = widget.RampConfigurator
-            device = 'li/ct/plc%d'%(number+3)
-            title = "HVPS_V"
-            formAttrs = ["HVPS_V_setpoint_rampEnable",
-                         "HVPS_V_setpoint_ascending_step",
-                         "HVPS_V_setpoint_ascending_steptime",
-                         "HVPS_V_setpoint_ascending_threshold"]
-            plotAttrs  = ["HVPS_V","HVPS_V_setpoint"]
-            self._klystronHVRamps[number] = RampConfigurationWidget(button,\
-                                         device,title,formAttrs,plotAttrs,self)
-            
-            
+#             device = 'li/ct/plc%d'%(number+3)
+#             title = "HVPS_V"
+#             formAttrs = ["HVPS_V_setpoint_rampEnable",
+#                          "HVPS_V_setpoint_ascending_step",
+#                          "HVPS_V_setpoint_ascending_steptime",
+#                          "HVPS_V_setpoint_ascending_threshold"]
+#             plotAttrs  = ["HVPS_V","HVPS_V_setpoint"]
+#             self._klystronHVRamps[number] = RampConfigurationWidget(button,\
+#                                          device,title,formAttrs,plotAttrs,self)
+            button.setEnabled(False)
 #            widget.hvRamp.hide()
 #            widget.hvRampEnableLed.hide()
 ##            self._setupLed4Attr(widget.hvRampEnableLed,
@@ -1164,19 +1165,21 @@ class LinacMainWindow(TaurusMainWindow):
         self._setupLed4Attr(widget.AutostopperTriggerLed,attrName,
                             onColor='red',offColor='green')
         #ramp configuration
+        # FIXME: temporally disabled all the ramps
         button = widget.RampConfigurator
-        device = 'li/ct/plc1'
-        title = "GUN_HV_V"
-        formAttrs = ["GUN_HV_V_setpoint_rampEnable",
-#                     "GUN_HV_V_setpoint_ascending_step",
-#                     "GUN_HV_V_setpoint_ascending_steptime",
-#                     "GUN_HV_V_setpoint_ascending_threshold",
-                     "GUN_HV_V_setpoint_descending_step",
-                     "GUN_HV_V_setpoint_descending_steptime",
-                     "GUN_HV_V_setpoint_descending_threshold"]
-        plotAttrs = ["GUN_HV_V","GUN_HV_V_setpoint"]
-        self._eGunHVRamp = RampConfigurationWidget(button,device,title,\
-                                                      formAttrs,plotAttrs,self)
+#         device = 'li/ct/plc1'
+#         title = "GUN_HV_V"
+#         formAttrs = ["GUN_HV_V_setpoint_rampEnable",
+# #                     "GUN_HV_V_setpoint_ascending_step",
+# #                     "GUN_HV_V_setpoint_ascending_steptime",
+# #                     "GUN_HV_V_setpoint_ascending_threshold",
+#                      "GUN_HV_V_setpoint_descending_step",
+#                      "GUN_HV_V_setpoint_descending_steptime",
+#                      "GUN_HV_V_setpoint_descending_threshold"]
+#         plotAttrs = ["GUN_HV_V","GUN_HV_V_setpoint"]
+#         self._eGunHVRamp = RampConfigurationWidget(button,device,title,\
+#                                                       formAttrs,plotAttrs,self)
+        button.setEnabled(False)
         #autostop configuration
         button = widget.AutoStopConfiguration
         device = 'li/ct/plc1'
