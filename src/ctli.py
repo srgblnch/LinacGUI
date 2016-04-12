@@ -109,6 +109,8 @@ class LinacMainWindow(TaurusMainWindow):
         #self.setConfiguration()
         self._setSplashScreenTask("Preparing External applications")
         self.setExternalApplications()
+        self._setSplashScreenTask("Preparing the status bar")
+        self.setStatusBar()
         self._setSplashScreenTask("Preparing Menus")
         self.setMenuOptions()
 
@@ -641,7 +643,7 @@ class LinacMainWindow(TaurusMainWindow):
     def setMainscreen(self):
         #following the synoptic regions from left to right and 
         #from top to bottom
-        self._setSplashScreenSubtask("Timming")
+        self._setSplashScreenSubtask("Timing")
         self._setMainscreen_tb()
         self._setSplashScreenSubtask("Klystron High Voltage")
         self._setMainscreen_klystronHV()
@@ -1342,23 +1344,39 @@ class LinacMainWindow(TaurusMainWindow):
         self._setSplashScreenSubtask("Save and retrieve")
         saveretrieve = ExternalAppAction(['ctlisetup'],text="save/retrieve")
         self.addExternalAppLauncher(saveretrieve)
+
+    def setStatusBar(self):
+        stylesheet = ""#"""
+#                         QLabel {
+#                         font-weight: bold;
+#                         color: #FF0000;
+#                         }
+#                    """
         #---- PLCs state leds in the statusBar
         for i in range(1,6):
             self._setSplashScreenSubtask("Status Bar")
             stateLed = TaurusLed(self)
             stateLed.setModel('li/ct/plc%d/state'%(i))
+            stateLed.setStyleSheet(stylesheet)
             stateText = QtGui.QLabel(self)
             stateText.setText("PLC%d"%(i))
+            stateText.setStyleSheet(stylesheet)
             self.statusBar().addWidget(stateLed)
             self.statusBar().addWidget(stateText)
+        separator = QtGui.QLabel(self)
+        separator.setText(" "*10)
+        separator.setStyleSheet(stylesheet)
+        self.statusBar().addWidget(separator)
         #---- Linac's IU ready to the status bar
         self._setSplashScreenSubtask("Linac IU ready")
-        stateLed = TaurusLed(self)
-        stateLed.setModel('li/ct/plc1/IU_RDY')
-        stateText = QtGui.QLabel(self)
-        stateText.setText("Interlock Unit")
-        self.statusBar().addWidget(stateLed)
-        self.statusBar().addWidget(stateText)
+        iuLed = TaurusLed(self)
+        iuLed.setModel('li/ct/plc1/IU_RDY')
+        iuLed.setStyleSheet(stylesheet)
+        iuText = QtGui.QLabel(self)
+        iuText.setText("Interlock Unit")
+        iuText.setStyleSheet(stylesheet)
+        self.statusBar().addWidget(iuLed)
+        self.statusBar().addWidget(iuText)
 
     def setMenuOptions(self):
         self.perspectivesToolBar.clear()
