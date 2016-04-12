@@ -1370,10 +1370,10 @@ class LinacMainWindow(TaurusMainWindow):
         #---- Linac's IU ready to the status bar
         self._setSplashScreenSubtask("Linac IU ready")
         iuLed = TaurusLed(self)
-        iuLed.setModel('li/ct/plc1/IU_RDY')
+        self._setupLed4Attr(iuLed,'li/ct/plc1/any_interlock')
         iuLed.setStyleSheet(stylesheet)
         iuText = QtGui.QLabel(self)
-        iuText.setText("Interlock Unit")
+        iuText.setText("Interlock")
         iuText.setStyleSheet(stylesheet)
         self.statusBar().addWidget(iuLed)
         self.statusBar().addWidget(iuText)
