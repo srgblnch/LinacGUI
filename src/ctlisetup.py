@@ -1005,43 +1005,51 @@ class MainWindow(Qt.QDialog, TaurusBaseComponent):
         else:
             raise NameError("No file name specified: %r"%(filename))
 
-    def _processLine(self, line, environment, exceptions):
+    #---- Descending level for the loadFromFile()
+    def _doLoadFromFile(self,filename):
+        group = ''
+        exceptions = {}
+        if filename != '':
+            nElements = 0; i=0
+            with open(filename,'r') as file:
+                lines = file.readlines()
+                nElements = len(lines); i=0
+                self.prepareProgressBar()
+                for nline in range(nElements):
+                    self._processLine(nline,lines[nline],group,exceptions)
+                    #progressBar
+                    self.setProgressBarValue(nline, nElements)
+            #file.close()
+            self._showExceptions(exceptions,'load')
+            self.doneProgressBar()
+
+    def _processLine(self,nline,line,group,exceptions):
         if line == '\n':
-            self.debug("line with no content")
-            pass  # line with no content
+            pass#line with no content
         elif self._isSpecialCommentLine(line):
-            self.debug("Special Comment line")
             self._recoverSpecialCommentLine(line)
         elif self._isCommentLine(line):
-            self.debug("Normal Comment line")
-            pass  # Nothing to do with pure comment lines
+            pass#Nothing to do with pure comment lines
         elif self._isGroupTagLine(line):
-            environment['group'] = line.split()[2]
-            self.debug("group tag line: %s" % (environment['group']))
+            group = line.split()[2]
         else:
-            group = environment['group']
-            attrName, value = self._getAttrLine(line, environment['nline'])
-            self.debug("Attribute line: %s = %s" % (attrName, value))
-            if group != '' and attrName is not None:
+            attrName,value = self._getAttrLine(line, nline)
+            print(attrName,value)
+            if group != '' and attrName != None:
                 try:
                     attrStruct = \
-                        self._configurationWidgets[group][attrName]
+                    self._configurationWidgets[group][attrName]
                 except:
-                    msg = ("attribute %s is not member of the "
-                           "group %s" % (attrName, group))
+                    msg = ("attribute %s is not member of the "\
+                               "group %s"%(attrName,group))
                     self.error(msg)
+                    print(msg)
                     if group in exceptions.keys():
                         exceptions[group].append(attrName)
                     else:
-                        exceptions[group] = [attrName]
+                        exceptions[group]=[attrName]
                 else:
-                    self.debug("Value2Widget")
-                    self._setValueToSaverWidget(attrStruct, value)
-            else:
-                if group == '':
-                    self.warning("No group defined!")
-                elif attrName is None:
-                    self.warning("No attribute name!")
+                    self._setValueToSaverWidget(attrStruct,value)
 
     #---- #applyToDevices()
     def applyToDevices(self):
