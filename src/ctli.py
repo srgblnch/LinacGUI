@@ -51,6 +51,7 @@ except:
 from attrautostopper import AttrAutostopper
 from attrramps import AttrRamps
 from deviceevents import deviceEvents
+from evr300 import EVR300
 from ui_ctli import Ui_linacGui
 
 import ctliaux
@@ -118,6 +119,9 @@ class LinacMainWindow(TaurusMainWindow):
         if hasattr(self,'_eventPlotWindow') and self._eventPlotWindow != None:
             self._eventPlotWindow.close()
             self._eventPlotWindow = None
+        if hasattr(self,'_evr300Window') and self._evr300Window != None:
+            self._evr300Window.close()
+            self._evr300Window = None
         if hasattr(self,'_attrRampsWindow') and self._attrRampsWindow != None:
             self._attrRampsWindow.close()
             self._eventPlotWindow = None
@@ -1381,22 +1385,38 @@ class LinacMainWindow(TaurusMainWindow):
     def setMenuOptions(self):
         self.perspectivesToolBar.clear()
         self._setSplashScreenSubtask("Plot events info")
-        #---- Plot events info
-        self.eventsPlotAction = Qt.QAction('Plot events info',self)
-        Qt.QObject.connect(self.eventsPlotAction,Qt.SIGNAL("triggered()"),
-                           self.plotEventsInfo)
-        self.toolsMenu.addAction(self.eventsPlotAction)
+        self.setToolsMenu(self.toolsMenu)
+        self.setHelpMenu(self.helpMenu)
+
+    def setToolsMenu(self,toolsMenu):
         #---- Access to preconfigured trends
         self.taurustrendLauncherAction = Qt.QAction(\
                                         'Preconfigured trends',self)
         Qt.QObject.connect(self.taurustrendLauncherAction,Qt.SIGNAL("triggered()"),
                            self.taurustrendLauncher)
-        self.toolsMenu.addAction(self.taurustrendLauncherAction)
+        toolsMenu.addAction(self.taurustrendLauncherAction)
+        #---- View the values of the EVR300
+        self.EVR300Action = Qt.QAction("EVR300",self)
+        Qt.QObject.connect(self.EVR300Action,Qt.SIGNAL("triggered()"),
+                           self.EVR300Launcher)
+        self.toolsMenu.addAction(self.EVR300Action)
+        #---- Controls submenu
+        self.setControlsToolsSubmenu(self.toolsMenu)
+
+    def setHelpMenu(self,helpMenu):
         #---- Access to Linac's accelerators documentation
         self.LinacDocsAction = Qt.QAction("Linac's documentation",self)
         Qt.QObject.connect(self.LinacDocsAction,Qt.SIGNAL("triggered()"),
                            self.LinacDocsLauncher)
-        self.helpMenu.addAction(self.LinacDocsAction)
+        helpMenu.addAction(self.LinacDocsAction)
+
+    def setControlsToolsSubmenu(self,menu):
+        controlsMenu = menu.addMenu("Controls")
+        #---- Plot events info
+        self.eventsPlotAction = Qt.QAction('Plot events info',self)
+        Qt.QObject.connect(self.eventsPlotAction,Qt.SIGNAL("triggered()"),
+                           self.plotEventsInfo)
+        controlsMenu.addAction(self.eventsPlotAction)
 
 
     def plotEventsInfo(self):
@@ -1453,6 +1473,12 @@ class LinacMainWindow(TaurusMainWindow):
         self.info("Ready to launch the command: %r with args %r"
                   %(cmd,args))
         subprocess.Popen([cmd,args])
+
+    def EVR300Launcher(self):
+        if not hasattr(self,'_evr300Window') or self._evr300Window == None:
+            self._evr300Window = EVR300()
+            self._evr300Window.setModel('li/ti/evr300-cli0302-a')
+        self._evr300Window.show()
 
     def _requestPreconfigFileName(self):
         dialogTitle = "Select preconfigured taurustrend"
