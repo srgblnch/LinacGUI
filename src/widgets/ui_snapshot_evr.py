@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'widgets/ui/snapshot_evr.ui'
 #
-# Created: Mon Nov 30 15:17:37 2015
+# Created: Mon Nov 30 15:50:51 2015
 #      by: PyQt4 UI code generator 4.11.2
 #
 # WARNING! All changes made in this file will be lost!
@@ -166,9 +166,6 @@ class Ui_evrSnapshot(object):
         self.Width2Label = QtGui.QLabel(self.evrGroup)
         self.Width2Label.setObjectName(_fromUtf8("Width2Label"))
         self.gridLayout.addWidget(self.Width2Label, 8, 0, 1, 1)
-        self.Width2Write = QtGui.QDoubleSpinBox(self.evrGroup)
-        self.Width2Write.setObjectName(_fromUtf8("Width2Write"))
-        self.gridLayout.addWidget(self.Width2Write, 8, 3, 1, 1)
         self.Width2Check = QtGui.QCheckBox(self.evrGroup)
         self.Width2Check.setText(_fromUtf8(""))
         self.Width2Check.setObjectName(_fromUtf8("Width2Check"))
@@ -199,16 +196,6 @@ class Ui_evrSnapshot(object):
         self.Width3Write = QtGui.QDoubleSpinBox(self.evrGroup)
         self.Width3Write.setObjectName(_fromUtf8("Width3Write"))
         self.gridLayout.addWidget(self.Width3Write, 11, 3, 1, 1)
-        self.Width3Check = QtGui.QCheckBox(self.evrGroup)
-        self.Width3Check.setText(_fromUtf8(""))
-        self.Width3Check.setObjectName(_fromUtf8("Width3Check"))
-        self.gridLayout.addWidget(self.Width3Check, 11, 5, 1, 1)
-        self.Fine3Label = QtGui.QLabel(self.evrGroup)
-        self.Fine3Label.setObjectName(_fromUtf8("Fine3Label"))
-        self.gridLayout.addWidget(self.Fine3Label, 12, 0, 1, 1)
-        self.Fine3Write = QtGui.QDoubleSpinBox(self.evrGroup)
-        self.Fine3Write.setObjectName(_fromUtf8("Fine3Write"))
-        self.gridLayout.addWidget(self.Fine3Write, 12, 3, 1, 1)
         self.Fine3Check = QtGui.QCheckBox(self.evrGroup)
         self.Fine3Check.setText(_fromUtf8(""))
         self.Fine3Check.setObjectName(_fromUtf8("Fine3Check"))

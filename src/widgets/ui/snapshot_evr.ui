@@ -234,10 +234,7 @@
         </property>
        </widget>
       </item>
-      <item row="8" column="3">
-       <widget class="QDoubleSpinBox" name="Width2Write"/>
-      </item>
-      <item row="8" column="5">
+      <item row="8" column="6">
        <widget class="QCheckBox" name="Width2Check">
         <property name="text">
          <string/>
