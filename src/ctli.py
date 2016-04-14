@@ -1334,11 +1334,6 @@ class LinacMainWindow(TaurusMainWindow):
 
     #---- Configure the access to external applications
     def setExternalApplications(self):
-#        bcm = ExternalAppAction(['taurusform',
-#                                 '{li,lt01,lt02}/di/bcm-01/Charge',
-#                                 '--window-name=BCM'],
-#                                text="BCM")
-#        self.addExternalAppLauncher(bcm)
         self._setSplashScreenSubtask("ctpcgrid")
         lt_magnets = ExternalAppAction(['ctpcgrid','lt'],text="LT magnets")
         self.addExternalAppLauncher(lt_magnets)
