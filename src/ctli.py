@@ -151,8 +151,10 @@ class LinacMainWindow(TaurusMainWindow):
 #        widget.setOnColor('green')
 #        widget.setOffColor('white')
 
-    def _setupLed4Attr(self,widget,attrName,inverted=False,onColor='green',offColor='red',pattern='on'):
-        ctliaux._setupLed4Attr(widget,attrName,inverted,onColor,offColor,pattern)
+    def _setupLed4Attr(self, widget, attrName, inverted=False, onColor='green',
+                       offColor='red', pattern='on', blinkOnChange=None):
+        ctliaux._setupLed4Attr(widget, attrName, inverted, onColor, offColor,
+                               pattern, blinkOnChange)
 
     def _setupCheckbox4UnknownAttr(self,widget):
         ctliaux._setupCheckbox4UnknownAttr(widget)
@@ -1272,33 +1274,34 @@ class LinacMainWindow(TaurusMainWindow):
         
     def _setMainscreen_fs(self):
         mainscreen_ui = self.ui.linacMainscreenSynoptic._ui
-        fluorescentScreens = {1:{'valve':{'widget':mainscreen_ui.fluorescentScreen1Valve,
-                                          'attrName':'li/ct/plc1/SCM1_DC'},
-                                 'light':{'widget':mainscreen_ui.fluorescentScreen1Light,
-                                          'attrName':'li/ct/plc1/SCM1_LC'},
-                                 'status':{'led':mainscreen_ui.sm1Led,
-                                           'widget':mainscreen_ui.fluorescentScreen1Status,
-                                           'attrName':'li/ct/plc1/SCM1_Status'},
-                                 'view':{'widget':mainscreen_ui.fluorescentScreen1View,
-                                         'attrName':'li/di/fs-01'}},
-                              2:{'valve':{'widget':mainscreen_ui.fluorescentScreen2Valve,
-                                          'attrName':'li/ct/plc1/SCM2_DC'},
-                                 'light':{'widget':mainscreen_ui.fluorescentScreen2Light,
-                                          'attrName':'li/ct/plc1/SCM2_LC'},
-                                 'status':{'led':mainscreen_ui.sm2Led,
-                                           'widget':mainscreen_ui.fluorescentScreen2Status,
-                                           'attrName':'li/ct/plc1/SCM2_Status'},
-                                 'view':{'widget':mainscreen_ui.fluorescentScreen2View,
-                                         'attrName':'li/di/fs-02'}},
-                              3:{'valve':{'widget':mainscreen_ui.fluorescentScreen3Valve,
-                                          'attrName':'li/ct/plc1/SCM3_DC'},
-                                 'light':{'widget':mainscreen_ui.fluorescentScreen3Light,
-                                          'attrName':'li/ct/plc1/SCM3_LC'},
-                                 'status':{'led':mainscreen_ui.sm3Led,
-                                           'widget':mainscreen_ui.fluorescentScreen3Status,
-                                           'attrName':'li/ct/plc1/SCM3_Status'},
-                                 'view':{'widget':mainscreen_ui.fluorescentScreen3View,
-                                         'attrName':'li/di/fs-03'}}}
+        fluorescentScreens = \
+            {1:{'valve':{'widget':mainscreen_ui.fluorescentScreen1Valve,
+                          'attrName':'li/ct/plc1/SCM1_DC'},
+                 'light':{'widget':mainscreen_ui.fluorescentScreen1Light,
+                          'attrName':'li/ct/plc1/SCM1_LC'},
+                 'status':{'led':mainscreen_ui.sm1Led,
+                           'widget':mainscreen_ui.fluorescentScreen1Status,
+                           'attrName':'li/ct/plc1/SCM1_Status'},
+                 'view':{'widget':mainscreen_ui.fluorescentScreen1View,
+                         'attrName':'li/di/fs-01'}},
+              2:{'valve':{'widget':mainscreen_ui.fluorescentScreen2Valve,
+                          'attrName':'li/ct/plc1/SCM2_DC'},
+                 'light':{'widget':mainscreen_ui.fluorescentScreen2Light,
+                          'attrName':'li/ct/plc1/SCM2_LC'},
+                 'status':{'led':mainscreen_ui.sm2Led,
+                           'widget':mainscreen_ui.fluorescentScreen2Status,
+                           'attrName':'li/ct/plc1/SCM2_Status'},
+                 'view':{'widget':mainscreen_ui.fluorescentScreen2View,
+                         'attrName':'li/di/fs-02'}},
+              3:{'valve':{'widget':mainscreen_ui.fluorescentScreen3Valve,
+                          'attrName':'li/ct/plc1/SCM3_DC'},
+                 'light':{'widget':mainscreen_ui.fluorescentScreen3Light,
+                          'attrName':'li/ct/plc1/SCM3_LC'},
+                 'status':{'led':mainscreen_ui.sm3Led,
+                           'widget':mainscreen_ui.fluorescentScreen3Status,
+                           'attrName':'li/ct/plc1/SCM3_Status'},
+                 'view':{'widget':mainscreen_ui.fluorescentScreen3View,
+                         'attrName':'li/di/fs-03'}}}
         self._fluorescentScreensViewButtons = []
         for fs in fluorescentScreens.keys():
             for element in fluorescentScreens[fs].keys():
@@ -1307,14 +1310,17 @@ class LinacMainWindow(TaurusMainWindow):
                     attrName = fluorescentScreens[fs][element]['attrName']
                     if element == 'valve':
                         text = 'in/out'
-                        self._setupActionWidget(widget,attrName,text,isValve=True)
+                        self._setupActionWidget(widget,attrName,text,
+                                                isValve=True)
                     else:
                         text = 'on/off'
-                        self._setupActionWidget(widget,attrName,text,isLight=True)
+                        self._setupActionWidget(widget,attrName,text,
+                                                isLight=True)
                 elif element == 'status':
                     widget = fluorescentScreens[fs][element]['led']
                     attrName = 'li/ct/plc1/SCM%d_alert'%(fs)
-                    self._setupLed4Attr(widget, attrName, onColor='red',offColor='green')
+                    self._setupLed4Attr(widget, attrName, onColor='red',
+                                        offColor='green', blinkOnChange='on')
                     widget = fluorescentScreens[fs][element]['widget']
                     attrName = fluorescentScreens[fs][element]['attrName']
                     self._setupTaurusLabel4Attr(widget,attrName)

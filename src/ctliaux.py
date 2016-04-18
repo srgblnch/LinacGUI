@@ -27,7 +27,7 @@
 import os
 from socket import gethostname
 from getpass import getuser
-from taurus import setLogLevel,Trace
+from taurus import setLogLevel,Trace, Info
 from ctliversion import version
 
 VERSION = "%s"%version()
@@ -47,8 +47,9 @@ def _setupLed4UnknownAttr(widget):
     widget.setOffColor('white')
     widget.hide()
 
-def _setupLed4Attr(widget,attrName,inverted=False,
-                   onColor='green',offColor='red',pattern='on'):
+def _setupLed4Attr(widget, attrName, inverted=False,
+                   onColor='green', offColor='red', pattern='on',
+                   blinkOnChange=None):
     widget.setModel(attrName)
     if pattern == 'on':
         widget.setLedPatternName(":leds/images256/led_{color}_on.png")
@@ -56,6 +57,12 @@ def _setupLed4Attr(widget,attrName,inverted=False,
     widget.setOffColor(offColor)
     if inverted:
         widget.setLedInverted(True)
+    # FIXME: not operative by now
+#     if blinkOnChange:
+#         #list ['on','off'] or only one of them.
+#         widget.setBlinkOnChange(blinkOnChange)
+#         widget.setBlinkTime(10)
+#         widget.setBlinkPeriod(1)
 
 def _setupCheckbox4UnknownAttr(widget):
     widget.setEnabled(False)
@@ -129,6 +136,6 @@ def prepareToLog(app,appName):
     username = getuser()
     logfilename = "%s/%s_%s_%s.log"%(logdirectory,appName,hostname,username)
     app.basicConfig(log_file_name=logfilename)
-    setLogLevel(Trace)
+    setLogLevel(Info)
 #---- Done logging the output
 ######
