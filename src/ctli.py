@@ -1345,35 +1345,33 @@ class LinacMainWindow(TaurusMainWindow):
         self.addExternalAppLauncher(saveretrieve)
 
     def setStatusBar(self):
-        stylesheet = ""#"""
-#                         QLabel {
-#                         font-weight: bold;
-#                         color: #FF0000;
+#         stylesheet = """QLabel {
+#                         border: 0px solid black
 #                         }
-#                    """
+#                      """
         #---- PLCs state leds in the statusBar
         for i in range(1,6):
             self._setSplashScreenSubtask("Status Bar")
             stateLed = TaurusLed(self)
             stateLed.setModel('li/ct/plc%d/state'%(i))
-            stateLed.setStyleSheet(stylesheet)
+#             stateLed.setStyleSheet(stylesheet)
             stateText = QtGui.QLabel(self)
             stateText.setText("PLC%d"%(i))
-            stateText.setStyleSheet(stylesheet)
+#             stateText.setStyleSheet(stylesheet)
             self.statusBar().addWidget(stateLed)
             self.statusBar().addWidget(stateText)
         separator = QtGui.QLabel(self)
         separator.setText(" "*10)
-        separator.setStyleSheet(stylesheet)
+#         separator.setStyleSheet(stylesheet)
         self.statusBar().addWidget(separator)
         #---- Linac's IU ready to the status bar
         self._setSplashScreenSubtask("Linac IU ready")
         iuLed = TaurusLed(self)
         self._setupLed4Attr(iuLed,'li/ct/plc1/any_interlock')
-        iuLed.setStyleSheet(stylesheet)
+#         iuLed.setStyleSheet(stylesheet)
         iuText = QtGui.QLabel(self)
         iuText.setText("Interlock")
-        iuText.setStyleSheet(stylesheet)
+#         iuText.setStyleSheet(stylesheet)
         self.statusBar().addWidget(iuLed)
         self.statusBar().addWidget(iuText)
 
@@ -1907,6 +1905,7 @@ def main():
     app = build_application()
     ui = build_ui()
     refreshButton(ui)
+    app.setStyleSheet("QStatusBar::item { border: 0px solid black }; ")
     ui.show()
     sys.exit(app.exec_())
 
