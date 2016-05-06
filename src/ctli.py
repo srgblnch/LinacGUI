@@ -1377,7 +1377,7 @@ class LinacMainWindow(TaurusMainWindow):
                             onColor='red', offColor='green')
 #         iuLed.setStyleSheet(stylesheet)
         iuText = QtGui.QLabel(self)
-        iuText.setText("Interlock")
+        iuText.setText("Interlock Alarm")
 #         iuText.setStyleSheet(stylesheet)
         self.statusBar().addWidget(iuLed)
         self.statusBar().addWidget(iuText)
