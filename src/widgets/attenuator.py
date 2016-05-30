@@ -2,7 +2,7 @@
 
 # Code implementation generated from reading ui file 'attenuator.ui'
 #
-# Created: Wed Feb 12 12:33:47 2014 
+# Created: Wed Feb 12 12:33:47 2014
 #      by: Taurus UI code generator 3.1.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -14,15 +14,14 @@ import PyQt4.Qt as Qt
 from ui_attenuator import Ui_Attenuator
 from taurus.qt.qtgui.panel import TaurusWidget
 
+
 class Attenuator(TaurusWidget):
 
     def __init__(self, parent=None, designMode=False):
         TaurusWidget.__init__(self, parent, designMode=designMode)
-        
         self._ui = Ui_Attenuator()
         self._ui.setupUi(self)
-        
-    
+
     @classmethod
     def getQtDesignerPluginInfo(cls):
         ret = TaurusWidget.getQtDesignerPluginInfo()

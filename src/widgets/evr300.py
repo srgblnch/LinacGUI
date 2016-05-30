@@ -46,8 +46,11 @@ class EVR300(TaurusWidget):
         try:
             self.debug("[%s]__init__()" % (self.__name))
             self.__model = ""
+            basePath = os.path.dirname(__file__)
+            if len(basePath) == 0:
+                basePath = '.'
             self.loadUi(filename="evr300.ui",
-                        path=os.path.dirname(__file__)+"/ui")
+                        path=basePath+"/ui")
         except Exception as e:
             self.warning("[%s]__init__(): Widget exception! %s"
                          % (self.__name, e))

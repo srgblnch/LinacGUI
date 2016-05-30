@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>CompomentsWindow</class>
+ <widget class="TaurusWidget" name="CompomentsWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>401</width>
+    <height>431</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Linac Components</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <widget class="QScrollArea" name="scrollArea">
+     <property name="widgetResizable">
+      <bool>true</bool>
+     </property>
+     <widget class="QWidget" name="scrollAreaWidgetContents">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>387</width>
+        <height>417</height>
+       </rect>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_2">
+       <item row="0" column="0">
+        <widget class="QToolBox" name="toolBox">
+         <property name="currentIndex">
+          <number>0</number>
+         </property>
+         <widget class="QWidget" name="active">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>369</width>
+            <height>347</height>
+           </rect>
+          </property>
+          <attribute name="label">
+           <string>Active Components</string>
+          </attribute>
+          <layout class="QGridLayout" name="gridLayout_4">
+           <item row="0" column="0">
+            <widget class="TaurusForm" name="activeAttributes"/>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="configuration">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>369</width>
+            <height>347</height>
+           </rect>
+          </property>
+          <attribute name="label">
+           <string>Configure components</string>
+          </attribute>
+          <layout class="QGridLayout" name="gridLayout_3">
+           <item row="0" column="0">
+            <widget class="QComboBox" name="componentSelection"/>
+           </item>
+           <item row="1" column="0">
+            <widget class="TaurusForm" name="componentAttributes"/>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>TaurusWidget</class>
+   <extends>QWidget</extends>
+   <header>taurus.qt.qtgui.container</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>TaurusForm</class>
+   <extends>TaurusWidget</extends>
+   <header>taurus.qt.qtgui.panel</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

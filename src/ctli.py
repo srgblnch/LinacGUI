@@ -1,27 +1,24 @@
-#!/usr/bin/env python
+# ##### BEGIN GPL LICENSE BLOCK #####
+#
+#  This program is free software; you can redistribute it and/or
+#  modify it under the terms of the GNU General Public License
+#  as published by the Free Software Foundation; either version 3
+#  of the License, or (at your option) any later version.
+#
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+#
+#  You should have received a copy of the GNU General Public License
+#  along with this program; if not, write to the Free Software Foundation,
+#  Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+#
+# ##### END GPL LICENSE BLOCK #####
 
-#############################################################################
-##
-## This file is part of Taurus, a Tango User Interface Library
-## 
-## http://www.tango-controls.org/static/taurus/latest/doc/html/index.html
-##
-## Copyright 2013 CELLS / ALBA Synchrotron, Bellaterra, Spain
-## 
-## Taurus is free software: you can redistribute it and/or modify
-## it under the terms of the GNU Lesser General Public License as published by
-## the Free Software Foundation, either version 3 of the License, or
-## (at your option) any later version.
-## 
-## Taurus is distributed in the hope that it will be useful,
-## but WITHOUT ANY WARRANTY; without even the implied warranty of
-## MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-## GNU Lesser General Public License for more details.
-## 
-## You should have received a copy of the GNU Lesser General Public License
-## along with Taurus.  If not, see <http://www.gnu.org/licenses/>.
-##
-###########################################################################
+__author__ = "Sergi Blanch-Torne"
+__copyright__ = "Copyright 2015, CELLS / ALBA Synchrotron"
+__license__ = "GPLv3+"
 
 import os,sys
 from socket import gethostname
@@ -50,6 +47,7 @@ except:
 
 from attrautostopper import AttrAutostopper
 from attrramps import AttrRamps
+from componentsWindow import CompomentsWindow
 from deviceevents import deviceEvents
 from evr300 import EVR300
 from ui_ctli import Ui_linacGui
@@ -125,6 +123,9 @@ class LinacMainWindow(TaurusMainWindow):
         if hasattr(self,'_attrRampsWindow') and self._attrRampsWindow != None:
             self._attrRampsWindow.close()
             self._eventPlotWindow = None
+        if hasattr(self, '_compomentWindow') and self._compomentWindow != None:
+            self._compomentWindow.close()
+            self._compomentWindow = None
 
     ######
     #---- Section for the splashScreen message
@@ -1389,18 +1390,23 @@ class LinacMainWindow(TaurusMainWindow):
         self.setHelpMenu(self.helpMenu)
 
     def setToolsMenu(self,toolsMenu):
-        #---- Access to preconfigured trends
+        # Access to preconfigured trends ---
         self.taurustrendLauncherAction = Qt.QAction(\
                                         'Preconfigured trends',self)
         Qt.QObject.connect(self.taurustrendLauncherAction,Qt.SIGNAL("triggered()"),
                            self.taurustrendLauncher)
         toolsMenu.addAction(self.taurustrendLauncherAction)
-        #---- View the values of the EVR300
-        self.EVR300Action = Qt.QAction("EVR300",self)
-        Qt.QObject.connect(self.EVR300Action,Qt.SIGNAL("triggered()"),
+        # View the values of the EVR300 ---
+        self.EVR300Action = Qt.QAction("EVR300", self)
+        Qt.QObject.connect(self.EVR300Action, Qt.SIGNAL("triggered()"),
                            self.EVR300Launcher)
         self.toolsMenu.addAction(self.EVR300Action)
-        #---- Controls submenu
+        # Enumeration attributes configuration ---
+        self.CompomentAction = Qt.QAction("Linac Components Settings", self)
+        Qt.QObject.connect(self.CompomentAction, Qt.SIGNAL("triggered()"),
+                           self.CompomentLauncher)
+        self.toolsMenu.addAction(self.CompomentAction)
+        # Controls submenu ---
         self.setControlsToolsSubmenu(self.toolsMenu)
 
     def setHelpMenu(self,helpMenu):
@@ -1479,6 +1485,12 @@ class LinacMainWindow(TaurusMainWindow):
             self._evr300Window = EVR300()
             self._evr300Window.setModel('li/ti/evr300-cli0302-a')
         self._evr300Window.show()
+
+    def CompomentLauncher(self):
+        if not hasattr(self,'_compomentWindow') or\
+                self._compomentWindow == None:
+            self._compomentWindow = CompomentsWindow()
+        self._compomentWindow.show()
 
     def _requestPreconfigFileName(self):
         dialogTitle = "Select preconfigured taurustrend"
