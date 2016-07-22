@@ -20,6 +20,8 @@ __author__ = "Sergi Blanch-Torne"
 __copyright__ = "Copyright 2015, CELLS / ALBA Synchrotron"
 __license__ = "GPLv3+"
 
+from ctliaux import defaultConfigurations
+from ctlienums import doSave
 import os
 from taurus.external.qt import QtGui, Qt
 from taurus.qt.qtgui.container import TaurusWidget
@@ -85,6 +87,8 @@ class CompomentsWindow(TaurusWidget):
                 modelLst += self.buildActiveAttrList4Device(int(plc),
                                                             self._attrSet[plc])
         self.ui.activeAttributes.setModel(modelLst)
+        Qt.QObject.connect(self.ui.saveButton,Qt.SIGNAL("clicked(bool)"),
+                           self._saveAction)
 
     def buildActiveAttrList4Device(self, number, lst):
         argout = []
@@ -127,6 +131,13 @@ class CompomentsWindow(TaurusWidget):
                 'li/ct/plc%d/%s_options' % (number, element),
                 'li/ct/plc%d/%s_numeric' % (number, element),
                 'li/ct/plc%d/%s_meaning' % (number, element)]
+
+    def _saveAction(self):
+        fileName = str(QtGui.QFileDialog.getSaveFileName(self, "Select File",
+                                                     defaultConfigurations,
+                                                     "CSV (*.csv)"))
+        doSave(fileName)
+
 
 if __name__ == "__main__":
     import sys

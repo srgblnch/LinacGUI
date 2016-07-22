@@ -191,6 +191,17 @@ def apply(values):
                 traceback.print_exc()
 
 
+def doSave(fileName):
+    values = collect()
+    store(fileName, values)
+
+
+def doLoad(fileName):
+    values = parse(fileName)
+    if values is not None:
+        apply(values)
+
+
 def main():
     from optparse import OptionParser
     parser = OptionParser()
@@ -203,12 +214,9 @@ def main():
                       help="Given a csv file apply it to the devices")
     (options, args) = parser.parse_args()
     if options.save_csv is not None:
-        values = collect()
-        store(options.save_csv, values)
+        doSave(options.save_csv)
     elif options.load_csv is not None:
-        values = parse(options.load_csv)
-        if values is not None:
-            apply(values)
+        doLoad(options.load_csv)
     else:
         print("\nNo options selected. Please check help\n")
 

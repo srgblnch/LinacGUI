@@ -27,9 +27,9 @@
 #Look at https://en.wikipedia.org/wiki/Software_versioning
 
 __MAJOR_VERSION = 2
-__MINOR_VERSION = 62
+__MINOR_VERSION = 64
 __BUILD_VERSION = 0
-__REVISION_VERSION = 4
+__REVISION_VERSION = 0
 __RELEASE_CANDIDATE = None
 
 
