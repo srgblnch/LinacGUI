@@ -10,7 +10,7 @@
 __docformat__ = 'restructuredtext'
 
 import sys
-import PyQt4.Qt as Qt
+from taurus.qt import Qt
 from ui_beamChargeMonitors import Ui_beamChargeMonitors
 from taurus.qt.qtgui.panel import TaurusWidget
 

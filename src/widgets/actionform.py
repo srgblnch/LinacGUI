@@ -21,7 +21,7 @@ __copyright__ = "Copyright 2015, CELLS / ALBA Synchrotron"
 __license__ = "GPLv3+"
 
 import os
-import PyQt4.Qt as Qt
+from taurus.qt import Qt
 from taurus.qt.qtgui.panel import TaurusWidget
 from taurus.qt.qtgui.util.ui import UILoadable
 import traceback
@@ -47,7 +47,6 @@ class actionForm(TaurusWidget):
                          % (self.__name, e))
             traceback.print_exc()
             self.traceback()
-            raise e
 
     @classmethod
     def getQtDesignerPluginInfo(cls):
