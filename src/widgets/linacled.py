@@ -1,65 +1,61 @@
-#!/usr/bin/env python
-from __builtin__ import True
+# ##### BEGIN GPL LICENSE BLOCK #####
+#
+#  This program is free software; you can redistribute it and/or
+#  modify it under the terms of the GNU General Public License
+#  as published by the Free Software Foundation; either version 3
+#  of the License, or (at your option) any later version.
+#
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+#
+#  You should have received a copy of the GNU General Public License
+#  along with this program; if not, write to the Free Software Foundation,
+#  Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+#
+# ##### END GPL LICENSE BLOCK #####
 
-#############################################################################
-##
-## This file is part of Taurus, a Tango User Interface Library
-##
-## http://www.tango-controls.org/static/taurus/latest/doc/html/index.html
-##
-## Copyright 2011 CELLS / ALBA Synchrotron, Bellaterra, Spain
-##
-## Taurus is free software: you can redistribute it and/or modify
-## it under the terms of the GNU Lesser General Public License as published by
-## the Free Software Foundation, either version 3 of the License, or
-## (at your option) any later version.
-##
-## Taurus is distributed in the hope that it will be useful,
-## but WITHOUT ANY WARRANTY; without even the implied warranty of
-## MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-## GNU Lesser General Public License for more details.
-##
-## You should have received a copy of the GNU Lesser General Public License
-## along with Taurus.  If not, see <http://www.gnu.org/licenses/>.
-##
-#############################################################################
+__author__ = "Sergi Blanch-Torne"
+__copyright__ = "Copyright 2015, CELLS / ALBA Synchrotron"
+__license__ = "GPLv3+"
 
 """This module provides an specialization of the TaurusLed to include
    any new feature request for this linac control"""
 
 __all__ = ["LinacLed"]
 
-__docformat__ = 'restructuredtext'
-
 from taurus.qt.qtgui.display import TaurusLed
 from taurus.qt.qtgui.display.taurusled import _TaurusLedController
-from time import time,sleep
+from time import time, sleep
 from threading import Thread
 
 BLINK_OFF2ON = 1
 BLINK_ON2OFF = 2
 BLINK_BOTH = BLINK_OFF2ON | BLINK_ON2OFF
 
+
 class LinacLed(TaurusLed):
-    def __init__(self, parent = None, designMode = False):
-        super(LinacLed,self).__init__(parent,designMode)
+    def __init__(self, parent=None, designMode=False):
+        super(LinacLed, self).__init__(parent, designMode)
         self._blinking = None
-        self._blinkTime = None #seconds
-        self._blinkPeriod = None #seconds
+        self._blinkTime = None  # seconds
+        self._blinkPeriod = None  # seconds
         self._blinkThread = None
         self._blinkStart = None
         self._evtvalue_value = None
+
     def _calculate_controller_class(self):
         try:
             return TaurusLed._calculate_controller_class(self)
         except Exception as e:
-            self.warning("For %s model exception in "\
+            self.warning("For %s model exception in "
                          "_calculate_controller_class(): %s"
-                         %(self.getModel(),e))
+                         % (self.getModel(), e))
             return _TaurusLedController
 
     def handleEvent(self, evt_src, evt_type, evt_value):
-        if self._blinking and hasattr(evt_value,'value'):
+        if self._blinking and hasattr(evt_value, 'value'):
             self.info("Received event %s (%s) = %s"
                       % (evt_src, evt_type, evt_value.value))
             self._evtvalue_value = evt_value.value
@@ -78,7 +74,7 @@ class LinacLed(TaurusLed):
             return True
         return False
 
-    def doBlink(self,value):
+    def doBlink(self, value):
         self._blinkStart = time()
         color = self.getColor(value)
         print color
@@ -107,13 +103,13 @@ class LinacLed(TaurusLed):
         self.info("End blinking")
         self._blinkThread = None
 
-    def getColor(self,value):
+    def getColor(self, value):
         if value:
             return self.onColor
         else:
             return self.offColor
 
-    def getColorSetter(self,value):
+    def getColorSetter(self, value):
         if value:
             return self.setOnColor
         else:
@@ -121,7 +117,7 @@ class LinacLed(TaurusLed):
 
     def getBlinkOnChange(self):
         if self._blinking == BLINK_BOTH:
-            return ['on','off']
+            return ['on', 'off']
         elif self._blinking == BLINK_ON2OFF:
             return ['off']
         elif self._blinking == BLINK_OFF2ON:
@@ -129,7 +125,7 @@ class LinacLed(TaurusLed):
         else:
             return []
 
-    def setBlinkOnChange(self,when):
+    def setBlinkOnChange(self, when):
         whenBlink = 0
         if type(when) == str:
             when = [when]
@@ -145,11 +141,11 @@ class LinacLed(TaurusLed):
     def getBlinkTime(self):
         return self._blinkTime
 
-    def setBlinkTime(self,value):
+    def setBlinkTime(self, value):
         self._blinkTime = float(value)
 
     def getBlinkPeriod(self):
         return self._blinkPeriod
 
-    def setBlinkPeriod(self,value):
+    def setBlinkPeriod(self, value):
         self._blinkPeriod = float(value)

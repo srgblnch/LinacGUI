@@ -116,7 +116,7 @@
   <customwidget>
    <class>LinacLed</class>
    <extends>TaurusLed</extends>
-   <header>taurus.qt.qtgui.display</header>
+   <header>linacled</header>
   </customwidget>
   <customwidget>
    <class>QLed</class>

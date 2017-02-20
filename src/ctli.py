@@ -923,7 +923,7 @@ class LinacMainWindow(TaurusMainWindow):
                                    'write':
                                    mainscreen_ui.rfTimePhaseShifterXSetpoint}}
         for timeShifter in timePhaseShifters.keys():
-            attrName = 'li/ct/plc1/TPS%s_Phase' % (timeShifter())
+            attrName = 'li/ct/plc1/TPS%s_Phase' % (timeShifter)
             widget = timePhaseShifters[timeShifter]['read']
             self._setupTaurusLabel4Attr(widget, attrName)
             widget = timePhaseShifters[timeShifter]['write']

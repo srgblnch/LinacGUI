@@ -23,14 +23,13 @@ __license__ = "GPLv3+"
 import os
 import sys
 import PyQt4.Qt as Qt
-from ui_cavityVacuum import Ui_CavityVacuum
 from taurus.qt.qtgui.panel import TaurusWidget
 from taurus.qt.qtgui.util.ui import UILoadable
+import traceback
 
 
 @UILoadable(with_ui="_ui")
 class CavityVacuum(TaurusWidget):
-
     def __init__(self, parent=None, name=None, designMode=False):
         try:
             self.__name = name.__name__
