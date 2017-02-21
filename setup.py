@@ -26,7 +26,10 @@ from ctli import version
 
 setup(
     name="LinacGUI",
+    license="GPLv3+",
     version=version(),
+    author="Sergi Blanch-Torn\'e",
+    author_email="sblanch@cells.es",
     packages=find_packages(),
     entry_points={
         'console_scripts': [],
@@ -37,5 +40,15 @@ setup(
         },
     include_package_data = True,
     package_dir = {'widgets':['widgets/ui']},
-    package_data = {'widgets':['*.ui']}
+    package_data = {'widgets':['*.ui']},
+    description="Graphical User Interface for the Alba's synchrotron "
+    "Linac's Control",
+    classifiers=['Development Status :: 5 - Production',
+                 'Intended Audience :: Science/Research',
+                 'License :: OSI Approved :: '
+                 'GNU General Public License v3 or later (GPLv3+)',
+                 'Programming Language :: Python',
+                 'Topic :: Scientific/Engineering :: '
+                 ''],
+    url="https://github.com/srgblnch/LinacGUI",
 )
