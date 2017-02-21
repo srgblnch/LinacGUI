@@ -1,27 +1,24 @@
-#!/usr/bin/env python
+# ##### BEGIN GPL LICENSE BLOCK #####
+#
+#  This program is free software; you can redistribute it and/or
+#  modify it under the terms of the GNU General Public License
+#  as published by the Free Software Foundation; either version 3
+#  of the License, or (at your option) any later version.
+#
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+#
+#  You should have received a copy of the GNU General Public License
+#  along with this program; if not, write to the Free Software Foundation,
+#  Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+#
+# ##### END GPL LICENSE BLOCK #####
 
-#############################################################################
-#
-# This file is part of Taurus, a Tango User Interface Library
-#
-# http://www.tango-controls.org/static/taurus/latest/doc/html/index.html
-#
-# Copyright 2013 CELLS / ALBA Synchrotron, Bellaterra, Spain
-#
-# Taurus is free software: you can redistribute it and/or modify
-# it under the terms of the GNU Lesser General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-#
-# Taurus is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU Lesser General Public License for more details.
-#
-# You should have received a copy of the GNU Lesser General Public License
-# along with Taurus.  If not, see <http://www.gnu.org/licenses/>.
-#
-###########################################################################
+__author__ = "Sergi Blanch-Torne"
+__copyright__ = "Copyright 2015, CELLS / ALBA Synchrotron"
+__license__ = "GPLv3+"
 
 import os
 import sys
@@ -36,16 +33,15 @@ if linacWidgetsPath not in sys.path:
     sys.path.append(linacWidgetsPath)
 
 from taurus.core.util import argparse
-from taurus.qt.qtgui.application import TaurusApplication
-# from taurus.qt.qtgui.container import TaurusMainWindow
-from taurus.qt.qtgui.base.taurusbase import TaurusBaseComponent
 from taurus.qt import Qt, QtGui
+from taurus.qt.qtgui.application import TaurusApplication
+from taurus.qt.qtgui.panel import TaurusWidget
+from taurus.qt.qtgui.util.ui import UILoadable
+
 
 import ctliaux
 
 import PyTango
-
-from ui_linacConfigurationScreen import Ui_linacConfigurationScreen
 
 
 def dump(obj, nested_level=0, output=sys.stdout):
@@ -76,14 +72,27 @@ def dump(obj, nested_level=0, output=sys.stdout):
         print >> output, '%s%s' % (nested_level * spacing, obj)
 
 
-# class MainWindow(TaurusMainWindow):
-class MainWindow(Qt.QDialog, TaurusBaseComponent):
-    def __init__(self, parent=None):
-        TaurusBaseComponent.__init__(self, 'ctlisetup')
-        Qt.QDialog.__init__(self, parent)
+@UILoadable(with_ui="ui")
+class MainWindow(TaurusWidget):
+    def __init__(self, parent=None, name=None, designMode=None):
         # setup main window
-        self.ui = Ui_linacConfigurationScreen()
-        self.ui.setupUi(self)
+        try:
+            self.__name = name.__name__
+        except:
+            self.__name = "ctlisetup"
+        super(MainWindow, self).__init__(parent, designMode=designMode)
+        try:
+            self.debug("[%s]__init__()" % (self.__name))
+            basePath = os.path.dirname(__file__)
+            if len(basePath) == 0:
+                basePath = '.'
+            self.loadUi(filename="linacConfigurationScreen.ui",
+                        path=basePath+"/widgets/ui")
+        except Exception as e:
+            self.warning("[%s]__init__(): MainWindow exception! %s"
+                         % (self.__name, e))
+            traceback.print_exc()
+            self.traceback()
         # place the ui in the window
         self.initComponents()
         # kill splash screen
@@ -101,7 +110,7 @@ class MainWindow(Qt.QDialog, TaurusBaseComponent):
         self.loadFromDevices()
 
     ######
-    #---- # Auxiliar methods to configure widgets
+    # # Auxiliar methods to configure widgets ---
     def _setupLed4UnknownAttr(self, widget):
         ctliaux._setupLed4UnknownAttr(widget)
 
@@ -139,15 +148,15 @@ class MainWindow(Qt.QDialog, TaurusBaseComponent):
         if hasattr(widget, 'setDecimals'):
             widget.setDecimals(decimals)
         widget.setSingleStep(step)
-    #---- Done auxiliar methods to configure widgets
+    # Done auxiliar methods to configure widgets ---
     ######
 
     ######
-    #----# setModel & others for the Configuration Tab
+    # # setModel & others for the Configuration Tab ---
     def setConfiguration(self):
         configuration_ui = self.ui
         self._configurationWidgets = {}
-        #---- configure the widgets in the panels
+        # configure the widgets in the panels ---
         self.electronGunConfiguration(configuration_ui.
                                       electronGunSnapshot._ui)
         self.coolingLoopsConfiguration(configuration_ui.
@@ -161,7 +170,7 @@ class MainWindow(Qt.QDialog, TaurusBaseComponent):
         self.evrConfiguration(configuration_ui.evrSnapshot._ui)
         self.klystronsConfiguration(configuration_ui.klystronSnapshot._ui)
         self.commentConfiguration(configuration_ui)
-        #---- connect buttons to their actions
+        # connect buttons to their actions ---
         self.buttonsConfiguration(configuration_ui.buttonBox)
         # Those actions doesn't need DangerMessage because eGunLV, CLs and KaLV
         # are not included in the save/retrive
@@ -317,7 +326,7 @@ class MainWindow(Qt.QDialog, TaurusBaseComponent):
                     self._setupQSpinBox(widgetsSet[attrName]['write'],
                                         minVal=minVal, maxVal=maxVal,
                                         step=step, decimals=decimals)
-        #---- TODO: connect the ToApplyTitle to check/uncheck all the *Check
+        # TODO: connect the ToApplyTitle to check/uncheck all the *Check ---
         self._configurationWidgets['magnets'] = widgetsSet
 
     def radiofrequencyConfiguration(self, ui):
@@ -461,7 +470,7 @@ class MainWindow(Qt.QDialog, TaurusBaseComponent):
         self._setupQSpinBox(widgetsSet[attrName]['write'],
                             minVal=-40.0, maxVal=0, decimals=1, step=0.1)
 
-        #---- TODO: connect the ToApplyTitle to check/uncheck all the *Check
+        # TODO: connect the ToApplyTitle to check/uncheck all the *Check ---
         self._configurationWidgets['timing'] = widgetsSet
 
     def evrConfiguration(self, ui):
@@ -489,7 +498,7 @@ class MainWindow(Qt.QDialog, TaurusBaseComponent):
                 self._setupQSpinBox(widgetsSet[attrName]['write'],
                                     minVal=0, maxVal=1e10, step=8, decimals=0)
 
-        #---- TODO: connect the ToApplyTitle to check/uncheck all the *Check
+        # TODO: connect the ToApplyTitle to check/uncheck all the *Check ---
         self._configurationWidgets['evr'] = widgetsSet
 
     def klystronsConfiguration(self, ui):
@@ -515,7 +524,7 @@ class MainWindow(Qt.QDialog, TaurusBaseComponent):
                     self._setupQSpinBox(widgetsSet[attrName]['write'],
                                         minVal=0.0, maxVal=33,
                                         decimals=1, step=0.1)
-        #---- TODO: connect the ToApplyTitle to check/uncheck all the *Check
+        # TODO: connect the ToApplyTitle to check/uncheck all the *Check ---
         self._configurationWidgets['klystrons'] = widgetsSet
 
     def commentConfiguration(self, ui):
@@ -523,7 +532,7 @@ class MainWindow(Qt.QDialog, TaurusBaseComponent):
         w = ui.commentGroup.width()
         ui.splitter.setSizes([2*w/3, w/3])
         self._loadPreviousComment(ui)
-    #---- Done configure subwidgets
+    # Done configure subwidgets ---
     ######
 
     def buttonsConfiguration(self, buttons):
@@ -545,22 +554,22 @@ class MainWindow(Qt.QDialog, TaurusBaseComponent):
         Qt.QObject.connect(buttons.button(QtGui.QDialogButtonBox.Apply),
                            Qt.SIGNAL('clicked(bool)'), self.applyToDevices)
 
-    #---- TODO: should the *Reading widgets be connected to the *Value?
-    #           Doing this, the operation of the other tabs will be shown in
-    #           this Configuration tab according to when it's happening.
+    # TODO: should the *Reading widgets be connected to the *Value?
+    #       Doing this, the operation of the other tabs will be shown in
+    #       this Configuration tab according to when it's happening.
 
     ######
-    #----# Distinguish between widget types
+    # # Distinguish between widget types ---
     def _isSpinBox(self, widget):
         return hasattr(widget, 'setValue')
 
     def _isCheckBox(self, widget):
         return hasattr(widget, 'setChecked')
-    #---- Done widget types
+    # Done widget types ---
     ######
 
     ######
-    #----# Widget backgrounds
+    # # Widget backgrounds ---
     def _setStyleToModified(self, attrStruct):
         saver = attrStruct['write']
         if self._isSpinBox(saver):
@@ -590,11 +599,11 @@ class MainWindow(Qt.QDialog, TaurusBaseComponent):
             raise Exception("Unmanaged %s widget type to tag modified"
                             % (type(widget)))
         attrStruct['check'].setChecked(False)
-    #---- done widget backgrounds
+    # done widget backgrounds ---
     ######
 
     ######
-    #----# Value setters and getters
+    # # Value setters and getters ---
     def _getAttrValue(self, attrName):
         return PyTango.AttributeProxy(attrName).read().value
 
@@ -620,7 +629,7 @@ class MainWindow(Qt.QDialog, TaurusBaseComponent):
             if type(value) == bool:
                 return
             elif type(value) == int:
-                #it would be in the maximum or in the minimum, but one above
+                # it would be in the maximum or in the minimum, but one above
                 # or one below will be possible to be writable, isn't it?
                 try:
                     taurus.Attribute(attrName).write(int(value+1))
@@ -629,7 +638,7 @@ class MainWindow(Qt.QDialog, TaurusBaseComponent):
                         taurus.Attribute(attrName).write(int(value-1))
                     except:
                         self.error("It hasn't been possible to write a near "
-                                   "setpoint for attribute %s"%(attrName))
+                                   "setpoint for attribute %s" % (attrName))
                 time.sleep(0.3)
             elif type(value) == float:
                 taurus.Attribute(attrName).write(value*near)
@@ -647,7 +656,7 @@ class MainWindow(Qt.QDialog, TaurusBaseComponent):
         while i < 10:
             if self._checkValue(rvalue, wvalue, attrName):
                 self.debug("For %s, reading corresponds to what has been "
-                           "written (%d)"%(attrName,i))
+                           "written (%d)" % (attrName, i))
                 return
             time.sleep(0.1)  # when they are different, wait to recheck
             i += 1
@@ -657,7 +666,7 @@ class MainWindow(Qt.QDialog, TaurusBaseComponent):
                          "correspond to what has been set (%s)"
                          % (rvalue, wvalue))
 
-    def _checkValue(self,a,b,attrName):
+    def _checkValue(self, a, b, attrName):
         # With bools and integers the compare is simple, but floats,
         # because of the different byte precisions, can be equivalent
         # not being exacly the same.
@@ -677,7 +686,7 @@ class MainWindow(Qt.QDialog, TaurusBaseComponent):
                              "%g != %g" % (attrFormat, a, b))
                 return True
             self.warning("For attribute %s %g != %g and %s != %s"
-                         % (attrName,a,b,aStr,bStr))
+                         % (attrName, a, b, aStr, bStr))
         else:
             return a == b
         return False
@@ -705,11 +714,11 @@ class MainWindow(Qt.QDialog, TaurusBaseComponent):
             return saver.isChecked()
         else:
             raise Exception("Unmanaged %s widget type" % (type(saver)))
-    #---- done Value setters and getters
+    # done Value setters and getters ---
     ######
 
     ######
-    #----# manage files
+    # # manage files ---
     def _getStorageDirectory(self):
         directory = str(QtGui.QFileDialog.
                         getExistingDirectory(self, "Select Directory",
@@ -811,11 +820,11 @@ class MainWindow(Qt.QDialog, TaurusBaseComponent):
         except Exception as e:
             self.error("misunderstanding in line %d: '%s'" % (n+1, line))
             return (None, None)
-    #---- done manage files
+    # done manage files ---
     ######
 
     ######
-    #----# Comments region
+    # # Comments region ---
     def _loadPreviousComment(self, ui):
         if os.path.isfile(ctliaux.commentsfile):
             with open(ctliaux.commentsfile, 'r') as file:
@@ -846,7 +855,7 @@ class MainWindow(Qt.QDialog, TaurusBaseComponent):
         self.ui.textLoaded.setText("%s%s"
                                    % (self.ui.textLoaded.toPlainText(),
                                       line.replace('#@ ', '')))
-    #---- done commects region
+    # done commects region ---
     ######
 
     def prepareProgressBar(self):
@@ -866,7 +875,7 @@ class MainWindow(Qt.QDialog, TaurusBaseComponent):
         self.ui.progressBar.hide()
 
     ######
-    #----# ActionButtons callbacks
+    # # ActionButtons callbacks ---
     def loadFromDevices(self):
         '''With this call (from a button or at the loading step) we must travel
            all the *Reading widgets and copy the value to the *Value widget.
@@ -909,7 +918,7 @@ class MainWindow(Qt.QDialog, TaurusBaseComponent):
                                       "The Save action has been cancelled!\n"
                                       "No file written.")
         prefix = self._getFilePrefix(now_struct)
-        #---- TODO: request suffix to the user.
+        # TODO: request suffix to the user. ---
         suffix = ''
         if directory != '':
             suffix, ok = self._getFileSuffix(prefix)
@@ -968,7 +977,7 @@ class MainWindow(Qt.QDialog, TaurusBaseComponent):
             self._raiseCollectedExceptions("save", exceptions)
             self.doneProgressBar()
 
-    #---- #loadFromFile()
+    # #loadFromFile() ---
     def loadFromFile(self):
         '''Given a file of settings provided by the user, show those values
            in the *Value widgets.
@@ -979,7 +988,7 @@ class MainWindow(Qt.QDialog, TaurusBaseComponent):
         self._cleanSpecialCommentsFromFile()
         self._doLoadFromFile(filename)
 
-    #---- Descending level for the loadFromFile()
+    # Descending level for the loadFromFile() ---
     def _doLoadFromFile(self, filename):
         group = ''
         exceptions = {}
@@ -992,7 +1001,7 @@ class MainWindow(Qt.QDialog, TaurusBaseComponent):
                 self.debug("Read %d lines" % (nElements))
                 i = 0
                 self.prepareProgressBar()
-                environment = {'nline': 0,'group': ''}
+                environment = {'nline': 0, 'group': ''}
                 for nline in range(nElements):
                     environment['nline'] = nline
                     self.debug("Processing line %d" % (nline))
@@ -1003,7 +1012,7 @@ class MainWindow(Qt.QDialog, TaurusBaseComponent):
             self._raiseCollectedExceptions('load', exceptions)
             self.doneProgressBar()
         else:
-            raise NameError("No file name specified: %r"%(filename))
+            raise NameError("No file name specified: %r" % (filename))
 
     def _processLine(self, line, environment, exceptions):
         if line == '\n':
@@ -1043,7 +1052,7 @@ class MainWindow(Qt.QDialog, TaurusBaseComponent):
                 elif attrName is None:
                     self.warning("No attribute name!")
 
-    #---- #applyToDevices()
+    # #applyToDevices() ---
     def applyToDevices(self):
         '''Travelling along the *Check, apply the value in *Value
            to the model in the *Reading.
@@ -1055,7 +1064,7 @@ class MainWindow(Qt.QDialog, TaurusBaseComponent):
         self.doneProgressBar()
         self._cleanSpecialCommentsFromFile()
 
-    #---- Descending level for the applyToDevices()
+    # Descending level for the applyToDevices() ---
     def _iterateAttribute(self, exceptions):
         i = 0
         nElements = self.getNumberOfElements()
@@ -1086,7 +1095,7 @@ class MainWindow(Qt.QDialog, TaurusBaseComponent):
                 exceptions[group].append(attrName)
             else:
                 exceptions[group] = [attrName]
-    #---- done ActionButtons callbacks
+    # done ActionButtons callbacks ---
     ######
 
     def _raiseCollectedExceptions(self, operation, exceptions):
