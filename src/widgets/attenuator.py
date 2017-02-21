@@ -30,11 +30,6 @@ import traceback
 @UILoadable(with_ui="_ui")
 class Attenuator(TaurusWidget):
 
-    def __init__(self, parent=None, designMode=False):
-        TaurusWidget.__init__(self, parent, designMode=designMode)
-        self._ui = Ui_Attenuator()
-        self._ui.setupUi(self)
-
     def __init__(self, parent=None, name=None, designMode=False):
         try:
             self.__name = name.__name__
