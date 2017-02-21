@@ -26,6 +26,7 @@ from taurus.qt.qtgui.panel import TaurusWidget
 from taurus.qt.qtgui.util.ui import UILoadable
 import traceback
 
+
 @UILoadable(with_ui="_ui")
 class beamChargeMonitors(TaurusWidget):
 
@@ -47,7 +48,7 @@ class beamChargeMonitors(TaurusWidget):
                          % (self.__name, e))
             traceback.print_exc()
             self.traceback()
-    
+
     @classmethod
     def getQtDesignerPluginInfo(cls):
         ret = TaurusWidget.getQtDesignerPluginInfo()

@@ -26,6 +26,7 @@ from taurus.qt.qtgui.panel import TaurusWidget
 from taurus.qt.qtgui.util.ui import UILoadable
 import traceback
 
+
 @UILoadable(with_ui="_ui")
 class AttrAutostopper(TaurusWidget):
 
