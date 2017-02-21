@@ -35,8 +35,7 @@ class evrSnapshot(TaurusWidget):
             self.__name = name.__name__
         except:
             self.__name = "evrSnapshot"
-        super(evrSnapshot, self).__init__(parent,
-                                                  designMode=designMode)
+        super(evrSnapshot, self).__init__(parent, designMode=designMode)
         try:
             self.debug("[%s]__init__()" % (self.__name))
             basePath = os.path.dirname(__file__)

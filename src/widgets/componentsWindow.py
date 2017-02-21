@@ -87,7 +87,7 @@ class CompomentsWindow(TaurusWidget):
                 modelLst += self.buildActiveAttrList4Device(int(plc),
                                                             self._attrSet[plc])
         self.ui.activeAttributes.setModel(modelLst)
-        Qt.QObject.connect(self.ui.saveButton,Qt.SIGNAL("clicked(bool)"),
+        Qt.QObject.connect(self.ui.saveButton, Qt.SIGNAL("clicked(bool)"),
                            self._saveAction)
 
     def buildActiveAttrList4Device(self, number, lst):
@@ -134,8 +134,8 @@ class CompomentsWindow(TaurusWidget):
 
     def _saveAction(self):
         fileName = str(QtGui.QFileDialog.getSaveFileName(self, "Select File",
-                                                     defaultConfigurations,
-                                                     "CSV (*.csv)"))
+                                                         defaultConfigurations,
+                                                         "CSV (*.csv)"))
         doSave(fileName)
 
 

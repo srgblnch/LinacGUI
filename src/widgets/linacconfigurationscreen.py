@@ -35,7 +35,7 @@ class linacConfigurationScreen(TaurusWidget):
             self.__name = name.__name__
         except:
             self.__name = "linacConfigurationScreen"
-        super(linacConfigurationScreen, self).__init__(parent, 
+        super(linacConfigurationScreen, self).__init__(parent,
                                                        designMode=designMode)
         try:
             self.debug("[%s]__init__()" % (self.__name))

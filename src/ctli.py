@@ -38,8 +38,10 @@ from taurus.qt.qtgui.application import TaurusApplication
 from taurus.qt.qtgui.base import TaurusBaseComponent
 from taurus.qt.qtgui.container import TaurusMainWindow
 from taurus.qt.qtgui.display import TaurusLed
+from taurus.qt.qtgui.panel import TaurusWidget
 from taurus.qt.qtgui.plot import TaurusPlot
 from taurus.qt.qtgui.util import ExternalAppAction
+from taurus.qt.qtgui.util.ui import UILoadable
 from taurus.qt.qtgui.table import TaurusValuesTable
 try:
     from taurus.external.qt import Qwt5
@@ -51,7 +53,6 @@ from attrramps import AttrRamps
 from componentsWindow import CompomentsWindow
 from deviceevents import deviceEvents
 from evr300 import EVR300
-from ui_ctli import Ui_linacGui
 
 import ctliaux
 
@@ -66,12 +67,16 @@ for i in range(1, 6):
 DeviceRelocator = 'li/ct/linacDataRelocator-01'
 
 
-class LinacMainWindow(TaurusMainWindow):
-    def __init__(self, parent=None):
-        TaurusMainWindow.__init__(self)
+@UILoadable(with_ui="ui")
+class LinacMainWindow(TaurusMainWindow, TaurusWidget):
+    def __init__(self, parent=None, name=None, designMode=None):
+        try:
+            self.__name = name.__name__
+        except:
+            self.__name = "LinacMainWindow"
+        super(LinacMainWindow, self).__init__(parent, designMode=designMode)
         # setup main window
-        self.ui = Ui_linacGui()
-        self.ui.setupUi(self)
+        self._loadUI()
         # place the ui in the window
         self._init_threads = {}
         self._initComponentsTask = ""
@@ -80,6 +85,20 @@ class LinacMainWindow(TaurusMainWindow):
         self.initComponents()
         # kill splash screen
         self.splashScreen().finish(self)
+
+    def _loadUI(self):
+        try:
+            self.debug("[%s]__init__()" % (self.__name))
+            basePath = os.path.dirname(__file__)
+            if len(basePath) == 0:
+                basePath = '.'
+            self.loadUi(filename="ctli.ui", path=basePath+"/widgets/ui")
+        except Exception as e:
+            self.warning("[%s]__init__(): Widget exception! %s"
+                         % (self.__name, e))
+            traceback.print_exc()
+            self.traceback()
+            raise e
 
     def initComponents(self):
         self.setWindowTitle("Linac Taurus User Interface")

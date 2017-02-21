@@ -1,33 +1,31 @@
-#!/usr/bin/env python
+# ##### BEGIN GPL LICENSE BLOCK #####
+#
+#  This program is free software; you can redistribute it and/or
+#  modify it under the terms of the GNU General Public License
+#  as published by the Free Software Foundation; either version 3
+#  of the License, or (at your option) any later version.
+#
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+#
+#  You should have received a copy of the GNU General Public License
+#  along with this program; if not, write to the Free Software Foundation,
+#  Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+#
+# ##### END GPL LICENSE BLOCK #####
 
-#############################################################################
-##
-## This file is part of Taurus, a Tango User Interface Library
-## 
-## http://www.tango-controls.org/static/taurus/latest/doc/html/index.html
-##
-## Copyright 2013 CELLS / ALBA Synchrotron, Bellaterra, Spain
-## 
-## Taurus is free software: you can redistribute it and/or modify
-## it under the terms of the GNU Lesser General Public License as published by
-## the Free Software Foundation, either version 3 of the License, or
-## (at your option) any later version.
-## 
-## Taurus is distributed in the hope that it will be useful,
-## but WITHOUT ANY WARRANTY; without even the implied warranty of
-## MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-## GNU Lesser General Public License for more details.
-## 
-## You should have received a copy of the GNU Lesser General Public License
-## along with Taurus.  If not, see <http://www.gnu.org/licenses/>.
-##
-###########################################################################
+__author__ = "Sergi Blanch-Torne"
+__copyright__ = "Copyright 2015, CELLS / ALBA Synchrotron"
+__license__ = "GPLv3+"
 
 import os
 from taurus.external.qt import QtGui
 from taurus.qt.qtgui.container import TaurusWidget
 from taurus.qt.qtgui.util.ui import UILoadable
 import traceback
+
 
 @UILoadable(with_ui="ui")
 class EVR300(TaurusWidget):
@@ -37,8 +35,7 @@ class EVR300(TaurusWidget):
         except:
             self.__name = "ERV300"
         try:
-            super(EVR300,self).__init__()
-            #self.call__init__(TaurusWidget, str(self.objectName()))
+            super(EVR300, self).__init__()
         except Exception as e:
             self.warning("[%s]__init__(): Parent exception!\n%s"
                          % (self.__name, e))
@@ -75,10 +72,11 @@ class EVR300(TaurusWidget):
                                          self.ui.ch2FineUnit],
                           }
             for attrName in attributes.keys():
-                fullName = devName +'/' + attrName
+                fullName = devName+'/'+attrName
                 self.info("setting %s model" % (fullName))
                 attributes[attrName][0].setModel(fullName)
-                attributes[attrName][1].setModel(fullName+'?configuration=unit')
+                attributes[attrName][1].setModel(fullName +
+                                                 '?configuration=unit')
                 attributes[attrName][1].bgRole = ''
             self.__model = devName
 

@@ -35,8 +35,7 @@ class timingSnapshot(TaurusWidget):
             self.__name = name.__name__
         except:
             self.__name = "timingSnapshot"
-        super(timingSnapshot, self).__init__(parent,
-                                                  designMode=designMode)
+        super(timingSnapshot, self).__init__(parent, designMode=designMode)
         try:
             self.debug("[%s]__init__()" % (self.__name))
             basePath = os.path.dirname(__file__)

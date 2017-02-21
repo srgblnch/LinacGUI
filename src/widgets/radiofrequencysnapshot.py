@@ -36,7 +36,7 @@ class radioFrequencySnapshot(TaurusWidget):
         except:
             self.__name = "radioFrequencySnapshot"
         super(radioFrequencySnapshot, self).__init__(parent,
-                                                  designMode=designMode)
+                                                     designMode=designMode)
         try:
             self.debug("[%s]__init__()" % (self.__name))
             basePath = os.path.dirname(__file__)

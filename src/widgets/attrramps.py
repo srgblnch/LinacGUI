@@ -48,7 +48,7 @@ class AttrRamps(TaurusWidget):
                          % (self.__name, e))
             traceback.print_exc()
             self.traceback()
-    
+
     @classmethod
     def getQtDesignerPluginInfo(cls):
         ret = TaurusWidget.getQtDesignerPluginInfo()

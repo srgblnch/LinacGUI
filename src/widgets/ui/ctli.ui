@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>linacGui</class>
- <widget class="TaurusFrame" name="linacGui">
+ <widget class="TaurusWidget" name="linacGui">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -333,12 +333,6 @@
   </layout>
  </widget>
  <customwidgets>
-  <customwidget>
-   <class>TaurusFrame</class>
-   <extends>QFrame</extends>
-   <header>taurus.qt.qtgui.container</header>
-   <container>1</container>
-  </customwidget>
   <customwidget>
    <class>TaurusWidget</class>
    <extends>QWidget</extends>
