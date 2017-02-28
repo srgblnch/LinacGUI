@@ -1,49 +1,157 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>deviceEvents</class>
- <widget class="TaurusWidget" name="deviceEvents">
+ <class>Form</class>
+ <widget class="TaurusWidget" name="Form">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1024</width>
-    <height>1120</height>
+    <width>800</width>
+    <height>210</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Plc Devices Events</string>
+   <string>Form</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout">
+  <layout class="QGridLayout" name="gridLayout_2">
    <item row="0" column="0">
-    <widget class="QScrollArea" name="scrollArea">
-     <property name="widgetResizable">
-      <bool>true</bool>
-     </property>
-     <widget class="QWidget" name="scrollAreaWidgetContents">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>1010</width>
-        <height>1106</height>
-       </rect>
-      </property>
-      <layout class="QGridLayout" name="gridLayout_2">
-       <item row="0" column="0">
-        <widget class="QSplitter" name="splitter">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <widget class="TaurusPlot" name="eventsplc1"/>
-         <widget class="TaurusPlot" name="eventsplc2"/>
-         <widget class="TaurusPlot" name="eventsplc3"/>
-         <widget class="TaurusPlot" name="eventsplc4"/>
-         <widget class="TaurusPlot" name="eventsplc5"/>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-    </widget>
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="2" column="0">
+      <widget class="QLabel" name="labelMax">
+       <property name="text">
+        <string>Max</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="3">
+      <widget class="TaurusLabel" name="EventsTimeMean"/>
+     </item>
+     <item row="4" column="3">
+      <widget class="TaurusLabel" name="EventsTimeStd"/>
+     </item>
+     <item row="6" column="1">
+      <spacer name="verticalSpacer">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="6" column="3">
+      <spacer name="verticalSpacer_4">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="0" column="2" rowspan="7">
+      <widget class="TaurusPlot" name="plot"/>
+     </item>
+     <item row="0" column="1">
+      <spacer name="verticalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="2" column="3">
+      <widget class="TaurusLabel" name="EventsTimeMax">
+       <property name="minimumSize">
+        <size>
+         <width>75</width>
+         <height>0</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="3">
+      <widget class="TaurusLabel" name="EventsTimeMin"/>
+     </item>
+     <item row="3" column="1">
+      <widget class="TaurusLabel" name="EventsNumberMean"/>
+     </item>
+     <item row="0" column="3">
+      <spacer name="verticalSpacer_3">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="2" column="1">
+      <widget class="TaurusLabel" name="EventsNumberMax">
+       <property name="minimumSize">
+        <size>
+         <width>75</width>
+         <height>0</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="labelMean">
+       <property name="text">
+        <string>Mean</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="0">
+      <widget class="QLabel" name="labelStd">
+       <property name="text">
+        <string>Std</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="0">
+      <widget class="QLabel" name="labelMin">
+       <property name="text">
+        <string>Min</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="1">
+      <widget class="TaurusLabel" name="EventsNumberMin"/>
+     </item>
+     <item row="4" column="1">
+      <widget class="TaurusLabel" name="EventsNumberStd"/>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLabel" name="EventsNumberLabel">
+       <property name="text">
+        <string>#Events</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="3">
+      <widget class="QLabel" name="EventsTimeLabel">
+       <property name="text">
+        <string>time(Events)</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </item>
   </layout>
  </widget>
@@ -58,6 +166,11 @@
    <extends>QWidget</extends>
    <header>taurus.qt.qtgui.container</header>
    <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>TaurusLabel</class>
+   <extends>QLabel</extends>
+   <header>taurus.qt.qtgui.display</header>
   </customwidget>
   <customwidget>
    <class>QwtPlot</class>

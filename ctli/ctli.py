@@ -51,7 +51,7 @@ except:
 from attrautostopper import AttrAutostopper
 from attrramps import AttrRamps
 from componentsWindow import CompomentsWindow
-from deviceevents import deviceEvents
+from devicesevents import DevicesEvents
 from evr300 import EVR300
 
 import ctliaux
@@ -1533,7 +1533,7 @@ class LinacMainWindow(TaurusMainWindow, TaurusWidget):
     def plotEventsInfo(self):
         if not hasattr(self, '_eventPlotWindow') or \
                 self._eventPlotWindow is None:
-            self._eventPlotWindow = deviceEvents()
+            self._eventPlotWindow = DevicesEvents()
             attributes = ['EventsNumber', 'EventsTime']
             widgets = {1: self._eventPlotWindow._ui.eventsplc1,
                        2: self._eventPlotWindow._ui.eventsplc2,
@@ -1543,15 +1543,7 @@ class LinacMainWindow(TaurusMainWindow, TaurusWidget):
             for i in widgets.keys():
                 widget = widgets[i]
                 device = "%s%d" % (LinacDeviceNameRoot, i)
-                widget.setDefaultCurvesTitle("<dev_name>/<attr_name>")
-                # legend with device name and attrname
-                models = ["%s/%s" % (device, attr) for attr in attributes]
-                widget.addModels(models)
-                self.debug("setting models for plc %d events plot (device %s):"
-                           " %s" % (i, device, models))
-                toY2 = widget.getCurve("%s/%s" % (device, attributes[1]))
-                toY2.setYAxis(Qwt5.QwtPlot.Axis(1))  # move time to axis2
-                widget.autoShowYAxes()
+                widget.setModel(device)
         self._eventPlotWindow.show()
 
     def taurustrendLauncher(self):

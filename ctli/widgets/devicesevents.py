@@ -22,29 +22,35 @@ __license__ = "GPLv3+"
 
 import os
 import sys
-from taurus.external.qt import Qt, Qwt5
+from taurus.external.qt import Qt
 from taurus.qt.qtgui.panel import TaurusWidget
 from taurus.qt.qtgui.util.ui import UILoadable
 import traceback
 
 
+# The widgets are stored in a subdirectory and needs to be added to the
+# pythonpath
+linacWidgetsPath = os.environ['PWD']
+if linacWidgetsPath not in sys.path:
+    sys.path.append(linacWidgetsPath)
+
+
 @UILoadable(with_ui="_ui")
-class DeviceEvents(TaurusWidget):
+class DevicesEvents(TaurusWidget):
 
     def __init__(self, parent=None, name=None, designMode=False):
         try:
             self.__name = name.__name__
         except:
-            self.__name = "DeviceEvents"
-        super(DeviceEvents, self).__init__(parent, designMode=designMode)
+            self.__name = "DevicesEvents"
+        super(DevicesEvents, self).__init__(parent, designMode=designMode)
         try:
             self.debug("[%s]__init__()" % (self.__name))
             basePath = os.path.dirname(__file__)
             if len(basePath) == 0:
                 basePath = '.'
-            self.loadUi(filename="DeviceEvents.ui",
+            self.loadUi(filename="DevicesEvents.ui",
                         path=basePath+"/ui")
-            
         except Exception as e:
             self.warning("[%s]__init__(): Widget exception! %s"
                          % (self.__name, e))
@@ -52,26 +58,22 @@ class DeviceEvents(TaurusWidget):
             self.traceback()
 
     def setModel(self, model):
-        if model != self.model:
-            attributes = ['EventsNumber', 'EventsTime']
-            self.info("%s" % (model))
-            self._ui.plot.setModel(["%s/%s" % (model, attr)
-                                    for attr in attributes])
-            self._ui.plot.showLegend(False)
-            toY2 = self._ui.plot.getCurve("%s/%s"
-                                                % (model, attributes[1]))
-            toY2.setYAxis(Qwt5.QwtPlot.Axis(1))  # move time to axis2
-            self._ui.plot.autoShowYAxes()
-            for attribute in attributes:
-                for suffix in ['Max', 'Mean', 'Std', 'Min']:
-                    widget = getattr(self._ui, '%s%s' % (attribute, suffix))
-                    widget.setModel('%s/%s%s' % (model, attribute, suffix))
+        print(">> %s" % model)
+        if not isinstance(self.model, list):
+            self.warning("Previous model is not a list: %r (%s)"
+                         % (self.model, type(self.model)))
+            self.model = [None]*5
+        if len(model) == 5:
+            for i in range(len(model)):
+                if model[i] != self.model[i]:
+                    widget = getattr(self._ui, 'eventsplc%d' % (i+1))
+                    widget.setModel(model[i])
             self.model = model
 
     @classmethod
     def getQtDesignerPluginInfo(cls):
         ret = TaurusWidget.getQtDesignerPluginInfo()
-        ret['module'] = 'deviceevents'
+        ret['module'] = 'widgets.devicesevents'
         ret['group'] = 'Taurus Linac Widgets'
         ret['container'] = ':/designer/frame.png'
         ret['container'] = False
@@ -80,9 +82,10 @@ class DeviceEvents(TaurusWidget):
 
 def main():
     app = Qt.QApplication(sys.argv)
-    w = DeviceEvents()
-    if len(sys.argv) > 1:
-        w.setModel(sys.argv[1])
+    w = DevicesEvents()
+    if len(sys.argv) == 6:
+        print("> %s" % sys.argv)
+        w.setModel(sys.argv[1:])
     w.show()
     sys.exit(app.exec_())
 
