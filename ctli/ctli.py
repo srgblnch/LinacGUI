@@ -1832,7 +1832,7 @@ class OperationModeManager(TaurusBaseComponent, Qt.QObject):
             self._mainscreen_ui.tbNumberSetpoint.setEnabled(True)
 
 # This is a copy from fsotrGUI ---
-from PyQt4 import QtCore
+from taurus.qt import QtCore
 import traceback
 import getpass
 import socket
