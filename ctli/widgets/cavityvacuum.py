@@ -22,7 +22,7 @@ __license__ = "GPLv3+"
 
 import os
 import sys
-import PyQt4.Qt as Qt
+from taurus.qt import Qt
 from taurus.qt.qtgui.panel import TaurusWidget
 from taurus.qt.qtgui.util.ui import UILoadable
 import traceback
