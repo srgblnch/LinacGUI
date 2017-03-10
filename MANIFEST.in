@@ -1,3 +1,4 @@
 include ctli/jdraw/*.png
 include ctli/widgets/*.py
 include ctli/widgets/ui/*.ui 
+include distribute/*.desktop
