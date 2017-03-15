@@ -155,37 +155,37 @@
   <customwidget>
    <class>electronGunSnapshot</class>
    <extends>TaurusWidget</extends>
-   <header>electrongunsnapshot</header>
+   <header>ctli</header>
   </customwidget>
   <customwidget>
    <class>klystronSnapshot</class>
    <extends>TaurusWidget</extends>
-   <header>klystronsnapshot</header>
+   <header>ctli</header>
   </customwidget>
   <customwidget>
    <class>timingSnapshot</class>
    <extends>TaurusWidget</extends>
-   <header>timingsnapshot</header>
+   <header>ctli</header>
   </customwidget>
   <customwidget>
    <class>evrSnapshot</class>
    <extends>TaurusWidget</extends>
-   <header>evrsnapshot</header>
+   <header>ctli</header>
   </customwidget>  
   <customwidget>
    <class>radioFrequencySnapshot</class>
    <extends>TaurusWidget</extends>
-   <header>radiofrequencysnapshot</header>
+   <header>ctli</header>
   </customwidget>
   <customwidget>
    <class>magnetSnapshot</class>
    <extends>TaurusWidget</extends>
-   <header>magnetsnapshot</header>
+   <header>ctli</header>
   </customwidget>
   <customwidget>
    <class>coolingLoopSnapshot</class>
    <extends>TaurusWidget</extends>
-   <header>coolingloopsnapshot</header>
+   <header>ctli</header>
   </customwidget>
   <customwidget>
    <class>TaurusWidget</class>
@@ -196,7 +196,7 @@
   <customwidget>
    <class>vacuumValveSnapshot</class>
    <extends>TaurusWidget</extends>
-   <header>vacuumvalvesnapshot</header>
+   <header>ctli</header>
   </customwidget>
  </customwidgets>
  <resources/>

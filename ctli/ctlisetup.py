@@ -28,18 +28,22 @@ import traceback
 
 # The widgets are stored in a subdirectory and
 # needs to be added to the pythonpath
-linacWidgetsPath = os.environ['PWD']+'/widgets'
-if linacWidgetsPath not in sys.path:
-    sys.path.append(linacWidgetsPath)
+# linacWidgetsPath = os.environ['PWD']+'/widgets'
+# if linacWidgetsPath not in sys.path:
+#     sys.path.append(linacWidgetsPath)
 
 from taurus.core.util import argparse
 from taurus.qt import Qt, QtGui
 from taurus.qt.qtgui.application import TaurusApplication
-from taurus.qt.qtgui.panel import TaurusWidget
+from taurus.qt.qtgui.container import TaurusWidget
 from taurus.qt.qtgui.util.ui import UILoadable
 
-
-import ctliaux
+from .ctliaux import _setupLed4UnknownAttr, _setupLed4Attr
+from .ctliaux import _setupCheckbox4UnknownAttr, _setupCheckbox4Attr
+from .ctliaux import _setupSpinBox4Attr
+from .ctliaux import _setupTaurusLabel4Attr
+from .ctliaux import _setupCombobox4Attr
+from .ctliaux import _setupActionWidget
 
 import PyTango
 
@@ -112,34 +116,34 @@ class MainWindow(TaurusWidget):
     ######
     # # Auxiliar methods to configure widgets ---
     def _setupLed4UnknownAttr(self, widget):
-        ctliaux._setupLed4UnknownAttr(widget)
+        _setupLed4UnknownAttr(widget)
 
     def _setupLed4Attr(self, widget, attrName, inverted=False,
                        onColor='green', offColor='red', pattern='on'):
-        ctliaux._setupLed4Attr(widget, attrName, inverted, onColor,
+        _setupLed4Attr(widget, attrName, inverted, onColor,
                                offColor, pattern)
 
     def _setupCheckbox4UnknownAttr(self, widget):
-        ctliaux._setupCheckbox4UnknownAttr(widget)
+        _setupCheckbox4UnknownAttr(widget)
 
     def _setupCheckbox4Attr(self, widget, attrName,
                             isRst=False, DangerMsg='',
                             riseEdge=False, fallingEdge=False):
-        ctliaux._setupCheckbox4Attr(widget, attrName,
+        _setupCheckbox4Attr(widget, attrName,
                                     isRst, DangerMsg, riseEdge, fallingEdge)
 
     def _setupSpinBox4Attr(self, widget, attrName, step=None):
-        ctliaux._setupSpinBox4Attr(widget, attrName, step)
+        _setupSpinBox4Attr(widget, attrName, step)
 
     def _setupTaurusLabel4Attr(self, widget, attrName, unit=None):
-        ctliaux._setupTaurusLabel4Attr(widget, attrName, unit)
+        _setupTaurusLabel4Attr(widget, attrName, unit)
 
     def _setupCombobox4Attr(self, widget, attrName, valueNames=None):
-        ctliaux._setupCombobox4Attr(self, widget, attrName, valueNames)
+        _setupCombobox4Attr(self, widget, attrName, valueNames)
 
     def _setupActionWidget(self, widget, attrName, text='on/off', isRst=False,
                            DangerMsg='', riseEdge=False, fallingEdge=False):
-        ctliaux._setupActionWidget(widget, attrName, text, isRst,
+        _setupActionWidget(widget, attrName, text, isRst,
                                    DangerMsg, riseEdge, fallingEdge)
 
     def _setupQSpinBox(self, widget, minVal=0, maxVal=99, decimals=2, step=1):

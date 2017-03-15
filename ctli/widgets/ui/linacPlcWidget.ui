@@ -354,12 +354,12 @@
   <customwidget>
    <class>LinacValueCheckBox</class>
    <extends>QCheckBox</extends>
-   <header>linacvaluecheckbox</header>
+   <header>ctli</header>
   </customwidget>
   <customwidget>
    <class>LinacLed</class>
    <extends>TaurusLed</extends>
-   <header>linacled</header>
+   <header>ctli</header>
   </customwidget>
   <customwidget>
    <class>QLed</class>

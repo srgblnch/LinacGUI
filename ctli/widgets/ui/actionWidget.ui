@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>actionForm</class>
- <widget class="TaurusWidget" name="actionForm">
+ <class>ActionForm</class>
+ <widget class="TaurusWidget" name="ActionForm">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -111,12 +111,12 @@
   <customwidget>
    <class>LinacValueCheckBox</class>
    <extends>QCheckBox</extends>
-   <header>linacvaluecheckbox</header>
+   <header>ctli</header>
   </customwidget>
   <customwidget>
    <class>LinacLed</class>
    <extends>TaurusLed</extends>
-   <header>linacled</header>
+   <header>ctli</header>
   </customwidget>
   <customwidget>
    <class>QLed</class>

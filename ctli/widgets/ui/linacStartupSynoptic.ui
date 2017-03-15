@@ -1936,7 +1936,7 @@
     <bool>true</bool>
    </property>
   </widget>
-  <widget class="actionForm" name="klystron1On">
+  <widget class="ActionForm" name="klystron1On">
    <property name="geometry">
     <rect>
      <x>717</x>
@@ -1946,7 +1946,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="actionForm" name="klystron1Rst">
+  <widget class="ActionForm" name="klystron1Rst">
    <property name="geometry">
     <rect>
      <x>717</x>
@@ -1956,7 +1956,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="actionForm" name="klystron2On">
+  <widget class="ActionForm" name="klystron2On">
    <property name="geometry">
     <rect>
      <x>1006</x>
@@ -1966,7 +1966,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="actionForm" name="klystron2Rst">
+  <widget class="ActionForm" name="klystron2Rst">
    <property name="geometry">
     <rect>
      <x>1006</x>
@@ -1976,7 +1976,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="actionForm" name="coolingLoop1On">
+  <widget class="ActionForm" name="coolingLoop1On">
    <property name="geometry">
     <rect>
      <x>416</x>
@@ -1986,7 +1986,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="actionForm" name="coolingLoop2On">
+  <widget class="ActionForm" name="coolingLoop2On">
    <property name="geometry">
     <rect>
      <x>629</x>
@@ -1996,7 +1996,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="actionForm" name="coolingLoop3On">
+  <widget class="ActionForm" name="coolingLoop3On">
    <property name="geometry">
     <rect>
      <x>916</x>
@@ -2006,7 +2006,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="actionForm" name="eGunOn">
+  <widget class="ActionForm" name="eGunOn">
    <property name="geometry">
     <rect>
      <x>15</x>
@@ -2016,7 +2016,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="actionForm" name="vvRst">
+  <widget class="ActionForm" name="vvRst">
    <property name="geometry">
     <rect>
      <x>0</x>
@@ -2026,7 +2026,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="actionForm" name="vvOn">
+  <widget class="ActionForm" name="vvOn">
    <property name="geometry">
     <rect>
      <x>70</x>
@@ -2036,7 +2036,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="actionForm" name="vacuumValve1On">
+  <widget class="ActionForm" name="vacuumValve1On">
    <property name="geometry">
     <rect>
      <x>170</x>
@@ -2046,7 +2046,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="actionForm" name="vacuumValve2On">
+  <widget class="ActionForm" name="vacuumValve2On">
    <property name="geometry">
     <rect>
      <x>529</x>
@@ -2056,7 +2056,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="actionForm" name="vacuumValve3On">
+  <widget class="ActionForm" name="vacuumValve3On">
    <property name="geometry">
     <rect>
      <x>650</x>
@@ -2066,7 +2066,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="actionForm" name="vacuumValve4On">
+  <widget class="ActionForm" name="vacuumValve4On">
    <property name="geometry">
     <rect>
      <x>783</x>
@@ -2076,7 +2076,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="actionForm" name="vacuumValve5On">
+  <widget class="ActionForm" name="vacuumValve5On">
    <property name="geometry">
     <rect>
      <x>938</x>
@@ -2086,7 +2086,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="actionForm" name="vacuumValve6On">
+  <widget class="ActionForm" name="vacuumValve6On">
    <property name="geometry">
     <rect>
      <x>1070</x>
@@ -2096,7 +2096,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="actionForm" name="vacuumValve7On">
+  <widget class="ActionForm" name="vacuumValve7On">
    <property name="geometry">
     <rect>
      <x>1180</x>
@@ -2106,7 +2106,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="actionForm" name="iuRst">
+  <widget class="ActionForm" name="iuRst">
    <property name="geometry">
     <rect>
      <x>20</x>
@@ -2415,24 +2415,24 @@
   <customwidget>
    <class>klystron2itck</class>
    <extends>TaurusWidget</extends>
-   <header>klystron2itck</header>
+   <header>ctli</header>
    <container>1</container>
   </customwidget>
   <customwidget>
    <class>eGunLV</class>
    <extends>TaurusWidget</extends>
-   <header>egunlv</header>
+   <header>ctli</header>
    <container>1</container>
   </customwidget>
   <customwidget>
-   <class>actionForm</class>
+   <class>ActionForm</class>
    <extends>TaurusWidget</extends>
-   <header>actionform</header>
+   <header>ctli</header>
   </customwidget>
   <customwidget>
    <class>LinacLed</class>
    <extends>TaurusLed</extends>
-   <header>linacled</header>
+   <header>ctli</header>
   </customwidget>
   <customwidget>
    <class>QLed</class>
@@ -2447,13 +2447,13 @@
   <customwidget>
    <class>CoolingLoop</class>
    <extends>TaurusWidget</extends>
-   <header>coolingloop</header>
+   <header>ctli</header>
    <container>1</container>
   </customwidget>
   <customwidget>
    <class>klystron1itck</class>
    <extends>TaurusWidget</extends>
-   <header>klystron1itck</header>
+   <header>ctli</header>
    <container>1</container>
   </customwidget>
   <customwidget>
@@ -2475,7 +2475,7 @@
   <customwidget>
    <class>klystronLV</class>
    <extends>TaurusWidget</extends>
-   <header>klystronlv</header>
+   <header>ctli</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

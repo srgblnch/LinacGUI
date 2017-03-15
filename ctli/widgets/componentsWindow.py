@@ -20,8 +20,9 @@ __author__ = "Sergi Blanch-Torne"
 __copyright__ = "Copyright 2015, CELLS / ALBA Synchrotron"
 __license__ = "GPLv3+"
 
-from ctliaux import defaultConfigurations
-from ctlienums import doSave
+
+from ..ctliaux import defaultConfigurations
+from ..ctlienums import doSave
 import os
 from taurus.external.qt import QtGui, Qt
 from taurus.qt.qtgui.container import TaurusWidget

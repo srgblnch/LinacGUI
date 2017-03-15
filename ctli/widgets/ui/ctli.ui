@@ -342,25 +342,25 @@
   <customwidget>
    <class>linacStartupSynoptic</class>
    <extends>TaurusWidget</extends>
-   <header>linacstartupsynoptic</header>
+   <header>ctli</header>
    <container>1</container>
   </customwidget>
   <customwidget>
    <class>linacOverview</class>
    <extends>TaurusWidget</extends>
-   <header>linacoverview</header>
+   <header>ctli</header>
    <container>1</container>
   </customwidget>
   <customwidget>
    <class>linacPlcWidget</class>
    <extends>TaurusWidget</extends>
-   <header>linacplcwidget</header>
+   <header>ctli</header>
    <container>1</container>
   </customwidget>
   <customwidget>
    <class>linacMainscreenSynoptic</class>
    <extends>TaurusWidget</extends>
-   <header>linacmainscreensynoptic</header>
+   <header>ctli</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

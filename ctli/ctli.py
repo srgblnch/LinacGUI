@@ -27,9 +27,9 @@ import sys
 
 # The widgets are stored in a subdirectory and needs to be added to the
 # pythonpath
-linacWidgetsPath = os.environ['PWD']+'/widgets'
-if linacWidgetsPath not in sys.path:
-    sys.path.append(linacWidgetsPath)
+# linacWidgetsPath = os.environ['PWD']+'/widgets'
+# if linacWidgetsPath not in sys.path:
+#     sys.path.append(linacWidgetsPath)
 
 from taurus.core.util import argparse
 from taurus.core.util.log import LogExceptHook, Logger
@@ -38,23 +38,30 @@ from taurus.qt.qtgui.application import TaurusApplication
 from taurus.qt.qtgui.base import TaurusBaseComponent
 from taurus.qt.qtgui.container import TaurusMainWindow
 from taurus.qt.qtgui.display import TaurusLed
-from taurus.qt.qtgui.panel import TaurusWidget
+from taurus.qt.qtgui.container import TaurusWidget
 from taurus.qt.qtgui.plot import TaurusPlot
 from taurus.qt.qtgui.util import ExternalAppAction
 from taurus.qt.qtgui.util.ui import UILoadable
 from taurus.qt.qtgui.table import TaurusValuesTable
+from taurus import Release as taurusRelease
 try:
     from taurus.external.qt import Qwt5
 except:
     from taurus.qt import Qwt5
 
-from attrautostopper import AttrAutostopper
-from attrramps import AttrRamps
-from componentsWindow import CompomentsWindow
-from devicesevents import DevicesEvents
-from evr300 import EVR300
+from .widgets.attrautostopper import AttrAutostopper
+from .widgets.attrramps import AttrRamps
+from .widgets.componentsWindow import CompomentsWindow
+from .widgets.devicesevents import DevicesEvents
+from .widgets.evr300 import EVR300
 
-import ctliaux
+from .ctliaux import _setupLed4UnknownAttr, _setupLed4Attr
+from .ctliaux import _setupCheckbox4UnknownAttr, _setupCheckbox4Attr
+from .ctliaux import _setupSpinBox4Attr
+from .ctliaux import _setupTaurusLabel4Attr
+from .ctliaux import _setupCombobox4Attr
+from .ctliaux import _setupActionWidget
+from .ctliaux import defaultPreconfTrends, VERSION, prepareToLog
 
 import subprocess
 import threading
@@ -75,6 +82,7 @@ class LinacMainWindow(TaurusMainWindow, TaurusWidget):
         except:
             self.__name = "LinacMainWindow"
         super(LinacMainWindow, self).__init__(parent, designMode=designMode)
+        self.info("Using taurus %s" % (taurusRelease.version))
         # setup main window
         self._loadUI()
         # place the ui in the window
@@ -92,11 +100,13 @@ class LinacMainWindow(TaurusMainWindow, TaurusWidget):
             basePath = os.path.dirname(__file__)
             if len(basePath) == 0:
                 basePath = '.'
-            self.loadUi(filename="ctli.ui", path=basePath+"/widgets/ui")
+            filename = "ctli.ui"
+            path = basePath+"/widgets/ui"
+            self.loadUi(filename, path)
         except Exception as e:
-            self.warning("[%s]__init__(): Widget exception! %s"
-                         % (self.__name, e))
-            traceback.print_exc()
+            self.warning("[%s]__init__(): Widget (%s, %s) exception! %s"
+                         % (self.__name, filename, path, e))
+            #traceback.print_exc()
             self.traceback()
             raise e
 
@@ -173,32 +183,32 @@ class LinacMainWindow(TaurusMainWindow, TaurusWidget):
     ######
     # Auxiliar methods to configure widgets ---
     def _setupLed4UnknownAttr(self, widget):
-        ctliaux._setupLed4UnknownAttr(widget)
+        _setupLed4UnknownAttr(widget)
 #        widget.setLedPatternName(":leds/images256/led_{color}_{status}.png")
 #        widget.setOnColor('green')
 #        widget.setOffColor('white')
 
     def _setupLed4Attr(self, widget, attrName, inverted=False, onColor='green',
                        offColor='red', pattern='on', blinkOnChange=None):
-        ctliaux._setupLed4Attr(widget, attrName, inverted, onColor, offColor,
+        _setupLed4Attr(widget, attrName, inverted, onColor, offColor,
                                pattern, blinkOnChange)
 
     def _setupCheckbox4UnknownAttr(self, widget):
-        ctliaux._setupCheckbox4UnknownAttr(widget)
+        _setupCheckbox4UnknownAttr(widget)
 
     def _setupCheckbox4Attr(self, widget, attrName, isRst=False, DangerMsg='',
                             riseEdge=False, fallingEdge=False):
-        ctliaux._setupCheckbox4Attr(widget, attrName, isRst, DangerMsg,
+        _setupCheckbox4Attr(widget, attrName, isRst, DangerMsg,
                                     riseEdge, fallingEdge)
 
     def _setupSpinBox4Attr(self, widget, attrName, step=None):
-        ctliaux._setupSpinBox4Attr(widget, attrName, step)
+        _setupSpinBox4Attr(widget, attrName, step)
 
     def _setupTaurusLabel4Attr(self, widget, attrName, unit=None):
-        ctliaux._setupTaurusLabel4Attr(widget, attrName, unit)
+        _setupTaurusLabel4Attr(widget, attrName, unit)
 
     def _setupCombobox4Attr(self, widget, attrName, valueNames=None):
-        ctliaux._setupCombobox4Attr(widget, attrName, valueNames)
+        _setupCombobox4Attr(widget, attrName, valueNames)
 
     def _setupActionWidget(self, widget, attrName, text='on/off',
                            isRst=False, isValve=False, isLight=False,
@@ -217,7 +227,7 @@ class LinacMainWindow(TaurusMainWindow, TaurusWidget):
         # This is because in Alba's qt version the text is very close to the
         # checkbox, but in newer ones the distance is bigger and this doesn't
         # allow to see the '!' when pending operations.
-        ctliaux._setupActionWidget(widget, attrName, text, isRst, isValve,
+        _setupActionWidget(widget, attrName, text, isRst, isValve,
                                    isLight, DangerMsg, riseEdge, fallingEdge)
         if isRst:
             try:
@@ -1588,7 +1598,7 @@ class LinacMainWindow(TaurusMainWindow, TaurusWidget):
         filters = "Taurustrend preconfig (*.pck);;All files (*)"
         fileName = \
             QtGui.QFileDialog.getOpenFileName(self, dialogTitle,
-                                              ctliaux.defaultPreconfTrends,
+                                              defaultPreconfTrends,
                                               filters)
         return str(fileName)
 
@@ -1943,10 +1953,10 @@ def build_application():
     parser = argparse.get_taurus_parser()
     APPNAME = 'ctli'
     app = TaurusApplication(sys.argv, cmd_line_parser=parser,
-                            app_name=APPNAME, app_version=ctliaux.VERSION,
+                            app_name=APPNAME, app_version=VERSION,
                             org_domain='ALBA', org_name='ALBA')
     options = app.get_command_line_options()
-    ctliaux.prepareToLog(app, APPNAME)
+    prepareToLog(app, APPNAME)
     return app
 
 
@@ -1966,7 +1976,7 @@ def refreshButton(w):
 def main():
     app = build_application()
     ui = build_ui()
-    refreshButton(ui)
+    # refreshButton(ui)
     app.setStyleSheet("QStatusBar::item { border: 0px solid black }; ")
     ui.show()
     sys.exit(app.exec_())

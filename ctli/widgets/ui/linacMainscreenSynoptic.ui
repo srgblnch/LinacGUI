@@ -1418,7 +1418,7 @@
     <bool>true</bool>
    </property>
   </widget>
-  <widget class="beamChargeMonitors" name="beamChargeMonitors">
+  <widget class="BeamChargeMonitors" name="beamChargeMonitors">
    <property name="geometry">
     <rect>
      <x>1120</x>
@@ -1464,7 +1464,7 @@
     </item>
    </layout>
   </widget>
-  <widget class="actionForm" name="klystron1On">
+  <widget class="ActionForm" name="klystron1On">
    <property name="geometry">
     <rect>
      <x>800</x>
@@ -1474,7 +1474,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="actionForm" name="klystron1Rst">
+  <widget class="ActionForm" name="klystron1Rst">
    <property name="geometry">
     <rect>
      <x>800</x>
@@ -1484,7 +1484,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="actionForm" name="klystron2On">
+  <widget class="ActionForm" name="klystron2On">
    <property name="geometry">
     <rect>
      <x>1090</x>
@@ -1494,7 +1494,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="actionForm" name="klystron2Rst">
+  <widget class="ActionForm" name="klystron2Rst">
    <property name="geometry">
     <rect>
      <x>1090</x>
@@ -1504,7 +1504,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="actionForm" name="hvsOn">
+  <widget class="ActionForm" name="hvsOn">
    <property name="geometry">
     <rect>
      <x>42</x>
@@ -1514,7 +1514,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="actionForm" name="magnetsRst">
+  <widget class="ActionForm" name="magnetsRst">
    <property name="geometry">
     <rect>
      <x>12</x>
@@ -1524,7 +1524,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="actionForm" name="magnetsOn">
+  <widget class="ActionForm" name="magnetsOn">
    <property name="geometry">
     <rect>
      <x>77</x>
@@ -1534,7 +1534,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="actionForm" name="vcvOn">
+  <widget class="ActionForm" name="vcvOn">
    <property name="geometry">
     <rect>
      <x>170</x>
@@ -1544,7 +1544,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="actionForm" name="sl2On">
+  <widget class="ActionForm" name="sl2On">
    <property name="geometry">
     <rect>
      <x>218</x>
@@ -1554,7 +1554,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="actionForm" name="sl1On">
+  <widget class="ActionForm" name="sl1On">
    <property name="geometry">
     <rect>
      <x>135</x>
@@ -1564,7 +1564,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="actionForm" name="sl3On">
+  <widget class="ActionForm" name="sl3On">
    <property name="geometry">
     <rect>
      <x>285</x>
@@ -1574,7 +1574,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="actionForm" name="sl4On">
+  <widget class="ActionForm" name="sl4On">
    <property name="geometry">
     <rect>
      <x>350</x>
@@ -1584,7 +1584,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="actionForm" name="bc1On">
+  <widget class="ActionForm" name="bc1On">
    <property name="geometry">
     <rect>
      <x>425</x>
@@ -1594,7 +1594,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="actionForm" name="bc2On">
+  <widget class="ActionForm" name="bc2On">
    <property name="geometry">
     <rect>
      <x>500</x>
@@ -1604,7 +1604,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="actionForm" name="glOn">
+  <widget class="ActionForm" name="glOn">
    <property name="geometry">
     <rect>
      <x>618</x>
@@ -1614,7 +1614,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="actionForm" name="as1On">
+  <widget class="ActionForm" name="as1On">
    <property name="geometry">
     <rect>
      <x>721</x>
@@ -1624,7 +1624,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="actionForm" name="qtOn">
+  <widget class="ActionForm" name="qtOn">
    <property name="geometry">
     <rect>
      <x>873</x>
@@ -1634,7 +1634,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="actionForm" name="as2On">
+  <widget class="ActionForm" name="as2On">
    <property name="geometry">
     <rect>
      <x>1008</x>
@@ -1985,7 +1985,7 @@
    </property>
    <layout class="QGridLayout" name="fluorescentScreen1Layout">
     <item row="0" column="0" rowspan="2">
-     <widget class="actionForm" name="fluorescentScreen1Valve">
+     <widget class="ActionForm" name="fluorescentScreen1Valve">
       <property name="minimumSize">
        <size>
         <width>65</width>
@@ -2005,7 +2005,7 @@
      </widget>
     </item>
     <item row="0" column="2" rowspan="2">
-     <widget class="actionForm" name="fluorescentScreen1Light">
+     <widget class="ActionForm" name="fluorescentScreen1Light">
       <property name="minimumSize">
        <size>
         <width>65</width>
@@ -2040,7 +2040,7 @@
    </property>
    <layout class="QGridLayout" name="fluorescentScreen2Layout">
     <item row="0" column="0" rowspan="2">
-     <widget class="actionForm" name="fluorescentScreen2Valve">
+     <widget class="ActionForm" name="fluorescentScreen2Valve">
       <property name="minimumSize">
        <size>
         <width>65</width>
@@ -2060,7 +2060,7 @@
      </widget>
     </item>
     <item row="0" column="2" rowspan="2">
-     <widget class="actionForm" name="fluorescentScreen2Light">
+     <widget class="ActionForm" name="fluorescentScreen2Light">
       <property name="minimumSize">
        <size>
         <width>65</width>
@@ -2095,7 +2095,7 @@
    </property>
    <layout class="QGridLayout" name="fluorescentScreen3Layout">
     <item row="0" column="0" rowspan="2">
-     <widget class="actionForm" name="fluorescentScreen3Valve">
+     <widget class="ActionForm" name="fluorescentScreen3Valve">
       <property name="minimumSize">
        <size>
         <width>65</width>
@@ -2115,7 +2115,7 @@
      </widget>
     </item>
     <item row="0" column="2" rowspan="2">
-     <widget class="actionForm" name="fluorescentScreen3Light">
+     <widget class="ActionForm" name="fluorescentScreen3Light">
       <property name="minimumSize">
        <size>
         <width>65</width>
@@ -2876,30 +2876,30 @@
   <customwidget>
    <class>klystronHV</class>
    <extends>TaurusWidget</extends>
-   <header>klystronhv</header>
+   <header>ctli</header>
    <container>1</container>
   </customwidget>
   <customwidget>
    <class>phaseShifter</class>
    <extends>TaurusWidget</extends>
-   <header>phaseshifter</header>
+   <header>ctli</header>
    <container>1</container>
   </customwidget>
   <customwidget>
    <class>Attenuator</class>
    <extends>TaurusWidget</extends>
-   <header>attenuator</header>
+   <header>ctli</header>
    <container>1</container>
   </customwidget>
   <customwidget>
    <class>LinacValueCheckBox</class>
    <extends>QCheckBox</extends>
-   <header>linacvaluecheckbox</header>
+   <header>ctli</header>
   </customwidget>
   <customwidget>
-   <class>actionForm</class>
+   <class>ActionForm</class>
    <extends>TaurusWidget</extends>
-   <header>actionform</header>
+   <header>ctli</header>
   </customwidget>
   <customwidget>
    <class>TaurusValueComboBox</class>
@@ -2909,7 +2909,7 @@
   <customwidget>
    <class>LinacLed</class>
    <extends>TaurusLed</extends>
-   <header>linacled</header>
+   <header>ctli</header>
   </customwidget>
   <customwidget>
    <class>QLed</class>
@@ -2924,13 +2924,13 @@
   <customwidget>
    <class>eGunHV</class>
    <extends>TaurusWidget</extends>
-   <header>egunhv</header>
+   <header>ctli</header>
    <container>1</container>
   </customwidget>
   <customwidget>
-   <class>beamChargeMonitors</class>
+   <class>BeamChargeMonitors</class>
    <extends>TaurusWidget</extends>
-   <header>beamchargemonitors</header>
+   <header>ctli</header>
   </customwidget>
   <customwidget>
    <class>TaurusValueSpinBox</class>
@@ -2951,13 +2951,13 @@
   <customwidget>
    <class>magnet</class>
    <extends>TaurusWidget</extends>
-   <header>magnet</header>
+   <header>ctli</header>
    <container>1</container>
   </customwidget>
   <customwidget>
    <class>CavityVacuum</class>
    <extends>TaurusWidget</extends>
-   <header>cavityvacuum</header>
+   <header>ctli</header>
   </customwidget>
  </customwidgets>
  <resources/>

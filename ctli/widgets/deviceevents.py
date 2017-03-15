@@ -23,7 +23,7 @@ __license__ = "GPLv3+"
 import os
 import sys
 from taurus.external.qt import Qt, Qwt5
-from taurus.qt.qtgui.panel import TaurusWidget
+from taurus.qt.qtgui.container import TaurusWidget
 from taurus.qt.qtgui.util.ui import UILoadable
 import traceback
 

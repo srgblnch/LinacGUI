@@ -25,7 +25,7 @@ import os
 from socket import gethostname
 from getpass import getuser
 from taurus import setLogLevel, Trace, Info
-from ctliversion import version
+from .ctliversion import version
 
 VERSION = "%s" % (version())
 

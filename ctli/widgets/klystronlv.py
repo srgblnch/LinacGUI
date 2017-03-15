@@ -22,7 +22,7 @@ __license__ = "GPLv3+"
 
 import os
 from taurus.qt import Qt
-from taurus.qt.qtgui.panel import TaurusWidget
+from taurus.qt.qtgui.container import TaurusWidget
 from taurus.qt.qtgui.util.ui import UILoadable
 import traceback
 
@@ -48,6 +48,7 @@ class klystronLV(TaurusWidget):
                          % (self.__name, e))
             traceback.print_exc()
             self.traceback()
+            raise e
 
     @classmethod
     def getQtDesignerPluginInfo(cls):

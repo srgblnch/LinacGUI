@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>beamChargeMonitors</class>
- <widget class="TaurusWidget" name="beamChargeMonitors">
+ <class>BeamChargeMonitors</class>
+ <widget class="TaurusWidget" name="BeamChargeMonitors">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -18,7 +18,7 @@
     <number>1</number>
    </property>
    <item row="0" column="0">
-    <widget class="TaurusGroupBox" name="beamChargeMonitorsGroup">
+    <widget class="TaurusGroupBox" name="BeamChargeMonitorsGroup">
      <property name="title">
       <string>Beam Charge Monitors</string>
      </property>

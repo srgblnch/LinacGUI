@@ -20,4 +20,5 @@ __author__ = "Sergi Blanch-Torne"
 __copyright__ = "Copyright 2015, CELLS / ALBA Synchrotron"
 __license__ = "GPLv3+"
 
-from ctliversion import version
+from .ctliversion import version
+from .widgets import *

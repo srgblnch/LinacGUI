@@ -51,7 +51,7 @@
   <customwidget>
    <class>DeviceEvents</class>
    <extends>TaurusWidget</extends>
-   <header>deviceevents</header>
+   <header>ctli</header>
   </customwidget>
   <customwidget>
    <class>TaurusWidget</class>

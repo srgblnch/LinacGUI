@@ -22,19 +22,19 @@ __license__ = "GPLv3+"
 
 import os
 from taurus.qt import Qt
-from taurus.qt.qtgui.panel import TaurusWidget
+from taurus.qt.qtgui.container import TaurusWidget
 from taurus.qt.qtgui.util.ui import UILoadable
 import traceback
 
 
 @UILoadable(with_ui="_ui")
-class actionForm(TaurusWidget):
+class ActionForm(TaurusWidget):
     def __init__(self, parent=None, name=None, designMode=False):
         try:
             self.__name = name.__name__
         except:
-            self.__name = "actionForm"
-        super(actionForm, self).__init__(parent, designMode=designMode)
+            self.__name = "ActionForm"
+        super(ActionForm, self).__init__(parent, designMode=designMode)
         try:
             self.debug("[%s]__init__()" % (self.__name))
             basePath = os.path.dirname(__file__)
@@ -60,7 +60,7 @@ class actionForm(TaurusWidget):
 
 def main():
     app = Qt.QApplication(sys.argv)
-    w = actionForm()
+    w = ActionForm()
     w.show()
     sys.exit(app.exec_())
 

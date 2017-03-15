@@ -23,16 +23,16 @@ __license__ = "GPLv3+"
 import os
 import sys
 from taurus.external.qt import Qt
-from taurus.qt.qtgui.panel import TaurusWidget
+from taurus.qt.qtgui.container import TaurusWidget
 from taurus.qt.qtgui.util.ui import UILoadable
 import traceback
 
 
 # The widgets are stored in a subdirectory and needs to be added to the
 # pythonpath
-linacWidgetsPath = os.environ['PWD']
-if linacWidgetsPath not in sys.path:
-    sys.path.append(linacWidgetsPath)
+# linacWidgetsPath = os.environ['PWD']
+# if linacWidgetsPath not in sys.path:
+#     sys.path.append(linacWidgetsPath)
 
 
 @UILoadable(with_ui="_ui")
