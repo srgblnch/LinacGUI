@@ -6,5 +6,6 @@ Comment=Opens linac's controls graphical interface
 Exec=ctli
 Icon=albact-li
 Terminal=false
-Categories=X-albact;X-albact;
+Categories=Graphics;
+Keywords=X-albact;
 StartupNotify=true

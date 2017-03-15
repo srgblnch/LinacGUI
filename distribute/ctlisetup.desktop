@@ -6,5 +6,6 @@ Comment=Opens linac's save and retrieve settings graphical interface
 Exec=ctlisetup
 Icon=albact-li
 Terminal=false
-Categories=X-albact;X-albact;
+Categories=Graphics;
+Keywords=X-albact;
 StartupNotify=true
