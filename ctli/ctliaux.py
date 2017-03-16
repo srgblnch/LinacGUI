@@ -93,8 +93,17 @@ def _setupSpinBox4Attr(widget, attrName, step=None):
 
 def _setupTaurusLabel4Attr(widget, attrName, unit=None):
     widget.setModel(attrName)
-    if unit:
-        widget.setSuffixText(' %s' % (unit))
+#     if unit:
+#         widget.setSuffixText(' %s' % (unit))
+    try:
+        attrModelObj = widget.getModelObj()
+        if attrModelObj.rvalue.u != unit:
+            widget.info("%s unit %r != %r" % (attrName, unit, attrModelObj.rvalue.u))
+        else:
+            widget.info("%s doesn't support unit key: %s"
+                        % (attrName, attrModelObj.__dict__.keys()))
+    except Exception as e:
+        widget.error("With %s, exception: %s" % (attrName, e))
 
 
 def _setupCombobox4Attr(widget, attrName, valueNames=None):
