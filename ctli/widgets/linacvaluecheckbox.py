@@ -45,13 +45,13 @@ class LinacValueCheckBox(Qt.QCheckBox, TaurusBaseWritableWidget):
             self.setObjectName(name)
             self.updateStyle()
             self.connect(self, Qt.SIGNAL('stateChanged(int)'),
-                         self.valueChanged)
+                         self.notifyValueChanged)
             # End the copy of the TaurusValueCheckBox constructor
             self._dangerRiseEdge = False
             self._dangerFallingEdge = False
             self._isResetCheckBox = False
             # The superclass connect the event 'stateChanged(int)' with
-            # the method valueChanged.
+            # the method notifyValueChanged.
         except Exception as e:
             self.error("Uou! Exception: %s" % (e))
             raise Exception(e)
@@ -116,7 +116,7 @@ class LinacValueCheckBox(Qt.QCheckBox, TaurusBaseWritableWidget):
         # self.setValue(self.getValue())
         #  or
         # self.setValue(not self.getValue())
-        # self.valueChanged()
+        # self.notifyValueChanged()
 
     def getDangerRiseEdge(self):
         return self._dangerRiseEdge
@@ -196,21 +196,21 @@ class LinacValueCheckBox(Qt.QCheckBox, TaurusBaseWritableWidget):
 
     # TODO: when a value change is received, the setChecked() must change
     #       the same way
-    def valueChanged(self, *args):
-        self._my_debug("valueChanged(*args=%s) isChecked=%s"
+    def notifyValueChanged(self, *args):
+        self._my_debug("notifyValueChanged(*args=%s) isChecked=%s"
                        % (args, self.isChecked()))
         if not self.isChecked() and self.isResetCheckBox():
             # when it's a reset checkbox, ignore when is unchecked because
             # it is cause by handleEvent() and the write to the attr must be
             # avoided.
             return
-        TaurusBaseWritableWidget.valueChanged(self, *args)
+        TaurusBaseWritableWidget.notifyValueChanged(self, *args)
 
     def handleEvent(self, src, evt_type, evt_value):
-        if hasattr(evt_value, 'value'):
-            self._my_debug("received from %s: %s" % (src, evt_value.value))
+        if hasattr(evt_value, 'rvalue'):
+            self._my_debug("received from %s: %s" % (src, evt_value.rvalue))
             if self.isResetCheckBox():
-                if self.getValue() and not evt_value.value:
+                if self.getValue() and not evt_value.rvalue:
                     self.setValue(False)
 #            else:
 #                self.setChecked(evt_value.w_value)
