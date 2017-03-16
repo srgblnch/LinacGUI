@@ -38,12 +38,19 @@ from taurus.qt.qtgui.application import TaurusApplication
 from taurus.qt.qtgui.container import TaurusWidget
 from taurus.qt.qtgui.util.ui import UILoadable
 
-from .ctliaux import _setupLed4UnknownAttr, _setupLed4Attr
-from .ctliaux import _setupCheckbox4UnknownAttr, _setupCheckbox4Attr
-from .ctliaux import _setupSpinBox4Attr
-from .ctliaux import _setupTaurusLabel4Attr
-from .ctliaux import _setupCombobox4Attr
-from .ctliaux import _setupActionWidget
+from .ctliaux import (VERSION,
+                      _setupLed4UnknownAttr,
+                      _setupLed4Attr,
+                      _setupCheckbox4UnknownAttr,
+                      _setupCheckbox4Attr,
+                      _setupSpinBox4Attr,
+                      _setupTaurusLabel4Attr,
+                      _setupCombobox4Attr,
+                      _setupActionWidget,
+                      prepareToLog,
+                      defaultConfigurations,
+                      commentsfile,
+                      sandbox)
 
 import PyTango
 
@@ -726,8 +733,8 @@ class MainWindow(TaurusWidget):
     def _getStorageDirectory(self):
         directory = str(QtGui.QFileDialog.
                         getExistingDirectory(self, "Select Directory",
-                                             ctliaux.defaultConfigurations))
-        if not directory == '' and not directory.startswith(ctliaux.sandbox):
+                                             defaultConfigurations))
+        if not directory == '' and not directory.startswith(sandbox):
             QtGui.QMessageBox.warning(self, "Sandbox warning",
                                       "Your selected directory is not in the "
                                       "storage shared by NFS")
@@ -771,7 +778,7 @@ class MainWindow(TaurusWidget):
         filters = "Linac configuration (*.li);;All files (*)"
         return str(QtGui.QFileDialog.
                    getOpenFileName(self, dialogTitle,
-                                   ctliaux.defaultConfigurations, filters))
+                                   defaultConfigurations, filters))
 
     def _prepareFileHeader(self, now_struct):
         return "# File stored the %s\n" % (time.strftime("%Y/%m/%d at %H:%m",
@@ -830,8 +837,8 @@ class MainWindow(TaurusWidget):
     ######
     # # Comments region ---
     def _loadPreviousComment(self, ui):
-        if os.path.isfile(ctliaux.commentsfile):
-            with open(ctliaux.commentsfile, 'r') as file:
+        if os.path.isfile(commentsfile):
+            with open(commentsfile, 'r') as file:
                 lines = file.readlines()
                 text = ""
                 for line in lines:
@@ -845,7 +852,7 @@ class MainWindow(TaurusWidget):
         if len(comments) == 0:
             self.warning("No comments to be stored.")
             return None
-        with open(ctliaux.commentsfile, 'w') as file:
+        with open(commentsfile, 'w') as file:
             file.write(comments)
         # the tag #@ is to distinguish it in the file
         comments = "#@ %s" % (comments)
@@ -1125,10 +1132,10 @@ def main():
     parser = argparse.get_taurus_parser()
     APPNAME = 'ctlisetup'
     app = TaurusApplication(sys.argv, cmd_line_parser=parser,
-                            app_name=APPNAME, app_version=ctliaux.VERSION,
+                            app_name=APPNAME, app_version=VERSION,
                             org_domain='ALBA', org_name='ALBA')
     options = app.get_command_line_options()
-    ctliaux.prepareToLog(app, APPNAME)
+    prepareToLog(app, APPNAME)
     ui = MainWindow()
     ui.show()
     sys.exit(app.exec_())
