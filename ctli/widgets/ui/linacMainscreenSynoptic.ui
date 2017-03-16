@@ -965,7 +965,7 @@
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap>jdraw/linac_mainscreen_synoptic.png</pixmap>
+    <pixmap>../../jdraw/linac_mainscreen_synoptic.png</pixmap>
    </property>
   </widget>
   <widget class="QToolButton" name="klystron1HVPopupCheck">
@@ -1278,7 +1278,7 @@
     </item>
     <item row="1" column="1">
      <widget class="LinacValueCheckBox" name="tbMultiBunchCheck">
-      <property name="showText">
+      <property name="showText" stdset="0">
        <bool>false</bool>
       </property>
      </widget>
@@ -2353,7 +2353,7 @@
     <rect>
      <x>170</x>
      <y>40</y>
-     <width>51</width>
+     <width>61</width>
      <height>36</height>
     </rect>
    </property>
@@ -2725,8 +2725,38 @@
     </size>
    </property>
   </widget>
-  <zorder>layoutWidget</zorder>
   <zorder>MainScreenSchematic</zorder>
+  <zorder>qt1fValue</zorder>
+  <zorder>as1hValue</zorder>
+  <zorder>sl2fValue</zorder>
+  <zorder>sl4hValue</zorder>
+  <zorder>qt2fValue</zorder>
+  <zorder>sl3vValue</zorder>
+  <zorder>sl2vValue</zorder>
+  <zorder>sl4vValue</zorder>
+  <zorder>sl4fValue</zorder>
+  <zorder>as2vValue</zorder>
+  <zorder>glvValue</zorder>
+  <zorder>qt1vValue</zorder>
+  <zorder>sl2hValue</zorder>
+  <zorder>as2hValue</zorder>
+  <zorder>bc1fValue</zorder>
+  <zorder>bc2hValue</zorder>
+  <zorder>qt1hValue</zorder>
+  <zorder>sl1vValue</zorder>
+  <zorder>glfValue</zorder>
+  <zorder>glhValue</zorder>
+  <zorder>sl1hValue</zorder>
+  <zorder>sl3hValue</zorder>
+  <zorder>sl3fValue</zorder>
+  <zorder>bc1hValue</zorder>
+  <zorder>bc2vValue</zorder>
+  <zorder>as1vValue</zorder>
+  <zorder>bc2fValue</zorder>
+  <zorder>bc1vValue</zorder>
+  <zorder>sl1fValue</zorder>
+  <zorder>preBuncherVacuumWidget</zorder>
+  <zorder>layoutWidget</zorder>
   <zorder>layoutWidget</zorder>
   <zorder>layoutWidget</zorder>
   <zorder>layoutWidget</zorder>
@@ -2759,7 +2789,6 @@
   <zorder>as2VacuumWidget</zorder>
   <zorder>as1VacuumWidget</zorder>
   <zorder>buncherVacuumWidget</zorder>
-  <zorder>preBuncherVacuumWidget</zorder>
   <zorder>eGunVacuumWidget</zorder>
   <zorder>hvsPopupWidget</zorder>
   <zorder>attenuatorPopupWidget</zorder>
@@ -2773,35 +2802,6 @@
   <zorder>coolingLoop1Led</zorder>
   <zorder>coolingLoop2Led</zorder>
   <zorder>coolingLoop3Led</zorder>
-  <zorder>bc2hValue</zorder>
-  <zorder>bc2vValue</zorder>
-  <zorder>bc2fValue</zorder>
-  <zorder>bc1fValue</zorder>
-  <zorder>bc1vValue</zorder>
-  <zorder>bc1hValue</zorder>
-  <zorder>sl4hValue</zorder>
-  <zorder>sl3hValue</zorder>
-  <zorder>sl2hValue</zorder>
-  <zorder>sl1hValue</zorder>
-  <zorder>sl4vValue</zorder>
-  <zorder>sl4fValue</zorder>
-  <zorder>sl3vValue</zorder>
-  <zorder>sl2vValue</zorder>
-  <zorder>sl1vValue</zorder>
-  <zorder>sl1fValue</zorder>
-  <zorder>sl3fValue</zorder>
-  <zorder>sl2fValue</zorder>
-  <zorder>glhValue</zorder>
-  <zorder>glvValue</zorder>
-  <zorder>glfValue</zorder>
-  <zorder>as1hValue</zorder>
-  <zorder>as1vValue</zorder>
-  <zorder>qt1hValue</zorder>
-  <zorder>qt1vValue</zorder>
-  <zorder>qt1fValue</zorder>
-  <zorder>as2hValue</zorder>
-  <zorder>as2vValue</zorder>
-  <zorder>qt2fValue</zorder>
   <zorder>sl1LedInfo</zorder>
   <zorder>vcvOnLedInfo</zorder>
   <zorder>sl2LedInfo</zorder>
@@ -2874,6 +2874,42 @@
  </widget>
  <customwidgets>
   <customwidget>
+   <class>TaurusWidget</class>
+   <extends>QWidget</extends>
+   <header>taurus.qt.qtgui.container</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>TaurusLabel</class>
+   <extends>QLabel</extends>
+   <header>taurus.qt.qtgui.display</header>
+  </customwidget>
+  <customwidget>
+   <class>TaurusValueSpinBox</class>
+   <extends>QWidget</extends>
+   <header>taurus.qt.qtgui.input</header>
+  </customwidget>
+  <customwidget>
+   <class>TaurusValueComboBox</class>
+   <extends>QComboBox</extends>
+   <header>taurus.qt.qtgui.input</header>
+  </customwidget>
+  <customwidget>
+   <class>TaurusLed</class>
+   <extends>QLed</extends>
+   <header>taurus.qt.qtgui.display</header>
+  </customwidget>
+  <customwidget>
+   <class>QLed</class>
+   <extends>QPixmapWidget</extends>
+   <header>taurus.qt.qtgui.display</header>
+  </customwidget>
+  <customwidget>
+   <class>QPixmapWidget</class>
+   <extends>QWidget</extends>
+   <header>taurus.qt.qtgui.display</header>
+  </customwidget>
+  <customwidget>
    <class>klystronHV</class>
    <extends>TaurusWidget</extends>
    <header>ctli</header>
@@ -2900,26 +2936,12 @@
    <class>ActionForm</class>
    <extends>TaurusWidget</extends>
    <header>ctli</header>
-  </customwidget>
-  <customwidget>
-   <class>TaurusValueComboBox</class>
-   <extends>QComboBox</extends>
-   <header>taurus.qt.qtgui.input</header>
+   <container>1</container>
   </customwidget>
   <customwidget>
    <class>LinacLed</class>
    <extends>TaurusLed</extends>
    <header>ctli</header>
-  </customwidget>
-  <customwidget>
-   <class>QLed</class>
-   <extends>QPixmapWidget</extends>
-   <header>taurus.qt.qtgui.display</header>
-  </customwidget>
-  <customwidget>
-   <class>QPixmapWidget</class>
-   <extends>QWidget</extends>
-   <header>taurus.qt.qtgui.display</header>
   </customwidget>
   <customwidget>
    <class>eGunHV</class>
@@ -2931,22 +2953,7 @@
    <class>BeamChargeMonitors</class>
    <extends>TaurusWidget</extends>
    <header>ctli</header>
-  </customwidget>
-  <customwidget>
-   <class>TaurusValueSpinBox</class>
-   <extends>QWidget</extends>
-   <header>taurus.qt.qtgui.input</header>
-  </customwidget>
-  <customwidget>
-   <class>TaurusWidget</class>
-   <extends>QWidget</extends>
-   <header>taurus.qt.qtgui.container</header>
    <container>1</container>
-  </customwidget>
-  <customwidget>
-   <class>TaurusLabel</class>
-   <extends>QLabel</extends>
-   <header>taurus.qt.qtgui.display</header>
   </customwidget>
   <customwidget>
    <class>magnet</class>
@@ -2958,6 +2965,7 @@
    <class>CavityVacuum</class>
    <extends>TaurusWidget</extends>
    <header>ctli</header>
+   <container>1</container>
   </customwidget>
  </customwidgets>
  <resources/>

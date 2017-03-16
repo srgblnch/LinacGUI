@@ -1615,7 +1615,7 @@
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap>jdraw/linac_startup_synoptic.png</pixmap>
+    <pixmap>../../jdraw/linac_startup_synoptic.png</pixmap>
    </property>
   </widget>
   <widget class="LinacLed" name="w1Led">
@@ -2292,6 +2292,7 @@
     </size>
    </property>
   </widget>
+  <zorder>StartUpSchematic</zorder>
   <zorder>klystron2LVWidget</zorder>
   <zorder>klystron2InterlockPopupWidget</zorder>
   <zorder>klystron1InterlockPopupWidget</zorder>
@@ -2300,7 +2301,6 @@
   <zorder>coolingLoop2Widget</zorder>
   <zorder>coolingLoop1Widget</zorder>
   <zorder>kdeGunLVWidget</zorder>
-  <zorder>StartUpSchematic</zorder>
   <zorder>layoutWidget</zorder>
   <zorder>sl1Led</zorder>
   <zorder>vacuumValve1OnLedInfo</zorder>
@@ -2413,26 +2413,25 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>klystron2itck</class>
-   <extends>TaurusWidget</extends>
-   <header>ctli</header>
+   <class>TaurusWidget</class>
+   <extends>QWidget</extends>
+   <header>taurus.qt.qtgui.container</header>
    <container>1</container>
   </customwidget>
   <customwidget>
-   <class>eGunLV</class>
-   <extends>TaurusWidget</extends>
-   <header>ctli</header>
-   <container>1</container>
+   <class>TaurusLabel</class>
+   <extends>QLabel</extends>
+   <header>taurus.qt.qtgui.display</header>
   </customwidget>
   <customwidget>
-   <class>ActionForm</class>
-   <extends>TaurusWidget</extends>
-   <header>ctli</header>
+   <class>TaurusValueSpinBox</class>
+   <extends>QWidget</extends>
+   <header>taurus.qt.qtgui.input</header>
   </customwidget>
   <customwidget>
-   <class>LinacLed</class>
-   <extends>TaurusLed</extends>
-   <header>ctli</header>
+   <class>TaurusLed</class>
+   <extends>QLed</extends>
+   <header>taurus.qt.qtgui.display</header>
   </customwidget>
   <customwidget>
    <class>QLed</class>
@@ -2445,6 +2444,29 @@
    <header>taurus.qt.qtgui.display</header>
   </customwidget>
   <customwidget>
+   <class>ActionForm</class>
+   <extends>TaurusWidget</extends>
+   <header>ctli</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>LinacLed</class>
+   <extends>TaurusLed</extends>
+   <header>ctli</header>
+  </customwidget>
+  <customwidget>
+   <class>klystron2itck</class>
+   <extends>TaurusWidget</extends>
+   <header>ctli</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>eGunLV</class>
+   <extends>TaurusWidget</extends>
+   <header>ctli</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
    <class>CoolingLoop</class>
    <extends>TaurusWidget</extends>
    <header>ctli</header>
@@ -2455,22 +2477,6 @@
    <extends>TaurusWidget</extends>
    <header>ctli</header>
    <container>1</container>
-  </customwidget>
-  <customwidget>
-   <class>TaurusValueSpinBox</class>
-   <extends>QWidget</extends>
-   <header>taurus.qt.qtgui.input</header>
-  </customwidget>
-  <customwidget>
-   <class>TaurusWidget</class>
-   <extends>QWidget</extends>
-   <header>taurus.qt.qtgui.container</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
-   <class>TaurusLabel</class>
-   <extends>QLabel</extends>
-   <header>taurus.qt.qtgui.display</header>
   </customwidget>
   <customwidget>
    <class>klystronLV</class>
