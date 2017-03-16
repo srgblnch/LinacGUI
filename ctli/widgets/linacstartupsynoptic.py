@@ -80,8 +80,8 @@ class linacStartupSynoptic(TaurusWidget):
         basePath = os.path.dirname(__file__)
         if os.path.isfile(basePath+"/"+fileName):
             return basePath+"/"+fileName
-        if os.path.isfile(basePath+"../"+fileName):
-            return basePath+"../"+fileName
+        if os.path.isfile(basePath+"/../"+fileName):
+            return basePath+"/../"+fileName
 
 
 def main():

@@ -63,7 +63,6 @@ class linacMainscreenSynoptic(TaurusWidget):
     def _loadBackGroundImage(self):
         try:
             fileName = self._getImageFileName()
-            # print("%s%s%s" % ("\n"*10, fileName, "\n"*10))
             img = QtGui.QPixmap(fileName)
             self._ui.MainScreenSchematic.setPixmap(img)
         except Exception as e:
@@ -77,10 +76,11 @@ class linacMainscreenSynoptic(TaurusWidget):
         if os.path.isfile(fileName):
             return fileName
         basePath = os.path.dirname(__file__)
+        print basePath
         if os.path.isfile(basePath+"/"+fileName):
             return basePath+"/"+fileName
-        if os.path.isfile(basePath+"../"+fileName):
-            return basePath+"../"+fileName
+        if os.path.isfile(basePath+"/../"+fileName):
+            return basePath+"/../"+fileName
 
 
 def main():
