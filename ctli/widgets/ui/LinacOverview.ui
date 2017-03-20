@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>linacOverview</class>
+ <class>LinacOverview</class>
  <widget class="TaurusWidget" name="linacOverview">
   <property name="geometry">
    <rect>

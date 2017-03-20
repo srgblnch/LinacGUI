@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>linacStartupSynoptic</class>
+ <class>LinacStartupSynoptic</class>
  <widget class="TaurusWidget" name="linacStartupSynoptic">
   <property name="geometry">
    <rect>
@@ -899,7 +899,7 @@
     </font>
    </property>
   </widget>
-  <widget class="klystronLV" name="klystron2LVWidget">
+  <widget class="KlystronLV" name="klystron2LVWidget">
    <property name="geometry">
     <rect>
      <x>1062</x>
@@ -912,7 +912,7 @@
     <bool>true</bool>
    </property>
   </widget>
-  <widget class="klystronLV" name="klystron1LVWidget">
+  <widget class="KlystronLV" name="klystron1LVWidget">
    <property name="geometry">
     <rect>
      <x>776</x>
@@ -1123,7 +1123,7 @@
     </size>
    </property>
   </widget>
-  <widget class="klystron2itck" name="klystron2InterlockPopupWidget">
+  <widget class="Klystron2itck" name="klystron2InterlockPopupWidget">
    <property name="geometry">
     <rect>
      <x>350</x>
@@ -1133,7 +1133,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="klystron1itck" name="klystron1InterlockPopupWidget">
+  <widget class="Klystron1itck" name="klystron1InterlockPopupWidget">
    <property name="geometry">
     <rect>
      <x>350</x>
@@ -2455,7 +2455,7 @@
    <header>ctli</header>
   </customwidget>
   <customwidget>
-   <class>klystron2itck</class>
+   <class>Klystron2itck</class>
    <extends>TaurusWidget</extends>
    <header>ctli</header>
    <container>1</container>
@@ -2473,13 +2473,13 @@
    <container>1</container>
   </customwidget>
   <customwidget>
-   <class>klystron1itck</class>
+   <class>Klystron1itck</class>
    <extends>TaurusWidget</extends>
    <header>ctli</header>
    <container>1</container>
   </customwidget>
   <customwidget>
-   <class>klystronLV</class>
+   <class>KlystronLV</class>
    <extends>TaurusWidget</extends>
    <header>ctli</header>
    <container>1</container>

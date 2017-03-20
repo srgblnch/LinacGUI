@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>klystron1itck</class>
+ <class>Klystron1itck</class>
  <widget class="TaurusWidget" name="klystron1itck">
   <property name="geometry">
    <rect>

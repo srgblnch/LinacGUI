@@ -28,20 +28,20 @@ import traceback
 
 
 @UILoadable(with_ui="_ui")
-class phaseShifter(TaurusWidget):
+class PhaseShifter(TaurusWidget):
 
     def __init__(self, parent=None, name=None, designMode=False):
         try:
             self.__name = name.__name__
         except:
-            self.__name = "phaseShifter"
-        super(phaseShifter, self).__init__(parent, designMode=designMode)
+            self.__name = "PhaseShifter"
+        super(PhaseShifter, self).__init__(parent, designMode=designMode)
         try:
             self.debug("[%s]__init__()" % (self.__name))
             basePath = os.path.dirname(__file__)
             if len(basePath) == 0:
                 basePath = '.'
-            self.loadUi(filename="phaseShifter.ui",
+            self.loadUi(filename="PhaseShifter.ui",
                         path=basePath+"/ui")
         except Exception as e:
             self.warning("[%s]__init__(): Widget exception! %s"
@@ -61,7 +61,7 @@ class phaseShifter(TaurusWidget):
 
 def main():
     app = Qt.QApplication(sys.argv)
-    w = phaseShifter()
+    w = PhaseShifter()
     w.show()
     sys.exit(app.exec_())
 

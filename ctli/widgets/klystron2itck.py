@@ -28,14 +28,14 @@ import traceback
 
 
 @UILoadable(with_ui="_ui")
-class klystron2itck(TaurusWidget):
+class Klystron2itck(TaurusWidget):
 
     def __init__(self, parent=None, name=None, designMode=False):
         try:
             self.__name = name.__name__
         except:
-            self.__name = "klystron2itck"
-        super(klystron2itck, self).__init__(parent, designMode=designMode)
+            self.__name = "Klystron2itck"
+        super(Klystron2itck, self).__init__(parent, designMode=designMode)
         try:
             self.debug("[%s]__init__()" % (self.__name))
             basePath = os.path.dirname(__file__)
@@ -61,7 +61,7 @@ class klystron2itck(TaurusWidget):
 
 def main():
     app = Qt.QApplication(sys.argv)
-    w = klystron2itck()
+    w = Klystron2itck()
     w.show()
     sys.exit(app.exec_())
 

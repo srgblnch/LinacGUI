@@ -28,14 +28,14 @@ import traceback
 
 
 @UILoadable(with_ui="_ui")
-class radioFrequencySnapshot(TaurusWidget):
+class RadioFrequencySnapshot(TaurusWidget):
 
     def __init__(self, parent=None, name=None, designMode=False):
         try:
             self.__name = name.__name__
         except:
-            self.__name = "radioFrequencySnapshot"
-        super(radioFrequencySnapshot, self).__init__(parent,
+            self.__name = "RadioFrequencySnapshot"
+        super(RadioFrequencySnapshot, self).__init__(parent,
                                                      designMode=designMode)
         try:
             self.debug("[%s]__init__()" % (self.__name))
@@ -62,7 +62,7 @@ class radioFrequencySnapshot(TaurusWidget):
 
 def main():
     app = Qt.QApplication(sys.argv)
-    w = radioFrequencySnapshot()
+    w = RadioFrequencySnapshot()
     w.show()
     sys.exit(app.exec_())
 

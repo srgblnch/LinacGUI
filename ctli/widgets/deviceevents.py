@@ -44,7 +44,6 @@ class DeviceEvents(TaurusWidget):
                 basePath = '.'
             self.loadUi(filename="DeviceEvents.ui",
                         path=basePath+"/ui")
-            
         except Exception as e:
             self.warning("[%s]__init__(): Widget exception! %s"
                          % (self.__name, e))
@@ -59,7 +58,7 @@ class DeviceEvents(TaurusWidget):
                                     for attr in attributes])
             self._ui.plot.showLegend(False)
             toY2 = self._ui.plot.getCurve("%s/%s"
-                                                % (model, attributes[1]))
+                                          % (model, attributes[1]))
             toY2.setYAxis(Qwt5.QwtPlot.Axis(1))  # move time to axis2
             self._ui.plot.autoShowYAxes()
             for attribute in attributes:

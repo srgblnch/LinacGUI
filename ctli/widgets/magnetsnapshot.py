@@ -28,14 +28,14 @@ import traceback
 
 
 @UILoadable(with_ui="_ui")
-class magnetSnapshot(TaurusWidget):
+class MagnetSnapshot(TaurusWidget):
 
     def __init__(self, parent=None, name=None, designMode=False):
         try:
             self.__name = name.__name__
         except:
-            self.__name = "magnetSnapshot"
-        super(magnetSnapshot, self).__init__(parent, designMode=designMode)
+            self.__name = "MagnetSnapshot"
+        super(MagnetSnapshot, self).__init__(parent, designMode=designMode)
         try:
             self.debug("[%s]__init__()" % (self.__name))
             basePath = os.path.dirname(__file__)
@@ -61,7 +61,7 @@ class magnetSnapshot(TaurusWidget):
 
 def main():
     app = Qt.QApplication(sys.argv)
-    w = magnetSnapshot()
+    w = MagnetSnapshot()
     w.show()
     sys.exit(app.exec_())
 

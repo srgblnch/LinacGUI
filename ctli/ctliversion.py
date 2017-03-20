@@ -21,7 +21,7 @@ __copyright__ = "Copyright 2015, CELLS / ALBA Synchrotron"
 __license__ = "GPLv3+"
 
 
-#Look at https://en.wikipedia.org/wiki/Software_versioning
+# Look at https://en.wikipedia.org/wiki/Software_versioning
 
 __MAJOR_VERSION = 2
 __MINOR_VERSION = 70
@@ -32,8 +32,8 @@ __RELEASE_CANDIDATE = None
 
 def version():
     if __RELEASE_CANDIDATE:
-        return "%d.%d-rc%d"%(__MAJOR_VERSION,__MINOR_VERSION,
-                             __RELEASE_CANDIDATE)
+        return "%d.%d-rc%d" % (__MAJOR_VERSION, __MINOR_VERSION,
+                               __RELEASE_CANDIDATE)
     else:
-        return "%d.%d.%d-%d"%(__MAJOR_VERSION,__MINOR_VERSION,
-                              __BUILD_VERSION,__REVISION_VERSION)
+        return "%d.%d.%d-%d" % (__MAJOR_VERSION, __MINOR_VERSION,
+                                __BUILD_VERSION, __REVISION_VERSION)

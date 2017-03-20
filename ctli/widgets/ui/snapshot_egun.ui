@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>electronGunSnapshot</class>
+ <class>ElectronGunSnapshot</class>
  <widget class="TaurusWidget" name="electronGunSnapshot">
   <property name="geometry">
    <rect>

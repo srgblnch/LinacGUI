@@ -38,9 +38,9 @@ setup(
             'ctlisetup = ctli.ctlisetup:main',
             ]
         },
-    include_package_data = True,
-    package_dir = {'widgets':['widgets/ui']},
-    package_data = {'widgets':['*.ui']},
+    include_package_data=True,
+    package_dir={'widgets': ['widgets/ui']},
+    package_data={'widgets': ['*.ui']},
     description="Graphical User Interface for the Alba's synchrotron "
     "Linac's Control",
     classifiers=['Development Status :: 5 - Production',

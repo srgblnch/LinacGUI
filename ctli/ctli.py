@@ -51,7 +51,7 @@ except:
 
 from .widgets.attrautostopper import AttrAutostopper
 from .widgets.attrramps import AttrRamps
-from .widgets.componentsWindow import CompomentsWindow
+from .widgets.componentswindow import CompomentsWindow
 from .widgets.devicesevents import DevicesEvents
 from .widgets.evr300 import EVR300
 
@@ -106,7 +106,7 @@ class LinacMainWindow(TaurusMainWindow, TaurusWidget):
         except Exception as e:
             self.warning("[%s]__init__(): Widget (%s, %s) exception! %s"
                          % (self.__name, filename, path, e))
-            #traceback.print_exc()
+            # traceback.print_exc()
             self.traceback()
             raise e
 
@@ -191,7 +191,7 @@ class LinacMainWindow(TaurusMainWindow, TaurusWidget):
     def _setupLed4Attr(self, widget, attrName, inverted=False, onColor='green',
                        offColor='red', pattern='on', blinkOnChange=None):
         _setupLed4Attr(widget, attrName, inverted, onColor, offColor,
-                               pattern, blinkOnChange)
+                       pattern, blinkOnChange)
 
     def _setupCheckbox4UnknownAttr(self, widget):
         _setupCheckbox4UnknownAttr(widget)
@@ -199,7 +199,7 @@ class LinacMainWindow(TaurusMainWindow, TaurusWidget):
     def _setupCheckbox4Attr(self, widget, attrName, isRst=False, DangerMsg='',
                             riseEdge=False, fallingEdge=False):
         _setupCheckbox4Attr(widget, attrName, isRst, DangerMsg,
-                                    riseEdge, fallingEdge)
+                            riseEdge, fallingEdge)
 
     def _setupSpinBox4Attr(self, widget, attrName, step=None):
         _setupSpinBox4Attr(widget, attrName, step)
@@ -228,7 +228,7 @@ class LinacMainWindow(TaurusMainWindow, TaurusWidget):
         # checkbox, but in newer ones the distance is bigger and this doesn't
         # allow to see the '!' when pending operations.
         _setupActionWidget(widget, attrName, text, isRst, isValve,
-                                   isLight, DangerMsg, riseEdge, fallingEdge)
+                           isLight, DangerMsg, riseEdge, fallingEdge)
         if isRst:
             try:
                 widget._ui.actionFrame.setStyleSheet("background-color: "

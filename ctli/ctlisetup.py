@@ -97,7 +97,7 @@ class MainWindow(TaurusWidget):
             basePath = os.path.dirname(__file__)
             if len(basePath) == 0:
                 basePath = '.'
-            self.loadUi(filename="linacConfigurationScreen.ui",
+            self.loadUi(filename="linacconfigurationscreen.ui",
                         path=basePath+"/widgets/ui")
         except Exception as e:
             self.warning("[%s]__init__(): MainWindow exception! %s"
@@ -128,7 +128,7 @@ class MainWindow(TaurusWidget):
     def _setupLed4Attr(self, widget, attrName, inverted=False,
                        onColor='green', offColor='red', pattern='on'):
         _setupLed4Attr(widget, attrName, inverted, onColor,
-                               offColor, pattern)
+                       offColor, pattern)
 
     def _setupCheckbox4UnknownAttr(self, widget):
         _setupCheckbox4UnknownAttr(widget)
@@ -137,7 +137,7 @@ class MainWindow(TaurusWidget):
                             isRst=False, DangerMsg='',
                             riseEdge=False, fallingEdge=False):
         _setupCheckbox4Attr(widget, attrName,
-                                    isRst, DangerMsg, riseEdge, fallingEdge)
+                            isRst, DangerMsg, riseEdge, fallingEdge)
 
     def _setupSpinBox4Attr(self, widget, attrName, step=None):
         _setupSpinBox4Attr(widget, attrName, step)
@@ -151,7 +151,7 @@ class MainWindow(TaurusWidget):
     def _setupActionWidget(self, widget, attrName, text='on/off', isRst=False,
                            DangerMsg='', riseEdge=False, fallingEdge=False):
         _setupActionWidget(widget, attrName, text, isRst,
-                                   DangerMsg, riseEdge, fallingEdge)
+                           DangerMsg, riseEdge, fallingEdge)
 
     def _setupQSpinBox(self, widget, minVal=0, maxVal=99, decimals=2, step=1):
         widget.setMinimum(minVal)

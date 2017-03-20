@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>linacMainscreenSynoptic</class>
+ <class>LinacMainscreenSynoptic</class>
  <widget class="TaurusWidget" name="linacMainscreenSynoptic">
   <property name="geometry">
    <rect>
@@ -748,7 +748,7 @@
     </size>
    </property>
   </widget>
-  <widget class="klystronHV" name="klystron2HVPopupWidget">
+  <widget class="KlystronHV" name="klystron2HVPopupWidget">
    <property name="geometry">
     <rect>
      <x>870</x>
@@ -758,7 +758,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="klystronHV" name="klystron1HVPopupWidget">
+  <widget class="KlystronHV" name="klystron1HVPopupWidget">
    <property name="geometry">
     <rect>
      <x>480</x>
@@ -812,7 +812,7 @@
     </size>
    </property>
   </widget>
-  <widget class="phaseShifter" name="phaseShifter1PopupWidget">
+  <widget class="PhaseShifter" name="phaseShifter1PopupWidget">
    <property name="geometry">
     <rect>
      <x>627</x>
@@ -822,7 +822,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="phaseShifter" name="phaseShifter2PopupWidget">
+  <widget class="PhaseShifter" name="phaseShifter2PopupWidget">
    <property name="geometry">
     <rect>
      <x>510</x>
@@ -842,7 +842,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="magnet" name="sl1PopupWidget">
+  <widget class="Magnet" name="sl1PopupWidget">
    <property name="geometry">
     <rect>
      <x>203</x>
@@ -852,7 +852,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="magnet" name="sl2PopupWidget">
+  <widget class="Magnet" name="sl2PopupWidget">
    <property name="geometry">
     <rect>
      <x>291</x>
@@ -862,7 +862,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="magnet" name="sl3PopupWidget">
+  <widget class="Magnet" name="sl3PopupWidget">
    <property name="geometry">
     <rect>
      <x>376</x>
@@ -872,7 +872,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="magnet" name="sl4PopupWidget">
+  <widget class="Magnet" name="sl4PopupWidget">
    <property name="geometry">
     <rect>
      <x>440</x>
@@ -882,7 +882,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="magnet" name="bc1PopupWidget">
+  <widget class="Magnet" name="bc1PopupWidget">
    <property name="geometry">
     <rect>
      <x>505</x>
@@ -892,7 +892,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="magnet" name="bc2PopupWidget">
+  <widget class="Magnet" name="bc2PopupWidget">
    <property name="geometry">
     <rect>
      <x>569</x>
@@ -902,7 +902,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="magnet" name="glPopupWidget">
+  <widget class="Magnet" name="glPopupWidget">
    <property name="geometry">
     <rect>
      <x>681</x>
@@ -912,7 +912,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="magnet" name="qtPopupWidget">
+  <widget class="Magnet" name="qtPopupWidget">
    <property name="geometry">
     <rect>
      <x>939</x>
@@ -922,7 +922,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="magnet" name="as2PopupWidget">
+  <widget class="Magnet" name="as2PopupWidget">
    <property name="geometry">
     <rect>
      <x>1030</x>
@@ -932,7 +932,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="magnet" name="as1PopupWidget">
+  <widget class="Magnet" name="as1PopupWidget">
    <property name="geometry">
     <rect>
      <x>786</x>
@@ -2910,13 +2910,13 @@
    <header>taurus.qt.qtgui.display</header>
   </customwidget>
   <customwidget>
-   <class>klystronHV</class>
+   <class>KlystronHV</class>
    <extends>TaurusWidget</extends>
    <header>ctli</header>
    <container>1</container>
   </customwidget>
   <customwidget>
-   <class>phaseShifter</class>
+   <class>PhaseShifter</class>
    <extends>TaurusWidget</extends>
    <header>ctli</header>
    <container>1</container>
@@ -2956,7 +2956,7 @@
    <container>1</container>
   </customwidget>
   <customwidget>
-   <class>magnet</class>
+   <class>Magnet</class>
    <extends>TaurusWidget</extends>
    <header>ctli</header>
    <container>1</container>

@@ -28,14 +28,14 @@ import traceback
 
 
 @UILoadable(with_ui="_ui")
-class coolingLoopSnapshot(TaurusWidget):
+class CoolingLoopSnapshot(TaurusWidget):
 
     def __init__(self, parent=None, name=None, designMode=False):
         try:
             self.__name = name.__name__
         except:
-            self.__name = "coolingLoopSnapshot"
-        super(coolingLoopSnapshot, self).__init__(parent,
+            self.__name = "CoolingLoopSnapshot"
+        super(CoolingLoopSnapshot, self).__init__(parent,
                                                   designMode=designMode)
         try:
             self.debug("[%s]__init__()" % (self.__name))
@@ -62,7 +62,7 @@ class coolingLoopSnapshot(TaurusWidget):
 
 def main():
     app = Qt.QApplication(sys.argv)
-    w = coolingLoopSnapshot()
+    w = CoolingLoopSnapshot()
     w.show()
     sys.exit(app.exec_())
 

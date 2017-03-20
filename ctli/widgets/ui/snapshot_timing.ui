@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>timingSnapshot</class>
+ <class>TimingSnapshot</class>
  <widget class="TaurusWidget" name="timingSnapshot">
   <property name="geometry">
    <rect>

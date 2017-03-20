@@ -28,21 +28,21 @@ import traceback
 
 
 @UILoadable(with_ui="_ui")
-class linacConfigurationScreen(TaurusWidget):
+class LinacConfigurationScreen(TaurusWidget):
 
     def __init__(self, parent=None, name=None, designMode=False):
         try:
             self.__name = name.__name__
         except:
-            self.__name = "linacConfigurationScreen"
-        super(linacConfigurationScreen, self).__init__(parent,
+            self.__name = "LinacConfigurationScreen"
+        super(LinacConfigurationScreen, self).__init__(parent,
                                                        designMode=designMode)
         try:
             self.debug("[%s]__init__()" % (self.__name))
             basePath = os.path.dirname(__file__)
             if len(basePath) == 0:
                 basePath = '.'
-            self.loadUi(filename="linacConfigurationScreen.ui",
+            self.loadUi(filename="linacconfigurationscreen.ui",
                         path=basePath+"/ui")
         except Exception as e:
             self.warning("[%s]__init__(): Widget exception! %s"
@@ -53,7 +53,7 @@ class linacConfigurationScreen(TaurusWidget):
 
 def main():
     app = Qt.QApplication(sys.argv)
-    w = linacConfigurationScreen()
+    w = LinacConfigurationScreen()
     w.show()
     sys.exit(app.exec_())
 

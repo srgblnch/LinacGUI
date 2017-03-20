@@ -28,20 +28,20 @@ import traceback
 
 
 @UILoadable(with_ui="_ui")
-class klystronLV(TaurusWidget):
+class KlystronLV(TaurusWidget):
 
     def __init__(self, parent=None, name=None, designMode=False):
         try:
             self.__name = name.__name__
         except:
-            self.__name = "klystronLV"
-        super(klystronLV, self).__init__(parent, designMode=designMode)
+            self.__name = "KlystronLV"
+        super(KlystronLV, self).__init__(parent, designMode=designMode)
         try:
             self.debug("[%s]__init__()" % (self.__name))
             basePath = os.path.dirname(__file__)
             if len(basePath) == 0:
                 basePath = '.'
-            self.loadUi(filename="klystronLV.ui",
+            self.loadUi(filename="klystronlv.ui",
                         path=basePath+"/ui")
         except Exception as e:
             self.warning("[%s]__init__(): Widget exception! %s"
@@ -62,7 +62,7 @@ class klystronLV(TaurusWidget):
 
 def main():
     app = Qt.QApplication(sys.argv)
-    w = klystronLV()
+    w = KlystronLV()
     w.show()
     sys.exit(app.exec_())
 

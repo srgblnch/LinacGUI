@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>linacConfigurationScreen</class>
+ <class>LinacConfigurationScreen</class>
  <widget class="TaurusWidget" name="linacConfigurationScreen">
   <property name="geometry">
    <rect>
@@ -45,25 +45,25 @@
          </property>
          <layout class="QGridLayout" name="gridLayout_2">         
           <item row="0" column="0">
-           <widget class="timingSnapshot" name="timingSnapshot"/>
+           <widget class="TimingSnapshot" name="timingSnapshot"/>
           </item>         
           <item row="1" column="0">
-           <widget class="electronGunSnapshot" name="electronGunSnapshot"/>
+           <widget class="ElectronGunSnapshot" name="electronGunSnapshot"/>
           </item>
           <item row="2" column="0">
-           <widget class="vacuumValveSnapshot" name="vacuumValveSnapshot"/>
+           <widget class="VacuumValveSnapshot" name="vacuumValveSnapshot"/>
           </item>          
           <item row="3" column="0">
-           <widget class="coolingLoopSnapshot" name="coolingLoopSnapshot"/>
+           <widget class="CoolingLoopSnapshot" name="coolingLoopSnapshot"/>
           </item>          
           <item row="4" column="0">
-           <widget class="evrSnapshot" name="evrSnapshot"/>
+           <widget class="EVRSnapshot" name="evrSnapshot"/>
           </item>          
           <item row="0" column="2" rowspan="6">
-           <widget class="magnetSnapshot" name="magnetSnapshot"/>
+           <widget class="MagnetSnapshot" name="magnetSnapshot"/>
           </item>          
           <item row="0" column="3">
-           <widget class="radioFrequencySnapshot" name="radioFrequencySnapshot"/>
+           <widget class="RadioFrequencySnapshot" name="radioFrequencySnapshot"/>
           </item>
           <item row="1" column="3">
            <widget class="klystronSnapshot" name="klystronSnapshot"/>
@@ -153,7 +153,7 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>electronGunSnapshot</class>
+   <class>ElectronGunSnapshot</class>
    <extends>TaurusWidget</extends>
    <header>ctli</header>
   </customwidget>
@@ -163,27 +163,27 @@
    <header>ctli</header>
   </customwidget>
   <customwidget>
-   <class>timingSnapshot</class>
+   <class>TimingSnapshot</class>
    <extends>TaurusWidget</extends>
    <header>ctli</header>
   </customwidget>
   <customwidget>
-   <class>evrSnapshot</class>
+   <class>EVRSnapshot</class>
    <extends>TaurusWidget</extends>
    <header>ctli</header>
   </customwidget>  
   <customwidget>
-   <class>radioFrequencySnapshot</class>
+   <class>RadioFrequencySnapshot</class>
    <extends>TaurusWidget</extends>
    <header>ctli</header>
   </customwidget>
   <customwidget>
-   <class>magnetSnapshot</class>
+   <class>MagnetSnapshot</class>
    <extends>TaurusWidget</extends>
    <header>ctli</header>
   </customwidget>
   <customwidget>
-   <class>coolingLoopSnapshot</class>
+   <class>CoolingLoopSnapshot</class>
    <extends>TaurusWidget</extends>
    <header>ctli</header>
   </customwidget>
@@ -194,7 +194,7 @@
    <container>1</container>
   </customwidget>
   <customwidget>
-   <class>vacuumValveSnapshot</class>
+   <class>VacuumValveSnapshot</class>
    <extends>TaurusWidget</extends>
    <header>ctli</header>
   </customwidget>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>magnetSnapshot</class>
+ <class>MagnetSnapshot</class>
  <widget class="TaurusWidget" name="magnetSnapshot">
   <property name="geometry">
    <rect>

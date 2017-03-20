@@ -28,20 +28,20 @@ import traceback
 
 
 @UILoadable(with_ui="_ui")
-class magnet(TaurusWidget):
+class Magnet(TaurusWidget):
 
     def __init__(self, parent=None, name=None, designMode=False):
         try:
             self.__name = name.__name__
         except:
-            self.__name = "magnet"
-        super(magnet, self).__init__(parent, designMode=designMode)
+            self.__name = "Magnet"
+        super(Magnet, self).__init__(parent, designMode=designMode)
         try:
             self.debug("[%s]__init__()" % (self.__name))
             basePath = os.path.dirname(__file__)
             if len(basePath) == 0:
                 basePath = '.'
-            self.loadUi(filename="magnet.ui",
+            self.loadUi(filename="Magnet.ui",
                         path=basePath+"/ui")
         except Exception as e:
             self.warning("[%s]__init__(): Widget exception! %s"
@@ -52,7 +52,7 @@ class magnet(TaurusWidget):
     @classmethod
     def getQtDesignerPluginInfo(cls):
         ret = TaurusWidget.getQtDesignerPluginInfo()
-        ret['module'] = 'magnet'
+        ret['module'] = 'Magnet'
         ret['group'] = 'Taurus Linac Widgets'
         ret['icon'] = ':/designer/widgetstack.png'
         ret['container'] = False
@@ -61,7 +61,7 @@ class magnet(TaurusWidget):
 
 def main():
     app = Qt.QApplication(sys.argv)
-    w = magnet()
+    w = Magnet()
     w.show()
     sys.exit(app.exec_())
 

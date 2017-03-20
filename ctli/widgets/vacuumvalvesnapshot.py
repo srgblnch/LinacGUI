@@ -28,14 +28,14 @@ import traceback
 
 
 @UILoadable(with_ui="_ui")
-class vacuumValveSnapshot(TaurusWidget):
+class VacuumValveSnapshot(TaurusWidget):
 
     def __init__(self, parent=None, name=None, designMode=False):
         try:
             self.__name = name.__name__
         except:
-            self.__name = "vacuumValveSnapshot"
-        super(vacuumValveSnapshot, self).__init__(parent,
+            self.__name = "VacuumValveSnapshot"
+        super(VacuumValveSnapshot, self).__init__(parent,
                                                   designMode=designMode)
         try:
             self.debug("[%s]__init__()" % (self.__name))
@@ -62,7 +62,7 @@ class vacuumValveSnapshot(TaurusWidget):
 
 def main():
     app = Qt.QApplication(sys.argv)
-    w = vacuumValveSnapshot()
+    w = VacuumValveSnapshot()
     w.show()
     sys.exit(app.exec_())
 

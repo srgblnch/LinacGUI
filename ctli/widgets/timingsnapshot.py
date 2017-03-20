@@ -28,14 +28,14 @@ import traceback
 
 
 @UILoadable(with_ui="_ui")
-class timingSnapshot(TaurusWidget):
+class TimingSnapshot(TaurusWidget):
 
     def __init__(self, parent=None, name=None, designMode=False):
         try:
             self.__name = name.__name__
         except:
-            self.__name = "timingSnapshot"
-        super(timingSnapshot, self).__init__(parent, designMode=designMode)
+            self.__name = "TimingSnapshot"
+        super(TimingSnapshot, self).__init__(parent, designMode=designMode)
         try:
             self.debug("[%s]__init__()" % (self.__name))
             basePath = os.path.dirname(__file__)
@@ -61,7 +61,7 @@ class timingSnapshot(TaurusWidget):
 
 def main():
     app = Qt.QApplication(sys.argv)
-    w = timingSnapshot()
+    w = TimingSnapshot()
     w.show()
     sys.exit(app.exec_())
 

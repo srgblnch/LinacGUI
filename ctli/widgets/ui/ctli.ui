@@ -75,31 +75,31 @@
             </spacer>
            </item>
            <item row="1" column="2">
-            <widget class="linacPlcWidget" name="plc1">
+            <widget class="LinacPlcWidget" name="plc1">
              <property name="model">
               <string>li/ct/plc1</string>
              </property>
             </widget>
            </item>
            <item row="1" column="1">
-            <widget class="linacOverview" name="linacOverview"/>
+            <widget class="LinacOverview" name="linacOverview"/>
            </item>
            <item row="2" column="2">
-            <widget class="linacPlcWidget" name="plc4">
+            <widget class="LinacPlcWidget" name="plc4">
              <property name="model">
               <string>li/ct/plc4</string>
              </property>
             </widget>
            </item>
            <item row="2" column="3">
-            <widget class="linacPlcWidget" name="plc5">
+            <widget class="LinacPlcWidget" name="plc5">
              <property name="model">
               <string>li/ct/plc5</string>
              </property>
             </widget>
            </item>
            <item row="1" column="3">
-            <widget class="linacPlcWidget" name="plc2">
+            <widget class="LinacPlcWidget" name="plc2">
              <property name="model">
               <string>li/ct/plc2</string>
              </property>
@@ -122,7 +122,7 @@
             </spacer>
            </item>
            <item row="2" column="1">
-            <widget class="linacPlcWidget" name="plc3">
+            <widget class="LinacPlcWidget" name="plc3">
              <property name="model">
               <string>li/ct/plc3</string>
              </property>
@@ -239,7 +239,7 @@
             </spacer>
            </item>
            <item row="1" column="1">
-            <widget class="linacStartupSynoptic" name="linacStartupSynoptic"/>
+            <widget class="LinacStartupSynoptic" name="linacStartupSynoptic"/>
            </item>
           </layout>
          </widget>
@@ -294,7 +294,7 @@
             </spacer>
            </item>
            <item row="1" column="1">
-            <widget class="linacMainscreenSynoptic" name="linacMainscreenSynoptic"/>
+            <widget class="LinacMainscreenSynoptic" name="linacMainscreenSynoptic"/>
            </item>
            <item row="1" column="2">
             <spacer name="horizontalSpacer_4">
@@ -340,25 +340,25 @@
    <container>1</container>
   </customwidget>
   <customwidget>
-   <class>linacStartupSynoptic</class>
+   <class>LinacStartupSynoptic</class>
    <extends>TaurusWidget</extends>
    <header>ctli</header>
    <container>1</container>
   </customwidget>
   <customwidget>
-   <class>linacOverview</class>
+   <class>LinacOverview</class>
    <extends>TaurusWidget</extends>
    <header>ctli</header>
    <container>1</container>
   </customwidget>
   <customwidget>
-   <class>linacPlcWidget</class>
+   <class>LinacPlcWidget</class>
    <extends>TaurusWidget</extends>
    <header>ctli</header>
    <container>1</container>
   </customwidget>
   <customwidget>
-   <class>linacMainscreenSynoptic</class>
+   <class>LinacMainscreenSynoptic</class>
    <extends>TaurusWidget</extends>
    <header>ctli</header>
    <container>1</container>

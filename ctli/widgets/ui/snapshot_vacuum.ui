@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>vacuumValveSnapshot</class>
+ <class>VacuumValveSnapshot</class>
  <widget class="TaurusWidget" name="vacuumValveSnapshot">
   <property name="geometry">
    <rect>
