@@ -35,6 +35,7 @@ setup(
         'console_scripts': [],
         'gui_scripts': [
             'ctli = ctli.ctli:main',
+            'ctlievents = ctli.ctli:eventPlotWindow',
             'ctlisetup = ctli.ctlisetup:main',
             ]
         },

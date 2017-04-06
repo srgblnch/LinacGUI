@@ -1973,6 +1973,23 @@ def refreshButton(w):
         print("module ctguirefresh not loaded: %s" % (e))
 
 
+def eventPlotWindow():
+    app = build_application()
+    ui = DevicesEvents()
+    attributes = ['EventsNumber', 'EventsTime']
+    widgets = {1: ui._ui.eventsplc1,
+               2: ui._ui.eventsplc2,
+               3: ui._ui.eventsplc3,
+               4: ui._ui.eventsplc4,
+               5: ui._ui.eventsplc5}
+    for i in widgets.keys():
+        widget = widgets[i]
+        device = "%s%d" % (LinacDeviceNameRoot, i)
+        widget.setModel(device)
+    ui.show()
+    sys.exit(app.exec_())
+
+
 def main():
     app = build_application()
     ui = build_ui()
