@@ -1923,7 +1923,7 @@ def refreshButton(w):
 def main():
     app = build_application()
     ui = build_ui()
-    refreshButton(ui)
+    # refreshButton(ui)
     app.setStyleSheet("QStatusBar::item { border: 0px solid black }; ")
     ui.show()
     sys.exit(app.exec_())
