@@ -20,14 +20,17 @@ __author__ = "Sergi Blanch-Torne"
 __copyright__ = "Copyright 2015, CELLS / ALBA Synchrotron"
 __license__ = "GPLv3+"
 
+# The version is updated automatically with bumpversion
+# Do not update manually
+__version = '2.71.0-alpha'  
+
 
 from setuptools import setup, find_packages
-from ctli import version
 
 setup(
     name="LinacGUI",
-    license="GPLv3+",
-    version=version(),
+    license=__license__, 
+    version=__version, 
     author="Sergi Blanch-Torn\'e",
     author_email="sblanch@cells.es",
     packages=find_packages(),

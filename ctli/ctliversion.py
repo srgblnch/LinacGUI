@@ -21,19 +21,11 @@ __copyright__ = "Copyright 2015, CELLS / ALBA Synchrotron"
 __license__ = "GPLv3+"
 
 
-# Look at https://en.wikipedia.org/wiki/Software_versioning
 
-__MAJOR_VERSION = 2
-__MINOR_VERSION = 70
-__BUILD_VERSION = 0
-__REVISION_VERSION = 0
-__RELEASE_CANDIDATE = None
+# we use semantic versioning (http://semver.org/) and we update it using the
+# bumpversion script (https://github.com/peritus/bumpversion)
+__version = '2.71.0-alpha'
 
 
 def version():
-    if __RELEASE_CANDIDATE:
-        return "%d.%d-rc%d" % (__MAJOR_VERSION, __MINOR_VERSION,
-                               __RELEASE_CANDIDATE)
-    else:
-        return "%d.%d.%d-%d" % (__MAJOR_VERSION, __MINOR_VERSION,
-                                __BUILD_VERSION, __REVISION_VERSION)
+    return __version
