@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>RadioFrequencySnapshot</class>
+ <widget class="TaurusWidget" name="radioFrequencySnapshot">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>299</width>
+    <height>266</height>
+   </rect>
+  </property>
+  <property name="font">
+   <font>
+    <pointsize>7</pointsize>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout_2">
+   <item row="0" column="0">
+    <widget class="TaurusGroupBox" name="radioFrequencyGroup">
+     <property name="title">
+      <string>Radio Frequency</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="0" column="1">
+       <widget class="QLabel" name="PresentWriteTitle">
+        <property name="text">
+         <string>Present value</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="2">
+       <widget class="QLabel" name="SaveRetrieveTitle">
+        <property name="text">
+         <string>Save/Retrieve</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="TPS0PhaseLabel">
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
+        <property name="text">
+         <string>Time Phase Shifter 0</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="2">
+       <widget class="QDoubleSpinBox" name="TPS2PhaseWrite"/>
+      </item>
+      <item row="8" column="1">
+       <widget class="TaurusLabel" name="PHS1Read"/>
+      </item>
+      <item row="9" column="1">
+       <widget class="TaurusLabel" name="PHS2Read"/>
+      </item>
+      <item row="5" column="2">
+       <widget class="QDoubleSpinBox" name="A0OPWrite"/>
+      </item>
+      <item row="10" column="1">
+       <spacer name="verticalSpacer">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="9" column="2">
+       <widget class="QDoubleSpinBox" name="PHS2Write"/>
+      </item>
+      <item row="1" column="2">
+       <widget class="QDoubleSpinBox" name="TPS0PhaseWrite"/>
+      </item>
+      <item row="3" column="2">
+       <widget class="QDoubleSpinBox" name="TPS1PhaseWrite"/>
+      </item>
+      <item row="8" column="2">
+       <widget class="QDoubleSpinBox" name="PHS1Write"/>
+      </item>
+      <item row="7" column="1">
+       <widget class="TaurusLabel" name="ATT2Read"/>
+      </item>
+      <item row="7" column="2">
+       <widget class="QDoubleSpinBox" name="ATT2Write"/>
+      </item>
+      <item row="5" column="1">
+       <widget class="TaurusLabel" name="A0OPRead"/>
+      </item>
+      <item row="4" column="1">
+       <widget class="TaurusLabel" name="TPS2PhaseRead"/>
+      </item>
+      <item row="2" column="1">
+       <widget class="TaurusLabel" name="TPSXPhaseRead"/>
+      </item>
+      <item row="3" column="1">
+       <widget class="TaurusLabel" name="TPS1PhaseRead"/>
+      </item>
+      <item row="1" column="4">
+       <widget class="QCheckBox" name="TPS0PhaseCheck">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="4">
+       <widget class="QCheckBox" name="PHS1Check">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="4">
+       <widget class="QCheckBox" name="TPS1PhaseCheck">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="TaurusLabel" name="TPS0PhaseRead"/>
+      </item>
+      <item row="2" column="2">
+       <widget class="QDoubleSpinBox" name="TPSXPhaseWrite"/>
+      </item>
+      <item row="4" column="4">
+       <widget class="QCheckBox" name="TPS2PhaseCheck">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="4">
+       <widget class="QCheckBox" name="TPSXPhaseCheck">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="4">
+       <widget class="QCheckBox" name="A0OPCheck">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="TPSXPhaseLabel">
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
+        <property name="text">
+         <string>Time Phase Shifter X</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="TPS1PhaseLabel">
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
+        <property name="text">
+         <string>Time Phase Shifter 1</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0">
+       <widget class="QLabel" name="TPS2PhaseLabel">
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
+        <property name="text">
+         <string>Time Phase Shifter 2</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="0">
+       <widget class="QLabel" name="A0OPLabel">
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
+        <property name="text">
+         <string>A0 output power</string>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="0">
+       <widget class="QLabel" name="PHS1Label">
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
+        <property name="text">
+         <string>Phase Shifter 1</string>
+        </property>
+       </widget>
+      </item>
+      <item row="7" column="4">
+       <widget class="QCheckBox" name="ATT2Check">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="7" column="0">
+       <widget class="QLabel" name="ATT2Label">
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
+        <property name="text">
+         <string>Attenuator 2</string>
+        </property>
+       </widget>
+      </item>
+      <item row="9" column="0">
+       <widget class="QLabel" name="PHS2Label">
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
+        <property name="text">
+         <string>Phase Shifter 2</string>
+        </property>
+       </widget>
+      </item>
+      <item row="9" column="4">
+       <widget class="QCheckBox" name="PHS2Check">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="3" rowspan="9">
+       <widget class="Line" name="line">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>TaurusWidget</class>
+   <extends>QWidget</extends>
+   <header>taurus.qt.qtgui.container</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>TaurusLabel</class>
+   <extends>QLabel</extends>
+   <header>taurus.qt.qtgui.display</header>
+  </customwidget>
+  <customwidget>
+   <class>TaurusGroupBox</class>
+   <extends>QGroupBox</extends>
+   <header>taurus.qt.qtgui.container</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

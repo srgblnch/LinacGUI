@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>LinacConfigurationScreen</class>
+ <widget class="TaurusWidget" name="linacConfigurationScreen">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>950</width>
+    <height>950</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>0</width>
+    <height>0</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout_3">
+   <item row="0" column="0">
+    <widget class="QFrame" name="centralFrame">
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="0" column="0">
+       <widget class="QScrollArea" name="scrollArea">
+        <property name="widgetResizable">
+         <bool>true</bool>
+        </property>
+        <widget class="QWidget" name="scrollAreaWidgetContents">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>922</width>
+           <height>867</height>
+          </rect>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_2">         
+          <item row="0" column="0">
+           <widget class="TimingSnapshot" name="timingSnapshot"/>
+          </item>         
+          <item row="1" column="0">
+           <widget class="ElectronGunSnapshot" name="electronGunSnapshot"/>
+          </item>
+          <item row="2" column="0">
+           <widget class="VacuumValveSnapshot" name="vacuumValveSnapshot"/>
+          </item>          
+          <item row="3" column="0">
+           <widget class="CoolingLoopSnapshot" name="coolingLoopSnapshot"/>
+          </item>          
+          <item row="4" column="0">
+           <widget class="EVRSnapshot" name="evrSnapshot"/>
+          </item>          
+          <item row="0" column="2" rowspan="6">
+           <widget class="MagnetSnapshot" name="magnetSnapshot"/>
+          </item>          
+          <item row="0" column="3">
+           <widget class="RadioFrequencySnapshot" name="radioFrequencySnapshot"/>
+          </item>
+          <item row="1" column="3">
+           <widget class="klystronSnapshot" name="klystronSnapshot"/>
+          </item>          
+          <item row="2" column="3" rowspan="5">
+           <widget class="QGroupBox" name="commentGroup">
+            <property name="maximumSize">
+             <size>
+              <width>350</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="title">
+             <string>Comments</string>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_4">
+             <item row="0" column="0">
+              <widget class="QSplitter" name="splitter">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+               <widget class="QWidget" name="layoutWidget">
+                <layout class="QVBoxLayout" name="textToSaveLayout">
+                 <item>
+                  <widget class="QLabel" name="textToSaveLabel">
+                   <property name="text">
+                    <string>Current comment:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QTextEdit" name="textToSave">
+                   <property name="maximumSize">
+                    <size>
+                     <width>350</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+               <widget class="QWidget" name="layoutWidget">
+                <layout class="QVBoxLayout" name="textLoadedLayout">
+                 <item>
+                  <widget class="QLabel" name="textLoadedLabel">
+                   <property name="text">
+                    <string>Old comment:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QTextEdit" name="textLoaded">
+                   <property name="readOnly">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QDialogButtonBox" name="buttonBox">
+        <property name="standardButtons">
+         <set>QDialogButtonBox::Apply|QDialogButtonBox::Open|QDialogButtonBox::Reset|QDialogButtonBox::Save</set>
+        </property>
+        <property name="centerButtons">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QProgressBar" name="progressBar"/>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>ElectronGunSnapshot</class>
+   <extends>TaurusWidget</extends>
+   <header>ctli</header>
+  </customwidget>
+  <customwidget>
+   <class>klystronSnapshot</class>
+   <extends>TaurusWidget</extends>
+   <header>ctli</header>
+  </customwidget>
+  <customwidget>
+   <class>TimingSnapshot</class>
+   <extends>TaurusWidget</extends>
+   <header>ctli</header>
+  </customwidget>
+  <customwidget>
+   <class>EVRSnapshot</class>
+   <extends>TaurusWidget</extends>
+   <header>ctli</header>
+  </customwidget>  
+  <customwidget>
+   <class>RadioFrequencySnapshot</class>
+   <extends>TaurusWidget</extends>
+   <header>ctli</header>
+  </customwidget>
+  <customwidget>
+   <class>MagnetSnapshot</class>
+   <extends>TaurusWidget</extends>
+   <header>ctli</header>
+  </customwidget>
+  <customwidget>
+   <class>CoolingLoopSnapshot</class>
+   <extends>TaurusWidget</extends>
+   <header>ctli</header>
+  </customwidget>
+  <customwidget>
+   <class>TaurusWidget</class>
+   <extends>QWidget</extends>
+   <header>taurus.qt.qtgui.container</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>VacuumValveSnapshot</class>
+   <extends>TaurusWidget</extends>
+   <header>ctli</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

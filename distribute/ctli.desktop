@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=ctli
+GenericName=Linac's controls gui
+Comment=Opens linac's controls graphical interface
+Exec=ctli
+Icon=albact-li
+Terminal=false
+Categories=Graphics;
+Keywords=X-albact;
+StartupNotify=true

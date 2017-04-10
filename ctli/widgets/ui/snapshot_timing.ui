@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>TimingSnapshot</class>
+ <widget class="TaurusWidget" name="timingSnapshot">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>314</width>
+    <height>235</height>
+   </rect>
+  </property>
+  <property name="font">
+   <font>
+    <pointsize>7</pointsize>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout_2">
+   <item row="0" column="0">
+    <widget class="TaurusGroupBox" name="timingGroup">
+     <property name="title">
+      <string>Timing</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="8" column="1">
+       <spacer name="verticalSpacer">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="MBMLabel">
+        <property name="text">
+         <string>Multi Bunch Mode</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLabel" name="PresentWriteTitle">
+        <property name="text">
+         <string>Present value</string>
+        </property>
+       </widget>
+      </item>
+      <item row="7" column="1">
+       <widget class="TaurusLabel" name="GPARead"/>
+      </item>
+      <item row="3" column="4">
+       <widget class="QCheckBox" name="ka1DelayCheck">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="2">
+       <widget class="QSpinBox" name="GPNWrite"/>
+      </item>
+      <item row="3" column="1">
+       <widget class="TaurusLabel" name="ka1DelayRead"/>
+      </item>
+      <item row="1" column="3" rowspan="7">
+       <widget class="Line" name="line">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="1">
+       <widget class="TaurusLabel" name="GPIRead"/>
+      </item>
+      <item row="2" column="2">
+       <widget class="QSpinBox" name="GunDelayWrite"/>
+      </item>
+      <item row="4" column="4">
+       <widget class="QCheckBox" name="ka2DelayCheck">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="2">
+       <widget class="QLabel" name="SaveRetrieveTitle">
+        <property name="text">
+         <string>Save/Retrieve</string>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="0">
+       <widget class="QLabel" name="GPNLabel">
+        <property name="text">
+         <string>Bunch number</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="GunDelayLabel">
+        <property name="text">
+         <string>Electron Gun Delay</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0">
+       <widget class="QLabel" name="ka2DelayLabel">
+        <property name="text">
+         <string>KA2 Delay</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="2">
+       <widget class="QCheckBox" name="MBMWrite">
+        <property name="text">
+         <string>multi/single</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="4">
+       <widget class="QCheckBox" name="MBMCheck">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="7" column="0">
+       <widget class="QLabel" name="GPALabel">
+        <property name="text">
+         <string>Pulses Attenuattion</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="0">
+       <widget class="QLabel" name="GPILabel">
+        <property name="text">
+         <string>Bunch Interval/width</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="4">
+       <widget class="QCheckBox" name="GunDelayCheck">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="ka1DelayLabel">
+        <property name="text">
+         <string>KA1 Delay</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="TaurusLed" name="MBMRead">
+        <property name="minimumSize">
+         <size>
+          <width>15</width>
+          <height>15</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>15</width>
+          <height>15</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="2">
+       <widget class="QSpinBox" name="GPIWrite"/>
+      </item>
+      <item row="6" column="4">
+       <widget class="QCheckBox" name="GPNCheck">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="4">
+       <widget class="QCheckBox" name="GPICheck">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="7" column="4">
+       <widget class="QCheckBox" name="GPACheck">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="1">
+       <widget class="TaurusLabel" name="ka2DelayRead"/>
+      </item>
+      <item row="2" column="1">
+       <widget class="TaurusLabel" name="GunDelayRead"/>
+      </item>
+      <item row="6" column="1">
+       <widget class="TaurusLabel" name="GPNRead"/>
+      </item>
+      <item row="3" column="2">
+       <widget class="QSpinBox" name="ka1DelayWrite"/>
+      </item>
+      <item row="4" column="2">
+       <widget class="QSpinBox" name="ka2DelayWrite"/>
+      </item>
+      <item row="7" column="2">
+       <widget class="QDoubleSpinBox" name="GPAWrite"/>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>TaurusLed</class>
+   <extends>QLed</extends>
+   <header>taurus.qt.qtgui.display</header>
+  </customwidget>
+  <customwidget>
+   <class>QLed</class>
+   <extends>QPixmapWidget</extends>
+   <header>taurus.qt.qtgui.display</header>
+  </customwidget>
+  <customwidget>
+   <class>QPixmapWidget</class>
+   <extends>QWidget</extends>
+   <header>taurus.qt.qtgui.display</header>
+  </customwidget>
+  <customwidget>
+   <class>TaurusWidget</class>
+   <extends>QWidget</extends>
+   <header>taurus.qt.qtgui.container</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>TaurusLabel</class>
+   <extends>QLabel</extends>
+   <header>taurus.qt.qtgui.display</header>
+  </customwidget>
+  <customwidget>
+   <class>TaurusGroupBox</class>
+   <extends>QGroupBox</extends>
+   <header>taurus.qt.qtgui.container</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

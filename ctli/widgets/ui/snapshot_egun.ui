@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ElectronGunSnapshot</class>
+ <widget class="TaurusWidget" name="electronGunSnapshot">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>301</width>
+    <height>135</height>
+   </rect>
+  </property>
+  <property name="font">
+   <font>
+    <pointsize>7</pointsize>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <widget class="TaurusGroupBox" name="electronGunGroup">
+     <property name="title">
+      <string>Electron Gun</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_2">
+      <item row="0" column="1">
+       <widget class="QLabel" name="PresentWriteTitle">
+        <property name="text">
+         <string>Present value</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="4">
+       <widget class="QCheckBox" name="GunFilamentLowVoltageCheck">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="2">
+       <widget class="QLabel" name="SaveRetrieveTitle">
+        <property name="text">
+         <string>Save/Retrieve</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="GunFilamentLowVoltageLabel">
+        <property name="text">
+         <string>Filament Low Voltage</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="TaurusLabel" name="GunFilamentLowVoltageRead"/>
+      </item>
+      <item row="1" column="2">
+       <widget class="QDoubleSpinBox" name="GunFilamentLowVoltageWrite"/>
+      </item>
+      <item row="1" column="3" rowspan="5">
+       <widget class="Line" name="line">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1" rowspan="2">
+       <widget class="TaurusLabel" name="GunKathodeLowVoltageRead"/>
+      </item>
+      <item row="2" column="2" rowspan="2">
+       <widget class="QDoubleSpinBox" name="GunKathodeLowVoltageWrite"/>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="GunKathodeLowVoltageLabel">
+        <property name="text">
+         <string>Kathode Low Voltage</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="4">
+       <widget class="QCheckBox" name="GunKathodeLowVoltageCheck">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0">
+       <widget class="QLabel" name="GunHighVoltagePowerSupplyLabel">
+        <property name="text">
+         <string>High Voltage PS</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="1">
+       <widget class="TaurusLabel" name="GunHighVoltagePowerSupplyRead"/>
+      </item>
+      <item row="4" column="2">
+       <widget class="QDoubleSpinBox" name="GunHighVoltagePowerSupplyWrite"/>
+      </item>
+      <item row="4" column="4">
+       <widget class="QCheckBox" name="GunHighVoltagePowerSupplyCheck">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="1">
+       <spacer name="verticalSpacer">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>TaurusWidget</class>
+   <extends>QWidget</extends>
+   <header>taurus.qt.qtgui.container</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>TaurusLabel</class>
+   <extends>QLabel</extends>
+   <header>taurus.qt.qtgui.display</header>
+  </customwidget>
+  <customwidget>
+   <class>TaurusGroupBox</class>
+   <extends>QGroupBox</extends>
+   <header>taurus.qt.qtgui.container</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
