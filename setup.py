@@ -39,6 +39,11 @@ setup(
             'ctlisetup = ctli.ctlisetup:main',
             ]
         },
+    options={
+        'build_scripts': {
+                'executable': '/usr/bin/env python',
+                    },
+        }
     include_package_data=True,
     package_dir={'widgets': ['widgets/ui']},
     package_data={'widgets': ['*.ui']},
