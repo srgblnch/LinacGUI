@@ -16,6 +16,7 @@ run-build:
   script:
     - gbp import-orig --uscan --merge-mode=replace --pristine-tar --no-interactive --postimport='gbp dch -N$GBP_UPSTREAM_VERSION-0~bpo9+0~alba+1 -R -c --debian-branch=$GBP_BRANCH --spawn-editor=never'
     - cat debian/changelog
+    - cowbuilder --update
     - gbp buildpackage
 
   # This stage is only executed for new tags
