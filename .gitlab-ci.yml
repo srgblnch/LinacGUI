@@ -1,7 +1,7 @@
 # Is performed before the scripts in the stages step
 before_script:  
   - cd /packaging
-  - git clone https://git.cells.es/ctpkg/linacgui_deb.git && cd linacgui_deb
+  - git clone --mirror https://git.cells.es/ctpkg/linacgui_deb.git && cd linacgui_deb
 
 # Defines stages which are to be executed
 stages:  
