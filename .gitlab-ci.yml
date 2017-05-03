@@ -18,6 +18,11 @@ run-build:
     - cat debian/changelog
     - cowbuilder --update
     - gbp buildpackage
+    # just for debugging the artifacts
+    - ls
+    - ls /packaging/
+    - ls ..
+    - ls ../build-area/
 
   # This stage is only executed for new tags
   only:
