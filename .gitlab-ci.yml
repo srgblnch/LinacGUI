@@ -3,7 +3,7 @@ before_script:
   - cd /packaging
   - git clone https://git.cells.es/ctpkg/linacgui_deb 
   - cd linacgui_deb
-  - git checkout upstream && git checkout pristine-tar
+  - git checkout upstream && git checkout pristine-tar && git checkout master
 
 # Defines stages which are to be executed
 stages:  
