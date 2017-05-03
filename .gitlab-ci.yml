@@ -14,7 +14,7 @@ stages:
 run-build:  
   stage: build
   script:
-    - gbp import-orig --uscan --merge-mode=replace --pristine-tar --no-interactive --postimport='gbp dch -N$GBP_UPSTREAM_VERSION-0~bpo9+0~alba+1 -R --debian-branch=$GBP_BRANCH --spawn-editor=never'
+    - gbp import-orig --uscan --merge-mode=replace --pristine-tar --no-interactive --postimport='gbp dch -N$GBP_UPSTREAM_VERSION-0~bpo9+0~alba+1 -R -c --debian-branch=$GBP_BRANCH --spawn-editor=never'
     - cat debian/changelog
     - git status
 
