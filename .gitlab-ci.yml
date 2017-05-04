@@ -1,5 +1,12 @@
 # Is performed before the scripts in the stages step
-before_script:  
+before_script: 
+  # just for debugging the artifacts
+  - pwd
+  - ls
+  - ls /packaging/
+  - ls ..
+  - ls ../build-area/
+  - /packaging/build-area/
   - cd /packaging
   - rm -rf /packaging/linacgui_deb
   - git clone https://git.cells.es/ctpkg/linacgui_deb 
@@ -19,10 +26,12 @@ run-build:
     - cowbuilder --update
     - gbp buildpackage
     # just for debugging the artifacts
+    - pwd
     - ls
     - ls /packaging/
     - ls ..
     - ls ../build-area/
+    - /packaging/build-area/
 
   # This stage is only executed for new tags
   only:
