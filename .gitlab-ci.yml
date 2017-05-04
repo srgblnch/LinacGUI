@@ -10,6 +10,16 @@ stages:
   - test
   - deploy
 
+
+debugging:  
+  stage: build
+  script:
+    - echo 'foo' > /tmp/kk
+    - cat /tmp/kk
+    - KK=$(cat /tmp/kk) 
+    - echo $KK
+    
+
 # Stage "build"
 run-build:  
   stage: build
@@ -21,9 +31,10 @@ run-build:
     - gbp import-orig --uscan --merge-mode=replace --pristine-tar --no-interactive --postimport='gbp dch -N$GBP_UPSTREAM_VERSION-0~bpo9+0~alba+1 -R -c --debian-branch=$GBP_BRANCH --spawn-editor=never'
     - cat debian/changelog
     - cowbuilder --update
-    - gbp buildpackage --git-postbuild='echo BUILD FINISHED:$GBP_CHANGES_FILE; export PKG_CHANGES_FILE=$GBP_CHANGES_FILE' # do not run checks now
+    - gbp buildpackage --git-postbuild='echo $GBP_CHANGES_FILE > /tmp/GBP_CHANGES_FILE' # do not run checks now
     # just for debugging the artifacts
-    - echo $GBP_CHANGES_FILE
+    - cat /tmp/GBP_CHANGES_FILE
+    - PKG_CHANGES_FILE=$(cat /tmp/GBP_CHANGES_FILE) 
     - echo $PKG_CHANGES_FILE
     - pwd
     - ls
