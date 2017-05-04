@@ -9,40 +9,8 @@ stages:
   - build
   - test
   - deploy
-
-
-debugging1:  
-  stage: build
-  script:
-    - mkdir artifacts
-    - echo 'foo' > /tmp/kk
-    - cat /tmp/kk
-    - KK=$(cat /tmp/kk) 
-    - echo $KK
-    - cp /tmp/kk kk2
-    - cat kk2
-    - ls kk2
-    - cd /packaging
-    - touch kk3
-    - pwd
-    - ls
-    - cp kk3 $CI_PROJECT_DIR/artifacts/
     
-  artifacts:
-    paths:
-      - /tmp/kk
-      - kk2
-      - artifacts/*
-  
-
-debugging2:  
-  stage: test
-  script:
-    - ls kk2
-    - echo $KK
-    - ls artifacts
     
-
 # Stage "build"
 run-build:  
   stage: build
@@ -55,17 +23,9 @@ run-build:
     - gbp import-orig --uscan --merge-mode=replace --pristine-tar --no-interactive --postimport='gbp dch -N$GBP_UPSTREAM_VERSION-0~bpo9+0~alba+1 -R -c --debian-branch=$GBP_BRANCH --spawn-editor=never'
     - cat debian/changelog
     - cowbuilder --update
-    - gbp buildpackage --git-postbuild='echo $GBP_CHANGES_FILE > /tmp/GBP_CHANGES_FILE' # do not run checks now
+    - gbp buildpackage --git-export-dir=$CI_PROJECT_DIR/artifacts/ --git-postbuild='echo gbp buildpackage finished' # do not run checks now
     # just for debugging the artifacts
-    - cat /tmp/GBP_CHANGES_FILE
-    - PKG_CHANGES_FILE=$(cat /tmp/GBP_CHANGES_FILE) 
-    - echo $PKG_CHANGES_FILE
-    - pwd
-    - ls
-    - ls /packaging/
-    - ls ..
-    - ls ../build-area/
-    - ls /packaging/build-area/
+    - ls $CI_PROJECT_DIR/artifacts/
 
   # This stage is only executed for new tags
   only:
@@ -74,12 +34,12 @@ run-build:
   # The files which are to be made available in GitLab
   artifacts:
     paths:
-      - /packaging/build-area/*
+      - artifacts/*
 
 lintian: 
   stage: test
   script:
-    - lintian -i -I $PKG_CHANGES_FILE
+    - lintian -i -I artifacts/*.changes
   allow_failure: true
   only:
     - tags
@@ -87,7 +47,7 @@ lintian:
 piuparts: 
   stage: test
   script:
-    - piuparts -d stretch -m http://httpredir.debian.org/debian --extra-repo 'deb [ trusted=yes ] http://controls01.cells.es/testrepo debian9/' $PKG_CHANGES_FILE
+    - piuparts -d stretch -m http://httpredir.debian.org/debian --extra-repo 'deb [ trusted=yes ] http://controls01.cells.es/testrepo debian9/' artifacts/*.changes
   allow_failure: true
   only:
     - tags
@@ -96,6 +56,7 @@ deploy_to_staging:
   stage: deploy
   script:
     - echo 'TODO this would call dput to the staging repo with appropriate credentials'
+    - ls artifacts/*
   only:
     - tags
     
