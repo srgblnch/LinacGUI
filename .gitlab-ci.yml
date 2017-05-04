@@ -52,7 +52,13 @@ piuparts:
   script:
     - piuparts -d stretch -m http://httpredir.debian.org/debian --extra-repo "deb [ trusted=yes ] http://controls01.cells.es/testrepo debian9/" $PKG_CHANGES_FILE
     
-#dput:
-#  stage: deploy
-#  script:
-#   - TODO
+dput:
+  stage: deploy
+  script:
+    - echo "TODO: this would call dput to the staging repo with appropriate credentials"
+
+deploy_to_production:
+  stage: deploy
+  script:
+    - echo "TODO: This would call dput to the production repo with appropriate credentials" 
+  when: manual
