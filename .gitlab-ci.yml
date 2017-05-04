@@ -26,6 +26,8 @@ run-build:
     - cowbuilder --update
     - gbp buildpackage --git-postbuild='echo BUILD FINISHED:$GBP_CHANGES_FILE; export PKG_CHANGES_FILE=$GBP_CHANGES_FILE' # do not run checks now
     # just for debugging the artifacts
+    - echo $GBP_CHANGES_FILE
+    - echo $PKG_CHANGES_FILE
     - pwd
     - ls
     - ls /packaging/
@@ -47,20 +49,28 @@ lintian:
   script:
     - lintian -i -I 
   allow_failure: true
+  only:
+    - tags
     
 piuparts: 
   stage: test
   script:
     - piuparts -d stretch -m http://httpredir.debian.org/debian --extra-repo 'deb [ trusted=yes ] http://controls01.cells.es/testrepo debian9/' $PKG_CHANGES_FILE
   allow_failure: true
+  only:
+    - tags
     
 deploy_to_staging:
   stage: deploy
   script:
     - echo 'TODO this would call dput to the staging repo with appropriate credentials'
-
+  only:
+    - tags
+    
 deploy_to_production:
   stage: deploy
   script:
     - echo 'TODO This would call dput to the production repo with appropriate credentials'
   when: manual
+  only:
+    - tags
