@@ -6,11 +6,9 @@ variables:
 
 # Is performed before the scripts in the stages step
 before_script: 
-  # just for debugging the artifacts
   - cd /packaging
-  - rm -rf /packaging/linacgui_deb
-  - git clone https://git.cells.es/ctpkg/linacgui_deb 
-  - cd linacgui_deb
+  - git clone $PKG_REPO_URL 
+  - cd $PKG_REPO
   - git checkout upstream && git checkout pristine-tar && git checkout master
 
 # Defines stages which are to be executed
@@ -26,14 +24,14 @@ run-build:
     - gbp import-orig --uscan --merge-mode=replace --pristine-tar --no-interactive --postimport='gbp dch -N$GBP_UPSTREAM_VERSION-0~bpo9+0~alba+1 -R -c --debian-branch=$GBP_BRANCH --spawn-editor=never'
     - cat debian/changelog
     - cowbuilder --update
-    - gbp buildpackage
+    - gbp buildpackage --git-postbuild='echo BUILD FINISHED: $$GBP_CHANGES_FILE; export PKG_CHANGES_FILE=$$GBP_CHANGES_FILE' # do not run checks now
     # just for debugging the artifacts
     - pwd
     - ls
     - ls /packaging/
     - ls ..
     - ls ../build-area/
-    - /packaging/build-area/
+    - ls /packaging/build-area/
 
   # This stage is only executed for new tags
   only:
@@ -44,16 +42,16 @@ run-build:
     paths:
       - /packaging/build-area/*
 
-# lintian: 
-#  stage: test
-#  script:
-#    - TODO
-#    
-#piuparts: 
-#  stage: test
-#  script:
-#    - TODO
-#    
+lintian: 
+  stage: test
+  script:
+    - lintian -i -I 
+    
+piuparts: 
+  stage: test
+  script:
+    - piuparts -d stretch -m http://httpredir.debian.org/debian --extra-repo "deb [ trusted=yes ] http://controls01.cells.es/testrepo debian9/" $PKG_CHANGES_FILE
+    
 #dput:
 #  stage: deploy
 #  script:
