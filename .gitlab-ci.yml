@@ -19,6 +19,8 @@ debugging1:
     - KK=$(cat /tmp/kk) 
     - echo $KK
     - cp /tmp/kk kk2
+    - cat kk2
+    - ls kk2
   artifacts:
     paths:
       - /tmp/kk
