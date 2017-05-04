@@ -14,6 +14,7 @@ stages:
 debugging1:  
   stage: build
   script:
+    - mkdir artifacts
     - echo 'foo' > /tmp/kk
     - cat /tmp/kk
     - KK=$(cat /tmp/kk) 
@@ -21,10 +22,17 @@ debugging1:
     - cp /tmp/kk kk2
     - cat kk2
     - ls kk2
+    - cd /packaging
+    - touch kk3
+    - pwd
+    - ls
+    - cp kk3 $CI_PROJECT_DIR/artifacts/
+    
   artifacts:
     paths:
       - /tmp/kk
       - kk2
+      - artifacts/*
   
 
 debugging2:  
@@ -32,13 +40,14 @@ debugging2:
   script:
     - ls kk2
     - echo $KK
-    - cat /tmp/kk
+    - ls artifacts
     
 
 # Stage "build"
 run-build:  
   stage: build
   script:
+    - mkdir artifacts
     - cd /packaging
     - git clone $PKG_REPO_URL 
     - cd $PKG_REPO
