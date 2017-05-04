@@ -18,12 +18,16 @@ debugging1:
     - cat /tmp/kk
     - KK=$(cat /tmp/kk) 
     - echo $KK
+  artifacts:
+    paths:
+      - /tmp/kk
+  
 
 debugging2:  
   stage: test
   script:
-    - cat /tmp/kk
     - echo $KK
+    - cat /tmp/kk
     
 
 # Stage "build"
