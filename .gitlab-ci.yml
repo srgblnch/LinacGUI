@@ -46,11 +46,13 @@ lintian:
   stage: test
   script:
     - lintian -i -I 
+  allow_failure: true
     
 piuparts: 
   stage: test
   script:
     - piuparts -d stretch -m http://httpredir.debian.org/debian --extra-repo 'deb [ trusted=yes ] http://controls01.cells.es/testrepo debian9/' $PKG_CHANGES_FILE
+  allow_failure: true
     
 deploy_to_staging:
   stage: deploy
