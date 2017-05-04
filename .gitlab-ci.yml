@@ -1,12 +1,8 @@
+image: pc218:5000/debpack
+
 # Is performed before the scripts in the stages step
 before_script: 
   # just for debugging the artifacts
-  - pwd
-  - ls
-  - ls /packaging/
-  - ls ..
-  - ls ../build-area/
-  - /packaging/build-area/
   - cd /packaging
   - rm -rf /packaging/linacgui_deb
   - git clone https://git.cells.es/ctpkg/linacgui_deb 
@@ -16,6 +12,8 @@ before_script:
 # Defines stages which are to be executed
 stages:  
   - build
+  - test
+  - deploy
 
 # Stage "build"
 run-build:  
@@ -41,3 +39,18 @@ run-build:
   artifacts:
     paths:
       - /packaging/build-area/*
+
+# lintian: 
+#  stage: test
+#  script:
+#    - TODO
+#    
+#piuparts: 
+#  stage: test
+#  script:
+#    - TODO
+#    
+#dput:
+#  stage: deploy
+#  script:
+#   - TODO
