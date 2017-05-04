@@ -4,13 +4,6 @@ variables:
   PKG_REPO: 'linacgui_deb'
   PKG_REPO_URL: 'https://git.cells.es/ctpkg/$PKG_REPO'
 
-# Is performed before the scripts in the stages step
-before_script: 
-  - cd /packaging
-  - git clone $PKG_REPO_URL 
-  - cd $PKG_REPO
-  - git checkout upstream && git checkout pristine-tar && git checkout master
-
 # Defines stages which are to be executed
 stages:  
   - build
@@ -21,6 +14,10 @@ stages:
 run-build:  
   stage: build
   script:
+    - cd /packaging
+    - git clone $PKG_REPO_URL 
+    - cd $PKG_REPO
+    - git checkout upstream && git checkout pristine-tar && git checkout master
     - gbp import-orig --uscan --merge-mode=replace --pristine-tar --no-interactive --postimport='gbp dch -N$GBP_UPSTREAM_VERSION-0~bpo9+0~alba+1 -R -c --debian-branch=$GBP_BRANCH --spawn-editor=never'
     - cat debian/changelog
     - cowbuilder --update
@@ -47,7 +44,7 @@ run-build:
 lintian: 
   stage: test
   script:
-    - lintian -i -I 
+    - lintian -i -I $PKG_CHANGES_FILE
   allow_failure: true
   only:
     - tags
@@ -71,6 +68,7 @@ deploy_to_production:
   stage: deploy
   script:
     - echo 'TODO This would call dput to the production repo with appropriate credentials'
+    - echo 'TODO This would push the local git repo to $PKG_REPO_URL'
   when: manual
   only:
     - tags
