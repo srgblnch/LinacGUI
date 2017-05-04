@@ -30,6 +30,7 @@ debugging1:
 debugging2:  
   stage: test
   script:
+    - ls kk2
     - echo $KK
     - cat /tmp/kk
     
