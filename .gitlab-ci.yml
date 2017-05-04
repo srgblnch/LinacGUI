@@ -1,5 +1,9 @@
 image: pc218:5000/debpack
 
+variables:
+  PKG_REPO: 'linacgui_deb'
+  PKG_REPO_URL: 'https://git.cells.es/ctpkg/$PKG_REPO'
+
 # Is performed before the scripts in the stages step
 before_script: 
   # just for debugging the artifacts
