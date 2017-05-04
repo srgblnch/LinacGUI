@@ -11,13 +11,13 @@ stages:
   - deploy
 
 
-debugging:  
-  stage: build
-  script:
-    - echo 'foo' > /tmp/kk
-    - cat /tmp/kk
-    - KK=$(cat /tmp/kk) 
-    - echo $KK
+# debugging:  
+#   stage: build
+#   script:
+#     - echo 'foo' > /tmp/kk
+#     - cat /tmp/kk
+#     - KK=$(cat /tmp/kk) 
+#     - echo $KK
     
 
 # Stage "build"
