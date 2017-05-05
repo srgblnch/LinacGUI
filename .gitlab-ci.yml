@@ -10,19 +10,6 @@ stages:
   - test
   - deploy
 
-
-debug:  
-  stage: build
-  script:
-    - mkdir artifacts
-    - cd /packaging
-    - git clone $PKG_REPO_URL 
-    - cd $PKG_REPO
-    - git checkout upstream && git checkout pristine-tar && git checkout master
-    - echo $GITLAB_USER_EMAIL
-    - git show 2.72.14 |grep Tagger|cut -d\  -f3
-
-    
 # Stage "build"
 run-build:  
   stage: build
@@ -32,7 +19,7 @@ run-build:
     - git clone $PKG_REPO_URL 
     - cd $PKG_REPO
     - git checkout upstream && git checkout pristine-tar && git checkout master
-    - gbp import-orig --uscan --merge-mode=replace --pristine-tar --no-interactive --postimport='gbp dch -N$GBP_UPSTREAM_VERSION-0~bpo9+0~alba+1 -R -c --debian-branch=$GBP_BRANCH --spawn-editor=never '
+    - gbp import-orig --uscan --merge-mode=replace --pristine-tar --no-interactive --postimport='gbp dch -N$GBP_UPSTREAM_VERSION-0~bpo9+0~alba+1 -R -c --debian-branch=$GBP_BRANCH --spawn-editor=never --git-author'
     - cat debian/changelog
     - cowbuilder --update
     - gbp buildpackage --git-export-dir=$CI_PROJECT_DIR/artifacts/ --git-postbuild='echo gbp buildpackage finished' # do not run checks now
