@@ -1,8 +1,12 @@
-image: pc218:5000/debpack
+image: pc218:5000/debpack:ci
 
 variables:
   PKG_REPO: 'linacgui_deb'
   PKG_REPO_URL: 'https://git.cells.es/ctpkg/$PKG_REPO'
+  
+# Is performed before the scripts in the stages step
+before_script:  
+  - build_chroot
 
 # Defines stages which are to be executed
 stages:  
@@ -19,10 +23,9 @@ run-build:
     - git clone $PKG_REPO_URL 
     - cd $PKG_REPO
     - git checkout upstream && git checkout pristine-tar && git checkout master
-    - gbp import-orig --uscan --merge-mode=replace --pristine-tar --no-interactive --postimport='gbp dch -N$GBP_UPSTREAM_VERSION-0~bpo9+0~alba+1 -R -c --debian-branch=$GBP_BRANCH --spawn-editor=never --git-author'
+    - gbp import-orig --uscan --merge-mode=replace --no-interactive
     - cat debian/changelog
-    - cowbuilder --update
-    - gbp buildpackage --git-export-dir=$CI_PROJECT_DIR/artifacts/ --git-postbuild='echo gbp buildpackage finished' # do not run checks now
+    - gbp buildpackage --git-export-dir=$CI_PROJECT_DIR/artifacts/
     # list the artifacts dir
     - ls -la $CI_PROJECT_DIR/artifacts/
 
@@ -38,7 +41,7 @@ run-build:
 lintian: 
   stage: test
   script:
-    - lintian -i -I --suppress-tags backports-upload-has-incorrect-version-number,backports-changes-missing artifacts/*.changes
+    - lintian -i -I --suppress-tags-from-file=/root/lintian-tags.txt artifacts/*.changes
   allow_failure: true
   only:
     - tags
