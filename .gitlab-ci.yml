@@ -1,4 +1,4 @@
-image: pc218:5000/debpack:ci
+image: controls04:5000/debpack:ci
 
 variables:
   PKG_REPO: 'linacgui_deb'
