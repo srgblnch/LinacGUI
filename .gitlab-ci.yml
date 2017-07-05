@@ -1,4 +1,4 @@
-image: localhost:5000/debpack:ci
+image: dockerrg.cells.es/debpack:ci
 
 variables:
   PKG_REPO: 'linacgui_deb'
