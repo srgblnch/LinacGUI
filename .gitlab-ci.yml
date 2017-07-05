@@ -23,7 +23,7 @@ run-build:
     - git clone $PKG_REPO_URL 
     - cd $PKG_REPO
     - git checkout upstream && git checkout pristine-tar && git checkout master
-    - gbp import-orig --uscan --merge-mode=replace --no-interactive --pristin-tar
+    - gbp import-orig --uscan --merge-mode=replace --no-interactive --pristine-tar.
     - cat debian/changelog
     - gbp buildpackage --git-export-dir=$CI_PROJECT_DIR/artifacts/
     # list the artifacts dir
