@@ -25,7 +25,7 @@ import os
 from socket import gethostname
 from getpass import getuser
 from taurus import setLogLevel, Trace, Info
-from taurus.qt import Qt
+from taurus.external.qt import Qt
 from .ctliversion import version
 
 VERSION = "%s" % (version())

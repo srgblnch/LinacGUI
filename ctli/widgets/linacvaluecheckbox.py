@@ -23,7 +23,7 @@ __license__ = "GPLv3+"
 __all__ = ["LinacValueCheckBox"]
 
 import sys
-from taurus.qt import Qt
+from taurus.external.qt import Qt
 from taurus.qt.qtgui.base import TaurusBaseWritableWidget
 
 

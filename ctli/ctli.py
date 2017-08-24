@@ -33,7 +33,7 @@ import sys
 
 from taurus.core.util import argparse
 from taurus.core.util.log import LogExceptHook, Logger
-from taurus.qt import Qt, QtGui, QtCore
+from taurus.external.qt import Qt, QtGui, QtCore
 from taurus.qt.qtgui.application import TaurusApplication
 from taurus.qt.qtgui.base import TaurusBaseComponent
 from taurus.qt.qtgui.container import TaurusMainWindow
@@ -1842,7 +1842,7 @@ class OperationModeManager(TaurusBaseComponent, Qt.QObject):
             self._mainscreen_ui.tbNumberSetpoint.setEnabled(True)
 
 # This is a copy from fsotrGUI ---
-from taurus.qt import QtCore
+from taurus.external.qt import QtCore
 import traceback
 import getpass
 import socket
