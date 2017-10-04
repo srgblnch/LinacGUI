@@ -33,7 +33,7 @@ import traceback
 #     sys.path.append(linacWidgetsPath)
 
 from taurus.core.util import argparse
-from taurus.qt import Qt, QtGui
+from taurus.external.qt import Qt, QtGui
 from taurus.qt.qtgui.application import TaurusApplication
 from taurus.qt.qtgui.container import TaurusWidget
 from taurus.qt.qtgui.util.ui import UILoadable
