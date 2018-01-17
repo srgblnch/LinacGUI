@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>86</width>
-    <height>41</height>
+    <width>102</width>
+    <height>43</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -38,10 +38,10 @@
          </size>
         </property>
         <property name="layoutDirection">
-         <enum>Qt::RightToLeft</enum>
+         <enum>Qt::LeftToRight</enum>
         </property>
-        <property name="showText">
-         <bool>true</bool>
+        <property name="showText" stdset="0">
+         <bool>false</bool>
         </property>
        </widget>
       </item>
@@ -109,14 +109,15 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>LinacValueCheckBox</class>
-   <extends>QCheckBox</extends>
-   <header>ctli</header>
+   <class>TaurusWidget</class>
+   <extends>QWidget</extends>
+   <header>taurus.qt.qtgui.container</header>
+   <container>1</container>
   </customwidget>
   <customwidget>
-   <class>LinacLed</class>
-   <extends>TaurusLed</extends>
-   <header>ctli</header>
+   <class>TaurusLed</class>
+   <extends>QLed</extends>
+   <header>taurus.qt.qtgui.display</header>
   </customwidget>
   <customwidget>
    <class>QLed</class>
@@ -129,10 +130,14 @@
    <header>taurus.qt.qtgui.display</header>
   </customwidget>
   <customwidget>
-   <class>TaurusWidget</class>
-   <extends>QWidget</extends>
-   <header>taurus.qt.qtgui.container</header>
-   <container>1</container>
+   <class>LinacValueCheckBox</class>
+   <extends>QCheckBox</extends>
+   <header>ctli</header>
+  </customwidget>
+  <customwidget>
+   <class>LinacLed</class>
+   <extends>TaurusLed</extends>
+   <header>ctli</header>
   </customwidget>
  </customwidgets>
  <resources/>
