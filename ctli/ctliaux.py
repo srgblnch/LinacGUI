@@ -41,7 +41,7 @@ defaultPreconfTrends = "%s/Taurustrend_preconfig" % (linacbox)
 ######
 # Auxiliar methods to configure widgets ---
 def _setupLed4UnknownAttr(widget):
-    widget.setLedPatternName(":leds/images256/led_{color}_{status}.png")
+    widget.setLedPatternName("leds_images256:led_{color}_{status}.png")
     widget.setOnColor('green')
     widget.setOffColor('white')
     widget.hide()
@@ -51,7 +51,7 @@ def _setupLed4Attr(widget, attrName, inverted=False, onColor='green',
                    offColor='red', pattern='on', blinkOnChange=None):
     widget.setModel(attrName)
     if pattern == 'on':
-        widget.setLedPatternName(":leds/images256/led_{color}_on.png")
+        widget.setLedPatternName("leds_images256:led_{color}_on.png")
     widget.setOnColor(onColor)
     widget.setOffColor(offColor)
     if inverted:
