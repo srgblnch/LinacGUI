@@ -184,9 +184,6 @@ class LinacMainWindow(TaurusMainWindow, TaurusWidget):
     # Auxiliar methods to configure widgets ---
     def _setupLed4UnknownAttr(self, widget):
         _setupLed4UnknownAttr(widget)
-#        widget.setLedPatternName(":leds/images256/led_{color}_{status}.png")
-#        widget.setOnColor('green')
-#        widget.setOffColor('white')
 
     def _setupLed4Attr(self, widget, attrName, inverted=False, onColor='green',
                        offColor='red', pattern='on', blinkOnChange=None):

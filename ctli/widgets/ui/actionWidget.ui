@@ -38,7 +38,7 @@
          </size>
         </property>
         <property name="layoutDirection">
-         <enum>Qt::LeftToRight</enum>
+         <enum>Qt::RightToLeft</enum>
         </property>
         <property name="showText" stdset="0">
          <bool>false</bool>
@@ -87,7 +87,7 @@
         </property>
        </spacer>
       </item>
-      <item row="1" column="0" colspan="4">
+      <item row="1" column="1" colspan="2">
        <widget class="QLabel" name="Label">
         <property name="font">
          <font>
