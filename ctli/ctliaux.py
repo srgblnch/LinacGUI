@@ -25,6 +25,7 @@ import os
 from socket import gethostname
 from getpass import getuser
 from taurus import setLogLevel, Trace, Info
+from taurus.core.tango.util import tangoFormatter
 from taurus.external.qt import Qt
 from .ctliversion import version
 
@@ -89,6 +90,7 @@ def _setupSpinBox4Attr(widget, attrName, step=None):
     if not attrName.endswith(magnitudeSuffix):
         attrName = "%s%s" % (attrName, magnitudeSuffix)
     widget.setModel(attrName)
+    widget.FORMAT = tangoFormatter
     widget.setAutoApply(True)
     widget.setForcedApply(False)
     if step is not None:
@@ -97,6 +99,7 @@ def _setupSpinBox4Attr(widget, attrName, step=None):
 
 def _setupTaurusLabel4Attr(widget, attrName, unit=None):
     widget.setModel(attrName)
+    widget.FORMAT = tangoFormatter
     # print("%s>>>>> %s" % ("\n"*5, attrName))
     try:
         attrModelObj = widget.getModelObj()
