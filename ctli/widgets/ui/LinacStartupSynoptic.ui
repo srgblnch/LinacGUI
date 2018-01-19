@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>LinacStartupSynoptic</class>
+ <class>linacStartupSynoptic</class>
  <widget class="TaurusWidget" name="linacStartupSynoptic">
   <property name="geometry">
    <rect>
@@ -266,7 +266,7 @@
   <widget class="TaurusValueSpinBox" name="coolingLoop2TemperatureValue">
    <property name="geometry">
     <rect>
-     <x>665</x>
+     <x>680</x>
      <y>390</y>
      <width>70</width>
      <height>22</height>
@@ -325,7 +325,7 @@
   <widget class="TaurusValueSpinBox" name="coolingLoop3TemperatureValue">
    <property name="geometry">
     <rect>
-     <x>945</x>
+     <x>960</x>
      <y>390</y>
      <width>70</width>
      <height>22</height>
@@ -1148,8 +1148,8 @@
     <rect>
      <x>10</x>
      <y>390</y>
-     <width>128</width>
-     <height>94</height>
+     <width>130</width>
+     <height>100</height>
     </rect>
    </property>
    <layout class="QGridLayout" name="KDLayout">
@@ -2298,8 +2298,6 @@
   <zorder>klystron1InterlockPopupWidget</zorder>
   <zorder>klystron1LVWidget</zorder>
   <zorder>coolingLoop3Widget</zorder>
-  <zorder>coolingLoop2Widget</zorder>
-  <zorder>coolingLoop1Widget</zorder>
   <zorder>kdeGunLVWidget</zorder>
   <zorder>layoutWidget</zorder>
   <zorder>sl1Led</zorder>
@@ -2410,6 +2408,8 @@
   <zorder>coolingLoop3Led</zorder>
   <zorder>klystron1LVLed</zorder>
   <zorder>klystron2LVLed</zorder>
+  <zorder>coolingLoop2Widget</zorder>
+  <zorder>coolingLoop1Widget</zorder>
  </widget>
  <customwidgets>
   <customwidget>
