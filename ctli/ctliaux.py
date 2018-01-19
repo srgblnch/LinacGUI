@@ -100,39 +100,31 @@ def _setupSpinBox4Attr(widget, attrName, step=None):
 def _setupTaurusLabel4Attr(widget, attrName, unit=None):
     widget.setModel(attrName)
     widget.FORMAT = tangoFormatter
-    # print("%s>>>>> %s" % ("\n"*5, attrName))
     try:
         attrModelObj = widget.getModelObj()
+        # First check if the TaurusAttribute has interpreted the unit from
+        # the TangoAttribute configuration.
         if hasattr(attrModelObj, 'rvalue') and \
                 hasattr(attrModelObj.rvalue, 'u'):
             attrUnit = attrModelObj.rvalue.u
-            # widget.info("%s uses quantities: %r" % (attrName, attrUnit))
             if len(str(attrUnit)) == 0:
                 attrUnit = None
-        else:
+        else:  # Initialise the variable, no unit within the device attribute
             attrUnit = None
-            # widget.info("%s isn't using quantities" % (attrName))
         if attrUnit is not None:
             if str(attrUnit) != unit:
-                # widget.warning("%s unit %r != %r (%s)"
-                #                % (attrName, unit, attrUnit,
-                #                   attrModelObj.rvalue.u))
-                pass
-            else:
-                # widget.info("%s: %s corresponds to %s"
-                #             % (attrName, attrUnit, unit))
-                pass
-        elif unit:
-            # widget.info("%s doesn't uses quantities, setting a suffix %s"
-            #             % (attrName, unit))
+                widget.warning("Indicated unit (%s)doesn't match with the "
+                               "specified in the device attribute (%s). "
+                               "Ignoring the indicated."
+                               % (unit, attrUnit))
+            # else, they match, no suffix needed
+        elif unit:  # not specified but indicated
+            widget.warning("Device attribute miss the unit configuration, "
+                           "but fixed in the gui.")
             widget.setSuffixText(' %s' % (unit))
-        else:
-            # widget.info("%s doesn't uses quantities and nothing specified"
-            #             % (attrName))
-            pass
+        # else, no units anywhere
     except Exception as e:
         widget.error("With %s, exception: %s" % (attrName, e))
-    # print("<<<<< %s%s" % (attrName, "\n"*5))
 
 
 def _setupCombobox4Attr(widget, attrName, valueNames=None):

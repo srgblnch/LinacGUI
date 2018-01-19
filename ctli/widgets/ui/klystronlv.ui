@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>KlystronLV</class>
+ <class>klystronLV</class>
  <widget class="TaurusWidget" name="klystronLV">
   <property name="geometry">
    <rect>
@@ -74,9 +74,6 @@
             <height>20</height>
            </size>
           </property>
-          <property name="suffixText">
-           <string> s</string>
-          </property>
          </widget>
         </item>
        </layout>
@@ -125,9 +122,6 @@
             <height>20</height>
            </size>
           </property>
-          <property name="suffixText">
-           <string> V</string>
-          </property>
          </widget>
         </item>
        </layout>
@@ -148,9 +142,6 @@
             <width>0</width>
             <height>20</height>
            </size>
-          </property>
-          <property name="suffixText">
-           <string> A</string>
           </property>
          </widget>
         </item>
@@ -175,9 +166,6 @@
             <width>0</width>
             <height>20</height>
            </size>
-          </property>
-          <property name="suffixText">
-           <string> min</string>
           </property>
          </widget>
         </item>
