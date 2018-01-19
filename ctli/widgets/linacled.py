@@ -30,8 +30,8 @@ from taurus.qt.qtgui.display.taurusled import _TaurusLedController
 from time import time, sleep
 from threading import Thread
 
-BLINK_OFF2ON = 1
-BLINK_ON2OFF = 2
+BLINK_OFF2ON = 0b01
+BLINK_ON2OFF = 0b10
 BLINK_BOTH = BLINK_OFF2ON | BLINK_ON2OFF
 
 
