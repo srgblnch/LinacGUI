@@ -32,11 +32,18 @@ import traceback
 # if linacWidgetsPath not in sys.path:
 #     sys.path.append(linacWidgetsPath)
 
+from taurus.core.taurusbasetypes import TaurusEventType
 from taurus.core.util import argparse
 from taurus.external.qt import Qt, QtGui
 from taurus.qt.qtgui.application import TaurusApplication
 from taurus.qt.qtgui.container import TaurusWidget
 from taurus.qt.qtgui.util.ui import UILoadable
+
+
+# ??
+# from taurus.qt.qtgui.base.taurusbase import (TaurusBaseComponent,
+#                                              TaurusBaseWritableWidget)
+
 
 from .ctliaux import (VERSION,
                       _setupLed4UnknownAttr,
@@ -82,6 +89,392 @@ def dump(obj, nested_level=0, output=sys.stdout):
     else:
         print >> output, '%s%s' % (nested_level * spacing, obj)
 
+whiteBackground = "background-color: rgb(255, 255, 255);"
+yellowBackground = "background-color: rgb(255, 255, 0);"
+blueCharacters = "color: rgb(0, 0, 255);"
+blackCharacters = "color: rgb(0, 0, 0);"
+fontSize = "font: 7pt \"DejaVu Sans\";"
+boldFont = "font-weight: bold;"
+
+modifiedSpinBox = yellowBackground+blueCharacters
+wmodifiedSpinBox = yellowBackground+blueCharacters+boldFont
+modifiedCheckBox = yellowBackground+blueCharacters
+notModifiedSpinBox = whiteBackground+blackCharacters
+notModifiedCheckBox = whiteBackground+blackCharacters
+
+
+class AttrStruct(Qt.QObject, TaurusBaseComponent):
+
+    _attrName = None
+    _attrProxy = None
+    _attrFormat = None
+    _storedValue = None
+    _styleMod = False
+
+    _minVal = None
+    _maxVal = None
+    _decimals = None
+    _step = None
+
+    _labelWidget = None
+    _readWidget = None
+    _writeWidget = None
+    _checkWidget = None
+
+    def __init__(self, attrName, label=None, read=None, write=None, check=None,
+                 minVal=None, maxVal=None, decimals=None, step=None,
+                 *args, **kwargs):
+        name = "AttrStruct(%s)" % (attrName.split('/', 2)[2])
+        Qt.QObject.__init__(self, None)
+        TaurusBaseComponent.__init__(self, name=name, *args, **kwargs)
+        # super(AttrStruct, self).__init__(name=name, *args, **kwargs)
+        self._attrName = attrName
+        self._attrProxy = taurus.Attribute(self._attrName)
+        self._attrProxy.addListener(self)
+        Qt.QObject.connect(self.getSignaller(), Qt.SIGNAL('taurusEvent'),
+                           self.filterEvent)
+        self._minVal = minVal
+        self._maxVal = maxVal
+        self._decimals = decimals
+        self._step = step
+        self.labelWidget = label
+        self.readWidget = read
+        self.writeWidget = write
+        self.subscribeQtChangeEvent()
+        self.checkWidget = check
+
+    def __del__(self):
+        self._attrProxy.removeListener(self)
+
+    @property
+    def attrName(self):
+        return self._attrName
+
+    # # widgets ---
+    @property
+    def labelWidget(self):
+        return self._labelWidget
+
+    @labelWidget.setter
+    def labelWidget(self, widget):
+        if isinstance(widget, QtGui.QLabel):
+            self._labelWidget = widget
+        else:
+            raise AssertionError("Not allowed Label widget type %s"
+                                 % (type(widget)))
+
+    @property
+    def readWidget(self):
+        return self._readWidget
+
+    @readWidget.setter
+    def readWidget(self, widget):
+        if isinstance(widget, TaurusLabel) or isinstance(widget, TaurusLed):
+            self._readWidget = widget
+            self._readWidget.setModel(self._attrName)
+            self._storedValue = self.readWidgetValue
+            if self._writeWidget is not None and self._storedValue is not None:
+                self._changeWriteWidgetValue(self._storedValue)
+        else:
+            raise AssertionError("Not allowed read widget type %s"
+                                 % (type(widget)))
+
+    @property
+    def writeWidget(self):
+        return self._writeWidget
+
+    @writeWidget.setter
+    def writeWidget(self, widget):
+        if self.__isCheckBox(widget) or self.__isSpinBox(widget):
+            self._writeWidget = widget
+            if self._minVal:
+                self._writeWidget.setMinimum(self._minVal)
+            if self._maxVal:
+                self._writeWidget.setMaximum(self._maxVal)
+            if self._decimals and hasattr(self._writeWidget, 'setDecimals'):
+                self._writeWidget.setDecimals(self._decimals)
+            if self._step:
+                self._writeWidget.setSingleStep(self._step)
+            if self._storedValue is not None:
+                self._changeWriteWidgetValue(self._storedValue)
+        else:
+            raise AssertionError("Not allowed write widget type %s"
+                                 % (type(widget)))
+
+    @property
+    def checkWidget(self):
+        return self._checkWidget
+
+    @checkWidget.setter
+    def checkWidget(self, widget):
+        if isinstance(widget, QtGui.QCheckBox):
+            self._checkWidget = widget
+        else:
+            raise AssertionError("Not allowed check widget type %s"
+                                 % (type(widget)))
+
+    # # interactions ---
+    @property
+    def attrValue(self):
+        return self._attrProxy.read().value
+
+    @property
+    def attrWValue(self):
+        return self._attrProxy.read().w_value
+
+    @property
+    def attrFormat(self):
+        if self._attrFormat is None:
+            try:
+                attrCfg = AttributeProxy(self.attrName).get_config()
+                self._attrFormat = attrCfg.format
+            except DevFailed as e:
+                pass
+            except Exception as e:
+                self.warning("Cannot get attribute format: %s" % (e))
+        return self._attrFormat
+
+    @property
+    def readWidgetValue(self):
+        if self._readWidget is not None:
+            return self._readWidget.getDisplayValue()
+
+    @property
+    def writeWidgetValue(self):
+        if self.__isCheckBox():
+            return self._writeWidget.isChecked()
+        elif self.__isSpinBox():
+            return self._writeWidget.value()
+
+    @writeWidgetValue.setter
+    def writeWidgetValue(self, value):
+        self.debug("%s.writeWidgetValue = %s" % (self.attrName, value))
+        self._modifyStyle(value)
+        self._changeWriteWidgetValue(value)
+        if self.checkWidget:
+            if self._styleMod:
+                self.checkWidget.setChecked(True)
+            else:
+                self.checkWidget.setChecked(False)
+
+    def __str2bool(self, string):
+        if string.lower() in ["false", "0"]:
+            return False
+        elif string.lower() in ["true", "1"]:
+            return True
+        try:
+            return bool(string)
+        except:
+            pass
+        return False
+
+    def _changeWriteWidgetValue(self, value):
+        # FIXME: rework this
+        if isinstance(value, str):
+            try:
+                strvalue = value
+                if strvalue == self._readWidget.getNoneValue():
+                    return  # when there is no read from the device
+                format = self.attrFormat
+                if self.__isCheckBox(self._writeWidget):
+                    value = self.__str2bool(strvalue)
+                    wtype = "bool"
+                elif self.__isIntegerSpinBox(self._writeWidget):
+                    value = float(strvalue)
+                    if format is not None:
+                        value = int(float(format % value))
+                    wtype = "int"
+                elif self.__isDoubleSpinBox(self._writeWidget):
+                    value = float(strvalue)
+                    if format is not None:
+                        value = float(format % value)
+                    wtype = "float"
+                self.debug("Convert string value %r "
+                           "to write widget type %s: %s"
+                           % (strvalue, wtype, value))
+            except Exception as e:
+                self.error("Exception converting to %r string: %s"
+                           % (self.attrFormat, e))
+                traceback.print_exc()
+                value = None
+        if value is not None:
+            if self.__isCheckBox():
+                # self.info("setChecked(%s)" % (value))
+                self._writeWidget.setChecked(value)
+            elif self.__isSpinBox():
+                self._writeWidget.setValue(value)
+
+    # # events ---
+    def eventReceived(self, evt_src, evt_type, evt_value):
+        """Reception of the event from tango. Fire an event to be catch by Qt.
+        """
+        try:
+            if evt_type != TaurusEventType['Change']:
+                return
+            if evt_src.getFullName() != self._attrProxy.getFullName():
+                self.warning("eventReceived from %s" % (evt_src))
+                return
+            self.debug("eventReceived(%s) previous value %s (Quality: %s)"
+                       % (evt_value.value, self._storedValue,
+                          evt_value.quality))
+            writeWidgetValue = self.writeWidgetValue
+            if writeWidgetValue is None or \
+                    self._valuesAreDifferent(evt_value.value,
+                                             writeWidgetValue):
+                self.debug("eventReceived(%s) value changed"
+                           % (evt_value.value))
+                super(AttrStruct, self).eventReceived(evt_src, evt_type,
+                                                      evt_value)
+            elif self._styleMod:
+                self.debug("eventReceived(%s) equal values but style say its "
+                           "modified" % (evt_value.value))
+                super(AttrStruct, self).eventReceived(evt_src, evt_type,
+                                                      evt_value)
+            else:
+                self.debug("eventReceived(%s) didn't change"
+                           % (evt_value.value))
+        except Exception as e:
+            self.error("eventReceived() Exception '%s'" % (e))
+            traceback.print_exc()
+
+    def filterEvent(self, evt_src=-1, evt_type=-1, evt_value=-1):
+        self.debug("filterEvent(%s)" % (evt_value.value))
+        super(AttrStruct, self).filterEvent(evt_src, evt_type, evt_value)
+
+    def handleEvent(self, evt_src, evt_type, evt_value):
+        """Reception of an event from Qt to be drawn in the GUI.
+        """
+        try:
+            self.debug("handleEvent(%s (%s)) previous stored value %s"
+                       "(readWidget %s, writeWidget %s)"
+                       % (evt_value.value, evt_value.quality,
+                          self._storedValue, self.readWidgetValue,
+                          self.writeWidgetValue))
+            self._modifyStyle(evt_value.value, fromTaurus=True)
+        except Exception as e:
+            self.error("handleEvent() Exception '%s'" % (e))
+            traceback.print_exc()
+
+    def subscribeQtChangeEvent(self):
+        if self.__isCheckBox():
+            signalName = 'stateChanged(int)'
+        elif self.__isIntegerSpinBox():
+            signalName = 'valueChanged(int)'
+        elif self.__isDoubleSpinBox():
+            signalName = 'valueChanged(double)'
+        else:
+            self.error("Unsupported widget to connect Qt signal")
+            return
+        Qt.QObject.connect(self.writeWidget, Qt.SIGNAL(signalName),
+                           self.changeEvent)
+
+    def changeEvent(self, evt):
+        try:
+            self._modifyStyle(evt, fromQt=True)
+        except Exception as e:
+            self.error("changeEvent() Exception '%s'" % (e))
+            traceback.print_exc()
+
+    # # low level ---
+    def __isCheckBox(self, widget=None):
+        if widget is None:
+            widget = self._writeWidget
+        return isinstance(widget, QtGui.QCheckBox)
+
+    def __isSpinBox(self, widget=None):
+        return self.__isIntegerSpinBox(widget) or \
+            self.__isDoubleSpinBox(widget)
+
+    def __isIntegerSpinBox(self, widget=None):
+        if widget is None:
+            widget = self._writeWidget
+        return isinstance(widget, QtGui.QSpinBox)
+
+    def __isDoubleSpinBox(self, widget=None):
+        if widget is None:
+            widget = self._writeWidget
+        return isinstance(widget, QtGui.QDoubleSpinBox)
+
+    def _modifyStyle(self, newValue, fromTaurus=False, fromQt=False):
+        if not fromTaurus and not fromQt:
+            # self.info("Write widget value modified")
+            refValue = value = self.writeWidgetValue
+            if self._valuesAreDifferent(newValue, refValue):
+                self._styleMod = True
+            else:
+                self._styleMod = False
+            style = self.__buildStyle(self._styleMod, yellow=True)
+        else:
+            if fromTaurus:
+                # self.info("Modification from Taurus")
+                refValue = value = self.writeWidgetValue
+                if self._valuesAreDifferent(newValue, refValue):
+                    if self._styleMod:
+                        style = None  # ignore
+                    else:
+                        self._styleMod = True
+                        style = self.__buildStyle(self._styleMod)
+                else:
+                    self._styleMod = False
+                    style = self.__buildStyle(self._styleMod)
+            if fromQt:
+                # self.info("Modification from Qt")
+                refValue = value = self.readWidgetValue
+                if self._valuesAreDifferent(newValue, refValue):
+                    if self._styleMod:
+                        style = None  # ignore
+                    else:
+                        self._styleMod = True
+                        style = self.__buildStyle(self._styleMod)
+                else:
+                    self._styleMod = False
+                    style = self.__buildStyle(self._styleMod)
+        if style is not None:
+            self.writeWidget.setStyleSheet(style)
+
+    def __buildStyle(self, modified, yellow=False):
+        newStyle = ""
+        if modified:
+            if yellow:
+                newStyle += yellowBackground
+            newStyle += blueCharacters+boldFont
+            self.checkWidget.setChecked(True)
+        else:
+            self.checkWidget.setChecked(False)
+        newStyle += fontSize
+        self.debug("newStyle: %r" % (newStyle))
+        return newStyle
+
+    def _valuesAreDifferent(self, v1, v2):
+        try:
+            self.debug("Compare %s (%s) with %s (%s) (format: %r)"
+                       % (v1, type(v1), v2, type(v2), self.attrFormat))
+            if self.__isCheckBox():
+                for v in [v1, v2]:
+                    if type(v) == str:
+                        v = self.__str2bool(v)
+                    else:
+                        v = bool(v)
+                return v1 != v2
+            if self.attrFormat is not None:
+                if type(v1) is not str:
+                    value1 = self.attrFormat % v1
+                else:
+                    value1 = v1
+                if type(v2) is not str:
+                    value2 = self.attrFormat % v2
+                else:
+                    value2 = v2
+            return float(value1) != float(value2)
+        except Exception as e:
+            self.error("Cannot compare %s and %s: %s" % (v1, v2, e))
+            return False
+
+    def setReadValueToWriteWidget(self):
+        self._changeWriteWidgetValue(self.readWidgetValue)
+        if self.checkWidget:
+            self.checkWidget.setChecked(False)
+
 
 @UILoadable(with_ui="ui")
 class MainWindow(TaurusWidget):
@@ -118,49 +511,7 @@ class MainWindow(TaurusWidget):
             self.centralwidget = self.ui.centralFrame
             self.setCentralWidget(self.centralwidget)
         self.setConfiguration()
-        self.loadFromDevices()
-
-    ######
-    # # Auxiliar methods to configure widgets ---
-    def _setupLed4UnknownAttr(self, widget):
-        _setupLed4UnknownAttr(widget)
-
-    def _setupLed4Attr(self, widget, attrName, inverted=False,
-                       onColor='green', offColor='red', pattern='on'):
-        _setupLed4Attr(widget, attrName, inverted, onColor,
-                       offColor, pattern)
-
-    def _setupCheckbox4UnknownAttr(self, widget):
-        _setupCheckbox4UnknownAttr(widget)
-
-    def _setupCheckbox4Attr(self, widget, attrName,
-                            isRst=False, DangerMsg='',
-                            riseEdge=False, fallingEdge=False):
-        _setupCheckbox4Attr(widget, attrName,
-                            isRst, DangerMsg, riseEdge, fallingEdge)
-
-    def _setupSpinBox4Attr(self, widget, attrName, step=None):
-        _setupSpinBox4Attr(widget, attrName, step)
-
-    def _setupTaurusLabel4Attr(self, widget, attrName, unit=None):
-        _setupTaurusLabel4Attr(widget, attrName, unit)
-
-    def _setupCombobox4Attr(self, widget, attrName, valueNames=None):
-        _setupCombobox4Attr(self, widget, attrName, valueNames)
-
-    def _setupActionWidget(self, widget, attrName, text='on/off', isRst=False,
-                           DangerMsg='', riseEdge=False, fallingEdge=False):
-        _setupActionWidget(widget, attrName, text, isRst,
-                           DangerMsg, riseEdge, fallingEdge)
-
-    def _setupQSpinBox(self, widget, minVal=0, maxVal=99, decimals=2, step=1):
-        widget.setMinimum(minVal)
-        widget.setMaximum(maxVal)
-        if hasattr(widget, 'setDecimals'):
-            widget.setDecimals(decimals)
-        widget.setSingleStep(step)
-    # Done auxiliar methods to configure widgets ---
-    ######
+        # self.loadFromDevices()
 
     ######
     # # setModel & others for the Configuration Tab ---
@@ -192,33 +543,30 @@ class MainWindow(TaurusWidget):
 
         attrName = '%s/GUN_Filament_V_setpoint' % (devName)
         attrName = attrName.lower()
-        widgetsSet[attrName] = {'label': ui.GunFilamentLowVoltageLabel,
-                                'read':  ui.GunFilamentLowVoltageRead,
-                                'write': ui.GunFilamentLowVoltageWrite,
-                                'check': ui.GunFilamentLowVoltageCheck}
-        self._setupTaurusLabel4Attr(widgetsSet[attrName]['read'], attrName)
-        self._setupQSpinBox(widgetsSet[attrName]['write'],
-                            minVal=0.0, maxVal=10.0, step=0.1)
+        widgetsSet[attrName] = AttrStruct(attrName,
+                                          ui.GunFilamentLowVoltageLabel,
+                                          ui.GunFilamentLowVoltageRead,
+                                          ui.GunFilamentLowVoltageWrite,
+                                          ui.GunFilamentLowVoltageCheck,
+                                          minVal=0.0, maxVal=10.0, step=0.1,)
 
         attrName = '%s/Gun_kathode_v_setpoint' % (devName)
         attrName = attrName.lower()
-        widgetsSet[attrName] = {'label': ui.GunKathodeLowVoltageLabel,
-                                'read':  ui.GunKathodeLowVoltageRead,
-                                'write': ui.GunKathodeLowVoltageWrite,
-                                'check': ui.GunKathodeLowVoltageCheck}
-        self._setupTaurusLabel4Attr(widgetsSet[attrName]['read'], attrName)
-        self._setupQSpinBox(widgetsSet[attrName]['write'],
-                            minVal=0.0, maxVal=50.0, step=0.1)
+        widgetsSet[attrName] = AttrStruct(attrName,
+                                          ui.GunKathodeLowVoltageLabel,
+                                          ui.GunKathodeLowVoltageRead,
+                                          ui.GunKathodeLowVoltageWrite,
+                                          ui.GunKathodeLowVoltageCheck,
+                                          minVal=0.0, maxVal=50.0, step=0.1)
 
         attrName = '%s/Gun_hv_v_setpoint' % (devName)
         attrName = attrName.lower()
-        widgetsSet[attrName] = {'label': ui.GunHighVoltagePowerSupplyLabel,
-                                'read':  ui.GunHighVoltagePowerSupplyRead,
-                                'write': ui.GunHighVoltagePowerSupplyWrite,
-                                'check': ui.GunHighVoltagePowerSupplyCheck}
-        self._setupTaurusLabel4Attr(widgetsSet[attrName]['read'], attrName)
-        self._setupQSpinBox(widgetsSet[attrName]['write'],
-                            minVal=-90.0, maxVal=0.0, step=0.1)
+        widgetsSet[attrName] = AttrStruct(attrName,
+                                          ui.GunHighVoltagePowerSupplyLabel,
+                                          ui.GunHighVoltagePowerSupplyRead,
+                                          ui.GunHighVoltagePowerSupplyWrite,
+                                          ui.GunHighVoltagePowerSupplyCheck,
+                                          minVal=-90.0, maxVal=0.0, step=0.1)
 
         self._configurationWidgets['eGun'] = widgetsSet
 
@@ -229,60 +577,54 @@ class MainWindow(TaurusWidget):
         # CL1
         attrName = '%s/cl1_t_setpoint' % (devName)
         attrName = attrName.lower()
-        widgetsSet[attrName] = {'label': ui.coolingLoop1SetpointLabel,
-                                'read':  ui.coolingLoop1SetpointRead,
-                                'write': ui.coolingLoop1SetpointWrite,
-                                'check': ui.coolingLoop1SetpointCheck}
-        self._setupTaurusLabel4Attr(widgetsSet[attrName]['read'], attrName)
-        self._setupQSpinBox(widgetsSet[attrName]['write'],
-                            minVal=0.0, maxVal=50.0, step=0.1)
+        widgetsSet[attrName] = AttrStruct(attrName,
+                                          ui.coolingLoop1SetpointLabel,
+                                          ui.coolingLoop1SetpointRead,
+                                          ui.coolingLoop1SetpointWrite,
+                                          ui.coolingLoop1SetpointCheck,
+                                          minVal=0.0, maxVal=50.0, step=0.1)
         # CL2
         attrName = '%s/cl2_t_setpoint' % (devName)
         attrName = attrName.lower()
-        widgetsSet[attrName] = {'label': ui.coolingLoop2SetpointLabel,
-                                'read':  ui.coolingLoop2SetpointRead,
-                                'write': ui.coolingLoop2SetpointWrite,
-                                'check': ui.coolingLoop2SetpointCheck}
-        self._setupTaurusLabel4Attr(widgetsSet[attrName]['read'], attrName)
-        self._setupQSpinBox(widgetsSet[attrName]['write'],
-                            minVal=0.0, maxVal=50.0, step=0.1)
+        widgetsSet[attrName] = AttrStruct(attrName,
+                                          ui.coolingLoop2SetpointLabel,
+                                          ui.coolingLoop2SetpointRead,
+                                          ui.coolingLoop2SetpointWrite,
+                                          ui.coolingLoop2SetpointCheck,
+                                          minVal=0.0, maxVal=50.0, step=0.1)
         # CL3
         attrName = '%s/cl3_t_setpoint' % (devName)
         attrName = attrName.lower()
-        widgetsSet[attrName] = {'label': ui.coolingLoop3SetpointLabel,
-                                'read':  ui.coolingLoop3SetpointRead,
-                                'write': ui.coolingLoop3SetpointWrite,
-                                'check': ui.coolingLoop3SetpointCheck}
-        self._setupTaurusLabel4Attr(widgetsSet[attrName]['read'], attrName)
-        self._setupQSpinBox(widgetsSet[attrName]['write'],
-                            minVal=0.0, maxVal=50.0, step=0.1)
+        widgetsSet[attrName] = AttrStruct(attrName,
+                                          ui.coolingLoop3SetpointLabel,
+                                          ui.coolingLoop3SetpointRead,
+                                          ui.coolingLoop3SetpointWrite,
+                                          ui.coolingLoop3SetpointCheck,
+                                          minVal=0.0, maxVal=50.0, step=0.1)
+
         self._configurationWidgets['coolingLoop'] = widgetsSet
 
     def vacuumValvesConfiguration(self, ui):
         widgetsSet = {}
 
         attrName = 'li/ct/plc2/VCV_ONC'.lower()
-        widgetsSet[attrName] = {'label': ui.VaccumCollimatorValveLabel,
-                                'read':  ui.VaccumCollimatorValveRead,
-                                'write': ui.VaccumCollimatorValveWrite,
-                                'check': ui.VaccumCollimatorValveCheck}
-        self._setupLed4Attr(ui.VaccumCollimatorValveRead, attrName)
+        widgetsSet[attrName] = AttrStruct(attrName,
+                                          ui.VaccumCollimatorValveLabel,
+                                          ui.VaccumCollimatorValveRead,
+                                          ui.VaccumCollimatorValveWrite,
+                                          ui.VaccumCollimatorValveCheck)
+
         self._configurationWidgets['vacuumValves'] = widgetsSet
 
     def magnetsConfiguration(self, ui):
         widgetsSet = {}
 
-        magnets = {'sl': {'1': ['H', 'V', 'F'],
-                          '2': ['H', 'V', 'F'],
-                          '3': ['H', 'V', 'F'],
-                          '4': ['H', 'V', 'F']},
-                   'bc': {'1': ['H', 'V', 'F'],
-                          '2': ['H', 'V', 'F']},
+        magnets = {'sl': {'1': ['H', 'V', 'F'], '2': ['H', 'V', 'F'],
+                          '3': ['H', 'V', 'F'], '4': ['H', 'V', 'F']},
+                   'bc': {'1': ['H', 'V', 'F'], '2': ['H', 'V', 'F']},
                    'gl': {'':  ['H', 'V', 'F']},
-                   'as': {'1': ['H', 'V'],
-                          '2': ['H', 'V']},
-                   'qt': {'1': ['H', 'V', 'F'],
-                          '2': ['F']}}
+                   'as': {'1': ['H', 'V'], '2': ['H', 'V']},
+                   'qt': {'1': ['H', 'V', 'F'], '2': ['F']}}
 
         for family in magnets.keys():
             self.debug("> %s" % (family))
@@ -298,45 +640,27 @@ class MainWindow(TaurusWidget):
                     readWidget = getattr(ui, widgetPrefix+'Read')
                     writeWidget = getattr(ui, widgetPrefix+'Write')
                     checkWidget = getattr(ui, widgetPrefix+'Check')
-                    widgetsSet[attrName] = {'label': labelWidget,
-                                            'read':  readWidget,
-                                            'write': writeWidget,
-                                            'check': checkWidget}
-                    widget = widgetsSet[attrName]['read']
-                    self._setupTaurusLabel4Attr(widget, attrName)
                     if component in ['H', 'V']:
                         if family == 'qt':
-                            minVal = -16
-                            maxVal = 16
+                            minVal, maxVal = -16, 16
                         else:
-                            minVal = -2
-                            maxVal = 2
-                        step = 0.01
-                        decimals = 2
+                            minVal, maxVal = -2, 2
+                        step, decimals = 0.01, 2
                     else:
                         if family == 'sl':
-                            minVal = 0
-                            maxVal = 1
-                            step = 0.01
-                            decimals = 2
+                            minVal, maxVal, step, decimals = 0, 1, 0.01, 2
                         elif family == 'bc':
-                            minVal = 0
-                            maxVal = 200
-                            step = 0.01
-                            decimals = 2
+                            minVal, maxVal, step, decimals = 0, 200, 0.01, 2
                         elif family == 'gl':
-                            minVal = 0
-                            maxVal = 130
-                            step = 0.01
-                            decimals = 2
+                            minVal, maxVal, step, decimals = 0, 130, 0.01, 2
                         elif family == 'qt':
-                            minVal = 0
-                            maxVal = 6
-                            step = 0.005
-                            decimals = 3
-                    self._setupQSpinBox(widgetsSet[attrName]['write'],
-                                        minVal=minVal, maxVal=maxVal,
-                                        step=step, decimals=decimals)
+                            minVal, maxVal, step, decimals = 0, 6, 0.005, 3
+                    widgetsSet[attrName] = AttrStruct(attrName, labelWidget,
+                                                      readWidget, writeWidget,
+                                                      checkWidget,
+                                                      minVal=minVal,
+                                                      maxVal=maxVal, step=step,
+                                                      decimals=decimals)
         # TODO: connect the ToApplyTitle to check/uncheck all the *Check ---
         self._configurationWidgets['magnets'] = widgetsSet
 
@@ -344,76 +668,52 @@ class MainWindow(TaurusWidget):
         widgetsSet = {}
 
         attrName = 'li/ct/plc1/TPS0_Phase'.lower()
-        widgetsSet[attrName] = {'label': ui.TPS0PhaseLabel,
-                                'read':  ui.TPS0PhaseRead,
-                                'write': ui.TPS0PhaseWrite,
-                                'check': ui.TPS0PhaseCheck}
-        self._setupTaurusLabel4Attr(ui.TPS0PhaseRead, attrName)
-        self._setupQSpinBox(widgetsSet[attrName]['write'],
-                            minVal=0.0, maxVal=380, decimals=1, step=0.1)
+        widgetsSet[attrName] = AttrStruct(attrName, ui.TPS0PhaseLabel,
+                                          ui.TPS0PhaseRead, ui.TPS0PhaseWrite,
+                                          ui.TPS0PhaseCheck, minVal=0.0,
+                                          maxVal=380, decimals=1, step=0.1)
 
         attrName = 'li/ct/plc1/TPSX_Phase'.lower()
-        widgetsSet[attrName] = {'label': ui.TPSXPhaseLabel,
-                                'read':  ui.TPSXPhaseRead,
-                                'write': ui.TPSXPhaseWrite,
-                                'check': ui.TPSXPhaseCheck}
-        self._setupTaurusLabel4Attr(ui.TPSXPhaseRead, attrName)
-        self._setupQSpinBox(widgetsSet[attrName]['write'],
-                            minVal=0.0, maxVal=380, decimals=0, step=1)
+        widgetsSet[attrName] = AttrStruct(attrName, ui.TPSXPhaseLabel,
+                                          ui.TPSXPhaseRead, ui.TPSXPhaseWrite,
+                                          ui.TPSXPhaseCheck, minVal=0.0,
+                                          maxVal=380, decimals=0, step=1)
 
         attrName = 'li/ct/plc1/TPS1_Phase'.lower()
-        widgetsSet[attrName] = {'label': ui.TPS1PhaseLabel,
-                                'read':  ui.TPS1PhaseRead,
-                                'write': ui.TPS1PhaseWrite,
-                                'check': ui.TPS1PhaseCheck}
-        self._setupTaurusLabel4Attr(ui.TPS1PhaseRead, attrName)
-        self._setupQSpinBox(widgetsSet[attrName]['write'],
-                            minVal=0.0, maxVal=380, decimals=0, step=1)
+        widgetsSet[attrName] = AttrStruct(attrName, ui.TPS1PhaseLabel,
+                                          ui.TPS1PhaseRead, ui.TPS1PhaseWrite,
+                                          ui.TPS1PhaseCheck, minVal=0.0,
+                                          maxVal=380, decimals=0, step=1)
 
         attrName = 'li/ct/plc1/TPS2_Phase'.lower()
-        widgetsSet[attrName] = {'label': ui.TPS2PhaseLabel,
-                                'read':  ui.TPS2PhaseRead,
-                                'write': ui.TPS2PhaseWrite,
-                                'check': ui.TPS2PhaseCheck}
-        self._setupTaurusLabel4Attr(ui.TPS2PhaseRead, attrName)
-        self._setupQSpinBox(widgetsSet[attrName]['write'],
-                            minVal=0.0, maxVal=380, decimals=0, step=1)
+        widgetsSet[attrName] = AttrStruct(attrName, ui.TPS2PhaseLabel,
+                                          ui.TPS2PhaseRead, ui.TPS2PhaseWrite,
+                                          ui.TPS2PhaseCheck, minVal=0.0,
+                                          maxVal=380, decimals=0, step=1)
 
         attrName = 'li/ct/plc1/A0_OP'.lower()
-        widgetsSet[attrName] = {'label': ui.A0OPLabel,
-                                'read':  ui.A0OPRead,
-                                'write': ui.A0OPWrite,
-                                'check': ui.A0OPCheck}
-        self._setupTaurusLabel4Attr(ui.A0OPRead, attrName)
-        self._setupQSpinBox(widgetsSet[attrName]['write'],
-                            minVal=75, maxVal=760, decimals=0, step=1)
+        widgetsSet[attrName] = AttrStruct(attrName, ui.A0OPLabel,
+                                          ui.A0OPRead, ui.A0OPWrite,
+                                          ui.A0OPCheck, minVal=75, maxVal=760,
+                                          decimals=0, step=1)
 
         attrName = 'li/ct/plc1/ATT2_P_setpoint'.lower()
-        widgetsSet[attrName] = {'label': ui.ATT2Label,
-                                'read':  ui.ATT2Read,
-                                'write': ui.ATT2Write,
-                                'check': ui.ATT2Check}
-        self._setupTaurusLabel4Attr(ui.ATT2Read, attrName)
-        self._setupQSpinBox(widgetsSet[attrName]['write'],
-                            minVal=-10.0, maxVal=0, decimals=1, step=0.1)
+        widgetsSet[attrName] = AttrStruct(attrName, ui.ATT2Label,
+                                          ui.ATT2Read, ui.ATT2Write,
+                                          ui.ATT2Check, minVal=-10.0, maxVal=0,
+                                          decimals=1, step=0.1)
 
         attrName = 'li/ct/plc1/PHS1_Phase_setpoint'.lower()
-        widgetsSet[attrName] = {'label': ui.PHS1Label,
-                                'read':  ui.PHS1Read,
-                                'write': ui.PHS1Write,
-                                'check': ui.PHS1Check}
-        self._setupTaurusLabel4Attr(ui.PHS1Read, attrName)
-        self._setupQSpinBox(widgetsSet[attrName]['write'],
-                            minVal=0.0, maxVal=160, decimals=0, step=1)
+        widgetsSet[attrName] = AttrStruct(attrName, ui.PHS1Label,
+                                          ui.PHS1Read, ui.PHS1Write,
+                                          ui.PHS1Check, minVal=0.0, maxVal=160,
+                                          decimals=0, step=1)
 
         attrName = 'li/ct/plc1/PHS2_Phase_setpoint'.lower()
-        widgetsSet[attrName] = {'label': ui.PHS2Label,
-                                'read':  ui.PHS2Read,
-                                'write': ui.PHS2Write,
-                                'check': ui.PHS2Check}
-        self._setupTaurusLabel4Attr(ui.PHS2Read, attrName)
-        self._setupQSpinBox(widgetsSet[attrName]['write'],
-                            minVal=0.0, maxVal=380, decimals=0, step=1)
+        widgetsSet[attrName] = AttrStruct(attrName, ui.PHS2Label,
+                                          ui.PHS2Read, ui.PHS2Write,
+                                          ui.PHS2Check, minVal=0.0, maxVal=380,
+                                          decimals=0, step=1)
 
         self._configurationWidgets['radioFrequency'] = widgetsSet
 
@@ -421,65 +721,43 @@ class MainWindow(TaurusWidget):
         widgetsSet = {}
 
         attrName = 'li/ct/plc1/TB_MBM'.lower()
-        widgetsSet[attrName] = {'label': ui.MBMLabel,
-                                'read':  ui.MBMRead,
-                                'write': ui.MBMWrite,
-                                'check': ui.MBMCheck}
-        self._setupLed4Attr(ui.MBMRead, attrName)
+        widgetsSet[attrName] = AttrStruct(attrName, ui.MBMLabel, ui.MBMRead,
+                                          ui.MBMWrite, ui.MBMCheck)
 
         attrName = 'li/ct/plc1/TB_GUN_delay'.lower()
-        widgetsSet[attrName] = {'label': ui.GunDelayLabel,
-                                'read':  ui.GunDelayRead,
-                                'write': ui.GunDelayWrite,
-                                'check': ui.GunDelayCheck}
-        self._setupTaurusLabel4Attr(ui.GunDelayRead, attrName)
-        self._setupQSpinBox(widgetsSet[attrName]['write'],
-                            minVal=32, maxVal=4096, step=32)
+        widgetsSet[attrName] = AttrStruct(attrName, ui.GunDelayLabel,
+                                          ui.GunDelayRead, ui.GunDelayWrite,
+                                          ui.GunDelayCheck, minVal=32,
+                                          maxVal=4096, step=32)
 
         attrName = 'li/ct/plc1/TB_ka1_delay'.lower()
-        widgetsSet[attrName] = {'label': ui.ka1DelayLabel,
-                                'read':  ui.ka1DelayRead,
-                                'write': ui.ka1DelayWrite,
-                                'check': ui.ka1DelayCheck}
-        self._setupTaurusLabel4Attr(ui.ka1DelayRead, attrName)
-        self._setupQSpinBox(widgetsSet[attrName]['write'],
-                            minVal=1, maxVal=56, step=1)
+        widgetsSet[attrName] = AttrStruct(attrName, ui.ka1DelayLabel,
+                                          ui.ka1DelayRead, ui.ka1DelayWrite,
+                                          ui.ka1DelayCheck, minVal=1,
+                                          maxVal=56, step=1)
 
         attrName = 'li/ct/plc1/TB_ka2_delay'.lower()
-        widgetsSet[attrName] = {'label': ui.ka2DelayLabel,
-                                'read':  ui.ka2DelayRead,
-                                'write': ui.ka2DelayWrite,
-                                'check': ui.ka2DelayCheck}
-        self._setupTaurusLabel4Attr(ui.ka2DelayRead, attrName)
-        self._setupQSpinBox(widgetsSet[attrName]['write'],
-                            minVal=2720, maxVal=4096, step=32)
+        widgetsSet[attrName] = AttrStruct(attrName, ui.ka2DelayLabel,
+                                          ui.ka2DelayRead, ui.ka2DelayWrite,
+                                          ui.ka2DelayCheck, minVal=2720,
+                                          maxVal=4096, step=32)
 
         attrName = 'li/ct/plc1/TB_GPI'.lower()
-        widgetsSet[attrName] = {'label': ui.GPILabel,
-                                'read':  ui.GPIRead,
-                                'write': ui.GPIWrite,
-                                'check': ui.GPICheck}
-        self._setupTaurusLabel4Attr(ui.GPIRead, attrName)
-        self._setupQSpinBox(widgetsSet[attrName]['write'],
-                            minVal=6, maxVal=1054, step=2)
+        widgetsSet[attrName] = AttrStruct(attrName, ui.GPILabel,
+                                          ui.GPIRead, ui.GPIWrite,
+                                          ui.GPICheck, minVal=6, maxVal=1054,
+                                          step=2)
 
         attrName = 'li/ct/plc1/TB_GPN'.lower()
-        widgetsSet[attrName] = {'label': ui.GPNLabel,
-                                'read':  ui.GPNRead,
-                                'write': ui.GPNWrite,
-                                'check': ui.GPNCheck}
-        self._setupTaurusLabel4Attr(ui.GPNRead, attrName)
-        self._setupQSpinBox(widgetsSet[attrName]['write'],
-                            minVal=1, maxVal=16, step=1)
+        widgetsSet[attrName] = AttrStruct(attrName, ui.GPNLabel, ui.GPNRead,
+                                          ui.GPNWrite, ui.GPNCheck, minVal=1,
+                                          maxVal=16, step=1)
 
         attrName = 'li/ct/plc1/TB_GPA'.lower()
-        widgetsSet[attrName] = {'label': ui.GPALabel,
-                                'read':  ui.GPARead,
-                                'write': ui.GPAWrite,
-                                'check': ui.GPACheck}
-        self._setupTaurusLabel4Attr(ui.GPARead, attrName)
-        self._setupQSpinBox(widgetsSet[attrName]['write'],
-                            minVal=-40.0, maxVal=0, decimals=1, step=0.1)
+        widgetsSet[attrName] = AttrStruct(attrName, ui.GPALabel, ui.GPARead,
+                                          ui.GPAWrite, ui.GPACheck,
+                                          minVal=-40.0, maxVal=0, decimals=1,
+                                          step=0.1)
 
         # TODO: connect the ToApplyTitle to check/uncheck all the *Check ---
         self._configurationWidgets['timing'] = widgetsSet
@@ -501,13 +779,10 @@ class MainWindow(TaurusWidget):
                 Read = getattr(ui, prefix+'Read')
                 Write = getattr(ui, prefix+'Write')
                 Check = getattr(ui, prefix+'Check')
-                widgetsSet[attrName] = {'label': Label,
-                                        'read':  Read,
-                                        'write': Write,
-                                        'check': Check}
-                self._setupTaurusLabel4Attr(Read, attrName)
-                self._setupQSpinBox(widgetsSet[attrName]['write'],
-                                    minVal=0, maxVal=1e10, step=8, decimals=0)
+                widgetsSet[attrName] = AttrStruct(attrName, Label, Read,
+                                                  Write, Check, minVal=0,
+                                                  maxVal=1e10, step=8,
+                                                  decimals=0)
 
         # TODO: connect the ToApplyTitle to check/uncheck all the *Check ---
         self._configurationWidgets['evr'] = widgetsSet
@@ -526,15 +801,12 @@ class MainWindow(TaurusWidget):
                 if element == 'setp':
                     attrName = "%s/HVPS_V_setpoint" % (devName).lower()
                     widgetsSet[attrName] = \
-                        {'label': getattr(ui, 'ka%dHVPSLabel' % (number)),
-                         'read': getattr(ui, 'ka%dHVPSRead' % (number)),
-                         'write': getattr(ui, 'ka%dHVPSWrite' % (number)),
-                         'check': getattr(ui, 'ka%dHVPSCheck' % (number))}
-                    widget = widgetsSet[attrName]['read']
-                    self._setupTaurusLabel4Attr(widget, attrName)
-                    self._setupQSpinBox(widgetsSet[attrName]['write'],
-                                        minVal=0.0, maxVal=33,
-                                        decimals=1, step=0.1)
+                        AttrStruct(attrName, getattr(ui, 'ka%dHVPSLabel'
+                                                     % (number)),
+                                   getattr(ui, 'ka%dHVPSRead' % (number)),
+                                   getattr(ui, 'ka%dHVPSWrite' % (number)),
+                                   getattr(ui, 'ka%dHVPSCheck' % (number)),
+                                   minVal=0.0, maxVal=33, decimals=1, step=0.1)
         # TODO: connect the ToApplyTitle to check/uncheck all the *Check ---
         self._configurationWidgets['klystrons'] = widgetsSet
 
@@ -547,27 +819,16 @@ class MainWindow(TaurusWidget):
     ######
 
     def buttonsConfiguration(self, buttons):
-        buttons.button(QtGui.QDialogButtonBox.Reset).setText("Reload")
-        # buttons.button(QtGui.QDialogButtonBox.Reset).clicked.connect(\
-        #    self.loadFromDevices)
-        Qt.QObject.connect(buttons.button(QtGui.QDialogButtonBox.Reset),
-                           Qt.SIGNAL('clicked(bool)'), self.loadFromDevices)
-        # buttons.button(QtGui.QDialogButtonBox.Save).clicked.connect(\
-        #    self.saveToFile)
-        Qt.QObject.connect(buttons.button(QtGui.QDialogButtonBox.Save),
-                           Qt.SIGNAL('clicked(bool)'), self.saveToFile)
-        # buttons.button(QtGui.QDialogButtonBox.Open).clicked.connect(\
-        #    self.loadFromFile)
-        Qt.QObject.connect(buttons.button(QtGui.QDialogButtonBox.Open),
-                           Qt.SIGNAL('clicked(bool)'), self.loadFromFile)
-        # buttons.button(QtGui.QDialogButtonBox.Apply).clicked.connect(\
-        #    self.applyToDevices)
-        Qt.QObject.connect(buttons.button(QtGui.QDialogButtonBox.Apply),
-                           Qt.SIGNAL('clicked(bool)'), self.applyToDevices)
-
-    # TODO: should the *Reading widgets be connected to the *Value?
-    #       Doing this, the operation of the other tabs will be shown in
-    #       this Configuration tab according to when it's happening.
+        rstButton = buttons.button(QtGui.QDialogButtonBox.Reset)
+        rstButton.setText("Reload")
+        rstButton.clicked.connect(self.loadFromDevices)
+        rstButton.setDefault(True)
+        saveButton = buttons.button(QtGui.QDialogButtonBox.Save)
+        saveButton.clicked.connect(self.saveToFile)
+        openButton = buttons.button(QtGui.QDialogButtonBox.Open)
+        openButton.clicked.connect(self.loadFromFile)
+        applyButton = buttons.button(QtGui.QDialogButtonBox.Apply)
+        applyButton.clicked.connect(self.applyToDevices)
 
     ######
     # # Distinguish between widget types ---
@@ -581,58 +842,66 @@ class MainWindow(TaurusWidget):
 
     ######
     # # Widget backgrounds ---
-    def _setStyleToModified(self, attrStruct):
-        saver = attrStruct['write']
+    def _setStyleToModified(self, attrStruct, wvalueChange=False):
+        saver = attrStruct.writeWidget
         if self._isSpinBox(saver):
-            saver.setStyleSheet("background-color: rgb(255, 255, 0);"
-                                "color: rgb(0, 0, 255); "
-                                "font-weight: bold;"
-                                "font: 7pt \"DejaVu Sans\";")
+            if wvalueChange:
+                saver.setStyleSheet(blueCharacters+fontSize)
+            else:
+                saver.setStyleSheet(yellowBackground+blueCharacters+fontSize)
         elif self._isCheckBox(saver):
-            saver.setStyleSheet("background-color: rgb(255, 255, 0);"
-                                "color: rgb(0, 0, 255);"
-                                "font: 7pt \"DejaVu Sans\";")
+            saver.setStyleSheet(yellowBackground+blueCharacters)
         else:
             raise Exception("Unmanaged %s widget type to tag modified"
                             % (type(widget)))
-        attrStruct['check'].setChecked(True)
+        attrStruct.checkWidget.setChecked(True)
 
     def _setStyleToNoModified(self, attrStruct):
-        saver = attrStruct['write']
+        saver = attrStruct.writeWidget
         if self._isSpinBox(saver):
-            saver.setStyleSheet("background-color: rgb(255, 255, 255);"
-                                "color: rgb(0, 0, 0); "
-                                "font: 7pt \"DejaVu Sans\";")
+            saver.setStyleSheet(whiteBackground+blackCharacters+fontSize)
         elif self._isCheckBox(saver):
-            saver.setStyleSheet("color: rgb(0, 0, 0);"
-                                "font: 7pt \"DejaVu Sans\";")
+            saver.setStyleSheet(blackCharacters)
         else:
             raise Exception("Unmanaged %s widget type to tag modified"
                             % (type(widget)))
-        attrStruct['check'].setChecked(False)
+        attrStruct.checkWidget.setChecked(False)
     # done widget backgrounds ---
     ######
 
     ######
     # # Value setters and getters ---
     def _getAttrValue(self, attrName):
-        return PyTango.AttributeProxy(attrName).read().value
+        return taurus.Attribute(attrName).read().rvalue
+
+    def _getAttrWValue(self, attrName):
+        return taurus.Attribute(attrName).read().wvalue
 
     def _setAttrValue(self, attrName, value):
         rvalue = self._getAttrValue(attrName)
+        writeNearResult = None
         if value == rvalue:
+            self.warning("Write near feature requested for %s and %g value"
+                         % (attrName, value))
+            self.appendStatusBarMsg("(write near for %s = %g)"
+                                    % (attrName, value))
             # hackish to because we've seen some attributes not well applied
             # and we don't have rights to study further why this had happen
-            self._doubleWrite(attrName, value, 0.99)
-        self.info('_setAttrValue(%s,%s,(%s))' % (attrName, value, type(value)))
+            writeNearResult = self._nearWrite(attrName, value)
+            self.popOneStatusBarMsg()
+        self.info('_setAttrValue(%s, %s) (%s)'
+                  % (attrName, value, type(value)))
         try:
             taurus.Attribute(attrName).write(value)
         except Exception as e:
             self.error("Exception in the %s write(%s) operation: %s\n%s"
                        % (attrName, value, e, traceback.format_exc()))
+            raise ValueError("Write operation failed")
         self._checkReadWrite(attrName, rvalue, value)
+        if writeNearResult is not None and not writeNearResult:
+            raise ValueError("Write near operation failed")
 
-    def _doubleWrite(self, attrName, value, near):
+    def _nearWrite(self, attrName, value):
         '''This method is to do two different writes with close values to
            make sure the newer value is set.
         '''
@@ -643,36 +912,48 @@ class MainWindow(TaurusWidget):
                 # it would be in the maximum or in the minimum, but one above
                 # or one below will be possible to be writable, isn't it?
                 try:
+                    # FIXME: it would have an step bigger than 1
                     taurus.Attribute(attrName).write(int(value+1))
                 except:
                     try:
+                        time.sleep(0.3)
                         taurus.Attribute(attrName).write(int(value-1))
                     except:
                         self.error("It hasn't been possible to write a near "
                                    "setpoint for attribute %s" % (attrName))
+                        return False
                 time.sleep(0.3)
             elif type(value) == float:
-                taurus.Attribute(attrName).write(value*near)
-                time.sleep(0.3)
+                try:
+                    near = 0.99
+                    taurus.Attribute(attrName).write(value*near)
+                    time.sleep(0.3)
+                except:
+                    return False
+            return True
         except Exception as e:
             # in boundary cases it had seen that this produces an exception
             # but it's not a blocking issue and we can continue.
             self.warning("Attribute %s fail the '%s' hackish: "
                          "value=%g value*near=%g. The exception was: %s"
                          % (attrName, near, value, value*near, e))
+            return False
 
     def _checkReadWrite(self, attrName, rvalue, wvalue):
         # check if the write has been acknowledge by the plc reading
         i = 0
+        waitTime = 0.3  # (1 second of rechecks maximum)
         while i < 10:
             if self._checkValue(rvalue, wvalue, attrName):
-                self.debug("For %s, reading corresponds to what has been "
-                           "written (%d)" % (attrName, i))
+                self.warning("For %s, reading corresponds to what has been "
+                             "written: %s (%d)" % (attrName, rvalue, i))
                 return
-            time.sleep(0.1)  # when they are different, wait to recheck
             i += 1
+            self.warning("For %s, read value %g didn't correspond with write "
+                         "value %g. Wait %f seconds and retry (%d)"
+                         % (attrName, rvalue, wvalue, waitTime, i))
+            time.sleep(waitTime)
             rvalue = self._getAttrValue(attrName)
-            # (1 second of rechecks maximum)
         raise ValueError("The attribute reading (%s) didn't "
                          "correspond to what has been set (%s)"
                          % (rvalue, wvalue))
@@ -681,44 +962,33 @@ class MainWindow(TaurusWidget):
         # With bools and integers the compare is simple, but floats,
         # because of the different byte precisions, can be equivalent
         # not being exacly the same.
-        if type(a) == float or type(b) == float:
+        if isinstance(a,float) or isinstance(b, float):
+            if a == b:
+                return True
             try:
-                attr = PyTango.AttributeProxy(attrName)
-                attrFormat = attr.get_config().format
+                # attr = PyTango.AttributeProxy(attrName)
+                attr = taurus.Attribute(attrName)
+                attrFormat = attr.getConfig().format
             except Exception as e:
-                self.error("It hasn't been possible to get %s's format"
-                           % (attrName))
+                self.error("It hasn't been possible to get %s's format: %s"
+                           % (attrName, e))
                 attrFormat = '%6.3f'
             aStr = attrFormat % a
             bStr = attrFormat % b
             if aStr == bStr:
-                self.warning("The format (%s) representation matches, "
-                             "even the floats are not exactly equal "
-                             "%g != %g" % (attrFormat, a, b))
+                self.warning("For %s, the format (%s) representation matches, "
+                             "even the floats would not be exactly equal "
+                             "%g != %g" % (attrName, attrFormat, a, b))
                 return True
-            self.warning("For attribute %s %g != %g and %s != %s"
-                         % (attrName, a, b, aStr, bStr))
+            # self.warning("For attribute %s %g != %g "
+            #              "(representations %s != %s)"
+            #               % (attrName, a, b, aStr, bStr))
         else:
             return a == b
         return False
 
-    def _setValueToSaverWidget(self, attrStruct, value, style=True):
-        saver = attrStruct['write']
-        if self._isSpinBox(saver):
-            haschanged = (value != saver.value())
-            saver.setValue(value)
-        elif self._isCheckBox(saver):
-            haschanged = (value != saver.isChecked())
-            saver.setChecked(value)
-        else:
-            raise Exception("Unmanaged %s widget type" % (type(saver)))
-        if style and haschanged:
-            self._setStyleToModified(attrStruct)
-        else:
-            self._setStyleToNoModified(attrStruct)
-
     def _getValueFromSaverWidget(self, attrStruct):
-        saver = attrStruct['write']
+        saver = attrStruct.writeWidget
         if self._isSpinBox(saver):
             return saver.value()
         elif self._isCheckBox(saver):
@@ -735,9 +1005,9 @@ class MainWindow(TaurusWidget):
                         getExistingDirectory(self, "Select Directory",
                                              defaultConfigurations))
         if not directory == '' and not directory.startswith(sandbox):
-            QtGui.QMessageBox.warning(self, "Sandbox warning",
-                                      "Your selected directory is not in the "
-                                      "storage shared by NFS")
+            QtGui.QMessageBox.warning(
+                self, "Sandbox warning", "Your selected directory is not in "
+                "the storage shared by NFS")
         return directory
 
     def _getFilePrefix(self, now_struct):
@@ -766,11 +1036,9 @@ class MainWindow(TaurusWidget):
         return fileprefix
 
     def _getFileSuffix(self, prefix=None):
-        msg, ok = QtGui.QInputDialog.getText(self, "Select file name",
-                                             "would you like to write "
-                                             "something after the file "
-                                             "prefix %s?" % (prefix),
-                                             QtGui.QLineEdit.Normal)
+        msg, ok = QtGui.QInputDialog.getText(
+            self, "Select file name", "would you like to write something "
+            "after the file prefix %s?" % (prefix), QtGui.QLineEdit.Normal)
         return (str(msg), ok)
 
     def _requestFileName(self):
@@ -809,12 +1077,10 @@ class MainWindow(TaurusWidget):
         return "# group: %s" % (group)
 
     def _prepareAttrLine(self, attrStruct, attrName):
-        tag = attrStruct['label'].text()
-        rvalue = self._getAttrValue(attrName)
-        # to raise exception if not available
+        tag = attrStruct.labelWidget.text()
+        rvalue = attrStruct.attrValue
+        # to raise exception if not available:
         wvalue = self._getValueFromSaverWidget(attrStruct)
-        if rvalue != wvalue:
-            print('%s: %s != %s' % (attrName, rvalue, wvalue))
         value = wvalue or rvalue
         return "%24s\t%g\t%s" % (tag, value, attrName)
 
@@ -870,7 +1136,7 @@ class MainWindow(TaurusWidget):
     ######
 
     def prepareProgressBar(self):
-        self.ui.progressBar.show()
+        self.ui.progressBar.setEnabled(True)
         self.ui.progressBar.setValue(0)
 
     def getNumberOfElements(self):
@@ -879,11 +1145,55 @@ class MainWindow(TaurusWidget):
             nElements += len(self._configurationWidgets[group].keys())
         return nElements
 
+    def getPending2ApplyElements(self):
+        n = 0
+        elements = []
+        for group in self._configurationWidgets.keys():
+            for attrName in self._configurationWidgets[group].keys():
+                attrStruct = self._configurationWidgets[group][attrName]
+                if attrStruct.checkWidget.isChecked():
+                    n += 1
+                    elements.append(attrName)
+        return n, elements
+
     def setProgressBarValue(self, i, nElements):
         self.ui.progressBar.setValue(i*100/nElements)
 
     def doneProgressBar(self):
-        self.ui.progressBar.hide()
+        self.ui.progressBar.setEnabled(False)
+
+    def setWorkingAttrText(self, attrName):
+        self.ui.workingAttr.setText(attrName)
+
+    def setStatusBarMsg(self, msg):
+        self._statusMsgLst = [msg]
+        self._updateStatusBarMsg()
+
+    def appendStatusBarMsg(self, msg):
+        self._statusMsgLst.append(msg)
+        self._updateStatusBarMsg()
+
+    def appendTemporalStatusBarMsg(self, msg):
+        self._updateStatusBarMsg([msg])
+
+    def popOneStatusBarMsg(self):
+        self._statusMsgLst.pop()
+        self._updateStatusBarMsg()
+
+    def cleanStatusBar(self):
+        self._statusMsgLst = []
+        self._updateStatusBarMsg()
+
+    def _updateStatusBarMsg(self, extraLst=None):
+        msg = ""
+        for each in self._statusMsgLst:
+            msg = ''.join("%s %s" % (msg, each))
+        try:
+            for each in extraLst:
+                msg = ''.join("%s %s" % (msg, each))
+        except:
+            pass
+        self.ui.statusBar.setText(msg)
 
     ######
     # # ActionButtons callbacks ---
@@ -894,6 +1204,7 @@ class MainWindow(TaurusWidget):
         exceptions = {}
         # prepare progress bar
         self.prepareProgressBar()
+        self.setStatusBarMsg("Loading values from devices")
         nElements = self.getNumberOfElements()
         i = 0
         for group in self._configurationWidgets.keys():
@@ -901,21 +1212,24 @@ class MainWindow(TaurusWidget):
             for attrName in self._configurationWidgets[group].keys():
                 attrStruct = self._configurationWidgets[group][attrName]
                 try:
-                    value = self._getAttrValue(attrName)
-                    self._setValueToSaverWidget(attrStruct, value, style=False)
+                    attrStruct.setReadValueToWriteWidget()
                 except Exception as e:
                     self.error("Exception trying to load %s value. %s"
                                % (attrName, e))
-                    label = attrStruct['label'].text()
-                    if group in exceptions.keys():
-                        exceptions[group].append(str(label))
-                    else:
-                        exceptions[group] = [str(label)]
+                    label = str(attrStruct.labelWidget.text())
+                    self.__collectLoadExceptions(group, label, exceptions)
                 # progressbar
                 i += 1
                 self.setProgressBarValue(i, nElements)
         self._raiseCollectedExceptions("load", exceptions)
         self.doneProgressBar()
+        self.cleanStatusBar()
+
+    def __collectLoadExceptions(self, group, label, exceptions):
+        if group in exceptions.keys():
+            exceptions[group].append(str(label))
+        else:
+            exceptions[group] = [str(label)]
 
     def saveToFile(self):
         '''Travelling along the *Check widgets, the checked ones (name and
@@ -941,6 +1255,7 @@ class MainWindow(TaurusWidget):
                 filename = "%s/%s.li" % (directory, prefix)
             else:
                 filename = "%s/%s-%s.li" % (directory, prefix, suffix)
+            self.setStatusBarMsg("Saving to file: %r" % (filename))
             self.debug("saveToFile() filename: %s" % (filename))
             saving = self._prepareFileHeader(now_struct)
             # TODO: store comments
@@ -987,6 +1302,7 @@ class MainWindow(TaurusWidget):
                 traceback.print_exc()
             self._raiseCollectedExceptions("save", exceptions)
             self.doneProgressBar()
+            self.cleanStatusBar()
 
     # #loadFromFile() ---
     def loadFromFile(self):
@@ -1004,7 +1320,9 @@ class MainWindow(TaurusWidget):
         group = ''
         exceptions = {}
         if filename != '':
-            self.debug("Loading from file: %r" % (filename))
+            msg = "Loading from file: %r" % (filename)
+            self.debug(msg)
+            self.setStatusBarMsg(msg)
             with open(filename, 'r') as file:
                 self.debug("File open()")
                 lines = file.readlines()
@@ -1022,8 +1340,9 @@ class MainWindow(TaurusWidget):
             # file.close()
             self._raiseCollectedExceptions('load', exceptions)
             self.doneProgressBar()
-        else:
-            raise NameError("No file name specified: %r" % (filename))
+            self.cleanStatusBar()
+        # else:
+        #     raise NameError("No file name specified: %r"%(filename))
 
     def _processLine(self, line, environment, exceptions):
         if line == '\n':
@@ -1056,7 +1375,7 @@ class MainWindow(TaurusWidget):
                         exceptions[group] = [attrName]
                 else:
                     self.debug("Value2Widget")
-                    self._setValueToSaverWidget(attrStruct, value)
+                    attrStruct.writeWidgetValue = value
             else:
                 if group == '':
                     self.warning("No group defined!")
@@ -1069,18 +1388,29 @@ class MainWindow(TaurusWidget):
            to the model in the *Reading.
         '''
         exceptions = {}
+        klystronInformation = {}
         self.prepareProgressBar()
+        self.setStatusBarMsg("Applying values to devices:")
+        self._collectKlystronStatus(klystronInformation, 'pre')
         self._iterateAttribute(exceptions)
         self._raiseCollectedExceptions('apply', exceptions)
         self.doneProgressBar()
+        self.cleanStatusBar()
+        self._collectKlystronStatus(klystronInformation, 'post')
+        self._evaluateKlystronStatus(klystronInformation)
         self._cleanSpecialCommentsFromFile()
 
     # Descending level for the applyToDevices() ---
     def _iterateAttribute(self, exceptions):
         i = 0
         nElements = self.getNumberOfElements()
-        for group in self._configurationWidgets.keys():
-            for attrName in self._configurationWidgets[group]:
+        groups = self._configurationWidgets.keys()
+        groups.sort()
+        for group in groups:
+            self.appendStatusBarMsg("group '%s'" % (group))
+            attributeNames = self._configurationWidgets[group].keys()
+            attributeNames.sort()
+            for attrName in attributeNames:
                 attrStruct = self._configurationWidgets[group][attrName]
                 if self._attrIsSelected(attrStruct):
                     self._attrApplyValue(attrName, attrStruct,
@@ -1088,9 +1418,10 @@ class MainWindow(TaurusWidget):
                 # progressBar
                 i += 1
                 self.setProgressBarValue(i, nElements)
+            self.popOneStatusBarMsg()
 
     def _attrIsSelected(self, attrStruct):
-        if 'check' in attrStruct and attrStruct['check'].isChecked():
+        if attrStruct.checkWidget.isChecked():
             return True
         return False
 
@@ -1100,8 +1431,9 @@ class MainWindow(TaurusWidget):
             self._setAttrValue(attrName, value)
             self._setStyleToNoModified(attrStruct)
         except Exception as e:
-            self.error("Exception applying %s: %s"
-                       % (attrName, traceback.format_exc()))
+            msg = "Exception applying %s" % (attrName)
+            self.appendTemporalStatusBarMsg(msg)
+            self.error("%s: %s" % (msg, traceback.format_exc()))
             if group in exceptions.keys():
                 exceptions[group].append(attrName)
             else:
@@ -1110,8 +1442,8 @@ class MainWindow(TaurusWidget):
     ######
 
     def _raiseCollectedExceptions(self, operation, exceptions):
+        msg = ""
         if len(exceptions.keys()) != 0:
-            msg = ""
             for group in exceptions.keys():
                 msg = ''.join("%sIn group %s, %d values not uploaded\n"
                               % (msg, group, len(exceptions[group])))
@@ -1124,8 +1456,73 @@ class MainWindow(TaurusWidget):
                 else:
                     for label in exceptions[group]:
                         msg = ''.join("%s\t-%s\n" % (msg, label))
+        n, attrLst = self.getPending2ApplyElements()
+        if operation in ["apply"] and n > 0:
+            msg = ''.join("%s%d values change from outside the "
+                          "application:\n" % (msg, n))
+            if len(attrLst) > 5:
+                for i in range(5):
+                    msg = ''.join("%s\t%s" % (msg, attrLst[i]))
+                msg = ''.join("%s\t ...and another %d\n"
+                              % (msg, len(attrLst)-5))
+            else:
+                for attrName in attrLst:
+                    msg = ''.join("%s\t-%s\n" % (msg, attrName))
+        if len(msg) > 0:
             QtGui.QMessageBox.warning(self, "Exceptions when %s from "
                                       "devices" % (operation), msg)
+
+    def _collectKlystronStatus(self, infoDct, situation):
+        try:
+            HVPSstate = "li/ct/plc%d/HVPS_ST"
+            HVPSstatus = "li/ct/plc%d/HVPS_Status"
+            for klystron in [4, 5]:
+                if klystron not in infoDct:
+                    infoDct[klystron] = {}
+                state = taurus.Attribute(HVPSstate % klystron)
+                status = taurus.Attribute(HVPSstatus % klystron)
+                infoDct[klystron][situation] = [state.read().value,
+                                                status.read().value]
+        except Exception as e:
+            self.error("Cannot get the klystron status: %s" % (e))
+
+    def _evaluateKlystronStatus(self, infoDct):
+        msg = ""
+        interlock = []
+        for klystron in [4, 5]:
+            if 'post' in infoDct[klystron]:
+                if 'pre' in infoDct[klystron]:
+                    pre = infoDct[klystron]['pre']
+                    post = infoDct[klystron]['post']
+                    if pre[0] != post[0]:
+                        submsg = "klystron %d has change status from %s to %s"\
+                                 % (klystron, pre[1], post[1])
+                        self.warning(submsg)
+                    else:
+                        submsg = "klystron %d has still the same status %s"\
+                                 % (klystron, post[1])
+                    msg = ''.join("%s%s\n" % (msg, submsg))
+                if post[0] in [6]:  # this is the interlock code
+                    submsg = "Found klystron %d in interlock status"\
+                             % (klystron)
+                    self.warning(submsg)
+                    msg = ''.join("%s%s\n" % (msg, submsg))
+                    interlock.append(True)
+                else:
+                    interlock.append(False)
+        if any(interlock):
+            answer = QtGui.QMessageBox.warning(self, "KLYSTRON interlock:",
+                                               msg, "Reset", "Ignore")
+            if answer == 0:  # "reset"
+                rstAttr = "li/ct/plc%d/HVPS_Interlock_RC"
+                for klystron, value in enumerate(interlock):
+                    if value:
+                        attrName = rstAttr % (klystron+4)
+                        attr = taurus.Attribute(attrName)
+                        attr.write(True)
+                self.info("klystron interlocks reseted")
+            else:
+                self.info("Ignore the klystron interlocks")
 
 
 def main():
