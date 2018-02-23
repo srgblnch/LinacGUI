@@ -163,9 +163,15 @@ class AttrStruct(Qt.QObject, TaurusBaseComponent):
 
     @readWidget.setter
     def readWidget(self, widget):
-        if isinstance(widget, TaurusLabel) or isinstance(widget, TaurusLed):
+        isTaurusLabel = isinstance(widget, TaurusLabel)
+        isTaurusLed = isinstance(widget, TaurusLed)
+        if isTaurusLabel or isTaurusLed:
             self._readWidget = widget
-            self._readWidget.setModel("%s#rvalue.magnitude" % self._attrName)
+            if isTaurusLabel:
+                model = "%s#rvalue.magnitude" % self._attrName
+            else:
+                model = self._attrName
+            self._readWidget.setModel(model)
             self._storedValue = self.readWidgetValue
             if self._writeWidget is not None and self._storedValue is not None:
                 self._changeWriteWidgetValue(self._storedValue)
