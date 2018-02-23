@@ -216,11 +216,17 @@ class AttrStruct(Qt.QObject, TaurusBaseComponent):
     # # interactions ---
     @property
     def attrValue(self):
-        return self._attrProxy.read().rvalue.magnitude
+        value = self._attrProxy.read().rvalue
+        if hasattr(value, 'magnitude'):
+            value = value.magnitude
+        return value
 
     @property
     def attrWValue(self):
-        return self._attrProxy.read().wvalue.magnitude
+        value = self._attrProxy.read().wvalue
+        if hasattr(value, 'magnitude'):
+            value = value.magnitude
+        return value
 
     @property
     def attrFormat(self):
@@ -509,7 +515,9 @@ class MainWindow(TaurusWidget):
         self.initComponents()
         # kill splash screen
         # self.splashScreen().finish(self)
-        self.ui.progressBar.hide()  # setValue(100)
+        self.setProgressBarValue(1, 1)
+        self.doneProgressBar()  # self.ui.progressBar.hide()  # setValue(100)
+        self._statusMsgLst = []
 
     def initComponents(self):
         # if hasattr(self.parent(),'setWindowTitle'):
@@ -880,10 +888,16 @@ class MainWindow(TaurusWidget):
     ######
     # # Value setters and getters ---
     def _getAttrValue(self, attrName):
-        return taurus.Attribute(attrName).read().rvalue.magnitude
+        value = taurus.Attribute(attrName).read().rvalue
+        if hasattr(value, 'magnitude'):
+            value = value.magnitude
+        return value
 
     def _getAttrWValue(self, attrName):
-        return taurus.Attribute(attrName).read().wvalue.magnitude
+        value = taurus.Attribute(attrName).read().wvalue
+        if hasattr(value, 'magnitude'):
+            value = value.magnitude
+        return value
 
     def _setAttrValue(self, attrName, value):
         rvalue = self._getAttrValue(attrName)
@@ -974,9 +988,8 @@ class MainWindow(TaurusWidget):
             if a == b:
                 return True
             try:
-                # attr = PyTango.AttributeProxy(attrName)
-                attr = taurus.Attribute(attrName)
-                attrFormat = attr.getConfig().format
+                attr = AttributeProxy(attrName)
+                attrFormat = attr.get_config().format
             except Exception as e:
                 self.error("It hasn't been possible to get %s's format: %s"
                            % (attrName, e))
@@ -1485,12 +1498,16 @@ class MainWindow(TaurusWidget):
             HVPSstate = "li/ct/plc%d/HVPS_ST"
             HVPSstatus = "li/ct/plc%d/HVPS_Status"
             for klystron in [4, 5]:
-                if klystron not in infoDct:
-                    infoDct[klystron] = {}
-                state = taurus.Attribute(HVPSstate % klystron)
-                status = taurus.Attribute(HVPSstatus % klystron)
-                infoDct[klystron][situation] = [state.read().rvalue.magnitude,
-                                                status.read().rvalue.magnitude]
+                try:
+                    if klystron not in infoDct:
+                        infoDct[klystron] = {}
+                    state = taurus.Attribute(HVPSstate % klystron)
+                    status = taurus.Attribute(HVPSstatus % klystron)
+                    infoDct[klystron][situation] = [state.read().rvalue,
+                                                    status.read().rvalue]
+                except Exception as e:
+                    self.error("Exception building current klystron %d status"
+                               % klystron-3)
         except Exception as e:
             self.error("Cannot get the klystron status: %s" % (e))
 
@@ -1498,26 +1515,30 @@ class MainWindow(TaurusWidget):
         msg = ""
         interlock = []
         for klystron in [4, 5]:
-            if 'post' in infoDct[klystron]:
-                if 'pre' in infoDct[klystron]:
-                    pre = infoDct[klystron]['pre']
-                    post = infoDct[klystron]['post']
-                    if pre[0] != post[0]:
-                        submsg = "klystron %d has change status from %s to %s"\
-                                 % (klystron, pre[1], post[1])
+            if klystron in infoDct:
+                if 'post' in infoDct[klystron]:
+                    if 'pre' in infoDct[klystron]:
+                        pre = infoDct[klystron]['pre']
+                        post = infoDct[klystron]['post']
+                        if pre[0] != post[0]:
+                            submsg = "klystron %d has change status from %s "\
+                                "to %s" % (klystron, pre[1], post[1])
+                            self.warning(submsg)
+                        else:
+                            submsg = "klystron %d has still the same status "\
+                                "%s" % (klystron, post[1])
+                        msg = ''.join("%s%s\n" % (msg, submsg))
+                    if post[0] in [6]:  # this is the interlock code
+                        submsg = "Found klystron %d in interlock status"\
+                                 % (klystron)
                         self.warning(submsg)
+                        msg = ''.join("%s%s\n" % (msg, submsg))
+                        interlock.append(True)
                     else:
-                        submsg = "klystron %d has still the same status %s"\
-                                 % (klystron, post[1])
-                    msg = ''.join("%s%s\n" % (msg, submsg))
-                if post[0] in [6]:  # this is the interlock code
-                    submsg = "Found klystron %d in interlock status"\
-                             % (klystron)
-                    self.warning(submsg)
-                    msg = ''.join("%s%s\n" % (msg, submsg))
-                    interlock.append(True)
-                else:
-                    interlock.append(False)
+                        interlock.append(False)
+            else:
+                self.error("klystron %d not in %s"
+                           % (klystron-3, infoDct.keys()))
         if any(interlock):
             answer = QtGui.QMessageBox.warning(self, "KLYSTRON interlock:",
                                                msg, "Reset", "Ignore")
