@@ -36,14 +36,10 @@ from taurus.core.taurusbasetypes import TaurusEventType
 from taurus.core.util import argparse
 from taurus.external.qt import Qt, QtGui
 from taurus.qt.qtgui.application import TaurusApplication
+from taurus.qt.qtgui.base.taurusbase import TaurusBaseComponent
 from taurus.qt.qtgui.container import TaurusWidget
+from taurus.qt.qtgui.display import (TaurusLabel, TaurusLed)
 from taurus.qt.qtgui.util.ui import UILoadable
-
-
-# ??
-# from taurus.qt.qtgui.base.taurusbase import (TaurusBaseComponent,
-#                                              TaurusBaseWritableWidget)
-
 
 from .ctliaux import (VERSION,
                       _setupLed4UnknownAttr,
@@ -59,7 +55,7 @@ from .ctliaux import (VERSION,
                       commentsfile,
                       sandbox)
 
-import PyTango
+from PyTango import AttributeProxy, DevFailed
 
 
 def dump(obj, nested_level=0, output=sys.stdout):
@@ -127,12 +123,10 @@ class AttrStruct(Qt.QObject, TaurusBaseComponent):
         name = "AttrStruct(%s)" % (attrName.split('/', 2)[2])
         Qt.QObject.__init__(self, None)
         TaurusBaseComponent.__init__(self, name=name, *args, **kwargs)
-        # super(AttrStruct, self).__init__(name=name, *args, **kwargs)
         self._attrName = attrName
         self._attrProxy = taurus.Attribute(self._attrName)
         self._attrProxy.addListener(self)
-        Qt.QObject.connect(self.getSignaller(), Qt.SIGNAL('taurusEvent'),
-                           self.filterEvent)
+        self.taurusEvent.connect(self.filterEvent)
         self._minVal = minVal
         self._maxVal = maxVal
         self._decimals = decimals
@@ -171,7 +165,7 @@ class AttrStruct(Qt.QObject, TaurusBaseComponent):
     def readWidget(self, widget):
         if isinstance(widget, TaurusLabel) or isinstance(widget, TaurusLed):
             self._readWidget = widget
-            self._readWidget.setModel(self._attrName)
+            self._readWidget.setModel("%s#rvalue.magnitude" % self._attrName)
             self._storedValue = self.readWidgetValue
             if self._writeWidget is not None and self._storedValue is not None:
                 self._changeWriteWidgetValue(self._storedValue)
@@ -216,11 +210,11 @@ class AttrStruct(Qt.QObject, TaurusBaseComponent):
     # # interactions ---
     @property
     def attrValue(self):
-        return self._attrProxy.read().value
+        return self._attrProxy.read().rvalue.magnitude
 
     @property
     def attrWValue(self):
-        return self._attrProxy.read().w_value
+        return self._attrProxy.read().wvalue.magnitude
 
     @property
     def attrFormat(self):
@@ -229,7 +223,8 @@ class AttrStruct(Qt.QObject, TaurusBaseComponent):
                 attrCfg = AttributeProxy(self.attrName).get_config()
                 self._attrFormat = attrCfg.format
             except DevFailed as e:
-                pass
+                self.error("Attribute %s not ready to check format"
+                           % self.attrName)
             except Exception as e:
                 self.warning("Cannot get attribute format: %s" % (e))
         return self._attrFormat
@@ -237,7 +232,8 @@ class AttrStruct(Qt.QObject, TaurusBaseComponent):
     @property
     def readWidgetValue(self):
         if self._readWidget is not None:
-            return self._readWidget.getDisplayValue()
+            value = self._readWidget.getDisplayValue()
+            return value
 
     @property
     def writeWidgetValue(self):
@@ -314,43 +310,47 @@ class AttrStruct(Qt.QObject, TaurusBaseComponent):
             if evt_src.getFullName() != self._attrProxy.getFullName():
                 self.warning("eventReceived from %s" % (evt_src))
                 return
-            self.debug("eventReceived(%s) previous value %s (Quality: %s)"
-                       % (evt_value.value, self._storedValue,
-                          evt_value.quality))
+            if hasattr(evt_value.rvalue, 'magnitude'):
+                rvalue = evt_value.rvalue.magnitude
+            else:
+                rvalue = evt_value.rvalue
+            self.debug("eventReceived(%s) previous value %s"
+                       % (rvalue, self._storedValue))
             writeWidgetValue = self.writeWidgetValue
             if writeWidgetValue is None or \
-                    self._valuesAreDifferent(evt_value.value,
-                                             writeWidgetValue):
-                self.debug("eventReceived(%s) value changed"
-                           % (evt_value.value))
-                super(AttrStruct, self).eventReceived(evt_src, evt_type,
-                                                      evt_value)
+                    self._valuesAreDifferent(rvalue, writeWidgetValue):
+                self.debug("eventReceived(%s) value changed" % (rvalue))
+                TaurusBaseComponent.eventReceived(self, evt_src, evt_type,
+                                                  evt_value)
             elif self._styleMod:
                 self.debug("eventReceived(%s) equal values but style say its "
-                           "modified" % (evt_value.value))
-                super(AttrStruct, self).eventReceived(evt_src, evt_type,
-                                                      evt_value)
+                           "modified" % (rvalue))
+                TaurusBaseComponent.eventReceived(self, evt_src, evt_type,
+                                                  evt_value)
             else:
-                self.debug("eventReceived(%s) didn't change"
-                           % (evt_value.value))
+                self.debug("eventReceived(%s) didn't change" % (rvalue))
         except Exception as e:
             self.error("eventReceived() Exception '%s'" % (e))
             traceback.print_exc()
 
     def filterEvent(self, evt_src=-1, evt_type=-1, evt_value=-1):
-        self.debug("filterEvent(%s)" % (evt_value.value))
-        super(AttrStruct, self).filterEvent(evt_src, evt_type, evt_value)
+        self.debug("filterEvent(%s)" % (evt_value.rvalue))
+        TaurusBaseComponent.filterEvent(self, evt_src, evt_type, evt_value)
 
     def handleEvent(self, evt_src, evt_type, evt_value):
         """Reception of an event from Qt to be drawn in the GUI.
         """
         try:
+            if hasattr(evt_value.rvalue, 'magnitude'):
+                rvalue = evt_value.rvalue.magnitude
+            else:
+                rvalue = evt_value.rvalue
             self.debug("handleEvent(%s (%s)) previous stored value %s"
                        "(readWidget %s, writeWidget %s)"
-                       % (evt_value.value, evt_value.quality,
+                       % (rvalue, evt_value.quality,
                           self._storedValue, self.readWidgetValue,
                           self.writeWidgetValue))
-            self._modifyStyle(evt_value.value, fromTaurus=True)
+            self._modifyStyle(rvalue, fromTaurus=True)
         except Exception as e:
             self.error("handleEvent() Exception '%s'" % (e))
             traceback.print_exc()
@@ -456,16 +456,18 @@ class AttrStruct(Qt.QObject, TaurusBaseComponent):
                     else:
                         v = bool(v)
                 return v1 != v2
-            if self.attrFormat is not None:
-                if type(v1) is not str:
+            elif self.attrFormat is not None:
+                if not isinstance(v1, str):
                     value1 = self.attrFormat % v1
                 else:
                     value1 = v1
-                if type(v2) is not str:
+                if not isinstance(v2, str):
                     value2 = self.attrFormat % v2
                 else:
                     value2 = v2
-            return float(value1) != float(value2)
+                return float(value1) != float(value2)
+            else:
+                return float(v1) != float(v2)
         except Exception as e:
             self.error("Cannot compare %s and %s: %s" % (v1, v2, e))
             return False
@@ -872,10 +874,10 @@ class MainWindow(TaurusWidget):
     ######
     # # Value setters and getters ---
     def _getAttrValue(self, attrName):
-        return taurus.Attribute(attrName).read().rvalue
+        return taurus.Attribute(attrName).read().rvalue.magnitude
 
     def _getAttrWValue(self, attrName):
-        return taurus.Attribute(attrName).read().wvalue
+        return taurus.Attribute(attrName).read().wvalue.magnitude
 
     def _setAttrValue(self, attrName, value):
         rvalue = self._getAttrValue(attrName)
@@ -1481,8 +1483,8 @@ class MainWindow(TaurusWidget):
                     infoDct[klystron] = {}
                 state = taurus.Attribute(HVPSstate % klystron)
                 status = taurus.Attribute(HVPSstatus % klystron)
-                infoDct[klystron][situation] = [state.read().value,
-                                                status.read().value]
+                infoDct[klystron][situation] = [state.read().rvalue.magnitude,
+                                                status.read().rvalue.magnitude]
         except Exception as e:
             self.error("Cannot get the klystron status: %s" % (e))
 
