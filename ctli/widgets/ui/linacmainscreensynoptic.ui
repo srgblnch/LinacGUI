@@ -1395,14 +1395,21 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>80</y>
-     <width>141</width>
-     <height>71</height>
+     <y>70</y>
+     <width>181</width>
+     <height>91</height>
     </rect>
    </property>
    <layout class="QGridLayout" name="multibunchLayout">
     <item row="1" column="2">
-     <widget class="TaurusValueComboBox" name="tbGatedPulseModeCombo"/>
+     <widget class="TaurusValueComboBox" name="tbGatedPulseModeCombo">
+      <property name="minimumSize">
+       <size>
+        <width>80</width>
+        <height>0</height>
+       </size>
+      </property>
+     </widget>
     </item>
     <item row="1" column="0">
      <widget class="QLabel" name="multibunchLabel">
@@ -1412,10 +1419,23 @@
      </widget>
     </item>
     <item row="0" column="0" colspan="2">
-     <widget class="TaurusLabel" name="tbMultiBunchValue"/>
+     <widget class="TaurusLabel" name="tbMultiBunchValue">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>20</height>
+       </size>
+      </property>
+     </widget>
     </item>
     <item row="2" column="2">
      <widget class="QLabel" name="tbGatedPulseModeLabel">
+      <property name="minimumSize">
+       <size>
+        <width>80</width>
+        <height>0</height>
+       </size>
+      </property>
       <property name="text">
        <string>Gated Pulse Mode</string>
       </property>
@@ -1448,7 +1468,14 @@
      </widget>
     </item>
     <item row="0" column="2">
-     <widget class="TaurusLabel" name="tbGatedPulseModeValue"/>
+     <widget class="TaurusLabel" name="tbGatedPulseModeValue">
+      <property name="minimumSize">
+       <size>
+        <width>80</width>
+        <height>20</height>
+       </size>
+      </property>
+     </widget>
     </item>
    </layout>
   </widget>
@@ -1596,14 +1623,21 @@
    <property name="geometry">
     <rect>
      <x>790</x>
-     <y>110</y>
+     <y>100</y>
      <width>81</width>
-     <height>51</height>
+     <height>61</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="klystron1HVLayout">
     <item>
-     <widget class="TaurusLabel" name="klystron1HVRead"/>
+     <widget class="TaurusLabel" name="klystron1HVRead">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>20</height>
+       </size>
+      </property>
+     </widget>
     </item>
     <item>
      <widget class="TaurusValueSpinBox" name="klystron1HVWrite">
@@ -1621,14 +1655,21 @@
    <property name="geometry">
     <rect>
      <x>1080</x>
-     <y>70</y>
+     <y>60</y>
      <width>81</width>
-     <height>51</height>
+     <height>61</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="klystron2HVLayout">
     <item>
-     <widget class="TaurusLabel" name="klystron2HVRead"/>
+     <widget class="TaurusLabel" name="klystron2HVRead">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>20</height>
+       </size>
+      </property>
+     </widget>
     </item>
     <item>
      <widget class="TaurusValueSpinBox" name="klystron2HVWrite">
@@ -2219,17 +2260,24 @@
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>170</x>
+     <x>180</x>
      <y>90</y>
      <width>194</width>
-     <height>66</height>
+     <height>71</height>
     </rect>
    </property>
    <layout class="QHBoxLayout" name="tbGunLayout">
     <item>
      <layout class="QGridLayout" name="tbGunDelayLayout">
       <item row="0" column="0">
-       <widget class="TaurusLabel" name="tbGunDelayValue"/>
+       <widget class="TaurusLabel" name="tbGunDelayValue">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>20</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="1" column="0">
        <widget class="TaurusValueSpinBox" name="tbGunDelaySetpoint">
@@ -2266,7 +2314,14 @@
        </widget>
       </item>
       <item row="0" column="0">
-       <widget class="TaurusLabel" name="tbWidthValue"/>
+       <widget class="TaurusLabel" name="tbWidthValue">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>20</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="2" column="0">
        <widget class="QLabel" name="tbWidthLabel">
@@ -2283,7 +2338,14 @@
     <item>
      <layout class="QGridLayout" name="tbNumberLayout">
       <item row="0" column="0">
-       <widget class="TaurusLabel" name="tbNumberValue"/>
+       <widget class="TaurusLabel" name="tbNumberValue">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>20</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="1" column="0">
        <widget class="TaurusValueSpinBox" name="tbNumberSetpoint">
@@ -2662,7 +2724,7 @@
    <property name="geometry">
     <rect>
      <x>90</x>
-     <y>11</y>
+     <y>0</y>
      <width>76</width>
      <height>75</height>
     </rect>
@@ -2701,7 +2763,7 @@
    <property name="geometry">
     <rect>
      <x>21</x>
-     <y>11</y>
+     <y>0</y>
      <width>76</width>
      <height>75</height>
     </rect>
@@ -2739,8 +2801,8 @@
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>171</x>
-     <y>10</y>
+     <x>160</x>
+     <y>30</y>
      <width>71</width>
      <height>41</height>
     </rect>
@@ -3077,7 +3139,18 @@
     </size>
    </property>
   </widget>
-  <zorder>layoutWidget</zorder>
+  <zorder>fluorescentScreen3Valve</zorder>
+  <zorder>fluorescentScreen3Status</zorder>
+  <zorder>fluorescentScreen3View</zorder>
+  <zorder>fluorescentScreen3Light</zorder>
+  <zorder>fluorescentScreen2Valve</zorder>
+  <zorder>fluorescentScreen2Status</zorder>
+  <zorder>fluorescentScreen2View</zorder>
+  <zorder>fluorescentScreen2Light</zorder>
+  <zorder>fluorescentScreen1Valve</zorder>
+  <zorder>fluorescentScreen1Status</zorder>
+  <zorder>fluorescentScreen1View</zorder>
+  <zorder>fluorescentScreen1Light</zorder>
   <zorder>MainScreenSchematic</zorder>
   <zorder>qt1fValue</zorder>
   <zorder>as1hValue</zorder>
@@ -3109,8 +3182,6 @@
   <zorder>bc1vValue</zorder>
   <zorder>sl1fValue</zorder>
   <zorder>preBuncherVacuumWidget</zorder>
-  <zorder>layoutWidget</zorder>
-  <zorder>layoutWidget</zorder>
   <zorder>layoutWidget</zorder>
   <zorder>layoutWidget</zorder>
   <zorder>layoutWidget</zorder>
