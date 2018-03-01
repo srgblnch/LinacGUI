@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>EVRSnapshot</class>
+ <class>evrSnapshot</class>
  <widget class="TaurusWidget" name="evrSnapshot">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>267</width>
-    <height>366</height>
+    <width>278</width>
+    <height>476</height>
    </rect>
   </property>
   <property name="font">
@@ -108,7 +108,7 @@
       <item row="1" column="0">
        <widget class="QLabel" name="Delay0Label">
         <property name="text">
-         <string>CH0 Delay</string>
+         <string>LI_trig Delay</string>
         </property>
        </widget>
       </item>
@@ -128,7 +128,7 @@
       <item row="2" column="0">
        <widget class="QLabel" name="Width0Label">
         <property name="text">
-         <string>CH0 Width</string>
+         <string>LI_trig Width</string>
         </property>
        </widget>
       </item>
@@ -145,7 +145,7 @@
       <item row="3" column="0">
        <widget class="QLabel" name="Fine0Label">
         <property name="text">
-         <string>CH0 Fine tune</string>
+         <string>LI_trig Fine tune</string>
         </property>
        </widget>
       </item>
@@ -162,7 +162,7 @@
       <item row="4" column="0">
        <widget class="QLabel" name="Delay1Label">
         <property name="text">
-         <string>CH1 Delay</string>
+         <string>KA1 drive Delay</string>
         </property>
        </widget>
       </item>
@@ -179,7 +179,7 @@
       <item row="5" column="0">
        <widget class="QLabel" name="Width1Label">
         <property name="text">
-         <string>CH1 Width</string>
+         <string>KA1 drive Width</string>
         </property>
        </widget>
       </item>
@@ -196,7 +196,7 @@
       <item row="6" column="0">
        <widget class="QLabel" name="Fine1Label">
         <property name="text">
-         <string>CH1 Fine tune</string>
+         <string>KA1 drive Fine tune</string>
         </property>
        </widget>
       </item>
@@ -213,7 +213,7 @@
       <item row="7" column="0">
        <widget class="QLabel" name="Delay2Label">
         <property name="text">
-         <string>CH2 Delay</string>
+         <string>KA2 drive Delay</string>
         </property>
        </widget>
       </item>
@@ -230,7 +230,7 @@
       <item row="8" column="0">
        <widget class="QLabel" name="Width2Label">
         <property name="text">
-         <string>CH2 Width</string>
+         <string>KA2 drive Width</string>
         </property>
        </widget>
       </item>
@@ -244,7 +244,7 @@
       <item row="9" column="0">
        <widget class="QLabel" name="Fine2Label">
         <property name="text">
-         <string>CH2 Fine tune</string>
+         <string>KA2 drive Fine tune</string>
         </property>
        </widget>
       </item>
@@ -312,15 +312,15 @@
    <container>1</container>
   </customwidget>
   <customwidget>
+   <class>TaurusLabel</class>
+   <extends>QLabel</extends>
+   <header>taurus.qt.qtgui.display</header>
+  </customwidget>
+  <customwidget>
    <class>TaurusGroupBox</class>
    <extends>QGroupBox</extends>
    <header>taurus.qt.qtgui.container</header>
    <container>1</container>
-  </customwidget>
-  <customwidget>
-   <class>TaurusLabel</class>
-   <extends>QLabel</extends>
-   <header>taurus.qt.qtgui.display</header>
   </customwidget>
  </customwidgets>
  <resources/>
