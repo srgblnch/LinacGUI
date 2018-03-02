@@ -185,7 +185,9 @@ class AttrStruct(Qt.QObject, TaurusBaseComponent):
 
     @writeWidget.setter
     def writeWidget(self, widget):
-        if self.__isCheckBox(widget) or self.__isSpinBox(widget):
+        isCheckBox = self.__isCheckBox(widget)
+        isSpinBox = self.__isSpinBox(widget)
+        if isCheckBox or isSpinBox:
             self._writeWidget = widget
             if self._minVal:
                 self._writeWidget.setMinimum(self._minVal)
