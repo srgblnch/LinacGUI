@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>LinacPlcWidget</class>
+ <class>linacPlcWidget</class>
  <widget class="TaurusWidget" name="linacPlcWidget">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>300</width>
-    <height>335</height>
+    <width>312</width>
+    <height>359</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -40,12 +40,6 @@
              <height>25</height>
             </size>
            </property>
-           <property name="model">
-            <string>/state</string>
-           </property>
-           <property name="useParentModel">
-            <bool>true</bool>
-           </property>
           </widget>
          </item>
          <item row="4" column="0">
@@ -71,12 +65,6 @@
                <height>25</height>
               </size>
              </property>
-             <property name="model">
-              <string>/Locking</string>
-             </property>
-             <property name="useParentModel">
-              <bool>true</bool>
-             </property>
             </widget>
            </item>
            <item>
@@ -93,16 +81,16 @@
                <height>20</height>
               </size>
              </property>
-             <property name="model">
-              <string>/Locking</string>
+             <property name="model" stdset="0">
+              <string/>
              </property>
-             <property name="useParentModel">
+             <property name="useParentModel" stdset="0">
+              <bool>false</bool>
+             </property>
+             <property name="autoApply" stdset="0">
               <bool>true</bool>
              </property>
-             <property name="autoApply">
-              <bool>true</bool>
-             </property>
-             <property name="forcedApply">
+             <property name="forcedApply" stdset="0">
               <bool>true</bool>
              </property>
             </widget>
@@ -150,18 +138,6 @@
              <height>16777215</height>
             </size>
            </property>
-           <property name="text">
-            <string> 99.99</string>
-           </property>
-           <property name="model">
-            <string>/status</string>
-           </property>
-           <property name="useParentModel">
-            <bool>true</bool>
-           </property>
-           <property name="bgRole">
-            <string>state</string>
-           </property>
           </widget>
          </item>
          <item row="0" column="1">
@@ -180,12 +156,6 @@
            </property>
            <property name="alignment">
             <set>Qt::AlignBottom|Qt::AlignVCenter</set>
-           </property>
-           <property name="model">
-            <string>/HeartBeat</string>
-           </property>
-           <property name="useParentModel">
-            <bool>true</bool>
            </property>
           </widget>
          </item>
@@ -216,15 +186,6 @@
              <width>16777215</width>
              <height>25</height>
             </size>
-           </property>
-           <property name="text">
-            <string> 99.99</string>
-           </property>
-           <property name="model">
-            <string>/Lock_Status</string>
-           </property>
-           <property name="useParentModel">
-            <bool>true</bool>
            </property>
           </widget>
          </item>
@@ -282,9 +243,6 @@
              <width>16777215</width>
              <height>25</height>
             </size>
-           </property>
-           <property name="text">
-            <string> 99.99</string>
            </property>
           </widget>
          </item>
@@ -347,31 +305,6 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>TaurusCommandButton</class>
-   <extends>QPushButton</extends>
-   <header>taurus.qt.qtgui.button</header>
-  </customwidget>
-  <customwidget>
-   <class>LinacValueCheckBox</class>
-   <extends>QCheckBox</extends>
-   <header>ctli</header>
-  </customwidget>
-  <customwidget>
-   <class>LinacLed</class>
-   <extends>TaurusLed</extends>
-   <header>ctli</header>
-  </customwidget>
-  <customwidget>
-   <class>QLed</class>
-   <extends>QPixmapWidget</extends>
-   <header>taurus.qt.qtgui.display</header>
-  </customwidget>
-  <customwidget>
-   <class>QPixmapWidget</class>
-   <extends>QWidget</extends>
-   <header>taurus.qt.qtgui.display</header>
-  </customwidget>
-  <customwidget>
    <class>TaurusWidget</class>
    <extends>QWidget</extends>
    <header>taurus.qt.qtgui.container</header>
@@ -383,10 +316,40 @@
    <header>taurus.qt.qtgui.display</header>
   </customwidget>
   <customwidget>
+   <class>TaurusCommandButton</class>
+   <extends>QPushButton</extends>
+   <header>taurus.qt.qtgui.button</header>
+  </customwidget>
+  <customwidget>
+   <class>TaurusLed</class>
+   <extends>QLed</extends>
+   <header>taurus.qt.qtgui.display</header>
+  </customwidget>
+  <customwidget>
+   <class>QLed</class>
+   <extends>QPixmapWidget</extends>
+   <header>taurus.qt.qtgui.display</header>
+  </customwidget>
+  <customwidget>
    <class>TaurusGroupBox</class>
    <extends>QGroupBox</extends>
    <header>taurus.qt.qtgui.container</header>
    <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>QPixmapWidget</class>
+   <extends>QWidget</extends>
+   <header>taurus.qt.qtgui.display</header>
+  </customwidget>
+  <customwidget>
+   <class>LinacValueCheckBox</class>
+   <extends>QCheckBox</extends>
+   <header>ctli</header>
+  </customwidget>
+  <customwidget>
+   <class>LinacLed</class>
+   <extends>TaurusLed</extends>
+   <header>ctli</header>
   </customwidget>
  </customwidgets>
  <resources/>

@@ -241,66 +241,12 @@ class LinacMainWindow(TaurusMainWindow, TaurusWidget):
     def setCommunications(self):
         # about the overview
         self.ui.linacOverview.hide()
-#        linacOverview = self.ui.linacOverview._ui
-#        linacOverview.plcLastUpdateTrend.setModel(['li/ct/plc1/lastUpdate',
-#                                                   'li/ct/plc2/lastUpdate',
-#                                                   'li/ct/plc3/lastUpdate',
-#                                                   'li/ct/plc4/lastUpdate',
-#                                                   'li/ct/plc5/lastUpdate'])
-#        #linacOverview.plcLastUpdateTrend
-#        # FIXME: show dev_name in inspector mode
-#        linacOverview.plcLastUpdateTrend.showLegend(False)
-#        linacOverview.moveLocal.setModel(DeviceRelocator)
-#        linacOverview.moveLocal.setCommand('MoveAllInstances')
-#        linacOverview.moveLocal.setParameters('local')
-#        linacOverview.moveLocal.setCustomText('Local')
-#        linacOverview.moveLocal.\
-#           setDangerMessage("Be sure Labview is not link to these PLCs!")
-#        linacOverview.moveRemote.setDisabled(True)
-# #       linacOverview.moveRemote.setModel(DeviceRelocator)
-# #       linacOverview.moveRemote.setCommand('MoveAllInstances')
-# #       linacOverview.moveRemote.setParameters('remote')
-#        linacOverview.moveRemote.setCustomText('Remote')
-# #       linacOverview.moveRemote.\
-# #           setDangerMessage("After this action you will lose write access.")
-#        linacOverview.resetInstance.setModel(DeviceRelocator)
-#        linacOverview.resetInstance.setCommand('RestartAllInstance')
-#        linacOverview.resetInstance.setCustomText('Restart all')
-#        linacOverview.resetInstance.\
-#            setDangerMessage("This will stop the control temporally.")
-        # for each of the plcs
         plcWidgets = [self.ui.plc1, self.ui.plc2, self.ui.plc3, self.ui.plc4,
                       self.ui.plc5]
         for i, plc in enumerate(plcWidgets):
             self._setSplashScreenSubtask("PLC%d" % (i+1))
-            # plc._ui.plcGroup.setTitle("PLC %d" % (i+1))
-            plc._ui.plcGroup.setModel("%s%d" % (LinacDeviceNameRoot, i+1))
-            plc._ui.ResetState.setModel("%s%d" % (LinacDeviceNameRoot, i+1))
-            plc._ui.ResetState.setCommand('ResetState')
-            plc._ui.instanceStateRead.setModel('%s/LinacData.plc%d_state'
-                                               % (DeviceRelocator, i+1))
-            plc._ui.instanceLocationRead.setModel('%s/LinacData.plc%d_location'
-                                                  % (DeviceRelocator, i+1))
-            plc._ui.moveLocal.setModel(DeviceRelocator)
-            plc._ui.moveLocal.setCommand('MoveInstance')
-            plc._ui.moveLocal.setParameters(['LinacData/plc%d' % (i+1),
-                                             'local'])
-            plc._ui.moveLocal.setCustomText('Local')
-            plc._ui.moveLocal.setDangerMessage("Be sure Labview is not link "
-                                               "to this PLC!")
-            plc._ui.moveRemote.setModel(DeviceRelocator)
-            plc._ui.moveRemote.setCommand('MoveInstance')
-            plc._ui.moveRemote.setParameters(['LinacData/plc%d' % (i+1),
-                                              'remote'])
-            plc._ui.moveRemote.setCustomText('Remote')
-            plc._ui.moveRemote.setDangerMessage("After this action you will "
-                                                "lose write access.")
-            plc._ui.resetInstance.setModel(DeviceRelocator)
-            plc._ui.resetInstance.setCommand('RestartInstance')
-            plc._ui.resetInstance.setParameters(['LinacData/plc%d' % (i+1)])
-            plc._ui.resetInstance.setCustomText('Restart')
-            plc._ui.resetInstance.setDangerMessage("This will stop the "
-                                                   "control temporally.")
+            plc.setModel("%s%d" % (LinacDeviceNameRoot, i+1))
+            plc.setRelocator(DeviceRelocator, i)
 
     # setModel & others for the Start up Tab ---
     def setStartup(self):

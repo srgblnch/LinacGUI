@@ -21,6 +21,7 @@ __copyright__ = "Copyright 2015, CELLS / ALBA Synchrotron"
 __license__ = "GPLv3+"
 
 import os
+import sys
 from taurus.external.qt import Qt
 from taurus.qt.qtgui.container import TaurusWidget
 from taurus.qt.qtgui.util.ui import UILoadable
