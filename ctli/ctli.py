@@ -1824,8 +1824,8 @@ class ViewButtonListener:
             fsotr = "--screen=%s" % (self.__screen)
             ccd = "--ccd=%s-ccd" % (self.__screen)
             iba = "--iba=%s-iba" % (self.__screen)
-            cmd = "ctdiccd %s %s %s" % (fsotr, iba, ccd)
-            cmd += " --from=%s@%s" % (getpass.getuser(), socket.gethostname())
+            cmd = "ctdiccd %s %s %s --force-local" % (fsotr, iba, ccd)
+            #cmd += " --from=%s@%s" % (getpass.getuser(), socket.gethostname())
             print("[ButtonsListener] %s.launchGui cmd: %s"
                   % (self.__screen, cmd))
             self.__qpro.start(Qt.QString(cmd))
