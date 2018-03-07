@@ -21,6 +21,7 @@ __copyright__ = "Copyright 2015, CELLS / ALBA Synchrotron"
 __license__ = "GPLv3+"
 
 import os
+from taurus.core.tango.util import tangoFormatter
 from taurus.external.qt import QtGui
 from taurus.qt.qtgui.container import TaurusWidget
 from taurus.qt.qtgui.util.ui import UILoadable
@@ -58,26 +59,18 @@ class EVR300(TaurusWidget):
     def setModel(self, devName):
         devName = str(devName)
         if not self.__model == devName:
-            attributes = {'PulseDelay0': [self.ui.ch0PulseValue,
-                                          self.ui.ch0PulseUnit],
-                          'FineDelay0': [self.ui.ch0FineValue,
-                                         self.ui.ch0FineUnit],
-                          'PulseDelay1': [self.ui.ch1PulseValue,
-                                          self.ui.ch1PulseUnit],
-                          'FineDelay1': [self.ui.ch1FineValue,
-                                         self.ui.ch1FineUnit],
-                          'PulseDelay2': [self.ui.ch2PulseValue,
-                                          self.ui.ch2PulseUnit],
-                          'FineDelay2': [self.ui.ch2FineValue,
-                                         self.ui.ch2FineUnit],
+            attributes = {'PulseDelay0': self.ui.ch0PulseValue,
+                          'FineDelay0': self.ui.ch0FineValue,
+                          'PulseDelay1': self.ui.ch1PulseValue,
+                          'FineDelay1': self.ui.ch1FineValue,
+                          'PulseDelay2': self.ui.ch2PulseValue,
+                          'FineDelay2': self.ui.ch2FineValue,
                           }
             for attrName in attributes.keys():
                 fullName = devName+'/'+attrName
                 self.info("setting %s model" % (fullName))
-                attributes[attrName][0].setModel(fullName)
-                attributes[attrName][1].setModel(fullName +
-                                                 '?configuration=unit')
-                attributes[attrName][1].bgRole = ''
+                attributes[attrName].setModel(fullName)
+                attributes[attrName].FORMAT = tangoFormatter
             self.__model = devName
 
 if __name__ == "__main__":

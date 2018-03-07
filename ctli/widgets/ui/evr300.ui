@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>521</width>
+    <width>593</width>
     <height>241</height>
    </rect>
   </property>
@@ -24,8 +24,8 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>507</width>
-        <height>227</height>
+        <width>577</width>
+        <height>225</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout">
@@ -45,7 +45,7 @@
        <item>
         <widget class="TaurusGroupBox" name="groupCh0">
          <property name="title">
-          <string>Channel 0</string>
+          <string>Channel 0 (LI_TRIG)</string>
          </property>
          <layout class="QHBoxLayout" name="horizontalLayout">
           <item>
@@ -85,18 +85,11 @@
               <verstretch>0</verstretch>
              </sizepolicy>
             </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="TaurusLabel" name="ch0PulseUnit">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="bgRole">
-             <string/>
+            <property name="minimumSize">
+             <size>
+              <width>120</width>
+              <height>0</height>
+             </size>
             </property>
            </widget>
           </item>
@@ -137,18 +130,11 @@
               <verstretch>0</verstretch>
              </sizepolicy>
             </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="TaurusLabel" name="ch0FineUnit">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="bgRole">
-             <string/>
+            <property name="minimumSize">
+             <size>
+              <width>120</width>
+              <height>0</height>
+             </size>
             </property>
            </widget>
           </item>
@@ -174,7 +160,7 @@
        <item>
         <widget class="TaurusGroupBox" name="groupCh1">
          <property name="title">
-          <string>Channel 1</string>
+          <string>Channel 1 (KA1 drive)</string>
          </property>
          <layout class="QHBoxLayout" name="horizontalLayout_2">
           <item>
@@ -214,18 +200,11 @@
               <verstretch>0</verstretch>
              </sizepolicy>
             </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="TaurusLabel" name="ch1PulseUnit">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="bgRole">
-             <string/>
+            <property name="minimumSize">
+             <size>
+              <width>120</width>
+              <height>0</height>
+             </size>
             </property>
            </widget>
           </item>
@@ -266,18 +245,11 @@
               <verstretch>0</verstretch>
              </sizepolicy>
             </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="TaurusLabel" name="ch1FineUnit">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="bgRole">
-             <string/>
+            <property name="minimumSize">
+             <size>
+              <width>120</width>
+              <height>0</height>
+             </size>
             </property>
            </widget>
           </item>
@@ -303,7 +275,7 @@
        <item>
         <widget class="TaurusGroupBox" name="groupCh2">
          <property name="title">
-          <string>Channel 2</string>
+          <string>Channel 2 (KA2 drive)</string>
          </property>
          <layout class="QHBoxLayout" name="horizontalLayout_3">
           <item>
@@ -343,18 +315,11 @@
               <verstretch>0</verstretch>
              </sizepolicy>
             </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="TaurusLabel" name="ch2PulseUnit">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="bgRole">
-             <string/>
+            <property name="minimumSize">
+             <size>
+              <width>120</width>
+              <height>0</height>
+             </size>
             </property>
            </widget>
           </item>
@@ -395,18 +360,11 @@
               <verstretch>0</verstretch>
              </sizepolicy>
             </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="TaurusLabel" name="ch2FineUnit">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="bgRole">
-             <string/>
+            <property name="minimumSize">
+             <size>
+              <width>120</width>
+              <height>0</height>
+             </size>
             </property>
            </widget>
           </item>
@@ -456,15 +414,15 @@
    <container>1</container>
   </customwidget>
   <customwidget>
+   <class>TaurusLabel</class>
+   <extends>QLabel</extends>
+   <header>taurus.qt.qtgui.display</header>
+  </customwidget>
+  <customwidget>
    <class>TaurusGroupBox</class>
    <extends>QGroupBox</extends>
    <header>taurus.qt.qtgui.container</header>
    <container>1</container>
-  </customwidget>
-  <customwidget>
-   <class>TaurusLabel</class>
-   <extends>QLabel</extends>
-   <header>taurus.qt.qtgui.display</header>
   </customwidget>
  </customwidgets>
  <resources/>
