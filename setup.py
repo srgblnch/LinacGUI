@@ -22,7 +22,7 @@ __license__ = "GPLv3+"
 
 # The version is updated automatically with bumpversion
 # Do not update manually
-__version = '2.73.4'  
+__version = '2.73.5-alpha'  
 
 
 from setuptools import setup, find_packages
