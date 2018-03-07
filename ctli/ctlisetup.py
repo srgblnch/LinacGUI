@@ -33,6 +33,7 @@ import traceback
 #     sys.path.append(linacWidgetsPath)
 
 from taurus.core.taurusbasetypes import TaurusEventType
+from taurus.core.tango.util import tangoFormatter
 from taurus.core.util import argparse
 from taurus.external.qt import Qt, QtGui
 from taurus.qt.qtgui.application import TaurusApplication
@@ -797,6 +798,7 @@ class MainWindow(TaurusWidget):
                 Read = getattr(ui, prefix+'Read')
                 Write = getattr(ui, prefix+'Write')
                 Check = getattr(ui, prefix+'Check')
+                Read.FORMAT = tangoFormatter
                 widgetsSet[attrName] = AttrStruct(attrName, Label, Read,
                                                   Write, Check, minVal=0,
                                                   maxVal=1e10, step=8,
