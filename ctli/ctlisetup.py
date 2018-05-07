@@ -1184,6 +1184,7 @@ class MainWindow(TaurusWidget):
         self.ui.progressBar.setValue(i*100/nElements)
 
     def doneProgressBar(self):
+        self.ui.progressBar.setValue(100)
         self.ui.progressBar.setEnabled(False)
 
     def setWorkingAttrText(self, attrName):
