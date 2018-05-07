@@ -2567,14 +2567,21 @@
    <property name="geometry">
     <rect>
      <x>21</x>
-     <y>631</y>
+     <y>622</y>
      <width>91</width>
-     <height>93</height>
+     <height>102</height>
     </rect>
    </property>
    <layout class="QGridLayout" name="hvsLayout">
     <item row="1" column="0" colspan="2">
-     <widget class="TaurusLabel" name="eGunHVValue"/>
+     <widget class="TaurusLabel" name="eGunHVValue">
+      <property name="minimumSize">
+       <size>
+        <width>60</width>
+        <height>20</height>
+       </size>
+      </property>
+     </widget>
     </item>
     <item row="2" column="0" colspan="2">
      <widget class="TaurusValueSpinBox" name="hvsVoltageValue">
@@ -2587,10 +2594,24 @@
      </widget>
     </item>
     <item row="3" column="0" colspan="2">
-     <widget class="TaurusLabel" name="hvsCurrentValue"/>
+     <widget class="TaurusLabel" name="hvsCurrentValue">
+      <property name="minimumSize">
+       <size>
+        <width>60</width>
+        <height>20</height>
+       </size>
+      </property>
+     </widget>
     </item>
     <item row="0" column="0" colspan="2">
-     <widget class="TaurusLabel" name="eGunHVStatus"/>
+     <widget class="TaurusLabel" name="eGunHVStatus">
+      <property name="minimumSize">
+       <size>
+        <width>60</width>
+        <height>20</height>
+       </size>
+      </property>
+     </widget>
     </item>
    </layout>
   </widget>
@@ -3295,6 +3316,11 @@
  </widget>
  <customwidgets>
   <customwidget>
+   <class>TaurusValueSpinBox</class>
+   <extends>QWidget</extends>
+   <header>taurus.qt.qtgui.input</header>
+  </customwidget>
+  <customwidget>
    <class>TaurusWidget</class>
    <extends>QWidget</extends>
    <header>taurus.qt.qtgui.container</header>
@@ -3304,11 +3330,6 @@
    <class>TaurusLabel</class>
    <extends>QLabel</extends>
    <header>taurus.qt.qtgui.display</header>
-  </customwidget>
-  <customwidget>
-   <class>TaurusValueSpinBox</class>
-   <extends>QWidget</extends>
-   <header>taurus.qt.qtgui.input</header>
   </customwidget>
   <customwidget>
    <class>TaurusValueComboBox</class>
@@ -3331,13 +3352,13 @@
    <header>taurus.qt.qtgui.display</header>
   </customwidget>
   <customwidget>
-   <class>LinacValueCheckBox</class>
-   <extends>QCheckBox</extends>
+   <class>LinacLed</class>
+   <extends>TaurusLed</extends>
    <header>ctli</header>
   </customwidget>
   <customwidget>
-   <class>LinacLed</class>
-   <extends>TaurusLed</extends>
+   <class>LinacValueCheckBox</class>
+   <extends>QCheckBox</extends>
    <header>ctli</header>
   </customwidget>
   <customwidget>
