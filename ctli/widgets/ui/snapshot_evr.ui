@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>278</width>
+    <width>301</width>
     <height>476</height>
    </rect>
   </property>
@@ -145,7 +145,7 @@
       <item row="3" column="0">
        <widget class="QLabel" name="Fine0Label">
         <property name="text">
-         <string>LI_trig Fine tune</string>
+         <string>LI_trig Fine Delay</string>
         </property>
        </widget>
       </item>
@@ -196,7 +196,7 @@
       <item row="6" column="0">
        <widget class="QLabel" name="Fine1Label">
         <property name="text">
-         <string>KA1 drive Fine tune</string>
+         <string>KA1 drive Fine Delay</string>
         </property>
        </widget>
       </item>
@@ -244,7 +244,7 @@
       <item row="9" column="0">
        <widget class="QLabel" name="Fine2Label">
         <property name="text">
-         <string>KA2 drive Fine tune</string>
+         <string>KA2 drive Fine Delay</string>
         </property>
        </widget>
       </item>
@@ -312,15 +312,15 @@
    <container>1</container>
   </customwidget>
   <customwidget>
-   <class>TaurusLabel</class>
-   <extends>QLabel</extends>
-   <header>taurus.qt.qtgui.display</header>
-  </customwidget>
-  <customwidget>
    <class>TaurusGroupBox</class>
    <extends>QGroupBox</extends>
    <header>taurus.qt.qtgui.container</header>
    <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>TaurusLabel</class>
+   <extends>QLabel</extends>
+   <header>taurus.qt.qtgui.display</header>
   </customwidget>
  </customwidgets>
  <resources/>
