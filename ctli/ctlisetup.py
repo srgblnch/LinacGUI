@@ -92,10 +92,10 @@ blackCharacters = "color: rgb(0, 0, 0);"
 fontSize = "font: 7pt \"DejaVu Sans\";"
 boldFont = "font-weight: bold;"
 
-modifiedSpinBox = yellowBackground+blueCharacters
-wmodifiedSpinBox = yellowBackground+blueCharacters+boldFont
+modifiedSpinBox = yellowBackground+blueCharacters+fontSize
+wmodifiedSpinBox = yellowBackground+blueCharacters+fontSize+boldFont
 modifiedCheckBox = yellowBackground+blueCharacters
-notModifiedSpinBox = whiteBackground+blackCharacters
+notModifiedSpinBox = whiteBackground+blackCharacters+fontSize
 notModifiedCheckBox = whiteBackground+blackCharacters
 
 
@@ -450,12 +450,13 @@ class AttrStruct(Qt.QObject, TaurusBaseComponent):
         newStyle = ""
         if modified:
             if yellow:
-                newStyle += yellowBackground
-            newStyle += blueCharacters+boldFont
+                newStyle = wmodifiedSpinBox
+            else:
+                newStyle = wmodifiedSpinBox
             self.checkWidget.setChecked(True)
         else:
             self.checkWidget.setChecked(False)
-        newStyle += fontSize
+            newStyle = notModifiedSpinBox
         self.debug("newStyle: %r" % (newStyle))
         return newStyle
 
@@ -865,11 +866,11 @@ class MainWindow(TaurusWidget):
         saver = attrStruct.writeWidget
         if self._isSpinBox(saver):
             if wvalueChange:
-                saver.setStyleSheet(blueCharacters+fontSize)
+                saver.setStyleSheet(wmodifiedSpinBox)
             else:
-                saver.setStyleSheet(yellowBackground+blueCharacters+fontSize)
+                saver.setStyleSheet(modifiedSpinBox)
         elif self._isCheckBox(saver):
-            saver.setStyleSheet(yellowBackground+blueCharacters)
+            saver.setStyleSheet(modifiedCheckBox)
         else:
             raise Exception("Unmanaged %s widget type to tag modified"
                             % (type(widget)))
@@ -878,9 +879,9 @@ class MainWindow(TaurusWidget):
     def _setStyleToNoModified(self, attrStruct):
         saver = attrStruct.writeWidget
         if self._isSpinBox(saver):
-            saver.setStyleSheet(whiteBackground+blackCharacters+fontSize)
+            saver.setStyleSheet(notModifiedSpinBox)
         elif self._isCheckBox(saver):
-            saver.setStyleSheet(blackCharacters)
+            saver.setStyleSheet(notModifiedCheckBox)
         else:
             raise Exception("Unmanaged %s widget type to tag modified"
                             % (type(widget)))
