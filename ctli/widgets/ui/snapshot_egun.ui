@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>ElectronGunSnapshot</class>
+ <class>electronGunSnapshot</class>
  <widget class="TaurusWidget" name="electronGunSnapshot">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>301</width>
-    <height>135</height>
+    <width>336</width>
+    <height>170</height>
    </rect>
   </property>
   <property name="font">
@@ -54,10 +54,30 @@
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="TaurusLabel" name="GunFilamentLowVoltageRead"/>
+       <widget class="TaurusLabel" name="GunFilamentLowVoltageRead">
+        <property name="minimumSize">
+         <size>
+          <width>80</width>
+          <height>20</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="1" column="2">
-       <widget class="QDoubleSpinBox" name="GunFilamentLowVoltageWrite"/>
+       <widget class="QDoubleSpinBox" name="GunFilamentLowVoltageWrite">
+        <property name="minimumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="1" column="3" rowspan="5">
        <widget class="Line" name="line">
@@ -67,10 +87,30 @@
        </widget>
       </item>
       <item row="2" column="1" rowspan="2">
-       <widget class="TaurusLabel" name="GunKathodeLowVoltageRead"/>
+       <widget class="TaurusLabel" name="GunKathodeLowVoltageRead">
+        <property name="minimumSize">
+         <size>
+          <width>80</width>
+          <height>20</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="2" column="2" rowspan="2">
-       <widget class="QDoubleSpinBox" name="GunKathodeLowVoltageWrite"/>
+       <widget class="QDoubleSpinBox" name="GunKathodeLowVoltageWrite">
+        <property name="minimumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="3" column="0">
        <widget class="QLabel" name="GunKathodeLowVoltageLabel">
@@ -94,10 +134,30 @@
        </widget>
       </item>
       <item row="4" column="1">
-       <widget class="TaurusLabel" name="GunHighVoltagePowerSupplyRead"/>
+       <widget class="TaurusLabel" name="GunHighVoltagePowerSupplyRead">
+        <property name="minimumSize">
+         <size>
+          <width>80</width>
+          <height>20</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="4" column="2">
-       <widget class="QDoubleSpinBox" name="GunHighVoltagePowerSupplyWrite"/>
+       <widget class="QDoubleSpinBox" name="GunHighVoltagePowerSupplyWrite">
+        <property name="minimumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="4" column="4">
        <widget class="QCheckBox" name="GunHighVoltagePowerSupplyCheck">
@@ -132,15 +192,15 @@
    <container>1</container>
   </customwidget>
   <customwidget>
-   <class>TaurusLabel</class>
-   <extends>QLabel</extends>
-   <header>taurus.qt.qtgui.display</header>
-  </customwidget>
-  <customwidget>
    <class>TaurusGroupBox</class>
    <extends>QGroupBox</extends>
    <header>taurus.qt.qtgui.container</header>
    <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>TaurusLabel</class>
+   <extends>QLabel</extends>
+   <header>taurus.qt.qtgui.display</header>
   </customwidget>
  </customwidgets>
  <resources/>

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>CoolingLoopSnapshot</class>
+ <class>coolingLoopSnapshot</class>
  <widget class="TaurusWidget" name="coolingLoopSnapshot">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>277</width>
-    <height>136</height>
+    <width>317</width>
+    <height>176</height>
    </rect>
   </property>
   <property name="font">
@@ -40,10 +40,30 @@
        </widget>
       </item>
       <item row="1" column="2">
-       <widget class="QDoubleSpinBox" name="coolingLoop1SetpointWrite"/>
+       <widget class="QDoubleSpinBox" name="coolingLoop1SetpointWrite">
+        <property name="minimumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="1" column="1">
-       <widget class="TaurusLabel" name="coolingLoop1SetpointRead"/>
+       <widget class="TaurusLabel" name="coolingLoop1SetpointRead">
+        <property name="minimumSize">
+         <size>
+          <width>80</width>
+          <height>20</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="5" column="1">
        <spacer name="verticalSpacer">
@@ -87,16 +107,56 @@
        </widget>
       </item>
       <item row="2" column="1">
-       <widget class="TaurusLabel" name="coolingLoop2SetpointRead"/>
+       <widget class="TaurusLabel" name="coolingLoop2SetpointRead">
+        <property name="minimumSize">
+         <size>
+          <width>80</width>
+          <height>20</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="3" column="1">
-       <widget class="TaurusLabel" name="coolingLoop3SetpointRead"/>
+       <widget class="TaurusLabel" name="coolingLoop3SetpointRead">
+        <property name="minimumSize">
+         <size>
+          <width>80</width>
+          <height>20</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="2" column="2">
-       <widget class="QDoubleSpinBox" name="coolingLoop2SetpointWrite"/>
+       <widget class="QDoubleSpinBox" name="coolingLoop2SetpointWrite">
+        <property name="minimumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="3" column="2">
-       <widget class="QDoubleSpinBox" name="coolingLoop3SetpointWrite"/>
+       <widget class="QDoubleSpinBox" name="coolingLoop3SetpointWrite">
+        <property name="minimumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="2" column="4">
        <widget class="QCheckBox" name="coolingLoop2SetpointCheck">
@@ -132,15 +192,15 @@
    <container>1</container>
   </customwidget>
   <customwidget>
-   <class>TaurusLabel</class>
-   <extends>QLabel</extends>
-   <header>taurus.qt.qtgui.display</header>
-  </customwidget>
-  <customwidget>
    <class>TaurusGroupBox</class>
    <extends>QGroupBox</extends>
    <header>taurus.qt.qtgui.container</header>
    <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>TaurusLabel</class>
+   <extends>QLabel</extends>
+   <header>taurus.qt.qtgui.display</header>
   </customwidget>
  </customwidgets>
  <resources/>

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>TimingSnapshot</class>
+ <class>timingSnapshot</class>
  <widget class="TaurusWidget" name="timingSnapshot">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>314</width>
-    <height>235</height>
+    <width>338</width>
+    <height>306</height>
    </rect>
   </property>
   <property name="font">
@@ -53,7 +53,14 @@
        </widget>
       </item>
       <item row="7" column="1">
-       <widget class="TaurusLabel" name="GPARead"/>
+       <widget class="TaurusLabel" name="GPARead">
+        <property name="minimumSize">
+         <size>
+          <width>80</width>
+          <height>20</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="3" column="4">
        <widget class="QCheckBox" name="ka1DelayCheck">
@@ -63,10 +70,30 @@
        </widget>
       </item>
       <item row="6" column="2">
-       <widget class="QSpinBox" name="GPNWrite"/>
+       <widget class="QSpinBox" name="GPNWrite">
+        <property name="minimumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="3" column="1">
-       <widget class="TaurusLabel" name="ka1DelayRead"/>
+       <widget class="TaurusLabel" name="ka1DelayRead">
+        <property name="minimumSize">
+         <size>
+          <width>80</width>
+          <height>20</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="1" column="3" rowspan="7">
        <widget class="Line" name="line">
@@ -76,10 +103,30 @@
        </widget>
       </item>
       <item row="5" column="1">
-       <widget class="TaurusLabel" name="GPIRead"/>
+       <widget class="TaurusLabel" name="GPIRead">
+        <property name="minimumSize">
+         <size>
+          <width>80</width>
+          <height>20</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="2" column="2">
-       <widget class="QSpinBox" name="GunDelayWrite"/>
+       <widget class="QSpinBox" name="GunDelayWrite">
+        <property name="minimumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="4" column="4">
        <widget class="QCheckBox" name="ka2DelayCheck">
@@ -118,6 +165,18 @@
       </item>
       <item row="1" column="2">
        <widget class="QCheckBox" name="MBMWrite">
+        <property name="minimumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
         <property name="text">
          <string>multi/single</string>
         </property>
@@ -175,7 +234,20 @@
        </widget>
       </item>
       <item row="5" column="2">
-       <widget class="QSpinBox" name="GPIWrite"/>
+       <widget class="QSpinBox" name="GPIWrite">
+        <property name="minimumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="6" column="4">
        <widget class="QCheckBox" name="GPNCheck">
@@ -199,22 +271,82 @@
        </widget>
       </item>
       <item row="4" column="1">
-       <widget class="TaurusLabel" name="ka2DelayRead"/>
+       <widget class="TaurusLabel" name="ka2DelayRead">
+        <property name="minimumSize">
+         <size>
+          <width>80</width>
+          <height>20</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="2" column="1">
-       <widget class="TaurusLabel" name="GunDelayRead"/>
+       <widget class="TaurusLabel" name="GunDelayRead">
+        <property name="minimumSize">
+         <size>
+          <width>80</width>
+          <height>20</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="6" column="1">
-       <widget class="TaurusLabel" name="GPNRead"/>
+       <widget class="TaurusLabel" name="GPNRead">
+        <property name="minimumSize">
+         <size>
+          <width>80</width>
+          <height>20</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="3" column="2">
-       <widget class="QSpinBox" name="ka1DelayWrite"/>
+       <widget class="QSpinBox" name="ka1DelayWrite">
+        <property name="minimumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="4" column="2">
-       <widget class="QSpinBox" name="ka2DelayWrite"/>
+       <widget class="QSpinBox" name="ka2DelayWrite">
+        <property name="minimumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="7" column="2">
-       <widget class="QDoubleSpinBox" name="GPAWrite"/>
+       <widget class="QDoubleSpinBox" name="GPAWrite">
+        <property name="minimumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+       </widget>
       </item>
      </layout>
     </widget>
@@ -222,6 +354,23 @@
   </layout>
  </widget>
  <customwidgets>
+  <customwidget>
+   <class>TaurusWidget</class>
+   <extends>QWidget</extends>
+   <header>taurus.qt.qtgui.container</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>TaurusGroupBox</class>
+   <extends>QGroupBox</extends>
+   <header>taurus.qt.qtgui.container</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>TaurusLabel</class>
+   <extends>QLabel</extends>
+   <header>taurus.qt.qtgui.display</header>
+  </customwidget>
   <customwidget>
    <class>TaurusLed</class>
    <extends>QLed</extends>
@@ -236,23 +385,6 @@
    <class>QPixmapWidget</class>
    <extends>QWidget</extends>
    <header>taurus.qt.qtgui.display</header>
-  </customwidget>
-  <customwidget>
-   <class>TaurusWidget</class>
-   <extends>QWidget</extends>
-   <header>taurus.qt.qtgui.container</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
-   <class>TaurusLabel</class>
-   <extends>QLabel</extends>
-   <header>taurus.qt.qtgui.display</header>
-  </customwidget>
-  <customwidget>
-   <class>TaurusGroupBox</class>
-   <extends>QGroupBox</extends>
-   <header>taurus.qt.qtgui.container</header>
-   <container>1</container>
   </customwidget>
  </customwidgets>
  <resources/>

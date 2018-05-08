@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MagnetSnapshot</class>
+ <class>magnetSnapshot</class>
  <widget class="TaurusWidget" name="magnetSnapshot">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>273</width>
-    <height>808</height>
+    <width>310</width>
+    <height>1054</height>
    </rect>
   </property>
   <property name="font">
@@ -47,19 +47,72 @@
        </widget>
       </item>
       <item row="26" column="2">
-       <widget class="QDoubleSpinBox" name="qt1FWrite"/>
+       <widget class="QDoubleSpinBox" name="qt1FWrite">
+        <property name="minimumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="16" column="1">
-       <widget class="TaurusLabel" name="bc2HRead"/>
+       <widget class="TaurusLabel" name="bc2HRead">
+        <property name="minimumSize">
+         <size>
+          <width>80</width>
+          <height>20</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="19" column="2">
-       <widget class="QDoubleSpinBox" name="glHWrite"/>
+       <widget class="QDoubleSpinBox" name="glHWrite">
+        <property name="minimumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="19" column="1">
-       <widget class="TaurusLabel" name="glHRead"/>
+       <widget class="TaurusLabel" name="glHRead">
+        <property name="minimumSize">
+         <size>
+          <width>80</width>
+          <height>20</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="29" column="2">
-       <widget class="QDoubleSpinBox" name="as2VWrite"/>
+       <widget class="QDoubleSpinBox" name="as2VWrite">
+        <property name="minimumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="20" column="5">
        <widget class="QCheckBox" name="glVCheck">
@@ -69,7 +122,20 @@
        </widget>
       </item>
       <item row="18" column="2">
-       <widget class="QDoubleSpinBox" name="bc2FWrite"/>
+       <widget class="QDoubleSpinBox" name="bc2FWrite">
+        <property name="minimumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="25" column="5">
        <widget class="QCheckBox" name="qt1VCheck">
@@ -79,10 +145,24 @@
        </widget>
       </item>
       <item row="29" column="1">
-       <widget class="TaurusLabel" name="as2VRead"/>
+       <widget class="TaurusLabel" name="as2VRead">
+        <property name="minimumSize">
+         <size>
+          <width>80</width>
+          <height>20</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="20" column="1">
-       <widget class="TaurusLabel" name="glVRead"/>
+       <widget class="TaurusLabel" name="glVRead">
+        <property name="minimumSize">
+         <size>
+          <width>80</width>
+          <height>20</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="16" column="0">
        <widget class="QLabel" name="bc2HLabel">
@@ -92,7 +172,14 @@
        </widget>
       </item>
       <item row="25" column="1">
-       <widget class="TaurusLabel" name="qt1VRead"/>
+       <widget class="TaurusLabel" name="qt1VRead">
+        <property name="minimumSize">
+         <size>
+          <width>80</width>
+          <height>20</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="26" column="5">
        <widget class="QCheckBox" name="qt1FCheck">
@@ -116,7 +203,14 @@
        </widget>
       </item>
       <item row="27" column="1">
-       <widget class="TaurusLabel" name="qt2FRead"/>
+       <widget class="TaurusLabel" name="qt2FRead">
+        <property name="minimumSize">
+         <size>
+          <width>80</width>
+          <height>20</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="22" column="5">
        <widget class="QCheckBox" name="as1HCheck">
@@ -126,7 +220,20 @@
        </widget>
       </item>
       <item row="23" column="2">
-       <widget class="QDoubleSpinBox" name="as1VWrite"/>
+       <widget class="QDoubleSpinBox" name="as1VWrite">
+        <property name="minimumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="21" column="5">
        <widget class="QCheckBox" name="glFCheck">
@@ -143,10 +250,30 @@
        </widget>
       </item>
       <item row="20" column="2">
-       <widget class="QDoubleSpinBox" name="glVWrite"/>
+       <widget class="QDoubleSpinBox" name="glVWrite">
+        <property name="minimumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="17" column="1">
-       <widget class="TaurusLabel" name="bc2VRead"/>
+       <widget class="TaurusLabel" name="bc2VRead">
+        <property name="minimumSize">
+         <size>
+          <width>80</width>
+          <height>20</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="23" column="5">
        <widget class="QCheckBox" name="as1VCheck">
@@ -156,7 +283,14 @@
        </widget>
       </item>
       <item row="22" column="1">
-       <widget class="TaurusLabel" name="as1HRead"/>
+       <widget class="TaurusLabel" name="as1HRead">
+        <property name="minimumSize">
+         <size>
+          <width>80</width>
+          <height>20</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="18" column="5">
        <widget class="QCheckBox" name="bc2FCheck">
@@ -180,7 +314,14 @@
        </widget>
       </item>
       <item row="18" column="1">
-       <widget class="TaurusLabel" name="bc2FRead"/>
+       <widget class="TaurusLabel" name="bc2FRead">
+        <property name="minimumSize">
+         <size>
+          <width>80</width>
+          <height>20</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="27" column="5">
        <widget class="QCheckBox" name="qt2FCheck">
@@ -211,7 +352,20 @@
        </widget>
       </item>
       <item row="25" column="2">
-       <widget class="QDoubleSpinBox" name="qt1VWrite"/>
+       <widget class="QDoubleSpinBox" name="qt1VWrite">
+        <property name="minimumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="27" column="0">
        <widget class="QLabel" name="qt2FLabel">
@@ -221,10 +375,30 @@
        </widget>
       </item>
       <item row="16" column="2">
-       <widget class="QDoubleSpinBox" name="bc2HWrite"/>
+       <widget class="QDoubleSpinBox" name="bc2HWrite">
+        <property name="minimumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="26" column="1">
-       <widget class="TaurusLabel" name="qt1FRead"/>
+       <widget class="TaurusLabel" name="qt1FRead">
+        <property name="minimumSize">
+         <size>
+          <width>80</width>
+          <height>20</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="20" column="0">
        <widget class="QLabel" name="glVLabel">
@@ -241,16 +415,56 @@
        </widget>
       </item>
       <item row="21" column="1">
-       <widget class="TaurusLabel" name="glFRead"/>
+       <widget class="TaurusLabel" name="glFRead">
+        <property name="minimumSize">
+         <size>
+          <width>80</width>
+          <height>20</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="28" column="1">
-       <widget class="TaurusLabel" name="as2HRead"/>
+       <widget class="TaurusLabel" name="as2HRead">
+        <property name="minimumSize">
+         <size>
+          <width>80</width>
+          <height>20</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="21" column="2">
-       <widget class="QDoubleSpinBox" name="glFWrite"/>
+       <widget class="QDoubleSpinBox" name="glFWrite">
+        <property name="minimumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="24" column="2">
-       <widget class="QDoubleSpinBox" name="qt1HWrite"/>
+       <widget class="QDoubleSpinBox" name="qt1HWrite">
+        <property name="minimumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="17" column="0">
        <widget class="QLabel" name="bc2VLabel">
@@ -274,7 +488,14 @@
        </widget>
       </item>
       <item row="24" column="1">
-       <widget class="TaurusLabel" name="qt1HRead"/>
+       <widget class="TaurusLabel" name="qt1HRead">
+        <property name="minimumSize">
+         <size>
+          <width>80</width>
+          <height>20</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="26" column="0">
        <widget class="QLabel" name="qt1FLabel">
@@ -284,22 +505,88 @@
        </widget>
       </item>
       <item row="27" column="2">
-       <widget class="QDoubleSpinBox" name="qt2FWrite"/>
+       <widget class="QDoubleSpinBox" name="qt2FWrite">
+        <property name="minimumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="23" column="1">
-       <widget class="TaurusLabel" name="as1VRead"/>
+       <widget class="TaurusLabel" name="as1VRead">
+        <property name="minimumSize">
+         <size>
+          <width>80</width>
+          <height>20</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="22" column="2">
-       <widget class="QDoubleSpinBox" name="as1HWrite"/>
+       <widget class="QDoubleSpinBox" name="as1HWrite">
+        <property name="minimumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="17" column="2">
-       <widget class="QDoubleSpinBox" name="bc2VWrite"/>
+       <widget class="QDoubleSpinBox" name="bc2VWrite">
+        <property name="minimumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="4" column="1">
-       <widget class="TaurusLabel" name="sl2HRead"/>
+       <widget class="TaurusLabel" name="sl2HRead">
+        <property name="minimumSize">
+         <size>
+          <width>80</width>
+          <height>20</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="28" column="2">
-       <widget class="QDoubleSpinBox" name="as2HWrite"/>
+       <widget class="QDoubleSpinBox" name="as2HWrite">
+        <property name="minimumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="25" column="0">
        <widget class="QLabel" name="qt1VLabel">
@@ -316,13 +603,40 @@
        </widget>
       </item>
       <item row="12" column="2">
-       <widget class="QDoubleSpinBox" name="sl4FWrite"/>
+       <widget class="QDoubleSpinBox" name="sl4FWrite">
+        <property name="minimumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="10" column="1">
-       <widget class="TaurusLabel" name="sl4HRead"/>
+       <widget class="TaurusLabel" name="sl4HRead">
+        <property name="minimumSize">
+         <size>
+          <width>80</width>
+          <height>20</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="12" column="1">
-       <widget class="TaurusLabel" name="sl4FRead"/>
+       <widget class="TaurusLabel" name="sl4FRead">
+        <property name="minimumSize">
+         <size>
+          <width>80</width>
+          <height>20</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="10" column="0">
        <widget class="QLabel" name="sl4HLabel">
@@ -346,10 +660,30 @@
        </widget>
       </item>
       <item row="11" column="1">
-       <widget class="TaurusLabel" name="sl4VRead"/>
+       <widget class="TaurusLabel" name="sl4VRead">
+        <property name="minimumSize">
+         <size>
+          <width>80</width>
+          <height>20</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="11" column="2">
-       <widget class="QDoubleSpinBox" name="sl4VWrite"/>
+       <widget class="QDoubleSpinBox" name="sl4VWrite">
+        <property name="minimumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="12" column="0">
        <widget class="QLabel" name="sl4FLabel">
@@ -359,7 +693,14 @@
        </widget>
       </item>
       <item row="8" column="1">
-       <widget class="TaurusLabel" name="sl3VRead"/>
+       <widget class="TaurusLabel" name="sl3VRead">
+        <property name="minimumSize">
+         <size>
+          <width>80</width>
+          <height>20</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="8" column="5">
        <widget class="QCheckBox" name="sl3VCheck">
@@ -376,7 +717,20 @@
        </widget>
       </item>
       <item row="7" column="2">
-       <widget class="QDoubleSpinBox" name="sl3HWrite"/>
+       <widget class="QDoubleSpinBox" name="sl3HWrite">
+        <property name="minimumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="1" column="5">
        <widget class="QCheckBox" name="sl1HCheck">
@@ -386,7 +740,20 @@
        </widget>
       </item>
       <item row="8" column="2">
-       <widget class="QDoubleSpinBox" name="sl3VWrite"/>
+       <widget class="QDoubleSpinBox" name="sl3VWrite">
+        <property name="minimumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="5" column="5">
        <widget class="QCheckBox" name="sl2VCheck">
@@ -410,13 +777,46 @@
        </widget>
       </item>
       <item row="4" column="2">
-       <widget class="QDoubleSpinBox" name="sl2HWrite"/>
+       <widget class="QDoubleSpinBox" name="sl2HWrite">
+        <property name="minimumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="5" column="2">
-       <widget class="QDoubleSpinBox" name="sl2VWrite"/>
+       <widget class="QDoubleSpinBox" name="sl2VWrite">
+        <property name="minimumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="1" column="1">
-       <widget class="TaurusLabel" name="sl1HRead"/>
+       <widget class="TaurusLabel" name="sl1HRead">
+        <property name="minimumSize">
+         <size>
+          <width>80</width>
+          <height>20</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="3" column="0">
        <widget class="QLabel" name="sl1FLabel">
@@ -433,7 +833,14 @@
        </widget>
       </item>
       <item row="6" column="1">
-       <widget class="TaurusLabel" name="sl2FRead"/>
+       <widget class="TaurusLabel" name="sl2FRead">
+        <property name="minimumSize">
+         <size>
+          <width>80</width>
+          <height>20</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="2" column="5">
        <widget class="QCheckBox" name="sl1VCheck">
@@ -492,16 +899,50 @@
        </widget>
       </item>
       <item row="9" column="1">
-       <widget class="TaurusLabel" name="sl3FRead"/>
+       <widget class="TaurusLabel" name="sl3FRead">
+        <property name="minimumSize">
+         <size>
+          <width>80</width>
+          <height>20</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="3" column="1">
-       <widget class="TaurusLabel" name="sl1FRead"/>
+       <widget class="TaurusLabel" name="sl1FRead">
+        <property name="minimumSize">
+         <size>
+          <width>80</width>
+          <height>20</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="1" column="2">
-       <widget class="QDoubleSpinBox" name="sl1HWrite"/>
+       <widget class="QDoubleSpinBox" name="sl1HWrite">
+        <property name="minimumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="5" column="1">
-       <widget class="TaurusLabel" name="sl2VRead"/>
+       <widget class="TaurusLabel" name="sl2VRead">
+        <property name="minimumSize">
+         <size>
+          <width>80</width>
+          <height>20</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="8" column="0">
        <widget class="QLabel" name="sl3VLabel">
@@ -518,10 +959,30 @@
        </widget>
       </item>
       <item row="7" column="1">
-       <widget class="TaurusLabel" name="sl3HRead"/>
+       <widget class="TaurusLabel" name="sl3HRead">
+        <property name="minimumSize">
+         <size>
+          <width>80</width>
+          <height>20</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="9" column="2">
-       <widget class="QDoubleSpinBox" name="sl3FWrite"/>
+       <widget class="QDoubleSpinBox" name="sl3FWrite">
+        <property name="minimumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="1" column="0">
        <widget class="QLabel" name="sl1HLabel">
@@ -531,7 +992,20 @@
        </widget>
       </item>
       <item row="2" column="2">
-       <widget class="QDoubleSpinBox" name="sl1VWrite"/>
+       <widget class="QDoubleSpinBox" name="sl1VWrite">
+        <property name="minimumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="38" column="1">
        <spacer name="verticalSpacer">
@@ -554,19 +1028,72 @@
        </widget>
       </item>
       <item row="6" column="2">
-       <widget class="QDoubleSpinBox" name="sl2FWrite"/>
+       <widget class="QDoubleSpinBox" name="sl2FWrite">
+        <property name="minimumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="3" column="2">
-       <widget class="QDoubleSpinBox" name="sl1FWrite"/>
+       <widget class="QDoubleSpinBox" name="sl1FWrite">
+        <property name="minimumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="2" column="1">
-       <widget class="TaurusLabel" name="sl1VRead"/>
+       <widget class="TaurusLabel" name="sl1VRead">
+        <property name="minimumSize">
+         <size>
+          <width>80</width>
+          <height>20</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="10" column="2">
-       <widget class="QDoubleSpinBox" name="sl4HWrite"/>
+       <widget class="QDoubleSpinBox" name="sl4HWrite">
+        <property name="minimumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="13" column="1">
-       <widget class="TaurusLabel" name="bc1HRead"/>
+       <widget class="TaurusLabel" name="bc1HRead">
+        <property name="minimumSize">
+         <size>
+          <width>80</width>
+          <height>20</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="12" column="5">
        <widget class="QCheckBox" name="sl4FCheck">
@@ -583,7 +1110,20 @@
        </widget>
       </item>
       <item row="13" column="2">
-       <widget class="QDoubleSpinBox" name="bc1HWrite"/>
+       <widget class="QDoubleSpinBox" name="bc1HWrite">
+        <property name="minimumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="13" column="5">
        <widget class="QCheckBox" name="bc1HCheck">
@@ -600,10 +1140,30 @@
        </widget>
       </item>
       <item row="14" column="1">
-       <widget class="TaurusLabel" name="bc1VRead"/>
+       <widget class="TaurusLabel" name="bc1VRead">
+        <property name="minimumSize">
+         <size>
+          <width>80</width>
+          <height>20</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="14" column="2">
-       <widget class="QDoubleSpinBox" name="bc1VWrite"/>
+       <widget class="QDoubleSpinBox" name="bc1VWrite">
+        <property name="minimumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="14" column="5">
        <widget class="QCheckBox" name="bc1VCheck">
@@ -620,10 +1180,30 @@
        </widget>
       </item>
       <item row="15" column="1">
-       <widget class="TaurusLabel" name="bc1FRead"/>
+       <widget class="TaurusLabel" name="bc1FRead">
+        <property name="minimumSize">
+         <size>
+          <width>80</width>
+          <height>20</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="15" column="2">
-       <widget class="QDoubleSpinBox" name="bc1FWrite"/>
+       <widget class="QDoubleSpinBox" name="bc1FWrite">
+        <property name="minimumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>85</width>
+          <height>28</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item row="15" column="5">
        <widget class="QCheckBox" name="bc1FCheck">
@@ -652,15 +1232,15 @@
    <container>1</container>
   </customwidget>
   <customwidget>
-   <class>TaurusLabel</class>
-   <extends>QLabel</extends>
-   <header>taurus.qt.qtgui.display</header>
-  </customwidget>
-  <customwidget>
    <class>TaurusGroupBox</class>
    <extends>QGroupBox</extends>
    <header>taurus.qt.qtgui.container</header>
    <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>TaurusLabel</class>
+   <extends>QLabel</extends>
+   <header>taurus.qt.qtgui.display</header>
   </customwidget>
  </customwidgets>
  <resources/>
