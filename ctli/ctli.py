@@ -229,6 +229,7 @@ class LinacMainWindow(TaurusMainWindow, TaurusWidget):
             try:
                 widget._ui.actionFrame.setStyleSheet("background-color: "
                                                      "rgba(192, 192, 0, 63);")
+                widget._ui.Check.setStyleSheet("background-color: white;")
             except Exception as e:
                 self.error("Cannot modify the background color of the "
                            "actionWidget for the attribute %s: %s"

@@ -33,12 +33,18 @@
        <widget class="LinacValueCheckBox" name="Check">
         <property name="minimumSize">
          <size>
-          <width>30</width>
+          <width>20</width>
           <height>0</height>
          </size>
         </property>
+        <property name="maximumSize">
+         <size>
+          <width>20</width>
+          <height>16777215</height>
+         </size>
+        </property>
         <property name="layoutDirection">
-         <enum>Qt::RightToLeft</enum>
+         <enum>Qt::LeftToRight</enum>
         </property>
         <property name="showText" stdset="0">
          <bool>false</bool>
