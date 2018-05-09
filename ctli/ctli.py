@@ -199,6 +199,10 @@ class LinacMainWindow(TaurusMainWindow, TaurusWidget):
 
     def _setupSpinBox4Attr(self, widget, attrName, step=None):
         _setupSpinBox4Attr(widget, attrName, step)
+        if hasattr(widget, 'wheelEvent'):
+            def wheelEvent(evt):
+                pass  # spinboxes in the ctli shall not react to wheelEvent
+            widget.wheelEvent = wheelEvent
 
     def _setupTaurusLabel4Attr(self, widget, attrName, unit=None):
         _setupTaurusLabel4Attr(widget, attrName, unit)
