@@ -32,7 +32,6 @@ import traceback
 #     sys.path.append(linacWidgetsPath)
 
 from taurus.core.taurusbasetypes import TaurusEventType
-from taurus.core.tango.util import tangoFormatter
 from taurus.core.util import argparse
 from taurus.external.qt import Qt, QtGui
 from taurus.qt.qtgui.application import TaurusApplication
@@ -189,13 +188,14 @@ class AttrStruct(Qt.QObject, TaurusBaseComponent):
         isSpinBox = self.__isSpinBox(widget)
         if isCheckBox or isSpinBox:
             self._writeWidget = widget
-            if self._minVal:
+            if self._minVal is not None:
                 self._writeWidget.setMinimum(self._minVal)
-            if self._maxVal:
+            if self._maxVal is not None:
                 self._writeWidget.setMaximum(self._maxVal)
-            if self._decimals and hasattr(self._writeWidget, 'setDecimals'):
+            if self._decimals is not None and hasattr(self._writeWidget,
+                                                      'setDecimals'):
                 self._writeWidget.setDecimals(self._decimals)
-            if self._step:
+            if self._step is not None:
                 self._writeWidget.setSingleStep(self._step)
             if self._storedValue is not None:
                 self._changeWriteWidgetValue(self._storedValue)
@@ -798,12 +798,11 @@ class MainWindow(TaurusWidget):
                 Read = getattr(ui, prefix+'Read')
                 Write = getattr(ui, prefix+'Write')
                 Check = getattr(ui, prefix+'Check')
-                Read.FORMAT = tangoFormatter
                 widgetsSet[attrName] = AttrStruct(attrName, Label, Read,
                                                   Write, Check, minVal=0,
                                                   maxVal=1e10, step=8,
                                                   decimals=0)
-
+                widgetsSet[attrName].readWidget.setFormat("{0:.0f}")
         # TODO: connect the ToApplyTitle to check/uncheck all the *Check ---
         self._configurationWidgets['evr'] = widgetsSet
 
