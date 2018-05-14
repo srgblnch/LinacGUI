@@ -22,6 +22,7 @@ __license__ = "GPLv3+"
 
 import os
 import sys
+from taurus import Device
 from taurus.external.qt import Qt, Qwt5
 from taurus.qt.qtgui.container import TaurusWidget
 from taurus.qt.qtgui.util.ui import UILoadable
@@ -65,6 +66,9 @@ class DeviceEvents(TaurusWidget):
                 for suffix in ['Max', 'Mean', 'Std', 'Min']:
                     widget = getattr(self._ui, '%s%s' % (attribute, suffix))
                     widget.setModel('%s/%s%s' % (model, attribute, suffix))
+            
+            self._ui.plot.setAxisScale(Qwt5.QwtPlot.Axis(0), 0,
+                                       len(Device(model).get_attribute_list()))
             self.model = model
 
     @classmethod
