@@ -47,7 +47,7 @@
        </widget>
       </item>
       <item row="26" column="2">
-       <widget class="QDoubleSpinBox" name="qt1FWrite">
+       <widget class="SaveRetrieveDoubleSpinBox" name="qt1FWrite">
         <property name="minimumSize">
          <size>
           <width>85</width>
@@ -73,7 +73,7 @@
        </widget>
       </item>
       <item row="19" column="2">
-       <widget class="QDoubleSpinBox" name="glHWrite">
+       <widget class="SaveRetrieveDoubleSpinBox" name="glHWrite">
         <property name="minimumSize">
          <size>
           <width>85</width>
@@ -99,7 +99,7 @@
        </widget>
       </item>
       <item row="29" column="2">
-       <widget class="QDoubleSpinBox" name="as2VWrite">
+       <widget class="SaveRetrieveDoubleSpinBox" name="as2VWrite">
         <property name="minimumSize">
          <size>
           <width>85</width>
@@ -122,7 +122,7 @@
        </widget>
       </item>
       <item row="18" column="2">
-       <widget class="QDoubleSpinBox" name="bc2FWrite">
+       <widget class="SaveRetrieveDoubleSpinBox" name="bc2FWrite">
         <property name="minimumSize">
          <size>
           <width>85</width>
@@ -220,7 +220,7 @@
        </widget>
       </item>
       <item row="23" column="2">
-       <widget class="QDoubleSpinBox" name="as1VWrite">
+       <widget class="SaveRetrieveDoubleSpinBox" name="as1VWrite">
         <property name="minimumSize">
          <size>
           <width>85</width>
@@ -250,7 +250,7 @@
        </widget>
       </item>
       <item row="20" column="2">
-       <widget class="QDoubleSpinBox" name="glVWrite">
+       <widget class="SaveRetrieveDoubleSpinBox" name="glVWrite">
         <property name="minimumSize">
          <size>
           <width>85</width>
@@ -352,7 +352,7 @@
        </widget>
       </item>
       <item row="25" column="2">
-       <widget class="QDoubleSpinBox" name="qt1VWrite">
+       <widget class="SaveRetrieveDoubleSpinBox" name="qt1VWrite">
         <property name="minimumSize">
          <size>
           <width>85</width>
@@ -375,7 +375,7 @@
        </widget>
       </item>
       <item row="16" column="2">
-       <widget class="QDoubleSpinBox" name="bc2HWrite">
+       <widget class="SaveRetrieveDoubleSpinBox" name="bc2HWrite">
         <property name="minimumSize">
          <size>
           <width>85</width>
@@ -435,7 +435,7 @@
        </widget>
       </item>
       <item row="21" column="2">
-       <widget class="QDoubleSpinBox" name="glFWrite">
+       <widget class="SaveRetrieveDoubleSpinBox" name="glFWrite">
         <property name="minimumSize">
          <size>
           <width>85</width>
@@ -451,7 +451,7 @@
        </widget>
       </item>
       <item row="24" column="2">
-       <widget class="QDoubleSpinBox" name="qt1HWrite">
+       <widget class="SaveRetrieveDoubleSpinBox" name="qt1HWrite">
         <property name="minimumSize">
          <size>
           <width>85</width>
@@ -505,7 +505,7 @@
        </widget>
       </item>
       <item row="27" column="2">
-       <widget class="QDoubleSpinBox" name="qt2FWrite">
+       <widget class="SaveRetrieveDoubleSpinBox" name="qt2FWrite">
         <property name="minimumSize">
          <size>
           <width>85</width>
@@ -531,7 +531,7 @@
        </widget>
       </item>
       <item row="22" column="2">
-       <widget class="QDoubleSpinBox" name="as1HWrite">
+       <widget class="SaveRetrieveDoubleSpinBox" name="as1HWrite">
         <property name="minimumSize">
          <size>
           <width>85</width>
@@ -547,7 +547,7 @@
        </widget>
       </item>
       <item row="17" column="2">
-       <widget class="QDoubleSpinBox" name="bc2VWrite">
+       <widget class="SaveRetrieveDoubleSpinBox" name="bc2VWrite">
         <property name="minimumSize">
          <size>
           <width>85</width>
@@ -573,7 +573,7 @@
        </widget>
       </item>
       <item row="28" column="2">
-       <widget class="QDoubleSpinBox" name="as2HWrite">
+       <widget class="SaveRetrieveDoubleSpinBox" name="as2HWrite">
         <property name="minimumSize">
          <size>
           <width>85</width>
@@ -603,7 +603,7 @@
        </widget>
       </item>
       <item row="12" column="2">
-       <widget class="QDoubleSpinBox" name="sl4FWrite">
+       <widget class="SaveRetrieveDoubleSpinBox" name="sl4FWrite">
         <property name="minimumSize">
          <size>
           <width>85</width>
@@ -670,7 +670,7 @@
        </widget>
       </item>
       <item row="11" column="2">
-       <widget class="QDoubleSpinBox" name="sl4VWrite">
+       <widget class="SaveRetrieveDoubleSpinBox" name="sl4VWrite">
         <property name="minimumSize">
          <size>
           <width>85</width>
@@ -717,7 +717,7 @@
        </widget>
       </item>
       <item row="7" column="2">
-       <widget class="QDoubleSpinBox" name="sl3HWrite">
+       <widget class="SaveRetrieveDoubleSpinBox" name="sl3HWrite">
         <property name="minimumSize">
          <size>
           <width>85</width>
@@ -740,7 +740,7 @@
        </widget>
       </item>
       <item row="8" column="2">
-       <widget class="QDoubleSpinBox" name="sl3VWrite">
+       <widget class="SaveRetrieveDoubleSpinBox" name="sl3VWrite">
         <property name="minimumSize">
          <size>
           <width>85</width>
@@ -777,7 +777,7 @@
        </widget>
       </item>
       <item row="4" column="2">
-       <widget class="QDoubleSpinBox" name="sl2HWrite">
+       <widget class="SaveRetrieveDoubleSpinBox" name="sl2HWrite">
         <property name="minimumSize">
          <size>
           <width>85</width>
@@ -793,7 +793,7 @@
        </widget>
       </item>
       <item row="5" column="2">
-       <widget class="QDoubleSpinBox" name="sl2VWrite">
+       <widget class="SaveRetrieveDoubleSpinBox" name="sl2VWrite">
         <property name="minimumSize">
          <size>
           <width>85</width>
@@ -919,7 +919,7 @@
        </widget>
       </item>
       <item row="1" column="2">
-       <widget class="QDoubleSpinBox" name="sl1HWrite">
+       <widget class="SaveRetrieveDoubleSpinBox" name="sl1HWrite">
         <property name="minimumSize">
          <size>
           <width>85</width>
@@ -969,7 +969,7 @@
        </widget>
       </item>
       <item row="9" column="2">
-       <widget class="QDoubleSpinBox" name="sl3FWrite">
+       <widget class="SaveRetrieveDoubleSpinBox" name="sl3FWrite">
         <property name="minimumSize">
          <size>
           <width>85</width>
@@ -992,7 +992,7 @@
        </widget>
       </item>
       <item row="2" column="2">
-       <widget class="QDoubleSpinBox" name="sl1VWrite">
+       <widget class="SaveRetrieveDoubleSpinBox" name="sl1VWrite">
         <property name="minimumSize">
          <size>
           <width>85</width>
@@ -1028,7 +1028,7 @@
        </widget>
       </item>
       <item row="6" column="2">
-       <widget class="QDoubleSpinBox" name="sl2FWrite">
+       <widget class="SaveRetrieveDoubleSpinBox" name="sl2FWrite">
         <property name="minimumSize">
          <size>
           <width>85</width>
@@ -1044,7 +1044,7 @@
        </widget>
       </item>
       <item row="3" column="2">
-       <widget class="QDoubleSpinBox" name="sl1FWrite">
+       <widget class="SaveRetrieveDoubleSpinBox" name="sl1FWrite">
         <property name="minimumSize">
          <size>
           <width>85</width>
@@ -1070,7 +1070,7 @@
        </widget>
       </item>
       <item row="10" column="2">
-       <widget class="QDoubleSpinBox" name="sl4HWrite">
+       <widget class="SaveRetrieveDoubleSpinBox" name="sl4HWrite">
         <property name="minimumSize">
          <size>
           <width>85</width>
@@ -1110,7 +1110,7 @@
        </widget>
       </item>
       <item row="13" column="2">
-       <widget class="QDoubleSpinBox" name="bc1HWrite">
+       <widget class="SaveRetrieveDoubleSpinBox" name="bc1HWrite">
         <property name="minimumSize">
          <size>
           <width>85</width>
@@ -1150,7 +1150,7 @@
        </widget>
       </item>
       <item row="14" column="2">
-       <widget class="QDoubleSpinBox" name="bc1VWrite">
+       <widget class="SaveRetrieveDoubleSpinBox" name="bc1VWrite">
         <property name="minimumSize">
          <size>
           <width>85</width>
@@ -1190,7 +1190,7 @@
        </widget>
       </item>
       <item row="15" column="2">
-       <widget class="QDoubleSpinBox" name="bc1FWrite">
+       <widget class="SaveRetrieveDoubleSpinBox" name="bc1FWrite">
         <property name="minimumSize">
          <size>
           <width>85</width>
@@ -1225,6 +1225,11 @@
   </layout>
  </widget>
  <customwidgets>
+  <customwidget>
+   <class>SaveRetrieveDoubleSpinBox</class>
+   <extends>QDoubleSpinBox</extends>
+   <header>ctli</header>
+  </customwidget>
   <customwidget>
    <class>TaurusWidget</class>
    <extends>QWidget</extends>

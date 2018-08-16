@@ -182,7 +182,7 @@
     </size>
    </property>
   </widget>
-  <widget class="TaurusValueSpinBox" name="coolingLoop1TemperatureValue">
+  <widget class="LinacValueSpinBox" name="coolingLoop1TemperatureValue">
    <property name="geometry">
     <rect>
      <x>454</x>
@@ -263,7 +263,7 @@
     </size>
    </property>
   </widget>
-  <widget class="TaurusValueSpinBox" name="coolingLoop2TemperatureValue">
+  <widget class="LinacValueSpinBox" name="coolingLoop2TemperatureValue">
    <property name="geometry">
     <rect>
      <x>680</x>
@@ -322,7 +322,7 @@
     </size>
    </property>
   </widget>
-  <widget class="TaurusValueSpinBox" name="coolingLoop3TemperatureValue">
+  <widget class="LinacValueSpinBox" name="coolingLoop3TemperatureValue">
    <property name="geometry">
     <rect>
      <x>960</x>
@@ -1157,7 +1157,7 @@
      <number>3</number>
     </property>
     <item row="0" column="0">
-     <widget class="TaurusValueSpinBox" name="filamentSetpoint">
+     <widget class="LinacValueSpinBox" name="filamentSetpoint">
       <property name="minimumSize">
        <size>
         <width>60</width>
@@ -1175,7 +1175,7 @@
      </widget>
     </item>
     <item row="0" column="1">
-     <widget class="TaurusValueSpinBox" name="cathodeSetpoint">
+     <widget class="LinacValueSpinBox" name="cathodeSetpoint">
       <property name="minimumSize">
        <size>
         <width>60</width>
@@ -2427,6 +2427,11 @@
    <class>TaurusValueSpinBox</class>
    <extends>QWidget</extends>
    <header>taurus.qt.qtgui.input</header>
+  </customwidget>
+  <customwidget>
+   <class>LinacValueSpinBox</class>
+   <extends>TaurusValueSpinBox</extends>
+   <header>ctli</header>
   </customwidget>
   <customwidget>
    <class>TaurusLed</class>

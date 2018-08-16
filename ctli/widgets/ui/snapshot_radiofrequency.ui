@@ -50,7 +50,7 @@
        </widget>
       </item>
       <item row="4" column="2">
-       <widget class="QDoubleSpinBox" name="TPS2PhaseWrite">
+       <widget class="SaveRetrieveDoubleSpinBox" name="TPS2PhaseWrite">
         <property name="minimumSize">
          <size>
           <width>85</width>
@@ -86,7 +86,7 @@
        </widget>
       </item>
       <item row="5" column="2">
-       <widget class="QDoubleSpinBox" name="A0OPWrite">
+       <widget class="SaveRetrieveDoubleSpinBox" name="A0OPWrite">
         <property name="minimumSize">
          <size>
           <width>85</width>
@@ -115,7 +115,7 @@
        </spacer>
       </item>
       <item row="9" column="2">
-       <widget class="QDoubleSpinBox" name="PHS2Write">
+       <widget class="SaveRetrieveDoubleSpinBox" name="PHS2Write">
         <property name="minimumSize">
          <size>
           <width>85</width>
@@ -131,7 +131,7 @@
        </widget>
       </item>
       <item row="1" column="2">
-       <widget class="QDoubleSpinBox" name="TPS0PhaseWrite">
+       <widget class="SaveRetrieveDoubleSpinBox" name="TPS0PhaseWrite">
         <property name="minimumSize">
          <size>
           <width>85</width>
@@ -147,7 +147,7 @@
        </widget>
       </item>
       <item row="3" column="2">
-       <widget class="QDoubleSpinBox" name="TPS1PhaseWrite">
+       <widget class="SaveRetrieveDoubleSpinBox" name="TPS1PhaseWrite">
         <property name="minimumSize">
          <size>
           <width>85</width>
@@ -163,7 +163,7 @@
        </widget>
       </item>
       <item row="8" column="2">
-       <widget class="QDoubleSpinBox" name="PHS1Write">
+       <widget class="SaveRetrieveDoubleSpinBox" name="PHS1Write">
         <property name="minimumSize">
          <size>
           <width>85</width>
@@ -189,7 +189,7 @@
        </widget>
       </item>
       <item row="7" column="2">
-       <widget class="QDoubleSpinBox" name="ATT2Write">
+       <widget class="SaveRetrieveDoubleSpinBox" name="ATT2Write">
         <property name="minimumSize">
          <size>
           <width>85</width>
@@ -276,7 +276,7 @@
        </widget>
       </item>
       <item row="2" column="2">
-       <widget class="QDoubleSpinBox" name="TPSXPhaseWrite">
+       <widget class="SaveRetrieveDoubleSpinBox" name="TPSXPhaseWrite">
         <property name="minimumSize">
          <size>
           <width>85</width>
@@ -409,6 +409,11 @@
   </layout>
  </widget>
  <customwidgets>
+  <customwidget>
+   <class>SaveRetrieveDoubleSpinBox</class>
+   <extends>QDoubleSpinBox</extends>
+   <header>ctli</header>
+  </customwidget>
   <customwidget>
    <class>TaurusWidget</class>
    <extends>QWidget</extends>

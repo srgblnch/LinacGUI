@@ -67,7 +67,7 @@
        </widget>
       </item>
       <item row="2" column="2">
-       <widget class="QDoubleSpinBox" name="ka1HVPSWrite">
+       <widget class="SaveRetrieveDoubleSpinBox" name="ka1HVPSWrite">
         <property name="minimumSize">
          <size>
           <width>85</width>
@@ -110,7 +110,7 @@
        </widget>
       </item>
       <item row="3" column="2">
-       <widget class="QDoubleSpinBox" name="ka2HVPSWrite">
+       <widget class="SaveRetrieveDoubleSpinBox" name="ka2HVPSWrite">
         <property name="minimumSize">
          <size>
           <width>85</width>
@@ -145,6 +145,11 @@
   </layout>
  </widget>
  <customwidgets>
+  <customwidget>
+   <class>SaveRetrieveDoubleSpinBox</class>
+   <extends>QDoubleSpinBox</extends>
+   <header>ctli</header>
+  </customwidget>
   <customwidget>
    <class>TaurusWidget</class>
    <extends>QWidget</extends>

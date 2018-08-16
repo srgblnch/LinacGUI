@@ -46,6 +46,8 @@ from .linacled import LinacLed
 from .linacmainscreensynoptic import LinacMainscreenSynoptic
 from .linacoverview import LinacOverview
 from .linacplcwidget import LinacPlcWidget
+from .linacspinbox import (LinacValueSpinBox, SaveRetrieveSpinBox,
+                           SaveRetrieveDoubleSpinBox)
 from .linacstartupsynoptic import LinacStartupSynoptic
 from .linacvaluecheckbox import LinacValueCheckBox
 from .magnet import Magnet

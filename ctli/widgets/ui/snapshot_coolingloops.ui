@@ -40,7 +40,7 @@
        </widget>
       </item>
       <item row="1" column="2">
-       <widget class="QDoubleSpinBox" name="coolingLoop1SetpointWrite">
+       <widget class="SaveRetrieveDoubleSpinBox" name="coolingLoop1SetpointWrite">
         <property name="minimumSize">
          <size>
           <width>85</width>
@@ -127,7 +127,7 @@
        </widget>
       </item>
       <item row="2" column="2">
-       <widget class="QDoubleSpinBox" name="coolingLoop2SetpointWrite">
+       <widget class="SaveRetrieveDoubleSpinBox" name="coolingLoop2SetpointWrite">
         <property name="minimumSize">
          <size>
           <width>85</width>
@@ -143,7 +143,7 @@
        </widget>
       </item>
       <item row="3" column="2">
-       <widget class="QDoubleSpinBox" name="coolingLoop3SetpointWrite">
+       <widget class="SaveRetrieveDoubleSpinBox" name="coolingLoop3SetpointWrite">
         <property name="minimumSize">
          <size>
           <width>85</width>
@@ -185,6 +185,11 @@
   </layout>
  </widget>
  <customwidgets>
+  <customwidget>
+   <class>SaveRetrieveDoubleSpinBox</class>
+   <extends>QDoubleSpinBox</extends>
+   <header>ctli</header>
+  </customwidget>
   <customwidget>
    <class>TaurusWidget</class>
    <extends>QWidget</extends>

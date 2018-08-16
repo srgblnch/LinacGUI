@@ -70,7 +70,7 @@
        </widget>
       </item>
       <item row="6" column="2">
-       <widget class="QSpinBox" name="GPNWrite">
+       <widget class="SaveRetrieveSpinBox" name="GPNWrite">
         <property name="minimumSize">
          <size>
           <width>85</width>
@@ -113,7 +113,7 @@
        </widget>
       </item>
       <item row="2" column="2">
-       <widget class="QSpinBox" name="GunDelayWrite">
+       <widget class="SaveRetrieveSpinBox" name="GunDelayWrite">
         <property name="minimumSize">
          <size>
           <width>85</width>
@@ -234,7 +234,7 @@
        </widget>
       </item>
       <item row="5" column="2">
-       <widget class="QSpinBox" name="GPIWrite">
+       <widget class="SaveRetrieveSpinBox" name="GPIWrite">
         <property name="minimumSize">
          <size>
           <width>85</width>
@@ -301,7 +301,7 @@
        </widget>
       </item>
       <item row="3" column="2">
-       <widget class="QSpinBox" name="ka1DelayWrite">
+       <widget class="SaveRetrieveSpinBox" name="ka1DelayWrite">
         <property name="minimumSize">
          <size>
           <width>85</width>
@@ -317,7 +317,7 @@
        </widget>
       </item>
       <item row="4" column="2">
-       <widget class="QSpinBox" name="ka2DelayWrite">
+       <widget class="SaveRetrieveSpinBox" name="ka2DelayWrite">
         <property name="minimumSize">
          <size>
           <width>85</width>
@@ -333,7 +333,7 @@
        </widget>
       </item>
       <item row="7" column="2">
-       <widget class="QDoubleSpinBox" name="GPAWrite">
+       <widget class="SaveRetrieveDoubleSpinBox" name="GPAWrite">
         <property name="minimumSize">
          <size>
           <width>85</width>
@@ -354,6 +354,16 @@
   </layout>
  </widget>
  <customwidgets>
+  <customwidget>
+   <class>SaveRetrieveSpinBox</class>
+   <extends>QSpinBox</extends>
+   <header>ctli</header>
+  </customwidget>
+  <customwidget>
+   <class>SaveRetrieveDoubleSpinBox</class>
+   <extends>QDoubleSpinBox</extends>
+   <header>ctli</header>
+  </customwidget>
   <customwidget>
    <class>TaurusWidget</class>
    <extends>QWidget</extends>
