@@ -84,7 +84,8 @@ def _setupCheckbox4Attr(widget, attrName, isRst=False, DangerMsg='',
         widget.setForcedApply(True)
 
 
-def _setupSpinBox4Attr(widget, attrName, step=None):
+def _setupSpinBox4Attr(widget, attrName, step=None, DangerMsg='',
+                       dangerAbove=None, dangerBelow=None):
     magnitudeSuffix = "#wvalue.magnitude"  # avoid units on the spinboxes
     if not attrName.endswith(magnitudeSuffix):
         attrName = "%s%s" % (attrName, magnitudeSuffix)
@@ -94,6 +95,12 @@ def _setupSpinBox4Attr(widget, attrName, step=None):
     widget.setForcedApply(False)
     if step is not None:
         widget.setSingleStep(step)
+    if len(DangerMsg) > 0:
+        widget.setDangerMessage(DangerMsg)
+    if dangerAbove is not None:
+        widget.setDangerAbove(dangerAbove)
+    if dangerBelow is not None:
+        widget.setDangerBelow(dangerBelow)
 
 
 def _setupTaurusLabel4Attr(widget, attrName, unit=None):

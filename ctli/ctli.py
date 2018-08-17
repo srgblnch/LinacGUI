@@ -89,6 +89,8 @@ class LinacMainWindow(TaurusMainWindow, TaurusWidget):
         self._initComponentsTask = ""
         self._initComponentsSubtask = ""
         self._initComponentsNsubtask = 0
+        self._readonlyWidgets = []
+        self._readwriteWidgets = []
         self.initComponents()
         # kill splash screen
         self.splashScreen().finish(self)
@@ -188,27 +190,35 @@ class LinacMainWindow(TaurusMainWindow, TaurusWidget):
                        offColor='red', pattern='on', blinkOnChange=None):
         _setupLed4Attr(widget, attrName, inverted, onColor, offColor,
                        pattern, blinkOnChange)
+        self._readonlyWidgets.append(widget)
 
     def _setupCheckbox4UnknownAttr(self, widget):
         _setupCheckbox4UnknownAttr(widget)
+        self._readwriteWidgets.append(widget)
 
     def _setupCheckbox4Attr(self, widget, attrName, isRst=False, DangerMsg='',
                             riseEdge=False, fallingEdge=False):
         _setupCheckbox4Attr(widget, attrName, isRst, DangerMsg,
                             riseEdge, fallingEdge)
+        self._readwriteWidgets.append(widget)
 
-    def _setupSpinBox4Attr(self, widget, attrName, step=None):
-        _setupSpinBox4Attr(widget, attrName, step)
-        if hasattr(widget, 'wheelEvent'):
-            def wheelEvent(evt):
-                pass  # spinboxes in the ctli shall not react to wheelEvent
-            widget.wheelEvent = wheelEvent
+    def _setupSpinBox4Attr(self, widget, attrName, step=None, DangerMsg='',
+                           dangerAbove=None, dangerBelow=None):
+        _setupSpinBox4Attr(widget, attrName, step, DangerMsg, dangerAbove,
+                           dangerBelow)
+        # if hasattr(widget, 'wheelEvent'):
+        #     def wheelEvent(evt):
+        #         pass  # spinboxes in the ctli shall not react to wheelEvent
+        #     widget.wheelEvent = wheelEvent
+        self._readwriteWidgets.append(widget)
 
     def _setupTaurusLabel4Attr(self, widget, attrName, unit=None):
         _setupTaurusLabel4Attr(widget, attrName, unit)
+        self._readonlyWidgets.append(widget)
 
     def _setupCombobox4Attr(self, widget, attrName, valueNames=None):
         _setupCombobox4Attr(widget, attrName, valueNames)
+        self._readwriteWidgets.append(widget)
 
     def _setupActionWidget(self, widget, attrName, text='on/off',
                            isRst=False, isValve=False, isLight=False,
@@ -238,6 +248,7 @@ class LinacMainWindow(TaurusMainWindow, TaurusWidget):
                 self.error("Cannot modify the background color of the "
                            "actionWidget for the attribute %s: %s"
                            % (attrName, e))
+        self._readwriteWidgets.append(widget)
 
     # Done auxiliar methods to configure widgets ---
     ######
@@ -801,7 +812,10 @@ class LinacMainWindow(TaurusMainWindow, TaurusWidget):
             # setpoint for the klystron HV ---
             widget = klystrons[number]['setpoint']['widget']
             attrName = klystrons[number]['setpoint']['attrName']
-            self._setupSpinBox4Attr(widget, attrName, step=0.1)
+            msg = "ALERT: this is above the klystron %d operation high " \
+                  "voltage!" % (number)
+            self._setupSpinBox4Attr(widget, attrName, step=0.1,
+                                    DangerMsg=msg, dangerAbove=27.0)
             # on/off klystron HV ---
             widget = klystrons[number]['on']['widget']
             attrName = klystrons[number]['on']['attrName']
@@ -1471,6 +1485,11 @@ class LinacMainWindow(TaurusMainWindow, TaurusWidget):
         self.toolsMenu.addAction(self.CompomentAction)
         # Controls submenu ---
         self.setControlsToolsSubmenu(self.toolsMenu)
+        # Reset write widgets blue value
+        self.ResetAction = Qt.QAction("Reset writable values", self)
+        Qt.QObject.connect(self.ResetAction, Qt.SIGNAL("triggered()"),
+                           self.ResetLauncher)
+        self.toolsMenu.addAction(self.ResetAction)
 
     def setHelpMenu(self, helpMenu):
         # Access to Linac's accelerators documentation ---
@@ -1539,6 +1558,14 @@ class LinacMainWindow(TaurusMainWindow, TaurusWidget):
                 self._compomentWindow is None:
             self._compomentWindow = CompomentsWindow()
         self._compomentWindow.show()
+
+    def ResetLauncher(self):
+        for widget in self._readwriteWidgets:
+            try:
+                widget.resetPendingOperations()
+            except Exception as e:
+                self.error("Couldn't reset pending operations on %s"
+                           % (widget.getLogName()))
 
     def _requestPreconfigFileName(self):
         dialogTitle = "Select preconfigured taurustrend"
