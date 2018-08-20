@@ -15,9 +15,13 @@
 #
 # ##### END GPL LICENSE BLOCK #####
 
-from taurus.qt.qtgui.input import TaurusValueSpinBox
+from taurus.core.units import Quantity
 from taurus.external.qt import Qt
 from taurus.qt.qtgui.base import TaurusBaseWritableWidget
+from taurus.qt.qtgui.input import TaurusValueSpinBox, TaurusValueLineEdit
+from taurus.qt.qtgui.util import PintValidator
+from time import time
+import traceback
 
 __author__ = "Sergi Blanch-Torne"
 __copyright__ = "Copyright 2018, CELLS / ALBA Synchrotron"
@@ -32,35 +36,33 @@ Also another non-taurus widget used in the save/retrieve.
 __all__ = ["LinacValueSpinBox", "SaveRetrieveSpinBox"]
 
 
-class LinacValueSpinBox(TaurusValueSpinBox):
+class LinacValueLineEdit(TaurusValueLineEdit):
 
+    _dangerOperation_OkReceived = None
+    _dangerOperation_ConfirmationRequested = None
     _dangerMessage = None
     _dangerAbove = None
     _dangerBelow = None
 
-    def __init__(self, qt_parent=None, designMode=False):
-        TaurusValueSpinBox.__init__(self, qt_parent, designMode)
-        self.setEnableWheelEvent(False)
-        self._dangerMessage = ""
+    def __init__(self, *args, **kwargs):
+        TaurusValueLineEdit.__init__(self, *args, **kwargs)
+        self._dangerOperation_ConfirmationRequested = False
 
-    def wheelEvent(self, evt):
-        """Wheel event handler"""
-        if self.getEnableWheelEvent() or \
-                TaurusValueSpinBox.isReadOnly(self):
-            return TaurusValueSpinBox.wheelEvent(self, evt)
-
-    def setEnableWheelEvent(self, value):
-        self.lineEdit().setEnableWheelEvent(value)
-
-    def getEnableWheelEvent(self):
-        return self.lineEdit().getEnableWheelEvent()
-
-    def resetEnableWheelEvent(self):
-        self.setEnableWheelEvent(False)
-
-    enableWheelEvent = Qt.pyqtProperty("bool", getEnableWheelEvent,
-                                       setEnableWheelEvent,
-                                       resetEnableWheelEvent)
+    def _my_debug(self, msg):
+        '''FIXME: this is a hackish method to be removed after the development
+           It's used to print some information, about the behaviour of the
+           widget, filtering by an specific model to simplify and get readable
+           the tracing logs.
+        '''
+        monitoredAttrs = [
+            'li/ct/plc4/hvps_v_setpoint',
+            'li/ct/plc5/hvps_v_setpoint'
+        ]
+        model = self.getModelName().lower().split('#')[0]
+        if len(model.split('/')) == 5:
+            model = model.split('/', 1)[1]
+        if model in monitoredAttrs:
+            self.info(msg)
 
     def _reviewIsDangerous(self):
         if self._dangerAbove is not None or self._dangerBelow is not None:
@@ -119,16 +121,106 @@ class LinacValueSpinBox(TaurusValueSpinBox):
     DangerBelow = Qt.pyqtProperty('int', getDangerBelow, setDangerBelow,
                                   resetDangerBelow)
 
+    def getMagnitudeValue(self):
+        value = self.getValue()
+        if isinstance(value, Quantity):
+            value = value.magnitude
+        return value
+
     def isDangerAbove(self):
-        return self._dangerAbove is not None and \
-               self.getValue() > self._dangerAbove
+        if self._dangerAbove is not None:
+            value = self.getMagnitudeValue()
+            if value > self._dangerAbove:
+                self._my_debug("Value %g is above danger threshold" % (value))
+                return True
+            self._my_debug("Value %g is NOT above danger threshold" % (value))
+        return False
 
     def isDangerBelow(self):
-        return self._dangerBelow is not None and \
-               self.getValue() < self._dangerBelow
+        if self._dangerBelow is not None:
+            value = self.getMagnitudeValue()
+            if value < self._dangerBelow:
+                self._my_debug("Value %g is below danger threshold" % (value))
+                return True
+            self._my_debug("Value %g is NOT below danger threshold" % (value))
+        return False
 
     def isDangerousAction(self):
-        return self.isDangerAbove() or self.isDangerBelow()
+        if self.isDangerAbove() or self.isDangerBelow():
+            if self._dangerOperation_OkReceived is not None:
+                t = time()-self._dangerOperation_OkReceived
+                if t < 3.0:  # FIXME adapt this time
+                    self._my_debug("Still confirmed the ok (%fs), "
+                                   "renew it" % (t))
+                    self._dangerOperation_OkReceived = time()
+                    return False
+                else:
+                    self._my_debug("Timeout, required to ask again (%fs)"
+                                   % (t))
+                    self._dangerOperation_OkReceived = None
+            return True
+        if self._dangerOperation_OkReceived is not None:
+            self._my_debug("Pass Outside the danger operations, "
+                           "clean the confirmation")
+            self._dangerOperation_OkReceived = None
+        return False
+
+    # PendingOperations area
+
+
+
+    # def hasPendingOperations(self):
+    #     self._my_debug("hasPendingOperations()")
+    #     return TaurusValueLineEdit.hasPendingOperations(self)
+
+    # def getPendingOperations(self):
+    #     self._my_debug("getPendingOperations()")
+    #     return TaurusValueLineEdit.getPendingOperations(self)
+
+    # def resetPendingOperations(self):
+    #     answer = TaurusValueLineEdit.resetPendingOperations(self)
+    #     self._my_debug("resetPendingOperations() -> %s" % (answer))
+    #     return answer
+    #
+    # def setForceDangerousOperations(self, yesno):
+    #     answer = TaurusValueLineEdit.setForceDangerousOperations(self, yesno)
+    #     self._my_debug("setForceDangerousOperations(%s) -> " % (yesno, answer))
+    #     return answer
+    #
+    # def getForceDangerousOperations(self):
+    #     answer = TaurusValueLineEdit.getForceDangerousOperations(self)
+    #     self._my_debug("getForceDangerousOperations() -> %s" % (answer))
+    #     return answer
+    #
+    # def resetForceDangerousOperations(self):
+    #     answer = TaurusValueLineEdit.resetForceDangerousOperations(self)
+    #     self._my_debug("resetForceDangerousOperations() -> %s" % (answer))
+    #     return answer
+    #
+    # def resetAutoProtectOperation(self):
+    #     answer = TaurusValueLineEdit.resetAutoProtectOperation(self)
+    #     self._my_debug("resetAutoProtectOperation() -> %s" % (answer))
+    #     return answer
+    #
+    # def isAutoProtectOperation(self):
+    #     answer = TaurusValueLineEdit.isAutoProtectOperation(self)
+    #     self._my_debug("isAutoProtectOperation() -> %s" % (answer))
+    #     return answer
+    #
+    # def setAutoProtectOperation(self, protect):
+    #     answer = TaurusValueLineEdit.setAutoProtectOperation(self)
+    #     self._my_debug("setAutoProtectOperation() -> %s" % (answer))
+    #     return answer
+    #
+    # def updatePendingOperations(self):
+    #     answer = TaurusValueLineEdit.updatePendingOperations(self)
+    #     self._my_debug("updatePendingOperations() -> %s" % (answer))
+    #     return answer
+    #
+    # def getOperationCallbacks(self):
+    #     answer = TaurusValueLineEdit.getOperationCallbacks(self)
+    #     self._my_debug("getOperationCallbacks() -> %s" % (answer))
+    #     return answer
 
     def safeApplyOperations(self, ops=None):
         '''Modify the behaviour of the DangerMessage because in this case,
@@ -139,7 +231,7 @@ class LinacValueSpinBox(TaurusValueSpinBox):
         '''
         if ops is None:
             ops = self.getPendingOperations()
-        self.info("safeApplyOperations(ops=%s)" % (ops))
+        self._my_debug("safeApplyOperations(ops=%s)" % (ops))
         # Check if we need to take care of dangerous operations
         if self.getForceDangerousOperations():
             dangerMsgs = []
@@ -147,22 +239,117 @@ class LinacValueSpinBox(TaurusValueSpinBox):
             dangerMsgs = [op.getDangerMessage() for op in ops
                           if len(op.getDangerMessage()) > 0]
         # warn the user if need be
-        if self.isDangerousAction():
-            WarnTitle = "Potentially dangerous action"
-            WarnMsg = "%s\nProceed?" % (dangerMsgs[0])
-            Buttons = Qt.QMessageBox.Ok | Qt.QMessageBox.Cancel
-            Default = Qt.QMessageBox.Cancel
-            result = Qt.QMessageBox.warning(self, WarnTitle, WarnMsg,
-                                            Buttons, Default)
-            # Important default behaviour shall be the Cancel ---
-            if result == Qt.QMessageBox.Cancel:
-                self.info("safeApplyOperations(...) answer = Cancel")
-                self._OperationCancelled()
+        if self.isDangerousAction() and len(dangerMsgs) > 0:
+            if self._dangerOperation_ConfirmationRequested is False:
+                self._dangerOperation_ConfirmationRequested = True
+                WarnTitle = "Potentially dangerous action"
+                WarnMsg = "%s\nProceed?" % (dangerMsgs[0])
+                self._my_debug("%s. %s"
+                               % (WarnTitle, WarnMsg.replace('\n',' ')))
+                Buttons = Qt.QMessageBox.Ok | Qt.QMessageBox.Cancel
+                Default = Qt.QMessageBox.Cancel
+                result = Qt.QMessageBox.warning(self, WarnTitle, WarnMsg,
+                                                Buttons, Default)
+                # Important default behaviour shall be the Cancel ---
+                if result == Qt.QMessageBox.Cancel:
+                    self._my_debug("safeApplyOperations(...) answer = Cancel")
+                    self._dangerOperation_OkReceived = None
+                    self._OperationCancelled()
+                else:
+                    self._my_debug("safeApplyOperations(...) answer = Ok")
+                    self._dangerOperation_OkReceived = time()
+                    self.applyPendingOperations(ops)
+                self._my_debug("Confirmation request answered, "
+                               "cleaning the flag")
+                self._dangerOperation_ConfirmationRequested = False
             else:
-                self.info("safeApplyOperations(...) answer = Ok")
-                self.applyPendingOperations(ops)
+                self._my_debug("Confirmation request already send, "
+                               "waiting for the answer")
         else:
+            self._my_debug("It is NOT a dangerous action")
             self.applyPendingOperations(ops)
+
+    def _onEditingFinished(self):
+        if self._autoApply:
+            self.writeValue()
+
+    def _OperationCancelled(self):
+        self.resetPendingOperations()
+        self.setValue(self.getValue())
+
+    # def applyPendingOperations(self, ops=None):
+    #     if not self._dangerOperationQuestion:
+    #         TaurusValueLineEdit.applyPendingOperations(self)
+    #     else:
+    #         self.getTaurusManager().applyPendingOperations(ops)
+
+
+class LinacValueSpinBox(TaurusValueSpinBox):
+
+    def __init__(self, qt_parent=None, designMode=False):
+        TaurusValueSpinBox.__init__(self, qt_parent, designMode)
+
+        # recreate the lineEdit object for a instance prepared here
+        lineEdit = LinacValueLineEdit(designMode=designMode)
+        lineEdit.setValidator(PintValidator(self))
+        self.setLineEdit(lineEdit)
+
+        self.setEnableWheelEvent(False)
+
+    def wheelEvent(self, evt):
+        """Wheel event handler"""
+        if self.getEnableWheelEvent() or \
+                TaurusValueSpinBox.isReadOnly(self):
+            return TaurusValueSpinBox.wheelEvent(self, evt)
+
+    def setEnableWheelEvent(self, value):
+        self.lineEdit().setEnableWheelEvent(value)
+
+    def getEnableWheelEvent(self):
+        return self.lineEdit().getEnableWheelEvent()
+
+    def resetEnableWheelEvent(self):
+        self.setEnableWheelEvent(False)
+
+    enableWheelEvent = Qt.pyqtProperty("bool", getEnableWheelEvent,
+                                       setEnableWheelEvent,
+                                       resetEnableWheelEvent)
+
+    def getDangerMessage(self):
+        return self.lineEdit().getDangerMessage()
+
+    def setDangerMessage(self, dangerMessage=""):
+        self.lineEdit().setDangerMessage(dangerMessage)
+
+    def resetDangerMessage(self):
+        self.lineEdit().resetDangerMessage()
+
+    DangerMessage = Qt.pyqtProperty("QString", getDangerMessage,
+                                    setDangerMessage, resetDangerMessage)
+
+    def getDangerAbove(self):
+        return self.lineEdit().getDangerAbove()
+
+    def setDangerAbove(self, value):
+        self.lineEdit().setDangerAbove(value)
+
+    def resetDangerAbove(self):
+        self.lineEdit().resetDangerAbove()
+
+    DangerAbove = Qt.pyqtProperty('int', getDangerAbove, setDangerAbove,
+                                  resetDangerAbove)
+
+    def getDangerBelow(self):
+        return self.lineEdit().getDangerBelow()
+
+    def setDangerBelow(self, value):
+        self.lineEdit().setDangerBelow(value)
+
+    def resetDangerBelow(self):
+        self.lineEdit().resetDangerBelow()
+
+    DangerBelow = Qt.pyqtProperty('int', getDangerBelow, setDangerBelow,
+                                  resetDangerBelow)
 
 
 class SaveRetrieveSpinBox(Qt.QSpinBox):
@@ -191,6 +378,7 @@ class SaveRetrieveSpinBox(Qt.QSpinBox):
     enableWheelEvent = Qt.pyqtProperty("bool", getEnableWheelEvent,
                                        setEnableWheelEvent,
                                        resetEnableWheelEvent)
+
 
 class SaveRetrieveDoubleSpinBox(Qt.QDoubleSpinBox):
 
@@ -231,7 +419,7 @@ class _Test_(object):
         self._layout = layout
         self._checkbox = Qt.QCheckBox("Enable Wheel Event")
         self._layout.addWidget(self._checkbox, 0, column)
-        self._taurusSpinBox =  LinacValueSpinBox()
+        self._taurusSpinBox = LinacValueSpinBox()
         self._taurusSpinBox.setModel(model)
         self._layout.addWidget(self._taurusSpinBox, 1, column)
         self._widgets.append(self._taurusSpinBox)
@@ -241,7 +429,8 @@ class _Test_(object):
         self._doubleSaveRetrieve = SaveRetrieveDoubleSpinBox()
         self._layout.addWidget(self._doubleSaveRetrieve, 3, column)
         self._widgets.append(self._doubleSaveRetrieve)
-        self._checkbox.stateChanged.connect(lambda: self.enable(self._checkbox))
+        self._checkbox.stateChanged.connect(
+            lambda: self.enable(self._checkbox))
 
     def enable(self, checkbox):
         value = checkbox.isChecked()
