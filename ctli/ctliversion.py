@@ -24,7 +24,7 @@ __license__ = "GPLv3+"
 
 # we use semantic versioning (http://semver.org/) and we update it using the
 # bumpversion script (https://github.com/peritus/bumpversion)
-__version = '__version = '2.73.6''
+__version = '__version = '2.73.7-alpha''
 
 
 def version():
