@@ -782,7 +782,8 @@ class LinacMainWindow(TaurusMainWindow, TaurusWidget):
                                       'attrName': 'li/ct/plc4/HVPS_V'},
                          'setpoint': {'widget': mainscreen_ui.klystron1HVWrite,
                                       'attrName':
-                                      'li/ct/plc4/HVPS_V_setpoint'},
+                                      'li/ct/plc4/HVPS_V_setpoint',
+                                      'dangerAbove': 32},
                          'rst': {'widget': mainscreen_ui.klystron1Rst,
                                  'attrName': 'li/ct/plc4/HVPS_Interlock_RC'},
                          'on': {'widget': mainscreen_ui.klystron1On,
@@ -794,7 +795,8 @@ class LinacMainWindow(TaurusMainWindow, TaurusWidget):
                                       'attrName': 'li/ct/plc5/HVPS_V'},
                          'setpoint': {'widget': mainscreen_ui.klystron2HVWrite,
                                       'attrName':
-                                      'li/ct/plc5/HVPS_V_setpoint'},
+                                      'li/ct/plc5/HVPS_V_setpoint',
+                                      'dangerAbove': 27},
                          'rst': {'widget': mainscreen_ui.klystron2Rst,
                                  'attrName': 'li/ct/plc5/HVPS_Interlock_RC'},
                          'on': {'widget': mainscreen_ui.klystron2On,
@@ -812,10 +814,11 @@ class LinacMainWindow(TaurusMainWindow, TaurusWidget):
             # setpoint for the klystron HV ---
             widget = klystrons[number]['setpoint']['widget']
             attrName = klystrons[number]['setpoint']['attrName']
-            msg = "ALERT: this is above the klystron %d operation high " \
-                  "voltage!" % (number)
+            dangerAbove = klystrons[number]['setpoint']['dangerAbove']
+            msg = "ALERT: this setpoint is above %gkV, the klystron %d " \
+                  "operation high voltage user limit!" % (dangerAbove, number)
             self._setupSpinBox4Attr(widget, attrName, step=0.1,
-                                    DangerMsg=msg, dangerAbove=27.0)
+                                    DangerMsg=msg, dangerAbove=dangerAbove)
             # on/off klystron HV ---
             widget = klystrons[number]['on']['widget']
             attrName = klystrons[number]['on']['attrName']
