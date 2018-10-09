@@ -1970,6 +1970,7 @@ def eventPlotWindow():
 def main():
     app = build_application()
     ui = build_ui()
+    app.ui = ui
     # refreshButton(ui)
     app.setStyleSheet("QStatusBar::item { border: 0px solid black }; ")
     ui.show()
