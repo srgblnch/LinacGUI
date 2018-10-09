@@ -1950,7 +1950,7 @@ def refreshButton(w):
 def eventPlotWindow():
     app = build_application()
     ui = DevicesEvents()
-    attributes = ['EventsNumber', 'EventsTime']
+    # attributes = ['EventsNumber', 'EventsTime']
     widgets = {1: ui._ui.eventsplc1,
                2: ui._ui.eventsplc2,
                3: ui._ui.eventsplc3,

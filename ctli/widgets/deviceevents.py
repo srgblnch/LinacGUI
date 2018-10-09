@@ -69,6 +69,10 @@ class DeviceEvents(TaurusWidget):
             
             self._ui.plot.setAxisScale(Qwt5.QwtPlot.Axis(0), 0,
                                        len(Device(model).get_attribute_list()))
+            self._ui.cpu_percent.setModel("%s/cpu_percent" % (model))
+            self._ui.mem_percent.setModel("%s/mem_percent" % (model))
+            self._ui.mem_rss.setModel("%s/mem_rss" % (model))
+            self._ui.mem_swap.setModel("%s/mem_swap" % (model))
             self.model = model
 
     @classmethod
