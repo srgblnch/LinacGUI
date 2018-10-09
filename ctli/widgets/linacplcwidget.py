@@ -72,6 +72,12 @@ class LinacPlcWidget(TaurusWidget):
         self._ui.statusRead.setBgRole(None)
         self._ui.ResetState.setModel(model)
         self._ui.ResetState.setCommand('ResetState')
+        self._ui.RestoreReadDB.setModel(model)
+        self._ui.RestoreReadDB.setCommand('RestoreReadDB')
+        self._ui.RestoreReadDB.setDangerMessage("This is an experimental "
+                                                "feature! Use with caution and"
+                                                " under your responsability.")
+        self._ui.forceWriteDB.setModel("%s/forceWriteDB" % (self.model))
 
     def setRelocator(self, relocator, idx):
         self._ui.instanceStateRead.setModel('%s/LinacData.plc%d_state'
