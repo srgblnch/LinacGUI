@@ -713,7 +713,7 @@ class MainWindow(TaurusWidget):
         attrName = 'li/ct/plc1/A0_OP'.lower()
         widgetsSet[attrName] = AttrStruct(attrName, ui.A0OPLabel,
                                           ui.A0OPRead, ui.A0OPWrite,
-                                          ui.A0OPCheck, minVal=75, maxVal=760,
+                                          ui.A0OPCheck, minVal=60, maxVal=760,
                                           decimals=0, step=1)
 
         attrName = 'li/ct/plc1/ATT2_P_setpoint'.lower()
