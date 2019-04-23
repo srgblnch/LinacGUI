@@ -390,7 +390,7 @@ class SaveRetrieveDoubleSpinBox(Qt.QDoubleSpinBox):
 
     def wheelEvent(self, evt):
         """Wheel event handler"""
-        print("handle wheel event")
+        # print("handle wheel event")
         if self.getEnableWheelEvent() or \
                 Qt.QDoubleSpinBox.isReadOnly(self):
             return Qt.QDoubleSpinBox.wheelEvent(self, evt)
