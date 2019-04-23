@@ -472,11 +472,11 @@ class AttrStruct(Qt.QObject, TaurusBaseComponent):
                         v = bool(v)
                 return v1 != v2
             elif self.attrFormat is not None:
-                if not isinstance(v1, str):
+                if not isinstance(v1, str) and not isinstance(v1, unicode):
                     value1 = self.attrFormat % v1
                 else:
                     value1 = v1
-                if not isinstance(v2, str):
+                if not isinstance(v2, str) and not isinstance(v2, unicode):
                     value2 = self.attrFormat % v2
                 else:
                     value2 = v2
