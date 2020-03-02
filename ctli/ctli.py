@@ -796,7 +796,7 @@ class LinacMainWindow(TaurusMainWindow, TaurusWidget):
                          'setpoint': {'widget': mainscreen_ui.klystron2HVWrite,
                                       'attrName':
                                       'li/ct/plc5/HVPS_V_setpoint',
-                                      'dangerAbove': 27},
+                                      'dangerAbove': 26.5},
                          'rst': {'widget': mainscreen_ui.klystron2Rst,
                                  'attrName': 'li/ct/plc5/HVPS_Interlock_RC'},
                          'on': {'widget': mainscreen_ui.klystron2On,
